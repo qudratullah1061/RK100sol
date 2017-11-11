@@ -136,10 +136,10 @@
                             </li>
                             <!-- END SIDEBAR TOGGLER BUTTON -->
                             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
-                            <li class="sidebar-search-wrapper">
-                                <!--BEGIN RESPONSIVE QUICK SEARCH FORM--> 
-                                <!--DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box--> 
-                                <!--DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box--> 
+<!--                            <li class="sidebar-search-wrapper">
+                                BEGIN RESPONSIVE QUICK SEARCH FORM 
+                                DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box 
+                                DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box 
                                 <form class="sidebar-search" action="page_general_search_3.html" method="POST">
                                     <a href="javascript:;" class="remove">
                                         <i class="icon-close"></i>
@@ -153,8 +153,8 @@
                                         </span>
                                     </div>
                                 </form>
-                                <!--END RESPONSIVE QUICK SEARCH FORM--> 
-                            </li>
+                                END RESPONSIVE QUICK SEARCH FORM 
+                            </li>-->
                             <li class="nav-item start <?php ActivateParentLink('admin'); ?>">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-home"></i>
@@ -195,6 +195,57 @@
                                         <a href="<?php echo base_url('admin/companions/add_companion'); ?>" class="nav-link ">
                                             <i class="fa fa-plus"></i>
                                             <span class="title">Add Companion</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item <?php ActivateParentLink('guest'); ?>">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-users"></i>
+                                    <span class="title">Guests</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item <?php ActivateCurrentLink('guest', 'view'); ?>">
+                                        <a href="<?php echo base_url('admin/guests'); ?>" class="nav-link ">
+                                            <i class="fa fa-eye"></i>
+                                            <span class="title">View Guest</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item <?php ActivateCurrentLink('guest', 'add'); ?>">
+                                        <a href="<?php echo base_url('admin/guests/add_guest'); ?>" class="nav-link ">
+                                            <i class="fa fa-plus"></i>
+                                            <span class="title">Add Guest</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item <?php ActivateParentLink('misc'); ?>">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-users"></i>
+                                    <span class="title">Misc</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item <?php ActivateCurrentLink('misc', 'view_activities'); ?>">
+                                        <a href="<?php echo base_url('admin/misc/view_activities'); ?>" class="nav-link ">
+                                            <i class="fa fa-eye"></i>
+                                            <span class="title">View Activities</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item <?php ActivateCurrentLink('misc', 'view_availabilities'); ?>">
+                                        <a href="<?php echo base_url('admin/misc/view_availablities'); ?>" class="nav-link ">
+                                            <i class="fa fa-eye"></i>
+                                            <span class="title">View Availabilities</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item <?php ActivateCurrentLink('misc', 'view_home_categories'); ?>">
+                                        <a href="<?php echo base_url('admin/misc/home_categoties'); ?>" class="nav-link ">
+                                            <i class="fa fa-eye"></i>
+                                            <span class="title">View Home categories</span>
                                         </a>
                                     </li>
                                 </ul>

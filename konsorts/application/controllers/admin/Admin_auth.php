@@ -13,7 +13,7 @@ class Admin_auth extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->layout = 'admin/login';
-        $this->load->model('admin/admin_mod', 'admin');
+        $this->load->model('admin/admin_model', 'admin');
     }
 
     private function getAdminInfo() {

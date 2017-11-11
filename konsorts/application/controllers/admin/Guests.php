@@ -3,30 +3,47 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Companions extends Admin_Controller {
+class Guests extends Admin_Controller {
 
     public function __construct() {
         parent::__construct();
         $this->layout = 'admin/main';
-        $this->load->model('admin/companion_model', 'Companion_Model');
+        $this->load->model('admin/guest_model', 'Guest_Model');
     }
 
     //Main dashboard index function
     public function index() {
-        $this->selected_tab = 'companion';
+        $this->selected_tab = 'guest';
         $this->selected_child_tab = 'view';
         $data = array();
-        $this->load->view('admin/companions/view_companions', $data);
+        $this->load->view('admin/guests/view_guests', $data);
     }
 
-    public function add_companion() {
-        $this->selected_tab = 'companion';
+    public function add_guest() {
+        $this->selected_tab = 'guest';
         $this->selected_child_tab = 'add';
         $data = array();
-        $this->load->view('admin/companions/add_companion', $data);
+        $this->load->view('admin/guests/add_guest', $data);
     }
+
+//    public function companion_users() {
+//        $this->selected_tab = 'admin';
+//        $this->selected_child_tab = 'AdminUsers';
+//        $data = array();
+//        $this->load->view('admin/admin_users/view_users', $data);
+//    }
+//    public function companion_profile($user_id) {
+//        if (!$user_id) {
+//            redirect(base_url('admin/dashboard'));
+//        }
+//        $this->selected_tab = 'admin';
+//        $this->selected_child_tab = 'AdminUsers';
+//        $admin_info = GetAdminInfoWithId($user_id);
+//        $data['admin_info'] = $admin_info;
+//        $this->load->view('admin/dashboard/view_admin_profile', $data);
+//    }
     
-    public function get_companion_users() {
+    public function get_guest_users() {
         $records = array();
         $records["data"] = array();
         $sEcho = intval($this->input->post('draw'));
@@ -39,29 +56,29 @@ class Companions extends Admin_Controller {
         $sort_by = '';
         $cond = '';
         if ($this->input->post('username')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " tb_companions.username '%" . $this->input->post('username') . "%'";
+            $cond .= ($cond != '' ? ' AND ' : '') . " tb_guests.username '%" . $this->input->post('username') . "%'";
         }
         if ($this->input->post('first_name')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " tb_companions.first_name LIKE  '%" . $this->input->post('first_name') . "%'";
+            $cond .= ($cond != '' ? ' AND ' : '') . " tb_guests.first_name LIKE  '%" . $this->input->post('first_name') . "%'";
         }
         if ($this->input->post('last_name')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " tb_companions.last_name LIKE  '%" . $this->input->post('last_name') . "%'";
+            $cond .= ($cond != '' ? ' AND ' : '') . " tb_guests.last_name LIKE  '%" . $this->input->post('last_name') . "%'";
         }
         if ($this->input->post('email')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " tb_companions.email LIKE  '%" . $this->input->post('email') . "%'";
+            $cond .= ($cond != '' ? ' AND ' : '') . " tb_guests.email LIKE  '%" . $this->input->post('email') . "%'";
         }
         if ($this->input->post('updated_on')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " tb_companions.updated_on LIKE  '%" . $this->input->post('updated_on') . "%'";
+            $cond .= ($cond != '' ? ' AND ' : '') . " tb_guests.updated_on LIKE  '%" . $this->input->post('updated_on') . "%'";
         }
 
-        $colmnsArry = array('', '`tb_companions`.`username`', '`tb_companions`.`first_name`', '`tb_companions`.`last_name`', '`tb_companions`.`email`', '`tb_companions`.`updated_on`');
+        $colmnsArry = array('', '`tb_guests`.`username`', '`tb_guests`.`first_name`', '`tb_guests`.`last_name`', '`tb_guests`.`email`', '`tb_guests`.`updated_on`');
         if ($this->input->post('order')) {
             $order = $this->input->post('order');
             if (isset($order[0]['column'])) {
                 $sort_by = " ORDER BY " . $colmnsArry[$order[0]['column']] . " " . $order[0]['dir'];
             }
         }
-        $admins = $this->Companion_Model->getCompanionUsers($cond, $offset, $this->page_limit, $sort_by);
+        $admins = $this->Guest_Model->getGuestUsers($cond, $offset, $this->page_limit, $sort_by);
         $count = $admins['total'];
         if ($count > 0) {
             foreach ($admins['admin_users'] as $result) {

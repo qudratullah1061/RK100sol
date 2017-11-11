@@ -6,13 +6,13 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span>Companions</span>
+            <span>Guests</span>
         </li>
     </ul>
 </div>
 <!-- END PAGE BAR -->
 <!-- BEGIN PAGE TITLE-->
-<h3 class="page-title"> Companions Members Listing</h3>
+<h3 class="page-title"> Guest Members Listing</h3>
 <!-- END PAGE TITLE-->
 <!-- BEGIN Datatable-->
 <div class="row">
@@ -23,9 +23,9 @@
                 <div class="table-container">
                     <div class="table-actions-wrapper">
                         <span> </span>
-                        <a style="float:right;" data-title="Add Type" href="javascript:void(0)"><i class="fa fa-plus-circle"></i> Add new companion</a>
+                        <a style="float:right;" data-title="Add Type" href="javascript:void(0)"><i class="fa fa-plus-circle"></i> Add new guest</a>
                     </div>
-                    <table class="table table-striped table-bordered table-hover table-checkable text-center" id="datatable_companions">
+                    <table class="table table-striped table-bordered table-hover table-checkable text-center" id="datatable_guests">
                         <thead>
                             <tr role="row" class="heading">
                                 <th width="15%"> Image </th>
@@ -83,6 +83,6 @@
 <!-- End datatable-->
 <script>
     $(document).ready(function () {
-        DatatablesObj.InitCompanionTable('datatable_companions');
+        DatatablesObj.InitCompanionTable('datatable_guests');
     });
 </script>

@@ -8,7 +8,7 @@ class Admin_dashboard extends Admin_Controller {
     public function __construct() {
         parent::__construct();
         $this->layout = 'admin/main';
-        $this->load->model('admin/Admin_mod', 'Admin_Model');
+        $this->load->model('admin/Admin_model', 'Admin_Model');
     }
 
     //Main dashboard index function
@@ -21,7 +21,7 @@ class Admin_dashboard extends Admin_Controller {
 
     public function admin_users() {
         $this->selected_tab = 'admin';
-        $this->selected_child_tab = 'AdminUsers';
+        $this->selected_child_tab = 'admin_users';
         $data = array();
         $this->load->view('admin/admin_users/view_users', $data);
     }

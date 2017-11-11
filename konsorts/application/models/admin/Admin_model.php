@@ -6,7 +6,7 @@
  */
 include_once(APPPATH . 'models/Abstract_model.php');
 
-class Admin_mod extends Abstract_model {
+class Admin_model extends Abstract_model {
 
     protected $is_error;
     public $admin_exists;
@@ -54,7 +54,7 @@ class Admin_mod extends Abstract_model {
         if (trim($order_by) != '') {
             $sql .= $order_by;
         } else {
-            $sql .= " ORDER BY boh_types.type_id DESC ";
+            $sql .= " ORDER BY tb_admin_users.admin_id DESC ";
         }
         if ($offset >= 0 && $limit != -1) {
             $sql .= " LIMIT " . ($offset) . ', ' . $limit;
