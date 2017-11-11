@@ -17,10 +17,10 @@
 </h1>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
-<div class="row">
+<!--<div class="row">
     <div class="col-md-12">
         <div class="col-md-12">
-            <!-- BEGIN SAMPLE FORM PORTLET-->
+             BEGIN SAMPLE FORM PORTLET
             <div class="portlet light bordered">
                 <div class="portlet-title">
                     <div class="caption font-green">
@@ -124,8 +124,8 @@
                     </form>
                 </div>
             </div>
-            <!-- END SAMPLE FORM PORTLET-->
-            <!-- BEGIN SAMPLE FORM PORTLET-->
+             END SAMPLE FORM PORTLET
+             BEGIN SAMPLE FORM PORTLET
             <div class="portlet light bordered">
                 <div class="portlet-title">
                     <div class="caption font-red-sunglo">
@@ -327,8 +327,8 @@
                     </form>
                 </div>
             </div>
-            <!-- END SAMPLE FORM PORTLET-->
-            <!-- BEGIN SAMPLE FORM PORTLET-->
+             END SAMPLE FORM PORTLET
+             BEGIN SAMPLE FORM PORTLET
             <div class="portlet light bordered">
                 <div class="portlet-title">
                     <div class="caption font-red-sunglo">
@@ -472,7 +472,122 @@
                     </form>
                 </div>
             </div>
-            <!-- END SAMPLE FORM PORTLET-->
+             END SAMPLE FORM PORTLET
+        </div>
+    </div>-->
+<div class="top-form">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group form-md-line-input">
+                <input type="text" class="form-control" id="form_control_1">
+                <label for="form_control_1">Username</label>
+                <span class="help-block">Please enter username</span>
+            </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group form-md-line-input">
+                <input type="text" class="form-control" id="form_control_1">
+                <label for="form_control_1">Email</label>
+                <span class="help-block">Please enter Email</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group form-md-line-input">
+                <input type="text" class="form-control" id="form_control_1">
+                <label for="form_control_1">conform Email</label>
+                <span class="help-block"> conform Email</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+           <div class="form-group form-md-line-input">
+                <input type="text" class="form-control" id="form_control_1">
+                <label for="form_control_1">password</label>
+                <span class="help-block">Please enter your password</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+             <div class="form-group form-md-line-input">
+                <input type="text" class="form-control" id="form_control_1">
+                <label for="form_control_1">conform password</label>
+                <span class="help-block">conform password</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="personal-form">
+<div class="heading">
+    <h2>Personal Detail</h2>
+    <div class="row">
+        <div class="col-md-4">
+              <div class="form-group form-md-line-input">
+                <input type="text" class="form-control" id="form_control_1">
+                <label for="form_control_1">first Name</label>
+                <span class="help-block">please Enter Your FirstName</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+              <div class="form-group form-md-line-input">
+                <input type="text" class="form-control" id="form_control_1">
+                <label for="form_control_1">Enter your Last Name</label>
+                <span class="help-block">Enter your last name</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+                 <div class="form-group form-md-line-input">
+                                                    <textarea class="form-control" rows="3" placeholder="Enter more text"></textarea>
+                                                    <label for="form_control_1">Textarea input</label>
+                                                </div>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="row">
+        <div class="col-md-4">
+              <div class="form-group form-md-line-input">
+                <input type="text" class="form-control" id="form_control_1">
+                <label for="form_control_1">Nick Name</label>
+                <span class="help-block">please Enter Your Nick Name</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+              <div class="form-group form-md-line-input">
+                <input type="text" class="form-control" id="form_control_1">
+                <label for="form_control_1">Telephone</label>
+                <span class="help-block">Enter your Telephone No</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+              <div class="form-group form-md-line-input">
+                <input type="text" class="form-control" id="form_control_1">
+                <label for="form_control_1">Enter your DOB</label>
+                <span class="help-block">enter your Date of Birth</span>
+            </div>
+    </div>
+    </div>
+</div>
+</div>
+    
+    
+    
+</div>
 </div>
