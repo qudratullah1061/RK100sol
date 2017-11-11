@@ -35,7 +35,7 @@ New Profile Page
 
 .profile-usertitle-job {
   text-transform: uppercase;
-  color: #5b9bd1;
+  color: #364150;
   font-size: 13px;
   font-weight: 800;
   margin-bottom: 7px; }
@@ -76,12 +76,12 @@ New Profile Page
 
 .profile-usermenu ul li a:hover {
   background-color: #fafcfd;
-  color: #5b9bd1; }
+  color: #364150; }
 
 .profile-usermenu ul li.active a {
-  color: #5b9bd1;
+  color: #364150;
   background-color: #f6f9fb;
-  border-left: 2px solid #5b9bd1;
+  border-left: 2px solid #364150;
   margin-left: -2px; }
 
 .profile-stat {
@@ -89,18 +89,18 @@ New Profile Page
   border-bottom: 1px solid #f0f4f7; }
 
 .profile-stat-title {
-  color: #7f90a4;
+  color: #5a7391;
   font-size: 25px;
   text-align: center; }
 
 .profile-stat-text {
-  color: #5b9bd1;
+  color: #364150;
   font-size: 11px;
   font-weight: 800;
   text-align: center; }
 
 .profile-desc-title {
-  color: #7f90a4;
+  color: #5a7391;
   font-size: 17px;
   font-weight: 600; }
 
@@ -111,13 +111,13 @@ New Profile Page
 .profile-desc-link i {
   width: 22px;
   font-size: 19px;
-  color: #abb6c4;
+  color: #800080;
   margin-right: 5px; }
 
 .profile-desc-link a {
   font-size: 14px;
   font-weight: 600;
-  color: #5b9bd1; }
+  color: #364150; }
 
 /* END PROFILE SIDEBAR */
 /* RESPONSIVE MODE */

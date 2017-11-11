@@ -19,16 +19,13 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="<?php echo base_url(); ?>assets/global/css/components-rounded.min.css" rel="stylesheet" id="style_components" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN PAGE LEVEL STYLES -->
         <link href="<?php echo base_url(); ?>assets/pages/css/login.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/pages/css/lock.min.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
@@ -37,7 +34,7 @@
 
     <body class=" login">
         {_yield}
-        
+
         <div class="copyright"> <?php echo date('Y'); ?> © Konsorts. </div>
         <!--[if lt IE 9]>
         <script src="<?php echo base_url(); ?>assets/global/plugins/respond.min.js"></script>
@@ -55,13 +52,13 @@
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="<?php echo base_url(); ?>assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="<?php echo base_url(); ?>assets/pages/scripts/login.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/custom_scripts/login.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/custom_scripts/lock.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->

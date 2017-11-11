@@ -42,6 +42,32 @@ class Admin_mod extends Abstract_model {
         return array('error' => $this->is_error, 'admin_info' => $this->admin_info[0]);
     }
 
+    public function getAdminUsers($condition = '', $offset = -1, $limit = 10, $order_by = '') {
+        $sql = "SELECT * FROM tb_admin_users";
+        $sql_count = "SELECT count(tb_admin_users.admin_id) as total FROM tb_admin_users ";
+
+        if ($condition != '') {
+            $sql .= " WHERE " . $condition;
+            $sql_count .= " WHERE " . $condition;
+        }
+
+        if (trim($order_by) != '') {
+            $sql .= $order_by;
+        } else {
+            $sql .= " ORDER BY boh_types.type_id DESC ";
+        }
+        if ($offset >= 0 && $limit != -1) {
+            $sql .= " LIMIT " . ($offset) . ', ' . $limit;
+        }
+        $count = $this->db->query($sql_count)->result('array');
+        $results = $this->db->query($sql)->result('array');
+        $results_array = array();
+        $results_array['admin_users'] = $results;
+        $results_array['query'] = $sql;
+        $results_array['total'] = $count[0]['total'];
+        return $results_array;
+    }
+
 //    public function checkNameExists($username, $admin_id) {
 //        $this->db->select('admin_id');
 //        if ($admin_id) {
@@ -67,5 +93,4 @@ class Admin_mod extends Abstract_model {
 //            return true;
 //        return false;
 //    }
-
 }

@@ -8,25 +8,30 @@ if (!defined('BASEPATH')) {
 
 class Admin_Controller extends CI_Controller {
 
-    var $adminId;
-    var $username;
-    var $email;
     var $selected_tab = 'admin';
     var $selected_child_tab = 'dashboard';
-    
+    var $admin_info = array();
+
     function __construct() {
         parent::__construct();
         $this->authenticate();
-        $this->adminId = $this->session->userdata('adminId');
-        $this->email = $this->session->userdata('email');
-        $this->username = $this->session->userdata('username');
+    }
+
+    private function setAdminInfo() {
+        $loggedin_userInfo = $this->db->get_where('tb_admin_users', array('admin_id' => $this->session->userdata('admin_id')))->result_array();
+        if ($loggedin_userInfo) {
+            $this->admin_info = isset($loggedin_userInfo[0]) ? $loggedin_userInfo[0] : null;
+        }
     }
 
     //Authenticate function
     private function authenticate() {
-        if (!$this->session->userdata('adminId')) {
+        if (!$this->session->userdata('admin_id')) {
+            redirect(base_url('admin/admin_auth'));
+        } elseif ($this->session->userdata('is_locked')) {
             redirect(base_url('admin/admin_auth'));
         }
+        $this->setAdminInfo();
     }
 
     // general json error
@@ -71,4 +76,5 @@ class Admin_Controller extends CI_Controller {
         var_dump($data_array);
         exit;
     }
+
 }

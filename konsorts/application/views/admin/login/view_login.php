@@ -1,6 +1,6 @@
 <!-- BEGIN LOGO -->
 <div class="logo">
-    <a href="<?php echo base_url(); ?>">
+    <a href="<?php echo base_url('admin/dashboard'); ?>">
         <img src="<?php echo base_url(); ?>assets/pages/img/logo-k.png" alt="" /> 
     </a>
 </div>
