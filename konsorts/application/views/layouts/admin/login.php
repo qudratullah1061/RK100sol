@@ -57,8 +57,8 @@
         <script src="<?php echo base_url(); ?>assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="<?php echo base_url(); ?>assets/custom_scripts/login.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/custom_scripts/lock.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/login.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/lock.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->

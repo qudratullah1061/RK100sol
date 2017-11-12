@@ -27,7 +27,6 @@
                 <div class="">
                     <!--<div class="row">-->
                     <div class="col-md-12">
-
                         <form action="../assets/global/plugins/dropzone/upload.php" class="dropzone dropzone-file-area" id="my-dropzone" >
                             <!--<label>Upload Image</label>-->
                             <h3 class="sbold">Click to upload</h3>
@@ -36,7 +35,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <!--</div>-->
-                    
+
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
@@ -64,7 +63,7 @@
                             <div class="portlet-body form">
                                 <form role="form">
                                     <div class="form-body">
-                                         <h3 class="block ">Guest Details</h3>
+                                        <h3 class="block ">Guest Details</h3>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group form-md-line-input">
@@ -149,8 +148,8 @@
                                                 </div>
                                             </div>
                                         </div>
-<!--                                        <hr>
-                                        <br>-->
+                                        <!--                                        <hr>
+                                                                                <br>-->
                                         <div class="md-checkbox-inline">
                                             <div class="md-checkbox">
                                                 <input type="checkbox" id="checkbox33" class="md-check">

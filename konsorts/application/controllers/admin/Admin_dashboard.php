@@ -96,4 +96,70 @@ class Admin_dashboard extends Admin_Controller {
         exit();
     }
 
+    // end here
+    // Admin CRUD start here
+    public function modal_add_admin() {
+        $this->is_ajax();
+        $this->selected_tab = 'admin';
+        $this->selected_child_tab = 'admin_users';
+        $data = array();
+        $html = $this->load->view('admin/dashboard/modal_add_admin', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
+
+    public function is_admin_username_exist($username) {
+        $result = $this->Admin_Model->is_admin_username_exist($username);
+        if ($result) {
+            $this->form_validation->set_message('is_admin_username_exist', 'The %s already exist. Please choose other username!');
+            return false;
+        }
+        return true;
+    }
+
+    public function is_admin_email_exist($email) {
+        $result = $this->Admin_Model->is_admin_email_exist($email);
+        if ($result) {
+            $this->form_validation->set_message('is_admin_email_exist', 'The %s already exist. Please choose other email!');
+            return false;
+        }
+        return true;
+    }
+
+    public function add_admin_user() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            $this->form_validation->set_rules('first_name', 'First Name', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('last_name', 'Last Name', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('username', 'Username', 'required|trim|strip_tags|xss_clean|callback_is_admin_username_exist');
+            $this->form_validation->set_rules('email', 'Email', 'required|trim|strip_tags|xss_clean|callback_is_admin_email_exist');
+            $this->form_validation->set_rules('about_me', 'About Me', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('password', 'Password', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|trim|strip_tags|xss_clean|matches[password]');
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->_fail(validation_errors());
+                die();
+            } else {
+                echo "all ok";
+                exit;
+//                $username = $this->input->post('username');
+//                $password = $this->input->post('password');
+//                $result = $this->admin->admin_login($username, $password);
+//                if ($result['error'] == 1) {
+//                    $error_data['login_error'] = $this->errors[$result['error']];
+//                    $this->load->view('admin/login/view_login', $error_data);
+//                } else {
+//                    $admin_info = $result['admin_info'];
+//                    $this->session->set_userdata(array('admin_id' => $admin_info['admin_id'], 'username' => $admin_info['username'], 'email' => $admin_info['email'], 'is_locked' => false));
+//                    redirect(base_url('admin/admin_dashboard'));
+//                }
+            }
+        } else {
+            redirect(base_url('admin/admin_auth'));
+        }
+    }
+
+    // Admin CRUD ends here
 }

@@ -68,29 +68,22 @@ class Admin_model extends Abstract_model {
         return $results_array;
     }
 
-//    public function checkNameExists($username, $admin_id) {
-//        $this->db->select('admin_id');
-//        if ($admin_id) {
-//            $this->db->where(array('admin_id <>' => $admin_id, 'admin_username' => $username));
-//        } else {
-//            $this->db->where(array('admin_username' => $username));
-//        }
-//        $result = $this->db->get($this->table_name)->result();
-//        if (!empty($result))
-//            return true;
-//        return false;
-//    }
-//
-//    public function checkEmailExists($email, $admin_id) {
-//        $this->db->select('admin_id');
-//        if ($admin_id) {
-//            $this->db->where(array('admin_id <>' => $admin_id, 'admin_email' => $email));
-//        } else {
-//            $this->db->where(array('admin_email' => $email));
-//        }
-//        $result = $this->db->get($this->table_name)->result();
-//        if (!empty($result))
-//            return true;
-//        return false;
-//    }
+    public function is_admin_username_exist($username) {
+        $this->db->select('admin_id');
+        $this->db->where(array('username' => $username, 'admin_id!=' => $this->session->userdata('admin_id')));
+        $result = $this->db->get($this->table_name)->result();
+        if (!empty($result))
+            return true;
+        return false;
+    }
+
+    public function is_admin_email_exist($email) {
+        $this->db->select('admin_id');
+        $this->db->where(array('email' => $email, 'admin_id!=' => $this->session->userdata('admin_id')));
+        $result = $this->db->get($this->table_name)->result();
+        if (!empty($result))
+            return true;
+        return false;
+    }
+
 }

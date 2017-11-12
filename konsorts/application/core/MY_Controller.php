@@ -77,4 +77,8 @@ class Admin_Controller extends CI_Controller {
         exit;
     }
 
+    public function is_ajax() {
+        header('Content-Type: application/json');
+    }
+
 }

@@ -23,11 +23,6 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
 
-        <!--Form Vizard Validation-->
-        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
-        <!--Form Vizard Validation end-->
-
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
@@ -35,9 +30,9 @@
         <!--profile page css-->
         <link href="<?php echo base_url(); ?>assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
         <!--dropzone css-->
-         <link href="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/dropzone/basic.min.css" rel="stylesheet" type="text/css" />
-        
+
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="<?php echo base_url(); ?>assets/global/css/components.css" rel="stylesheet" id="style_components" type="text/css" />
@@ -179,7 +174,7 @@
                                     <li class="nav-item start <?php ActivateCurrentLink('admin', 'dashboard'); ?>">
                                         <a href="<?php echo base_url('admin/admin_dashboard'); ?>" class="nav-link ">
                                             <!--<i class="icon-bar-chart"></i>-->
-                                            <span class="title">HOME</span>
+                                            <span class="title">Home</span>
                                         </a>
                                     </li>
                                     <li class="nav-item <?php ActivateCurrentLink('admin', 'admin_users'); ?>">
@@ -292,6 +287,15 @@
                 </div>
             </div>
             <!-- END FOOTER -->
+            <!--@*Modal Start*@-->
+            <div id="static-modal-popup" class="modal fade" data-width="70%" tabindex="-1" data-backdrop="static" data-keyboard="false"></div>
+            <!--@*Modal End*@-->
+            <!--@*Medium Modal Start*@-->
+            <div id="static-modal-popup-medium" class="modal fade" data-width="45%" tabindex="-1" data-backdrop="static" data-keyboard="false"></div>
+            <!--@*Medium Modal End*@-->
+            <!--@*Small Modal Start*@-->
+            <div id="static-modal-popup-small" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false"></div>
+            <!--@*Modal End*@-->
         </div>
         <!--[if lt IE 9]>
 <script src="<?php echo base_url(); ?>assets/global/plugins/respond.min.js"></script>
@@ -318,29 +322,23 @@
         <!--Modal scripts end-->
         <!-- END Data-table PLUGINS -->
         <!-- END PAGE LEVEL PLUGINS -->
-
-
-
-
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="<?php echo base_url(); ?>assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
-
-
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="<?php echo base_url(); ?>assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/custom_scripts/datatables.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/datatables.js" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
-
         <!--Form Wizard Validation-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
         <!--Form Wizard Validation end-->
         <!--dropzone-->
-         <script src="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
-         <!--<script src="<?php // echo base_url(); ?>assets/pages/scripts/form-dropzone.min.js" type="text/javascript"></script>-->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
+        <!--<script src="<?php // echo base_url();    ?>assets/pages/scripts/form-dropzone.min.js" type="text/javascript"></script>-->
         <!--profile js-->
         <script src="<?php echo base_url(); ?>assets/pages/scripts/profile.min.js" type="text/javascript"></script>
         <script>

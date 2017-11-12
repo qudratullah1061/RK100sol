@@ -38,7 +38,7 @@
     margin-left: -415px;
 }
 #addUser .form-group.form-md-line-input {
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 .add-guest .portlet.light {
     padding-bottom: 30px !important;
@@ -47,4 +47,7 @@
     margin-top: 0;
     padding-top: 0;
     margin-bottom: 20px;
+}
+.purple{
+    color:#800080 !important;
 }

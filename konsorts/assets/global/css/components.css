@@ -2740,12 +2740,12 @@ Custom color buttons
   .btn.green:not(.btn-outline):hover {
     color: #FFFFFF;
     background-color: #580458;
-    border-color: #2499a3; }
+    border-color: #580458; }
   .btn.green:not(.btn-outline):active, .btn.green:not(.btn-outline).active,
   .open > .btn.green:not(.btn-outline).dropdown-toggle {
     color: #FFFFFF;
     background-color: #580458;
-    border-color: #2499a3; }
+    border-color: #580458; }
     .btn.green:not(.btn-outline):active:hover, .btn.green:not(.btn-outline):active:focus, .btn.green:not(.btn-outline):active.focus, .btn.green:not(.btn-outline).active:hover, .btn.green:not(.btn-outline).active:focus, .btn.green:not(.btn-outline).active.focus,
     .open > .btn.green:not(.btn-outline).dropdown-toggle:hover,
     .open > .btn.green:not(.btn-outline).dropdown-toggle:focus,

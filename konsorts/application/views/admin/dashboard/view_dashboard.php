@@ -31,7 +31,7 @@
                     <small>REGISTRATIONS TOTAL</small>
                 </div>
                 <div class="icon">
-                    <i class="icon-pie-chart"></i>
+                    <i class="fa fa-money"></i>
                 </div>
             </div>
             <div class="progress-info">
@@ -57,7 +57,7 @@
                     <small>COMPANION MEMBERS</small>
                 </div>
                 <div class="icon">
-                    <i class="icon-like"></i>
+                    <i class="icon-users"></i>
                 </div>
             </div>
             <div class="progress-info">
@@ -83,7 +83,7 @@
                     <small>GUEST MEMBERS</small>
                 </div>
                 <div class="icon">
-                    <i class="icon-basket"></i>
+                    <i class="icon-users"></i>
                 </div>
             </div>
             <div class="progress-info">
@@ -109,7 +109,7 @@
                     <small>USERS THIS MONTH</small>
                 </div>
                 <div class="icon">
-                    <i class="icon-user"></i>
+                    <i class="icon-users"></i>
                 </div>
             </div>
             <div class="progress-info">
