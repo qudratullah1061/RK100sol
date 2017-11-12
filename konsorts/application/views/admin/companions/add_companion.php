@@ -76,7 +76,7 @@
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Username <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="text" class="form-control"  placeholder="" name="username">
                                     <label for="form_control_1"></label>
                                     <!--<span class="help-block">Some help goes here...</span>-->
                                 </div>
@@ -84,28 +84,28 @@
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Email <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="email" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3">Confirm Email <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="email" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3">Password<span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="email" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3">Confirm Password<span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="email" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                 </div>
                             </div>
@@ -115,42 +115,42 @@
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> First Name <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="text" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Last Name <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="text" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Nick Name <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="text" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Telephone <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="text" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Date of Birth <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="text" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Gender <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="form_control_1">
+                                    <select class="form-control" >
                                         <option value=""></option>
                                         <option value="">Male</option>
                                         <option value="">Female</option>
@@ -162,7 +162,7 @@
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Location <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="text" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                     <!--<span class="help-block">Some help goes here...</span>-->
                                 </div>
@@ -170,7 +170,7 @@
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Address <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="text" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                     <!--<span class="help-block">Some help goes here...</span>-->
                                 </div>
@@ -272,7 +272,7 @@
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Other Specific Interest  </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="form_control_1" placeholder="">
+                                    <input type="text" class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                     <!--<span class="help-block">Some help goes here...</span>-->
                                 </div>
@@ -280,7 +280,7 @@
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Describe yourself <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <textarea  class="form-control" id="form_control_1" placeholder=""></textarea>
+                                    <textarea  class="form-control"  placeholder=""></textarea>
                                     <label for="form_control_1"></label>
                                     <!--<span class="help-block">Some help goes here...</span>-->
                                 </div>

@@ -66,64 +66,64 @@
                                         <h3 class="block ">Guest Details</h3>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group form-md-line-input">
-                                                    <input type="text" class="form-control" id="form_control_1" placeholder="Enter First Name">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="text" class="form-control"  placeholder="" name="first_name">
                                                     <label for="form_control_1">First Name <span class="required">*</span></label>
                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group form-md-line-input">
-                                                    <input type="text" class="form-control" id="form_control_1" placeholder="Enter Last Name">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="text" class="form-control"  placeholder="" name="last_name">
                                                     <label for="form_control_1">Last Name<span class="required">*</span></label>
                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group form-md-line-input">
-                                                    <input type="text" class="form-control" id="form_control_1" placeholder="Enter Username">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="text" class="form-control"  placeholder="" name="username">
                                                     <label for="form_control_1">Username<span class="required">*</span></label>
                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group form-md-line-input">
-                                                    <input type="email" class="form-control" id="form_control_1" placeholder="Email">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="email" class="form-control"  placeholder="" name="email">
                                                     <label for="form_control_1">Email Address<span class="required">*</span></label>
                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group form-md-line-input">
-                                                    <input type="password" class="form-control" id="form_control_1" placeholder="Enter validate password">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="password" class="form-control"  placeholder="" name="password">
                                                     <label for="form_control_1">Password<span class="required">*</span></label>
                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group form-md-line-input">
-                                                    <input type="password" class="form-control" id="form_control_1" placeholder="Enter again to validate password">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="password" class="form-control"  placeholder="" name="confirm_password">
                                                     <label for="form_control_1">Confirm Password<span class="required">*</span></label>
                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group form-md-line-input">
-                                                    <input type="file" class="form-control" id="form_control_1" placeholder="id proof">
+                                                <div class="form-group form-md-line-input ">
+                                                    <input type="file" class="form-control"  placeholder="" name="">
                                                     <label for="form_control_1">Id Proof<span class="required">*</span></label>
                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group form-md-line-input">
-                                                    <input type="text" class="form-control" id="form_control_1" placeholder="Phone number">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="text" class="form-control"  placeholder="" name="telephone">
                                                     <label for="form_control_1">Phone Number<span class="required">*</span></label>
                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group form-md-line-input">
-                                                    <select class="form-control" id="form_control_1">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <select class="form-control" name="gender">
                                                         <option value=""></option>
                                                         <option value="">Male</option>
                                                         <option value="">Female</option>
@@ -133,17 +133,64 @@
                                                     <div class="form_control_1"> </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-md-6">
-                                                <div class="form-group form-md-line-input">
-                                                    <input type="text" class="form-control" id="form_control_1" placeholder="Please enter city or zip code">
-                                                    <label for="form_control_1">Location<span class="required">*</span></label>
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <!--<label class="control-label col-md-3">Default Datepicker</label>-->
+
+                                                    <input class="form-control date-picker" size="16" type="text" value="" name="date_of_birth" />
+                                                    <label for="form_control_1">Date of birth<span class="required">*</span></label>
+                                                    <!--<span class="help-block"> Select date </span>-->
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <select class="form-control" name="country">
+                                                        <option value=""></option>
+                                                        <option value="">USA</option>
+                                                        <option value="">UAE</option>
+                                                        <option value="">Other</option>
+                                                    </select>
+                                                    <label for="form_control_1">Country<span class="required">*</span></label>
+                                                    <div class="form_control_1"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="text" class="form-control"  placeholder="" name="state">
+                                                    <label for="form_control_1">State<span class="required">*</span></label>
                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group form-md-line-input">
-                                                    <input type="text" class="form-control" id="form_control_1" placeholder="Address">
+                                            <div class="col-md-6">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="text" class="form-control"  placeholder="" name="city">
+                                                    <label for="form_control_1">City<span class="required">*</span></label>
+                                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="text" class="form-control"  placeholder="" name="address">
                                                     <label for="form_control_1">Address<span class="required">*</span></label>
+                                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="text" class="form-control"  placeholder="" name="about_me">
+                                                    <label for="form_control_1">About me<span class="required">*</span></label>
+                                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                    <input type="text" class="form-control"  placeholder="" name="other_interest">
+                                                    <label for="form_control_1">Other interest<span class="required">*</span></label>
                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                 </div>
                                             </div>
@@ -173,3 +220,9 @@
         <!-- END PROFILE CONTENT -->
     </div>
 </div>
+<script>
+    $(document).ready(function ()
+    {
+       $(".date-picker").datepicker();
+    });
+</script>
