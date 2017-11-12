@@ -22,9 +22,22 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
+
+        <!--Form Vizard Validation-->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <!--Form Vizard Validation end-->
+
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+
+        <!--profile page css-->
+        <link href="<?php echo base_url(); ?>assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
+        <!--dropzone css-->
+         <link href="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/global/plugins/dropzone/basic.min.css" rel="stylesheet" type="text/css" />
+        
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="<?php echo base_url(); ?>assets/global/css/components.css" rel="stylesheet" id="style_components" type="text/css" />
@@ -136,25 +149,25 @@
                             </li>
                             <!-- END SIDEBAR TOGGLER BUTTON -->
                             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
-<!--                            <li class="sidebar-search-wrapper">
-                                BEGIN RESPONSIVE QUICK SEARCH FORM 
-                                DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box 
-                                DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box 
-                                <form class="sidebar-search" action="page_general_search_3.html" method="POST">
-                                    <a href="javascript:;" class="remove">
-                                        <i class="icon-close"></i>
-                                    </a>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search...">
-                                        <span class="input-group-btn">
-                                            <a href="javascript:;" class="btn submit">
-                                                <i class="icon-magnifier"></i>
-                                            </a>
-                                        </span>
-                                    </div>
-                                </form>
-                                END RESPONSIVE QUICK SEARCH FORM 
-                            </li>-->
+                            <!--                            <li class="sidebar-search-wrapper">
+                                                            BEGIN RESPONSIVE QUICK SEARCH FORM 
+                                                            DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box 
+                                                            DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box 
+                                                            <form class="sidebar-search" action="page_general_search_3.html" method="POST">
+                                                                <a href="javascript:;" class="remove">
+                                                                    <i class="icon-close"></i>
+                                                                </a>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" placeholder="Search...">
+                                                                    <span class="input-group-btn">
+                                                                        <a href="javascript:;" class="btn submit">
+                                                                            <i class="icon-magnifier"></i>
+                                                                        </a>
+                                                                    </span>
+                                                                </div>
+                                                            </form>
+                                                            END RESPONSIVE QUICK SEARCH FORM 
+                                                        </li>-->
                             <li class="nav-item start <?php ActivateParentLink('admin'); ?>">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-home"></i>
@@ -306,15 +319,30 @@
         <!-- END Data-table PLUGINS -->
         <!-- END PAGE LEVEL PLUGINS -->
 
+
+
+
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="<?php echo base_url(); ?>assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
+
+
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="<?php echo base_url(); ?>assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/custom_scripts/datatables.js" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
+
+        <!--Form Wizard Validation-->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <!--Form Wizard Validation end-->
+        <!--dropzone-->
+         <script src="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
+         <!--<script src="<?php // echo base_url(); ?>assets/pages/scripts/form-dropzone.min.js" type="text/javascript"></script>-->
+        <!--profile js-->
+        <script src="<?php echo base_url(); ?>assets/pages/scripts/profile.min.js" type="text/javascript"></script>
         <script>
             $(document).ready(function ()
             {

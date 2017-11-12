@@ -6,3 +6,45 @@
 .modal .modal-header .close{
     color:#fff;
 }
+
+.rk-modal .modal-dialog {
+    background: transparent;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+.rk-modal .modal-content {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.modal .modal-header .close {
+    margin-top: 8px !important;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+.modal .modal-header .close:hover {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+#addActivity .form-body {
+    padding: 20px 0 0;
+}
+#addUser {
+    width: 900px;
+}
+#addUser {
+    width: 900px;
+    margin-left: -415px;
+}
+#addUser .form-group.form-md-line-input {
+    margin-bottom: 0;
+}
+.add-guest .portlet.light {
+    padding-bottom: 30px !important;
+}
+.add-guest h3.block {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 20px;
+}

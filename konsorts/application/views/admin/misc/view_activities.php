@@ -23,7 +23,7 @@
                 <div class="table-container">
                     <div class="table-actions-wrapper">
                         <span> </span>
-                        <a style="float:right;" data-title="Add Type" href="javascript:void(0)"><i class="fa fa-plus-circle"></i> Add new activity</a>
+                        <a style="float:right;" class="addActivity" data-title="Add Type" href="javascript:void(0)"><i class="fa fa-plus-circle"></i> Add new activity</a>
                     </div>
                     <table class="table table-striped table-bordered table-hover text-center" id="datatable_activities">
                         <thead>
@@ -86,8 +86,42 @@
     </div>
 </div>
 <!-- End datatable-->
+<!--new activity modal-->
+<div class="modal fade bs-modal-sm rk-modal" id="addActivity" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Add New Activity</h4>
+            </div>
+            <div class="modal-body"> 
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="form-body">
+                            <div class="form-group form-md-line-input">
+                                <input type="text" class="form-control" id="form_control_1" placeholder="e.g sports">
+                                <label for="form_control_1">Activity Name</label>
+                                <span class="help-block">Don't use special characters</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                <button type="button" class="btn green">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 <script>
     $(document).ready(function () {
         DatatablesObj.InitActivitiesTable('datatable_activities');
+        $(document).on('click', '.addActivity', function () {
+            $('#addActivity').modal('show');
+        });
+        //        addActivity
     });
 </script>

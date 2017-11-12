@@ -23,7 +23,7 @@
                 <div class="table-container">
                     <div class="table-actions-wrapper">
                         <span> </span>
-                        <a style="float:right;" onclick="show_add();" data-title="Add Type" href="javascript:void(0)"><i class="fa fa-plus-circle"></i> Add a new type</a>
+                        <a style="float:right;" class="addUser" onclick="show_add();" data-title="Add Type" href="javascript:void(0)"><i class="fa fa-plus-circle"></i> Add New User</a>
                     </div>
                     <table class="table table-striped table-bordered table-hover table-checkable text-center" id="datatable_adminusers">
                         <thead>
@@ -81,8 +81,123 @@
     </div>
 </div>
 <!-- End datatable-->
+<!--add new user modal-->
+<div class="modal fade bs-modal-lg" id="addUser-" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Modal Title</h4>
+            </div>
+            <div class="modal-body"> Modal body goes here </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                <button type="button" class="btn green">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div id="addUser" class="modal fade modal-lg rk-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Add New User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="form-body">
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group form-md-line-input">
+                                        <input type="text" class="form-control" id="form_control_1" placeholder="First Name">
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="text" class="form-control" id="form_control_1" placeholder="Last Name">
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="text" class="form-control" id="form_control_1" placeholder="Username">
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="email" class="form-control" id="form_control_1" placeholder="Email">
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="email" class="form-control" id="form_control_1" placeholder="Password">
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-md-line-input">
+                                        <input type="text" class="form-control" id="form_control_1" placeholder="Facebook Link">
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="text" class="form-control" id="form_control_1" placeholder="Twitter Link">
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="text" class="form-control" id="form_control_1" placeholder="Linkedin Link">
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="text" class="form-control" id="form_control_1" placeholder="Instagram link">
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="file" class="form-control" id="form_control_1" placeholder="Image">
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group form-md-line-input">
+                                        <textarea class="form-control" placeholder="About Me"></textarea>
+                                        <label for="form_control_1"></label>
+                                        <!--<span class="help-block">Some help goes here...</span>-->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn dark btn-outline">Close</button>
+                <button type="button" class="btn green">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     $(document).ready(function () {
         DatatablesObj.InitAdminTable('datatable_adminusers');
+        $(document).on('click', '.addUser', function () {
+            $('#addUser').modal('show');
+        });
+//        function openModal() {
+//            $('#addUser').modal('show');
+//        }
     });
 </script>
