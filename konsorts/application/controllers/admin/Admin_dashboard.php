@@ -139,22 +139,32 @@ class Admin_dashboard extends Admin_Controller {
             $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|trim|strip_tags|xss_clean|matches[password]');
 
             if ($this->form_validation->run() == FALSE) {
-                $this->_fail(validation_errors());
-                die();
+                $this->_response(true, validation_errors());
             } else {
-                echo "all ok";
-                exit;
-//                $username = $this->input->post('username');
-//                $password = $this->input->post('password');
-//                $result = $this->admin->admin_login($username, $password);
-//                if ($result['error'] == 1) {
-//                    $error_data['login_error'] = $this->errors[$result['error']];
-//                    $this->load->view('admin/login/view_login', $error_data);
-//                } else {
-//                    $admin_info = $result['admin_info'];
-//                    $this->session->set_userdata(array('admin_id' => $admin_info['admin_id'], 'username' => $admin_info['username'], 'email' => $admin_info['email'], 'is_locked' => false));
-//                    redirect(base_url('admin/admin_dashboard'));
-//                }
+                $data = array();
+                $data['first_name'] = $this->input->post('first_name');
+                $data['last_name'] = $this->input->post('last_name');
+                $data['username'] = $this->input->post('username');
+                $data['email'] = $this->input->post('email');
+                $data['password'] = $this->input->post('password');
+                $data['about_me'] = $this->input->post('about_me');
+                $data['facebook_link'] = $this->input->post('facebook_link');
+                $data['twitter_link'] = $this->input->post('twitter_link');
+                $data['linkedin_link'] = $this->input->post('linkedin_link');
+                $data['instagram_link'] = $this->input->post('instagram_link');
+                $data['updated_on'] = $data['created_on'] = date("Y-m-d H:m:i");
+                $data['updated_by'] = $data['created_by'] = date("Y-m-d H:m:i");
+                // upload image
+                $result = UploadImage('image', "uploads/admin/admin_profiles");
+                if (isset($result['error'])) {
+                    $this->_response(true, $result['error']);
+                }
+                $data['image'] = $result['upload_data']['file_name'];
+                $data['image_path'] = $result['upload_data']['file_path'];
+                $insert_id = $this->Admin_Model->add_admin_user($data);
+                if ($insert_id) {
+                    $this->_response(false, "New admin added successfully.");
+                }
             }
         } else {
             redirect(base_url('admin/admin_auth'));

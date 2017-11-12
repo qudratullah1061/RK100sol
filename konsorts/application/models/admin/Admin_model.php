@@ -86,4 +86,8 @@ class Admin_model extends Abstract_model {
         return false;
     }
 
+    public function add_admin_user($data) {
+        return $this->save($data);
+    }
+
 }

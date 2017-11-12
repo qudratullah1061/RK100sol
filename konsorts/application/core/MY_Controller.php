@@ -35,14 +35,14 @@ class Admin_Controller extends CI_Controller {
     }
 
     // general json error
-    public function _fail($description = '', $status = '') {
+    public function _response($is_error = true, $description = '', $status = '') {
         $this->output->set_status_header(200);
         $this->output->set_content_type('application/json');
         $this->output->set_header('Content-type: application/json');
         $this->output->set_output(json_encode(array(
-            'error' => 1,
-            'error_description' => $description,
-            'error_code' => $status
+            'error' => $is_error,
+            'description' => $description,
+            'code' => $status
         )))->_display();
         die();
     }

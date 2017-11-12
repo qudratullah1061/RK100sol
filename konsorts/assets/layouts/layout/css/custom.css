@@ -51,3 +51,6 @@
 .purple{
     color:#800080 !important;
 }
+.form-group.form-md-line-input .form-control.edited:not([readonly]):not(:focus) ~ .help-block-error{
+    opacity: 1 !important;
+}

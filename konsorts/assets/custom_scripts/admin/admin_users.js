@@ -16,8 +16,11 @@ var AdminUsers = function () {
                 App.unblockUI('.modal');
             },
             success: function (data) {
-                if (data.key) {
-
+                if (!data.error) {
+                    toastr["success"](data.description, "Success!");
+                    window.location.reload();
+                } else {
+                    toastr["error"](data.description, "Error!");
                 }
             }
         });
@@ -34,6 +37,9 @@ var AdminUsers = function () {
             focusInvalid: false, // do not focus the last invalid input
             ignore: "", // validate all fields including form hidden input
             messages: {
+                confirm_password: {
+                    equalTo: "Password does not match confirm password field."
+                }
             },
             rules: {
                 first_name: {
@@ -52,7 +58,7 @@ var AdminUsers = function () {
                 password: {
                     required: true,
                 },
-                confirm_passowrd: {
+                confirm_password: {
                     required: true,
                     equalTo: "#password"
                 },
@@ -112,7 +118,6 @@ var AdminUsers = function () {
                     $("#static-modal-popup-medium").html(data.value);
                     $("#static-modal-popup-medium").modal('show');
                     handleValidationAdminUser("form-add-admin");
-                    handleAdminSubmit("form-add-admin");
                 }
             }
         });

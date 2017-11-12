@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="form-group form-md-line-input form-md-floating-label">
-                            <input type="password" class="form-control" id="password" name="password">
+                            <input type="password" class="form-control password" id="password" name="password">
                             <label>Password</label>
                         </div>
                         <div class="form-group form-md-line-input form-md-floating-label">
@@ -28,7 +28,7 @@
                             <label>Facebook Link</label>
                         </div>
                         <div class="form-group form-md-line-input form-md-floating-label">
-                            <input type="text" class="form-control" name="twitter_link">
+                            <input type="text" class="form-control" name="linkedin_link">
                             <label>Linkedin Link</label>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                             <label>Email</label>
                         </div>
                         <div class="form-group form-md-line-input form-md-floating-label">
-                            <input type="password" class="form-control" name="confirm_password">
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password">
                             <label>Confirm Password</label>
                         </div>
 
