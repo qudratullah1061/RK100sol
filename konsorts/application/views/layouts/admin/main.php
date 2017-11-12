@@ -178,13 +178,13 @@
                                 <ul class="sub-menu">
                                     <li class="nav-item start <?php ActivateCurrentLink('admin', 'dashboard'); ?>">
                                         <a href="<?php echo base_url('admin/admin_dashboard'); ?>" class="nav-link ">
-                                            <i class="icon-bar-chart"></i>
+                                            <!--<i class="icon-bar-chart"></i>-->
                                             <span class="title">HOME</span>
                                         </a>
                                     </li>
                                     <li class="nav-item <?php ActivateCurrentLink('admin', 'admin_users'); ?>">
                                         <a href="<?php echo base_url('admin/admin_dashboard/admin_users'); ?>" class="nav-link ">
-                                            <i class="icon-users"></i>
+                                            <!--<i class="icon-users"></i>-->
                                             <span class="title">Admin Users</span>
                                         </a>
                                     </li>
@@ -200,13 +200,13 @@
                                 <ul class="sub-menu">
                                     <li class="nav-item <?php ActivateCurrentLink('companion', 'view'); ?>">
                                         <a href="<?php echo base_url('admin/companions'); ?>" class="nav-link ">
-                                            <i class="fa fa-eye"></i>
+                                            <!--<i class="fa fa-eye"></i>-->
                                             <span class="title">View Companions</span>
                                         </a>
                                     </li>
                                     <li class="nav-item <?php ActivateCurrentLink('companion', 'add'); ?>">
                                         <a href="<?php echo base_url('admin/companions/add_companion'); ?>" class="nav-link ">
-                                            <i class="fa fa-plus"></i>
+                                            <!--<i class="fa fa-plus"></i>-->
                                             <span class="title">Add Companion</span>
                                         </a>
                                     </li>
@@ -222,13 +222,13 @@
                                 <ul class="sub-menu">
                                     <li class="nav-item <?php ActivateCurrentLink('guest', 'view'); ?>">
                                         <a href="<?php echo base_url('admin/guests'); ?>" class="nav-link ">
-                                            <i class="fa fa-eye"></i>
+                                            <!--<i class="fa fa-eye"></i>-->
                                             <span class="title">View Guest</span>
                                         </a>
                                     </li>
                                     <li class="nav-item <?php ActivateCurrentLink('guest', 'add'); ?>">
                                         <a href="<?php echo base_url('admin/guests/add_guest'); ?>" class="nav-link ">
-                                            <i class="fa fa-plus"></i>
+                                            <!--<i class="fa fa-plus"></i>-->
                                             <span class="title">Add Guest</span>
                                         </a>
                                     </li>
@@ -245,19 +245,19 @@
                                 <ul class="sub-menu">
                                     <li class="nav-item <?php ActivateCurrentLink('misc', 'view_activities'); ?>">
                                         <a href="<?php echo base_url('admin/misc/view_activities'); ?>" class="nav-link ">
-                                            <i class="fa fa-eye"></i>
+                                            <!--<i class="fa fa-eye"></i>-->
                                             <span class="title">View Activities</span>
                                         </a>
                                     </li>
                                     <li class="nav-item <?php ActivateCurrentLink('misc', 'view_availabilities'); ?>">
                                         <a href="<?php echo base_url('admin/misc/view_availablities'); ?>" class="nav-link ">
-                                            <i class="fa fa-eye"></i>
+                                            <!--<i class="fa fa-eye"></i>-->
                                             <span class="title">View Availabilities</span>
                                         </a>
                                     </li>
                                     <li class="nav-item <?php ActivateCurrentLink('misc', 'view_home_categories'); ?>">
                                         <a href="<?php echo base_url('admin/misc/home_categoties'); ?>" class="nav-link ">
-                                            <i class="fa fa-eye"></i>
+                                            <!--<i class="fa fa-eye"></i>-->
                                             <span class="title">View Home categories</span>
                                         </a>
                                     </li>
