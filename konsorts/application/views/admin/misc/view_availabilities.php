@@ -6,13 +6,13 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span>Activities</span>
+            <span>Availabilities</span>
         </li>
     </ul>
 </div>
 <!-- END PAGE BAR -->
 <!-- BEGIN PAGE TITLE-->
-<h3 class="page-title">Activities Listing</h3>
+<h3 class="page-title">Availabilities Listing</h3>
 <!-- END PAGE TITLE-->
 <!-- BEGIN Datatable-->
 <div class="row">
@@ -23,12 +23,12 @@
                 <div class="table-container">
                     <div class="table-actions-wrapper">
                         <span> </span>
-                        <a style="float:right;" data-title="Add Type" href="javascript:Activities.modal_add_activity()"><i class="fa fa-plus-circle"></i> Add new activity</a>
+                        <a style="float:right;" data-title="Add Availability" href="javascript:Availabilities.modal_add_availability()"><i class="fa fa-plus-circle"></i> Add new availability</a>
                     </div>
-                    <table class="table table-striped table-bordered table-hover text-center" id="datatable_activities">
+                    <table class="table table-striped table-bordered table-hover text-center" id="datatable_availabilities">
                         <thead>
                             <tr role="row" class="heading">
-                                <th width="25%"> Activity Name </th>
+                                <th width="25%"> Availability Name </th>
                                 <th width="15%"> Created On </th>
                                 <th width="15%"> Created By </th>
                                 <th width="15%"> Updated On </th>
@@ -89,10 +89,10 @@
         <!-- End: life time stats -->
     </div>
 </div>
-<script src="<?php echo base_url('assets/custom_scripts/admin/activities.js'); ?>" type="text/javascript"></script>
 <!-- End datatable-->
+<script src="<?php echo base_url('assets/custom_scripts/admin/availabilities.js'); ?>" type="text/javascript"></script>
 <script>
     $(document).ready(function () {
-        DatatablesObj.InitActivitiesTable('datatable_activities');
+        DatatablesObj.InitAvailabilitiesTable('datatable_availabilities');
     });
 </script>

@@ -66,6 +66,10 @@ var CommonFunctions = function () {
                                 }, function () {
                                     if (table == 'tb_admin_users') {
                                         $('#datatable_adminusers').DataTable().ajax.reload();
+                                    } else if (table == 'tb_activities') {
+                                        $('#datatable_activities').DataTable().ajax.reload();
+                                    } else if (table == 'tb_availabilities') {
+                                        $('#datatable_availabilities').DataTable().ajax.reload();
                                     }
                                 });
                             } else {

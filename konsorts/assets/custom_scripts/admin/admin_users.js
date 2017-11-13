@@ -18,7 +18,14 @@ var AdminUsers = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    $('#datatable_adminusers').DataTable().ajax.reload();
+                    if (formId == 'form-add-admin') {
+                        $('#datatable_adminusers').DataTable().ajax.reload();
+                        $("#static-modal-popup-medium").modal('hide');
+                    } else if (formId == 'form-update-admin') {
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 500);
+                    }
                 } else {
                     toastr["error"](data.description, "Error!");
                 }
@@ -31,17 +38,9 @@ var AdminUsers = function () {
         var form1 = $('#' + formId);
         var error1 = $('.alert-danger', form1);
         var success1 = $('.alert-success', form1);
-        form1.validate({
-            errorElement: 'span', //default input error message container
-            errorClass: 'help-block help-block-error', // default input error message class
-            focusInvalid: false, // do not focus the last invalid input
-            ignore: "", // validate all fields including form hidden input
-            messages: {
-                confirm_password: {
-                    equalTo: "Password does not match confirm password field."
-                }
-            },
-            rules: {
+        var Rules = {};
+        if (formId == 'form-add-admin') {
+            Rules = {
                 first_name: {
                     required: true
                 },
@@ -68,8 +67,62 @@ var AdminUsers = function () {
                 about_me: {
                     required: true,
                 },
-//                url: true
+                facebook_link: {
+                    url: true
+                },
+                twitter_link: {
+                    url: true
+                },
+                linkedin_link: {
+                    url: true
+                },
+                instagram_link: {
+                    url: true
+                },
+            };
+        } else if (formId == 'form-update-admin') {
+            Rules = {
+                first_name: {
+                    required: true
+                },
+                last_name: {
+                    required: true,
+                },
+                username: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                about_me: {
+                    required: true,
+                },
+                facebook_link: {
+                    url: true
+                },
+                twitter_link: {
+                    url: true
+                },
+                linkedin_link: {
+                    url: true
+                },
+                instagram_link: {
+                    url: true
+                },
+            };
+        }
+        form1.validate({
+            errorElement: 'span', //default input error message container
+            errorClass: 'help-block help-block-error', // default input error message class
+            focusInvalid: false, // do not focus the last invalid input
+            ignore: "", // validate all fields including form hidden input
+            messages: {
+                confirm_password: {
+                    equalTo: "Password does not match confirm password field."
+                }
             },
+            rules: Rules,
             invalidHandler: function (event, validator) { //display error alert on form submit              
                 success1.hide();
                 error1.show();
@@ -126,6 +179,9 @@ var AdminUsers = function () {
         modal_add_admin: function () {
             show_modal_add_admin();
         },
+        initUpdateValidation: function (formId) {
+            handleValidationAdminUser(formId);
+        }
     };
 }();
 

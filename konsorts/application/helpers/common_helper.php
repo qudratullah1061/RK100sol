@@ -52,9 +52,9 @@ function CreateThumbnail($source, $destination, $thump_options) {
     $config['image_library'] = 'gd2';
     $config['source_image'] = $source;
     $config['new_image'] = $destination;
-//    $config['quality'] = "90%";
+    $config['quality'] = 100;
     $config['create_thumb'] = TRUE;
-    $config['maintain_ratio'] = TRUE;
+    $config['maintain_ratio'] = FALSE;
     foreach ($thump_options as $options) {
         $config['width'] = $options['width'];
         $config['height'] = $options['height'];

@@ -26,7 +26,6 @@
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
-
         <!--profile page css-->
         <link href="<?php echo base_url(); ?>assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
         <!--dropzone css-->
@@ -50,13 +49,15 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/layouts/layout/css/custom.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> 
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="<?php echo base_url(); ?>assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/scripts/app.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
     </head>
     <!-- END HEAD -->
@@ -69,7 +70,7 @@
                 <div class="page-header-inner ">
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
-                        <a href="index.html">
+                        <a href="<?php echo base_url(); ?>">
                             <img src="<?php echo base_url(); ?>assets/layouts/layout/img/logo.png" alt="logo" class="logo-default" /> </a>
                         <div class="menu-toggler sidebar-toggler">
                             <span></span>
@@ -88,7 +89,7 @@
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" class="img-circle" src="<?php echo base_url(); ?>assets/layouts/layout/img/avatar3_small.jpg" />
+                                    <img alt="" class="img-circle" src="<?php echo base_url($this->admin_info['image_path'] . "/small_" . $this->admin_info['image']); ?>" />
                                     <span class="username username-hide-on-mobile"><?php echo $this->admin_info['username']; ?> </span>
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -234,7 +235,7 @@
 
                             <li class="nav-item <?php ActivateParentLink('misc'); ?>">
                                 <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="icon-users"></i>
+                                    <i class="fa fa-tasks"></i>
                                     <span class="title">Misc</span>
                                     <span class="selected"></span>
                                     <span class="arrow open"></span>
@@ -247,7 +248,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item <?php ActivateCurrentLink('misc', 'view_availabilities'); ?>">
-                                        <a href="<?php echo base_url('admin/misc/view_availablities'); ?>" class="nav-link ">
+                                        <a href="<?php echo base_url('admin/misc/view_availabilities'); ?>" class="nav-link ">
                                             <!--<i class="fa fa-eye"></i>-->
                                             <span class="title">View Availabilities</span>
                                         </a>
@@ -320,6 +321,7 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
         <!--Modal scripts-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
@@ -336,17 +338,17 @@
         <script src="<?php echo base_url(); ?>assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/datatables.js" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
-        <!--Form Wizard Validation-->
+        <!--Form Validation-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
-        <!--Form Wizard Validation end-->
+        <!--Form Validation end-->
         <!--dropzone-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
-        <!--<script src="<?php // echo base_url();      ?>assets/pages/scripts/form-dropzone.min.js" type="text/javascript"></script>-->
+        <!--<script src="<?php // echo base_url();            ?>assets/pages/scripts/form-dropzone.min.js" type="text/javascript"></script>-->
         <!--profile js-->
         <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/common_functions.js" type="text/javascript"></script>
         <script>
-            $(document).ready(function (){
+            $(document).ready(function () {
                 GlobalPlugins.initToasterPlugin();
             });
         </script>

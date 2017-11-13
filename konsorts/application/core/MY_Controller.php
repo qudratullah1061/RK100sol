@@ -20,6 +20,7 @@ class Admin_Controller extends CI_Controller {
     private function setAdminInfo() {
         $loggedin_userInfo = $this->db->get_where('tb_admin_users', array('admin_id' => $this->session->userdata('admin_id')))->result_array();
         if ($loggedin_userInfo) {
+            unset($loggedin_userInfo[0]['password']);
             $this->admin_info = isset($loggedin_userInfo[0]) ? $loggedin_userInfo[0] : null;
         }
     }

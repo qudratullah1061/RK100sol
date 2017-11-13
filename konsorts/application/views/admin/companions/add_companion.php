@@ -19,9 +19,9 @@
 <div class="portlet light bordered" id="form_wizard_1">
     <div class="portlet-title">
         <div class="caption">
-            <i class=" icon-layers font-red"></i>
-            <span class="caption-subject font-red bold uppercase"> Form Wizard -
-                <span class="step-title"> Step 1 of 4 </span>
+            <i class=" icon-user purple"></i>
+            <span class="caption-subject purple bold uppercase"> Create Companion -
+                <span class="step-title"> Step 1 of 3 </span>
             </span>
         </div>
         <div class="actions">
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="portlet-body form">
-        <form class="form-horizontal" action="#" id="submit_form" method="POST">
+        <form class="form-horizontal" action="#" id="form-add-companion" method="POST">
             <div class="form-wizard">
                 <div class="form-body">
                     <ul class="nav nav-pills nav-justified steps">
@@ -68,45 +68,46 @@
                     </div>
                     <div class="tab-content">
                         <div class="alert alert-danger display-none">
-                            <button class="close" data-dismiss="alert"></button> You have some form errors. Please check below. </div>
+                            <button class="close" data-dismiss="alert"></button> Please enter valid data in below fields. 
+                        </div>
                         <div class="alert alert-success display-none">
-                            <button class="close" data-dismiss="alert"></button> Your form validation is successful! </div>
+                            <button class="close" data-dismiss="alert"></button> All data validated successfully! 
+                        </div>
                         <div class="tab-pane active" id="tab1">
                             <h3 class="block text-center">Login Details</h3>
                             <div class="form-group form-md-line-input">
-                                <label class="control-label col-md-3"> Username <span class="required"> * </span> </label>
+                                <label class="control-label col-md-3">Username <span class="required">*</span></label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control"  placeholder="" name="username">
-                                    <label for="form_control_1"></label>
-                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                    <input type="text" class="form-control form-md-line-input" name="username">
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Email <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
+                                    <input type="email" name="email" id="email" class="form-control">
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3">Confirm Email <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
+                                    <input type="email" name="confirm_email" id="confirm_email" class="form-control">
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3">Password<span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
+                                    <input type="password" name="password" id="password" class="form-control">
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3">Confirm Password<span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
+                                    <input type="password" name="confirm_password" id="confirm_password" class="form-control">
+                                    <label></label>
                                 </div>
                             </div>
                         </div>
@@ -115,64 +116,62 @@
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> First Name <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
+                                    <input type="text" class="form-control" name="first_name">
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Last Name <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
+                                    <input type="text" class="form-control"  name="last_name">
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Nick Name <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
+                                    <input type="text" class="form-control"  name="nick_name">
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Telephone <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
+                                    <input type="text" class="form-control" name="telephone">
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Date of Birth <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
+                                    <input type="text" class="form-control"  name="date_of_birth">
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Gender <span class="required"> * </span> </label>
                                 <div class="col-md-6">
                                     <select class="form-control" >
-                                        <option value=""></option>
-                                        <option value="">Male</option>
-                                        <option value="">Female</option>
-                                        <option value="">Other</option>
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
                                     </select>
-                                    <label for="form_control_1"></label>
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Location <span class="required"> * </span> </label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
-                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                    <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Address <span class="required"> * </span> </label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
-                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                    <label></label>
                                 </div>
                             </div>
 
@@ -183,9 +182,9 @@
                                 <label class="control-label col-md-3"> Upload image <span class="required"> * </span> </label>
                                 <div class="col-md-6">
                                     <div  class="dropzone dropzone-file-area" id="my-dropzone" >
-                                        <!--<label>*Upload Image</label>-->
+                                        <label>*Upload Image</label>
                                         <h3 class="sbold">Click to upload</h3>
-                                        <p> Lorem ipsum doller sit amet </p>
+                                        <p> Profile Images </p>
                                     </div>
                                 </div>
                             </div>
@@ -307,7 +306,5 @@
         </form>
     </div>
 </div>
-
-
-</div>
-</div>
+<script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/form-wizard.js" type="text/javascript"></script>

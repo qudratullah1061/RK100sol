@@ -361,24 +361,24 @@ body {
     .form-group.form-md-line-input .input-group.input-group-lg .help-block {
       margin-top: 47px; }
   .form-group.form-md-line-input.has-success .form-control {
-    border-bottom: 1px solid #27a4b0; }
+    border-bottom: 1px solid #800080; }
     .form-group.form-md-line-input.has-success .form-control.edited:not([readonly]) ~ label:after,
     .form-group.form-md-line-input.has-success .form-control.edited:not([readonly]) ~ .form-control-focus:after, .form-group.form-md-line-input.has-success .form-control.form-control-static ~ label:after,
     .form-group.form-md-line-input.has-success .form-control.form-control-static ~ .form-control-focus:after, .form-group.form-md-line-input.has-success .form-control:focus:not([readonly]) ~ label:after,
     .form-group.form-md-line-input.has-success .form-control:focus:not([readonly]) ~ .form-control-focus:after, .form-group.form-md-line-input.has-success .form-control.focus:not([readonly]) ~ label:after,
     .form-group.form-md-line-input.has-success .form-control.focus:not([readonly]) ~ .form-control-focus:after {
-      background: #27a4b0; }
+      background: #800080; }
     .form-group.form-md-line-input.has-success .form-control.edited:not([readonly]) ~ label, .form-group.form-md-line-input.has-success .form-control.form-control-static ~ label, .form-group.form-md-line-input.has-success .form-control:focus:not([readonly]) ~ label, .form-group.form-md-line-input.has-success .form-control.focus:not([readonly]) ~ label {
-      color: #27a4b0; }
+      color: #800080; }
     .form-group.form-md-line-input.has-success .form-control.edited:not([readonly]) ~ i, .form-group.form-md-line-input.has-success .form-control.form-control-static ~ i, .form-group.form-md-line-input.has-success .form-control:focus:not([readonly]) ~ i, .form-group.form-md-line-input.has-success .form-control.focus:not([readonly]) ~ i {
-      color: #27a4b0; }
+      color: #800080; }
     .form-group.form-md-line-input.has-success .form-control.edited:not([readonly]) ~ .help-block, .form-group.form-md-line-input.has-success .form-control.form-control-static ~ .help-block, .form-group.form-md-line-input.has-success .form-control:focus:not([readonly]) ~ .help-block, .form-group.form-md-line-input.has-success .form-control.focus:not([readonly]) ~ .help-block {
-      color: #27a4b0; }
+      color: #800080; }
   .form-group.form-md-line-input.has-success .input-group-addon {
-    color: #27a4b0;
-    border-bottom: 1px solid #27a4b0; }
+    color: #800080;
+    border-bottom: 1px solid #800080; }
   .form-group.form-md-line-input.has-success label {
-    color: #27a4b0; }
+    color: #800080; }
   .form-group.form-md-line-input.has-warning .form-control {
     border-bottom: 1px solid #c29d0b; }
     .form-group.form-md-line-input.has-warning .form-control.edited:not([readonly]) ~ label:after,
@@ -572,15 +572,15 @@ body {
 
 .has-success .md-checkbox label,
 .has-success.md-checkbox label {
-  color: #27a4b0; }
+  color: #800080; }
 
 .has-success .md-checkbox label > .box,
 .has-success.md-checkbox label > .box {
-  border-color: #27a4b0; }
+  border-color: #800080; }
 
 .has-success .md-checkbox label > .check,
 .has-success.md-checkbox label > .check {
-  border-color: #27a4b0; }
+  border-color: #800080; }
 
 .has-warning .md-checkbox label,
 .has-warning.md-checkbox label {
@@ -756,15 +756,15 @@ body {
 
 .has-success .md-radio label,
 .has-success.md-radio label {
-  color: #27a4b0; }
+  color: #800080; }
 
 .has-success .md-radio label > .box,
 .has-success.md-radio label > .box {
-  border-color: #27a4b0; }
+  border-color: #800080; }
 
 .has-success .md-radio label > .check,
 .has-success.md-radio label > .check {
-  background: #27a4b0; }
+  background: #800080; }
 
 .has-warning .md-radio label,
 .has-warning.md-radio label {
@@ -7016,7 +7016,7 @@ Customized Bootstrap Labels
 .label-success {
   background-color: #800080; }
   .label-success[href]:hover, .label-success[href]:focus {
-    background-color: #27a4b0; }
+    background-color: #800080; }
 
 .label-info {
   background-color: #659be0; }
@@ -7081,27 +7081,27 @@ Customized List Group
   border-radius-bottomright: 4px; }
 
 .list-group .list-group-item-success {
-  color: #27a4b0;
+  color: #800080;
   background-color: #abe7ed; }
 
 .list-group a.list-group-item-success,
 .list-group button.list-group-item-success {
-  color: #27a4b0; }
+  color: #800080; }
   .list-group a.list-group-item-success .list-group-item-heading,
   .list-group button.list-group-item-success .list-group-item-heading {
     color: inherit; }
   .list-group a.list-group-item-success:hover, .list-group a.list-group-item-success:focus,
   .list-group button.list-group-item-success:hover,
   .list-group button.list-group-item-success:focus {
-    color: #27a4b0;
+    color: #800080;
     background-color: #96e1e8; }
   .list-group a.list-group-item-success.active, .list-group a.list-group-item-success.active:hover, .list-group a.list-group-item-success.active:focus,
   .list-group button.list-group-item-success.active,
   .list-group button.list-group-item-success.active:hover,
   .list-group button.list-group-item-success.active:focus {
     color: #fff;
-    background-color: #27a4b0;
-    border-color: #27a4b0; }
+    background-color: #800080;
+    border-color: #800080; }
 
 .list-group .list-group-item-info {
   color: #327ad5;
@@ -18945,7 +18945,7 @@ body.stop-scrolling {
       background-color: #800080;
       color: #fff; }
       .mt-element-ribbon .ribbon.ribbon-color-success:after {
-        border-color: #27a4b0; }
+        border-color: #800080; }
       .mt-element-ribbon .ribbon.ribbon-color-success > .ribbon-sub {
         background-color: #800080;
         color: #020808; }

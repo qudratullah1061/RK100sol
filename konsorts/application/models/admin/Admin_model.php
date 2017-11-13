@@ -68,18 +68,20 @@ class Admin_model extends Abstract_model {
         return $results_array;
     }
 
-    public function is_admin_username_exist($username) {
+    public function is_admin_username_exist($username, $exclude_id) {
+        $exclude_id = $exclude_id > 0 ? $exclude_id : $this->session->userdata('admin_id');
         $this->db->select('admin_id');
-        $this->db->where(array('username' => $username, 'admin_id!=' => $this->session->userdata('admin_id')));
+        $this->db->where(array('username' => $username, 'admin_id!=' => $exclude_id));
         $result = $this->db->get($this->table_name)->result();
         if (!empty($result))
             return true;
         return false;
     }
 
-    public function is_admin_email_exist($email) {
+    public function is_admin_email_exist($email, $exclude_id) {
+        $exclude_id = $exclude_id > 0 ? $exclude_id : $this->session->userdata('admin_id');
         $this->db->select('admin_id');
-        $this->db->where(array('email' => $email, 'admin_id!=' => $this->session->userdata('admin_id')));
+        $this->db->where(array('email' => $email, 'admin_id!=' => $exclude_id));
         $result = $this->db->get($this->table_name)->result();
         if (!empty($result))
             return true;
@@ -88,6 +90,10 @@ class Admin_model extends Abstract_model {
 
     public function add_admin_user($data) {
         return $this->save($data);
+    }
+
+    public function update_admin_user($edit_id, $data) {
+        $this->updateBy('admin_id', $edit_id, $data);
     }
 
 }

@@ -27,7 +27,7 @@ class Admin_dashboard extends Admin_Controller {
     }
 
     public function admin_profile($user_id) {
-        if (!$user_id) {
+        if (!$user_id || ($user_id == 1 && $this->admin_info['admin_id'] != 1)) {
             redirect(base_url('admin/dashboard'));
         }
         $this->selected_tab = 'admin';
@@ -111,8 +111,8 @@ class Admin_dashboard extends Admin_Controller {
         die();
     }
 
-    public function is_admin_username_exist($username) {
-        $result = $this->Admin_Model->is_admin_username_exist($username);
+    public function is_admin_username_exist($username, $exclude_id) {
+        $result = $this->Admin_Model->is_admin_username_exist($username, $exclude_id);
         if ($result) {
             $this->form_validation->set_message('is_admin_username_exist', 'The %s already exist. Please choose other username!');
             return false;
@@ -120,8 +120,8 @@ class Admin_dashboard extends Admin_Controller {
         return true;
     }
 
-    public function is_admin_email_exist($email) {
-        $result = $this->Admin_Model->is_admin_email_exist($email);
+    public function is_admin_email_exist($email, $exclude_id) {
+        $result = $this->Admin_Model->is_admin_email_exist($email, $exclude_id);
         if ($result) {
             $this->form_validation->set_message('is_admin_email_exist', 'The %s already exist. Please choose other email!');
             return false;
@@ -133,13 +133,16 @@ class Admin_dashboard extends Admin_Controller {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
+            $edit_id = $this->input->post('admin_id') > 0 ? $this->input->post('admin_id') : 0;
             $this->form_validation->set_rules('first_name', 'First Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('username', 'Username', 'required|trim|strip_tags|xss_clean|callback_is_admin_username_exist');
-            $this->form_validation->set_rules('email', 'Email', 'required|trim|strip_tags|xss_clean|callback_is_admin_email_exist');
+            $this->form_validation->set_rules('username', 'Username', 'required|trim|strip_tags|xss_clean|callback_is_admin_username_exist[' . $edit_id . ']');
+            $this->form_validation->set_rules('email', 'Email', 'required|trim|strip_tags|xss_clean|callback_is_admin_email_exist[' . $edit_id . ']');
             $this->form_validation->set_rules('about_me', 'About Me', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('password', 'Password', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|trim|strip_tags|xss_clean|matches[password]');
+            if (!$edit_id || ($this->input->post('password') != "" || $this->input->post('confirm_password') != "")) {
+                $this->form_validation->set_rules('password', 'Password', 'required|trim|strip_tags|xss_clean');
+                $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|trim|strip_tags|xss_clean|matches[password]');
+            }
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
@@ -149,26 +152,41 @@ class Admin_dashboard extends Admin_Controller {
                 $data['last_name'] = $this->input->post('last_name');
                 $data['username'] = $this->input->post('username');
                 $data['email'] = $this->input->post('email');
-                $data['password'] = $this->input->post('password');
+                if ($this->input->post('password') != "" || $this->input->post('confirm_password') != "") {
+                    $data['password'] = md5($this->input->post('password'));
+                }
                 $data['about_me'] = $this->input->post('about_me');
                 $data['facebook_link'] = $this->input->post('facebook_link');
                 $data['twitter_link'] = $this->input->post('twitter_link');
                 $data['linkedin_link'] = $this->input->post('linkedin_link');
                 $data['instagram_link'] = $this->input->post('instagram_link');
-                $data['updated_on'] = $data['created_on'] = date("Y-m-d H:m:i");
-                $data['updated_by'] = $data['created_by'] = date("Y-m-d H:m:i");
-                // upload image
-                $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-                $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-                $result = UploadImage('image', "uploads/admin/admin_profiles", TRUE, $thumb_options);
-                if (isset($result['error'])) {
-                    $this->_response(true, $result['error']);
+                $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
+                $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');
+                if ($edit_id > 0) {
+                    // unset created on
+                    unset($data['created_on']);
+                    unset($data['created_by']);
                 }
-                $data['image'] = $result['upload_data']['file_name'];
-                $data['image_path'] = $result['upload_data']['file_path'];
-                $insert_id = $this->Admin_Model->add_admin_user($data);
-                if ($insert_id) {
-                    $this->_response(false, "New admin added successfully!");
+                // upload image
+                if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != "") {
+                    $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                    $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                    $result = UploadImage('image', "uploads/admin/admin_profiles", TRUE, $thumb_options);
+                    if (isset($result['error'])) {
+                        $this->_response(true, $result['error']);
+                    }
+                    $data['image'] = $result['upload_data']['file_name'];
+                    $data['image_path'] = $result['upload_data']['file_path'];
+                }
+                $result = false;
+                if ($edit_id > 0) {
+                    $this->Admin_Model->update_admin_user($edit_id, $data);
+                    $result = true;
+                } else {
+                    $result = $this->Admin_Model->add_admin_user($data);
+                }
+                if ($result) {
+                    $this->_response(false, "Changes saved successfully!");
                 }
             }
         } else {
