@@ -76,15 +76,18 @@ class Admin_dashboard extends Admin_Controller {
         $count = $admins['total'];
         if ($count > 0) {
             foreach ($admins['admin_users'] as $result) {
+                $actions = '<a class="btn btn-xs default btn-editable" href="' . base_url('admin/admin_dashboard/admin_profile/' . $result['admin_id']) . '">Edit</a>';
+                if ($result["admin_id"] != 1) {
+                    $actions .='<a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(' . $result["admin_id"] . ',\'tb_admin_users\' , \'admin_id\' , \'User will be permanently deleted without further warning. Do you really want to delete this user?\')">Delete</a>';
+                }
                 $records["data"][] = array(
-                    '<img alt="Profile Image" class="img-circle" src="' . base_url($result['image_path'] . $result['image']) . '">',
+                    '<img alt="Profile Image" class="img-circle" src="' . base_url($result['image_path'] . '/small_' . $result['image']) . '">',
                     $result['username'],
                     $result['first_name'],
                     $result['last_name'],
                     $result['email'],
                     $result['updated_on'],
-//                    '<a class="btn btn-xs default btn-editable" onclick="upload_file(' . $result["type_id"] . ');">File Upload</a>',
-                    '<a class="btn btn-xs default btn-editable" onclick="show_edit(' . $result['admin_id'] . ')">Edit</a> <a class="btn btn-xs default btn-editable" onclick="delete_type(' . $result["admin_id"] . ');">Delete</a> '
+                    $actions
                 );
             }
         }
@@ -155,7 +158,9 @@ class Admin_dashboard extends Admin_Controller {
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d H:m:i");
                 $data['updated_by'] = $data['created_by'] = date("Y-m-d H:m:i");
                 // upload image
-                $result = UploadImage('image', "uploads/admin/admin_profiles");
+                $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                $result = UploadImage('image', "uploads/admin/admin_profiles", TRUE, $thumb_options);
                 if (isset($result['error'])) {
                     $this->_response(true, $result['error']);
                 }
@@ -163,7 +168,7 @@ class Admin_dashboard extends Admin_Controller {
                 $data['image_path'] = $result['upload_data']['file_path'];
                 $insert_id = $this->Admin_Model->add_admin_user($data);
                 if ($insert_id) {
-                    $this->_response(false, "New admin added successfully.");
+                    $this->_response(false, "New admin added successfully!");
                 }
             }
         } else {

@@ -18,7 +18,7 @@ var AdminUsers = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    window.location.reload();
+                    $('#datatable_adminusers').DataTable().ajax.reload();
                 } else {
                     toastr["error"](data.description, "Error!");
                 }
@@ -125,7 +125,7 @@ var AdminUsers = function () {
     return {
         modal_add_admin: function () {
             show_modal_add_admin();
-        }
+        },
     };
 }();
 

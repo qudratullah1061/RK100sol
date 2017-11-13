@@ -24,7 +24,7 @@ function GetAdminInfoWithId($UserId) {
     }
 }
 
-function UploadImage($file_field_name, $upload_path) {
+function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thump_options = array()) {
     global $CI;
     $config['upload_path'] = $CI->config->item('root_path') . $upload_path;
     $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -37,24 +37,30 @@ function UploadImage($file_field_name, $upload_path) {
         return $error;
     } else {
         $data = array('upload_data' => $CI->upload->data());
-        $data['upload_data']['file_path'] = str_replace($CI->config->item('root_path'), base_url(), $data['upload_data']['file_path']);
-        $data['upload_data']['full_path'] = str_replace($CI->config->item('root_path'), base_url(), $data['upload_data']['full_path']);
+        if ($create_thumb) {
+            CreateThumbnail($data['upload_data']['full_path'], $config['upload_path'], $thump_options);
+        }
+        $data['upload_data']['file_path'] = str_replace($CI->config->item('root_path'), "", $data['upload_data']['file_path']);
+        $data['upload_data']['full_path'] = str_replace($CI->config->item('root_path'), "", $data['upload_data']['full_path']);
         return $data;
     }
 }
 
-function CreateThumbnail($source, $destination, $width = 0, $height = 0) {
-    $this->load->library('image_lib');
+function CreateThumbnail($source, $destination, $thump_options) {
+    global $CI;
+    $CI->load->library('image_lib');
     $config['image_library'] = 'gd2';
     $config['source_image'] = $source;
     $config['new_image'] = $destination;
+//    $config['quality'] = "90%";
     $config['create_thumb'] = TRUE;
     $config['maintain_ratio'] = TRUE;
-    if ($width > 0 && $height > 0) {
-        $config['width'] = $width;
-        $config['height'] = 50;
+    foreach ($thump_options as $options) {
+        $config['width'] = $options['width'];
+        $config['height'] = $options['height'];
+        $config['thumb_marker'] = $options['prefix'];
+        $CI->image_lib->initialize($config);
+        $CI->image_lib->resize();
+        $CI->image_lib->clear();
     }
-    $this->image_lib->initialize($config);
-    $this->image_lib->resize();
-    $this->image_lib->clear();
 }

@@ -8,9 +8,7 @@
 var DatatablesObj = function () {
 
     var InitAdminUsersDatatable = function (tableId) {
-
         var grid = new Datatable();
-
         grid.init({
             src: $("#" + tableId),
             onSuccess: function (grid, response) {

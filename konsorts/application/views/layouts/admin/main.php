@@ -49,6 +49,7 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/layouts/layout/css/custom.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> 
@@ -281,7 +282,7 @@
             <!-- BEGIN FOOTER -->
             <div class="page-footer">
                 <div class="page-footer-inner"> <?php echo date('Y'); ?> &copy; Konsorts Admin Panel. System Developed by 
-                    <a target="_blank" href="http://keenthemes.com">100solutionz.net</a>
+                    <a target="_blank" href="http://100solutionz.net">100solutionz.net</a>
                 </div>
                 <div class="scroll-to-top">
                     <i class="icon-arrow-up"></i>
@@ -318,6 +319,7 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <!--Modal scripts-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
@@ -326,7 +328,7 @@
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="<?php echo base_url(); ?>assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="<?php echo base_url(); ?>assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
@@ -340,17 +342,13 @@
         <!--Form Wizard Validation end-->
         <!--dropzone-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
-        <!--<script src="<?php // echo base_url();     ?>assets/pages/scripts/form-dropzone.min.js" type="text/javascript"></script>-->
+        <!--<script src="<?php // echo base_url();      ?>assets/pages/scripts/form-dropzone.min.js" type="text/javascript"></script>-->
         <!--profile js-->
-        <script src="<?php echo base_url(); ?>assets/pages/scripts/profile.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/common_functions.js" type="text/javascript"></script>
         <script>
-            $(document).ready(function ()
-            {
-                $('#clickmewow').click(function ()
-                {
-                    $('#radio1003').attr('checked', 'checked');
-                });
-            })
+            $(document).ready(function (){
+                GlobalPlugins.initToasterPlugin();
+            });
         </script>
     </body>
 

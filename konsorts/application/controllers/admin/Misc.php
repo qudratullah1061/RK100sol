@@ -83,4 +83,16 @@ class Misc extends Admin_Controller {
         exit();
     }
 
+    public function DeleteRecord() {
+        $this->isAjax();
+        $unique_id = $this->input->post('unique_id');
+        $table = $this->input->post('table');
+        $column = $this->input->post('column');
+        $result = $this->Misc_Model->DeleteRecord($unique_id, $table, $column);
+        if ($result) {
+            $this->_response(false, "Record deleted successfully!");
+        }
+        $this->_response(true, "Problem while deleting record.");
+    }
+
 }

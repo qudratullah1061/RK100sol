@@ -7,6 +7,7 @@
 include_once(APPPATH . 'models/Abstract_model.php');
 
 class Misc_model extends Abstract_model {
+
     //Model Constructor
     function __construct() {
         // inherited from base class.
@@ -38,6 +39,11 @@ class Misc_model extends Abstract_model {
         $results_array['query'] = $sql;
         $results_array['total'] = $count[0]['total'];
         return $results_array;
+    }
+
+    public function DeleteRecord($unique_id, $table, $column) {
+        $this->table_name = $table;
+        return $this->deleteBy($column, $unique_id);
     }
 
 }
