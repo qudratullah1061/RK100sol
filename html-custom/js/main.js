@@ -183,7 +183,7 @@ function validationSearchForm() {
     $('#search-header input[type=text]').each(function (index) {
         if (index === 0) {
             if ($(this).val() === null || $(this).val() === "") {
-                $("#search-header").find("input:eq(" + index + ")").css({"border": "none", "border-bottom": "2px solid red"});
+                $("#search-header").find("input:eq(" + index + ")").css({"border": "none", "border-bottom": "2px solid #fff"});
                 error = false;
             } else {
                 $("#search-header").find("input:eq(" + index + ")").css({"border": "none", "border-bottom": "2px solid #000"});
@@ -618,10 +618,27 @@ $(document).ready(function () {
     var swiperMultyRow = new Swiper('.swiper-multy-row-container', {
         nextButton: '.swiper-portfolio-next',
         prevButton: '.swiper-portfolio-prev',
-        slidesPerView: 4,
+        slidesPerView: 6,
         spaceBetween: 15,
         scrollbarSnapOnRelease: true,
         autoplay: 3000,
+        autoplayDisableOnInteraction: true,
+        breakpoints: {
+            991: {
+                slidesPerView: 2
+            },
+            767: {
+                slidesPerView: 1
+            }
+        }
+    });
+    var swiperMultyRow = new Swiper('.swiper-multy-row-container-5', {
+        nextButton: '.swiper-portfolio-next',
+        prevButton: '.swiper-portfolio-prev',
+        slidesPerView: 5,
+        spaceBetween: 15,
+        scrollbarSnapOnRelease: true,
+        autoplay: false,
         autoplayDisableOnInteraction: true,
         breakpoints: {
             991: {
@@ -2048,7 +2065,7 @@ $(document).ready(function () {
 
     $("input.search-input").on("keyup", function (event) {
         if ($(this).val() == null || $(this).val() == "") {
-            $(this).css({ "border": "none", "border-bottom": "2px solid red" });
+            $(this).css({ "border": "none", "border-bottom": "2px solid #fff" });
         } else {
             $(this).css({ "border": "none", "border-bottom": "2px solid rgba(255,255,255,0.5)" });
         }
@@ -2291,7 +2308,7 @@ $(document).ready(function () {
     //demo button  - START CODE
     /*==============================================================*/
 
-    var $buythemediv = '<div class="buy-theme alt-font sm-display-none"><a href="https://themeforest.net/user/themezaa/portfolio?ref=themezaa" target="_blank"><i class="ti-shopping-cart"></i><span>Buy Theme</span></a></div><div class="all-demo alt-font sm-display-none"><a href="mailto:info@themezaa.com?subject=POFO – Creative Agency, Corporate and Portfolio Multi-purpose Template - Quick Question"><i class="ti-email"></i><span>Quick Question?</span></a></div>';
+    var $buythemediv = '<div class="buy-theme alt-font sm-display-none"><a href="https://themeforest.net/user/themezaa/portfolio?ref=themezaa" target="_blank"><i class="ti-shopping-cart"></i><span>Buy Theme</span></a></div><div class="all-demo alt-font sm-display-none"><a href="mailto:info@themezaa.com?subject=POFO ï¿½ Creative Agency, Corporate and Portfolio Multi-purpose Template - Quick Question"><i class="ti-email"></i><span>Quick Question?</span></a></div>';
     $('body').append($buythemediv);
 
     /*==============================================================*/
@@ -2331,3 +2348,38 @@ $(window).load(function () {
 /* ===================================
  END Page Load
  ====================================== */
+
+
+
+ $('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
+ $('.quantity').each(function() {
+   var spinner = $(this),
+     input = spinner.find('input[type="number"]'),
+     btnUp = spinner.find('.quantity-up'),
+     btnDown = spinner.find('.quantity-down'),
+     min = input.attr('min'),
+     max = input.attr('max');
+
+   btnUp.click(function() {
+     var oldValue = parseFloat(input.val());
+     if (oldValue >= max) {
+       var newVal = oldValue;
+     } else {
+       var newVal = oldValue + 1;
+     }
+     spinner.find("input").val(newVal);
+     spinner.find("input").trigger("change");
+   });
+
+   btnDown.click(function() {
+     var oldValue = parseFloat(input.val());
+     if (oldValue <= min) {
+       var newVal = oldValue;
+     } else {
+       var newVal = oldValue - 1;
+     }
+     spinner.find("input").val(newVal);
+     spinner.find("input").trigger("change");
+   });
+
+ });

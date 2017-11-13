@@ -1,0 +1,142 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 12, 2017, 11:42:34 PM
+    Author     : Bilawal
+*/
+/*================== Header style ===================*/
+header a.logo img {max-height: unset;}
+.bg-lightgray{background-color: #f8f8f8;}
+header.sticky nav.navbar-fixed-top.header-light{background-color: #f8f8f8;}
+header.sticky nav.header-light .logo .logo-light {visibility: visible;opacity: 1;width: auto;transition-duration: 0.5s;-webkit-transition-duration: 0.5s;-moz-transition-duration: 0.5s;-ms-transition-duration: 0.5s;-o-transition-duration: 0.5s;}
+header.sticky nav.header-light .logo .logo-dark {visibility: hidden;opacity: 0;width: 0;transition-duration: 0.5s;-webkit-transition-duration: 0.5s;-moz-transition-duration: 0.5s;-ms-transition-duration: 0.5s;-o-transition-duration: 0.5s;}
+header a.logo {display: inline-block;vertical-align: middle;}
+.simple-dropdown .dropdown-menu, nav.navbar.bootsnav .simple-dropdown .dropdown-menu > li.dropdown > ul, 
+nav.navbar.bootsnav li.dropdown .mega-menu-full,
+nav.navbar.bootsnav li.dropdown .menu-back-div > ul{
+    background: purple;
+}
+.btn.btn-purple {background: purple;border-color: purple;color: #fff;}
+.btn.btn-purple:hover, .btn.btn-purple:focus {background: #fff;border-color:#fff;color:purple;}
+.btn.btn-transparent-purple {background: transparent;border-color: purple;color: purple;}
+.btn.btn-transparent-purple:hover, .btn.btn-transparent-purple:focus {background: purple;border-color:purple;color: #ffffff;}
+.btn.btn-white:hover, .btn.btn-white:focus {background: transparent;color: #fff;}
+.btn.btn-white:hover, .btn.btn-white:focus {background: purple;border-color:purple;color: #fff;}
+nav.navbar.bootsnav li.dropdown .mega-menu-full > ul li a, 
+.simple-dropdown .dropdown-menu > li > a,
+.simple-dropdown .dropdown-menu > li.dropdown > ul li a{
+    color: rgba(255, 255, 255, 0.82);
+  }
+nav.navbar.navbar-default ul.nav > li > a {padding: 30px 0;}
+header.header-appear nav.bootsnav.header-light-transparent .navbar-nav > li > a:hover, 
+header.header-appear nav.bootsnav.header-light .navbar-nav > li > a:hover, 
+header.header-appear nav.header-light-transparent .header-social-icon a:hover, 
+header.header-appear nav.header-light .header-social-icon a:hover, 
+header.header-appear nav.header-light.white-link .header-social-icon a:hover, 
+header.header-appear nav.header-light-transparent.white-link .header-social-icon a:hover, 
+header.header-appear nav.header-light-transparent.white-link .heder-menu-button a:hover, 
+header.header-appear nav.header-light-transparent .header-searchbar a:hover, 
+header.header-appear nav.header-light .header-searchbar a:hover, 
+header.header-appear nav.header-light.white-link .header-searchbar a:hover, 
+header.header-appear nav.header-light-transparent.white-link .header-searchbar a:hover, 
+header nav.navbar .navbar-nav > li > a:hover, nav.navbar.bootsnav ul.nav > li > a:hover, 
+.header-social-icon a:hover,header nav.navbar .navbar-nav > li.active > a, 
+nav.navbar.bootsnav ul.nav > li.active > a {
+    color: #fff !important;
+    background: purple !important;
+}
+nav.navbar.navbar-default ul.nav > li > a {padding: 30px 20px;}
+header nav .navbar-nav > li > a {margin: 0;}
+header.sticky nav.navbar.navbar-default.navbar-fixed-top ul.nav > li > a, header.sticky nav.navbar.navbar-default.navbar-top ul.nav > li > a {
+    padding: 26px 10px 26px;
+}
+.mfp-bg {background: purple;}
+.home-slider {margin-top: 80px;}
+.home-slider .swiper-slide img {visibility: hidden;opacity: 0;width: 100%; min-height: 558px;}
+.home-slider .swiper-slide::before{ content: '';width: 100%; display: block;position: absolute;height: 100%;background-color: rgba(0, 0, 0, 0.34);z-index: 1;}
+.swiper-pagination-bullet { background: #fff; opacity: 1;}
+.swiper-pagination-bullet-active { background:purple;}
+
+.ReantFriendBox { background: rgba(255, 255, 255, 0.75); outline: 6px solid rgba(255, 255, 255, 0.33); padding: 30px 30px 12px;}
+.ReantFriendBox input.medium-input, .ReantFriendBox select{background-color: #fff; border: 0;}
+.ReantFriendBox label{color: #707070; font-weight: normal; text-transform: uppercase; font-size: 12px;margin-left: 3px;}
+.rentfriendbox {position: absolute;top: 45%; right: 0px; left: 0px; margin: auto; z-index: 2; transform: translateY(-50%); width: 730px; max-width: 100%;}
+.rentfriendbox h2 {text-transform: uppercase;text-align: center; color: #fff; font-size: 48px; font-weight: lighter; margin: 20px 0 0 0;}
+.rentfriendbox p {text-transform: uppercase; text-align: center; color: #fff; font-size: 14px; margin: 8px 0px 25px; font-weight: 300;}
+.rentfriendbox button#project-contact-us-button {width: 100%; padding: 7px; font-size: 15px; font-weight: normal;}
+
+/*=============== Quantityinput type number style =============*/
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance: none; margin: 0;}
+input[type=number]{-moz-appearance: textfield;}  
+.quantity {position: relative;width: 100%; margin-bottom: 11px;display: inline-block;}
+.quantity input {    width: 45px;    height: 42px;    line-height: 1.65;    float: left;    display: block;    padding: 0;    margin: 0;    padding-left: 20px;    /* border: 1px solid #707070; */    width:100%;  }  
+.quantity input:focus {    outline: 0;  }  
+.quantity-nav {    float: left;    position: relative;    height: 42px;  }  
+.quantity-nav>div {    font-size: 16px;    line-height: 1.2;    color: #707070;    background-color: #afabaa;    color:#fff;    transition: all 0.3s ease;}
+.quantity-nav>div:hover{background-color: purple; transition: all 0.3s ease;}
+.quantity-button {    position: relative;    cursor: pointer;    /* border-left: 1px solid #999999; */    width: 20px;    text-align: center;    color: #333;    font-size: 13px;    font-family: "Trebuchet MS", Helvetica, sans-serif !important;    line-height: 1.7;    -webkit-transform: translateX(-100%);    transform: translateX(-100%);    -webkit-user-select: none;    -moz-user-select: none;    -ms-user-select: none;    -o-user-select: none;    user-select: none;  }  
+.quantity-button.quantity-up {    position: absolute;    height: 50%;    top: 0;    /* border-bottom: 1px solid #999999; */  }
+.quantity-button.quantity-down {    position: absolute;    bottom: -1px;    height: 50%;    border-top: 1px solid #999999;  }
+
+/*===================== Members Profle ===================*/
+.members-profile .padding-twelve-all{padding:20px;}
+.members-profile .bg-extra-dark-gray {
+    background: purple;
+}
+.members-profile .container .hover-option4 .grid-item figcaption {
+    padding: 4px;
+}
+.members-profile .separator-line-horrizontal-full {
+    width: 100%;
+    height: 1px;
+    top: -25px;
+    position: relative;
+}
+.text-medium-white{color:rgba(255,255,255,.5)}
+.members-profile h5 {
+    color: purple;
+    margin-bottom: 0;
+    margin-top: 40px;
+    display: inline-block;
+    width: 100%;
+}
+
+.members-profile h5, .members-profile p {
+    padding-left: 15px;
+}
+section.wow.fadeIn.members-profile {
+    padding-top: 50px;
+    padding-bottom: 110px;
+}
+.text-purple{color:purple}
+section {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*================== Media Quries ================*/
+@media(min-width:992px){
+    .col-md-3.remove-padd-left {padding-left: 0;}
+    .rentfriendbox button#project-contact-us-button{margin-top: 29px;}
+}
