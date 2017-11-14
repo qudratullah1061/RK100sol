@@ -7,9 +7,54 @@ and open the template in the editor.
     Created on : Nov 12, 2017, 11:42:34 PM
     Author     : Bilawal
 */
-/*================== Header style ===================*/
+/*================== General style ===================*/
 header a.logo img {max-height: unset;}
 .bg-lightgray{background-color: #f8f8f8;}
+.bg-purple{background: purple;}
+.bg-extra-purple{background: #4d054d;}
+.bg-light-white{background: rgba(247, 247, 247, 0.42);}
+.bg-white-important{background-color: #fff !important;}
+.text-medium-white{color:rgba(255,255,255,.5);}
+.text-purple{color:purple;}
+.text-extra-purple{color:#4d054d;}
+.btn.btn-purple {background: purple;border-color: purple;color: #fff;}
+.btn.btn-purple:hover, .btn.btn-purple:focus {background: #fff;border-color:#fff;color:purple;}
+
+.btn.btn-extra-purple {background: #4d054d;border-color: #4d054d;color: #fff;}
+.btn.btn-extra-purple:hover, .btn.btn-extra-purple:focus {background: #fff;border-color:#fff;color:pu#4d054drple;}
+
+.btn.btn-transparent-purple {background: transparent;border-color: purple;color: purple;}
+.btn.btn-transparent-purple:hover, .btn.btn-transparent-purple:focus {background: purple;border-color:purple;color: #ffffff;}
+.btn.btn-white, .btn.btn-white {background: transparent;color: #fff;}
+.btn.btn-white:hover, .btn.btn-white:focus {background: purple;border-color:purple;color: #fff;}
+.btn.btn-deep-purple { background: purple; border-color: purple; color: #ffffff;}
+.btn.btn-deep-purple:hover, .btn.btn-deep-purple:focus { background: transparent; color: purple;}
+.btn.btn-extra-deep-purple { background: #4d054d; border-color: #4d054d; color: #ffffff;}
+.btn.btn-extra-deep-purple:hover, .btn.btn-extra-deep-purple:focus { background: transparent; color: #4d054d;}
+.border-deep-purple{    border: 1px solid #4d054d;}
+.border-none{border:0;}
+.border-purple{    border: 1px solid purple;}
+.margin-bottom-0{margin-bottom:0}
+.margin-bottom-5px{margin-bottom:5px}
+.margin-bottom-10px{margin-bottom:10px}
+.margin-top-10px{margin-top:10px}
+.margin-top-20px{margin-top:20px}
+.margin-top-30px{margin-top:30px}
+
+.padding-top-bottom-40px{padding-top: 40px; padding-bottom:40px;}
+.padding-top-bottom-50px{padding-top: 50px; padding-bottom:50px;}
+.padding-left-90{    padding-left: 90px;}
+
+.placeholder-purple::-webkit-input-placeholder {color: purple;}
+.placeholder-purple::-moz-placeholder {color: purple;}
+.placeholder-purple:-ms-input-placeholder {color: purple;}
+.placeholder-purple:-moz-placeholder {color: purple;}
+.placeholder-white::-webkit-input-placeholder {color: white;}
+.placeholder-white::-moz-placeholder {color: white;}
+.placeholder-white:-ms-input-placeholder {color: white;}
+.placeholder-white:-moz-placeholder {color: white;}
+
+/*================== Header style ===================*/
 header.sticky nav.navbar-fixed-top.header-light{background-color: #f8f8f8;}
 header.sticky nav.header-light .logo .logo-light {visibility: visible;opacity: 1;width: auto;transition-duration: 0.5s;-webkit-transition-duration: 0.5s;-moz-transition-duration: 0.5s;-ms-transition-duration: 0.5s;-o-transition-duration: 0.5s;}
 header.sticky nav.header-light .logo .logo-dark {visibility: hidden;opacity: 0;width: 0;transition-duration: 0.5s;-webkit-transition-duration: 0.5s;-moz-transition-duration: 0.5s;-ms-transition-duration: 0.5s;-o-transition-duration: 0.5s;}
@@ -19,12 +64,29 @@ nav.navbar.bootsnav li.dropdown .mega-menu-full,
 nav.navbar.bootsnav li.dropdown .menu-back-div > ul{
     background: purple;
 }
-.btn.btn-purple {background: purple;border-color: purple;color: #fff;}
-.btn.btn-purple:hover, .btn.btn-purple:focus {background: #fff;border-color:#fff;color:purple;}
-.btn.btn-transparent-purple {background: transparent;border-color: purple;color: purple;}
-.btn.btn-transparent-purple:hover, .btn.btn-transparent-purple:focus {background: purple;border-color:purple;color: #ffffff;}
-.btn.btn-white:hover, .btn.btn-white:focus {background: transparent;color: #fff;}
-.btn.btn-white:hover, .btn.btn-white:focus {background: purple;border-color:purple;color: #fff;}
+header nav.header-light .logo .logo-light {
+    transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    height: 72px;
+}
+header.sticky nav.header-light .logo .logo-light {
+    transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    height: 60px;
+}
+header nav{
+    transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+}
 nav.navbar.bootsnav li.dropdown .mega-menu-full > ul li a, 
 .simple-dropdown .dropdown-menu > li > a,
 .simple-dropdown .dropdown-menu > li.dropdown > ul li a{
@@ -61,12 +123,12 @@ header.sticky nav.navbar.navbar-default.navbar-fixed-top ul.nav > li > a, header
 .swiper-pagination-bullet-active { background:purple;}
 
 .ReantFriendBox { background: rgba(255, 255, 255, 0.75); outline: 6px solid rgba(255, 255, 255, 0.33); padding: 30px 30px 12px;}
-.ReantFriendBox input.medium-input, .ReantFriendBox select{background-color: #fff; border: 0;}
+.ReantFriendBox input.medium-input {background-color: #fff; border: 0;}
 .ReantFriendBox label{color: #707070; font-weight: normal; text-transform: uppercase; font-size: 12px;margin-left: 3px;}
 .rentfriendbox {position: absolute;top: 45%; right: 0px; left: 0px; margin: auto; z-index: 2; transform: translateY(-50%); width: 730px; max-width: 100%;}
 .rentfriendbox h2 {text-transform: uppercase;text-align: center; color: #fff; font-size: 48px; font-weight: lighter; margin: 20px 0 0 0;}
 .rentfriendbox p {text-transform: uppercase; text-align: center; color: #fff; font-size: 14px; margin: 8px 0px 25px; font-weight: 300;}
-.rentfriendbox button#project-contact-us-button {width: 100%; padding: 7px; font-size: 15px; font-weight: normal;}
+.rentfriendbox button#project-contact-us-button {width: 100%; padding: 6px 7px; font-size: 15px; font-weight: normal;}
 
 /*=============== Quantityinput type number style =============*/
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance: none; margin: 0;}
@@ -95,7 +157,7 @@ input[type=number]{-moz-appearance: textfield;}
     top: -25px;
     position: relative;
 }
-.text-medium-white{color:rgba(255,255,255,.5)}
+
 .members-profile h5 {
     color: purple;
     margin-bottom: 0;
@@ -111,7 +173,7 @@ section.wow.fadeIn.members-profile {
     padding-top: 50px;
     padding-bottom: 110px;
 }
-.text-purple{color:purple}
+
 section {
     padding: 100px 0;
     overflow: hidden;
@@ -132,11 +194,14 @@ section {
 
 
 
-
-
+/* Footer */
+.footer-logo {
+    max-height: unset;
+}
+.list-style-3 li:before{background-color: purple; top: 11px;}
 
 /*================== Media Quries ================*/
 @media(min-width:992px){
     .col-md-3.remove-padd-left {padding-left: 0;}
-    .rentfriendbox button#project-contact-us-button{margin-top: 29px;}
+    .rentfriendbox button#project-contact-us-button{margin-top: 31px;}
 }
