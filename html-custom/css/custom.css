@@ -18,10 +18,10 @@ header a.logo img {max-height: unset;}
 .text-purple{color:purple;}
 .text-extra-purple{color:#4d054d;}
 .btn.btn-purple {background: purple;border-color: purple;color: #fff;}
-.btn.btn-purple:hover, .btn.btn-purple:focus {background: #fff;border-color:#fff;color:purple;}
+.btn.btn-purple:hover, .btn.btn-purple:focus {background: #4d054d;border-color:#4d054d;color:#fff;}
 
 .btn.btn-extra-purple {background: #4d054d;border-color: #4d054d;color: #fff;}
-.btn.btn-extra-purple:hover, .btn.btn-extra-purple:focus {background: #fff;border-color:#fff;color:pu#4d054drple;}
+.btn.btn-extra-purple:hover, .btn.btn-extra-purple:focus {background: #fff;border-color:#fff;color:#4d054;}
 
 .btn.btn-transparent-purple {background: transparent;border-color: purple;color: purple;}
 .btn.btn-transparent-purple:hover, .btn.btn-transparent-purple:focus {background: purple;border-color:purple;color: #ffffff;}
