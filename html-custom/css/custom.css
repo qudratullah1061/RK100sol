@@ -57,6 +57,9 @@ header a.logo img {max-height: unset;}
 .placeholder-white:-moz-placeholder {color: white;}
 
 a:hover, a:active{color:purple;}
+.bg-jelly-bean {
+    background-color: #6d919d;
+}
 /*================== Header style ===================*/
 header.sticky nav.navbar-fixed-top.header-light{background-color: #f8f8f8;}
 header.sticky nav.header-light .logo .logo-light {visibility: visible;opacity: 1;width: auto;transition-duration: 0.5s;-webkit-transition-duration: 0.5s;-moz-transition-duration: 0.5s;-ms-transition-duration: 0.5s;-o-transition-duration: 0.5s;}
