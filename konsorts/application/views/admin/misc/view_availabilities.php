@@ -23,7 +23,7 @@
                 <div class="table-container">
                     <div class="table-actions-wrapper">
                         <span> </span>
-                        <a style="float:right;" data-title="Add Availability" href="javascript:Availabilities.modal_add_availability()"><i class="fa fa-plus-circle"></i> Add new availability</a>
+                        <a class="purple text-right" data-title="Add Availability" href="javascript:Availabilities.modal_add_availability()"><i class="fa fa-plus-circle"></i> Add new availability</a>
                     </div>
                     <table class="table table-striped table-bordered table-hover text-center" id="datatable_availabilities">
                         <thead>

@@ -9,14 +9,14 @@
             <div class="lock-cont">
                 <div class="lock-item">
                     <div class="pull-left lock-avatar-block">
-                        <img src="<?php echo base_url(); ?>assets/pages/media/profile/photo3.jpg" class="lock-avatar"> </div>
+                        <img src="<?php echo base_url($admin_info['image_path'] . "/medium_" . $admin_info['image']); ?>" class="lock-avatar"> </div>
                 </div>
                 <div class="lock-item lock-item-full">
                     <form class="lock-form pull-left" action="<?php echo base_url('admin/admin_auth/verifyUnlock'); ?>" method="post">
                         <h4><?php echo isset($admin_info['username']) ? ucfirst($admin_info['username']) : ""; ?></h4>
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button>
-                            <span> Enter valid password. </span>
+                            <span> Please enter valid password. </span>
                         </div>
                         <?php if (isset($login_error)) { ?>
                             <div class="alert alert-danger">
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="lock-bottom">
-            <a href="<?php echo base_url('admin/admin_auth/logout'); ?>"><?php echo "Not&nbsp;".(isset($admin_info) ? (ucfirst($admin_info['first_name']) . " " . ucfirst($admin_info['last_name']) . "?") : ""); ?></a>
+            <a href="<?php echo base_url('admin/admin_auth/logout'); ?>"><?php echo "Not&nbsp;" . (isset($admin_info) ? (ucfirst($admin_info['first_name']) . " " . ucfirst($admin_info['last_name']) . "?") : ""); ?></a>
         </div>
     </div>
 </div>
