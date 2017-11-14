@@ -28,7 +28,7 @@ class Admin_auth extends CI_Controller {
             $this->load->view('admin/login/view_login');
         } elseif ($this->session->userdata('is_locked')) {
             $data['admin_info'] = $this->getAdminInfo();
-            $this->load->view('admin/login/view_lock' , $data);
+            $this->load->view('admin/login/view_lock', $data);
         } else {
             redirect(base_url('admin/admin_dashboard'));
         }
@@ -36,10 +36,6 @@ class Admin_auth extends CI_Controller {
 
     public function verifyLogin() {
         if ($this->input->post()) {
-            $data = array();
-            $data['username'] = $this->input->post('username');
-            $data['password'] = $this->input->post('password');
-
             $this->form_validation->set_rules('username', 'Username', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'required|trim|strip_tags|xss_clean');
 
@@ -53,6 +49,31 @@ class Admin_auth extends CI_Controller {
                 if ($result['error'] == 1) {
                     $error_data['login_error'] = $this->errors[$result['error']];
                     $this->load->view('admin/login/view_login', $error_data);
+                } else {
+                    $admin_info = $result['admin_info'];
+                    $this->session->set_userdata(array('admin_id' => $admin_info['admin_id'], 'username' => $admin_info['username'], 'email' => $admin_info['email'], 'is_locked' => false));
+                    redirect(base_url('admin/admin_dashboard'));
+                }
+            }
+        } else {
+            redirect(base_url('admin/admin_auth'));
+        }
+    }
+
+    public function verifyUnlock() {
+        if ($this->input->post()) {
+            $error_data['admin_info'] = $this->getAdminInfo();
+            $this->form_validation->set_rules('password', 'Password', 'required|trim|strip_tags|xss_clean');
+            if ($this->form_validation->run() == FALSE) {
+                $error_data['login_error'] = validation_errors();
+                $this->load->view('admin/login/view_lock', $error_data);
+            } else {
+                $username = $this->session->userdata('username');
+                $password = $this->input->post('password');
+                $result = $this->admin->admin_login($username, $password);
+                if ($result['error'] == 1) {
+                    $error_data['login_error'] = "Please enter valid password!";
+                    $this->load->view('admin/login/view_lock', $error_data);
                 } else {
                     $admin_info = $result['admin_info'];
                     $this->session->set_userdata(array('admin_id' => $admin_info['admin_id'], 'username' => $admin_info['username'], 'email' => $admin_info['email'], 'is_locked' => false));

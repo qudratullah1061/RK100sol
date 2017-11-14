@@ -23,7 +23,7 @@
                 <div class="table-container">
                     <div class="table-actions-wrapper">
                         <span> </span>
-                        <a style="float:right;" data-title="Add Type" href="javascript:Activities.modal_add_activity()"><i class="fa fa-plus-circle"></i> Add new activity</a>
+                        <a class="purple text-right" data-title="Add Type" href="javascript:Activities.modal_add_activity()"><i class="fa fa-plus-circle"></i> Add new activity</a>
                     </div>
                     <table class="table table-striped table-bordered table-hover text-center" id="datatable_activities">
                         <thead>
