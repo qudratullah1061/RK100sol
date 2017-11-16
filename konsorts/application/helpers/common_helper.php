@@ -24,6 +24,48 @@ function GetAdminInfoWithId($UserId) {
     }
 }
 
+function GetCountriesOption($selected_value = "") {
+    global $CI;
+    $options = "<option value=''>Select Country</option>";
+    $data_info = $CI->db->get('tb_countries')->result_array();
+    if ($data_info) {
+        foreach ($data_info as $info) {
+            $options.="<option value='" . $info['country_id'] . "' " . ($info['country_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['country_name']) . "</option>";
+        }
+    }
+    return $options;
+}
+
+function GetStatesOption($country_id = 0, $selected_value = "") {
+    global $CI;
+    $options = "<option value=''>Select State</option>";
+    if ($country_id > 0) {
+        $CI->db->where(array('country_id' => $country_id));
+    }
+    $data_info = $CI->db->get('tb_states')->result_array();
+    if ($data_info) {
+        foreach ($data_info as $info) {
+            $options.="<option value='" . $info['state_id'] . "' " . ($info['state_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['state_name']) . "</option>";
+        }
+    }
+    return $options;
+}
+
+function GetCityOptions($state_id = 0, $selected_value = "") {
+    global $CI;
+    $options = "<option value=''>Select City</option>";
+    if ($state_id > 0) {
+        $CI->db->where(array('state_id' => $state_id));
+    }
+    $data_info = $CI->db->get('tb_cities')->result_array();
+    if ($data_info) {
+        foreach ($data_info as $info) {
+            $options.="<option value='" . $info['city_id'] . "' " . ($info['city_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['city_name']) . "</option>";
+        }
+    }
+    return $options;
+}
+
 function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thump_options = array()) {
     global $CI;
     $config['upload_path'] = $CI->config->item('root_path') . $upload_path;
@@ -62,5 +104,13 @@ function CreateThumbnail($source, $destination, $thump_options) {
         $CI->image_lib->initialize($config);
         $CI->image_lib->resize();
         $CI->image_lib->clear();
+    }
+}
+
+function delete_file_from_directory($file_path) {
+    global $CI;
+    $complete_path = $CI->config->item('root_path') . $file_path;
+    if (file_exists($complete_path)) {
+        unlink($complete_path);
     }
 }

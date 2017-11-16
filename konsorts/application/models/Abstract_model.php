@@ -98,6 +98,10 @@ class Abstract_model extends CI_Model {
         return $this->db->delete($this->table_name, array($column => $id));
     }
 
+    public function deleteByWhere($where_clause) {
+        return $this->db->delete($this->table_name, $where_clause);
+    }
+
     public function or_where($data) {
         $this->db->select('*');
         $this->db->or_where_in('role', $data);

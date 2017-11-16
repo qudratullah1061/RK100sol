@@ -66,6 +66,25 @@ class Admin_Controller extends CI_Controller {
                 $clean;
     }
 
+    public function upload_temp_image($files, $unique_id) {
+        try {
+            if ($files) {
+                $uploaddir = $this->config->item('root_path') . 'uploads/temp_images/';
+                foreach ($files as $file) {
+                    $file_name = basename($file['name']);
+                    $uploadfile = $uploaddir . $file_name;
+                    move_uploaded_file($file['tmp_name'], $uploadfile);
+                    // inset record in db
+                    $data = array('image' => $file_name, 'image_path' => $uploadfile, 'unique_id' => $unique_id, 'created_on' => date("Y-m-d h:i:s"));
+                    $this->db->insert('tb_temp_images_upload', $data);
+                }
+            }
+            return 'success';
+        } catch (Exception $ex) {
+            return $ex->getMessage();
+        }
+    }
+
     public function echo_pre($data_array) {
         echo "<pre>";
         print_r($data_array);

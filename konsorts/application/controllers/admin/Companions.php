@@ -15,14 +15,13 @@ class Companions extends Admin_Controller {
     public function index() {
         $this->selected_tab = 'companion';
         $this->selected_child_tab = 'view';
-        $data = array();
-        $this->load->view('admin/companions/view_companions', $data);
+        $this->load->view('admin/companions/view_companions');
     }
 
     public function add_companion() {
         $this->selected_tab = 'companion';
         $this->selected_child_tab = 'add';
-        $data = array();
+        $data['country_options'] = GetCountriesOption();
         $this->load->view('admin/companions/add_companion', $data);
     }
     

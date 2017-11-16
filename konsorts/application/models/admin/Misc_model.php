@@ -107,5 +107,9 @@ class Misc_model extends Abstract_model {
         $this->table_name = $table;
         return $this->deleteBy($column, $unique_id);
     }
+    public function DeleteRecordDropZoneJs($table, $where_clause) {
+        $this->table_name = $table;
+        return $this->deleteByWhere($where_clause);
+    }
 
 }

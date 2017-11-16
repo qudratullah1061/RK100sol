@@ -188,7 +188,7 @@ var DatatablesObj = function () {
                 ],
                 "pageLength": 10, // default record count per page
                 "ajax": {
-                    "url": base_url + "admin/companions/get_guest_users", // ajax source
+                    "url": base_url + "admin/guests/get_guest_users", // ajax source
                 },
                 "order": [
                     [1, "asc"]

@@ -23,7 +23,7 @@
                 <div class="table-container">
                     <div class="table-actions-wrapper">
                         <span> </span>
-                        <a style="float:right;" data-title="Add Type" href="javascript:void(0)"><i class="fa fa-plus-circle"></i> Add new guest</a>
+                        <a class="purple" data-title="Add Type" href="<?php echo base_url('admin/guests/add_guest'); ?>"><i class="fa fa-plus-circle"></i> Add new guest</a>
                     </div>
                     <table class="table table-striped table-bordered table-hover table-checkable text-center" id="datatable_guests">
                         <thead>
@@ -83,6 +83,6 @@
 <!-- End datatable-->
 <script>
     $(document).ready(function () {
-        DatatablesObj.InitCompanionTable('datatable_guests');
+        DatatablesObj.InitGuestTable('datatable_guests');
     });
 </script>

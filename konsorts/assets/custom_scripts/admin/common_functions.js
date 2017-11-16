@@ -26,12 +26,31 @@ var GlobalPlugins = function () {
 
 }();
 //#region global plugins ends
-
-
-
-
-
+//
+//
+//#region common functions
 var CommonFunctions = function () {
+
+    DeleteDropzoneFile = function (unique_id, file_name) {
+        App.blockUI({target: '.dropzone-file-area', animate: true});
+        var jqxhr = $.getJSON(base_url + "admin/misc/delete_dropzone_temp_file", data = {unique_id: unique_id, file_name: file_name}, function (response) {
+            //console.log("success", response);
+            if (data.error) {
+                swal("Error!", data.description, "error");
+            }
+        }).done(function (response) {
+        }).fail(function (jqxhr, textStatus, error) {
+            toastr["error"](response.description, "Error.");
+        }).always(function (response) {
+            //console.log("complete", response);
+        });
+        // Perform other work here ...
+        // Set another completion function for the request above
+        jqxhr.complete(function (response) {
+            //console.log("second complete", response);
+            App.unblockUI('.dropzone-file-area')
+        });
+    }
 
     var Delete = function (unique_id, table, column, msg) {
 
@@ -74,7 +93,7 @@ var CommonFunctions = function () {
                                 });
                             } else {
                                 // exception message here.
-                                swal("Error!", data.description, "warning");
+                                swal("Error!", data.description, "error");
                             }
                         },
                         error: function (xhr, desc, err) {
@@ -84,11 +103,74 @@ var CommonFunctions = function () {
                 });
     };
 
+    var GetStateOptions = function (country_id, state_id) {
+        $.ajax({
+            url: base_url + "admin/misc/get_states/",
+            dataType: 'json',
+            method: 'post',
+            cache: false,
+            data: {country_id: country_id, state_id: state_id},
+            beforeSend: function () {
+                App.blockUI({target: 'body', animate: true});
+            },
+            complete: function () {
+                App.unblockUI('body');
+            },
+            success: function (data) {
+                if (!data.error) {
+                    $("#dd-state").html(data.options);
+                } else {
+                    // exception message here.
+                    swal("Error!", data.description, "warning");
+                }
+            },
+            error: function (xhr, desc, err) {
+                toastr["error"](xhr.statusText, "Error.");
+            }
+        });
+    };
+    var GetCitiesOptions = function (state_id, city_id) {
+        $.ajax({
+            url: base_url + "admin/misc/get_cities/",
+            dataType: 'json',
+            method: 'post',
+            cache: false,
+            data: {state_id: state_id, city_id: city_id},
+            beforeSend: function () {
+                App.blockUI({target: 'body', animate: true});
+            },
+            complete: function () {
+                App.unblockUI('body');
+            },
+            success: function (data) {
+                if (!data.error) {
+                    $("#dd-city").html(data.options);
+                } else {
+                    // exception message here.
+                    swal("Error!", data.description, "warning");
+                }
+            },
+            error: function (xhr, desc, err) {
+                toastr["error"](xhr.statusText, "Error.");
+            }
+        });
+    };
+
     return {
         Delete: function (unique_id, table, column, msg) {
             Delete(unique_id, table, column, msg);
+        },
+        DeleteDropzoneFile: function (unique_id, file_name) {
+            DeleteDropzoneFile(unique_id, file_name);
+        },
+        LoadStates: function (country_id, state_id) {
+            GetStateOptions(country_id, state_id);
+        },
+        LoadCities: function (state_id, city_id) {
+            GetCitiesOptions(state_id, city_id);
         }
     };
 
 
 }();
+//#endregion common functions

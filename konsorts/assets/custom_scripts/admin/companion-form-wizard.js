@@ -8,22 +8,32 @@ var FormWizard = function () {
                 return;
             }
 
-//            function format(state) {
-//                if (!state.id)
-//                    return state.text; // optgroup
-//                return "<img class='flag' src='../../assets/global/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
-//            }
-
-//            $("#country_list").select2({
-//                placeholder: "Select",
-//                allowClear: true,
+            function format(state) {
+                if (!state.id)
+                    return state.text; // optgroup
+                return "<img class='flag' src='../../assets/global/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
+            }
+            $("input[name='date_of_birth']").datepicker();
+            $("#dd-country").select2({
+                placeholder: "Select",
+                allowClear: true,
+                width: 'auto',
+            });
+            $("#dd-state").select2({
+                placeholder: "Select",
+                allowClear: true,
+                width: 'auto',
+            });
+            $("#dd-city").select2({
+                placeholder: "Select",
+                allowClear: true,
+                width: 'auto',
 //                formatResult: format,
-//                width: 'auto',
 //                formatSelection: format,
 //                escapeMarkup: function (m) {
 //                    return m;
 //                }
-//            });
+            });
 
             var form = $('#form-add-companion');
             var error = $('.alert-danger', form);
@@ -64,13 +74,13 @@ var FormWizard = function () {
                     last_name: {
                         required: true,
                     },
-                    nickname: {
+                    nick_name: {
                         required: true
                     },
                     telephone: {
                         required: true
                     },
-                    dateofbirth: {
+                    date_of_birth: {
                         required: true
                     },
                     gender: {
@@ -79,28 +89,16 @@ var FormWizard = function () {
                     country: {
                         required: true
                     },
-                    //payment
-                    card_name: {
+                    state: {
                         required: true
                     },
-                    card_number: {
-                        minlength: 16,
-                        maxlength: 16,
+                    city: {
                         required: true
                     },
-                    card_cvc: {
-                        digits: true,
-                        required: true,
-                        minlength: 3,
-                        maxlength: 4
-                    },
-                    card_expiry_date: {
+                    address: {
                         required: true
                     },
-                    'payment[]': {
-                        required: true,
-                        minlength: 1
-                    }
+                    
                 },
                 messages: {// custom messages for radio buttons and checkboxes
                     'payment[]': {

@@ -1,4 +1,3 @@
-<!-- BEGIN PAGE HEADER-->
 <!-- BEGIN PAGE BAR -->
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -23,17 +22,6 @@
             <span class="caption-subject purple bold uppercase"> Create Companion -
                 <span class="step-title"> Step 1 of 3 </span>
             </span>
-        </div>
-        <div class="actions">
-            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                <i class="icon-cloud-upload"></i>
-            </a>
-            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                <i class="icon-wrench"></i>
-            </a>
-            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                <i class="icon-trash"></i>
-            </a>
         </div>
     </div>
     <div class="portlet-body form">
@@ -144,14 +132,14 @@
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Date of Birth <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control"  name="date_of_birth">
+                                    <input type="text" class="form-control" data-date-format="yyyy-mm-dd" name="date_of_birth">
                                     <label></label>
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Gender <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <select class="form-control" >
+                                    <select class="form-control" name="gender">
                                         <option value="">Select Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
@@ -160,10 +148,31 @@
                                     <label></label>
                                 </div>
                             </div>
-                            <div class="form-group form-md-line-input">
-                                <label class="control-label col-md-3"> Location <span class="required"> * </span> </label>
+
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <label class="control-label col-md-3">Country<span class="required">*</span></label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control"  placeholder="">
+                                    <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
+                                        <?php echo isset($country_options) ? $country_options : ""; ?>
+                                    </select>
+                                    <label></label>
+                                </div>
+                            </div>
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <label class="control-label col-md-3">State<span class="required">*</span></label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
+                                        <option value="">Select State</option>
+                                    </select>
+                                    <label></label>
+                                </div>
+                            </div>
+                            <div class="form-group form-md-line-input form-md-floating-label">
+                                <label class="control-label col-md-3">City<span class="required">*</span></label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="dd-city" name="city">
+                                        <option value="">Select City</option>
+                                    </select>
                                     <label></label>
                                 </div>
                             </div>
@@ -307,4 +316,4 @@
     </div>
 </div>
 <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/form-wizard.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/companion-form-wizard.js" type="text/javascript"></script>

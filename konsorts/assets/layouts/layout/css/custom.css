@@ -57,3 +57,6 @@
 #datatable_adminusers tr td{
     vertical-align: middle;
 }
+.dropzone .dz-preview .dz-error-message{
+    color:white;
+}

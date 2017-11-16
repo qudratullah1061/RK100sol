@@ -6,7 +6,7 @@
  */
 include_once(APPPATH . 'models/Abstract_model.php');
 
-class Companion_model extends Abstract_model {
+class Members_model extends Abstract_model {
     //Model Constructor
     function __construct() {
         // inherited from base class.
@@ -14,9 +14,9 @@ class Companion_model extends Abstract_model {
         parent::__construct();
     }
 
-    public function getCompanionUsers($condition = '', $offset = -1, $limit = 10, $order_by = '') {
-        $sql = "SELECT * FROM tb_companions";
-        $sql_count = "SELECT count(tb_companions.companion_id) as total FROM tb_companions ";
+    public function getMembers($condition = '', $offset = -1, $limit = 10, $order_by = '') {
+        $sql = "SELECT * FROM `tb_members`";
+        $sql_count = "SELECT count(`tb_members`.member_id) as total FROM `tb_members` ";
 
         if ($condition != '') {
             $sql .= " WHERE " . $condition;
@@ -26,7 +26,7 @@ class Companion_model extends Abstract_model {
         if (trim($order_by) != '') {
             $sql .= $order_by;
         } else {
-            $sql .= " ORDER BY tb_companions.companion_id DESC ";
+            $sql .= " ORDER BY `tb_members`.member_id DESC ";
         }
         if ($offset >= 0 && $limit != -1) {
             $sql .= " LIMIT " . ($offset) . ', ' . $limit;
@@ -34,7 +34,7 @@ class Companion_model extends Abstract_model {
         $count = $this->db->query($sql_count)->result('array');
         $results = $this->db->query($sql)->result('array');
         $results_array = array();
-        $results_array['admin_users'] = $results;
+        $results_array['records'] = $results;
         $results_array['query'] = $sql;
         $results_array['total'] = $count[0]['total'];
         return $results_array;

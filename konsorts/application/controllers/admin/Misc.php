@@ -18,7 +18,7 @@ class Misc extends Admin_Controller {
 //        $this->load->view('admin/guests/add_guest', $data);
 //    }
 
-    public function modal_activity() {
+    function modal_activity() {
         $this->is_ajax();
         $this->selected_tab = 'misc';
         $this->selected_child_tab = 'view_activity';
@@ -30,7 +30,7 @@ class Misc extends Admin_Controller {
         die();
     }
 
-    public function add_update_activity() {
+    function add_update_activity() {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -66,13 +66,13 @@ class Misc extends Admin_Controller {
         }
     }
 
-    public function view_activities() {
+    function view_activities() {
         $this->selected_tab = 'misc';
         $this->selected_child_tab = 'view_activities';
         $this->load->view('admin/misc/view_activities');
     }
 
-    public function get_activities() {
+    function get_activities() {
         $records = array();
         $records["data"] = array();
         $sEcho = intval($this->input->post('draw'));
@@ -140,13 +140,13 @@ class Misc extends Admin_Controller {
         exit();
     }
 
-    public function view_availabilities() {
+    function view_availabilities() {
         $this->selected_tab = 'misc';
         $this->selected_child_tab = 'view_availabilities';
         $this->load->view('admin/misc/view_availabilities');
     }
 
-    public function get_availabilities() {
+    function get_availabilities() {
         $records = array();
         $records["data"] = array();
         $sEcho = intval($this->input->post('draw'));
@@ -214,7 +214,7 @@ class Misc extends Admin_Controller {
         exit();
     }
 
-    public function modal_availability() {
+    function modal_availability() {
         $this->is_ajax();
         $this->selected_tab = 'misc';
         $this->selected_child_tab = 'view_availability';
@@ -226,7 +226,7 @@ class Misc extends Admin_Controller {
         die();
     }
 
-    public function add_update_availability() {
+    function add_update_availability() {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -262,7 +262,7 @@ class Misc extends Admin_Controller {
         }
     }
 
-    public function DeleteRecord() {
+    function DeleteRecord() {
         $this->isAjax();
         $unique_id = $this->input->post('unique_id');
         $table = $this->input->post('table');
@@ -272,6 +272,40 @@ class Misc extends Admin_Controller {
             $this->_response(false, "Record deleted successfully!");
         }
         $this->_response(true, "Problem while deleting record.");
+    }
+
+    function delete_dropzone_temp_file() {
+        $unique_id = $this->input->get_post('unique_id');
+        $file_name = $this->input->get_post('file_name');
+        $where_clause = array('unique_id' => $unique_id, 'image' => $file_name);
+        $result = $this->Misc_Model->DeleteRecordDropZoneJs('tb_temp_images_upload', $where_clause);
+        if ($result) {
+            // delete file from directory
+            $file_path = 'uploads/temp_images/'.$file_name;
+            delete_file_from_directory($file_path);
+            $this->_response(false, "Record deleted successfully!");
+        }
+        $this->_response(true, "Problem while deleting record.");
+    }
+
+    function get_countries() {
+        return GetCountriesOption($selected_country_id);
+    }
+
+    function get_states() {
+        $country_id = $this->input->post('country_id');
+        $selected_state_id = $this->input->post('state_id');
+        $state_options = GetStatesOption($country_id, $selected_state_id);
+        echo json_encode(array('error' => 0, 'options' => $state_options));
+        die();
+    }
+
+    function get_cities() {
+        $state_id = $this->input->post('state_id');
+        $selected_city_id = $this->input->post('city_id');
+        $city_options = GetCityOptions($state_id, $selected_city_id);
+        echo json_encode(array('error' => 0, 'options' => $city_options));
+        die();
     }
 
 }
