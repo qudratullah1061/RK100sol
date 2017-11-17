@@ -176,7 +176,7 @@ section.gold-members {padding-top: 0;padding-bottom: 35px;}
 .dark-gray.seperator {display: block;width: 120px;height: 2px;background: #363636;margin: 6px auto 7px;}
 .list-style-5.custom-list li:before {content: "\f138";color: purple;font-size: 13px;margin-top: 1px;}
 .list-style-5.custom-list li {padding-left: 27px;font-weight: 400;color: #323435;line-height: 19px;border-bottom: 0;margin-bottom: 6px;}
-.seperator.price-seperater {float: right;background: #363636;width: 100%;height: 3px;margin-bottom: 16px;}
+.seperator.price-seperater {float: right;background: #363636;width: calc(100% - 23px);height: 3px;margin-bottom: 16px;}
 .pricing-lists {padding-left: 23px;margin-top: 20px;}
 section.pricing .title-bar {margin-top: 0;margin-bottom: 45px;}
 
