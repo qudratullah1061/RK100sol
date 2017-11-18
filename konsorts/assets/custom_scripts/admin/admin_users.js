@@ -10,10 +10,10 @@ var AdminUsers = function () {
             contentType: false,
             beforeSend: function ()
             {
-                App.blockUI({target: '.modal', animate: true});
+                App.blockUI({target: '#' + formId, animate: true});
             },
             complete: function () {
-                App.unblockUI('.modal');
+                App.unblockUI('#' + formId);
             },
             success: function (data) {
                 if (!data.error) {

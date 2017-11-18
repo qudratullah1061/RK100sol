@@ -24,6 +24,40 @@ function GetAdminInfoWithId($UserId) {
     }
 }
 
+function is_member_username_exist($username, $exclude_id) {
+    global $CI;
+    $exclude_id = $exclude_id > 0 ? $exclude_id : -1;
+    $CI->db->select('member_id');
+    $CI->db->where(array('username' => $username, 'member_id!=' => $exclude_id));
+    $result = $CI->db->get('tb_members')->result();
+    if (!empty($result))
+        return true;
+    return false;
+}
+
+function is_member_email_exist($email, $exclude_id) {
+    global $CI;
+    $exclude_id = $exclude_id > 0 ? $exclude_id : -1;
+    $CI->db->select('member_id');
+    $CI->db->where(array('email' => $email, 'member_id!=' => $exclude_id));
+    $result = $CI->db->get('tb_members')->result();
+    if (!empty($result))
+        return true;
+    return false;
+}
+
+function reArrayFiles(&$file_post) {
+    $file_ary = array();
+    $file_count = count($file_post['name']);
+    $file_keys = array_keys($file_post);
+    for ($i = 0; $i < $file_count; $i++) {
+        foreach ($file_keys as $key) {
+            $file_ary[$i][$key] = $file_post[$key][$i];
+        }
+    }
+    return $file_ary;
+}
+
 function GetCountriesOption($selected_value = "") {
     global $CI;
     $options = "<option value=''>Select Country</option>";

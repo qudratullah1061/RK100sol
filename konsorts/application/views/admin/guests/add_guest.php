@@ -43,9 +43,10 @@ $unique_id = time();
                             <div class="col-md-12">
                                 <form action="<?php echo base_url('admin/guests/upload_images'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
                                     <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
+                                    <input type="hidden" name="image_type" value="profile">
                                     <!--<label>Upload Image</label>-->
                                     <h3 class="sbold">Click to upload</h3>
-                                    <p> Lorem ipsum doller sit amet </p>
+                                    <p> Upload Guest Member Profile Images </p>
                                 </form>
                             </div>
                             <div class="clearfix"></div>
@@ -100,22 +101,22 @@ $unique_id = time();
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group form-md-line-input form-md-floating-label">
-                                                            <input type="password" class="form-control"  placeholder="" name="password">
+                                                            <input type="password" class="form-control" id="password" placeholder="" name="password">
                                                             <label>Password<span class="required">*</span></label>
                                                             <!--<span class="help-block">Some help goes here...</span>-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group form-md-line-input form-md-floating-label">
-                                                            <input type="password" class="form-control"  placeholder="" name="confirm_password">
+                                                            <input type="password" class="form-control" id="confirm_password" name="confirm_password">
                                                             <label>Confirm Password<span class="required">*</span></label>
                                                             <!--<span class="help-block">Some help goes here...</span>-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group form-md-line-input ">
-                                                            <input type="file" class="form-control"  placeholder="" name="id_proofs">
-                                                            <label>Id Proof<span class="required">*</span></label>
+                                                            <input type="file" class="form-control" multiple="multiple"  placeholder="" name="id_proofs[]">
+                                                            <label>Id Proofs<span class="required">*</span></label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -182,21 +183,21 @@ $unique_id = time();
                                                     <div class="col-md-6">
                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                             <input type="text" class="form-control"  placeholder="" name="about_me">
-                                                            <label>About me<span class="required">*</span></label>
+                                                            <label>About me</label>
                                                             <!--<span class="help-block">Some help goes here...</span>-->
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group form-md-line-input form-md-floating-label">
                                                             <input type="text" class="form-control"  placeholder="" name="other_interest">
-                                                            <label>Other interest<span class="required">*</span></label>
+                                                            <label>Other interest</label>
                                                             <!--<span class="help-block">Some help goes here...</span>-->
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <!--                                        <hr>
                                                                                         <br>-->
-                                                <div class="md-checkbox-inline">
+<!--                                                <div class="md-checkbox-inline">
                                                     <div class="md-checkbox">
                                                         <input type="checkbox" id="checkbox33" class="md-check">
                                                         <label for="checkbox33">
@@ -204,8 +205,8 @@ $unique_id = time();
                                                             <span class="check"></span>
                                                             <span class="box"></span> I agreee with the <a href="#">terms and conditions</a> for Registration</label>
                                                     </div>
-                                                </div>
-                                                <br>
+                                                </div>-->
+                                                <!--<br>-->
                                                 <a href="<?php echo base_url('admin/guests'); ?>" class="btn default">Cancel</a>
                                                 <button type="submit" class="btn green">Register</button>
                                             </div>

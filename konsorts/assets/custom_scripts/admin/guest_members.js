@@ -1,4 +1,33 @@
 var GuestMembers = function () {
+
+    var handleGuestSubmit = function (formId) {
+        $.ajax({
+            type: "POST",
+            url: base_url + "admin/guests/add_guest_user",
+            datatype: 'json',
+            data: new FormData($("#" + formId)[0]),
+            processData: false,
+            contentType: false,
+            beforeSend: function ()
+            {
+                App.blockUI({target: '#' + formId, animate: true});
+            },
+            complete: function () {
+                App.unblockUI('#' + formId);
+            },
+            success: function (data) {
+                if (!data.error) {
+                    toastr["success"](data.description, "Success!");
+//                    setTimeout(function () {
+//                        window.location.href = base_url + 'admin/guests';
+//                    }, 500);
+                } else {
+                    toastr["error"](data.description, "Error!");
+                }
+            }
+        });
+    }
+
     var handleValidationAddGuestMember = function (formId) {
         var form = $('#' + formId);
         var error1 = $('.alert-danger', form);
@@ -13,52 +42,53 @@ var GuestMembers = function () {
                     equalTo: "Password does not match confirm password field."
                 }
             },
-            rules: {
-                first_name: {
-                    required: true
-                },
-                last_name: {
-                    required: true,
-                },
-                username: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                password: {
-                    required: true,
-                },
-                confirm_password: {
-                    required: true,
-                    equalTo: "#password"
-                },
-                id_proofs: {
-                    required: true,
-                },
-                phone_number: {
-                    required: true,
-                },
-                gender: {
-                    required: true,
-                },
-                date_of_birth: {
-                    required: true,
-                },
-                country: {
-                    required: true,
-                },
-                state: {
-                    required: true,
-                },
-                city: {
-                    required: true,
-                },
-                address: {
-                    required: true,
-                },
-            },
+            ignore: [],
+                    rules: {
+                        first_name: {
+                            required: true
+                        },
+                        last_name: {
+                            required: true,
+                        },
+                        username: {
+                            required: true,
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        password: {
+                            required: true,
+                        },
+                        confirm_password: {
+                            required: true,
+                            equalTo: "#password"
+                        },
+                        'id_proofs[]': {
+                            required: true,
+                        },
+                        phone_number: {
+                            required: true,
+                        },
+                        gender: {
+                            required: true,
+                        },
+                        date_of_birth: {
+                            required: true,
+                        },
+                        country: {
+                            required: true,
+                        },
+                        state: {
+                            required: true,
+                        },
+                        city: {
+                            required: true,
+                        },
+                        address: {
+                            required: true,
+                        },
+                    },
             invalidHandler: function (event, validator) { //display error alert on form submit              
                 success1.hide();
                 error1.show();
@@ -85,7 +115,7 @@ var GuestMembers = function () {
                 label.closest('.form-group').removeClass('has-error'); // set success class to the control group
             },
             submitHandler: function (form) {
-                handleAdminSubmit(formId);
+                handleGuestSubmit(formId);
             }
         });
 

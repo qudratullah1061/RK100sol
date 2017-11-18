@@ -7,10 +7,11 @@
 include_once(APPPATH . 'models/Abstract_model.php');
 
 class Members_model extends Abstract_model {
+
     //Model Constructor
     function __construct() {
         // inherited from base class.
-        $this->table_name = "tb_companions";
+        $this->table_name = "tb_members";
         parent::__construct();
     }
 
@@ -38,6 +39,18 @@ class Members_model extends Abstract_model {
         $results_array['query'] = $sql;
         $results_array['total'] = $count[0]['total'];
         return $results_array;
+    }
+
+    public function add_member($data) {
+        return $this->save($data);
+    }
+
+    public function update_member($edit_id, $data) {
+        $this->updateBy('member_id', $edit_id, $data);
+    }
+
+    public function getTempImages($unique_id, $image_type) {
+        return $this->db->get_where('tb_temp_images_upload', array('unique_id' => $unique_id, 'image_type' => $image_type))->result_array();
     }
 
 }

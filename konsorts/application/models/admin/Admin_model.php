@@ -95,5 +95,4 @@ class Admin_model extends Abstract_model {
     public function update_admin_user($edit_id, $data) {
         $this->updateBy('admin_id', $edit_id, $data);
     }
-
 }

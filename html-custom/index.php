@@ -712,7 +712,7 @@
                     <a href="#" class="btn btn-purple-white-border open-sans"> See More </a>
                 </div>
                 <div class="col-md-6">
-                    <iframe width="100%" src="https://www.youtube.com/embed/mcixldqDIEQ" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" src="https://www.youtube.com/embed/UBA0jauD-ig" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
