@@ -718,6 +718,73 @@
         </div>
     </div>
 </section>
+
+<section class="wow fadeIn works">
+    <div class="container">
+
+        <div class="row equalize xs-equalize-auto">
+            <!-- start interactive banners item -->
+            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box">
+                <figure> 
+                    <div class="banner-image bg-black height-370px cover-background" style="background-image:url('img/work-1.jpg');">
+                        <div class="works-caption">
+                            <div class="text-center padding-30px-tb">
+                                <p>HOW KONSORTS WORKS?</p>
+                            </div>   
+                        </div>
+                    </div>
+                    <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
+                        <div class="display-table width-100 height-100">
+                            <div class="display-table-cell vertical-align-middle text-left">
+                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.....</p>
+                                <a href="#" class="text-white font-weight-700">Read More</a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box">
+                <figure> 
+                    <div class="banner-image bg-black height-370px cover-background" style="background-image:url('img/work-2.jpg');">
+                        <div class="works-caption">
+                            <div class="text-center padding-30px-tb">
+                                <p>HOW KONSORTS WORKS?</p>
+                            </div>   
+                        </div>
+                    </div>
+                    <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
+                        <div class="display-table width-100 height-100">
+                            <div class="display-table-cell vertical-align-middle text-left">
+                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.....</p>
+                                <a href="#" class="text-white font-weight-700">Read More</a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box">
+                <figure> 
+                    <div class="banner-image bg-black height-370px cover-background" style="background-image:url('img/work-3.jpg');">
+                        <div class="works-caption">
+                            <div class="text-center padding-30px-tb">
+                                <p>A SECURE COMMUNITY</p>
+                            </div>   
+                        </div>
+                    </div>
+                    <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
+                        <div class="display-table width-100 height-100">
+                            <div class="display-table-cell vertical-align-middle text-left">
+                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.....</p>
+                                <a href="#" class="text-white font-weight-700">Read More</a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <!-- end interactive banners item -->
+        </div>
+    </div>
+</section>
 <section class="wow fadeIn pricing bg-light-gray">
     <div class="container">
 
@@ -844,19 +911,182 @@
         </div>
     </div>
 </section>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<section class="guide bg-light-gray margin-60px-tb no-padding">
+    <div class="container">
+        <!--first guide-->
+        <div class="row margin-60px-tb">
+            <div class="col-md-7 guide-text left-box roboto-cond">
+                <h4>Need a Travel Guide (Article 1)</h4>
+
+                <h5>1. Post your project</h5>
+                <p>It's always free to post your project. Invite our freelancers to submit bids, or browse relevant freelancers and make an offer. You'll have replies to your job within minutes!</p>
+
+                <h5>2. Choose the perfect freelancer</h5>
+
+                <ul class="list-style-1">
+                    <li>Browse freelancer profiles</li>
+                    <li>Chat in real-time</li>
+                    <li>Compare proposals and select the best one</li>
+                    <li>Award your project and your freelancer goes to work</li>
+                </ul>
+
+                <h5>3. Pay when you are satisfied!</h5>
+                <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
+                <a href="#" class="btn btn-deep-purple btn-small">See More</a>
+            </div>
+            <div class="col-md-5 guide-media">
+                <img src="img/guide-1.jpg" alt="">
+            </div>
+        </div>
+        <!--second guide-->
+        <div class="row padding-60px-tb">
+
+            <div class="col-md-5 guide-media">
+                <img src="img/guide-2.jpg" alt="">
+            </div>
+
+            <div class="col-md-7 guide-text right-box roboto-cond">
+                <h4>Need a Personal Trainer (Article 2)</h4>
+
+                <h5>1. Post your project</h5>
+                <p>It's always free to post your project. Invite our freelancers to submit bids, or browse relevant freelancers and make an offer. You'll have replies to your job within minutes!</p>
+
+                <h5>2. Choose the perfect freelancer</h5>
+
+                <ul class="list-style-1">
+                    <li>Browse freelancer profiles</li>
+                    <li>Chat in real-time</li>
+                    <li>Compare proposals and select the best one</li>
+                    <li>Award your project and your freelancer goes to work</li>
+                </ul>
+
+                <h5>3. Pay when you are satisfied!</h5>
+                <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
+                <a href="#" class="btn btn-deep-purple btn-small">See More</a>
+            </div>
+
+        </div>
+        <div class="row margin-60px-tb">
+            <div class="col-md-7 guide-text left-box roboto-cond">
+                <h4>Coaching (Article 3)</h4>
+
+                <h5>1. Post your project</h5>
+                <p>It's always free to post your project. Invite our freelancers to submit bids, or browse relevant freelancers and make an offer. You'll have replies to your job within minutes!</p>
+
+                <h5>2. Choose the perfect freelancer</h5>
+
+                <ul class="list-style-1">
+                    <li>Browse freelancer profiles</li>
+                    <li>Chat in real-time</li>
+                    <li>Compare proposals and select the best one</li>
+                    <li>Award your project and your freelancer goes to work</li>
+                </ul>
+
+                <h5>3. Pay when you are satisfied!</h5>
+                <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
+                <a href="#" class="btn btn-deep-purple btn-small">See More</a>
+            </div>
+            <div class="col-md-5 guide-media">
+                <img src="img/guide-3.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- start footer --> 
+<footer class="footer-standard bg-light-gray"> 
+    <div class="footer-widget-area ">
+        <div class="container">
+            <div class="row equalize xs-equalize-auto footer-top">
+                <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
+                    <a href="index.html" class="margin-15px-bottom display-inline-block"><img class="footer-logo" src="img/logo.png" alt="Konsorts"></a>
+                    <p class=" margin-0">Konsorts is a community of individuals offering personal services world wide, like: Personal trainers, tour guides, international hosts, personal shoppers and many other platonic services.</p>
+                    <a href="#" class="text-purple font-weight-400 more-details">More Details</a>
+                </div>
+                <!-- start additional links -->
+                <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
+                    <div class="widget-title">Konsorts</div>
+                    <ul class="list-unstyled">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Our Services</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- end additional links -->
+                <!-- start contact information -->
+                <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
+                    <div class="widget-title">About</div>
+                    <ul class="list-unstyled">
+                        <li><a href="">About us</a></li>
+                        <li><a href="">How it Works</a></li>
+                        <li><a href="">Security</a></li>
+                    </ul>
+                </div>
+                <!-- end contact information -->
+                <!-- start instagram -->
+                <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center  padding-70px-left sm-padding-left-0">
+                    <div class="widget-title">Terms</div>
+                    <ul class="list-unstyled">
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Terms and Conditions</a></li>
+                        <li><a href="">Copyright Policy</a></li>
+                        <li><a href="">Code of Conduct</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
+                    <div class="widget-title">Support</div>
+                    <ul class="list-unstyled">
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Terms and Conditions</a></li>
+                        <li><a href="">Copyright Policy</a></li>
+                        <li><a href="">Code of Conduct</a></li>
+                    </ul>
+                </div>
+                <!-- end instagram -->
+            </div>
+            <div class="padding-10px-tb xs-padding-20px-tb border-bottom border-top  footer-mid">
+
+                <div class="row">
+                    <!-- start copyright -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 text-left text-small xs-text-center">
+                        <div class="social-icon-style-8 display-inline-block vertical-align-middle">
+
+                            <ul class="small-icon no-margin-bottom">
+                                <li> <span> Follow Us:</span> </li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-gmail.png" alt=""> </a></li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-linkedin.png" alt=""> </a></li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-facebook.png" alt=""> </a></li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-twitter.png" alt=""> </a></li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-instagram.png" alt=""> </a></li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-youtube.png" alt=""> </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 text-right text-small xs-text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="email">Newsletter:</label>
+                                <input type="email" class="form-control placeholder-83" id="email" placeholder="Email">
+                            </div>
+                            <button type="submit" class="btn btn-deep-purple btn-small">Submit</button>
+                        </form>
+                    </div>
+                    <!-- end copyright -->
+                </div>
+
+            </div>
+
+            <div class="copyright  footer-btm">
+                <p>Please read carefully our <a href="#">Terms and Conditions.</a> </p>
+                <p>Copyright © 2016 - 2017 konsorts.com | All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+</footer>
 <?php include_once 'includes/footer.php' ?>
