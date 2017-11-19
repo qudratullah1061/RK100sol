@@ -15,8 +15,25 @@ class Members_model extends Abstract_model {
         parent::__construct();
     }
 
+    function get_member_by_id($member_id) {
+        $sql = "SELECT `tb_member_images`.image, `tb_member_images`.image_path, `tb_member_images`.is_profile_image, `tb_member_images`.image_type, `tb_members`.* FROM `tb_members` " .
+                " LEFT JOIN `tb_member_images` ON `tb_member_images`.image_id = " .
+                "   (SELECT image_id " .
+                "      FROM `tb_member_images` " .
+                "   WHERE `tb_member_images`.member_id = `tb_members`.member_id AND `tb_member_images`.image_type = 'profile' ORDER BY `tb_member_images`.is_profile_image DESC Limit 0,1 )" .
+                " WHERE `tb_members`.member_id = " . $member_id;
+        $member_info = $this->db->query($sql)->result_array();
+        if ($member_info) {
+            return isset($member_info[0]) ? $member_info[0] : array();
+        }
+    }
+
     public function getMembers($condition = '', $offset = -1, $limit = 10, $order_by = '') {
-        $sql = "SELECT * FROM `tb_members`";
+        $sql = "SELECT `tb_member_images`.image, `tb_member_images`.image_path, `tb_member_images`.is_profile_image, `tb_member_images`.image_type, `tb_members`.* FROM `tb_members` " .
+                " LEFT JOIN `tb_member_images` ON `tb_member_images`.image_id = " .
+                "(SELECT image_id " .
+                " FROM `tb_member_images` " .
+                " WHERE `tb_member_images`.member_id = `tb_members`.member_id AND `tb_member_images`.image_type = 'profile' ORDER BY `tb_member_images`.is_profile_image DESC Limit 0,1 )";
         $sql_count = "SELECT count(`tb_members`.member_id) as total FROM `tb_members` ";
 
         if ($condition != '') {

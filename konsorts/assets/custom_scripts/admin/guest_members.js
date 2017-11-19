@@ -18,9 +18,9 @@ var GuestMembers = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-//                    setTimeout(function () {
-//                        window.location.href = base_url + 'admin/guests';
-//                    }, 500);
+                    setTimeout(function () {
+                        window.location.href = base_url + 'admin/guests';
+                    }, 500);
                 } else {
                     toastr["error"](data.description, "Error!");
                 }
