@@ -396,6 +396,9 @@ footer a:hover {
     transition: all 0.3s ease;
     opacity: 0.8;
 }
+.footer-mid .small-icon li span {
+    margin-right: 7px;
+}
 
 
 

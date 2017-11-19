@@ -724,7 +724,7 @@
 
         <div class="row equalize xs-equalize-auto">
             <!-- start interactive banners item -->
-            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box">
+            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box wow ">
                 <figure> 
                     <div class="banner-image bg-black height-370px cover-background" style="background-image:url('img/work-1.jpg');">
                         <div class="works-caption">
@@ -743,7 +743,7 @@
                     </figcaption>
                 </figure>
             </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box">
+            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box wow zoomIn">
                 <figure> 
                     <div class="banner-image bg-black height-370px cover-background" style="background-image:url('img/work-2.jpg');">
                         <div class="works-caption">
@@ -762,7 +762,7 @@
                     </figcaption>
                 </figure>
             </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box">
+            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box wow">
                 <figure> 
                     <div class="banner-image bg-black height-370px cover-background" style="background-image:url('img/work-3.jpg');">
                         <div class="works-caption">
@@ -916,7 +916,7 @@
     <div class="container">
         <!--first guide-->
         <div class="row margin-60px-tb">
-            <div class="col-md-7 guide-text left-box roboto-cond">
+            <div class="col-md-7 guide-text left-box roboto-cond wow bounceInLeft">
                 <h4>Need a Travel Guide (Article 1)</h4>
 
                 <h5>1. Post your project</h5>
@@ -935,18 +935,18 @@
                 <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
                 <a href="#" class="btn btn-deep-purple btn-small">See More</a>
             </div>
-            <div class="col-md-5 guide-media">
+            <div class="col-md-5 guide-media wow bounceInRight">
                 <img src="img/guide-1.jpg" alt="">
             </div>
         </div>
         <!--second guide-->
         <div class="row padding-60px-tb">
 
-            <div class="col-md-5 guide-media">
+            <div class="col-md-5 guide-media wow bounceInLeft">
                 <img src="img/guide-2.jpg" alt="">
             </div>
 
-            <div class="col-md-7 guide-text right-box roboto-cond">
+            <div class="col-md-7 guide-text right-box roboto-cond wow bounceInRight">
                 <h4>Need a Personal Trainer (Article 2)</h4>
 
                 <h5>1. Post your project</h5>
@@ -968,7 +968,7 @@
 
         </div>
         <div class="row margin-60px-tb">
-            <div class="col-md-7 guide-text left-box roboto-cond">
+            <div class="col-md-7 guide-text left-box roboto-cond wow bounceInLeft">
                 <h4>Coaching (Article 3)</h4>
 
                 <h5>1. Post your project</h5>
@@ -987,7 +987,7 @@
                 <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
                 <a href="#" class="btn btn-deep-purple btn-small">See More</a>
             </div>
-            <div class="col-md-5 guide-media">
+            <div class="col-md-5 guide-media wow bounceInRight">
                 <img src="img/guide-3.jpg" alt="">
             </div>
         </div>
@@ -1082,7 +1082,7 @@
             </div>
 
             <div class="copyright  footer-btm">
-                <p>Please read carefully our <a href="#">Terms and Conditions.</a> </p>
+                <p>Please read carefully our <a href="#">Terms and Conditions</a>. </p>
                 <p>Copyright © 2016 - 2017 konsorts.com | All rights reserved.</p>
             </div>
         </div>
