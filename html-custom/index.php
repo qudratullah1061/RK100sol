@@ -916,7 +916,7 @@
     <div class="container">
         <!--first guide-->
         <div class="row margin-60px-tb">
-            <div class="col-md-7 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s" data-wow-delay="2s">
+            <div class="col-md-7 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s" data-wow-delay="0s">
                 <h4>Need a Travel Guide (Article 1)</h4>
 
                 <h5>1. Post your project</h5>
