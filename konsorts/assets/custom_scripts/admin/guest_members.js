@@ -18,9 +18,16 @@ var GuestMembers = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    setTimeout(function () {
-                        window.location.href = base_url + 'admin/guests';
-                    }, 500);
+                    var redirect_path = 'admin/guests';
+                    if ('add_guest_member' == formId) {
+                        setTimeout(function () {
+                            window.location.href = base_url + redirect_path;
+                        }, 500);
+                    } else {
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 500);
+                    }
                 } else {
                     toastr["error"](data.description, "Error!");
                 }
@@ -28,67 +35,112 @@ var GuestMembers = function () {
         });
     }
 
-    var handleValidationAddGuestMember = function (formId) {
+    var handleValidationAddUpdateGuestMember = function (formId) {
         var form = $('#' + formId);
         var error1 = $('.alert-danger', form);
         var success1 = $('.alert-success', form);
+        var Rules = {};
+        if ('add_guest_member' == formId) {
+            Rules = {
+                first_name: {
+                    required: true
+                },
+                last_name: {
+                    required: true,
+                },
+                username: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                },
+                confirm_password: {
+                    required: true,
+                    equalTo: "#password"
+                },
+                'id_proofs[]': {
+                    required: true,
+                },
+                phone_number: {
+                    required: true,
+                },
+                gender: {
+                    required: true,
+                },
+                date_of_birth: {
+                    required: true,
+                },
+                country: {
+                    required: true,
+                },
+                state: {
+                    required: true,
+                },
+                city: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                },
+            };
+        } else if ('update_guest_member' == formId) {
+            Rules = {
+                first_name: {
+                    required: true
+                },
+                last_name: {
+                    required: true,
+                },
+                username: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                },
+                confirm_password: {
+                    equalTo: "#password"
+                },
+                phone_number: {
+                    required: true,
+                },
+                gender: {
+                    required: true,
+                },
+                date_of_birth: {
+                    required: true,
+                },
+                country: {
+                    required: true,
+                },
+                state: {
+                    required: true,
+                },
+                city: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                }
+            }
+        }
         form.validate({
             errorElement: 'span', //default input error message container
             errorClass: 'help-block help-block-error', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
-            ignore: "", // validate all fields including form hidden input
+            ignore: [], // validate all fields including form hidden input
             messages: {
                 confirm_password: {
                     equalTo: "Password does not match confirm password field."
                 }
             },
-            ignore: [],
-                    rules: {
-                        first_name: {
-                            required: true
-                        },
-                        last_name: {
-                            required: true,
-                        },
-                        username: {
-                            required: true,
-                        },
-                        email: {
-                            required: true,
-                            email: true
-                        },
-                        password: {
-                            required: true,
-                        },
-                        confirm_password: {
-                            required: true,
-                            equalTo: "#password"
-                        },
-                        'id_proofs[]': {
-                            required: true,
-                        },
-                        phone_number: {
-                            required: true,
-                        },
-                        gender: {
-                            required: true,
-                        },
-                        date_of_birth: {
-                            required: true,
-                        },
-                        country: {
-                            required: true,
-                        },
-                        state: {
-                            required: true,
-                        },
-                        city: {
-                            required: true,
-                        },
-                        address: {
-                            required: true,
-                        },
-                    },
+            rules: Rules,
             invalidHandler: function (event, validator) { //display error alert on form submit              
                 success1.hide();
                 error1.show();
@@ -121,9 +173,9 @@ var GuestMembers = function () {
 
     };
     return {
-        initAddGuestValidation: function (formId) {
+        initAddUpdateGuestValidation: function (formId) {
             $(".date-picker").datepicker();
-            handleValidationAddGuestMember(formId);
+            handleValidationAddUpdateGuestMember(formId);
         }
     };
 }();

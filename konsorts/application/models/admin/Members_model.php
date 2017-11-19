@@ -28,6 +28,13 @@ class Members_model extends Abstract_model {
         }
     }
 
+    function get_member_images_by_type($where) {
+        if ($where) {
+            return $this->db->get_where('tb_member_images', $where)->result_array();
+        }
+        return null;
+    }
+
     public function getMembers($condition = '', $offset = -1, $limit = 10, $order_by = '') {
         $sql = "SELECT `tb_member_images`.image, `tb_member_images`.image_path, `tb_member_images`.is_profile_image, `tb_member_images`.image_type, `tb_members`.* FROM `tb_members` " .
                 " LEFT JOIN `tb_member_images` ON `tb_member_images`.image_id = " .

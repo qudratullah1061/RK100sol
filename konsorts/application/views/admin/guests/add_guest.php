@@ -197,15 +197,15 @@ $unique_id = time();
                                                 </div>
                                                 <!--                                        <hr>
                                                                                         <br>-->
-<!--                                                <div class="md-checkbox-inline">
-                                                    <div class="md-checkbox">
-                                                        <input type="checkbox" id="checkbox33" class="md-check">
-                                                        <label for="checkbox33">
-                                                            <span></span>
-                                                            <span class="check"></span>
-                                                            <span class="box"></span> I agreee with the <a href="#">terms and conditions</a> for Registration</label>
-                                                    </div>
-                                                </div>-->
+                                                <!--                                                <div class="md-checkbox-inline">
+                                                                                                    <div class="md-checkbox">
+                                                                                                        <input type="checkbox" id="checkbox33" class="md-check">
+                                                                                                        <label for="checkbox33">
+                                                                                                            <span></span>
+                                                                                                            <span class="check"></span>
+                                                                                                            <span class="box"></span> I agreee with the <a href="#">terms and conditions</a> for Registration</label>
+                                                                                                    </div>
+                                                                                                </div>-->
                                                 <!--<br>-->
                                                 <a href="<?php echo base_url('admin/guests'); ?>" class="btn default">Cancel</a>
                                                 <button type="submit" class="btn green">Register</button>
@@ -223,9 +223,9 @@ $unique_id = time();
 
     </div>
 </div>
-<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/guest_members.js" type="text/javascript"></script>
 <script>
-                                                                $(document).ready(function () {
-                                                                    GuestMembers.initAddGuestValidation("add_guest_member");
-                                                                });
+    $(document).ready(function () {
+        GuestMembers.initAddUpdateGuestValidation("add_guest_member");
+    });
 </script>
+<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/guest_members.js" type="text/javascript"></script>

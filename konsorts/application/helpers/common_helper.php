@@ -73,13 +73,15 @@ function GetCountriesOption($selected_value = "") {
 function GetStatesOption($country_id = 0, $selected_value = "") {
     global $CI;
     $options = "<option value=''>Select State</option>";
-    if ($country_id > 0) {
-        $CI->db->where(array('country_id' => $country_id));
-    }
-    $data_info = $CI->db->get('tb_states')->result_array();
-    if ($data_info) {
-        foreach ($data_info as $info) {
-            $options.="<option value='" . $info['state_id'] . "' " . ($info['state_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['state_name']) . "</option>";
+    if ($country_id) {
+        if ($country_id > 0) {
+            $CI->db->where(array('country_id' => $country_id));
+        }
+        $data_info = $CI->db->get('tb_states')->result_array();
+        if ($data_info) {
+            foreach ($data_info as $info) {
+                $options.="<option value='" . $info['state_id'] . "' " . ($info['state_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['state_name']) . "</option>";
+            }
         }
     }
     return $options;
@@ -88,13 +90,15 @@ function GetStatesOption($country_id = 0, $selected_value = "") {
 function GetCityOptions($state_id = 0, $selected_value = "") {
     global $CI;
     $options = "<option value=''>Select City</option>";
-    if ($state_id > 0) {
-        $CI->db->where(array('state_id' => $state_id));
-    }
-    $data_info = $CI->db->get('tb_cities')->result_array();
-    if ($data_info) {
-        foreach ($data_info as $info) {
-            $options.="<option value='" . $info['city_id'] . "' " . ($info['city_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['city_name']) . "</option>";
+    if ($state_id) {
+        if ($state_id > 0) {
+            $CI->db->where(array('state_id' => $state_id));
+        }
+        $data_info = $CI->db->get('tb_cities')->result_array();
+        if ($data_info) {
+            foreach ($data_info as $info) {
+                $options.="<option value='" . $info['city_id'] . "' " . ($info['city_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['city_name']) . "</option>";
+            }
         }
     }
     return $options;
