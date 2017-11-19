@@ -718,6 +718,73 @@
         </div>
     </div>
 </section>
+
+<section class="wow fadeIn works">
+    <div class="container">
+
+        <div class="row equalize xs-equalize-auto">
+            <!-- start interactive banners item -->
+            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box wow " >
+                <figure> 
+                    <div class="banner-image bg-black height-370px cover-background" style="background-image:url('img/work-1.jpg');">
+                        <div class="works-caption">
+                            <div class="text-center padding-30px-tb">
+                                <p>HOW KONSORTS WORKS?</p>
+                            </div>   
+                        </div>
+                    </div>
+                    <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
+                        <div class="display-table width-100 height-100">
+                            <div class="display-table-cell vertical-align-middle text-left">
+                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.....</p>
+                                <a href="#" class="text-white font-weight-700">Read More</a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box wow zoomIn">
+                <figure> 
+                    <div class="banner-image bg-black height-370px cover-background" style="background-image:url('img/work-2.jpg');">
+                        <div class="works-caption">
+                            <div class="text-center padding-30px-tb">
+                                <p>HOW KONSORTS WORKS?</p>
+                            </div>   
+                        </div>
+                    </div>
+                    <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
+                        <div class="display-table width-100 height-100">
+                            <div class="display-table-cell vertical-align-middle text-left">
+                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.....</p>
+                                <a href="#" class="text-white font-weight-700">Read More</a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 banner-style2 sm-margin-30px-bottom wow fadeIn works-box wow">
+                <figure> 
+                    <div class="banner-image bg-black height-370px cover-background" style="background-image:url('img/work-3.jpg');">
+                        <div class="works-caption">
+                            <div class="text-center padding-30px-tb">
+                                <p>A SECURE COMMUNITY</p>
+                            </div>   
+                        </div>
+                    </div>
+                    <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
+                        <div class="display-table width-100 height-100">
+                            <div class="display-table-cell vertical-align-middle text-left">
+                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.....</p>
+                                <a href="#" class="text-white font-weight-700">Read More</a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <!-- end interactive banners item -->
+        </div>
+    </div>
+</section>
 <section class="wow fadeIn pricing bg-light-gray">
     <div class="container">
 
@@ -844,19 +911,90 @@
         </div>
     </div>
 </section>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<section class="guide bg-light-gray margin-60px-tb no-padding">
+    <div class="container">
+        <!--first guide-->
+        <div class="row margin-60px-tb">
+            <div class="col-md-7 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s" data-wow-delay="2s">
+                <h4>Need a Travel Guide (Article 1)</h4>
+
+                <h5>1. Post your project</h5>
+                <p>It's always free to post your project. Invite our freelancers to submit bids, or browse relevant freelancers and make an offer. You'll have replies to your job within minutes!</p>
+
+                <h5>2. Choose the perfect freelancer</h5>
+
+                <ul class="list-style-1">
+                    <li>Browse freelancer profiles</li>
+                    <li>Chat in real-time</li>
+                    <li>Compare proposals and select the best one</li>
+                    <li>Award your project and your freelancer goes to work</li>
+                </ul>
+
+                <h5>3. Pay when you are satisfied!</h5>
+                <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
+                <a href="#" class="btn btn-deep-purple btn-small">See More</a>
+            </div>
+            <div class="col-md-5 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s" >
+                <img src="img/guide-1.jpg" alt="">
+            </div>
+        </div>
+        <!--second guide-->
+        <div class="row padding-60px-tb">
+
+            <div class="col-md-5 guide-media wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s">
+                <img src="img/guide-2.jpg" alt="">
+            </div>
+
+            <div class="col-md-7 guide-text right-box roboto-cond wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
+                <h4>Need a Personal Trainer (Article 2)</h4>
+
+                <h5>1. Post your project</h5>
+                <p>It's always free to post your project. Invite our freelancers to submit bids, or browse relevant freelancers and make an offer. You'll have replies to your job within minutes!</p>
+
+                <h5>2. Choose the perfect freelancer</h5>
+
+                <ul class="list-style-1">
+                    <li>Browse freelancer profiles</li>
+                    <li>Chat in real-time</li>
+                    <li>Compare proposals and select the best one</li>
+                    <li>Award your project and your freelancer goes to work</li>
+                </ul>
+
+                <h5>3. Pay when you are satisfied!</h5>
+                <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
+                <a href="#" class="btn btn-deep-purple btn-small">See More</a>
+            </div>
+
+        </div>
+        <div class="row margin-60px-tb">
+            <div class="col-md-7 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s">
+                <h4>Coaching (Article 3)</h4>
+
+                <h5>1. Post your project</h5>
+                <p>It's always free to post your project. Invite our freelancers to submit bids, or browse relevant freelancers and make an offer. You'll have replies to your job within minutes!</p>
+
+                <h5>2. Choose the perfect freelancer</h5>
+
+                <ul class="list-style-1">
+                    <li>Browse freelancer profiles</li>
+                    <li>Chat in real-time</li>
+                    <li>Compare proposals and select the best one</li>
+                    <li>Award your project and your freelancer goes to work</li>
+                </ul>
+
+                <h5>3. Pay when you are satisfied!</h5>
+                <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
+                <a href="#" class="btn btn-deep-purple btn-small">See More</a>
+            </div>
+            <div class="col-md-5 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
+                <img src="img/guide-3.jpg" alt="">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
 <?php include_once 'includes/footer.php' ?>

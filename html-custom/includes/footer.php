@@ -1,6 +1,100 @@
-    <!-- end banner -->
-    <!-- start scroll to top -->
-    <a class="scroll-top-arrow" href="javascript:void(0);">
+<!-- start footer --> 
+<footer class="footer-standard bg-light-gray"> 
+    <div class="footer-widget-area ">
+        <div class="container">
+            <div class="row equalize xs-equalize-auto footer-top">
+                <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
+                    <a href="index.html" class="margin-15px-bottom display-inline-block"><img class="footer-logo" src="img/logo.png" alt="Konsorts"></a>
+                    <p class=" margin-0">Konsorts is a community of individuals offering personal services world wide, like: Personal trainers, tour guides, international hosts, personal shoppers and many other platonic services.</p>
+                    <a href="#" class="text-purple font-weight-400 more-details">More Details</a>
+                </div>
+                <!-- start additional links -->
+                <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
+                    <div class="widget-title">Konsorts</div>
+                    <ul class="list-unstyled">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Our Services</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- end additional links -->
+                <!-- start contact information -->
+                <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
+                    <div class="widget-title">About</div>
+                    <ul class="list-unstyled">
+                        <li><a href="">About us</a></li>
+                        <li><a href="">How it Works</a></li>
+                        <li><a href="">Security</a></li>
+                    </ul>
+                </div>
+                <!-- end contact information -->
+                <!-- start instagram -->
+                <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center  padding-70px-left sm-padding-left-0">
+                    <div class="widget-title">Terms</div>
+                    <ul class="list-unstyled">
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Terms and Conditions</a></li>
+                        <li><a href="">Copyright Policy</a></li>
+                        <li><a href="">Code of Conduct</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
+                    <div class="widget-title">Support</div>
+                    <ul class="list-unstyled">
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Terms and Conditions</a></li>
+                        <li><a href="">Copyright Policy</a></li>
+                        <li><a href="">Code of Conduct</a></li>
+                    </ul>
+                </div>
+                <!-- end instagram -->
+            </div>
+            <div class="padding-10px-tb xs-padding-20px-tb border-bottom border-top  footer-mid">
+
+                <div class="row">
+                    <!-- start copyright -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 text-left text-small xs-text-center">
+                        <div class="social-icon-style-8 display-inline-block vertical-align-middle">
+
+                            <ul class="small-icon no-margin-bottom">
+                                <li> <span> Follow Us:</span> </li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-gmail.png" alt=""> </a></li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-linkedin.png" alt=""> </a></li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-facebook.png" alt=""> </a></li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-twitter.png" alt=""> </a></li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-instagram.png" alt=""> </a></li>
+                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-youtube.png" alt=""> </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 text-right text-small xs-text-center">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="email">Newsletter:</label>
+                                <input type="email" class="form-control placeholder-83" id="email" placeholder="Email">
+                            </div>
+                            <button type="submit" class="btn btn-deep-purple btn-small">Submit</button>
+                        </form>
+                    </div>
+                    <!-- end copyright -->
+                </div>
+
+            </div>
+
+            <div class="copyright  footer-btm">
+                <p>Please read carefully our <a href="#">Terms and Conditions</a>. </p>
+                <p>Copyright © 2016 - 2017 konsorts.com | All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<!-- end banner -->
+<!-- start scroll to top -->
+<a class="scroll-top-arrow" href="javascript:void(0);">
     <i class="ti-arrow-up"></i>
 </a>
 <!-- end scroll to top  -->
