@@ -38,7 +38,8 @@
                                             </div>
 
                                             <div class="form-group text-center">
-                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="btn btn-default" value="Send">
+                                                <!--<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="btn btn-default" value="Reset">-->
+                                                <a href="login.php" class="btn btn-default">Reset</a>
                                                 <!--<div class="col-md-8 text-right"><a href="#" class="forgot-password">Forgot Password?</a></div>-->
                                             </div>
                                         </form>
