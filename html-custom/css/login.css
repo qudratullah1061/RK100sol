@@ -1,0 +1,188 @@
+body {
+    /*padding-top: 90px;*/
+    background-image: url(../img/home-banner.jpg);
+    font-family: 'Raleway', sans-serif;
+}
+.panel-login {
+    border-color: #ccc;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,.9);
+    -moz-transition: .31s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+    height: 270px;
+}
+.panel-login.bigHeight{height: 380px;}
+.panel.panel-login {
+    border-radius: 0;
+    border: 1px solid #bcb4b4;
+
+
+    /*height: 280px;*/
+}
+.panel-login>.panel-heading {
+    /*    color: #00415d;
+        background-color: #fff;
+        border-color: #fff;*/
+    text-align:center;
+    padding:0;
+}
+.panel-login>.panel-heading a{
+    font-size: 18px;
+    /*background: lightblue;*/
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+
+}
+.panel-login>.panel-heading .row>div:first-child {
+    padding-right: 0;
+}
+
+.panel-login>.panel-heading .row>div:last-child {
+    padding-left: 0;
+    /*border-left: 1px solid #942192;*/
+
+}
+.panel-login>.panel-heading a.active{
+    color: #942192;
+    font-size: 18px;
+}
+.bg-purple{background: #942192;}
+.pointer-none{pointer-events: none;}
+.text-white{color:#fff;}
+.panel.panel-login.panel-reset {
+    height: auto;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+.panel-login>.panel-heading a:not(.active){
+    background-color: #bcb4b4;
+    color:#fff;
+}
+.panel-login>.panel-heading a:not(.active):hover {
+    background-color: purple;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+    height: 40px;
+    border: 1px solid #a9a6a6;
+    /*font-size: 16px;*/
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+    background-color: #fff;
+    border-radius: 0;
+    background-color: transparent;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+    outline:none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-color: #ccc;
+}
+/*.btn-login {
+    background-color: #59B2E0;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    text-transform: uppercase;
+    border-color: #59B2E6;
+}
+.btn-login:hover,
+.btn-login:focus {
+    color: #fff;
+    background-color: #53A3CD;
+    border-color: #53A3CD;
+}*/
+.forgot-password {
+    /* text-decoration: underline; */
+    color: #888;
+    margin-top: 10px;
+    display: inline-block;
+    color: #942192;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+    text-decoration: underline;
+    color: purple;
+    transition: all 0.3s ease;
+}
+
+/*.btn-register {
+    background-color: #1CB94E;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    text-transform: uppercase;
+    border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+    color: #fff;
+    background-color: #1CA347;
+    border-color: #1CA347;
+}*/
+.panel-login>.panel-heading a.active{
+    text-decoration: none;
+    cursor: default;
+}
+
+.panel-body {
+    padding: 15px;
+    padding-top: 40px;  
+}
+.panel.panel-login .btn-default {
+    border-radius: 0;
+    text-transform: unset;
+    font-size: 14px;
+    margin: 2px 0;
+    font-weight: 500;
+    background-color: #942192;
+    color: #fff;
+    padding: 7px 24px;
+    min-width: 150px;
+    max-width: 100%;
+    transition: all 0.3s ease;
+}
+.panel.panel-login .btn-default:hover {
+    background: purple;
+    transition: all 0.3s ease;
+}
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+    width: 500px;
+    max-width: 100%;
+}
