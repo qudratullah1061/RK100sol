@@ -27,7 +27,7 @@
                             Add New User
                         </a>
                     </div>
-                    <table class="table table-striped table-bordered table-hover table-checkable text-center" id="datatable_adminusers">
+                    <table class="table table-striped table-bordered table-hover table-checkable text-center vertical_align_middle" id="datatable_adminusers">
                         <thead>
                             <tr role="row" class="heading">
                                 <th width="15%"> Image </th>

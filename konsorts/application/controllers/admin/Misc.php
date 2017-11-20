@@ -274,6 +274,15 @@ class Misc extends Admin_Controller {
         $this->_response(true, "Problem while deleting record.");
     }
 
+    function MarkAsProfileImage() {
+        $this->isAjax();
+        $unique_id = $this->input->post('image_id');
+        $member_id = $this->input->post('member_id');
+        $this->Misc_Model->UpdateRecord('member_id', $member_id, array('is_profile_image' => 0));
+        $this->Misc_Model->UpdateRecord('image_id', $unique_id, array('is_profile_image' => 1));
+        $this->_response(false, "Profile pic updated successfully!");
+    }
+
     function delete_dropzone_temp_file() {
         $unique_id = $this->input->get_post('unique_id');
         $file_name = $this->input->get_post('file_name');
@@ -281,7 +290,7 @@ class Misc extends Admin_Controller {
         $result = $this->Misc_Model->DeleteRecordDropZoneJs('tb_temp_images_upload', $where_clause);
         if ($result) {
             // delete file from directory
-            $file_path = 'uploads/temp_images/'.$file_name;
+            $file_path = 'uploads/temp_images/' . $file_name;
             delete_file_from_directory($file_path);
             $this->_response(false, "Record deleted successfully!");
         }

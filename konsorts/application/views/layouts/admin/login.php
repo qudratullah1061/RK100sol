@@ -29,7 +29,7 @@
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico" /> </head>
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/favicon.png" /> </head>
     <!-- END HEAD -->
 
     <body class=" login">

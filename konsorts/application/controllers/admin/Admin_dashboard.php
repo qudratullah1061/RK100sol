@@ -175,11 +175,16 @@ class Admin_dashboard extends Admin_Controller {
                     if (isset($result['error'])) {
                         $this->_response(true, $result['error']);
                     }
+                    // new image paths
                     $data['image'] = $result['upload_data']['file_name'];
                     $data['image_path'] = $result['upload_data']['file_path'];
                 }
                 $result = false;
                 if ($edit_id > 0) {
+                    // delete old images first from directory
+                    $admin_info = GetAdminInfoWithId($edit_id);
+                    $unlink_images_array[0] = $admin_info; //need to send multidimensional array to this function.
+                    delete_image_from_directory($unlink_images_array);
                     $this->Admin_Model->update_admin_user($edit_id, $data);
                     $result = true;
                 } else {

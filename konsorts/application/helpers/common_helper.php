@@ -73,13 +73,15 @@ function GetCountriesOption($selected_value = "") {
 function GetStatesOption($country_id = 0, $selected_value = "") {
     global $CI;
     $options = "<option value=''>Select State</option>";
-    if ($country_id > 0) {
-        $CI->db->where(array('country_id' => $country_id));
-    }
-    $data_info = $CI->db->get('tb_states')->result_array();
-    if ($data_info) {
-        foreach ($data_info as $info) {
-            $options.="<option value='" . $info['state_id'] . "' " . ($info['state_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['state_name']) . "</option>";
+    if ($country_id) {
+        if ($country_id > 0) {
+            $CI->db->where(array('country_id' => $country_id));
+        }
+        $data_info = $CI->db->get('tb_states')->result_array();
+        if ($data_info) {
+            foreach ($data_info as $info) {
+                $options.="<option value='" . $info['state_id'] . "' " . ($info['state_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['state_name']) . "</option>";
+            }
         }
     }
     return $options;
@@ -88,16 +90,47 @@ function GetStatesOption($country_id = 0, $selected_value = "") {
 function GetCityOptions($state_id = 0, $selected_value = "") {
     global $CI;
     $options = "<option value=''>Select City</option>";
-    if ($state_id > 0) {
-        $CI->db->where(array('state_id' => $state_id));
-    }
-    $data_info = $CI->db->get('tb_cities')->result_array();
-    if ($data_info) {
-        foreach ($data_info as $info) {
-            $options.="<option value='" . $info['city_id'] . "' " . ($info['city_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['city_name']) . "</option>";
+    if ($state_id) {
+        if ($state_id > 0) {
+            $CI->db->where(array('state_id' => $state_id));
+        }
+        $data_info = $CI->db->get('tb_cities')->result_array();
+        if ($data_info) {
+            foreach ($data_info as $info) {
+                $options.="<option value='" . $info['city_id'] . "' " . ($info['city_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['city_name']) . "</option>";
+            }
         }
     }
     return $options;
+}
+
+// receives multidimensional array
+function delete_image_from_directory($images_info_array) {
+    global $CI;
+    if ($images_info_array) {
+        foreach ($images_info_array as $image) {
+            $file_path = $CI->config->item('root_path') . $image['image_path'] . $image['image'];
+            $file_path_small = $CI->config->item('root_path') . $image['image_path'] . 'small_' . $image['image'];
+            $file_path_medium = $CI->config->item('root_path') . $image['image_path'] . 'medium_' . $image['image'];
+            $file_path_large = $CI->config->item('root_path') . $image['image_path'] . 'large_' . $image['image'];
+            $file_path_Xlarge = $CI->config->item('root_path') . $image['image_path'] . 'Xlarge_' . $image['image'];
+            if (file_exists($file_path)) {
+                unlink($file_path);
+            }
+            if (file_exists($file_path_small)) {
+                unlink($file_path_small);
+            }
+            if (file_exists($file_path_medium)) {
+                unlink($file_path_medium);
+            }
+            if (file_exists($file_path_large)) {
+                unlink($file_path_large);
+            }
+            if (file_exists($file_path_Xlarge)) {
+                unlink($file_path_Xlarge);
+            }
+        }
+    }
 }
 
 function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thump_options = array()) {
@@ -105,6 +138,7 @@ function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thu
     $config['upload_path'] = $CI->config->item('root_path') . $upload_path;
     $config['allowed_types'] = 'gif|jpg|png|jpeg';
     $config['max_size'] = 10000;
+    $config['file_name'] = time() . $_FILES[$file_field_name]['name'];
 //    $config['max_width'] = 1024;
 //    $config['max_height'] = 768;
     $CI->load->library('upload', $config);

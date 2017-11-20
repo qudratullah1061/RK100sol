@@ -25,7 +25,7 @@
                         <span> </span>
                         <a class="purple" data-title="Add Type" href="<?php echo base_url('admin/guests/add_guest'); ?>"><i class="fa fa-plus-circle"></i> Add new guest</a>
                     </div>
-                    <table class="table table-striped table-bordered table-hover table-checkable text-center" id="datatable_guests">
+                    <table class="table table-striped table-bordered table-hover table-checkable text-center vertical_align_middle" id="datatable_guests">
                         <thead>
                             <tr role="row" class="heading">
                                 <th width="15%"> Image </th>

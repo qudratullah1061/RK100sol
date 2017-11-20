@@ -111,5 +111,10 @@ class Misc_model extends Abstract_model {
         $this->table_name = $table;
         return $this->deleteByWhere($where_clause);
     }
+    
+    function UpdateRecord($column, $row_id, $data){
+        $this->table_name = "tb_member_images";
+        $this->updateBy($column, $row_id, $data);
+    }
 
 }

@@ -57,6 +57,13 @@
 #datatable_adminusers tr td{
     vertical-align: middle;
 }
+
+.vertical_align_middle tr td{
+    vertical-align: middle !important;
+}
 .dropzone .dz-preview .dz-error-message{
     color:white;
+}
+.cbp-l-caption-alignCenter .cbp-l-caption-body{
+    padding: 4px 0 !important;
 }
