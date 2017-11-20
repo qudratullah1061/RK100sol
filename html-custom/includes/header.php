@@ -82,7 +82,7 @@
                         <div class="navbar-collapse collapse pull-right" id="navbar-collapse-toggle-1">
                             <ul id="accordion" class="nav navbar-nav navbar-left no-margin text-normal" data-in="fadeIn" data-out="fadeOut">
                                 <!-- start menu item -->
-                                <li class="active">
+                                <li class="">
                                     <a href="index.php">Home</a>
                                 </li>
                                 <li class="">
@@ -98,7 +98,7 @@
                                     <a href="javascript:void(0);">Contact Us</a>
                                 </li>
                                 <li class="dropdown megamenu-fw">
-                                    <a href="login.php">Log in</a>
+                                    <a href="#">Log in</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
                                     <!-- start sub menu -->
 
