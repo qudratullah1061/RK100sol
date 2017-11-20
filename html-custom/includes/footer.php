@@ -12,8 +12,8 @@
                 <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
                     <div class="widget-title">Konsorts</div>
                     <ul class="list-unstyled">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="aboutus.php">About</a></li>
                         <li><a href="">Our Services</a></li>
                         <li><a href="">Blog</a></li>
                         <li><a href="">Contact Us</a></li>
@@ -35,7 +35,7 @@
                     <div class="widget-title">Terms</div>
                     <ul class="list-unstyled">
                         <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Terms and Conditions</a></li>
+                        <li><a href="terms.php">Terms and Conditions</a></li>
                         <li><a href="">Copyright Policy</a></li>
                         <li><a href="">Code of Conduct</a></li>
                     </ul>
@@ -43,8 +43,8 @@
                 <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
                     <div class="widget-title">Support</div>
                     <ul class="list-unstyled">
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Terms and Conditions</a></li>
+                        <li><a href="faq.php">Faq</a></li>
+                        <li><a href="terms.php">Terms and Conditions</a></li>
                         <li><a href="">Copyright Policy</a></li>
                         <li><a href="">Code of Conduct</a></li>
                     </ul>
@@ -84,7 +84,7 @@
             </div>
 
             <div class="copyright  footer-btm">
-                <p>Please read carefully our <a href="#">Terms and Conditions</a>. </p>
+                <p>Please read carefully our <a href="terms.php">Terms and Conditions</a>. </p>
                 <p>Copyright © 2016 - 2017 konsorts.com | All rights reserved.</p>
             </div>
         </div>

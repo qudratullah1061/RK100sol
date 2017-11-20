@@ -406,6 +406,9 @@ footer a:hover {
 .custom-list-5.list-style-5 li:before {
     color: #942192;
 }
+.custom-list-5.list-style-5 li {
+    border-bottom: 0;
+}
 
 
 

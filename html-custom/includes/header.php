@@ -83,10 +83,10 @@
                             <ul id="accordion" class="nav navbar-nav navbar-left no-margin text-normal" data-in="fadeIn" data-out="fadeOut">
                                 <!-- start menu item -->
                                 <li class="active">
-                                    <a href="javascript:void(0);">Home</a>
+                                    <a href="index.php">Home</a>
                                 </li>
                                 <li class="">
-                                    <a href="javascript:void(0);">About</a>
+                                    <a href="aboutus.php">About</a>
                                 </li>
                                 <li class="">
                                     <a href="javascript:void(0);">Our Services</a>
@@ -98,7 +98,7 @@
                                     <a href="javascript:void(0);">Contact Us</a>
                                 </li>
                                 <li class="dropdown megamenu-fw">
-                                    <a href="javascript:void(0);">Log in</a>
+                                    <a href="login.php">Log in</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
                                     <!-- start sub menu -->
 
