@@ -8,7 +8,7 @@ class Companions extends Admin_Controller {
     public function __construct() {
         parent::__construct();
         $this->layout = 'admin/main';
-        $this->load->model('admin/companion_model', 'Companion_Model');
+        $this->load->model('admin/members_model', 'Companion_Model');
     }
 
     //Main dashboard index function
