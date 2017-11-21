@@ -28,7 +28,8 @@
                                         <a href="#" class="active" id="login-form-link"> <i class="fa fa-sign-in"></i> Login</a>
                                     </div>
                                     <div class="col-xs-6">
-                                        <a href="#" id="register-form-link"> <i class="fa fa-plus-circle"></i> Register</a>
+                                        <!--<a href="#" id="register-form-link"> <i class="fa fa-plus-circle"></i> Register</a>-->
+                                        <a href="membership-plans.php" id=""> <i class="fa fa-plus-circle"></i> Register</a>
                                     </div>
                                 </div>
                                 <!--<hr>-->

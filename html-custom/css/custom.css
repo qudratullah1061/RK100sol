@@ -410,9 +410,29 @@ footer a:hover {
     border-bottom: 0;
 }
 
+/*====================== Membership plans ============================*/
 
+.pricing.membership-plans {
+    margin-top: 122px;
+    background-image: url(../img/home-banner.jpg);
+}
 
+.pricing.membership-plans .list-heading, .pricing.membership-plans .list-style-5.custom-list li {
+    color: #fff;
+}
 
+.pricing.membership-plans .seperator.price-seperater {
+    background: #fff;
+}
+
+.pricing.membership-plans .list-style-5.custom-list li:before {
+    color: #fff;
+}
+
+/*Contact us*/
+.contact-us .big-textarea {
+    overflow: hidden;
+}
 
 
 /* Media Quries */
