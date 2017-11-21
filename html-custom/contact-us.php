@@ -16,7 +16,7 @@
         </div>
     </div>
 </section>
-<section class="wow fadeIn parallax contact-us" data-stellar-background-ratio="0.5" style="background-image:url('https://www.konsorts.com/frontend/img/konsorts-form-bg.jpg');">
+<section class="wow fadeIn parallax contact-us" data-stellar-background-ratio="0.5" style="background-image:url('img/konsorts-form-bg.jpg');">
     <!--<div class="opacity-full bg-black"></div>-->
     <div class="container">
         <div class="row">
