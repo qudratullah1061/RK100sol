@@ -16,7 +16,7 @@
                         <li><a href="aboutus.php">About</a></li>
                         <li><a href="">Our Services</a></li>
                         <li><a href="">Blog</a></li>
-                        <li><a href="">Contact Us</a></li>
+                        <li><a href="contact-us.php">Contact Us</a></li>
                     </ul>
                 </div>
                 <!-- end additional links -->

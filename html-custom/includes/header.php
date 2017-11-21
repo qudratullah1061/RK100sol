@@ -95,11 +95,11 @@
                                     <a href="javascript:void(0);" title="Blog">Blog</a>
                                 </li>
                                 <li class="">
-                                    <a href="javascript:void(0);">Contact Us</a>
+                                    <a href="contact-us.php">Contact Us</a>
                                 </li>
                                 <li class="dropdown megamenu-fw">
-                                    <a href="#">Log in</a>
-                                    <i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+                                    <a href="login.php">Log in</a>
+                                    <!--<i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>-->
                                     <!-- start sub menu -->
 
                                 </li>
