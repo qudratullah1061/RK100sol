@@ -4,6 +4,9 @@
         <div class="col-md-3 col-sm-4">
             <div class="profile-left wow fadeInUp">
                 <div class="profile-personal">
+                    <span class="status online"><!-- + Note: remove class online if user is offline + -->
+                        online
+                    </span>
                     <div class="profile-media">
                         <img src="img/profile-img.jpg" alt="">
                     </div>

@@ -668,9 +668,26 @@ span.profile-reviews-counter {
     float: right;
 }
 
-.profile-personal .btn.btn-pruple {
+.profile-personal .status {
+    background: #a7a7a5;
+    height: 20px;
+    color: #fff;
+    position: absolute;
+    right: 15px;
+    line-height: 21px;
+    text-transform: capitalize;
+    font-size: 12px;
+    min-width: 63px;
+    border-top-left-radius: 11px;
+    border-bottom-left-radius: 11px;
+    font-family: Roboto;
+    font-weight: 300;
+    letter-spacing: 1px;
+    top: 35px;
 }
-
+.profile-personal .status.online {
+    background: #8dc63f;
+}
 .profile-personal .btn {
     text-transform: unset;
     font-size: 16px;
