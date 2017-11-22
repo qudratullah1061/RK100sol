@@ -120,15 +120,16 @@ nav .accordion-menu {
     border: 1px solid #800080;
     top: 96px;
 }
+header.sticky .header-right .dropdown ul.dropdown-menu {
+    top: 90px;
+}
 
-.header-right .dropdown ul.dropdown-menu
-li a {
+.header-right .dropdown ul.dropdown-menu li a {
     padding: 8px 15px;
     color: purple;
 }
 
-.header-right .dropdown ul.dropdown-menu
-li a .fa {
+.header-right .dropdown ul.dropdown-menu li a .fa {
     margin-right: 5px;
 }
 
