@@ -116,5 +116,10 @@ class Misc_model extends Abstract_model {
         $this->table_name = "tb_member_images";
         $this->updateBy($column, $row_id, $data);
     }
+    
+    function SelectByWhere($where_clause){
+        $this->table_name = "tb_member_images";
+        return $this->getByWhere("",$where_clause);
+    }
 
 }

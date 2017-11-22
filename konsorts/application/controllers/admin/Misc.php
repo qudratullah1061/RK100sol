@@ -272,7 +272,15 @@ class Misc extends Admin_Controller {
         $unique_id = $this->input->post('unique_id');
         $table = $this->input->post('table');
         $column = $this->input->post('column');
+        // if image table delete file from folder as well.
+        if ($table == 'tb_member_images') {
+            $where_clause = array('image_id'=>$unique_id);
+            $img_info = $this->Misc_Model->SelectByWhere($where_clause);
+            delete_image_from_directory($img_info);
+        }
         $result = $this->Misc_Model->DeleteRecord($unique_id, $table, $column);
+
+
         if ($result) {
             $this->_response(false, "Record deleted successfully!");
         }
