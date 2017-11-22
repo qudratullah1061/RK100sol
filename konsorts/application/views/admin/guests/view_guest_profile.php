@@ -239,7 +239,7 @@
                                     <!-- Profile images ends-->
                                     
                                     <!-- Id proof images start-->
-                                    <div>
+                                    <div class="margin-top-20">
                                         <form action="<?php echo base_url('admin/guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
                                             <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
                                             <input type="hidden" name="image_type" value="id_proof">
@@ -370,6 +370,6 @@
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/guest_members.js" type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->

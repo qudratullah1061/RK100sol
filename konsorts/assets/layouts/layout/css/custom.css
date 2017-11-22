@@ -27,7 +27,7 @@
     opacity: 1;
     transition: all 0.3s ease;
 }
-#addActivity .form-body {
+#addCategory .form-body {
     padding: 20px 0 0;
 }
 #addUser {
@@ -67,3 +67,20 @@
 .cbp-l-caption-alignCenter .cbp-l-caption-body{
     padding: 4px 0 !important;
 }
+.file-upload-dropzone{
+    position: absolute;
+    top: 39%;
+    left: 35%;
+}
+.margin-top-300{
+    margin-top: 300px !important;
+}
+/*.cbp-item.graphic {
+    width: 31% !important;
+    height: auto !important;
+    position: static !important;
+    margin-right: 14px !important;
+}*/
+/*.cbp-item {
+    width:210px !important;
+}*/

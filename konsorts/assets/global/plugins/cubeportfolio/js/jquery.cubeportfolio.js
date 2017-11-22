@@ -341,6 +341,7 @@
                         bound = el.getBoundingClientRect(),
                         width = t.columnWidthTruncate(bound.right - bound.left),
                         height = Math.round(bound.bottom - bound.top);
+                        
 
                     data.height = height;
                     data.heightAndGap = height + t.options.gapHorizontal;

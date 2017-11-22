@@ -1,3 +1,6 @@
+<?php
+$unique_id = time();
+?>
 <!-- BEGIN PAGE BAR -->
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -25,7 +28,16 @@
         </div>
     </div>
     <div class="portlet-body form">
-        <form class="form-horizontal" action="#" id="form-add-companion" method="POST">
+        <div class="col-md-6 file-upload-dropzone hide">
+            <form action="<?php echo base_url('admin/companions/upload_images'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
+                <input type="hidden" name="image_type" value="profile">
+                <!--<label>Upload Image</label>-->
+                <h3 class="sbold">Click to upload</h3>
+                <p> Upload Companion Member Profile Images </p>
+            </form>
+        </div>
+        <form class="form-horizontal" id="form-add-companion">
             <div class="form-wizard">
                 <div class="form-body">
                     <ul class="nav nav-pills nav-justified steps">
@@ -77,6 +89,7 @@
                                     <label></label>
                                 </div>
                             </div>
+
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3">Confirm Email <span class="required"> * </span> </label>
                                 <div class="col-md-6">
@@ -187,17 +200,7 @@
                         </div>
                         <div class="tab-pane" id="tab3">
                             <h3 class="block text-center">Further Details</h3>
-                            <div class="form-group form-md-line-input">
-                                <label class="control-label col-md-3"> Upload image <span class="required"> * </span> </label>
-                                <div class="col-md-6">
-                                    <div  class="dropzone dropzone-file-area" id="my-dropzone" >
-                                        <label>*Upload Image</label>
-                                        <h3 class="sbold">Click to upload</h3>
-                                        <p> Profile Images </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group form-md-line-input">
+                            <div class="form-group form-md-line-input margin-top-300">
                                 <label class="control-label col-md-3"> Available for <span class="required"> * </span> </label>
                                 <div class="col-md-6">
                                     <div class="md-checkbox-inline row">

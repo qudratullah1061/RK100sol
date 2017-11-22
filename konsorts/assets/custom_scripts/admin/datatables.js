@@ -239,7 +239,7 @@ var DatatablesObj = function () {
         grid.clearAjaxParams();
     };
 
-    var InitActivitiesDatatable = function (tableId) {
+    var InitCategoriesDatatable = function (tableId) {
 
         var grid = new Datatable();
 
@@ -267,13 +267,13 @@ var DatatablesObj = function () {
                 ],
                 "pageLength": 10, // default record count per page
                 "ajax": {
-                    "url": base_url + "admin/misc/get_activities", // ajax source
+                    "url": base_url + "admin/misc/get_categories", // ajax source
                 },
                 "order": [
                     [0, "asc"]
                 ], // set first column as a default sort by asc
                 "aoColumnDefs": [
-                    {'sName': 'Activity Name', 'bSortable': true, 'aTargets': [0]},
+                    {'sName': 'Category Name', 'bSortable': true, 'aTargets': [0]},
                     {'sName': 'CreatedOn', 'bSortable': true, 'aTargets': [1]},
                     {'sName': 'CreatedBy', 'bSortable': true, 'aTargets': [2]},
                     {'sName': 'UpdatedOn', 'bSortable': true, 'aTargets': [3]},
@@ -316,8 +316,8 @@ var DatatablesObj = function () {
         grid.getDataTable().ajax.reload();
         grid.clearAjaxParams();
     };
-    
-    var InitAvailabilitiesDatatable = function (tableId) {
+
+    var InitSubCategoriesDatatable = function (tableId, category_id) {
 
         var grid = new Datatable();
 
@@ -345,13 +345,13 @@ var DatatablesObj = function () {
                 ],
                 "pageLength": 10, // default record count per page
                 "ajax": {
-                    "url": base_url + "admin/misc/get_availabilities", // ajax source
+                    "url": base_url + "admin/misc/get_sub_categories/" + category_id, // ajax source
                 },
                 "order": [
                     [0, "asc"]
                 ], // set first column as a default sort by asc
                 "aoColumnDefs": [
-                    {'sName': 'Availability Name', 'bSortable': true, 'aTargets': [0]},
+                    {'sName': 'Sub Category Name', 'bSortable': true, 'aTargets': [0]},
                     {'sName': 'CreatedOn', 'bSortable': true, 'aTargets': [1]},
                     {'sName': 'CreatedBy', 'bSortable': true, 'aTargets': [2]},
                     {'sName': 'UpdatedOn', 'bSortable': true, 'aTargets': [3]},
@@ -405,11 +405,11 @@ var DatatablesObj = function () {
         InitGuestTable: function (tableId) {
             InitGuestUsersDatatable(tableId);
         },
-        InitActivitiesTable: function (tableId) {
-            InitActivitiesDatatable(tableId);
+        InitCategoriesTable: function (tableId) {
+            InitCategoriesDatatable(tableId);
         },
-        InitAvailabilitiesTable: function (tableId) {
-            InitAvailabilitiesDatatable(tableId);
+        InitSubCategoriesTable: function (tableId, category_id) {
+            InitSubCategoriesDatatable(tableId, category_id);
         }
     };
 

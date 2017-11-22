@@ -58,6 +58,15 @@ function reArrayFiles(&$file_post) {
     return $file_ary;
 }
 
+function getCategoryNameById($categoryId = 0) {
+    global $CI;
+    $data_info = $CI->db->get_where('tb_categories', array('category_id' => $categoryId))->result_array();
+    if ($data_info) {
+        return $data_info[0]['category_name'];
+    }
+    return "";
+}
+
 function GetCountriesOption($selected_value = "") {
     global $CI;
     $options = "<option value=''>Select Country</option>";

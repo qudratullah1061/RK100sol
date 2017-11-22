@@ -1,9 +1,9 @@
-var Availabilities = function () {
+var Categories = function () {
 
-    var handleAvailabilitySubmit = function (formId) {
+    var handleCategorySubmit = function (formId) {
         $.ajax({
             type: "POST",
-            url: base_url + "admin/misc/add_update_availability",
+            url: base_url + "admin/misc/add_update_category",
             datatype: 'json',
             data: new FormData($("#" + formId)[0]),
             processData: false,
@@ -18,7 +18,7 @@ var Availabilities = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    $('#datatable_availabilities').DataTable().ajax.reload();
+                    $('#datatable_categories').DataTable().ajax.reload();
                     $("#static-modal-popup-small").modal('hide');
                 } else {
                     toastr["error"](data.description, "Error!");
@@ -26,7 +26,7 @@ var Availabilities = function () {
             }
         });
     }
-    var handleValidationAddAvailability = function (formId) {
+    var handleValidationAddCategory = function (formId) {
         // for more info visit the official plugin documentation: 
         // http://docs.jquery.com/Plugins/Validation
         var form1 = $('#' + formId);
@@ -39,9 +39,10 @@ var Availabilities = function () {
             focusInvalid: false, // do not focus the last invalid input
             ignore: "", // validate all fields including form hidden input
             messages: {
+                
             },
             rules: {
-                availability_name: {
+                category_name: {
                     required: true
                 },
             },
@@ -71,16 +72,16 @@ var Availabilities = function () {
                 label.closest('.form-group').removeClass('has-error'); // set success class to the control group
             },
             submitHandler: function (form) {
-                handleAvailabilitySubmit(formId);
+                handleCategorySubmit(formId);
             }
         });
     };
-    var show_modal_availability = function (edit_id) {
+    var show_modal_category = function (edit_id) {
         $.ajax({
             type: "POST",
-            url: base_url + "admin/misc/modal_availability",
+            url: base_url + "admin/misc/modal_category",
             datatype: 'json',
-            data: {availability_id: edit_id},
+            data: {category_id: edit_id},
             beforeSend: function ()
             {
                 App.blockUI({target: 'body', animate: true});
@@ -93,15 +94,15 @@ var Availabilities = function () {
                     $("#static-modal-popup-small").html(data.value);
                     $("#static-modal-popup-small").modal('show');
                     App.initMaterialDesign();
-                    handleValidationAddAvailability("form-add-availability");
+                    handleValidationAddCategory("form-add-category");
                 }
             }
         });
     };
 
     return{
-        modal_add_availability: function (edit_id) {
-            show_modal_availability(edit_id);
+        modal_add_category: function (edit_id) {
+            show_modal_category(edit_id);
         },
     }
 }();

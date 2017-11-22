@@ -15,9 +15,9 @@ class Misc_model extends Abstract_model {
         parent::__construct();
     }
 
-    public function getActivities($condition = '', $offset = -1, $limit = 10, $order_by = '') {
-        $sql = "SELECT activities.* , admins.username as admin_name FROM tb_activities as activities LEFT JOIN tb_admin_users as admins ON (activities.created_by = admins.admin_id)";
-        $sql_count = "SELECT count(activities.activity_id) as total, activities.* , admins.username as admin_name FROM tb_activities as activities LEFT JOIN tb_admin_users as admins ON (activities.created_by = admins.admin_id)";
+    public function getCategories($condition = '', $offset = -1, $limit = 10, $order_by = '') {
+        $sql = "SELECT categories.* , admins.username as admin_name FROM tb_categories as categories LEFT JOIN tb_admin_users as admins ON (categories.created_by = admins.admin_id)";
+        $sql_count = "SELECT count(categories.category_id) as total, categories.* , admins.username as admin_name FROM tb_categories as categories LEFT JOIN tb_admin_users as admins ON (categories.created_by = admins.admin_id)";
 
         if ($condition != '') {
             $sql .= " WHERE " . $condition;
@@ -26,7 +26,7 @@ class Misc_model extends Abstract_model {
         if (trim($order_by) != '') {
             $sql .= $order_by;
         } else {
-            $sql .= " ORDER BY activities.activity_id DESC ";
+            $sql .= " ORDER BY categories.category_id DESC ";
         }
         if ($offset >= 0 && $limit != -1) {
             $sql .= " LIMIT " . ($offset) . ', ' . $limit;
@@ -41,45 +41,45 @@ class Misc_model extends Abstract_model {
         return $results_array;
     }
 
-    public function add_activity($data) {
-        $this->table_name = "tb_activities";
+    public function add_category($data) {
+        $this->table_name = "tb_categories";
         return $this->save($data);
     }
     
-    public function add_availability($data) {
-        $this->table_name = "tb_availabilities";
+    public function add_sub_category($data) {
+        $this->table_name = "tb_sub_categories";
         return $this->save($data);
     }
 
-    public function get_activity($activity_id) {
-        $this->table_name = 'tb_activities';
-        $result = $this->getBy('activity_id', $activity_id);
+    public function get_category($category_id) {
+        $this->table_name = 'tb_categories';
+        $result = $this->getBy('category_id', $category_id);
         if ($result) {
             return isset($result[0]) ? $result[0] : array();
         }
     }
     
-    public function get_availability($availability_id) {
-        $this->table_name = 'tb_availabilities';
-        $result = $this->getBy('availability_id', $availability_id);
+    public function get_sub_category($sub_category_id) {
+        $this->table_name = 'tb_sub_categories';
+        $result = $this->getBy('sub_category_id', $sub_category_id);
         if ($result) {
             return isset($result[0]) ? $result[0] : array();
         }
     }
 
-    public function update_activity($column, $row_id, $data) {
-        $this->table_name = "tb_activities";
+    public function update_category($column, $row_id, $data) {
+        $this->table_name = "tb_categories";
         return $this->updateBy($column, $row_id, $data);
     }
 
-    public function update_availability($column, $row_id, $data) {
-        $this->table_name = "tb_availabilities";
+    public function update_sub_category($column, $row_id, $data) {
+        $this->table_name = "tb_sub_categories";
         return $this->updateBy($column, $row_id, $data);
     }
 
-    public function getAvailabilities($condition = '', $offset = -1, $limit = 10, $order_by = '') {
-        $sql = "SELECT availabilities.* , admins.username as admin_name FROM tb_availabilities as availabilities LEFT JOIN tb_admin_users as admins ON (availabilities.created_by = admins.admin_id)";
-        $sql_count = "SELECT count(availabilities.availability_id) as total, availabilities.* , admins.username as admin_name FROM tb_availabilities as availabilities LEFT JOIN tb_admin_users as admins ON (availabilities.created_by = admins.admin_id)";
+    public function getSubCategories($condition = '', $offset = -1, $limit = 10, $order_by = '') {
+        $sql = "SELECT sub_categories.* , admins.username as admin_name FROM tb_sub_categories as sub_categories LEFT JOIN tb_admin_users as admins ON (sub_categories.created_by = admins.admin_id)";
+        $sql_count = "SELECT count(sub_categories.sub_category_id) as total, sub_categories.* , admins.username as admin_name FROM tb_sub_categories as sub_categories LEFT JOIN tb_admin_users as admins ON (sub_categories.created_by = admins.admin_id)";
 
         if ($condition != '') {
             $sql .= " WHERE " . $condition;
@@ -88,7 +88,7 @@ class Misc_model extends Abstract_model {
         if (trim($order_by) != '') {
             $sql .= $order_by;
         } else {
-            $sql .= " ORDER BY availabilities.availability_id DESC ";
+            $sql .= " ORDER BY sub_categories.sub_category_id DESC ";
         }
         if ($offset >= 0 && $limit != -1) {
             $sql .= " LIMIT " . ($offset) . ', ' . $limit;

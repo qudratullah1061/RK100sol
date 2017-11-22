@@ -23,7 +23,7 @@
                 <div class="table-container">
                     <div class="table-actions-wrapper">
                         <span> </span>
-                        <a style="float:right;" data-title="Add Type" href="javascript:void(0)"><i class="fa fa-plus-circle"></i> Add new companion</a>
+                        <a data-title="Add Companion" href="<?php echo base_url('admin/companions/add_companion'); ?>"><i class="fa fa-plus-circle"></i> Add new companion</a>
                     </div>
                     <table class="table table-striped table-bordered table-hover table-checkable text-center" id="datatable_companions">
                         <thead>

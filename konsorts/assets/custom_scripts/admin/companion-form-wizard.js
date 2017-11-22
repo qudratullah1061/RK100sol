@@ -46,74 +46,67 @@ var FormWizard = function () {
                 focusInvalid: false, // do not focus the last invalid input
                 rules: {
                     //account
-                    username: {
-                        minlength: 5,
-                        required: true
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    confirm_email: {
-                        required: true,
-                        equalTo: "#email"
-                    },
-                    password: {
-                        minlength: 5,
-                        required: true
-                    },
-                    confirm_password: {
-                        minlength: 5,
-                        required: true,
-                        equalTo: "#password"
-                    },
-                    //profile
-                    first_name: {
-                        required: true
-                    },
-                    last_name: {
-                        required: true,
-                    },
-                    nick_name: {
-                        required: true
-                    },
-                    telephone: {
-                        required: true
-                    },
-                    date_of_birth: {
-                        required: true
-                    },
-                    gender: {
-                        required: true
-                    },
-                    country: {
-                        required: true
-                    },
-                    state: {
-                        required: true
-                    },
-                    city: {
-                        required: true
-                    },
-                    address: {
-                        required: true
-                    },
-                    
+//                    username: {
+//                        minlength: 5,
+//                        required: true
+//                    },
+//                    email: {
+//                        required: true,
+//                        email: true
+//                    },
+//                    confirm_email: {
+//                        required: true,
+//                        equalTo: "#email"
+//                    },
+//                    password: {
+//                        minlength: 5,
+//                        required: true
+//                    },
+//                    confirm_password: {
+//                        minlength: 5,
+//                        required: true,
+//                        equalTo: "#password"
+//                    },
+//                    //profile
+//                    first_name: {
+//                        required: true
+//                    },
+//                    last_name: {
+//                        required: true,
+//                    },
+//                    nick_name: {
+//                        required: true
+//                    },
+//                    telephone: {
+//                        required: true
+//                    },
+//                    date_of_birth: {
+//                        required: true
+//                    },
+//                    gender: {
+//                        required: true
+//                    },
+//                    country: {
+//                        required: true
+//                    },
+//                    state: {
+//                        required: true
+//                    },
+//                    city: {
+//                        required: true
+//                    },
+//                    address: {
+//                        required: true
+//                    },
                 },
                 messages: {// custom messages for radio buttons and checkboxes
-                    'payment[]': {
-                        required: "Please select at least one option",
-                        minlength: jQuery.validator.format("Please select at least one option")
-                    }
+//                    'payment[]': {
+//                        required: "Please select at least one option",
+//                        minlength: jQuery.validator.format("Please select at least one option")
+//                    }
                 },
                 errorPlacement: function (error, element) { // render error placement for each input type
-                    if (element.attr("name") == "gender") { // for uniform radio buttons, insert the after the given container
-                        error.insertAfter("#form_gender_error");
-                    } else if (element.attr("name") == "payment[]") { // for uniform checkboxes, insert the after the given container
-                        error.insertAfter("#form_payment_error");
-                    } else {
-                        error.insertAfter(element); // for other inputs, just perform default behavior
-                    }
+                    error.insertAfter(element); // for other inputs, just perform default behavior
                 },
                 invalidHandler: function (event, validator) { //display error alert on form submit   
                     success.hide();
@@ -191,10 +184,12 @@ var FormWizard = function () {
                 if (current >= total) {
                     $('#form_wizard_1').find('.button-next').hide();
                     $('#form_wizard_1').find('.button-submit').show();
+                    $(".file-upload-dropzone").removeClass('hide');
                     displayConfirm();
                 } else {
                     $('#form_wizard_1').find('.button-next').show();
                     $('#form_wizard_1').find('.button-submit').hide();
+                    $(".file-upload-dropzone").addClass('hide');
                 }
                 App.scrollTo($('.page-title'));
             }

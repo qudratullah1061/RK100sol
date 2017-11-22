@@ -18,30 +18,30 @@ class Misc extends Admin_Controller {
 //        $this->load->view('admin/guests/add_guest', $data);
 //    }
 
-    function modal_activity() {
+    function modal_category() {
         $this->is_ajax();
         $this->selected_tab = 'misc';
-        $this->selected_child_tab = 'view_activity';
-        $activity_id = $this->input->post('activity_id');
-        $activity_data = $this->Misc_Model->get_activity($activity_id);
-        $data['activity_data'] = $activity_data;
-        $html = $this->load->view('admin/misc/add_activity', $data, TRUE);
+        $this->selected_child_tab = 'view_categories';
+        $category_id = $this->input->post('category_id');
+        $category_data = $this->Misc_Model->get_category($category_id);
+        $data['category_data'] = $category_data;
+        $html = $this->load->view('admin/misc/add_category', $data, TRUE);
         echo json_encode(array('key' => true, 'value' => $html));
         die();
     }
 
-    function add_update_activity() {
+    function add_update_category() {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
-            $edit_id = $this->input->post('activity_id');
-            $this->form_validation->set_rules('activity_name', 'Activity Name', 'required|trim|strip_tags|xss_clean');
+            $edit_id = $this->input->post('category_id');
+            $this->form_validation->set_rules('category_name', 'Category Name', 'required|trim|strip_tags|xss_clean');
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
             } else {
                 $data = array();
-                $data['activity_name'] = $this->input->post('activity_name');
+                $data['category_name'] = $this->input->post('category_name');
                 $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');
@@ -52,10 +52,10 @@ class Misc extends Admin_Controller {
                 }
                 $result = false;
                 if ($edit_id > 0) {
-                    $this->Misc_Model->update_activity('activity_id', $edit_id, $data);
+                    $this->Misc_Model->update_category('category_id', $edit_id, $data);
                     $result = true;
                 } else {
-                    $result = $this->Misc_Model->add_activity($data);
+                    $result = $this->Misc_Model->add_category($data);
                 }
                 if ($result) {
                     $this->_response(false, "Changes saved successfully!");
@@ -66,13 +66,13 @@ class Misc extends Admin_Controller {
         }
     }
 
-    function view_activities() {
+    function view_categories() {
         $this->selected_tab = 'misc';
-        $this->selected_child_tab = 'view_activities';
-        $this->load->view('admin/misc/view_activities');
+        $this->selected_child_tab = 'view_categories';
+        $this->load->view('admin/misc/view_categories');
     }
 
-    function get_activities() {
+    function get_categories() {
         $records = array();
         $records["data"] = array();
         $sEcho = intval($this->input->post('draw'));
@@ -84,23 +84,23 @@ class Misc extends Admin_Controller {
         $columns = $this->input->post('columns');
         $sort_by = '';
         $cond = '';
-        if ($this->input->post('activity_name')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " activities.activity_name LIKE '%" . $this->input->post('activity_name') . "%'";
+        if ($this->input->post('category_name')) {
+            $cond .= ($cond != '' ? ' AND ' : '') . " categories.category_name LIKE '%" . $this->input->post('category_name') . "%'";
         }
         if ($this->input->post('created_on')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " activities.created_on LIKE  '%" . $this->input->post('created_on') . "%'";
+            $cond .= ($cond != '' ? ' AND ' : '') . " categories.created_on LIKE  '%" . $this->input->post('created_on') . "%'";
         }
         if ($this->input->post('updated_on')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " activities.updated_on LIKE  '%" . $this->input->post('updated_on') . "%'";
+            $cond .= ($cond != '' ? ' AND ' : '') . " categories.updated_on LIKE  '%" . $this->input->post('updated_on') . "%'";
         }
         if ($this->input->post('created_by')) {
             $cond .= ($cond != '' ? ' AND ' : '') . " admins.username LIKE  '%" . $this->input->post('created_by') . "%'";
         }
         if ($this->input->post('is_active') != "") {
-            $cond .= ($cond != '' ? ' AND ' : '') . (" activities.is_active = " . $this->input->post('is_active'));
+            $cond .= ($cond != '' ? ' AND ' : '') . (" categories.is_active = " . $this->input->post('is_active'));
         }
 
-        $colmnsArry = array('`activities`.`activity_name`', '`activities`.`created_on`', '`activities`.`created_by`', '`activities`.`updated_on`', '`activities`.`is_active`');
+        $colmnsArry = array('`categories`.`category_name`', '`categories`.`created_on`', '`categories`.`created_by`', '`categories`.`updated_on`', '`categories`.`is_active`');
         if ($this->input->post('order')) {
             $order = $this->input->post('order');
             if (isset($order[0]['column'])) {
@@ -108,14 +108,14 @@ class Misc extends Admin_Controller {
             }
         }
 
-        $admins = $this->Misc_Model->getActivities($cond, $offset, $this->page_limit, $sort_by);
+        $admins = $this->Misc_Model->getCategories($cond, $offset, $this->page_limit, $sort_by);
         $count = $admins['total'];
         if ($count > 0) {
             foreach ($admins['records'] as $result) {
                 $active_html = '<div class="md-checkbox-inline">
                                     <div class="md-checkbox">
-                                        <input type="checkbox" id="checkbox' . $result['activity_id'] . '" ' . ($result['is_active'] ? "checked='checked'" : "") . ' class="md-check">
-                                        <label for="checkbox' . $result['activity_id'] . '">
+                                        <input type="checkbox" disabled="disabled" id="checkbox' . $result['category_id'] . '" ' . ($result['is_active'] ? "checked='checked'" : "") . ' class="md-check">
+                                        <label for="checkbox' . $result['category_id'] . '">
                                             <span></span>
                                             <span class="check"></span>
                                             <span class="box"></span>
@@ -123,12 +123,12 @@ class Misc extends Admin_Controller {
                                     </div>
                                 </div>';
                 $records["data"][] = array(
-                    $result['activity_name'],
+                    $result['category_name'],
                     $result['created_on'],
                     $result['admin_name'],
                     $result['updated_on'],
                     $active_html,
-                    '<a class="btn btn-xs default btn-editable" onclick="Activities.modal_add_activity(' . $result['activity_id'] . ')">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(' . $result["activity_id"] . ' , \'tb_activities\' , \'activity_id\' , \'Activity will be permanently deleted without further warning. Do you really want to delete this activity?\');">Delete</a> '
+                    '<a class="btn btn-xs default btn-editable" href="' . (base_url("admin/misc/view_sub_categories/" . $result['category_id'])) . '"><i class="fa fa-eye"></i></a><a class="btn btn-xs default btn-editable" onclick="Categories.modal_add_category(' . $result['category_id'] . ')">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(' . $result["category_id"] . ' , \'tb_categories\' , \'category_id\' , \'Category will be permanently deleted without further warning. Do you really want to delete this category?\');">Delete</i></a> '
                 );
             }
         }
@@ -140,13 +140,14 @@ class Misc extends Admin_Controller {
         exit();
     }
 
-    function view_availabilities() {
+    function view_sub_categories($category_id = 0) {
         $this->selected_tab = 'misc';
-        $this->selected_child_tab = 'view_availabilities';
-        $this->load->view('admin/misc/view_availabilities');
+        $this->selected_child_tab = 'view_categories';
+        $data['category_id'] = $category_id;
+        $this->load->view('admin/misc/view_sub_categories', $data);
     }
 
-    function get_availabilities() {
+    function get_sub_categories($category_id = 0) {
         $records = array();
         $records["data"] = array();
         $sEcho = intval($this->input->post('draw'));
@@ -157,24 +158,24 @@ class Misc extends Admin_Controller {
         $this->page_limit = $this->input->post('length');
         $columns = $this->input->post('columns');
         $sort_by = '';
-        $cond = '';
-        if ($this->input->post('activity_name')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " availabilities.availability_name LIKE '%" . $this->input->post('availability_name') . "%'";
+        $cond = ' sub_categories.category_id = ' . $category_id;
+        if ($this->input->post('sub_category_name')) {
+            $cond .= ($cond != '' ? ' AND ' : '') . " sub_categories.sub_category_name LIKE '%" . $this->input->post('sub_category_name') . "%'";
         }
         if ($this->input->post('created_on')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " availabilities.created_on LIKE  '%" . $this->input->post('created_on') . "%'";
+            $cond .= ($cond != '' ? ' AND ' : '') . " sub_categories.created_on LIKE  '%" . $this->input->post('created_on') . "%'";
         }
         if ($this->input->post('updated_on')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " availabilities.updated_on LIKE  '%" . $this->input->post('updated_on') . "%'";
+            $cond .= ($cond != '' ? ' AND ' : '') . " sub_categories.updated_on LIKE  '%" . $this->input->post('updated_on') . "%'";
         }
         if ($this->input->post('created_by')) {
             $cond .= ($cond != '' ? ' AND ' : '') . " admins.username LIKE  '%" . $this->input->post('created_by') . "%'";
         }
         if ($this->input->post('is_active') != "") {
-            $cond .= ($cond != '' ? ' AND ' : '') . (" availabilities.is_active = " . $this->input->post('is_active'));
+            $cond .= ($cond != '' ? ' AND ' : '') . (" sub_categories.is_active = " . $this->input->post('is_active'));
         }
 
-        $colmnsArry = array('`availabilities`.`availability_name`', '`availabilities`.`created_on`', '`availabilities`.`created_by`', '`availabilities`.`updated_on`', '`availabilities`.`is_active`');
+        $colmnsArry = array('`sub_categories`.`sub_category_name`', '`sub_categories`.`created_on`', '`sub_categories`.`created_by`', '`sub_categories`.`updated_on`', '`sub_categories`.`is_active`');
         if ($this->input->post('order')) {
             $order = $this->input->post('order');
             if (isset($order[0]['column'])) {
@@ -182,14 +183,14 @@ class Misc extends Admin_Controller {
             }
         }
 
-        $admins = $this->Misc_Model->getAvailabilities($cond, $offset, $this->page_limit, $sort_by);
+        $admins = $this->Misc_Model->getSubCategories($cond, $offset, $this->page_limit, $sort_by);
         $count = $admins['total'];
         if ($count > 0) {
             foreach ($admins['records'] as $result) {
                 $active_html = '<div class="md-checkbox-inline">
                                     <div class="md-checkbox">
-                                        <input type="checkbox" id="checkbox' . $result['availability_id'] . '" ' . ($result['is_active'] ? "checked='checked'" : "") . ' class="md-check">
-                                        <label for="checkbox' . $result['availability_id'] . '">
+                                        <input type="checkbox" disabled="disabled" id="checkbox' . $result['sub_category_id'] . '" ' . ($result['is_active'] ? "checked='checked'" : "") . ' class="md-check">
+                                        <label for="checkbox' . $result['sub_category_id'] . '">
                                             <span></span>
                                             <span class="check"></span>
                                             <span class="box"></span>
@@ -197,12 +198,12 @@ class Misc extends Admin_Controller {
                                     </div>
                                 </div>';
                 $records["data"][] = array(
-                    $result['availability_name'],
+                    $result['sub_category_name'],
                     $result['created_on'],
                     $result['admin_name'],
                     $result['updated_on'],
                     $active_html,
-                    '<a class="btn btn-xs default btn-editable" onclick="Availabilities.modal_add_availability(' . $result['availability_id'] . ')">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(' . $result["availability_id"] . ' , \'tb_availabilities\' , \'availability_id\' , \'Availability option will be permanently deleted without further warning. Do you really want to delete this availability option?\');">Delete</a> '
+                    '<a class="btn btn-xs default btn-editable" onclick="SubCategories.modal_add_sub_category(' . $result['sub_category_id'] . ' , ' . $result['category_id'] . ')">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(' . $result["sub_category_id"] . ' , \'tb_sub_categories\' , \'sub_category_id\' , \'Sub Category option will be permanently deleted without further warning. Do you really want to delete this sub category option?\');">Delete</a> '
                 );
             }
         }
@@ -214,30 +215,34 @@ class Misc extends Admin_Controller {
         exit();
     }
 
-    function modal_availability() {
+    function modal_sub_category() {
         $this->is_ajax();
         $this->selected_tab = 'misc';
-        $this->selected_child_tab = 'view_availability';
-        $availability_id = $this->input->post('availability_id');
-        $availability_data = $this->Misc_Model->get_availability($availability_id);
-        $data['availability_data'] = $availability_data;
-        $html = $this->load->view('admin/misc/add_availability', $data, TRUE);
+        $this->selected_child_tab = 'view_categories';
+        $sub_category_id = $this->input->post('sub_category_id');
+        $category_id = $this->input->post('category_id');
+        $sub_category_data = $this->Misc_Model->get_sub_category($sub_category_id);
+        $data['sub_category_data'] = $sub_category_data;
+        $data['category_id'] = $category_id;
+        $html = $this->load->view('admin/misc/add_sub_category', $data, TRUE);
         echo json_encode(array('key' => true, 'value' => $html));
         die();
     }
 
-    function add_update_availability() {
+    function add_update_sub_category() {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
-            $edit_id = $this->input->post('availability_id');
-            $this->form_validation->set_rules('availability_name', 'Availability Name', 'required|trim|strip_tags|xss_clean');
+            $edit_id = $this->input->post('sub_category_id');
+            $category_id = $this->input->post('category_id');
+            $this->form_validation->set_rules('sub_category_name', 'Sub Category Name', 'required|trim|strip_tags|xss_clean');
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
             } else {
                 $data = array();
-                $data['availability_name'] = $this->input->post('availability_name');
+                $data['sub_category_name'] = $this->input->post('sub_category_name');
+                $data['category_id'] = $category_id;
                 $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');
@@ -248,10 +253,10 @@ class Misc extends Admin_Controller {
                 }
                 $result = false;
                 if ($edit_id > 0) {
-                    $this->Misc_Model->update_availability('availability_id', $edit_id, $data);
+                    $this->Misc_Model->update_sub_category('sub_category_id', $edit_id, $data);
                     $result = true;
                 } else {
-                    $result = $this->Misc_Model->add_availability($data);
+                    $result = $this->Misc_Model->add_sub_category($data);
                 }
                 if ($result) {
                     $this->_response(false, "Changes saved successfully!");

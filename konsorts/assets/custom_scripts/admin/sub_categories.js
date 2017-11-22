@@ -1,9 +1,9 @@
-var Activities = function () {
+var SubCategories = function () {
 
-    var handleActivitySubmit = function (formId) {
+    var handleSubCategorySubmit = function (formId) {
         $.ajax({
             type: "POST",
-            url: base_url + "admin/misc/add_update_activity",
+            url: base_url + "admin/misc/add_update_sub_category",
             datatype: 'json',
             data: new FormData($("#" + formId)[0]),
             processData: false,
@@ -18,7 +18,7 @@ var Activities = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    $('#datatable_activities').DataTable().ajax.reload();
+                    $('#datatable_sub_categories').DataTable().ajax.reload();
                     $("#static-modal-popup-small").modal('hide');
                 } else {
                     toastr["error"](data.description, "Error!");
@@ -26,7 +26,7 @@ var Activities = function () {
             }
         });
     }
-    var handleValidationAddActivity = function (formId) {
+    var handleValidationAddSubCategory = function (formId) {
         // for more info visit the official plugin documentation: 
         // http://docs.jquery.com/Plugins/Validation
         var form1 = $('#' + formId);
@@ -39,10 +39,9 @@ var Activities = function () {
             focusInvalid: false, // do not focus the last invalid input
             ignore: "", // validate all fields including form hidden input
             messages: {
-                
             },
             rules: {
-                activity_name: {
+                sub_category_name: {
                     required: true
                 },
             },
@@ -72,16 +71,16 @@ var Activities = function () {
                 label.closest('.form-group').removeClass('has-error'); // set success class to the control group
             },
             submitHandler: function (form) {
-                handleActivitySubmit(formId);
+                handleSubCategorySubmit(formId);
             }
         });
     };
-    var show_modal_activity = function (edit_id) {
+    var show_modal_sub_category = function (edit_id, main_category_id) {
         $.ajax({
             type: "POST",
-            url: base_url + "admin/misc/modal_activity",
+            url: base_url + "admin/misc/modal_sub_category",
             datatype: 'json',
-            data: {activity_id: edit_id},
+            data: {sub_category_id: edit_id, category_id: main_category_id},
             beforeSend: function ()
             {
                 App.blockUI({target: 'body', animate: true});
@@ -94,15 +93,15 @@ var Activities = function () {
                     $("#static-modal-popup-small").html(data.value);
                     $("#static-modal-popup-small").modal('show');
                     App.initMaterialDesign();
-                    handleValidationAddActivity("form-add-activity");
+                    handleValidationAddSubCategory("form-add-sub_category");
                 }
             }
         });
     };
 
     return{
-        modal_add_activity: function (edit_id) {
-            show_modal_activity(edit_id);
+        modal_add_sub_category: function (edit_id, main_category_id) {
+            show_modal_sub_category(edit_id, main_category_id);
         },
     }
 }();

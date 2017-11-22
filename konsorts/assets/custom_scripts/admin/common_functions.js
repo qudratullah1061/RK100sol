@@ -130,13 +130,14 @@ var CommonFunctions = function () {
                                 }, function () {
                                     if (table == 'tb_admin_users') {
                                         $('#datatable_adminusers').DataTable().ajax.reload();
-                                    } else if (table == 'tb_activities') {
-                                        $('#datatable_activities').DataTable().ajax.reload();
-                                    } else if (table == 'tb_availabilities') {
-                                        $('#datatable_availabilities').DataTable().ajax.reload();
+                                    } else if (table == 'tb_categories') {
+                                        $('#datatable_categories').DataTable().ajax.reload();
+                                    } else if (table == 'tb_sub_categories') {
+                                        $('#datatable_sub_categories').DataTable().ajax.reload();
                                     } else if (table == 'tb_member_images') {
                                         $("#pic-" + unique_id).remove();
-                                        $('#js-grid-juicy-projects').cubeportfolio('destroy');
+                                        $('#load_member_profile_images').cubeportfolio('destroy');
+                                        $('#load_member_id_proofs').cubeportfolio('destroy');
                                         is_init_profile_images = false;
                                         load_member_profile_images();
                                         is_init_id_proof_images = false;

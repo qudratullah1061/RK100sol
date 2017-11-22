@@ -6,13 +6,13 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span>Availabilities</span>
+            <span>Categories</span>
         </li>
     </ul>
 </div>
 <!-- END PAGE BAR -->
 <!-- BEGIN PAGE TITLE-->
-<h3 class="page-title">Availabilities Listing</h3>
+<h3 class="page-title">Categories Listing</h3>
 <!-- END PAGE TITLE-->
 <!-- BEGIN Datatable-->
 <div class="row">
@@ -23,12 +23,12 @@
                 <div class="table-container">
                     <div class="table-actions-wrapper">
                         <span> </span>
-                        <a class="purple text-right" data-title="Add Availability" href="javascript:Availabilities.modal_add_availability()"><i class="fa fa-plus-circle"></i> Add new availability</a>
+                        <a class="purple text-right" data-title="Add Type" href="javascript:Categories.modal_add_category()"><i class="fa fa-plus-circle"></i> Add new category</a>
                     </div>
-                    <table class="table table-striped table-bordered table-hover text-center" id="datatable_availabilities">
+                    <table class="table table-striped table-bordered table-hover text-center" id="datatable_categories">
                         <thead>
                             <tr role="row" class="heading">
-                                <th width="25%"> Availability Name </th>
+                                <th width="25%"> Category Name </th>
                                 <th width="15%"> Created On </th>
                                 <th width="15%"> Created By </th>
                                 <th width="15%"> Updated On </th>
@@ -37,7 +37,7 @@
                             </tr>
                             <tr role="row" class="filter">
                                 <td>
-                                    <input type="text" class="form-control form-filter input-sm" placeholder="Activity Name" name="activity_name"> 
+                                    <input type="text" class="form-control form-filter input-sm" placeholder="Category Name" name="category_name"> 
                                 </td>
                                 <td>
                                     <div class="input-group date date-picker-createdon margin-bottom-5" data-date-format="yyyy-mm-dd">
@@ -89,10 +89,10 @@
         <!-- End: life time stats -->
     </div>
 </div>
+<script src="<?php echo base_url('assets/custom_scripts/admin/categories.js'); ?>" type="text/javascript"></script>
 <!-- End datatable-->
-<script src="<?php echo base_url('assets/custom_scripts/admin/availabilities.js'); ?>" type="text/javascript"></script>
 <script>
     $(document).ready(function () {
-        DatatablesObj.InitAvailabilitiesTable('datatable_availabilities');
+        DatatablesObj.InitCategoriesTable('datatable_categories');
     });
 </script>

@@ -250,22 +250,10 @@
                                     <span class="arrow open"></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li class="nav-item <?php ActivateCurrentLink('misc', 'view_activities'); ?>">
-                                        <a href="<?php echo base_url('admin/misc/view_activities'); ?>" class="nav-link ">
+                                    <li class="nav-item <?php ActivateCurrentLink('misc', 'view_categories'); ?>">
+                                        <a href="<?php echo base_url('admin/misc/view_categories'); ?>" class="nav-link ">
                                             <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Activities</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('misc', 'view_availabilities'); ?>">
-                                        <a href="<?php echo base_url('admin/misc/view_availabilities'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Availabilities</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('misc', 'view_home_categories'); ?>">
-                                        <a href="<?php echo base_url('admin/misc/home_categoties'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Home categories</span>
+                                            <span class="title">View Categories</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -319,7 +307,7 @@
                                     </li>
                                     <li>
                                         <a href="javascript:;" data-target="#quick_sidebar_tab_3" data-toggle="tab">
-                                            <i class="icon-speech"></i> Activities </a>
+                                            <i class="icon-speech"></i> Categories </a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
