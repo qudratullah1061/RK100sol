@@ -767,6 +767,8 @@ span.profile-reviews-counter {
 
 .profile-social {
     margin-top: 20px;
+    width: 100%;
+    display: inline-block;
 }
 
 .profile-social ul li {
@@ -781,6 +783,7 @@ span.profile-reviews-counter {
 }
 .profile-social ul {
     margin-top: 4px;
+    margin-left:0;
 }
 .profile-social ul li.enabled a{
     color:#942192;

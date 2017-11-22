@@ -99,22 +99,33 @@
                                     <li class="">
                                         <a href="contact-us.php">Contact Us</a>
                                     </li>
-                                    <li class="dropdown megamenu-fw">
-                                        <a href="login.php">Log in</a>
-                                        <!--<i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>-->
-                                        <!-- start sub menu -->
-
-                                    </li>
-                                    <li class="">
-                                        <div class="signup-link">
-                                            <a href="#" class="btn btn-small btn-deep-purple lato font-weight-700"> SIGN UP </a>
-                                        </div>
-
-                                    </li>
                                 </ul>
                             </div>
                         </div>
-                        
+                        <div class="col-md-2 col-xs-5 width-auto header-right">
+                            <div class="header-searchbar">
+                                <div class="notifications not">
+                                    <a href="#search-header" class="header-search-form text-white"><i class="fa fa-bell-o"></i></a>
+                                    <span class="counter">3</span>
+                                </div>
+                                <div class="notifications msg">
+                                    <a href="#search-header" class="header-search-form text-white"><i class="fa fa-envelope-o"></i></a>
+                                    <span class="counter">10</span>
+                                </div>
+
+                            </div>
+                            <div class="dropdown">
+                                <a type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <img src="img/profile-img.jpg" alt="">   Rovert
+                                    <span class="fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                                    <li><a href="#"><i class="fa fa-sign-out"></i> Log out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <!-- <div class="col-md-2 col-xs-5 width-auto">
                             <div class="header-searchbar">
                                 <a href="#search-header" class="header-search-form text-white">

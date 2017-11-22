@@ -1,4 +1,4 @@
-<?php include_once 'includes/header.php' ?>
+<?php include_once 'includes/header2.php' ?>
 <section class="profle">
     <div class="container">
         <div class="col-md-3 col-sm-4">
