@@ -44,10 +44,10 @@
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="form-group">
-                                <label for="radius">Availabel For:</label>
+                                <label for="radius">Available For:</label>
                                 <div class="select-style select-medium">
                                     <select name="budget" id="budget" class="bg-transparent no-margin-bottom">
-                                        <option value="">Availabel For:</option>
+                                        <option value="">Available For:</option>
                                         <option value="$500 - $1000">Select Activity</option>
                                         <option value="$1000 - $2000">Select Activity</option>
                                         <option value="$2000 - $5000">Select Activity</option>
