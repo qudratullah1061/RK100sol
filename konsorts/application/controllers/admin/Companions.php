@@ -22,6 +22,7 @@ class Companions extends Admin_Controller {
         $this->selected_tab = 'companion';
         $this->selected_child_tab = 'add';
         $data['country_options'] = GetCountriesOption();
+        $data['categories'] = GetAllCategories();
         $this->load->view('admin/companions/add_companion', $data);
     }
 
@@ -34,12 +35,33 @@ class Companions extends Admin_Controller {
         }
     }
 
+    function chk_member_username_exist($email, $exclude_id) {
+        $result = is_member_username_exist($email, $exclude_id);
+        if ($result) {
+            $this->form_validation->set_message('chk_member_username_exist', 'The %s already exist. Please choose other username!');
+            return false;
+        }
+        return true;
+    }
+
+    function chk_member_email_exist($email, $exclude_id) {
+        $result = is_member_email_exist($email, $exclude_id);
+        if ($result) {
+            $this->form_validation->set_message('chk_member_email_exist', 'The %s already exist. Please choose other email!');
+            return false;
+        }
+        return true;
+    }
+
+    function AddUpdateMemberCategories($member_categories, $member_id) {
+        $this->Members_Model->AddUpdateMemberCategories($member_categories, $member_id);
+    }
+
     public function add_companion_user() {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
             $edit_id = $this->input->post('member_id') > 0 ? $this->input->post('member_id') : 0;
-            $unique_id = $this->input->post('file_upload_unique_id');
             $this->form_validation->set_rules('first_name', 'First Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('username', 'Username', 'required|trim|strip_tags|xss_clean|callback_chk_member_username_exist[' . $edit_id . ']');
@@ -89,10 +111,10 @@ class Companions extends Admin_Controller {
                     $this->Members_Model->update_member($edit_id, $data);
                     $result = true;
                 } else {
-                    $data['member_type'] = 1;
+                    $data['member_type'] = 2;
                     $edit_id = $result = $this->Members_Model->add_member($data);
                     // update unique id
-                    $unique_id_update_data['member_unique_code'] = "G-" . date("Ymd") . $edit_id;
+                    $unique_id_update_data['member_unique_code'] = "C-" . date("Ymd") . $edit_id;
                     $this->Members_Model->update_member($edit_id, $unique_id_update_data);
                     $result = true;
                 }
@@ -110,36 +132,36 @@ class Companions extends Admin_Controller {
                         move_uploaded_file($id_proof['tmp_name'], $f_file_path);
                         CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
                         // insert in database as well.
-                        $image_data = array('member_id' => $edit_id, 'image_type' => 'id_proof', 'image' => $file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+                        $image_data = array('member_id' => $edit_id, 'image_type' => 'id_proof', 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
                         $this->db->insert('tb_member_images', $image_data);
                     }
                 }
-                // add member call
-                if (!$edit_id) {
-                    // move temp images to tb_member_images after creating thumbnails
-                    $profile_images = $this->Members_Model->getTempImages($unique_id, 'profile');
-                    if ($profile_images) {
-                        $current_time = time();
-                        $is_profile_image = 1;
-                        foreach ($profile_images as $image) {
-                            $u_file_name = $current_time . $image['image'];
-                            $image_old_path = $this->config->item('root_path') . $image['image_path'] . $image['image'];
-                            $file_path = $this->config->item('root_path') . "uploads/member_images/profile/";
-                            $image_new_path = $file_path . $u_file_name;
-                            if (file_exists($image_old_path)) {
-                                rename($image_old_path, $image_new_path);
-                                $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-                                $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-                                $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-                                $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-                                CreateThumbnail($image_new_path, $file_path, $thumb_options);
-                                // insert in database as well.
-                                $image_data = array('member_id' => $edit_id, 'image_type' => 'profile', 'is_profile_image' => $is_profile_image, 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $file_path));
-                                $this->db->insert('tb_member_images', $image_data);
-                                $is_profile_image = 0;
-                            }
-                        }
+                // upload profile images , add call
+                if (isset($_FILES['profile_images']['name']) && $_FILES['profile_images']['name'] != "" && $edit_id > 0) {
+                    $images = reArrayFiles($_FILES['profile_images']);
+                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/profile/';
+                    $is_profile_image = 1;
+                    foreach ($images as $img) {
+                        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+                        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+                        $file_name = basename($img['name']);
+                        $u_file_name = time() . $file_name;
+                        $f_file_path = $f_upload_dir . '/' . $u_file_name;
+                        move_uploaded_file($img['tmp_name'], $f_file_path);
+                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
+                        // insert in database as well.
+                        $image_data = array('member_id' => $edit_id, 'image_type' => 'profile', 'is_profile_image' => $is_profile_image, 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+                        $this->db->insert('tb_member_images', $image_data);
+                        $is_profile_image = 0;
                     }
+                }
+
+                // add user categories.
+                $categories = $this->input->post('categories');
+                if ($categories) {
+                    $this->AddUpdateMemberCategories($categories, $edit_id);
                 }
                 if ($result) {
                     $this->_response(false, "Changes saved successfully!");
@@ -196,7 +218,7 @@ class Companions extends Admin_Controller {
                     $result['last_name'],
                     $result['email'],
                     $result['updated_on'],
-                    '<a class="btn btn-xs default btn-editable" href="' . (base_url('admin/guests/get_companion_profile/' . $result['member_id'])) . '">Edit</a> <a class="btn btn-xs default btn-editable">Delete</a> '
+                    '<a class="btn btn-xs default btn-editable" href="' . (base_url('admin/companions/get_companion_profile/' . $result['member_id'])) . '">Edit</a> <a class="btn btn-xs default btn-editable">Delete</a> '
                 );
             }
         }
@@ -223,7 +245,7 @@ class Companions extends Admin_Controller {
             $data['country_options'] = GetCountriesOption($member_info['country']);
             $data['state_options'] = GetStatesOption($member_info['country'], $member_info['state']);
             $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
-            $this->load->view('admin/guests/view_companion_profile', $data);
+            $this->load->view('admin/companions/view_companion_profile', $data);
         } else {
             redirect(base_url('admin/companions'));
         }

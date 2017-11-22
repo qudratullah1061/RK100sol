@@ -69,11 +69,14 @@
 }
 .file-upload-dropzone{
     position: absolute;
-    top: 39%;
+    top: 25%;
     left: 35%;
 }
 .margin-top-300{
     margin-top: 300px !important;
+}
+.margin-bottom-250{
+    margin-bottom:250px;
 }
 /*.cbp-item.graphic {
     width: 31% !important;

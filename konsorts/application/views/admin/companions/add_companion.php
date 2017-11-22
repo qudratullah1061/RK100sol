@@ -2,21 +2,21 @@
 $unique_id = time();
 ?>
 <!-- BEGIN PAGE BAR -->
-<div class="page-bar">
+<!--<div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
-            <a href="<?php echo base_url('admin/dashboard'); ?>">Home</a>
+            <a href="<?php // echo base_url('admin/dashboard');                                             ?>">Home</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
             <span>Add Companion</span>
         </li>
     </ul>
-</div>
+</div>-->
 <!-- END PAGE BAR -->
-<h1 class="page-title"> Companion Details
-    <!--<small>material design bootstrap inputs, input groups, custom checkboxes and radio controls and more</small>-->
-</h1>
+<!--<h1 class="page-title"> Companion Details
+    <small>material design bootstrap inputs, input groups, custom checkboxes and radio controls and more</small>
+</h1>-->
 
 <div class="portlet light bordered" id="form_wizard_1">
     <div class="portlet-title">
@@ -28,16 +28,7 @@ $unique_id = time();
         </div>
     </div>
     <div class="portlet-body form">
-        <div class="col-md-6 file-upload-dropzone hide">
-            <form action="<?php echo base_url('admin/companions/upload_images'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
-                <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
-                <input type="hidden" name="image_type" value="profile">
-                <!--<label>Upload Image</label>-->
-                <h3 class="sbold">Click to upload</h3>
-                <p> Upload Companion Member Profile Images </p>
-            </form>
-        </div>
-        <form class="form-horizontal" id="form-add-companion">
+        <form class="form-horizontal" id="add_companion_member">
             <div class="form-wizard">
                 <div class="form-body">
                     <ul class="nav nav-pills nav-justified steps">
@@ -70,9 +61,9 @@ $unique_id = time();
                         <div class="alert alert-danger display-none">
                             <button class="close" data-dismiss="alert"></button> Please enter valid data in below fields. 
                         </div>
-                        <div class="alert alert-success display-none">
+<!--                        <div class="alert alert-success display-none">
                             <button class="close" data-dismiss="alert"></button> All data validated successfully! 
-                        </div>
+                        </div>-->
                         <div class="tab-pane active" id="tab1">
                             <h3 class="block text-center">Login Details</h3>
                             <div class="form-group form-md-line-input">
@@ -128,17 +119,11 @@ $unique_id = time();
                                     <label></label>
                                 </div>
                             </div>
-                            <div class="form-group form-md-line-input">
-                                <label class="control-label col-md-3"> Nick Name <span class="required"> * </span> </label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control"  name="nick_name">
-                                    <label></label>
-                                </div>
-                            </div>
+                            
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Telephone <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="telephone">
+                                    <input type="text" class="form-control" name="phone_number">
                                     <label></label>
                                 </div>
                             </div>
@@ -192,7 +177,7 @@ $unique_id = time();
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Address <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control"  placeholder="">
+                                    <input type="text" class="form-control" name="address"  placeholder="">
                                     <label></label>
                                 </div>
                             </div>
@@ -200,98 +185,69 @@ $unique_id = time();
                         </div>
                         <div class="tab-pane" id="tab3">
                             <h3 class="block text-center">Further Details</h3>
-                            <div class="form-group form-md-line-input margin-top-300">
-                                <label class="control-label col-md-3"> Available for <span class="required"> * </span> </label>
+                            <div class="form-group form-md-line-input">
+                                <label class="control-label col-md-3"> Profile Images <span class="required">*</span></label>
                                 <div class="col-md-6">
-                                    <div class="md-checkbox-inline row">
-                                        <div class="col-md-4">
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox01" class="md-check">
-                                                <label for="checkbox33">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span> Loren</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox02" class="md-check">
-                                                <label for="checkbox33">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span> Ipsum</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox03" class="md-check">
-                                                <label for="checkbox33">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span> Doller</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox05" class="md-check">
-                                                <label for="checkbox33">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span> Lorem ipsum doller</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox04" class="md-check">
-                                                <label for="checkbox33">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span> Sit</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox04" class="md-check">
-                                                <label for="checkbox33">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span> Cricket</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox04" class="md-check">
-                                                <label for="checkbox33">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span> Hocky</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="checkbox05" class="md-check">
-                                                <label for="checkbox33">
-                                                    <span></span>
-                                                    <span class="check"></span>
-                                                    <span class="box"></span> Amet</label>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                    <input type="file" class="form-control" multiple="multiple"  placeholder="" name="profile_images[]">
+                                    <label></label>
                                 </div>
                             </div>
+
+                            <div class="form-group form-md-line-input">
+                                <label class="control-label col-md-3"> ID Proofs <span class="required">*</span></label>
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control" multiple="multiple"  placeholder="" name="id_proofs[]">
+                                    <label></label>
+                                </div>
+                            </div>
+
+                            <?php
+                            if (isset($categories) && count($categories) > 0) {
+                                foreach ($categories as $category) {
+                                    ?>
+                                    <div class="form-group form-md-line-input">
+                                        <label class="control-label col-md-3"> <?php echo $category['category_name']; ?> <span class="required"> * </span> </label>
+                                        <div class="col-md-6">
+                                            <div class="md-checkbox-inline row">
+                                                <!--get sub categories and loop through-->
+                                                <?php
+                                                $sub_categories = getSubCategoriesByCategoryId($category['category_id']);
+                                                if ($sub_categories && count($sub_categories) > 0) {
+                                                    foreach ($sub_categories as $sub_cat) {
+                                                        ?>
+                                                        <div class="col-md-6">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" name='categories[]' value="<?php echo $category['category_id'] . "::" . $sub_cat['sub_category_id']; ?>" id="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>" class="md-check">
+                                                                <label for="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span> <?php echo $sub_cat['sub_category_name']; ?></label>
+                                                            </div>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                            ?>
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Other Specific Interest  </label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control"  placeholder="">
+                                    <input type="text" name='other_interest' class="form-control"  placeholder="">
                                     <label for="form_control_1"></label>
                                     <!--<span class="help-block">Some help goes here...</span>-->
                                 </div>
                             </div>
+
                             <div class="form-group form-md-line-input">
-                                <label class="control-label col-md-3"> Describe yourself <span class="required"> * </span> </label>
+                                <label class="control-label col-md-3"> About Me <span class="required"> * </span> </label>
                                 <div class="col-md-6">
-                                    <textarea  class="form-control"  placeholder=""></textarea>
+                                    <textarea  class="form-control" name="about_me" placeholder=""></textarea>
                                     <label for="form_control_1"></label>
                                     <!--<span class="help-block">Some help goes here...</span>-->
                                 </div>

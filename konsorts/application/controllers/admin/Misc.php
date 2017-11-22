@@ -128,7 +128,7 @@ class Misc extends Admin_Controller {
                     $result['admin_name'],
                     $result['updated_on'],
                     $active_html,
-                    '<a class="btn btn-xs default btn-editable" href="' . (base_url("admin/misc/view_sub_categories/" . $result['category_id'])) . '"><i class="fa fa-eye"></i></a><a class="btn btn-xs default btn-editable" onclick="Categories.modal_add_category(' . $result['category_id'] . ')">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(' . $result["category_id"] . ' , \'tb_categories\' , \'category_id\' , \'Category will be permanently deleted without further warning. Do you really want to delete this category?\');">Delete</i></a> '
+                    '<a class="btn btn-xs default btn-editable" title="View Sub Categories" href="' . (base_url("admin/misc/view_sub_categories/" . $result['category_id'])) . '"><i class="fa fa-eye"></i></a><a class="btn btn-xs default btn-editable" onclick="Categories.modal_add_category(' . $result['category_id'] . ')">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(' . $result["category_id"] . ' , \'tb_categories\' , \'category_id\' , \'Category will be permanently deleted without further warning. Do you really want to delete this category?\');">Delete</i></a> '
                 );
             }
         }

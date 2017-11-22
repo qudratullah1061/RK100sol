@@ -12,13 +12,13 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span><?php echo $member_info['username']; ?> Guest Profile</span>
+            <span><?php echo $member_info['username']; ?> Companion Profile</span>
         </li>
     </ul>
 </div>
 <!-- END PAGE BAR -->
-<h1 class="page-title"> Guest Member Profile | Account
-    <small>Guest account page</small>
+<h1 class="page-title"> Companion Member Profile | Account
+    <small>Companion account page</small>
 </h1>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
@@ -96,10 +96,10 @@
                             <div class="tab-content">
                                 <!-- PERSONAL INFO TAB -->
                                 <div class="tab-pane active" id="tab_1_1">
-                                    <form role="form" id="update_guest_member" method="post">
+                                    <form role="form" id="update_companion_member" method="post">
                                         <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Guest Member ID<span class="required">*</span></label>
+                                            <label class="control-label">Companion Member ID<span class="required">*</span></label>
                                             <input type="text" placeholder="Unique ID" disabled="disabled" value="<?php echo $member_info['member_unique_code']; ?>" class="form-control" /> 
                                         </div>
                                         <div class="form-group col-md-6">
@@ -203,7 +203,7 @@
                                             <input type="hidden" name="image_type" value="profile">
                                             <input type="hidden" name="image_dir" value="uploads/member_images/profile/">
                                             <h3 class="sbold">Click to upload</h3>
-                                            <p> Upload Guest Member Profile Images </p>
+                                            <p> Upload Companion Member Profile Images </p>
                                         </form>
 
                                         <div id="load_member_profile_images" class="cbp margin-top-20">
@@ -245,7 +245,7 @@
                                             <input type="hidden" name="image_type" value="id_proof">
                                             <input type="hidden" name="image_dir" value="uploads/member_images/id_proofs/">
                                             <h3 class="sbold">Click to upload</h3>
-                                            <p>Upload Guest Member Id Proofs</p>
+                                            <p>Upload Companion Member Id Proofs</p>
                                         </form>
 
                                         <div id="load_member_id_proofs" class="cbp margin-top-20">
@@ -364,9 +364,10 @@
 
 <script>
     $(document).ready(function () {
-        GuestMembers.initAddUpdateGuestValidation("update_guest_member");
+        FormWizard.handleCompanionValidation("update_companion_member");
     });
 </script>
+<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/companion-form-wizard.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/guest_members.js" type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->

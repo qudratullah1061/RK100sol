@@ -77,4 +77,22 @@ class Members_model extends Abstract_model {
         return $this->db->get_where('tb_temp_images_upload', array('unique_id' => $unique_id, 'image_type' => $image_type))->result_array();
     }
 
+    function AddUpdateMemberCategories($member_categories, $member_id) {
+        if ($member_id) {
+            // delete previous member ids
+            $this->table_name = 'tb_member_categories';
+            $this->db->where('member_id', $member_id);
+            $this->db->delete($this->table_name);
+            if ($member_categories) {
+                foreach ($member_categories as $category) {
+                    $category_array = explode("::", $category);
+                    $category_id = isset($category_array[0]) ? $category_array[0] : 0;
+                    $sub_category_id = isset($category_array[1]) ? $category_array[1] : 0;
+                    $data = array('member_id' => $member_id, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id, 'created_on' => date("Y-m-d H:i:s"), 'created_by' => $this->session->userdata('admin_id'));
+                    $this->save($data);
+                }
+            }
+        }
+    }
+
 }

@@ -58,6 +58,16 @@ function reArrayFiles(&$file_post) {
     return $file_ary;
 }
 
+function GetAllCategories() {
+    global $CI;
+    return $CI->db->get_where('tb_categories', array('is_active' => 1))->result_array();
+}
+
+function getSubCategoriesByCategoryId($categoryId) {
+    global $CI;
+    return $CI->db->get_where('tb_sub_categories', array('is_active' => 1, 'category_id' => $categoryId))->result_array();
+}
+
 function getCategoryNameById($categoryId = 0) {
     global $CI;
     $data_info = $CI->db->get_where('tb_categories', array('category_id' => $categoryId))->result_array();

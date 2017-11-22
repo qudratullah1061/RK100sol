@@ -30,7 +30,7 @@ class Guests extends Admin_Controller {
     function chk_member_username_exist($email, $exclude_id) {
         $result = is_member_username_exist($email, $exclude_id);
         if ($result) {
-            $this->form_validation->set_message('chk_member_username_exist', 'The %s already exist. Please choose other email!');
+            $this->form_validation->set_message('chk_member_username_exist', 'The %s already exist. Please choose other username!');
             return false;
         }
         return true;
@@ -121,7 +121,7 @@ class Guests extends Admin_Controller {
                         move_uploaded_file($id_proof['tmp_name'], $f_file_path);
                         CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
                         // insert in database as well.
-                        $image_data = array('member_id' => $edit_id, 'image_type' => 'id_proof', 'image' => $file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+                        $image_data = array('member_id' => $edit_id, 'image_type' => 'id_proof', 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
                         $this->db->insert('tb_member_images', $image_data);
                     }
                 }

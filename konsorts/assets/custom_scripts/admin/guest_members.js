@@ -175,6 +175,21 @@ var GuestMembers = function () {
     return {
         initAddUpdateGuestValidation: function (formId) {
             $(".date-picker").datepicker();
+            $("#dd-country").select2({
+                placeholder: "Select",
+                allowClear: true,
+                width: 'auto',
+            });
+            $("#dd-state").select2({
+                placeholder: "Select",
+                allowClear: true,
+                width: 'auto',
+            });
+            $("#dd-city").select2({
+                placeholder: "Select",
+                allowClear: true,
+                width: 'auto',
+            });
             handleValidationAddUpdateGuestMember(formId);
         }
     };
