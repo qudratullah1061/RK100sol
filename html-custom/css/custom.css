@@ -321,6 +321,23 @@ footer .widget-title {
     margin-top: 23px;
     margin-bottom: 1px;
 }
+footer .small-icon li {
+    margin: 0px 5px;
+    float: left;
+}
+footer .small-icon li a {
+    color: #942192;
+    font-size: 30px;
+    float: left;
+}
+footer .small-icon li a:hover {
+    color: #640664;
+}
+    
+footer .small-icon li:first-child {
+    position: relative;
+    top: 9px;
+}
 .padding-70px-left{padding-left: 70px;}
 .padding-20px-left{padding-left: 30px;}
 .padding-30px-left{padding-left: 30px;}

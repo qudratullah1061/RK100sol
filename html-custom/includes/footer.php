@@ -58,14 +58,25 @@
                     <div class="col-md-6 col-sm-6 col-xs-12 text-left text-small xs-text-center">
                         <div class="social-icon-style-8 display-inline-block vertical-align-middle">
 
-                            <ul class="small-icon no-margin-bottom">
-                                <li> <span> Follow Us:</span> </li>
-                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-gmail.png" alt=""> </a></li>
-                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-linkedin.png" alt=""> </a></li>
-                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-facebook.png" alt=""> </a></li>
-                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-twitter.png" alt=""> </a></li>
-                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-instagram.png" alt=""> </a></li>
-                                <li><a class="facebook" href="#" target="_blank"> <img src="img/social-youtube.png" alt=""> </a></li>
+                            <!--                            <ul class="small-icon no-margin-bottom">
+                                                            <li> <span> Follow Us:</span> </li>
+                                                            <li><a class="facebook" href="#" target="_blank"> <img src="img/social-gmail.png" alt=""> </a></li>
+                                                            <li><a class="facebook" href="#" target="_blank"> <img src="img/social-linkedin.png" alt=""> </a></li>
+                                                            <li><a class="facebook" href="#" target="_blank"> <img src="img/social-facebook.png" alt=""> </a></li>
+                                                            <li><a class="facebook" href="#" target="_blank"> <img src="img/social-twitter.png" alt=""> </a></li>
+                                                            <li><a class="facebook" href="#" target="_blank"> <img src="img/social-instagram.png" alt=""> </a></li>
+                                                            <li><a class="facebook" href="#" target="_blank"> <img src="img/social-youtube.png" alt=""> </a></li>
+                                                        </ul>-->
+                            <ul  class="small-icon no-margin-bottom">
+                                 <li> <span> Follow Us:</span> </li>
+                                <li class="enabled"><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                <li class="enabled"><a href="#"><i class="fa fa-youtube-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                                <li class="enabled"><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <!--<li><a href="#"><i class="fa fa-skype"></i></a></li>-->
+                                <!--<li class="enabled"><a href="#"><i class="fa fa-pinterest-square"></i></a></li>-->
                             </ul>
                         </div>
                     </div>
