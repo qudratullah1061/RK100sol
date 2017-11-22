@@ -44,6 +44,7 @@
         <link rel="stylesheet" type="text/css" href="revolution/css/navigation.css">
         <!-- bootsnav -->
         <link rel="stylesheet" href="css/bootsnav.css">
+        <link rel="stylesheet" href="css/jquery.rateyo.min.css">
         <!-- style -->
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/login.css" />

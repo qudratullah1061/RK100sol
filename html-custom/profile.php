@@ -14,19 +14,16 @@
                         <p>Robert C.</p>
                         <span> <i class="fa fa-map-marker"></i> Belgium, Malimont </span>
                     </div>
+
                     <div class="profile-rating">
-                        <span class="profile-points">5.0</span>
-                        <ul class="profile-stars">
-                            <li><i  class="fa fa-star"></i></li>
-                            <li><i  class="fa fa-star"></i></li>
-                            <li><i  class="fa fa-star"></i></li>
-                            <li><i  class="fa fa-star"></i></li>
-                            <li><i  class="fa fa-star"></i></li>
-                        </ul>
+                        <span class="profile-points">3.4</span>
+                        <!-- Ref site http://rateyo.fundoocode.ninja/-->
+                        <div class="rateyo"></div>
                         <span class="profile-reviews-counter">
                             2 reviews
                         </span>
                     </div>
+                    <br>
                     <div class="text-center">
                         <a href="#" class="btn btn-deep-purple">Message</a>
                     </div>
@@ -247,7 +244,7 @@
                             <p>Consulting and Development Service</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 2006 - 2007</p>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>

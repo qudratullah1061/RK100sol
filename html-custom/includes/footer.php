@@ -68,7 +68,7 @@
                                                             <li><a class="facebook" href="#" target="_blank"> <img src="img/social-youtube.png" alt=""> </a></li>
                                                         </ul>-->
                             <ul  class="small-icon no-margin-bottom">
-                                 <li> <span> Follow Us:</span> </li>
+                                <li> <span> Follow Us:</span> </li>
                                 <li class="enabled"><a href="#"><i class="fa fa-facebook-square"></i></a></li>
                                 <li class="enabled"><a href="#"><i class="fa fa-youtube-square"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
@@ -169,6 +169,7 @@
     <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
     <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>-->
 <!-- setting -->
+<script type="text/javascript" src="js/jquery.rateyo.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>

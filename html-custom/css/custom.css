@@ -631,6 +631,10 @@ section.profle {
     -moz-box-shadow:    1px 1px 2px 0px rgba(0, 0, 0, 0.35);
     box-shadow:         1px 1px 2px 0px rgba(0, 0, 0, 0.35);
 }
+.profile-rating .jq-ry-container {
+    float: left;
+    margin-left: 4px;
+}
 
 .profile-rating ul {
     list-style: none;
@@ -641,12 +645,14 @@ section.profle {
 
 .profile-rating ul li {
     display: inline;
-    color: purple;
+    color: #898385;
     line-height: 1px;
     position: relative;
     top: -3px;
 }
-
+.profile-rating ul li.active {
+    color: purple;
+}
 .profile-points {
     display: inline-block;
     background: purple;
@@ -694,9 +700,14 @@ span.profile-reviews-counter {
     font-family: Roboto;
     padding: 3px 16px;
 }
-.profile-left ul{list-style: none;margin: 0; padding: 0;}
 .profile-misc {font-family: roboto;color: #413e41;margin-top: 20px;}
-
+.profile-left ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+    margin-left: 13px;
+}
 .profile-misc li {
     border-bottom: 1px solid #959595;
     float: left;
@@ -835,7 +846,11 @@ span.profile-reviews-counter {
     -moz-box-shadow:    1px 1px 2px 0px rgba(0, 0, 0, 0.35);
     box-shadow:         1px 1px 2px 0px rgba(0, 0, 0, 0.35);
 }
-
+.profile-skills ul {
+    width: 100%;
+    margin-left: 0;
+    background-color: #f6f3f4;
+}
 .profile-skills ul li {
     font-size: 12px;
     font-weight: 300;
