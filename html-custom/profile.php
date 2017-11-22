@@ -177,13 +177,14 @@
                             <p class="title">Impressive Achievement, Realstic and Shocking.</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 11November, 2016</p>
                             <div class="rating">
-                                <ul class="profile-stars">
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                </ul>
+                                <!--                                <ul class="profile-stars">
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                </ul>-->
+                                <div class="rateyo"></div>
                                 <span class="profile-points">5.0</span>
                             </div>
                             <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
@@ -192,13 +193,14 @@
                             <p class="title">Highly Recommended!</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 12January, 2017</p>
                             <div class="rating">
-                                <ul class="profile-stars">
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                </ul>
+                                <!--                                <ul class="profile-stars">
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                </ul>-->
+                                <div class="rateyo"></div>
                                 <span class="profile-points">5.0</span>
                             </div>
                             <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>

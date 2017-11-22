@@ -980,7 +980,7 @@ span.seperator.bg-light-gray {}
 
 .rating .profile-points {
     margin-top: 2px;
-    margin-left: 10px;
+    margin-left: 3px;
     float: left;
 }
 
@@ -990,6 +990,10 @@ span.seperator.bg-light-gray {}
     width: 100%;
     position: relative;
     top: 4px;
+}
+.profile-reviews  .rateyo.jq-ry-container {
+    float: left;
+    margin-top: 3px;
 }
 
 .profile-reviews p {
