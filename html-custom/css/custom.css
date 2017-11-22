@@ -29,6 +29,130 @@ header.sticky nav.navbar.navbar-default.navbar-fixed-top ul.nav>li>a,header.stic
 header.sticky .signup-link {padding-top: 16px;}
 nav.navbar.navbar-default ul.nav>li>a {padding: 54px 0 48px;background: transparent;border-color: transparent; font-weight: 700;font-size: 14px;font-family: 'Lato', sans-serif;color: #434343;letter-spacing: 0;margin: 0 10px;}
 
+
+@media (min-width: 992px) {
+    nav div.dropdown:hover > ul.dropdown-menu {
+        display: block;
+    }
+}
+.header-searchbar {
+    border-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding: 46px 0 54px;
+}
+.header-searchbar> div {
+    display: inherit;
+    position: relative;
+    top: 8px;
+}
+
+.header-searchbar> div .fa {
+    font-size: 23px;
+    color: #942192;
+}
+
+.header-right .dropdown {
+    display: inline-block;
+    padding: 41px 0 38px;
+    margin-left: 30px;
+}
+.header-right .dropdown>a {
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Lato;
+    color: #942192;
+
+}
+
+.header-right .dropdown>a .fa {
+    margin-left: 10px;
+}
+.header-right {
+    padding-left: 0;
+}
+header.sticky .header-right .dropdown{
+    padding: 25px 0 22px;
+}
+header.sticky .header-searchbar{
+    padding: 25px 0 22px;
+}
+
+nav.header-light .header-searchbar, header.header-appear nav.header-light .header-searchbar{border-left: 0 !important;}
+.header-right .dropdown  img {
+    width: 43px;
+    border-radius: 50%;
+    border: 2px solid #a472ae;
+    height: 43px;
+    margin-right: 4px;
+}
+.notifications span {
+    background: purple;
+    color: #fff;
+    font-size: 8px;
+    padding: 1px 0;
+    position: absolute;
+    top: -9px;
+    right: 0;
+    border-radius: 50%;
+    min-width: 17px;
+    text-align: center;
+    height: 17px;
+}
+.notifications.not span {
+    right: 2px;
+}
+.notifications.not {
+    margin-right: 6px;
+}
+nav .accordion-menu {
+    padding-right: 8px;
+}
+
+.header-right .dropdown ul.dropdown-menu {
+    padding: 0;
+    border-radius: 0;
+    margin-top: 0;
+    min-width: 150px;
+    border: 1px solid #800080;
+    top: 96px;
+}
+
+.header-right .dropdown ul.dropdown-menu
+li a {
+    padding: 8px 15px;
+    color: purple;
+}
+
+.header-right .dropdown ul.dropdown-menu
+li a .fa {
+    margin-right: 5px;
+}
+
+.header-right .dropdown ul.dropdown-menu li a:hover {
+    background: purple;
+    color: #fff;
+}
+ul.dropdown-menu:before {
+    content: "\f106";
+    font-family: FontAwesome;
+    font-size: 18px;
+    position: absolute;
+    top: -16px;
+    right: 25px;
+    color: #800080;
+}
+
+
+
+
+
+
+
+
 header.header-appear nav.bootsnav.header-light-transparent .navbar-nav>li>a:hover,
 header.header-appear nav.bootsnav.header-light .navbar-nav>li>a:hover,
 header.header-appear nav.header-light-transparent .header-social-icon a:hover,
