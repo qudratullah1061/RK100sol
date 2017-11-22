@@ -29,6 +29,131 @@ header.sticky nav.navbar.navbar-default.navbar-fixed-top ul.nav>li>a,header.stic
 header.sticky .signup-link {padding-top: 16px;}
 nav.navbar.navbar-default ul.nav>li>a {padding: 54px 0 48px;background: transparent;border-color: transparent; font-weight: 700;font-size: 14px;font-family: 'Lato', sans-serif;color: #434343;letter-spacing: 0;margin: 0 10px;}
 
+
+@media (min-width: 992px) {
+    nav div.dropdown:hover > ul.dropdown-menu {
+        display: block;
+    }
+}
+.header-searchbar {
+    border-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding: 46px 0 54px;
+}
+.header-searchbar> div {
+    display: inherit;
+    position: relative;
+    top: 8px;
+}
+
+.header-searchbar> div .fa {
+    font-size: 23px;
+    color: #942192;
+}
+
+.header-right .dropdown {
+    display: inline-block;
+    padding: 41px 0 38px;
+    margin-left: 30px;
+}
+.header-right .dropdown>a {
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Lato;
+    color: #942192;
+
+}
+
+.header-right .dropdown>a .fa {
+    margin-left: 10px;
+}
+.header-right {
+    padding-left: 0;
+}
+header.sticky .header-right .dropdown{
+    padding: 25px 0 22px;
+}
+header.sticky .header-searchbar{
+    padding: 25px 0 22px;
+}
+
+nav.header-light .header-searchbar, header.header-appear nav.header-light .header-searchbar{border-left: 0 !important;}
+.header-right .dropdown  img {
+    width: 43px;
+    border-radius: 50%;
+    border: 2px solid #a472ae;
+    height: 43px;
+    margin-right: 4px;
+}
+.notifications span {
+    background: purple;
+    color: #fff;
+    font-size: 8px;
+    padding: 1px 0;
+    position: absolute;
+    top: -9px;
+    right: 0;
+    border-radius: 50%;
+    min-width: 17px;
+    text-align: center;
+    height: 17px;
+}
+.notifications.not span {
+    right: 2px;
+}
+.notifications.not {
+    margin-right: 6px;
+}
+nav .accordion-menu {
+    padding-right: 8px;
+}
+
+.header-right .dropdown ul.dropdown-menu {
+    padding: 0;
+    border-radius: 0;
+    margin-top: 0;
+    min-width: 150px;
+    border: 1px solid #800080;
+    top: 96px;
+}
+header.sticky .header-right .dropdown ul.dropdown-menu {
+    top: 90px;
+}
+
+.header-right .dropdown ul.dropdown-menu li a {
+    padding: 8px 15px;
+    color: purple;
+}
+
+.header-right .dropdown ul.dropdown-menu li a .fa {
+    margin-right: 5px;
+}
+
+.header-right .dropdown ul.dropdown-menu li a:hover {
+    background: purple;
+    color: #fff;
+}
+ul.dropdown-menu:before {
+    content: "\f106";
+    font-family: FontAwesome;
+    font-size: 18px;
+    position: absolute;
+    top: -16px;
+    right: 25px;
+    color: #800080;
+}
+
+
+
+
+
+
+
+
 header.header-appear nav.bootsnav.header-light-transparent .navbar-nav>li>a:hover,
 header.header-appear nav.bootsnav.header-light .navbar-nav>li>a:hover,
 header.header-appear nav.header-light-transparent .header-social-icon a:hover,
@@ -506,6 +631,10 @@ section.profle {
     -moz-box-shadow:    1px 1px 2px 0px rgba(0, 0, 0, 0.35);
     box-shadow:         1px 1px 2px 0px rgba(0, 0, 0, 0.35);
 }
+.profile-rating .jq-ry-container {
+    float: left;
+    margin-left: 4px;
+}
 
 .profile-rating ul {
     list-style: none;
@@ -516,12 +645,14 @@ section.profle {
 
 .profile-rating ul li {
     display: inline;
-    color: purple;
+    color: #898385;
     line-height: 1px;
     position: relative;
     top: -3px;
 }
-
+.profile-rating ul li.active {
+    color: purple;
+}
 .profile-points {
     display: inline-block;
     background: purple;
@@ -543,18 +674,40 @@ span.profile-reviews-counter {
     float: right;
 }
 
-.profile-personal .btn.btn-pruple {
+.profile-personal .status {
+    background: #a7a7a5;
+    height: 20px;
+    color: #fff;
+    position: absolute;
+    right: 15px;
+    line-height: 21px;
+    text-transform: capitalize;
+    font-size: 12px;
+    min-width: 63px;
+    border-top-left-radius: 11px;
+    border-bottom-left-radius: 11px;
+    font-family: Roboto;
+    font-weight: 300;
+    letter-spacing: 1px;
+    top: 35px;
 }
-
+.profile-personal .status.online {
+    background: #8dc63f;
+}
 .profile-personal .btn {
     text-transform: unset;
     font-size: 16px;
     font-family: Roboto;
     padding: 3px 16px;
 }
-.profile-left ul{list-style: none;margin: 0; padding: 0;}
 .profile-misc {font-family: roboto;color: #413e41;margin-top: 20px;}
-
+.profile-left ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+    margin-left: 13px;
+}
 .profile-misc li {
     border-bottom: 1px solid #959595;
     float: left;
@@ -693,7 +846,11 @@ span.profile-reviews-counter {
     -moz-box-shadow:    1px 1px 2px 0px rgba(0, 0, 0, 0.35);
     box-shadow:         1px 1px 2px 0px rgba(0, 0, 0, 0.35);
 }
-
+.profile-skills ul {
+    width: 100%;
+    margin-left: 0;
+    background-color: #f6f3f4;
+}
 .profile-skills ul li {
     font-size: 12px;
     font-weight: 300;
@@ -823,7 +980,7 @@ span.seperator.bg-light-gray {}
 
 .rating .profile-points {
     margin-top: 2px;
-    margin-left: 10px;
+    margin-left: 3px;
     float: left;
 }
 
@@ -833,6 +990,10 @@ span.seperator.bg-light-gray {}
     width: 100%;
     position: relative;
     top: 4px;
+}
+.profile-reviews  .rateyo.jq-ry-container {
+    float: left;
+    margin-top: 3px;
 }
 
 .profile-reviews p {

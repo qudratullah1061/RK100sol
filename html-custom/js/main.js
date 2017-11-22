@@ -348,7 +348,7 @@ $(document).ready(function () {
     $("nav.navbar.bootsnav ul.nav").each(function () {
         $("li.dropdown", this).on("mouseenter", function () {
             if ($(window).width() > 991) {
-                $(this).find('.equalize').equalize({ equalize: 'outerHeight', reset: true });
+                $(this).find('.equalize').equalize({equalize: 'outerHeight', reset: true});
                 return false;
             }
         });
@@ -357,7 +357,7 @@ $(document).ready(function () {
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         var target = $(e.target).attr("href");
         if ($(window).width() > 991) {
-            $(target).find('.equalize').equalize({ equalize: 'outerHeight', reset: true });
+            $(target).find('.equalize').equalize({equalize: 'outerHeight', reset: true});
             return false;
         }
     });
@@ -387,13 +387,13 @@ $(document).ready(function () {
     });
     //Click event to scroll to top
     $('.scroll-top-arrow').on('click', function () {
-        $('html, body').animate({ scrollTop: 0 }, 800);
+        $('html, body').animate({scrollTop: 0}, 800);
         return false;
     });
 
     /* ===================================
-    swiper slider
-    ====================================== */
+     swiper slider
+     ====================================== */
     var swiperFull = new Swiper('.swiper-full-screen', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
@@ -860,8 +860,8 @@ $(document).ready(function () {
     });
 
     /*==============================================================
-    smooth scroll
-    ==============================================================*/
+     smooth scroll
+     ==============================================================*/
 
     var scrollAnimationTime = 1200, scrollAnimation = 'easeInOutExpo';
     $('a.scrollto').on('click.smoothscroll', function (event) {
@@ -987,8 +987,8 @@ $(document).ready(function () {
     /*==============================================================*/
 
     /*==============================================================
-    portfolio filter
-    ==============================================================*/
+     portfolio filter
+     ==============================================================*/
     var $portfolio_filter = $('.portfolio-grid');
     $portfolio_filter.imagesLoaded(function () {
         $portfolio_filter.isotope({
@@ -1015,7 +1015,7 @@ $(document).ready(function () {
             $(this).css("-ms-animation", "none");
             $(this).css("animation", "none");
         });
-        $portfolio_filter.isotope({ filter: selector });
+        $portfolio_filter.isotope({filter: selector});
         return false;
     });
     $(window).resize(function () {
@@ -1045,8 +1045,8 @@ $(document).ready(function () {
     });
 
     /*==============================================================
-    lightbox gallery
-    ==============================================================*/
+     lightbox gallery
+     ==============================================================*/
     $('.lightbox-gallery').magnificPopup({
         delegate: 'a',
         type: 'image',
@@ -1075,7 +1075,7 @@ $(document).ready(function () {
             type: 'image',
             closeOnContentClick: true,
             closeBtnInside: false,
-            gallery: { enabled: true }
+            gallery: {enabled: true}
         });
     });
 
@@ -1093,8 +1093,8 @@ $(document).ready(function () {
         }
     });
     /*==============================================================
-    single image lightbox - zoom animation
-    ==============================================================*/
+     single image lightbox - zoom animation
+     ==============================================================*/
     $('.single-image-lightbox').magnificPopup({
         type: 'image',
         closeOnContentClick: true,
@@ -1110,8 +1110,8 @@ $(document).ready(function () {
         }
     });
     /*==============================================================
-    zoom gallery
-    ==============================================================*/
+     zoom gallery
+     ==============================================================*/
     $('.zoom-gallery').magnificPopup({
         delegate: 'a',
         type: 'image',
@@ -1185,8 +1185,8 @@ $(document).ready(function () {
     /*==============================================================*/
 
     /*==============================================================
-    popup with form
-    ==============================================================*/
+     popup with form
+     ==============================================================*/
     $('.popup-with-form').magnificPopup({
         type: 'inline',
         preloader: false,
@@ -1204,8 +1204,8 @@ $(document).ready(function () {
         }
     });
     /*==============================================================
-    video magnific popup
-    ==============================================================*/
+     video magnific popup
+     ==============================================================*/
 
     $('.popup-youtube, .popup-vimeo, .popup-googlemap').magnificPopup({
         disableOn: 700,
@@ -1217,8 +1217,8 @@ $(document).ready(function () {
         closeBtnInside: false
     });
     /*==============================================================
-    ajax magnific popup for onepage portfolio
-    ==============================================================*/
+     ajax magnific popup for onepage portfolio
+     ==============================================================*/
     $('.ajax-popup').magnificPopup({
         type: 'ajax',
         alignTop: true,
@@ -1233,8 +1233,8 @@ $(document).ready(function () {
     });
 
     /*==============================================================
-    mega menu width 
-    ===============================================================*/
+     mega menu width 
+     ===============================================================*/
     $("ul.mega-menu-full").each(function (idx, elm) {
         var megaMenuWidth = 0;
         $(this).children('li').each(function (idx, elm) {
@@ -1246,14 +1246,14 @@ $(document).ready(function () {
         megaMenuWidth = 0;
     });
     /*==============================================================
-    fit videos
-    ==============================================================*/
+     fit videos
+     ==============================================================*/
     $(".fit-videos").fitVids();
 
 
     /*==============================================================
-    form to email
-    ==============================================================*/
+     form to email
+     ==============================================================*/
 
     $("#success-subscribe-newsletter").hide();
     $("#success-subscribe-newsletter2").hide();
@@ -1287,7 +1287,7 @@ $(document).ready(function () {
             });
         }
     });
-    
+
     function ValidationsubscribenewsletterForm() {
         var error = true;
         $('#subscribenewsletterform input[type=text]').each(function (index) {
@@ -1327,7 +1327,7 @@ $(document).ready(function () {
             });
         }
     });
-       
+
     function ValidationsubscribenewsletterForm2() {
         var error = true;
         $('#subscribenewsletterform2 input[type=text]').each(function (index) {
@@ -1574,12 +1574,12 @@ $(document).ready(function () {
 
 
     /*==============================================================
-    End form to email
-    ==============================================================*/
+     End form to email
+     ==============================================================*/
 
     /*==============================================================
-    wow animation - on scroll
-    ==============================================================*/
+     wow animation - on scroll
+     ==============================================================*/
     var wow = new WOW({
         boxClass: 'wow',
         animateClass: 'animated',
@@ -1591,8 +1591,8 @@ $(document).ready(function () {
         wow.init();
     });
     /*==============================================================
-    counter
-    ==============================================================*/
+     counter
+     ==============================================================*/
     $(function ($) {
         animatecounters();
     });
@@ -1605,8 +1605,8 @@ $(document).ready(function () {
         }
     }
     /* ===================================
-    counter number reset while scrolling
-    ====================================== */
+     counter number reset while scrolling
+     ====================================== */
     $('.timer').appear();
     $(document.body).on('appear', '.timer', function (e) {
         // this code is executed for each appeared element
@@ -1619,8 +1619,8 @@ $(document).ready(function () {
         $(this).html(event.strftime('' + '<div class="counter-container"><div class="counter-box first"><div class="number">%-D</div><span>Day%!d</span></div>' + '<div class="counter-box"><div class="number">%H</div><span>Hours</span></div>' + '<div class="counter-box"><div class="number">%M</div><span>Minutes</span></div>' + '<div class="counter-box last"><div class="number">%S</div><span>Seconds</span></div></div>'))
     });
     /* ===================================
-    left nav
-    ====================================== */
+     left nav
+     ====================================== */
     $('.right-menu-button').on('click', function (e) {
         $('body').toggleClass('left-nav-on');
     });
@@ -1638,8 +1638,8 @@ $(document).ready(function () {
         $(this).closest('nav').toggleClass('sidemenu-open');
     });
     /*=================================
-    //justified Gallery
-    =================================*/
+     //justified Gallery
+     =================================*/
     $(document).imagesLoaded(function () {
         if ($(".justified-gallery").length > 0) {
             $(".justified-gallery").justifiedGallery({
@@ -1705,8 +1705,8 @@ $(document).ready(function () {
     /*==============================================================*/
 
     /*==============================================================
-    instagramfeed
-    ==============================================================*/
+     instagramfeed
+     ==============================================================*/
     if ($('#instaFeed-style1').length != 0) {
         var instaFeedStyle1 = new Instafeed({
             target: 'instaFeed-style1',
@@ -1761,15 +1761,15 @@ $(document).ready(function () {
         instaFeedFooter.run();
     }
     /*==============================================================
-    instagramfeed end
-    ==============================================================*/
+     instagramfeed end
+     ==============================================================*/
 
     /*==============================================================*/
     //revolution Start 
     /*==============================================================*/
     /* ================================
-    home-creative-studio
-    ================================*/
+     home-creative-studio
+     ================================*/
     if ($("#rev_slider_151_1").revolution == undefined) {
         revslider_showDoubleJqueryError("#rev_slider_151_1");
     } else {
@@ -1858,8 +1858,8 @@ $(document).ready(function () {
         });
     }
     /* ================================
-    home-classic-web-agency
-    ================================*/
+     home-classic-web-agency
+     ================================*/
     if ($("#rev_slider_1174_1").revolution == undefined) {
         revslider_showDoubleJqueryError("#rev_slider_1174_1");
     } else {
@@ -1902,8 +1902,8 @@ $(document).ready(function () {
     }
 
     /* ================================
-    home-classic-corporate
-    ================================*/
+     home-classic-corporate
+     ================================*/
     if ($("#rev_slider_1078_1").revolution == undefined) {
         revslider_showDoubleJqueryError("#rev_slider_1078_1");
     } else {
@@ -2042,7 +2042,7 @@ $(document).ready(function () {
                     $('#search-header input[type=text]').each(function (index) {
                         if (index == 0) {
                             $(this).val('');
-                            $("#search-header").find("input:eq(" + index + ")").css({ "border": "none", "border-bottom": "2px solid rgba(255,255,255,0.5)" });
+                            $("#search-header").find("input:eq(" + index + ")").css({"border": "none", "border-bottom": "2px solid rgba(255,255,255,0.5)"});
                         }
                     });
                     document.onmousewheel = ScrollStart;
@@ -2065,9 +2065,9 @@ $(document).ready(function () {
 
     $("input.search-input").on("keyup", function (event) {
         if ($(this).val() == null || $(this).val() == "") {
-            $(this).css({ "border": "none", "border-bottom": "2px solid #fff" });
+            $(this).css({"border": "none", "border-bottom": "2px solid #fff"});
         } else {
-            $(this).css({ "border": "none", "border-bottom": "2px solid rgba(255,255,255,0.5)" });
+            $(this).css({"border": "none", "border-bottom": "2px solid rgba(255,255,255,0.5)"});
         }
     });
 
@@ -2161,8 +2161,8 @@ $(document).ready(function () {
     });
 
     /* ===================================
-    skillbar
-    ====================================== */
+     skillbar
+     ====================================== */
     $('.skillbar').appear();
     $('.skillbar').skillBars({
         from: 0,
@@ -2185,8 +2185,8 @@ $(document).ready(function () {
         }
     });
     /* ===================================
-    touchstart click
-    ====================================== */
+     touchstart click
+     ====================================== */
     $('body').on('touchstart click', function (e) {
         if ($(window).width() < 992) {
         }
@@ -2288,8 +2288,8 @@ $(document).ready(function () {
 
 
     /* ===================================
-    blog hover box
-    ====================================== */
+     blog hover box
+     ====================================== */
     $(document).on("mouseenter", ".blog-post-style4 .grid-item", function (e) {
         $(this).find("figcaption .blog-hover-text").slideDown(300);
     });
@@ -2297,8 +2297,8 @@ $(document).ready(function () {
         $(this).find("figcaption .blog-hover-text").slideUp(300);
     });
     /* ===================================
-    End blog hover box
-    ====================================== */
+     End blog hover box
+     ====================================== */
     SetResizeContent();
 
     var $allNonRatinaImages = $("img:not([data-at2x])");
@@ -2351,35 +2351,50 @@ $(window).load(function () {
 
 
 
- $('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
- $('.quantity').each(function() {
-   var spinner = $(this),
-     input = spinner.find('input[type="number"]'),
-     btnUp = spinner.find('.quantity-up'),
-     btnDown = spinner.find('.quantity-down'),
-     min = input.attr('min'),
-     max = input.attr('max');
+$('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
+$('.quantity').each(function () {
+    var spinner = $(this),
+            input = spinner.find('input[type="number"]'),
+            btnUp = spinner.find('.quantity-up'),
+            btnDown = spinner.find('.quantity-down'),
+            min = input.attr('min'),
+            max = input.attr('max');
 
-   btnUp.click(function() {
-     var oldValue = parseFloat(input.val());
-     if (oldValue >= max) {
-       var newVal = oldValue;
-     } else {
-       var newVal = oldValue + 1;
-     }
-     spinner.find("input").val(newVal);
-     spinner.find("input").trigger("change");
-   });
+    btnUp.click(function () {
+        var oldValue = parseFloat(input.val());
+        if (oldValue >= max) {
+            var newVal = oldValue;
+        } else {
+            var newVal = oldValue + 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+    });
 
-   btnDown.click(function() {
-     var oldValue = parseFloat(input.val());
-     if (oldValue <= min) {
-       var newVal = oldValue;
-     } else {
-       var newVal = oldValue - 1;
-     }
-     spinner.find("input").val(newVal);
-     spinner.find("input").trigger("change");
-   });
+    btnDown.click(function () {
+        var oldValue = parseFloat(input.val());
+        if (oldValue <= min) {
+            var newVal = oldValue;
+        } else {
+            var newVal = oldValue - 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+    });
 
- });
+});
+//Star rating funciton
+$(function () {
+
+// Ref site http://rateyo.fundoocode.ninja
+    $(".rateyo").rateYo({
+        rating: 3.4,
+        spacing: "3px",
+        starWidth: "15px",
+        readOnly: true,
+        multiColor: {
+            "startColor": "#942192", //RED
+            "endColor": "#942192"  //GREEN
+        }
+    });
+});

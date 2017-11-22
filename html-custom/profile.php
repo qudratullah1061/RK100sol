@@ -4,6 +4,9 @@
         <div class="col-md-3 col-sm-4">
             <div class="profile-left wow fadeInUp">
                 <div class="profile-personal">
+                    <span class="status online"><!-- + Note: remove class online if user is offline + -->
+                        online
+                    </span>
                     <div class="profile-media">
                         <img src="img/profile-img.jpg" alt="">
                     </div>
@@ -11,19 +14,16 @@
                         <p>Robert C.</p>
                         <span> <i class="fa fa-map-marker"></i> Belgium, Malimont </span>
                     </div>
+
                     <div class="profile-rating">
-                        <span class="profile-points">5.0</span>
-                        <ul class="profile-stars">
-                            <li><i  class="fa fa-star"></i></li>
-                            <li><i  class="fa fa-star"></i></li>
-                            <li><i  class="fa fa-star"></i></li>
-                            <li><i  class="fa fa-star"></i></li>
-                            <li><i  class="fa fa-star"></i></li>
-                        </ul>
+                        <span class="profile-points">3.4</span>
+                        <!-- Ref site http://rateyo.fundoocode.ninja/-->
+                        <div class="rateyo"></div>
                         <span class="profile-reviews-counter">
                             2 reviews
                         </span>
                     </div>
+                    <br>
                     <div class="text-center">
                         <a href="#" class="btn btn-deep-purple">Message</a>
                     </div>
@@ -177,13 +177,14 @@
                             <p class="title">Impressive Achievement, Realstic and Shocking.</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 11November, 2016</p>
                             <div class="rating">
-                                <ul class="profile-stars">
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                </ul>
+                                <!--                                <ul class="profile-stars">
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                </ul>-->
+                                <div class="rateyo"></div>
                                 <span class="profile-points">5.0</span>
                             </div>
                             <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
@@ -192,13 +193,14 @@
                             <p class="title">Highly Recommended!</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 12January, 2017</p>
                             <div class="rating">
-                                <ul class="profile-stars">
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                </ul>
+                                <!--                                <ul class="profile-stars">
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                    <li><i  class="fa fa-star"></i></li>
+                                                                </ul>-->
+                                <div class="rateyo"></div>
                                 <span class="profile-points">5.0</span>
                             </div>
                             <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
@@ -244,7 +246,7 @@
                             <p>Consulting and Development Service</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 2006 - 2007</p>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
