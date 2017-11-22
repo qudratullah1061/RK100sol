@@ -1,7 +1,8 @@
-body {
-    /*padding-top: 90px;*/
+.login-page {
     background-image: url(../img/home-banner.jpg);
     font-family: 'Raleway', sans-serif;
+    margin-top: 120px;
+    padding: 120px 0;
 }
 .panel-login {
     border-color: #ccc;
@@ -20,14 +21,9 @@ body {
 .panel.panel-login {
     border-radius: 0;
     border: 1px solid #bcb4b4;
-
-
-    /*height: 280px;*/
+    margin-bottom: 0;
 }
 .panel-login>.panel-heading {
-    /*    color: #00415d;
-        background-color: #fff;
-        border-color: #fff;*/
     text-align:center;
     padding:0;
 }
@@ -48,16 +44,13 @@ body {
 
 .panel-login>.panel-heading .row>div:last-child {
     padding-left: 0;
-    /*border-left: 1px solid #942192;*/
 
 }
 .panel-login>.panel-heading a.active{
     color: #942192;
     font-size: 18px;
 }
-.bg-purple{background: #942192;}
 .pointer-none{pointer-events: none;}
-.text-white{color:#fff;}
 .panel.panel-login.panel-reset {
     height: auto;
 }
@@ -94,25 +87,7 @@ input:-webkit-autofill {
     box-shadow: none;
     border-color: #ccc;
 }
-/*.btn-login {
-    background-color: #59B2E0;
-    outline: none;
-    color: #fff;
-    font-size: 14px;
-    height: auto;
-    font-weight: normal;
-    padding: 14px 0;
-    text-transform: uppercase;
-    border-color: #59B2E6;
-}
-.btn-login:hover,
-.btn-login:focus {
-    color: #fff;
-    background-color: #53A3CD;
-    border-color: #53A3CD;
-}*/
 .forgot-password {
-    /* text-decoration: underline; */
     color: #888;
     margin-top: 10px;
     display: inline-block;
@@ -125,29 +100,12 @@ input:-webkit-autofill {
     transition: all 0.3s ease;
 }
 
-/*.btn-register {
-    background-color: #1CB94E;
-    outline: none;
-    color: #fff;
-    font-size: 14px;
-    height: auto;
-    font-weight: normal;
-    padding: 14px 0;
-    text-transform: uppercase;
-    border-color: #1CB94A;
-}
-.btn-register:hover,
-.btn-register:focus {
-    color: #fff;
-    background-color: #1CA347;
-    border-color: #1CA347;
-}*/
 .panel-login>.panel-heading a.active{
     text-decoration: none;
     cursor: default;
 }
 
-.panel-body {
+.panel-login .panel-body {
     padding: 15px;
     padding-top: 40px;  
 }
@@ -168,19 +126,19 @@ input:-webkit-autofill {
     background: purple;
     transition: all 0.3s ease;
 }
-.outer {
+/*.login-page .outer {
     display: table;
     position: absolute;
     height: 100%;
     width: 100%;
 }
 
-.middle {
+.login-page .middle {
     display: table-cell;
     vertical-align: middle;
-}
+}*/
 
-.inner {
+.login-page .inner {
     margin-left: auto;
     margin-right: auto; 
     width: 500px;

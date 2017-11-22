@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="css/bootsnav.css">
     <!-- style -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/login.css" />
     <!-- responsive css -->
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/custom.css" />

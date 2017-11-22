@@ -2,7 +2,7 @@
 <section class="profle">
     <div class="container">
         <div class="col-md-3 col-sm-4">
-            <div class="profile-left">
+            <div class="profile-left wow fadeInUp">
                 <div class="profile-personal">
                     <div class="profile-media">
                         <img src="img/profile-img.jpg" alt="">
@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="col-md-9 col-sm-8">
-            <div class="profile-right">
+            <div class="profile-right  wow fadeInUp">
                 <div class="profile-intro">
                     <h5>Tourism, Fitness, Coaching.</h5>
                     <p>Hi there,</p>
@@ -169,7 +169,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="profile-reviews">
+                <div class="profile-reviews  wow fadeInUp">
                     <h5>Reviews:</h5>
 
                     <ul>
@@ -205,7 +205,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="profile-reviews profile-educatoin">
+                <div class="profile-reviews profile-educatoin  wow fadeInUp">
                     <h5>Education:</h5>
 
                     <ul>
@@ -226,7 +226,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="profile-reviews profile-educatoin">
+                <div class="profile-reviews profile-educatoin  wow fadeInUp">
                     <h5>Work Experience:</h5>
                     <ul>
                         <li>

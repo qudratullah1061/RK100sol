@@ -169,6 +169,7 @@
     <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
     <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>-->
 <!-- setting -->
+<script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 

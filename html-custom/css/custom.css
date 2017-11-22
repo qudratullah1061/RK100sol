@@ -333,7 +333,7 @@ footer .small-icon li a {
 footer .small-icon li a:hover {
     color: #640664;
 }
-    
+
 footer .small-icon li:first-child {
     position: relative;
     top: 9px;
@@ -472,7 +472,9 @@ section.profle {
     border: 5px solid #942192;
     overflow: hidden;
 }
-
+.profile-right .profile-intro h5 {
+    border-bottom: 0;
+}
 .profile-info p {
     color: #413e41;
     font-weight: 600;
@@ -794,6 +796,9 @@ span.seperator.bg-light-gray {}
     background-color: #f6f3f4;
     padding: 30px 54px 30px 38px;
     font-family: Roboto;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.35);
 }
 
 .profile-reviews ul {

@@ -1,22 +1,5 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-    <head>
-        <!-- title -->
-        <title>Konsorts – Creative Agency, Corporate and Portfolio Multi-purpose Template</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
-        <meta name="author" content="konsortsTeam">
-        <link rel="shortcut icon" href="images/favicon.png">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800,900" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="css/font-awesome.min.css" />
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/login.css" />
-    </head>
-    <body>
-        <div class="">
+<?php include_once 'includes/header.php' ?>
+        <div class="login-page">
             <div class="outer">
                 <div class="middle">
                     <div class="inner">
@@ -52,10 +35,4 @@
                 </div>
             </div>
         </div>
-
-
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
-    </body>
-</html>
+<?php include_once 'includes/footer.php' ?>
