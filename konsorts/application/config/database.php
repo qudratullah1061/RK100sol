@@ -101,17 +101,17 @@ $general = array(
 //set for live later
 $db['default'] = array_merge($general, array(
     'hostname' => 'localhost',
-    'username' => '',
-    'password' => '',
-    'database' => '',
+    'username' => 'konsorts',
+    'password' => 'konsorts@12345',
+    'database' => 'konsorts',
         ));
 
 // set for dev here later
 $db['dev'] = array_merge($general, array(
     'hostname' => 'localhost',
-    'username' => 'cinnti',
-    'password' => 'Cinnti@123',
-    'database' => 'cinnti',
+    'username' => 'konsorts',
+    'password' => 'konsorts@12345',
+    'database' => 'konsorts',
         ));
 
 // set for local
