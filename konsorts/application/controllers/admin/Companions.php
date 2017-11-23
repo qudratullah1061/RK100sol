@@ -59,6 +59,7 @@ class Companions extends Admin_Controller {
 
     public function add_companion_user() {
         $this->isAjax();
+
         if ($this->input->post()) {
             $data = array();
             $edit_id = $this->input->post('member_id') > 0 ? $this->input->post('member_id') : 0;
@@ -160,7 +161,8 @@ class Companions extends Admin_Controller {
 
                 // add user categories.
                 $categories = $this->input->post('categories');
-                if ($categories) {
+                $call_type = $this->input->post('call_type');
+                if ($categories && $call_type == 'add') {
                     $this->AddUpdateMemberCategories($categories, $edit_id);
                 }
                 if ($result) {
@@ -218,7 +220,7 @@ class Companions extends Admin_Controller {
                     $result['last_name'],
                     $result['email'],
                     $result['updated_on'],
-                    '<a class="btn btn-xs default btn-editable" href="' . (base_url('admin/companions/get_companion_profile/' . $result['member_id'])) . '">Edit</a> <a class="btn btn-xs default btn-editable">Delete</a> '
+                    '<a class="btn btn-xs default btn-editable" href="' . (base_url('admin/companions/get_companion_profile/' . $result['member_id'])) . '">Edit</a> <a href="javascript:CommonFunctions.Delete(' . $result['member_id'] . ', \'tb_members\' , \'member_id\' , \'Companion Member and all data associated with this member will be permanently deleted without further warning. Do you really want to delete this member?\')" class="btn btn-xs default btn-editable">Delete</a> '
                 );
             }
         }

@@ -1,23 +1,3 @@
-<?php
-$unique_id = time();
-?>
-<!-- BEGIN PAGE BAR -->
-<!--<div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <a href="<?php // echo base_url('admin/dashboard');                                             ?>">Home</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <span>Add Companion</span>
-        </li>
-    </ul>
-</div>-->
-<!-- END PAGE BAR -->
-<!--<h1 class="page-title"> Companion Details
-    <small>material design bootstrap inputs, input groups, custom checkboxes and radio controls and more</small>
-</h1>-->
-
 <div class="portlet light bordered" id="form_wizard_1">
     <div class="portlet-title">
         <div class="caption">
@@ -31,6 +11,7 @@ $unique_id = time();
         <form class="form-horizontal" id="add_companion_member">
             <div class="form-wizard">
                 <div class="form-body">
+                    <input type="hidden" name='call_type' value="add">
                     <ul class="nav nav-pills nav-justified steps">
                         <li>
                             <a href="#tab1" data-toggle="tab" class="step active">
@@ -61,9 +42,9 @@ $unique_id = time();
                         <div class="alert alert-danger display-none">
                             <button class="close" data-dismiss="alert"></button> Please enter valid data in below fields. 
                         </div>
-<!--                        <div class="alert alert-success display-none">
+                        <div class="alert alert-success display-none">
                             <button class="close" data-dismiss="alert"></button> All data validated successfully! 
-                        </div>-->
+                        </div>
                         <div class="tab-pane active" id="tab1">
                             <h3 class="block text-center">Login Details</h3>
                             <div class="form-group form-md-line-input">
@@ -119,7 +100,7 @@ $unique_id = time();
                                     <label></label>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> Telephone <span class="required"> * </span> </label>
                                 <div class="col-md-6">
@@ -235,14 +216,6 @@ $unique_id = time();
                                 }
                             }
                             ?>
-                            <div class="form-group form-md-line-input">
-                                <label class="control-label col-md-3"> Other Specific Interest  </label>
-                                <div class="col-md-6">
-                                    <input type="text" name='other_interest' class="form-control"  placeholder="">
-                                    <label for="form_control_1"></label>
-                                    <!--<span class="help-block">Some help goes here...</span>-->
-                                </div>
-                            </div>
 
                             <div class="form-group form-md-line-input">
                                 <label class="control-label col-md-3"> About Me <span class="required"> * </span> </label>
@@ -252,6 +225,17 @@ $unique_id = time();
                                     <!--<span class="help-block">Some help goes here...</span>-->
                                 </div>
                             </div>
+
+                            <div class="form-group form-md-line-input">
+                                <label class="control-label col-md-3"> Other Specific Interest  </label>
+                                <div class="col-md-6">
+                                    <input type="text" name='other_interest' class="form-control"  placeholder="">
+                                    <label for="form_control_1"></label>
+                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                </div>
+                            </div>
+
+
                         </div>
 
                     </div>

@@ -22,15 +22,15 @@ var FormWizard = function () {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
                     var redirect_path = 'admin/companions';
-//                    if ('add_companion_member' == formId) {
-//                        setTimeout(function () {
-//                            window.location.href = base_url + redirect_path;
-//                        }, 500);
-//                    } else {
-//                        setTimeout(function () {
-//                            window.location.reload();
-//                        }, 500);
-//                    }
+                    if ('add_companion_member' == formId) {
+                        setTimeout(function () {
+                            window.location.href = base_url + redirect_path;
+                        }, 500);
+                    } else {
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 500);
+                    }
                 } else {
                     toastr["error"](data.description, "Error!");
                 }
@@ -58,6 +58,11 @@ var FormWizard = function () {
                     required: true,
                     email: true
                 },
+                confirm_email: {
+                    required: true,
+                    email: true,
+                    equalTo: "#confirm_email"
+                },
                 password: {
                     required: true,
                 },
@@ -66,6 +71,9 @@ var FormWizard = function () {
                     equalTo: "#password"
                 },
                 'id_proofs[]': {
+                    required: true,
+                },
+                'profile_images[]': {
                     required: true,
                 },
                 phone_number: {
@@ -89,6 +97,9 @@ var FormWizard = function () {
                 address: {
                     required: true,
                 },
+                about_me: {
+                    required: true
+                }
             };
         } else if ('update_companion_member' == formId) {
             Rules = {
@@ -130,14 +141,17 @@ var FormWizard = function () {
                 },
                 address: {
                     required: true,
+                },
+                about_me: {
+                    required: true
                 }
             }
         }
         form.validate({
+            doNotHideMessage: true, //this option enables to show the error/success messages on tab switch.
             errorElement: 'span', //default input error message container
             errorClass: 'help-block help-block-error', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
-            ignore: [], // validate all fields including form hidden input
             messages: {
                 confirm_password: {
                     equalTo: "Password does not match confirm password field."
@@ -200,7 +214,9 @@ var FormWizard = function () {
                 width: 'auto',
             });
             handleCompanionFormValidation('add_companion_member');
-
+            var form = $('#add_companion_member');
+            var error = $('.alert-danger', form);
+            var success = $('.alert-success', form);
             var handleTitle = function (tab, navigation, index) {
                 var total = navigation.find('li').length;
                 var current = index + 1;

@@ -13,6 +13,7 @@
                 </div>
                 <div class="lock-item lock-item-full">
                     <form class="lock-form pull-left" action="<?php echo base_url('admin/admin_auth/verifyUnlock'); ?>" method="post">
+                        <input type='hidden' name='return_url' value="<?php echo isset($return_url) ? $return_url : ""; ?>">
                         <h4><?php echo isset($admin_info['username']) ? ucfirst($admin_info['username']) : ""; ?></h4>
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button>

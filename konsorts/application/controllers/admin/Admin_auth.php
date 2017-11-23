@@ -28,6 +28,7 @@ class Admin_auth extends CI_Controller {
             $this->load->view('admin/login/view_login');
         } elseif ($this->session->userdata('is_locked')) {
             $data['admin_info'] = $this->getAdminInfo();
+            $data['return_url'] = isset($_GET['return_url']) ? $_GET['return_url'] : "";
             $this->load->view('admin/login/view_lock', $data);
         } else {
             redirect(base_url('admin/admin_dashboard'));
@@ -38,7 +39,6 @@ class Admin_auth extends CI_Controller {
         if ($this->input->post()) {
             $this->form_validation->set_rules('username', 'Username', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'required|trim|strip_tags|xss_clean');
-
             if ($this->form_validation->run() == FALSE) {
                 $error_data['login_error'] = validation_errors();
                 $this->load->view('admin/login/view_login', $error_data);
@@ -64,6 +64,8 @@ class Admin_auth extends CI_Controller {
         if ($this->input->post()) {
             $error_data['admin_info'] = $this->getAdminInfo();
             $this->form_validation->set_rules('password', 'Password', 'required|trim|strip_tags|xss_clean');
+            $return_url = $this->input->get_post('return_url');
+            $error_data['return_url'] = $return_url;
             if ($this->form_validation->run() == FALSE) {
                 $error_data['login_error'] = validation_errors();
                 $this->load->view('admin/login/view_lock', $error_data);
@@ -77,7 +79,7 @@ class Admin_auth extends CI_Controller {
                 } else {
                     $admin_info = $result['admin_info'];
                     $this->session->set_userdata(array('admin_id' => $admin_info['admin_id'], 'username' => $admin_info['username'], 'email' => $admin_info['email'], 'is_locked' => false));
-                    redirect(base_url('admin/admin_dashboard'));
+                    redirect($return_url != "" ? base_url($return_url) : base_url('admin/admin_dashboard'));
                 }
             }
         } else {
@@ -93,9 +95,10 @@ class Admin_auth extends CI_Controller {
     }
 
     public function lock() {
+        $current_url = isset($_GET['current_url']) ? $_GET['current_url'] : "";
         $this->session->set_userdata('is_locked', 1);
         // redirected to dashboard to set userinfo.
-        redirect(base_url('admin/admin_auth'));
+        redirect(base_url('admin/admin_auth?return_url=' . $current_url));
     }
 
     //Controller for Authenticating the login

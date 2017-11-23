@@ -100,7 +100,7 @@
                                     </li>
                                     <li class="divider"> </li>
                                     <li>
-                                        <a href="<?php echo base_url('admin/admin_auth/lock'); ?>">
+                                        <a href="<?php echo base_url('admin/admin_auth/lock?current_url=' . uri_string()); ?>">
                                             <i class="icon-lock"></i> Lock Screen </a>
                                     </li>
                                     <li>

@@ -134,6 +134,11 @@ var CommonFunctions = function () {
                                         $('#datatable_categories').DataTable().ajax.reload();
                                     } else if (table == 'tb_sub_categories') {
                                         $('#datatable_sub_categories').DataTable().ajax.reload();
+                                    } else if (table == 'tb_members') {
+                                        if ($('#datatable_guests').length > 0)
+                                            $('#datatable_guests').DataTable().ajax.reload();
+                                        else if ($('#datatable_companions').length > 0)
+                                            $('#datatable_companions').DataTable().ajax.reload();
                                     } else if (table == 'tb_member_images') {
                                         $("#pic-" + unique_id).remove();
                                         $('#load_member_profile_images').cubeportfolio('destroy');
