@@ -26,7 +26,7 @@ $unique_id = time();
             <i class="fa fa-user"></i>Registration </div>
         <div class="tools">
             <a href="javascript:;" class="collapse"> </a>
-            <a href="javascript:;" class="reload"> </a>
+            <!--<a href="javascript:;" class="reload"> </a>-->
             <a href="" class="fullscreen"> </a>
         </div>
     </div>

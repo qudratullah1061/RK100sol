@@ -857,7 +857,7 @@
                     <div class="pricing-box price-box bg-eb">
                         <div class="bg-gold padding-10px-tb alt-font text-white font-weight-500 text-uppercase">GOLD MEMBER</div>
                         <div class="border-lr border-bottom border-width-2 border-color-a1 padding-20px-top padding-10px-bottom">
-                            <h4 class="text-light-black roboto font-weight-500 no-margin-bottom">$59.99</h4>
+                            <h4 class="text-light-black roboto font-weight-500 no-margin-bottom">$89.99</h4>
                             <span class='dark-gray seperator'></span>
                             <p class="roboto margin-5px-top text-light-black margin-0">6/Months</p>
                             <span class="text-extra-small text-light-black roboto">30 Day Free Trial</span>

@@ -151,7 +151,7 @@ class Companions extends Admin_Controller {
                         $u_file_name = time() . $file_name;
                         $f_file_path = $f_upload_dir . '/' . $u_file_name;
                         move_uploaded_file($img['tmp_name'], $f_file_path);
-                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
+                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options, TRUE);
                         // insert in database as well.
                         $image_data = array('member_id' => $edit_id, 'image_type' => 'profile', 'is_profile_image' => $is_profile_image, 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
                         $this->db->insert('tb_member_images', $image_data);
@@ -172,6 +172,14 @@ class Companions extends Admin_Controller {
         } else {
             redirect(base_url('admin/admin_auth'));
         }
+    }
+
+    function update_member_categories() {
+        $this->isAjax();
+        $member_id = $this->input->post('member_id');
+        $categories = $this->input->post('categories');
+        $this->AddUpdateMemberCategories($categories, $member_id);
+        $this->_response(false, "Changes saved successfully!");
     }
 
     public function get_companion_users() {
@@ -247,6 +255,8 @@ class Companions extends Admin_Controller {
             $data['country_options'] = GetCountriesOption($member_info['country']);
             $data['state_options'] = GetStatesOption($member_info['country'], $member_info['state']);
             $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
+            $data['categories'] = GetAllCategories();
+            $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
             $this->load->view('admin/companions/view_companion_profile', $data);
         } else {
             redirect(base_url('admin/companions'));

@@ -6,4 +6,4 @@
  * and open the template in the editor.
  */
 
-echo "Default layout. Configure it!";
+header('Location: ' . base_url('admin/admin_dashboard'));

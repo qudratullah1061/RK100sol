@@ -49,7 +49,7 @@ class Guests extends Admin_Controller {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
-            $edit_id = $this->input->post('member_id') > 0 ? $this->input->post('member_id') : 0;
+            $is_update_call = $edit_id = $this->input->post('member_id') > 0 ? $this->input->post('member_id') : 0;
             $unique_id = $this->input->post('file_upload_unique_id');
             $this->form_validation->set_rules('first_name', 'First Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|trim|strip_tags|xss_clean');
@@ -86,6 +86,7 @@ class Guests extends Admin_Controller {
                 $data['city'] = $this->input->post('city');
                 $data['address'] = $this->input->post('address');
                 $data['about_me'] = $this->input->post('about_me');
+                $data['membership_type'] = 'Guest';
                 $data['other_interest'] = $this->input->post('other_interest');
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');
@@ -126,7 +127,7 @@ class Guests extends Admin_Controller {
                     }
                 }
                 // add member call
-                if (!$edit_id) {
+                if (!$is_update_call) {
                     // move temp images to tb_member_images after creating thumbnails
                     $profile_images = $this->Members_Model->getTempImages($unique_id, 'profile');
                     if ($profile_images) {
@@ -143,7 +144,7 @@ class Guests extends Admin_Controller {
                                 $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
                                 $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
                                 $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-                                CreateThumbnail($image_new_path, $file_path, $thumb_options);
+                                CreateThumbnail($image_new_path, $file_path, $thumb_options, TRUE);
                                 // insert in database as well.
                                 $image_data = array('member_id' => $edit_id, 'image_type' => 'profile', 'is_profile_image' => $is_profile_image, 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $file_path));
                                 $this->db->insert('tb_member_images', $image_data);
@@ -166,20 +167,25 @@ class Guests extends Admin_Controller {
         $image_type = $this->input->post('image_type');
         $result = $this->upload_temp_image($_FILES, $unique_id, $image_type);
         if ($result == 'success') {
-            $this->_response(true, 'File uploaded successfully!');
+            $this->_response(false, 'File uploaded successfully!');
         }
+    }
+
+    function watermarkImage() {
+        watermarkImage($this->config->item('root_path') . 'assets/watermark_img/gallery2.jpg');
+        exit;
     }
 
     public function upload_images_member() {
         $member_id = $this->input->post('member_id');
         $image_type = $this->input->post('image_type');
         $image_dir = $this->input->post('image_dir');
-
+        $watermark = $image_type == 'profile' ? TRUE : FALSE;
         $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
         $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
         $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
         $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-        $result = UploadImage('file', $image_dir, TRUE, $thumb_options);
+        $result = UploadImage('file', $image_dir, TRUE, $thumb_options, $watermark);
         if (isset($result['error'])) {
             $this->_response(true, $result['error']);
         }

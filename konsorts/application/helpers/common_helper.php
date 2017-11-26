@@ -152,7 +152,7 @@ function delete_image_from_directory($images_info_array) {
     }
 }
 
-function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thump_options = array()) {
+function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thump_options = array(), $watermark = FALSE) {
     global $CI;
     $config['upload_path'] = $CI->config->item('root_path') . $upload_path;
     $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -167,7 +167,7 @@ function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thu
     } else {
         $data = array('upload_data' => $CI->upload->data());
         if ($create_thumb) {
-            CreateThumbnail($data['upload_data']['full_path'], $config['upload_path'], $thump_options);
+            CreateThumbnail($data['upload_data']['full_path'], $config['upload_path'], $thump_options, $watermark);
         }
         $data['upload_data']['file_path'] = str_replace($CI->config->item('root_path'), "", $data['upload_data']['file_path']);
         $data['upload_data']['full_path'] = str_replace($CI->config->item('root_path'), "", $data['upload_data']['full_path']);
@@ -175,8 +175,28 @@ function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thu
     }
 }
 
-function CreateThumbnail($source, $destination, $thump_options) {
+function watermarkImage($source) {
     global $CI;
+    $CI->load->library('image_lib');
+    $config['image_library'] = 'gd2';
+    $config['source_image'] = $source;
+    $config['quality'] = 100;
+    $config['wm_overlay_path'] = $CI->config->item('root_path') . 'assets/watermark_img/Transparent-K.png';
+    $config['wm_type'] = 'overlay';
+    $config['wm_opacity'] = 100;
+    $config['wm_vrt_alignment'] = 'middle';
+    $config['wm_hor_alignment'] = 'center';
+    $CI->image_lib->initialize($config);
+    $CI->image_lib->watermark();
+    $CI->image_lib->clear();
+}
+
+function CreateThumbnail($source, $destination, $thump_options, $water_mark = false) {
+    global $CI;
+    if ($water_mark) {
+        // water mark existing image first.
+        watermarkImage($source);
+    }
     $CI->load->library('image_lib');
     $config['image_library'] = 'gd2';
     $config['source_image'] = $source;
@@ -184,6 +204,7 @@ function CreateThumbnail($source, $destination, $thump_options) {
     $config['quality'] = 100;
     $config['create_thumb'] = TRUE;
     $config['maintain_ratio'] = FALSE;
+
     foreach ($thump_options as $options) {
         $config['width'] = $options['width'];
         $config['height'] = $options['height'];

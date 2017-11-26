@@ -186,7 +186,7 @@
                                         <div class="form-group col-md-12 text-right">
                                             <div class="margiv-top-10">
                                                 <input type="submit" name="submit" value="Save Changes" class="btn green"/>
-                                                <a href="<?php echo base_url('admin/admin_dashboard/admin_users'); ?>" class="btn default"> Cancel </a>
+                                                <a href="<?php echo base_url('admin/guests'); ?>" class="btn default"> Cancel </a>
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>

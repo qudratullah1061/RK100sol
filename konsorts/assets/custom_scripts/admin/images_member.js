@@ -12,8 +12,8 @@ function load_member_profile_images() {
         layoutMode: 'grid',
         defaultFilter: '*',
         animationType: 'quicksand',
-        gapHorizontal: 35,
-        gapVertical: 30,
+        gapHorizontal: 10,
+        gapVertical: 10,
         gridAdjustment: 'responsive',
         mediaQueries: [{
                 width: 1500,
@@ -26,10 +26,10 @@ function load_member_profile_images() {
                 cols: 3
             }, {
                 width: 480,
-                cols: 2
+                cols: 3
             }, {
                 width: 320,
-                cols: 1
+                cols: 2
             }],
         caption: 'overlayBottomReveal',
         displayType: 'sequentially',
@@ -90,10 +90,10 @@ function load_member_id_proofs() {
                 cols: 3
             }, {
                 width: 480,
-                cols: 2
+                cols: 3
             }, {
                 width: 320,
-                cols: 1
+                cols: 2
             }],
         caption: 'overlayBottomReveal',
         displayType: 'sequentially',

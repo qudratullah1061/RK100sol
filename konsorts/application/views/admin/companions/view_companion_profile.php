@@ -84,11 +84,14 @@
                                 <li class="active">
                                     <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
                                 </li>
+                                <li>
+                                    <a href="#tab_1_2" data-toggle="tab">Availabilities</a>
+                                </li>
                                 <li onclick="">
-                                    <a href="#tab_1_2" onclick="load_member_profile_images();load_member_id_proofs();" data-toggle="tab">Images</a>
+                                    <a href="#tab_1_3" onclick="load_member_profile_images();load_member_id_proofs();" data-toggle="tab">Images</a>
                                 </li>
                                 <li>
-                                    <a href="#tab_1_3" data-toggle="tab">Privacy Settings</a>
+                                    <a href="#tab_1_4" data-toggle="tab">Privacy Settings</a>
                                 </li>
                             </ul>
                         </div>
@@ -186,7 +189,7 @@
                                         <div class="form-group col-md-12 text-right">
                                             <div class="margiv-top-10">
                                                 <input type="submit" name="submit" value="Save Changes" class="btn green"/>
-                                                <a href="<?php echo base_url('admin/admin_dashboard/admin_users'); ?>" class="btn default"> Cancel </a>
+                                                <a href="<?php echo base_url('admin/companions'); ?>" class="btn default"> Cancel </a>
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
@@ -194,8 +197,61 @@
 
                                 </div>
                                 <!-- END PERSONAL INFO TAB -->
-                                <!-- IMAGES SETTINGS TAB -->
+
+                                <!-- Availabilities SETTINGS TAB -->
                                 <div class="tab-pane" id="tab_1_2">
+                                    <!-- Profile images start-->
+                                    <form role="form" action="<?php echo base_url('admin/companions/update_companion_categories'); ?>" id="form_update_member_categories" >
+                                        <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
+                                        <div>
+                                            <?php
+                                            if (isset($categories) && count($categories) > 0) {
+                                                foreach ($categories as $category) {
+                                                    ?>
+                                                    <!--<div class="form-group form-md-line-input">-->
+                                                    <h4 class="control-label col-md-12 margin-top-20"> <?php echo $category['category_name']; ?></h4>
+                                                    <div class="col-md-12 margin-top-20">
+                                                        <div class="md-checkbox-inline row">
+                                                            <!--get sub categories and loop through-->
+                                                            <?php
+                                                            $sub_categories = getSubCategoriesByCategoryId($category['category_id']);
+                                                            if ($sub_categories && count($sub_categories) > 0) {
+                                                                foreach ($sub_categories as $sub_cat) {
+                                                                    $seleced = "";
+                                                                    if (in_array($sub_cat['sub_category_id'], array_column($selected_categories, 'sub_category_id')) && in_array($category['category_id'], array_column($selected_categories, 'category_id'))) {
+                                                                        $seleced = 'checked="checked"';
+                                                                    }
+                                                                    ?>
+                                                                    <div class="col-md-6 form-group">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" <?php echo $seleced; ?> name='categories[]' value="<?php echo $category['category_id'] . "::" . $sub_cat['sub_category_id']; ?>" id="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>" class="md-check">
+                                                                            <label for="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span> <?php echo $sub_cat['sub_category_name']; ?></label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <?php
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class='clearfix'></div>
+                                                    <!--</div>-->
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                        <div class="margin-top-20 text-right">
+                                            <input type='submit' name="submit" value="Save Changes" class="btn red">
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- Availabilities SETTINGS TAB end-->
+                                <!-- IMAGES SETTINGS TAB -->
+                                <div class="tab-pane" id="tab_1_3">
                                     <!-- Profile images start-->
                                     <div>
                                         <form action="<?php echo base_url('admin/guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
@@ -237,7 +293,7 @@
                                         </div>
                                     </div>
                                     <!-- Profile images ends-->
-                                    
+
                                     <!-- Id proof images start-->
                                     <div class="margin-top-20">
                                         <form action="<?php echo base_url('admin/guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
@@ -280,7 +336,7 @@
                                 </div>
                                 <!-- END IMAGES SETTINGS TAB -->
                                 <!-- PRIVACY SETTINGS TAB -->
-                                <div class="tab-pane" id="tab_1_3">
+                                <div class="tab-pane" id="tab_1_4">
                                     <form action="#">
                                         <table class="table table-light table-hover">
                                             <tr>
@@ -365,11 +421,12 @@
 <script>
     $(document).ready(function () {
         FormWizard.handleCompanionValidation("update_companion_member");
+        FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
     });
 </script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/companion-form-wizard.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/guest_members.js" type="text/javascript"></script>
+<!--<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/guest_members.js" type="text/javascript"></script>-->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>

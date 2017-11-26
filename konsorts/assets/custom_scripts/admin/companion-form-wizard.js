@@ -38,6 +38,35 @@ var FormWizard = function () {
         });
     }
 
+
+    var submitMemberCategoriesUpdate = function (formId) {
+        $("#" + formId).on('submit', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: base_url + "admin/companions/update_member_categories",
+                datatype: 'json',
+                data: new FormData($("#" + formId)[0]),
+                processData: false,
+                contentType: false,
+                beforeSend: function ()
+                {
+                    App.blockUI({target: '#' + formId, animate: true});
+                },
+                complete: function () {
+                    App.unblockUI('#' + formId);
+                },
+                success: function (data) {
+                    if (!data.error) {
+                        toastr["success"](data.description, "Success!");
+                    } else {
+                        toastr["error"](data.description, "Error!");
+                    }
+                }
+            });
+        });
+    }
+
     var handleCompanionFormValidation = function (formId) {
         var form = $('#' + formId);
         var error1 = $('.alert-danger', form);
@@ -294,6 +323,9 @@ var FormWizard = function () {
         },
         handleCompanionValidation: function (formId) {
             handleCompanionFormValidation(formId);
+        },
+        handleMemberCategoriesUpdate: function (formId) {
+            submitMemberCategoriesUpdate(formId);
         }
     };
 
