@@ -1,6 +1,5 @@
 <!doctype html>
 <html class="no-js" lang="en">
-
     <head>
         <!-- title -->
         <title>Konsorts – Creative Agency, Corporate and Portfolio Multi-purpose Template</title>
@@ -9,9 +8,9 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
         <meta name="author" content="konsortsTeam">
         <!-- description -->
-        <meta name="description" content="Konsorts is a highly creative, modern, visually stunning and Bootstrap responsive multipurpose agency and portfolio HTML5 template with 25 ready home page demos.">
+        <meta name="description" content="">
         <!-- keywords -->
-        <meta name="keywords" content="creative, modern, clean, bootstrap responsive, html5, css3, portfolio, blog, agency, templates, multipurpose, one page, corporate, start-up, studio, branding, designer, freelancer, carousel, parallax, photography, personal, masonry, grid, coming soon, faq">
+        <meta name="keywords" content="">
         <!-- favicon -->
         <link rel="shortcut icon" href="images/favicon.png">
         <link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
@@ -114,7 +113,7 @@
                                 </ul>
                             </div>
                         </div>
-                        
+
                         <!-- <div class="col-md-2 col-xs-5 width-auto">
                             <div class="header-searchbar">
                                 <a href="#search-header" class="header-search-form text-white">

@@ -4,6 +4,13 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
+class FrontEnd_Controller extends CI_Controller {
+
+    function __construct() {
+        parent::__construct();
+    }
+}
+
 #Admin Core Controller
 
 class Admin_Controller extends CI_Controller {
