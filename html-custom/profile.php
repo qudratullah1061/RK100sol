@@ -62,12 +62,16 @@
                 <div class="profile-certification">
                     <div class="profile-cert-head"><h6>Certification:</h6></div>
                     <div class="certification-odd">
-                        <p>Fitness Trainer (2016)</p>
-                        <span>Lorem Ipsum Foundation</span>                        
+                        <a href="#">
+                            <p>Fitness Trainer (2016)</p>
+                            <span>Lorem Ipsum Foundation</span>                        
+                        </a>
                     </div>
-                    <div class="certification-even">
-                        <p>Online Coaching (2017)</p>
-                        <span>Lorem Ipsum Foundation</span>
+                    <div class="certification-odd">
+                        <a href="#">
+                            <p>Online Coaching (2017)</p>
+                            <span>Lorem Ipsum Foundation</span>
+                        </a>
                     </div>
                 </div>
                 <div class="profile-skills">

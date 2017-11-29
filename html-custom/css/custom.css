@@ -30,11 +30,7 @@ header.sticky .signup-link {padding-top: 16px;}
 nav.navbar.navbar-default ul.nav>li>a {padding: 54px 0 48px;background: transparent;border-color: transparent; font-weight: 700;font-size: 14px;font-family: 'Lato', sans-serif;color: #434343;letter-spacing: 0;margin: 0 10px;}
 
 
-@media (min-width: 992px) {
-    nav div.dropdown:hover > ul.dropdown-menu {
-        display: block;
-    }
-}
+
 .header-searchbar {
     border-left: 0;
     margin-left: 0;
@@ -316,6 +312,7 @@ section.gold-members {padding-top: 0;padding-bottom: 35px;}
 .seperator.price-seperater {float: right;background: #363636;width: calc(100% - 23px);height: 3px;margin-bottom: 16px;}
 .pricing-lists {padding-left: 23px;margin-top: 20px;}
 section.pricing .title-bar {margin-top: 0;margin-bottom: 45px;}
+.pricing-box.price-box.bg-eb>div.alt-font {font-size: 18px;}
 
 /*========================== Faq ============================*/
 
@@ -830,16 +827,21 @@ span.profile-reviews-counter {
 .certification-odd {
     color: #464646;
 }
-
-.certification-even {
-    background-color: #942192;
-    color: #fff;
-}
-
-.profile-certification .certification-odd, .profile-certification .certification-even {
-    padding: 12px 14px;
+.profile-certification .certification-odd{
     border-bottom: 4px solid #fff;
 }
+.profile-certification .certification-odd a {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 14px;
+}
+
+.profile-certification .certification-odd a:hover{
+    background-color: #942192;
+    color: #fff;
+    transition: all 0s ease;
+}
+
 .profile-skills {
     margin-top: 27px;
     font-family: Roboto;
@@ -847,6 +849,8 @@ span.profile-reviews-counter {
     -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.35);
     -moz-box-shadow:    1px 1px 2px 0px rgba(0, 0, 0, 0.35);
     box-shadow:         1px 1px 2px 0px rgba(0, 0, 0, 0.35);
+    display: inline-block;
+    width: 100%;
 }
 .profile-skills ul {
     width: 100%;
@@ -915,8 +919,6 @@ span.profile-reviews-counter {
     line-height: 0;
     margin: 10px 0 4px;
 }
-
-span.seperator.bg-light-gray {}
 
 .profile-portfolio h6 {
     font-size: 15px;
@@ -1050,7 +1052,11 @@ section.faq-header span {
 }
 
 /*Media Quries*/ 
-
+@media (min-width: 992px) {
+    nav div.dropdown:hover > ul.dropdown-menu {
+        display: block;
+    }
+}
 @media(min-width:1199px) {
     .career-box p {padding-right: 114px;text-align: justify;}
 }
