@@ -54,6 +54,20 @@
                 <script src="<?php echo base_url('assets/frontend/'); ?>js/html5shiv.js"></script>
             <![endif]-->
 
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+        <!--jquery start-->
+
+        <!--toaster start-->
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+        <!--toaster ends-->
+        <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/jquery.js"></script>
+        <!--jquery ends-->
+
+        <!--select2 start-->
+        <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!--select2 ends-->
+        
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="<?php echo base_url(); ?>assets/global/css/components.css" rel="stylesheet" id="style_components" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
@@ -248,7 +262,7 @@
         </a>
         <!-- end scroll to top  -->
         <!-- javascript libraries -->
-        <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/jquery.js"></script>
+
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/modernizr.js"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/bootstrap.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/jquery.easing.1.3.js"></script>
@@ -299,9 +313,28 @@
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/jquery.rateyo.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/login.js"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/main.js"></script>
+        <!--Form Validation-->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <!--Form Validation end-->
+        <!--datepicker start-->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+        <!--datepicker ends-->
+        <!--select2 start-->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        <!--select2 ends-->
+        <!--toaster starts-->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
+        <!--toaster ends-->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="<?php echo base_url(); ?>assets/global/scripts/app.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
+        <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/common_functions.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function () {
+                GlobalPlugins.initToasterPlugin();
+            });
+        </script>
     </body>
 
 </html>

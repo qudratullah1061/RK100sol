@@ -17,7 +17,8 @@ class Guests extends FrontEnd_Controller {
     }
 
     function signup() {
-        $this->load->view('frontend/guests/signup');
+        $data['country_options'] = GetCountriesOption();
+        $this->load->view('frontend/guests/signup',$data);
     }
 
     function login() {

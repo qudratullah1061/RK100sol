@@ -79,7 +79,7 @@ function getCategoryNameById($categoryId = 0) {
 
 function GetCountriesOption($selected_value = "") {
     global $CI;
-    $options = "<option value=''>Select Country</option>";
+    $options = "<option></option>";
     $data_info = $CI->db->get('tb_countries')->result_array();
     if ($data_info) {
         foreach ($data_info as $info) {
@@ -91,7 +91,7 @@ function GetCountriesOption($selected_value = "") {
 
 function GetStatesOption($country_id = 0, $selected_value = "") {
     global $CI;
-    $options = "<option value=''>Select State</option>";
+    $options = "<option value=''></option>";
     if ($country_id) {
         if ($country_id > 0) {
             $CI->db->where(array('country_id' => $country_id));
@@ -108,7 +108,7 @@ function GetStatesOption($country_id = 0, $selected_value = "") {
 
 function GetCityOptions($state_id = 0, $selected_value = "") {
     global $CI;
-    $options = "<option value=''>Select City</option>";
+    $options = "<option></option>";
     if ($state_id) {
         if ($state_id > 0) {
             $CI->db->where(array('state_id' => $state_id));

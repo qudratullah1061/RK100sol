@@ -1,16 +1,15 @@
 <?php
 $unique_id = time();
 ?>
-<section class="wow fadeIn faq-header cover-background background-position-top top-space">
-    <div class="container">`
+<!--profile page css-->
+<link href="<?php echo base_url(); ?>assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
+<!--dropzone css-->
+<section class="pricing membership-plans">
+    <div class="container">
         <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-user"></i>Registration </div>
-                <div class="tools">
-                    <a href="javascript:;" class="collapse"> </a>
-                    <!--<a href="javascript:;" class="reload"> </a>-->
-                    <a href="" class="fullscreen"> </a>
+                    <i class="fa fa-user"></i>Guest Member Registration
                 </div>
             </div>
             <div class="portlet-body">
@@ -21,20 +20,20 @@ $unique_id = time();
                             <!-- PORTLET MAIN -->
                             <div class="portlet light profile-sidebar-portlet ">
                                 <!-- SIDEBAR USERPIC -->
-                                <div class="">
-                                    <!--<div class="row">-->
-                                    <div class="col-md-12">
-                                        <form action="<?php echo base_url('admin/guests/upload_images'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
-                                            <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
-                                            <input type="hidden" name="image_type" value="profile">
-                                            <!--<label>Upload Image</label>-->
-                                            <h3 class="sbold">Click to upload</h3>
-                                            <p> Upload Guest Member Profile Images </p>
-                                        </form>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <!--</div>-->
+                                <!--<div class="">-->
+                                <!--<div class="row">-->
+                                <div class="col-md-12">
+                                    <form action="<?php echo base_url('admin/guests/upload_images'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                        <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
+                                        <input type="hidden" name="image_type" value="profile">
+                                        <!--<label>Upload Image</label>-->
+                                        <h3 class="sbold">Click to upload</h3>
+                                        <p> Upload Guest Member Profile Images </p>
+                                    </form>
                                 </div>
+                                <div class="clearfix"></div>
+                                <!--</div>-->
+                                <!--</div>-->
                             </div>
                             <!-- END PORTLET MAIN -->
                             <!-- PORTLET MAIN -->
@@ -51,8 +50,8 @@ $unique_id = time();
                                             <div class="portlet-body form">
                                                 <form role="form" id="add_guest_member">
                                                     <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
+                                                    <!--<h3 class="block ">Guest Details</h3>-->
                                                     <div class="form-body">
-                                                        <h3 class="block ">Guest Details</h3>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
@@ -178,18 +177,18 @@ $unique_id = time();
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--                                        <hr>
-                                                                                                <br>-->
-                                                        <!--                                                <div class="md-checkbox-inline">
-                                                                                                            <div class="md-checkbox">
-                                                                                                                <input type="checkbox" id="checkbox33" class="md-check">
-                                                                                                                <label for="checkbox33">
-                                                                                                                    <span></span>
-                                                                                                                    <span class="check"></span>
-                                                                                                                    <span class="box"></span> I agreee with the <a href="#">terms and conditions</a> for Registration</label>
-                                                                                                            </div>
-                                                                                                        </div>-->
+                                                        <!--<hr>-->
                                                         <!--<br>-->
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox33" class="md-check">
+                                                                <label for="checkbox33">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span> I agreee with the <a href="#">terms and conditions</a> for Registration</label>
+                                                            </div>
+                                                        </div>
+                                                        <br>
                                                         <a href="<?php echo base_url('admin/guests'); ?>" class="btn default">Cancel</a>
                                                         <button type="submit" class="btn green">Register</button>
                                                     </div>
@@ -213,4 +212,4 @@ $unique_id = time();
         GuestMembers.initAddUpdateGuestValidation("add_guest_member");
     });
 </script>
-<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/guest_members.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/guest_members.js" type="text/javascript"></script>
