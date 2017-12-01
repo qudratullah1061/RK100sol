@@ -22,7 +22,7 @@ class Auth extends FrontEnd_Controller {
     
     function register() {
         $this->selected_tab = 'register';
-        $this->load->view('frontend/auth/register');
+        $this->load->view('frontend/auth/membership_plans');
     }
 
 //    function verifyLogin() {

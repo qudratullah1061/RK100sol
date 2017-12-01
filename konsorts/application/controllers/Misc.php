@@ -116,20 +116,18 @@ class Misc extends FrontEnd_Controller {
         $this->load->view('frontend/misc/about');
     }
     
-    function services() {
-        $this->selected_tab = 'services';
-        $this->load->view('frontend/misc/about');
-    }
-    
     function contact() {
         $this->selected_tab = 'contact';
         $this->load->view('frontend/misc/contact_us');
     }
     
-    function login() {
-        $this->selected_tab = 'login';
-        $this->load->view('frontend/misc/login');
+    function faq() {
+        $this->load->view('frontend/misc/faq');
     }
-
+    
+    function terms() {
+        $this->load->view('frontend/misc/terms');
+    }
+    
 //    Misc pages ends here
 }

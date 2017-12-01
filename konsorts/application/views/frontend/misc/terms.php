@@ -1,4 +1,3 @@
-<?php include_once 'includes/header.php' ?>
 <section class="wow fadeIn faq-header cover-background background-position-top top-space">
     <div class="opacity-medium bg-purple "></div>
     <div class="container">
@@ -67,7 +66,7 @@
 
         <h6 class="text-extra-dark-gray text-medium alt-font font-weight-500 margin-15px-top margin-10px-bottom text-purple"> Legal Limitations </h6>
         <ul class="list-style-5 custom-list-5 padding-20px-left">           
-            
+
             <li>YOU EXPRESSLY AGREE THAT USE OF KONSORTS.COM OR ANY OF THE MATERIALS CONTAINED THEREIN IS AT YOUR OWN AND SOLE RISK. </li>
             <li>You may not blame or hold konsorts.com responsible, its directors, employees, independent contractors, telecommunication providers, hosts and agents, from and against any and all claims, actions, loss, liabilities, expenses, costs, or demands, including without limitation legal and accounting fees, for all damages directly, indirectly, and/or consequentially resulting or allegedly resulting from your, or you under another person's authority including without limitation to governmental agencies, use, misuse, or inability to use konsorts.com or any of the Materials contained therein, or your breach of any of these Terms and Conditions. konsorts.com shall promptly notify you by electronic mail of any such claim or suit, and cooperate fully (at your expense) in the defense of such claim or suit. We reserve the right to participate in the defense of such claim or defense at its own expense, and choose its own legal counsel, but are not obligated to do so. </li>
             <li>konsorts.com contains images and content, including but not limited to: text, software, images, graphics, data, messages, videos, flash, stories and or any other information, and any other World Wide Web Site owned, operated, licensed, or controlled by konsorts.com LLC. </li>
@@ -78,5 +77,3 @@
 
         </ul>
 </section>
-
-<?php include_once 'includes/footer.php' ?>
