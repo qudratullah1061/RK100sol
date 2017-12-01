@@ -45,7 +45,7 @@ class Misc_model extends Abstract_model {
         $this->table_name = "tb_categories";
         return $this->save($data);
     }
-    
+
     public function add_sub_category($data) {
         $this->table_name = "tb_sub_categories";
         return $this->save($data);
@@ -58,7 +58,7 @@ class Misc_model extends Abstract_model {
             return isset($result[0]) ? $result[0] : array();
         }
     }
-    
+
     public function get_sub_category($sub_category_id) {
         $this->table_name = 'tb_sub_categories';
         $result = $this->getBy('sub_category_id', $sub_category_id);
@@ -107,19 +107,29 @@ class Misc_model extends Abstract_model {
         $this->table_name = $table;
         return $this->deleteBy($column, $unique_id);
     }
+
     public function DeleteRecordDropZoneJs($table, $where_clause) {
         $this->table_name = $table;
         return $this->deleteByWhere($where_clause);
     }
-    
-    function UpdateRecord($column, $row_id, $data){
+
+    function UpdateRecord($column, $row_id, $data) {
         $this->table_name = "tb_member_images";
         $this->updateBy($column, $row_id, $data);
     }
-    
-    function SelectByWhere($where_clause){
+
+    function SelectByWhere($where_clause) {
         $this->table_name = "tb_member_images";
-        return $this->getByWhere("",$where_clause);
+        return $this->getByWhere("", $where_clause);
     }
 
+    function saveRecord($table, $data) {
+        $this->table_name = $table;
+        return $this->save($data);
+    }
+    
+    function getMemberPlanByPrice($where_clause){
+        $this->table_name = "tb_member_plans";
+        return $this->getByWhere("", $where_clause);
+    }
 }

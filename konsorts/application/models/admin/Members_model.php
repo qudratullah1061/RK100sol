@@ -77,6 +77,10 @@ class Members_model extends Abstract_model {
         return $this->db->get_where('tb_temp_images_upload', array('unique_id' => $unique_id, 'image_type' => $image_type))->result_array();
     }
 
+    public function getPlans($plan_type) {
+        return $this->db->get_where('tb_member_plans', array('plan_type' => $plan_type, 'is_active' => 1))->result_array();
+    }
+
     public function get_all_selected_categories($member_id) {
         return $this->db->get_where('tb_member_categories', array('member_id' => $member_id))->result_array();
     }

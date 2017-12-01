@@ -1058,3 +1058,6 @@ section.faq-header span {
     .search-box .col-1 {padding-right: 0px;width: 100%;}
     .search-box .btn {margin-top: 10px;}
 }
+.help-block-error{
+    color:red !important;
+}

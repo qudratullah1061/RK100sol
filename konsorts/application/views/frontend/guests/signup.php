@@ -3,7 +3,6 @@ $unique_id = time();
 ?>
 <!--profile page css-->
 <link href="<?php echo base_url(); ?>assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
-<!--dropzone css-->
 <section class="pricing membership-plans">
     <div class="container">
         <div class="portlet box blue">
@@ -23,7 +22,7 @@ $unique_id = time();
                                 <!--<div class="">-->
                                 <!--<div class="row">-->
                                 <div class="col-md-12">
-                                    <form action="<?php echo base_url('admin/guests/upload_images'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                    <form action="<?php echo base_url('guests/upload_images'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
                                         <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
                                         <input type="hidden" name="image_type" value="profile">
                                         <!--<label>Upload Image</label>-->
@@ -95,6 +94,12 @@ $unique_id = time();
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-6" style="position:relative;">
+                                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                                    <input class="form-control dateofbirht" type="text" data-date-format="yyyy-mm-dd" value="" name="date_of_birth" />
+                                                                    <label>Date of birth<span class="required">*</span></label>
+                                                                </div>
+                                                            </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input ">
                                                                     <input type="file" class="form-control" multiple="multiple"  placeholder="" name="id_proofs[]">
@@ -121,16 +126,7 @@ $unique_id = time();
                                                             </div>
 
                                                             <div class="col-md-6">
-                                                                <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input class="form-control date-picker" size="16" type="text" data-date-format="yyyy-mm-dd" value="" name="date_of_birth" />
-                                                                    <label>Date of birth<span class="required">*</span></label>
-                                                                    <!--<span class="help-block"> Select date </span>-->
-
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <div class="form-group form-md-line-input form-md-floating-label edited">
                                                                     <select class="form-control edited" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
                                                                         <?php echo isset($country_options) ? $country_options : ""; ?>
                                                                     </select>
@@ -146,7 +142,7 @@ $unique_id = time();
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <div class="form-group form-md-line-input form-md-floating-label edited">
                                                                     <select class="form-control edited" id="dd-city" name="city">
                                                                         <option value="">Select City</option>
                                                                     </select>
@@ -181,7 +177,7 @@ $unique_id = time();
                                                         <!--<br>-->
                                                         <div class="md-checkbox-inline">
                                                             <div class="md-checkbox">
-                                                                <input type="checkbox" id="checkbox33" class="md-check">
+                                                                <input type="checkbox" id="checkbox33" name="terms" value="1" class="md-check">
                                                                 <label for="checkbox33">
                                                                     <span></span>
                                                                     <span class="check"></span>
@@ -213,3 +209,4 @@ $unique_id = time();
     });
 </script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/guest_members.js" type="text/javascript"></script>
+

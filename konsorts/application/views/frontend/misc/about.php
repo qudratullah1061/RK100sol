@@ -1,4 +1,3 @@
-<?php include_once 'includes/header.php' ?>
 <section class="wow fadeIn faq-header cover-background background-position-top top-space">
     <div class="opacity-medium bg-purple "></div>
     <div class="container">
@@ -121,5 +120,3 @@
 
     </div>
 </section>
-
-<?php include_once 'includes/footer.php' ?>

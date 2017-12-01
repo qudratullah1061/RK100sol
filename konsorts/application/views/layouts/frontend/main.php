@@ -12,7 +12,10 @@
         <!-- keywords -->
         <meta name="keywords" content="">
         <!-- favicon -->
-        <link rel="shortcut icon" href="images/favicon.png">
+        <script>
+            var base_url = "<?php echo base_url(); ?>";
+        </script>
+        <link rel="shortcut icon" href="<?php echo base_url('assets/favicon.png'); ?>">
         <link rel="apple-touch-icon" href="<?php echo base_url('assets/frontend/'); ?>images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url('assets/frontend/'); ?>images/apple-touch-icon-72x72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url('assets/frontend/'); ?>images/apple-touch-icon-114x114.png">
@@ -54,24 +57,30 @@
                 <script src="<?php echo base_url('assets/frontend/'); ?>js/html5shiv.js"></script>
             <![endif]-->
 
-        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
-        <!--jquery start-->
 
-        <!--toaster start-->
-        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
-        <!--toaster ends-->
+        <!--jquery start-->
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/jquery.js"></script>
         <!--jquery ends-->
 
+        <!--dropzone css-->
+        <link href="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/global/plugins/dropzone/basic.min.css" rel="stylesheet" type="text/css" />
+        <!--dropzone css-->
+        <!--sweet alert-->
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
+        <!--sweet alert ends-->
+        <!-- BEGIN Data-table PLUGIN -->
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!--select2 ends-->
-        
+        <!--toaster start-->
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+        <!--toaster ends-->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="<?php echo base_url(); ?>assets/global/css/components.css" rel="stylesheet" id="style_components" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- BEGIN Data-table PLUGIN -->
     </head>
 
     <body>
@@ -86,7 +95,7 @@
                     <div class="row">
                         <!-- start logo -->
                         <div class="col-md-2 col-xs-5">
-                            <a href="index.html" title="Konsorts" class="logo">
+                            <a href="<?php echo base_url('home'); ?>" title="Konsorts" class="logo">
                                 <img src="<?php echo base_url('assets/frontend/'); ?>img/logo.png" data-at2x="img/logo.png" class="logo-dark" alt="Konsorts">
                                 <img src="<?php echo base_url('assets/frontend/'); ?>img/logo.png" data-at2x="img/logo.png" alt="Konsorts" class="logo-light default">
                             </a>
@@ -102,28 +111,27 @@
                             <div class="navbar-collapse collapse pull-right" id="navbar-collapse-toggle-1">
                                 <ul id="accordion" class="nav navbar-nav navbar-left no-margin text-normal" data-in="fadeIn" data-out="fadeOut">
                                     <!-- start menu item -->
-                                    <li class="">
-                                        <a href="index.php">Home</a>
+                                    <li class="<?php echo ActivateLink('home'); ?>">
+                                        <a href="<?php echo base_url('home'); ?>">Home</a>
                                     </li>
-                                    <li class="">
-                                        <a href="aboutus.php">About</a>
+                                    <li class="<?php echo ActivateLink('about'); ?>">
+                                        <a href="<?php echo base_url('misc/about'); ?>">About</a>
                                     </li>
-                                    <li class="">
+                                    <li class="<?php echo ActivateLink('services'); ?>">
                                         <a href="javascript:void(0);">Our Services</a>
                                     </li>
-                                    <li class="">
+                                    <li class="<?php echo ActivateLink('blog'); ?>">
                                         <a href="javascript:void(0);" title="Blog">Blog</a>
                                     </li>
-                                    <li class="">
-                                        <a href="contact-us.php">Contact Us</a>
+                                    <li class="<?php echo ActivateLink('contact'); ?>">
+                                        <a href="<?php echo base_url('misc/contact'); ?>">Contact Us</a>
                                     </li>
-                                    <li class="dropdown megamenu-fw">
-                                        <a href="login.php">Log in</a>
+                                    <li class="dropdown megamenu-fw <?php echo ActivateLink('login'); ?>">
+                                        <a href="<?php echo base_url('auth/login'); ?>">Log in</a>
                                         <!--<i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>-->
                                         <!-- start sub menu -->
-
                                     </li>
-                                    <li class="">
+                                    <li class="<?php echo ActivateLink('signup'); ?>">
                                         <div class="signup-link">
                                             <a href="#" class="btn btn-small btn-deep-purple lato font-weight-700"> SIGN UP </a>
                                         </div>
@@ -327,8 +335,17 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
         <!--toaster ends-->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/scripts/app.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
+        <!--dropzone-->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/form-dropzone.js" type="text/javascript"></script>
+        <!--dropzone js-->
+        <!--sweet alert js-->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script>
+        <!--sweet alert js ends-->
         <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/common_functions.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {

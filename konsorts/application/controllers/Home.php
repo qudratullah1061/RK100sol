@@ -17,6 +17,7 @@ class Home extends FrontEnd_Controller {
     }
 
     function index() {
+        $this->selected_tab = 'home';
         $this->load->view('frontend/home');
     }
 

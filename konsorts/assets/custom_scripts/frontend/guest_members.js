@@ -3,7 +3,7 @@ var GuestMembers = function () {
     var handleGuestSubmit = function (formId) {
         $.ajax({
             type: "POST",
-            url: base_url + "admin/guests/add_guest_user",
+            url: base_url + "guests/add_guest_user",
             datatype: 'json',
             data: new FormData($("#" + formId)[0]),
             processData: false,
@@ -18,7 +18,7 @@ var GuestMembers = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    var redirect_path = 'admin/guests';
+                    var redirect_path = 'admin/guests/guest_payment/' + data.code;
                     if ('add_guest_member' == formId) {
                         setTimeout(function () {
                             window.location.href = base_url + redirect_path;
@@ -86,6 +86,9 @@ var GuestMembers = function () {
                 address: {
                     required: true,
                 },
+                terms: {
+                    required: true
+                }
             };
         } else if ('update_guest_member' == formId) {
             Rules = {
@@ -138,7 +141,10 @@ var GuestMembers = function () {
             messages: {
                 confirm_password: {
                     equalTo: "Password does not match confirm password field."
-                }
+                },
+                'terms': {
+                    required: 'Please check terms option',
+                },
             },
             rules: Rules,
             invalidHandler: function (event, validator) { //display error alert on form submit              
@@ -174,23 +180,25 @@ var GuestMembers = function () {
     };
     return {
         initAddUpdateGuestValidation: function (formId) {
-            $(".date-picker").datepicker();
-//            $("#dd-country").select2({
-//                placeholder: "Select",
-//                allowClear: true,
-//                width: '100%',
-//                forcebelow : true
-//            });
-//            $("#dd-state").select2({
-//                placeholder: "Select",
-//                allowClear: true,
-//                width: '100%',
-//            });
-//            $("#dd-city").select2({
-//                placeholder: "Select",
-//                allowClear: true,
-//                width: '100%',
-//            });
+            $(".dateofbirht").datepicker();
+            $("#dd-country").select2({
+                placeholder: "Select",
+                allowClear: true,
+                width: '100%',
+                theme: "bootstrap"
+            });
+            $("#dd-state").select2({
+                placeholder: "Select",
+                allowClear: true,
+                width: '100%',
+                theme: "bootstrap"
+            });
+            $("#dd-city").select2({
+                placeholder: "Select",
+                allowClear: true,
+                width: '100%',
+                theme: "bootstrap"
+            });
             handleValidationAddUpdateGuestMember(formId);
         }
     };

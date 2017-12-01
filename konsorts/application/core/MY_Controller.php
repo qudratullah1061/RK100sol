@@ -5,9 +5,44 @@ if (!defined('BASEPATH')) {
 }
 
 class FrontEnd_Controller extends CI_Controller {
-
+    var $selected_tab = 'home';
     function __construct() {
         parent::__construct();
+    }
+
+    public function upload_temp_image($files, $unique_id, $image_type) {
+        try {
+            if ($files) {
+                $uploaddir = $this->config->item('root_path') . 'uploads/temp_images/';
+                foreach ($files as $file) {
+                    $file_name = $unique_id.basename($file['name']);
+                    $uploadfile = $uploaddir . $file_name;
+                    move_uploaded_file($file['tmp_name'], $uploadfile);
+                    // inset record in db
+                    $data = array('image' => $file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $uploaddir), 'unique_id' => $unique_id, 'image_type' => $image_type, 'created_on' => date("Y-m-d h:i:s"));
+                    $this->db->insert('tb_temp_images_upload', $data);
+                }
+            }
+            return 'success';
+        } catch (Exception $ex) {
+            return $ex->getMessage();
+        }
+    }
+    // general json error
+    public function _response($is_error = true, $description = '', $status = '') {
+        $this->output->set_status_header(200);
+        $this->output->set_content_type('application/json');
+        $this->output->set_header('Content-type: application/json');
+        $this->output->set_output(json_encode(array(
+            'error' => $is_error,
+            'description' => $description,
+            'code' => $status
+        )))->_display();
+        die();
+    }
+
+    public function isAjax() {
+        header('Content-Type: application/json');
     }
 }
 

@@ -33,7 +33,7 @@ var CommonFunctions = function () {
 
     DeleteDropzoneFile = function (unique_id, file_name) {
         App.blockUI({target: '.dropzone-file-area', animate: true});
-        var jqxhr = $.getJSON(base_url + "admin/misc/delete_dropzone_temp_file", data = {unique_id: unique_id, file_name: file_name}, function (response) {
+        var jqxhr = $.getJSON(base_url + "misc/delete_dropzone_temp_file", data = {unique_id: unique_id, file_name: file_name}, function (response) {
             //console.log("success", response);
             if (data.error) {
                 swal("Error!", data.description, "error");
@@ -97,73 +97,73 @@ var CommonFunctions = function () {
                 });
     }
 
-    var Delete = function (unique_id, table, column, msg) {
-
-        swal({
-            title: "Are you sure?",
-            text: "Warning! " + msg,
-            type: "warning",
-            closeOnConfirm: false,
-            showCancelButton: true,
-            confirmButtonClass: "btn-danger",
-            confirmButtonText: "Yes, delete it!",
-        },
-                function () {
-                    $.ajax({
-                        url: base_url + "admin/Misc/DeleteRecord/",
-                        dataType: 'json',
-                        method: 'post',
-                        cache: false,
-                        data: {unique_id: unique_id, table: table, column: column},
-                        beforeSend: function () {
-                            App.blockUI({target: 'body', animate: true});
-                        },
-                        complete: function () {
-                            App.unblockUI('body');
-                        },
-                        success: function (data) {
-                            if (!data.error) {
-                                swal({
-                                    title: "Deleted",
-                                    text: data.description,
-                                    type: "success",
-                                }, function () {
-                                    if (table == 'tb_admin_users') {
-                                        $('#datatable_adminusers').DataTable().ajax.reload();
-                                    } else if (table == 'tb_categories') {
-                                        $('#datatable_categories').DataTable().ajax.reload();
-                                    } else if (table == 'tb_sub_categories') {
-                                        $('#datatable_sub_categories').DataTable().ajax.reload();
-                                    } else if (table == 'tb_members') {
-                                        if ($('#datatable_guests').length > 0)
-                                            $('#datatable_guests').DataTable().ajax.reload();
-                                        else if ($('#datatable_companions').length > 0)
-                                            $('#datatable_companions').DataTable().ajax.reload();
-                                    } else if (table == 'tb_member_images') {
-                                        $("#pic-" + unique_id).remove();
-                                        $('#load_member_profile_images').cubeportfolio('destroy');
-                                        $('#load_member_id_proofs').cubeportfolio('destroy');
-                                        is_init_profile_images = false;
-                                        load_member_profile_images();
-                                        is_init_id_proof_images = false;
-                                        load_member_id_proofs();
-                                    }
-                                });
-                            } else {
-                                // exception message here.
-                                swal("Error!", data.description, "error");
-                            }
-                        },
-                        error: function (xhr, desc, err) {
-                            toastr["error"](xhr.statusText, "Error.");
-                        }
-                    });
-                });
-    };
+//    var Delete = function (unique_id, table, column, msg) {
+//
+//        swal({
+//            title: "Are you sure?",
+//            text: "Warning! " + msg,
+//            type: "warning",
+//            closeOnConfirm: false,
+//            showCancelButton: true,
+//            confirmButtonClass: "btn-danger",
+//            confirmButtonText: "Yes, delete it!",
+//        },
+//                function () {
+//                    $.ajax({
+//                        url: base_url + "admin/Misc/DeleteRecord/",
+//                        dataType: 'json',
+//                        method: 'post',
+//                        cache: false,
+//                        data: {unique_id: unique_id, table: table, column: column},
+//                        beforeSend: function () {
+//                            App.blockUI({target: 'body', animate: true});
+//                        },
+//                        complete: function () {
+//                            App.unblockUI('body');
+//                        },
+//                        success: function (data) {
+//                            if (!data.error) {
+//                                swal({
+//                                    title: "Deleted",
+//                                    text: data.description,
+//                                    type: "success",
+//                                }, function () {
+//                                    if (table == 'tb_admin_users') {
+//                                        $('#datatable_adminusers').DataTable().ajax.reload();
+//                                    } else if (table == 'tb_categories') {
+//                                        $('#datatable_categories').DataTable().ajax.reload();
+//                                    } else if (table == 'tb_sub_categories') {
+//                                        $('#datatable_sub_categories').DataTable().ajax.reload();
+//                                    } else if (table == 'tb_members') {
+//                                        if ($('#datatable_guests').length > 0)
+//                                            $('#datatable_guests').DataTable().ajax.reload();
+//                                        else if ($('#datatable_companions').length > 0)
+//                                            $('#datatable_companions').DataTable().ajax.reload();
+//                                    } else if (table == 'tb_member_images') {
+//                                        $("#pic-" + unique_id).remove();
+//                                        $('#load_member_profile_images').cubeportfolio('destroy');
+//                                        $('#load_member_id_proofs').cubeportfolio('destroy');
+//                                        is_init_profile_images = false;
+//                                        load_member_profile_images();
+//                                        is_init_id_proof_images = false;
+//                                        load_member_id_proofs();
+//                                    }
+//                                });
+//                            } else {
+//                                // exception message here.
+//                                swal("Error!", data.description, "error");
+//                            }
+//                        },
+//                        error: function (xhr, desc, err) {
+//                            toastr["error"](xhr.statusText, "Error.");
+//                        }
+//                    });
+//                });
+//    };
 
     var GetStateOptions = function (country_id, state_id) {
         $.ajax({
-            url: base_url + "admin/misc/get_states/",
+            url: base_url + "misc/get_states/",
             dataType: 'json',
             method: 'post',
             cache: false,
@@ -189,7 +189,7 @@ var CommonFunctions = function () {
     };
     var GetCitiesOptions = function (state_id, city_id) {
         $.ajax({
-            url: base_url + "admin/misc/get_cities/",
+            url: base_url + "misc/get_cities/",
             dataType: 'json',
             method: 'post',
             cache: false,
@@ -214,10 +214,49 @@ var CommonFunctions = function () {
         });
     };
 
+    var UpdatePaymentInfoInDB = function (data, member_id) {
+        alert('here');
+        $.ajax({
+            url: base_url + "misc/UpdatePaymentInfoInDB/",
+            dataType: 'json',
+            method: 'post',
+            cache: false,
+            data: {data: data, member_id: member_id},
+            beforeSend: function () {
+                App.blockUI({target: 'body', animate: true});
+            },
+            complete: function () {
+                App.unblockUI('body');
+            },
+            success: function (data) {
+                if (!data.error) {
+                    swal({
+                        title: "Success!",
+                        text: data.description,
+                        type: "success",
+                        showCancelButton: false,
+//                      confirmButtonClass: "btn-danger",
+                        confirmButtonText: "Done",
+                        closeOnConfirm: true
+                    },
+                            function () {
+
+                            });
+                } else {
+                    // exception message here.
+                    swal("Error!", data.description, "warning");
+                }
+            },
+            error: function (xhr, desc, err) {
+                toastr["error"](xhr.statusText, "Error.");
+            }
+        });
+    };
+
     return {
-        Delete: function (unique_id, table, column, msg) {
-            Delete(unique_id, table, column, msg);
-        },
+//        Delete: function (unique_id, table, column, msg) {
+//            Delete(unique_id, table, column, msg);
+//        },
         MakeProfileImage: function (image_id, member_id) {
             MarkAsProfileImage(image_id, member_id);
         },
@@ -229,6 +268,9 @@ var CommonFunctions = function () {
         },
         LoadCities: function (state_id, city_id) {
             GetCitiesOptions(state_id, city_id);
+        },
+        ExecutePayment: function (data, member_id) {
+            UpdatePaymentInfoInDB(data, member_id);
         }
     };
 

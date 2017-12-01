@@ -1,7 +1,7 @@
 <?php
 
 $CI = &get_instance();
-
+//admin navigation
 function ActivateCurrentLink($main_tab, $child_tab) {
     global $CI;
     if ($CI->selected_tab == $main_tab && $CI->selected_child_tab == $child_tab) {
@@ -15,6 +15,16 @@ function ActivateParentLink($main_tab) {
         echo " active open ";
     }
 }
+//admin navigation ends
+
+//frontend navigation
+function ActivateLink($main_tab) {
+    global $CI;
+    if ($CI->selected_tab == $main_tab) {
+        echo " active open ";
+    }
+}
+//frontend navigation
 
 function GetAdminInfoWithId($UserId) {
     global $CI;
