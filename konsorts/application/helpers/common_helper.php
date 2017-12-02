@@ -1,6 +1,7 @@
 <?php
 
 $CI = &get_instance();
+
 //admin navigation
 function ActivateCurrentLink($main_tab, $child_tab) {
     global $CI;
@@ -15,8 +16,8 @@ function ActivateParentLink($main_tab) {
         echo " active open ";
     }
 }
-//admin navigation ends
 
+//admin navigation ends
 //frontend navigation
 function ActivateLink($main_tab) {
     global $CI;
@@ -24,6 +25,7 @@ function ActivateLink($main_tab) {
         echo " active open ";
     }
 }
+
 //frontend navigation
 
 function GetAdminInfoWithId($UserId) {
@@ -231,4 +233,36 @@ function delete_file_from_directory($file_path) {
     if (file_exists($complete_path)) {
         unlink($complete_path);
     }
+}
+
+function sendEmail($to, $subject, $messages) {
+    require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
+//PHPMailer Object
+    $mail = new PHPMailer;
+//    $mail->SMTPDebug = 3;
+//Set PHPMailer to use SMTP.
+    $mail->isSMTP();
+//Set SMTP host name                      
+    $mail->Host = "smtp.gmail.com";
+//Set this to true if SMTP host requires authentication to send email
+    $mail->SMTPAuth = true;
+//Provide username and password
+    $mail->Username = "itcomradetest@gmail.com";
+    $mail->Password = "itcomrade.us@123";
+//If SMTP requires TLS encryption then set it
+    $mail->SMTPSecure = "tls";
+//Set TCP port to connect to
+    $mail->Port = 587;
+    $mail->From = "qudratullah1061@gmail.com";
+    $mail->FromName = "Full Name";
+    $mail->addAddress($to); //addAddress($to, "Recepient Name");
+    $mail->isHTML(true);
+    $mail->Subject = $subject;
+    $mail->Body = $messages;
+//    $mail->AltBody = "This is the plain text version of the email content";
+    if (!$mail->send()) {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+        exit;
+    }
+    return true;
 }

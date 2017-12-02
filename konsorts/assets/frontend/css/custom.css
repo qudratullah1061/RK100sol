@@ -1061,3 +1061,6 @@ section.faq-header span {
 .help-block-error{
     color:red !important;
 }
+.block-spinner-bar > div{
+    background: purple !important;
+}

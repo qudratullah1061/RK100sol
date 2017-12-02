@@ -50,27 +50,21 @@
         <!-- style -->
         <link rel="stylesheet" href="<?php echo base_url('assets/frontend/'); ?>css/style.css" />
         <link rel="stylesheet" href="<?php echo base_url('assets/frontend/'); ?>css/login.css" />
-        <!-- responsive css -->
-        <link rel="stylesheet" href="<?php echo base_url('assets/frontend/'); ?>css/responsive.css" />
-        <link rel="stylesheet" href="<?php echo base_url('assets/frontend/'); ?>css/custom.css" />
         <!--[if IE]>
                 <script src="<?php echo base_url('assets/frontend/'); ?>js/html5shiv.js"></script>
             <![endif]-->
 
-
-        <!--jquery start-->
-        <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/jquery.js"></script>
-        <!--jquery ends-->
-
-        <!--dropzone css-->
+        <!--Q included files start-->
+        <!--dropzone css start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/dropzone/basic.min.css" rel="stylesheet" type="text/css" />
-        <!--dropzone css-->
-        <!--sweet alert-->
+        <!--dropzone css ends-->
+        <!--sweet alert start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
         <!--sweet alert ends-->
-        <!-- BEGIN Data-table PLUGIN -->
+        <!-- BEGIN datepicker-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+        <!--datepicker ends-->
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -81,6 +75,16 @@
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="<?php echo base_url(); ?>assets/global/css/components.css" rel="stylesheet" id="style_components" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+        <!-- responsive css -->
+        <!--Q included files emds-->
+
+        <link rel="stylesheet" href="<?php echo base_url('assets/frontend/'); ?>css/responsive.css" />
+        <link rel="stylesheet" href="<?php echo base_url('assets/frontend/'); ?>css/custom.css" />
+        <!--jquery start-->
+        <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/jquery.js"></script>
+        <!--jquery ends-->
     </head>
 
     <body>
@@ -321,7 +325,8 @@
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/jquery.rateyo.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/login.js"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/main.js"></script>
-        <!--Form Validation-->
+        <!--Q included files start-->
+        <!--Form Validation start-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
         <!--Form Validation end-->
@@ -352,6 +357,7 @@
                 GlobalPlugins.initToasterPlugin();
             });
         </script>
+        <!--Q included files start-->
     </body>
 
 </html>

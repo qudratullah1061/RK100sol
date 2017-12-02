@@ -31,6 +31,24 @@ class Guests extends FrontEnd_Controller {
         }
     }
 
+    function chk_member_username_exist($email, $exclude_id) {
+        $result = is_member_username_exist($email, $exclude_id);
+        if ($result) {
+            $this->form_validation->set_message('chk_member_username_exist', 'The %s already exist. Please choose other username!');
+            return false;
+        }
+        return true;
+    }
+
+    function chk_member_email_exist($email, $exclude_id) {
+        $result = is_member_email_exist($email, $exclude_id);
+        if ($result) {
+            $this->form_validation->set_message('chk_member_email_exist', 'The %s already exist. Please choose other email!');
+            return false;
+        }
+        return true;
+    }
+
     public function add_guest_user() {
         $this->isAjax();
         if ($this->input->post()) {
@@ -147,22 +165,18 @@ class Guests extends FrontEnd_Controller {
             redirect(base_url('home'));
         }
     }
-    
-    function guest_payment($member_id){
+
+    function guest_payment($member_id) {
         // check user exist in db
-        if($member_id){
+        if ($member_id) {
             $result = $this->Members_Model->get_member_by_id($member_id);
-            if($result){
+            if ($result) {
                 // get guest member plans
                 $data['plans'] = $this->Members_Model->getPlans(1);
                 $data['member_id'] = $member_id;
-                $this->load->view('frontend/guests/guest_payment',$data);
+                $this->load->view('frontend/guests/guest_payment', $data);
             }
         }
-    }
-
-    function login() {
-        $this->load->view('frontend/guest/login');
     }
 
 }

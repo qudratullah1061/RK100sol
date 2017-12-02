@@ -181,7 +181,7 @@ $unique_id = time();
                                                                 <label for="checkbox33">
                                                                     <span></span>
                                                                     <span class="check"></span>
-                                                                    <span class="box"></span> I agreee with the <a href="#">terms and conditions</a> for Registration</label>
+                                                                    <span class="box"></span> I agreee with the <a href="<?php echo base_url('misc/terms'); ?>">terms and conditions</a> for Registration</label>
                                                             </div>
                                                         </div>
                                                         <br>

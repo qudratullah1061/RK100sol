@@ -101,11 +101,17 @@ class Misc extends FrontEnd_Controller {
         if ($plan_info) {
             //update member info. add days to subscription days.
             $update_data = array(
+                'email_verification_code' => md5(time()),
                 'current_plan_id' => $plan_info[0]['plan_id'],
                 'subscription_date' => date("Y-m-d H:i:s"),
                 'end_subscription_date' => date('Y-m-d H:i:s', strtotime("+" . $plan_info[0]['plan_duration']))//date("Y-m-d H:i:s", strtotime("+" . $plan_info[0]['plan_duration'], strtotime('2014-05-22 10:35:10'))),
             );
             $this->Members_Model->update_member($member_id, $update_data);
+            // get member info
+            $member_info = $this->Members_Model->get_member_by_id($member_id);
+            $member_email = $member_info['email'];
+            $member_email_v_code = $update_data['email_verification_code'];
+            sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $member_email_v_code) . "'>Clicking here.</a>");
         }
         $this->_response(false, "Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com");
     }
@@ -115,19 +121,19 @@ class Misc extends FrontEnd_Controller {
         $this->selected_tab = 'about';
         $this->load->view('frontend/misc/about');
     }
-    
+
     function contact() {
         $this->selected_tab = 'contact';
         $this->load->view('frontend/misc/contact_us');
     }
-    
+
     function faq() {
         $this->load->view('frontend/misc/faq');
     }
-    
+
     function terms() {
         $this->load->view('frontend/misc/terms');
     }
-    
+
 //    Misc pages ends here
 }

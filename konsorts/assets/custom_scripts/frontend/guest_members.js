@@ -18,7 +18,7 @@ var GuestMembers = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    var redirect_path = 'admin/guests/guest_payment/' + data.code;
+                    var redirect_path = 'guests/guest_payment/' + data.code;
                     if ('add_guest_member' == formId) {
                         setTimeout(function () {
                             window.location.href = base_url + redirect_path;

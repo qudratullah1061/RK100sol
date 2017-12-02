@@ -223,10 +223,10 @@ var CommonFunctions = function () {
             cache: false,
             data: {data: data, member_id: member_id},
             beforeSend: function () {
-                App.blockUI({target: 'body', animate: true});
+                App.blockUI({target: '.membership-plans', animate: true});
             },
             complete: function () {
-                App.unblockUI('body');
+                App.unblockUI('.membership-plans');
             },
             success: function (data) {
                 if (!data.error) {
