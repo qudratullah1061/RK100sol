@@ -239,7 +239,7 @@ function sendEmail($to, $subject, $messages) {
     require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
 //PHPMailer Object
     $mail = new PHPMailer;
-//    $mail->SMTPDebug = 3;
+    //$mail->SMTPDebug = 3;
 //Set PHPMailer to use SMTP.
     $mail->isSMTP();
 //Set SMTP host name                      

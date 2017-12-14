@@ -215,7 +215,7 @@ var CommonFunctions = function () {
     };
 
     var UpdatePaymentInfoInDB = function (data, member_id) {
-        alert('here');
+       // alert('here');
         $.ajax({
             url: base_url + "misc/UpdatePaymentInfoInDB/",
             dataType: 'json',

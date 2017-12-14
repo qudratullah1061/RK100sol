@@ -85,9 +85,13 @@ class Members_model extends Abstract_model {
         return $this->db->get_where('tb_member_categories', array('member_id' => $member_id))->result_array();
     }
 
-    function AddUpdateMemberCategories($member_categories, $member_id) {
+    function AddUpdateMemberCategories($member_categories, $member_id,$added_by = 0) {
         if ($member_id) {
             // delete previous member ids
+            if($this->session->userdata('admin_id'))
+            {
+                $added_by = $this->session->userdata('admin_id');
+            }
             $this->table_name = 'tb_member_categories';
             $this->db->where('member_id', $member_id);
             $this->db->delete($this->table_name);
@@ -96,7 +100,7 @@ class Members_model extends Abstract_model {
                     $category_array = explode("::", $category);
                     $category_id = isset($category_array[0]) ? $category_array[0] : 0;
                     $sub_category_id = isset($category_array[1]) ? $category_array[1] : 0;
-                    $data = array('member_id' => $member_id, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id, 'created_on' => date("Y-m-d H:i:s"), 'created_by' => $this->session->userdata('admin_id'));
+                    $data = array('member_id' => $member_id, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id, 'created_on' => date("Y-m-d H:i:s"), 'created_by' => $added_by);
                     $this->save($data);
                 }
             }

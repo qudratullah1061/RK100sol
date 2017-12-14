@@ -234,6 +234,7 @@ class Guests extends Admin_Controller {
             }
         }
         $guest_members = $this->Members_Model->getMembers($cond, $offset, $this->page_limit, $sort_by);
+        
         $count = $guest_members['total'];
         if ($count > 0) {
             foreach ($guest_members['records'] as $result) {
