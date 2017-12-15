@@ -135,6 +135,7 @@ class Misc extends FrontEnd_Controller {
         if($verification_code != '')
         {
             $result = $this->Members_Model->getBy('email_verification_code',$verification_code);
+            $data['verified'] = false;
             if(!empty($result))
             {
                 if($result[0]->email_verification_code == $verification_code)
@@ -144,18 +145,18 @@ class Misc extends FrontEnd_Controller {
                         'is_email_verified' => 1
                     );
                    $this->Members_Model->update_member($result[0]->member_id, $update_data);
-                   redirect(base_url('auth/login')); 
-                } else {
-                    
-                    redirect(base_url('auth/login'));
-                    
+                   $data['verified'] = true; 
                 }
                 
-            }else{
-                redirect(base_url('auth/login'));
             }
+            
+           $this->load->view('frontend/misc/verified_status',$data); 
+            
+            
         }
     }
+    
+    
 
     function contact() {
         $this->selected_tab = 'contact';

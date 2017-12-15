@@ -102,6 +102,10 @@ class Companions extends FrontEnd_Controller {
                 $data['address'] = $this->input->post('address');
                 $data['about_me'] = $this->input->post('about_me');
                 
+                
+                $data['subscription_date']       = date('Y-m-d H:i:s');
+                $data['end_subscription_date']   = date('Y-m-d H:i:s',strtotime("1 month"));
+                
                 $data['other_interest'] = $this->input->post('other_interest');
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = 0;
@@ -113,12 +117,12 @@ class Companions extends FrontEnd_Controller {
 
                 $result = false;
                 if ($edit_id > 0) {
-                    $this->Members_Model->update_member($edit_id, $data);
+                    $this->Members_Model->update_member($edit_id, $data);//use for future
                     $result = true;
                 } else {
                     $data['member_type'] = 2;
                     $data['membership_type'] = 'Companion';
-                    $data['email_verification_code'] = md5(time());//email need to be send
+                    $data['email_verification_code'] = md5(time());
                     $edit_id = $result = $this->Members_Model->add_member($data);
                     // update unique id
                     $unique_id_update_data['member_unique_code'] = "C-" . date("Ymd") . $edit_id;

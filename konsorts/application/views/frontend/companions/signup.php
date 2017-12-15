@@ -1,3 +1,5 @@
+<section class="pricing membership-plans">
+    <div class="container">
 <div class="portlet light bordered" id="form_wizard_1">
     <div class="portlet-title">
         <div class="caption">
@@ -258,5 +260,6 @@
         </form>
     </div>
 </div>
+    </div></section>
 <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js" type="text/javascript"></script>

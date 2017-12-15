@@ -7,7 +7,9 @@
 include_once(APPPATH . 'models/Abstract_model.php');
 
 class Members_model extends Abstract_model {
-
+    protected $is_error;
+    public $member_exists;
+    public $member_info;
     //Model Constructor
     function __construct() {
         // inherited from base class.
@@ -26,6 +28,29 @@ class Members_model extends Abstract_model {
         if ($member_info) {
             return isset($member_info[0]) ? $member_info[0] : array();
         }
+    }
+    
+     public function IsMember($username = "", $password = "") {
+        $this->is_error = FALSE;
+        $this->member_exists = FALSE;
+        if (trim($username) && trim($password)) {
+            $password = sha1($password);
+            $member = $this->db->query("SELECT * FROM $this->table_name WHERE ((email='{$username}' OR username='{$username}') AND password='{$password}') LIMIT 1");
+            if ($member->num_rows() > 0) {
+                $this->member_exists = TRUE;
+                $this->member_info = $member->result_array();
+            }
+        }
+    }
+
+    public function member_login($username, $password) {
+        $this->IsMember($username, $password);
+        if (!$this->member_exists) {
+            $this->is_error = 1;
+        } else {
+            $this->is_error = 0;
+        }
+        return array('error' => $this->is_error, 'member_info' => $this->member_info[0]);
     }
 
     function get_member_images_by_type($where) {
