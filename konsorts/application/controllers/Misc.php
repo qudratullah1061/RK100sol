@@ -98,6 +98,7 @@ class Misc extends FrontEnd_Controller {
         // update member subscription dates
         // get plan number of days.
         $plan_info = $this->Misc_Model->getMemberPlanByPrice(array('plan_price' => $payment_details['payment_amount'], 'plan_type' => 1, 'is_active' => 1));
+       
         if ($plan_info) {
             //update member info. add days to subscription days.
             $update_data = array(
@@ -106,6 +107,7 @@ class Misc extends FrontEnd_Controller {
                 'subscription_date' => date("Y-m-d H:i:s"),
                 'end_subscription_date' => date('Y-m-d H:i:s', strtotime("+" . $plan_info[0]['plan_duration']))//date("Y-m-d H:i:s", strtotime("+" . $plan_info[0]['plan_duration'], strtotime('2014-05-22 10:35:10'))),
             );
+            
             $this->Members_Model->update_member($member_id, $update_data);
             // get member info
             $member_info = $this->Members_Model->get_member_by_id($member_id);
@@ -113,7 +115,13 @@ class Misc extends FrontEnd_Controller {
             $member_email_v_code = $update_data['email_verification_code'];
             sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $member_id . '/' . $member_email_v_code) . "'>Clicking here.</a>");
         }
-        $this->_response(false, "Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com");
+        echo json_encode(array(
+            'error' => false,
+            'description' => 'Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com',
+            'code' => ''
+        ));
+        exit;
+        //$this->_response(false, "Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com");
     }
 
     function verify($member_id, $member_code = "") {
@@ -128,6 +136,34 @@ class Misc extends FrontEnd_Controller {
         $this->selected_tab = 'about';
         $this->load->view('frontend/misc/about');
     }
+    
+    function verify_email($verification_code = '')
+    {
+        if($verification_code != '')
+        {
+            $result = $this->Members_Model->getBy('email_verification_code',$verification_code);
+            $data['verified'] = false;
+            if(!empty($result))
+            {
+                if($result[0]->email_verification_code == $verification_code)
+                {
+                   $update_data = array(
+                        'email_verification_code' => '',
+                        'is_email_verified' => 1
+                    );
+                   $this->Members_Model->update_member($result[0]->member_id, $update_data);
+                   $data['verified'] = true; 
+                }
+                
+            }
+            
+           $this->load->view('frontend/misc/verified_status',$data); 
+            
+            
+        }
+    }
+    
+    
 
     function contact() {
         $this->selected_tab = 'contact';

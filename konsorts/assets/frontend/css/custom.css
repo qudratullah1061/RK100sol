@@ -966,8 +966,17 @@ span.seperator.bg-light-gray {}
     padding: 0;
     margin-top: 11px;
 }
+#add_companion_member input, #add_companion_member textarea,  #add_companion_member select{
+    margin-bottom: 0;
+}
+.gap-top{margin-top:122px;}
+.form-control.select2-hidden-accessible {
+    width: 100% !important;
+}
 
-
+.select2-container {
+    width: 100% !important;
+}
 
 .profile-reviews .rating ul {
     display: inline-block;
