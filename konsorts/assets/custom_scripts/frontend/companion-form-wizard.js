@@ -230,17 +230,20 @@ var FormWizard = function () {
             $("#dd-country").select2({
                 placeholder: "Select",
                 allowClear: true,
-                width: 'auto',
+                width: '100%',
+                theme: "bootstrap"
             });
             $("#dd-state").select2({
                 placeholder: "Select",
                 allowClear: true,
-                width: 'auto',
+                width: '100%',
+                theme: "bootstrap"
             });
             $("#dd-city").select2({
                 placeholder: "Select",
                 allowClear: true,
-                width: 'auto',
+                width: '100%',
+                theme: "bootstrap"
             });
             handleCompanionFormValidation('add_companion_member');
             var form = $('#add_companion_member');

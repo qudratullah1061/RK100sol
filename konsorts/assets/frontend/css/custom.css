@@ -974,9 +974,9 @@ span.seperator.bg-light-gray {}
     width: 100% !important;
 }
 
-.select2-container {
+/*.select2-container {
     width: 100% !important;
-}
+}*/
 
 .profile-reviews .rating ul {
     display: inline-block;

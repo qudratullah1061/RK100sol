@@ -118,7 +118,7 @@ class Misc extends CI_Controller {
             $member_info = $this->Members_Model->get_member_by_id($member_id);
             $member_email = $member_info['email'];
             $member_email_v_code = $update_data['email_verification_code'];
-            sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $member_email_v_code) . "'>Clicking here.</a>");
+            sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $member_id . '/' . $member_email_v_code) . "'>Clicking here.</a>");
         }
         echo json_encode(array(
             'error' => false,
@@ -127,6 +127,13 @@ class Misc extends CI_Controller {
         ));
         exit;
         //$this->_response(false, "Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com");
+    }
+
+    function verify($member_id, $member_code = "") {
+        if ($member_code) {
+            $this->Misc_Model->check_member_code_exist();
+        }
+        redirect(base_url());
     }
 
 //    Misc pages start here

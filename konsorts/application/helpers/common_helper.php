@@ -239,13 +239,16 @@ function sendEmail($to, $subject, $messages) {
     require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
 //PHPMailer Object
     $mail = new PHPMailer;
-    //$mail->SMTPDebug = 3;
+//    $mail->SMTPDebug = 3;
 //Set PHPMailer to use SMTP.
     $mail->isSMTP();
 //Set SMTP host name                      
     $mail->Host = "smtp.gmail.com";
 //Set this to true if SMTP host requires authentication to send email
     $mail->SMTPAuth = true;
+    $mail->verify_peer = false;
+    $mail->verify_peer_name = false;
+    $mail->allow_self_signed = true;
 //Provide username and password
     $mail->Username = "itcomradetest@gmail.com";
     $mail->Password = "itcomrade.us@123";
