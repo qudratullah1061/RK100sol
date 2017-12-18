@@ -3,42 +3,47 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Misc extends FrontEnd_Controller {
+class Misc extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
         $this->layout = 'frontend/main';
+       
         $this->load->model('admin/misc_model', 'Misc_Model');
         $this->load->model('admin/members_model', 'Members_Model');
     }
+    
+    public function isAjax() {
+        header('Content-Type: application/json');
+    }
 
-//    function DeleteRecord() {
-//        $this->isAjax();
-//        $unique_id = $this->input->post('unique_id');
-//        $table = $this->input->post('table');
-//        $column = $this->input->post('column');
-//        // if image table delete file from folder as well.
-//        if ($table == 'tb_member_images') {
-//            $where_clause = array('image_id'=>$unique_id);
-//            $img_info = $this->Misc_Model->SelectByWhere($where_clause);
-//            delete_image_from_directory($img_info);
-//        }
-//        $result = $this->Misc_Model->DeleteRecord($unique_id, $table, $column);
-//
-//
-//        if ($result) {
-//            $this->_response(false, "Record deleted successfully!");
-//        }
-//        $this->_response(true, "Problem while deleting record.");
-//    }
-//    function MarkAsProfileImage() {
-//        $this->isAjax();
-//        $unique_id = $this->input->post('image_id');
-//        $member_id = $this->input->post('member_id');
-//        $this->Misc_Model->UpdateRecord('member_id', $member_id, array('is_profile_image' => 0));
-//        $this->Misc_Model->UpdateRecord('image_id', $unique_id, array('is_profile_image' => 1));
-//        $this->_response(false, "Profile pic updated successfully!");
-//    }
+    function DeleteRecord() {
+        $this->isAjax();
+        $unique_id = $this->input->post('unique_id');
+        $table = $this->input->post('table');
+        $column = $this->input->post('column');
+        // if image table delete file from folder as well.
+        if ($table == 'tb_member_images') {
+            $where_clause = array('image_id'=>$unique_id);
+            $img_info = $this->Misc_Model->SelectByWhere($where_clause);
+            delete_image_from_directory($img_info);
+        }
+        $result = $this->Misc_Model->DeleteRecord($unique_id, $table, $column);
+
+
+        if ($result) {
+            $this->_response(false, "Record deleted successfully!");
+        }
+        $this->_response(true, "Problem while deleting record.");
+    }
+    function MarkAsProfileImage() {
+        $this->isAjax();
+        $unique_id = $this->input->post('image_id');
+        $member_id = $this->input->post('member_id');
+        $this->Misc_Model->UpdateRecord('member_id', $member_id, array('is_profile_image' => 0));
+        $this->Misc_Model->UpdateRecord('image_id', $unique_id, array('is_profile_image' => 1));
+        $this->_response(false, "Profile pic updated successfully!");
+    }
 
     function delete_dropzone_temp_file() {
         $unique_id = $this->input->get_post('unique_id');
@@ -127,6 +132,7 @@ class Misc extends FrontEnd_Controller {
 //    Misc pages start here
     function about() {
         $this->selected_tab = 'about';
+       
         $this->load->view('frontend/misc/about');
     }
     

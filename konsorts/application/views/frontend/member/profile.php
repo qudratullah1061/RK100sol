@@ -3,15 +3,15 @@
         <div class="col-md-3 col-sm-4">
             <div class="profile-left wow fadeInUp">
                 <div class="profile-personal">
-                    <span class="status online"><!-- + Note: remove class online if user is offline + -->
-                        online
+                    <span class="status <?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"><!-- + Note: remove class online if user is offline + -->
+                        <?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
                     </span>
                     <div class="profile-media">
-                        <img src="<?php echo base_url();?>assets/frontend/img/profile-img.jpg" alt="">
+                        <img src="<?php echo base_url($member_info['image_path'].$member_info['image']);?>" alt="">
                     </div>
                     <div class="profile-info">
-                        <p>Robert C.</p>
-                        <span> <i class="fa fa-map-marker"></i> Belgium, Malimont </span>
+                        <p><?php echo $member_info['first_name'];?> <?php echo ($member_info['last_name'] != '' ? $member_info['last_name'][0] : '');?>.</p>
+                        <span> <i class="fa fa-map-marker"></i> <?php echo $member_info['country_name'];?>, <?php echo $member_info['city_name'];?> </span>
                     </div>
 
                     <div class="profile-rating">
@@ -29,9 +29,9 @@
                 </div>
                 <div class="profile-misc">
                     <ul>
-                        <li><p>Registration Date:</p>  <span>18-Aug,2017</span></li>
-                        <li><p>Date of Birth: </p><span>15-Jan,1973</span></li>
-                        <li><p>Acalability: </p><span class="online"> <i class="fa fa-check-circle"></i>Available</span></li>
+                        <li><p>Registration Date:</p>  <span><?php echo date("d-M,Y",strtotime($member_info['created_on'])); ;?></span></li>
+                        <li><p>Date of Birth: </p><span><?php echo date("d-M,Y",strtotime($member_info['date_of_birth'])); ;?></span></li>
+                        <li><p>Acalability: </p><span class="<?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"> <i class="fa fa-check-circle"></i><?php echo ($member_info['is_online'] == 1 ? 'Available' : 'Un Available'); ?></span></li>
                         <li><p>Travel Option:</p> <span>Off</span></li>
                         <li><p>Available From:</p></li>
                         <li><p>Available To:</p></li>
@@ -76,13 +76,12 @@
                 <div class="profile-skills">
                     <ul>
                         <li><h6>My Skills</h6></li>
-                        <li>Travel Companion</li>
-                        <li>City Tours</li>
-                        <li>Personal Trainer</li>
-                        <li>Running Partner</li>
-                        <li>Hiking Buddy</li>
-                        <li>Fitness Online Coach</li>
-                        <li>Financial Coach</li>
+                        <?php foreach($selected_sub_categories as $sub_category){?>
+                        
+                        <li><?php echo $sub_category['sub_category_name']; ?></li>
+                        
+                        <?php } ?>
+                        
                     </ul>
                 </div>
             </div>
@@ -90,11 +89,8 @@
         <div class="col-md-9 col-sm-8">
             <div class="profile-right  wow fadeInUp">
                 <div class="profile-intro">
-                    <h5>Tourism, Fitness, Coaching.</h5>
-                    <p>Hi there,</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. Sit amet nisl purus in mollis nunc sed. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit. Eget magna fermentum iaculis eu non diam. Vitae proin sagittis nisl rhoncus mattis rhoncus. Feugiat vivamus at augue eget. Egestas diam in arcu cursus. </p>
-                    <p>Enim tortor at auctor urna nunc. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt. Tellus molestie nunc non blandit massa enim nec dui. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. 
-                        Velit laoreet id donec ultrices tincidunt arcu non. Turpis nunc eget lorem dolor sed viverra. A condimentum vitae sapien pellentesque habitant morbi tristique. In est ante in nibh mauris. Tellus at urna condimentum mattis pellentesque id. Praesent elementum facilisis leo vel fringilla. Id nibh tortor id aliquet.</p>
+                    <h5><?php echo implode(',',array_column($selected_categories,'category_name'));?>.</h5>
+                    <p><?php echo $member_info['about_me']; ?></p>
                 </div>
 
                 <div class="profile-portfolio">
@@ -105,28 +101,17 @@
                                 <ul class="portfolio-grid work-4col gutter-large hover-option6 lightbox-portfolio">
                                     <li class="grid-sizer"></li>
                                     <!-- start portfolio item -->
-                                    <li class="grid-item wow zoomIn last-paragraph-no-margin">
+                                    
+                                    <?php 
+                                    $count_sec = 0.0;
+                                    foreach($portfolios as $portfolio){?>
+                                    <li class="grid-item wow zoomIn last-paragraph-no-margin" <?php echo ($count_sec == 0.0 ? '' : 'data-wow-delay="'.$count_sec.'s"');?>>
                                         <figure>
                                             <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                                <img src="<?php echo base_url();?>assets/frontend/img/portfolio-1.jpg" alt=""/>
+                                                <img src="<?php echo base_url($portfolio['portfolio_image_path'].$portfolio['portfolio_image']);?>" alt=""/>
                                                 <div class="portfolio-icon text-white text-left">
-                                                    <p>Battle fields of </p>
-                                                    <p>Flanders, Belgium</p>
-                                                    <span class="seperator bg-light-gray"></span>
-                                                    <h6>Travel Place</h6>
-                                                </div>
-                                            </div>
-                                        </figure>
-                                    </li>
-                                    <!-- end portfolio item -->
-                                    <!-- start portfolio item -->
-                                    <li class="grid-item wow zoomIn last-paragraph-no-margin" data-wow-delay="0.2s">
-                                        <figure>
-                                            <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                                <img src="<?php echo base_url();?>assets/frontend/img/portfolio-2.jpg" alt=""/>
-                                                <div class="portfolio-icon text-white text-left">
-                                                    <p>Battle fields of </p>
-                                                    <p>Flanders, Belgium</p>
+                                                    <p><?php echo $portfolio['portfolio_title']; ?></p>
+                                                    <p><?php echo $portfolio['city_name']; ?>, <?php echo $portfolio['country_name']; ?></p>
                                                     <span class="seperator bg-light-gray"></span>
                                                     <h6>Travel Place</h6>
                                                 </div>
@@ -134,38 +119,14 @@
 
                                         </figure>
                                     </li>
+                                    <?php $count_sec = $count_sec+ 0.2;
+                                       }
+                                       ?>
+                                    
                                     <!-- end portfolio item -->
                                     <!-- start portfolio item -->
-                                    <li class="grid-item wow zoomIn last-paragraph-no-margin" data-wow-delay="0.4s">
-                                        <figure>
-                                            <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                                <img src="<?php echo base_url();?>assets/frontend/img/portfolio-3.jpg" alt=""/>
-                                                <div class="portfolio-icon text-white text-left">
-                                                    <p>Battle fields of </p>
-                                                    <p>Flanders, Belgium</p>
-                                                    <span class="seperator bg-light-gray"></span>
-                                                    <h6>Travel Place</h6>
-                                                </div>
-                                            </div>
-
-                                        </figure>
-                                    </li>
-                                    <!-- end portfolio item -->
-                                    <!-- start portfolio item -->
-                                    <li class="grid-item wow zoomIn last-paragraph-no-margin">
-                                        <figure>
-                                            <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                                <img src="<?php echo base_url();?>assets/frontend/img/portfolio-4.jpg" alt=""/>
-                                                <div class="portfolio-icon text-white text-left">
-                                                    <p>Battle fields of </p>
-                                                    <p>Flanders, Belgium</p>
-                                                    <span class="seperator bg-light-gray"></span>
-                                                    <h6>Travel Place</h6>
-                                                </div>
-                                            </div>
-
-                                        </figure>
-                                    </li>
+                                    
+                                   
                                     <!-- end portfolio item -->
                                 </ul>
                             </div>

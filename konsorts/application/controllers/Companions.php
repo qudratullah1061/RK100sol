@@ -7,8 +7,13 @@ class Companions extends FrontEnd_Controller {
 
     public function __construct() {
         parent::__construct();
+        if($this->session->userdata('member_type') == 1)
+        {
+            redirect(base_url('guests/get_guest_profile'));
+        }
         $this->layout = 'frontend/main';
         $this->load->model('admin/members_model', 'Members_Model');
+        $this->load->model('admin/misc_model', 'Misc_Model');
     }
     
     
@@ -57,8 +62,18 @@ class Companions extends FrontEnd_Controller {
         }
         return true;
     }
-
     
+    
+    
+    
+    
+    function update_member_categories() {
+        $this->isAjax();
+        $member_id = $this->input->post('member_id');
+        $categories = $this->input->post('categories');
+        $this->AddUpdateMemberCategories($categories, $member_id);
+        $this->_response(false, "Changes saved successfully!");
+    }
 
     public function add_companion_user() {
         $this->isAjax();
@@ -108,7 +123,7 @@ class Companions extends FrontEnd_Controller {
                 
                 $data['other_interest'] = $this->input->post('other_interest');
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
-                $data['updated_by'] = $data['created_by'] = 0;
+                $data['updated_by'] = $data['created_by'] = $edit_id;
                 if ($edit_id > 0) {
                     // unset created on
                     unset($data['created_on']);
@@ -199,6 +214,92 @@ class Companions extends FrontEnd_Controller {
    
     function AddUpdateMemberCategories($member_categories, $member_id) {
         $this->Members_Model->AddUpdateMemberCategories($member_categories, $member_id);
+    }
+    
+    
+    public function get_companion_profile() {
+//        if (!$user_id || ($user_id == 1 && $this->admin_info['admin_id'] != 1)) {
+//            redirect(base_url('admin/dashboard'));
+//        }
+        $member_id = $this->session->userdata('member_id');
+        $member_info = $this->Members_Model->get_member_by_id($member_id);
+        $data['member_profile_pics'] = $this->Members_Model->get_member_images_by_type(array('image_type' => 'profile', 'member_id' => $member_id));
+        $data['member_id_proofs'] = $this->Members_Model->get_member_images_by_type(array('image_type' => 'id_proof', 'member_id' => $member_id));
+        if ($member_info) {
+            $data['member_info'] = $member_info;
+            $data['member_images'] = $member_info;
+            $data['country_options'] = GetCountriesOption($member_info['country']);
+            $data['state_options'] = GetStatesOption($member_info['country'], $member_info['state']);
+            $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
+            $data['categories'] = GetAllCategories();
+            $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
+           
+            $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id);
+           
+            
+            $this->load->view('frontend/companions/view_companion_profile', $data);
+        } else {
+            redirect(base_url());
+        }
+    }
+    
+    
+    function modal_portfolio() {
+        
+        $this->isAjax();
+        
+        $portfolio_id = $this->input->post('portfolio_id');
+        $portfolio_data = $this->Misc_Model->get_portfolio($portfolio_id);
+        $data['portfolio_data'] = $portfolio_data;
+        $data['country_options'] = GetCountriesOption((isset($data['portfolio_data']->country) ? $data['portfolio_data']->country : '') );
+        
+        $data['state_options'] = GetStatesOption((isset($data['portfolio_data']->country) ? $data['portfolio_data']->country : ''), (isset($data['portfolio_data']->state) ? $data['portfolio_data']->state : ''));
+        $data['city_options'] = GetCityOptions((isset($data['portfolio_data']->state) ? $data['portfolio_data']->state : ''), (isset($data['portfolio_data']->city) ? $data['portfolio_data']->city : ''));
+        $html = $this->load->view('frontend/companions/add_portfolio', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
+
+    function add_update_portfolio() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            $edit_id = $this->input->post('portfolio_id');
+            $this->form_validation->set_rules('portfolio_title', 'Portfolio Title', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('country', 'Country', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('city', 'City', 'required|trim|strip_tags|xss_clean');
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->_response(true, validation_errors());
+            } else {
+                $data = array();
+                $data['portfolio_title'] = $this->input->post('portfolio_title');
+                $data['country'] = $this->input->post('country');
+                $data['state'] = $this->input->post('state');
+                $data['city'] = $this->input->post('city');
+                $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
+                $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
+                $data['updated_by'] = $data['created_by'] = $this->session->userdata['member_id'];
+                if ($edit_id > 0) {
+                    // unset created on
+                    unset($data['created_on']);
+                    unset($data['created_by']);
+                }
+                $result = false;
+                if ($edit_id > 0) {
+                    $this->Misc_Model->update_portfolio('portfolio_id', $edit_id, $data);
+                    $result = true;
+                } else {
+                    $result = $this->Misc_Model->add_portfolio($data);
+                }
+                if ($result) {
+                    $this->_response(false, "Changes saved successfully!");
+                }
+            }
+        } else {
+            redirect(base_url('companions/get_companion_profile'));
+        }
     }
     
 

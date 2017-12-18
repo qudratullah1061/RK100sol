@@ -18,7 +18,10 @@ class Members_model extends Abstract_model {
     }
 
     function get_member_by_id($member_id) {
-        $sql = "SELECT `tb_member_images`.image, `tb_member_images`.image_path, `tb_member_images`.is_profile_image, `tb_member_images`.image_type, `tb_members`.* FROM `tb_members` " .
+        $sql = "SELECT `tb_countries`.country_name,`tb_states`.state_name,`tb_cities`.city_name,`tb_member_images`.image, `tb_member_images`.image_path, `tb_member_images`.is_profile_image, `tb_member_images`.image_type, `tb_members`.* FROM `tb_members` " .
+                " LEFT JOIN `tb_countries` ON `tb_countries`.country_id = tb_members.country" .
+                " LEFT JOIN `tb_states` ON `tb_states`.state_id = tb_members.state" .
+                " LEFT JOIN `tb_cities` ON `tb_cities`.city_id = tb_members.city" .
                 " LEFT JOIN `tb_member_images` ON `tb_member_images`.image_id = " .
                 "   (SELECT image_id " .
                 "      FROM `tb_member_images` " .
@@ -28,6 +31,18 @@ class Members_model extends Abstract_model {
         if ($member_info) {
             return isset($member_info[0]) ? $member_info[0] : array();
         }
+    }
+    
+     function get_member_portfolio($member_id) {
+        $sql = "SELECT `tb_countries`.country_name,`tb_states`.state_name,`tb_cities`.city_name,tb_member_portfolios.* FROM `tb_members` " .
+                " LEFT JOIN `tb_countries` ON `tb_countries`.country_id = tb_members.country" .
+                " LEFT JOIN `tb_states` ON `tb_states`.state_id = tb_members.state" .
+                " LEFT JOIN `tb_cities` ON `tb_cities`.city_id = tb_members.city" .
+                " LEFT JOIN `tb_member_portfolios` ON `tb_member_portfolios`.member_id = tb_members.member_id" .
+              
+                " WHERE `tb_members`.member_id = " . $member_id;
+        return  $this->db->query($sql)->result_array();
+       
     }
     
      public function IsMember($username = "", $password = "") {
@@ -108,6 +123,27 @@ class Members_model extends Abstract_model {
 
     public function get_all_selected_categories($member_id) {
         return $this->db->get_where('tb_member_categories', array('member_id' => $member_id))->result_array();
+    }
+    
+    
+    public function get_selected_categories($member_id) {
+        $this->db->select('tb_categories.category_name,tb_categories.category_id');
+        $this->db->from('tb_categories');
+        $this->db->join('tb_member_categories','tb_member_categories.category_id = tb_categories.category_id');
+        $this->db->where('tb_member_categories.member_id',$member_id);
+        $this->db->group_by('tb_categories.category_id');
+        return $this->db->get()->result_array();
+        
+    }
+    
+    
+    public function get_selected_sub_categories($member_id) {
+        $this->db->select('tb_sub_categories.sub_category_name,tb_sub_categories.sub_category_id');
+        $this->db->from('tb_sub_categories');
+        $this->db->join('tb_member_categories','tb_member_categories.sub_category_id = tb_sub_categories.sub_category_id');
+        $this->db->where('tb_member_categories.member_id',$member_id);
+        return $this->db->get()->result_array();
+        
     }
 
     function AddUpdateMemberCategories($member_categories, $member_id,$added_by = 0) {

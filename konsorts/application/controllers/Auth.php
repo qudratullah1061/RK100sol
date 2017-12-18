@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Auth extends FrontEnd_Controller {
+class Auth extends CI_Controller {
 
     private $errors = array(
         '1' => "Email address or password is invalid!",
@@ -13,7 +13,7 @@ class Auth extends FrontEnd_Controller {
     public function __construct() {
         parent::__construct();
         
-        $this->layout = 'frontend/main';
+        $this->layout = 'frontend/login';
          $this->load->model('admin/members_model', 'Members_Model');
     }
 
@@ -64,7 +64,8 @@ class Auth extends FrontEnd_Controller {
                             $this->load->view('frontend/auth/login', $data);
 
                         } else {
-                            $this->session->set_userdata(array('member_id' => $user_info['member_id'], 'username' => $user_info['username'], 'email' => $user_info['email'], 'member_type' => $user_info['member_type'], 'is_locked' => false));
+                            $user_info = $this->Members_Model->get_member_by_id($user_info['member_id']);
+                            $this->session->set_userdata(array('member_id' => $user_info['member_id'],'member_info' => $user_info, 'username' => $user_info['username'], 'email' => $user_info['email'], 'member_type' => $user_info['member_type']));
                             redirect(base_url('member/profile'));
 
                         }
@@ -80,11 +81,10 @@ class Auth extends FrontEnd_Controller {
        }
    }
 
-//
-//    public function logout() {
-////        $this->session->unset_userdata(array('admin_id'=> '', 'admin_name'=> '', 'admin_email'    => '', 'admin_username' => ''));
-//        $this->session->sess_destroy();
-//        redirect(base_url('admin/admin_auth'));
-//    }
-    //Controller for Authenticating the login
+ public function logout() {
+//        $this->session->unset_userdata(array('admin_id'=> '', 'admin_name'=> '', 'admin_email'    => '', 'admin_username' => ''));
+        $this->session->sess_destroy();
+        redirect(base_url('auth/login'));
+    }
+
 }

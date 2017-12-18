@@ -38,7 +38,33 @@ var FormWizard = function () {
         });
     }
 
-
+    var submitMemberCategoriesUpdate = function (formId) {
+        $("#" + formId).on('submit', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: base_url + "companions/update_member_categories",
+                datatype: 'json',
+                data: new FormData($("#" + formId)[0]),
+                processData: false,
+                contentType: false,
+                beforeSend: function ()
+                {
+                    App.blockUI({target: '#' + formId, animate: true});
+                },
+                complete: function () {
+                    App.unblockUI('#' + formId);
+                },
+                success: function (data) {
+                    if (!data.error) {
+                        toastr["success"](data.description, "Success!");
+                    } else {
+                        toastr["error"](data.description, "Error!");
+                    }
+                }
+            });
+        });
+    }
    
 
     var handleCompanionFormValidation = function (formId) {
@@ -104,7 +130,52 @@ var FormWizard = function () {
                     required: true
                 }
             };
-        } 
+        } else if ('update_companion_member' == formId) {
+            Rules = {
+                first_name: {
+                    required: true
+                },
+                last_name: {
+                    required: true,
+                },
+                username: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                },
+                confirm_password: {
+                    equalTo: "#password"
+                },
+                phone_number: {
+                    required: true,
+                },
+                gender: {
+                    required: true,
+                },
+                date_of_birth: {
+                    required: true,
+                },
+                country: {
+                    required: true,
+                },
+                state: {
+                    required: true,
+                },
+                city: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                },
+                about_me: {
+                    required: true
+                }
+            }
+        }
         form.validate({
             doNotHideMessage: true, //this option enables to show the error/success messages on tab switch.
             errorElement: 'span', //default input error message container
@@ -252,6 +323,9 @@ var FormWizard = function () {
         },
         handleCompanionValidation: function (formId) {
             handleCompanionFormValidation(formId);
+        },
+        handleMemberCategoriesUpdate: function (formId) {
+            submitMemberCategoriesUpdate(formId);
         }
     };
 

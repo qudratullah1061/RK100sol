@@ -13,6 +13,10 @@ class Guests extends FrontEnd_Controller {
 
     function __construct() {
         parent::__construct();
+        if($this->session->userdata('member_type') == 2)
+        {
+            redirect(base_url('companions/get_companion_profile'));
+        }
         $this->layout = 'frontend/main';
         $this->load->model('admin/members_model', 'Members_Model');
     }
@@ -93,7 +97,7 @@ class Guests extends FrontEnd_Controller {
                 $data['membership_type'] = 'Guest';
                 $data['other_interest'] = $this->input->post('other_interest');
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
-                $data['updated_by'] = $data['created_by'] = 0;
+                $data['updated_by'] = $data['created_by'] = $edit_id;
                 if ($edit_id > 0) {
                     // unset created on
                     unset($data['created_on']);
@@ -165,6 +169,34 @@ class Guests extends FrontEnd_Controller {
             redirect(base_url('home'));
         }
     }
+    
+    
+    function watermarkImage() {
+        watermarkImage($this->config->item('root_path') . 'assets/watermark_img/gallery2.jpg');
+        exit;
+    }
+
+    public function upload_images_member() {
+        $member_id = $this->input->post('member_id');
+        $image_type = $this->input->post('image_type');
+        $image_dir = $this->input->post('image_dir');
+        $watermark = $image_type == 'profile' ? TRUE : FALSE;
+        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+        $result = UploadImage('file', $image_dir, TRUE, $thumb_options, $watermark);
+        if (isset($result['error'])) {
+            $this->_response(true, $result['error']);
+        }
+        // new image paths
+        $image = $result['upload_data']['file_name'];
+        $image_path = $result['upload_data']['file_path'];
+
+        $image_data = array('member_id' => $member_id, 'image_type' => $image_type, 'is_profile_image' => 0, 'image' => $image, 'image_path' => $image_dir);
+        $this->db->insert('tb_member_images', $image_data);
+        $this->_response(true, 'File uploaded successfully!');
+    }
 
     function guest_payment($member_id) {
         // check user exist in db
@@ -176,6 +208,27 @@ class Guests extends FrontEnd_Controller {
                 $data['member_id'] = $member_id;
                 $this->load->view('frontend/guests/guest_payment', $data);
             }
+        }
+    }
+    
+    
+    public function get_guest_profile() {
+//        if (!$user_id || ($user_id == 1 && $this->admin_info['admin_id'] != 1)) {
+//            redirect(base_url('admin/dashboard'));
+//        }
+        $member_id = $this->session->userdata('member_id');
+        $member_info = $this->Members_Model->get_member_by_id($member_id);
+        $data['member_profile_pics'] = $this->Members_Model->get_member_images_by_type(array('image_type' => 'profile', 'member_id' => $member_id));
+        $data['member_id_proofs'] = $this->Members_Model->get_member_images_by_type(array('image_type' => 'id_proof', 'member_id' => $member_id));
+        if ($member_info) {
+            $data['member_info'] = $member_info;
+            $data['member_images'] = $member_info;
+            $data['country_options'] = GetCountriesOption($member_info['country']);
+            $data['state_options'] = GetStatesOption($member_info['country'], $member_info['state']);
+            $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
+            $this->load->view('frontend/guests/view_guest_profile', $data);
+        } else {
+            redirect(base_url());
         }
     }
 

@@ -64,7 +64,7 @@ var CommonFunctions = function () {
         },
                 function () {
                     $.ajax({
-                        url: base_url + "admin/Misc/MarkAsProfileImage/",
+                        url: base_url + "misc/MarkAsProfileImage/",
                         dataType: 'json',
                         method: 'post',
                         cache: false,
@@ -97,71 +97,71 @@ var CommonFunctions = function () {
                 });
     }
 
-//    var Delete = function (unique_id, table, column, msg) {
-//
-//        swal({
-//            title: "Are you sure?",
-//            text: "Warning! " + msg,
-//            type: "warning",
-//            closeOnConfirm: false,
-//            showCancelButton: true,
-//            confirmButtonClass: "btn-danger",
-//            confirmButtonText: "Yes, delete it!",
-//        },
-//                function () {
-//                    $.ajax({
-//                        url: base_url + "admin/Misc/DeleteRecord/",
-//                        dataType: 'json',
-//                        method: 'post',
-//                        cache: false,
-//                        data: {unique_id: unique_id, table: table, column: column},
-//                        beforeSend: function () {
-//                            App.blockUI({target: 'body', animate: true});
-//                        },
-//                        complete: function () {
-//                            App.unblockUI('body');
-//                        },
-//                        success: function (data) {
-//                            if (!data.error) {
-//                                swal({
-//                                    title: "Deleted",
-//                                    text: data.description,
-//                                    type: "success",
-//                                }, function () {
-//                                    if (table == 'tb_admin_users') {
-//                                        $('#datatable_adminusers').DataTable().ajax.reload();
-//                                    } else if (table == 'tb_categories') {
-//                                        $('#datatable_categories').DataTable().ajax.reload();
-//                                    } else if (table == 'tb_sub_categories') {
-//                                        $('#datatable_sub_categories').DataTable().ajax.reload();
-//                                    } else if (table == 'tb_members') {
-//                                        if ($('#datatable_guests').length > 0)
-//                                            $('#datatable_guests').DataTable().ajax.reload();
-//                                        else if ($('#datatable_companions').length > 0)
-//                                            $('#datatable_companions').DataTable().ajax.reload();
-//                                    } else if (table == 'tb_member_images') {
-//                                        $("#pic-" + unique_id).remove();
-//                                        $('#load_member_profile_images').cubeportfolio('destroy');
-//                                        $('#load_member_id_proofs').cubeportfolio('destroy');
-//                                        is_init_profile_images = false;
-//                                        load_member_profile_images();
-//                                        is_init_id_proof_images = false;
-//                                        load_member_id_proofs();
-//                                    }
-//                                });
-//                            } else {
-//                                // exception message here.
-//                                swal("Error!", data.description, "error");
-//                            }
-//                        },
-//                        error: function (xhr, desc, err) {
-//                            toastr["error"](xhr.statusText, "Error.");
-//                        }
-//                    });
-//                });
-//    };
+    var Delete = function (unique_id, table, column, msg) {
 
-    var GetStateOptions = function (country_id, state_id) {
+        swal({
+            title: "Are you sure?",
+            text: "Warning! " + msg,
+            type: "warning",
+            closeOnConfirm: false,
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, delete it!",
+        },
+                function () {
+                    $.ajax({
+                        url: base_url + "misc/DeleteRecord/",
+                        dataType: 'json',
+                        method: 'post',
+                        cache: false,
+                        data: {unique_id: unique_id, table: table, column: column},
+                        beforeSend: function () {
+                            App.blockUI({target: 'body', animate: true});
+                        },
+                        complete: function () {
+                            App.unblockUI('body');
+                        },
+                        success: function (data) {
+                            if (!data.error) {
+                                swal({
+                                    title: "Deleted",
+                                    text: data.description,
+                                    type: "success",
+                                }, function () {
+                                    if (table == 'tb_admin_users') {
+                                        $('#datatable_adminusers').DataTable().ajax.reload();
+                                    } else if (table == 'tb_categories') {
+                                        $('#datatable_categories').DataTable().ajax.reload();
+                                    } else if (table == 'tb_sub_categories') {
+                                        $('#datatable_sub_categories').DataTable().ajax.reload();
+                                    } else if (table == 'tb_members') {
+                                        if ($('#datatable_guests').length > 0)
+                                            $('#datatable_guests').DataTable().ajax.reload();
+                                        else if ($('#datatable_companions').length > 0)
+                                            $('#datatable_companions').DataTable().ajax.reload();
+                                    } else if (table == 'tb_member_images') {
+                                        $("#pic-" + unique_id).remove();
+                                        $('#load_member_profile_images').cubeportfolio('destroy');
+                                        $('#load_member_id_proofs').cubeportfolio('destroy');
+                                        is_init_profile_images = false;
+                                        load_member_profile_images();
+                                        is_init_id_proof_images = false;
+                                        load_member_id_proofs();
+                                    }
+                                });
+                            } else {
+                                // exception message here.
+                                swal("Error!", data.description, "error");
+                            }
+                        },
+                        error: function (xhr, desc, err) {
+                            toastr["error"](xhr.statusText, "Error.");
+                        }
+                    });
+                });
+    };
+
+    var GetStateOptions = function (country_id, state_id, class_name) {
         $.ajax({
             url: base_url + "misc/get_states/",
             dataType: 'json',
@@ -176,7 +176,15 @@ var CommonFunctions = function () {
             },
             success: function (data) {
                 if (!data.error) {
-                    $("#dd-state").html(data.options);
+                    
+                    if(typeof class_name != 'undefined')
+                    {
+                        $("."+class_name).html(data.options);
+                    }else
+                    {
+                        $("#dd-state").html(data.options);
+                    }
+                    
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");
@@ -187,7 +195,7 @@ var CommonFunctions = function () {
             }
         });
     };
-    var GetCitiesOptions = function (state_id, city_id) {
+    var GetCitiesOptions = function (state_id, city_id,class_name) {
         $.ajax({
             url: base_url + "misc/get_cities/",
             dataType: 'json',
@@ -201,8 +209,16 @@ var CommonFunctions = function () {
                 App.unblockUI('body');
             },
             success: function (data) {
+                
                 if (!data.error) {
-                    $("#dd-city").html(data.options);
+                    if(typeof class_name != 'undefined')
+                    {
+                        $("."+class_name).html(data.options);
+                    }else
+                    {
+                        $("#dd-city").html(data.options); 
+                    }
+                   
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");
@@ -254,20 +270,20 @@ var CommonFunctions = function () {
     };
 
     return {
-//        Delete: function (unique_id, table, column, msg) {
-//            Delete(unique_id, table, column, msg);
-//        },
+        Delete: function (unique_id, table, column, msg) {
+            Delete(unique_id, table, column, msg);
+        },
         MakeProfileImage: function (image_id, member_id) {
             MarkAsProfileImage(image_id, member_id);
         },
         DeleteDropzoneFile: function (unique_id, file_name) {
             DeleteDropzoneFile(unique_id, file_name);
         },
-        LoadStates: function (country_id, state_id) {
-            GetStateOptions(country_id, state_id);
+        LoadStates: function (country_id, state_id, class_name) {
+            GetStateOptions(country_id, state_id, class_name);
         },
-        LoadCities: function (state_id, city_id) {
-            GetCitiesOptions(state_id, city_id);
+        LoadCities: function (state_id, city_id, class_name) {
+            GetCitiesOptions(state_id, city_id, class_name);
         },
         ExecutePayment: function (data, member_id) {
             UpdatePaymentInfoInDB(data, member_id);

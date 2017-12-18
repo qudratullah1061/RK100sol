@@ -45,6 +45,24 @@ class Misc_model extends Abstract_model {
         $this->table_name = "tb_categories";
         return $this->save($data);
     }
+    
+    
+    public function add_portfolio($data) {
+        $this->table_name = "tb_member_portfolios";
+        return $this->save($data);
+    }
+    
+    public function get_portfolio($portfolio_id) {
+        $this->table_name = 'tb_member_portfolios';
+        $result = $this->getBy('portfolio_id', $portfolio_id);
+        if ($result) {
+            return isset($result[0]) ? $result[0] : array();
+        }
+    }
+     public function update_portfolio($column, $row_id, $data) {
+        $this->table_name = "tb_member_portfolios";
+        return $this->updateBy($column, $row_id, $data);
+    }
 
     public function add_sub_category($data) {
         $this->table_name = "tb_sub_categories";
