@@ -280,13 +280,31 @@ class Companions extends FrontEnd_Controller {
                 $data['city'] = $this->input->post('city');
                 $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
-                $data['updated_by'] = $data['created_by'] = $this->session->userdata['member_id'];
+                $data['updated_by'] = $data['created_by'] = $data['member_id'] = $this->session->userdata['member_info']['member_id'];
                 if ($edit_id > 0) {
                     // unset created on
                     unset($data['created_on']);
                     unset($data['created_by']);
                 }
                 $result = false;
+                 if (isset($_FILES['portfolio_image']['name']) && $_FILES['portfolio_image']['name'] != "" ){
+                    //$id_proofs = reArrayFiles($_FILES['id_proofs']);
+                     $portfolio_images = $_FILES['portfolio_image'];
+                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/portfolio/';
+                    $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                    $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                    $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+                    $file_name = basename($portfolio_images['name']);
+                    $u_file_name = time() . $file_name;
+                    $f_file_path = $f_upload_dir . '/' . $u_file_name;
+                    move_uploaded_file($portfolio_images['tmp_name'], $f_file_path);
+                    CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
+                    // insert in database as well.
+                    $data['portfolio_image_path'] = 'uploads/member_images/portfolio/';
+                    $data['portfolio_image'] = $u_file_name;
+                    
+                }
+                
                 if ($edit_id > 0) {
                     $this->Misc_Model->update_portfolio('portfolio_id', $edit_id, $data);
                     $result = true;

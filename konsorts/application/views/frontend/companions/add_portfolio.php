@@ -1,12 +1,12 @@
 <form id="form-add-portfolio">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-        <h4 class="modal-title">Add New Portfolio</h4>
+        <h4 class="modal-title"><?php echo (isset($portfolio->portfolio_id) ? 'Edit Portfolio' : 'Add New Portfolio');?></h4>
     </div>
     <div class="modal-body"> 
         <div class="portlet-body form">
             <div class="form-body">
-                <input type="hidden" name="portfolio_id" value="<?php echo isset($portfolio_data->_id) ? $portfolio_data->portfolio_id : ""; ?>">
+                <input type="hidden" name="portfolio_id" value="<?php echo isset($portfolio_data->portfolio_id) ? $portfolio_data->portfolio_id : ""; ?>">
                 <div class="form-group form-md-line-input form-md-floating-label">
                     <input type="text" value="<?php echo isset($portfolio_data->portfolio_title) ? $portfolio_data->portfolio_title : ""; ?>" name="portfolio_title" class="form-control">
                     <label>Portfolio Title</label>
@@ -33,8 +33,13 @@
                     </select>
                 </div>
                 
-                
-                 <div class="form-group form-md-line-input form-md-floating-label">
+                <?php if(isset($portfolio_data->portfolio_id)){?>
+                <div class="form-group form-md-line-input form-md-floating-label">
+                    <img src="<?php echo base_url($portfolio_data->portfolio_image_path.'medium_'.$portfolio_data->portfolio_image);?>" class="image-thumbnail">
+                   
+                </div>
+                <?php } ?>
+                <div class="form-group form-md-line-input form-md-floating-label">
                     <input type="file"  name="portfolio_image" class="form-control">
                     <label></label>
                 </div>
