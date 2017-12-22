@@ -199,7 +199,7 @@ class Misc extends CI_Controller {
             $mail->IsSMTP();                           // tell the class to use SMTP
             $mail->SMTPAuth = true;                  // enable SMTP authentication
             $mail->SMTPSecure = "tls";
-            $mail->Port = 587;                   // set the SMTP server port
+            $mail->Port = 465;                   // set the SMTP server port
             $mail->Host = "smtp.gmail.com"; // SMTP server
             $mail->Username = "itcomradetest@gmail.com";     // SMTP server username
             $mail->Password = "itcomrade.us@123";            // SMTP server password
