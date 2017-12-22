@@ -8,9 +8,21 @@ class Misc extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->layout = 'frontend/main';
-       
         $this->load->model('admin/misc_model', 'Misc_Model');
         $this->load->model('admin/members_model', 'Members_Model');
+    }
+    
+    // general json error
+    public function _response($is_error = true, $description = '', $status = '') {
+        $this->output->set_status_header(200);
+        $this->output->set_content_type('application/json');
+        $this->output->set_header('Content-type: application/json');
+        $this->output->set_output(json_encode(array(
+            'error' => $is_error,
+            'description' => $description,
+            'code' => $status
+        )))->_display();
+        die();
     }
     
     public function isAjax() {
@@ -168,8 +180,6 @@ class Misc extends CI_Controller {
             
         }
     }
-    
-    
 
     function contact() {
         $this->selected_tab = 'contact';
@@ -182,6 +192,11 @@ class Misc extends CI_Controller {
 
     function terms() {
         $this->load->view('frontend/misc/terms');
+    }
+    
+    function sendTestMail(){
+        sendEmail("qudratullah1061@gmail.com", "Signup Successfull", "Registration completed. Please verify email by");
+        exit;
     }
 
 //    Misc pages ends here

@@ -184,19 +184,19 @@ var GuestMembers = function () {
             $("#dd-country").select2({
                 placeholder: "Select",
                 allowClear: true,
-                width: '100%',
+                width: 'auto',
                 theme: "bootstrap"
             });
             $("#dd-state").select2({
                 placeholder: "Select",
                 allowClear: true,
-                width: '100%',
+                width: 'auto',
                 theme: "bootstrap"
             });
             $("#dd-city").select2({
                 placeholder: "Select",
                 allowClear: true,
-                width: '100%',
+                width: 'auto',
                 theme: "bootstrap"
             });
             handleValidationAddUpdateGuestMember(formId);
