@@ -252,16 +252,16 @@ function sendEmail($to, $subject, $messages) {
     $mail->Username = "itcomradetest@gmail.com";
     $mail->Password = "itcomrade.us@123";
 //If SMTP requires TLS encryption then set it
-    $mail->SMTPSecure = "tls";
-    $mail->SMTPOptions = array(
-        'ssl' => array(
-            'verify_peer' => 0,
-            'verify_peer_name' => 0,
-            'allow_self_signed' => true
-        )
-    );
+    $mail->SMTPSecure = "ssl";
+//    $mail->SMTPOptions = array(
+//        'ssl' => array(
+//            'verify_peer' => 0,
+//            'verify_peer_name' => 0,
+//            'allow_self_signed' => true
+//        )
+//    );
 //Set TCP port to connect to
-    $mail->Port = 587;
+    $mail->Port = "465";//587;
     $mail->From = "itcomradetest@gmail.com";
     $mail->FromName = "Full Name";
     $mail->addAddress($to); //addAddress($to, "Recepient Name");
