@@ -239,7 +239,7 @@ function sendEmail($to, $subject, $messages) {
     global $CI;
     require_once APPPATH . "/libraries/phpmailer/class.phpmailer.php";
 //PHPMailer Object
-    $mail = new PHPMailer;
+    $mail = new PHPMailer();
     
     $mail->SMTPDebug = 4;
 //Set PHPMailer to use SMTP.
@@ -252,7 +252,7 @@ function sendEmail($to, $subject, $messages) {
     $mail->Username = "itcomradetest@gmail.com";
     $mail->Password = "itcomrade.us@123";
 //If SMTP requires TLS encryption then set it
-    $mail->SMTPSecure = "ssl";
+    $mail->SMTPSecure = "tls";
 //    $mail->SMTPOptions = array(
 //        'ssl' => array(
 //            'verify_peer' => 0,
@@ -261,7 +261,7 @@ function sendEmail($to, $subject, $messages) {
 //        )
 //    );
 //Set TCP port to connect to
-    $mail->Port = "465";//587;
+    $mail->Port = 587;
     $mail->From = "itcomradetest@gmail.com";
     $mail->FromName = "Full Name";
     $mail->addAddress($to); //addAddress($to, "Recepient Name");

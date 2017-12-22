@@ -11,7 +11,7 @@ class Misc extends CI_Controller {
         $this->load->model('admin/misc_model', 'Misc_Model');
         $this->load->model('admin/members_model', 'Members_Model');
     }
-    
+
     // general json error
     public function _response($is_error = true, $description = '', $status = '') {
         $this->output->set_status_header(200);
@@ -24,7 +24,7 @@ class Misc extends CI_Controller {
         )))->_display();
         die();
     }
-    
+
     public function isAjax() {
         header('Content-Type: application/json');
     }
@@ -36,7 +36,7 @@ class Misc extends CI_Controller {
         $column = $this->input->post('column');
         // if image table delete file from folder as well.
         if ($table == 'tb_member_images') {
-            $where_clause = array('image_id'=>$unique_id);
+            $where_clause = array('image_id' => $unique_id);
             $img_info = $this->Misc_Model->SelectByWhere($where_clause);
             delete_image_from_directory($img_info);
         }
@@ -48,6 +48,7 @@ class Misc extends CI_Controller {
         }
         $this->_response(true, "Problem while deleting record.");
     }
+
     function MarkAsProfileImage() {
         $this->isAjax();
         $unique_id = $this->input->post('image_id');
@@ -115,7 +116,7 @@ class Misc extends CI_Controller {
         // update member subscription dates
         // get plan number of days.
         $plan_info = $this->Misc_Model->getMemberPlanByPrice(array('plan_price' => $payment_details['payment_amount'], 'plan_type' => 1, 'is_active' => 1));
-       
+
         if ($plan_info) {
             //update member info. add days to subscription days.
             $update_data = array(
@@ -124,7 +125,7 @@ class Misc extends CI_Controller {
                 'subscription_date' => date("Y-m-d H:i:s"),
                 'end_subscription_date' => date('Y-m-d H:i:s', strtotime("+" . $plan_info[0]['plan_duration']))//date("Y-m-d H:i:s", strtotime("+" . $plan_info[0]['plan_duration'], strtotime('2014-05-22 10:35:10'))),
             );
-            
+
             $this->Members_Model->update_member($member_id, $update_data);
             // get member info
             $member_info = $this->Members_Model->get_member_by_id($member_id);
@@ -151,33 +152,26 @@ class Misc extends CI_Controller {
 //    Misc pages start here
     function about() {
         $this->selected_tab = 'about';
-       
+
         $this->load->view('frontend/misc/about');
     }
-    
-    function verify_email($verification_code = '')
-    {
-        if($verification_code != '')
-        {
-            $result = $this->Members_Model->getBy('email_verification_code',$verification_code);
+
+    function verify_email($verification_code = '') {
+        if ($verification_code != '') {
+            $result = $this->Members_Model->getBy('email_verification_code', $verification_code);
             $data['verified'] = false;
-            if(!empty($result))
-            {
-                if($result[0]->email_verification_code == $verification_code)
-                {
-                   $update_data = array(
+            if (!empty($result)) {
+                if ($result[0]->email_verification_code == $verification_code) {
+                    $update_data = array(
                         'email_verification_code' => '',
                         'is_email_verified' => 1
                     );
-                   $this->Members_Model->update_member($result[0]->member_id, $update_data);
-                   $data['verified'] = true; 
+                    $this->Members_Model->update_member($result[0]->member_id, $update_data);
+                    $data['verified'] = true;
                 }
-                
             }
-            
-           $this->load->view('frontend/misc/verified_status',$data); 
-            
-            
+
+            $this->load->view('frontend/misc/verified_status', $data);
         }
     }
 
@@ -193,8 +187,51 @@ class Misc extends CI_Controller {
     function terms() {
         $this->load->view('frontend/misc/terms');
     }
-    
-    function sendTestMail(){
+
+    function sendTestMail() {
+
+        try {
+            require_once APPPATH . "/libraries/phpmailer/class.phpmailer.php";
+            $mail = new PHPMailer(true); //New instance, with exceptions enabled
+
+            $body = "test me"; //file_get_contents('contents.html');
+
+            $mail->IsSMTP();                           // tell the class to use SMTP
+            $mail->SMTPAuth = true;                  // enable SMTP authentication
+            $mail->SMTPSecure = "tls";
+            $mail->Port = 587;                   // set the SMTP server port
+            $mail->Host = "smtp.gmail.com"; // SMTP server
+            $mail->Username = "itcomradetest@gmail.com";     // SMTP server username
+            $mail->Password = "itcomrade.us@123";            // SMTP server password
+
+            //$mail->IsSendmail();  // tell the class to use Sendmail
+
+            $mail->AddReplyTo("itcomradetest@gmail.com", "First Last");
+
+            $mail->From = "itcomradetest@gmail.com";
+            $mail->FromName = "First Last";
+
+            $to = "qudratullah1061@gmail.com";
+
+            $mail->AddAddress($to);
+
+            $mail->Subject = "First PHPMailer Message";
+
+            $mail->AltBody = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
+            $mail->WordWrap = 80; // set word wrap
+
+            $mail->MsgHTML($body);
+
+            $mail->IsHTML(true); // send as HTML
+
+            $mail->Send();
+            echo 'Message has been sent.';
+        } catch (phpmailerException $e) {
+            echo $e->errorMessage();
+        }
+
+        exit;
+
         sendEmail("qudratullah1061@gmail.com", "Signup Successfull", "Registration completed. Please verify email by");
         exit;
     }
