@@ -236,11 +236,12 @@ function delete_file_from_directory($file_path) {
 }
 
 function sendEmail($to, $subject, $messages) {
+    global $CI;
     require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
 //PHPMailer Object
-    $mail = new PHPMailer();
+    $mail = new PHPMailer;
     
-    $mail->SMTPDebug = 3;
+    $mail->SMTPDebug = 4;
 //Set PHPMailer to use SMTP.
     $mail->isSMTP();
 //Set SMTP host name                      
