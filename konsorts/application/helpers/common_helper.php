@@ -237,7 +237,8 @@ function delete_file_from_directory($file_path) {
 
 function sendEmail($to, $subject, $messages) {
     global $CI;
-    require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
+    //require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/RK100sol/konsorts/application/libraries/PhpMailer/class.phpmailer.php";
 //PHPMailer Object
     $mail = new PHPMailer;
     
