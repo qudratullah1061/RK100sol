@@ -8,7 +8,7 @@
                     <!--<span class="display-block text-white opacity6 width-45 sm-width-100 center-col alt-font margin-10px-bottom">Frequently asked questions</span>-->
                     <!-- end sub title -->
                     <!-- start page title -->
-                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom"><?php echo ( $verified  ? 'Success!' : 'Error!'); ?></h1>
+                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom"><?php echo ( $verified ? 'Success!' : 'Error!'); ?></h1>
                     <!-- end page title -->
                 </div>
             </div>
@@ -21,12 +21,11 @@
         <div class="row">
             <!-- start contact-form head -->
             <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 center-col padding-30px-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center">
-                <h5 class="alt-font text-white font-weight-500"><?php echo ( $verified  ? 'You account is verified.<a href="'.base_url('auth/login').'"> Click here</a> to login.' : 'There is some thing went wrong please try again.'); ?></h5>
-                
+                <h5 class="alt-font text-white font-weight-500"><?php echo ( $verified ? 'You account is verified. <a href="' . base_url('auth/login') . '">Click here</a> to login.' : 'Email verification code is invalid. <a href="' . base_url() . '">Home</a>.'); ?></h5>
             </div>
             <!-- end contact-form head -->
         </div>
         <!-- start contact-form -->
-        
+
     </div>
 </section>
