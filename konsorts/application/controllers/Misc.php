@@ -189,49 +189,27 @@ class Misc extends CI_Controller {
     }
 
     function sendTestMail() {
+        ini_set("SMTP", "ssl://smtp.gmail.com");
+        ini_set("smtp_port", "465");
+        $to = "qudratullah1061@gmail.com";
+        $subject = "This is subject";
 
-        try {
-            require_once APPPATH . "/libraries/phpmailer/class.phpmailer.php";
-            $mail = new PHPMailer(true); //New instance, with exceptions enabled
+        $message = "<b>This is HTML message.</b>";
+        $message .= "<h1>This is headline.</h1>";
 
-            $body = "test me"; //file_get_contents('contents.html');
+        $header = "From:qudrat.ullah@itcomrade.net \r\n";
+        $header .= "Cc:afgh@somedomain.com \r\n";
+        $header .= "MIME-Version: 1.0\r\n";
+        $header .= "Content-type: text/html\r\n";
 
-            $mail->IsSMTP();                           // tell the class to use SMTP
-            $mail->SMTPAuth = true;                  // enable SMTP authentication
-            $mail->SMTPSecure = "ssl";
-            $mail->Port = 465;                   // set the SMTP server port
-            $mail->Host = "smtp.gmail.com"; // SMTP server
-            $mail->Username = "itcomradetest@gmail.com";     // SMTP server username
-            $mail->Password = "itcomrade.us@123";            // SMTP server password
+        $retval = mail($to, $subject, $message, $header);
 
-            //$mail->IsSendmail();  // tell the class to use Sendmail
-
-            $mail->AddReplyTo("itcomradetest@gmail.com", "First Last");
-
-            $mail->From = "itcomradetest@gmail.com";
-            $mail->FromName = "First Last";
-
-            $to = "qudratullah1061@gmail.com";
-
-            $mail->AddAddress($to);
-
-            $mail->Subject = "First PHPMailer Message";
-
-            $mail->AltBody = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
-            $mail->WordWrap = 80; // set word wrap
-
-            $mail->MsgHTML($body);
-
-            $mail->IsHTML(true); // send as HTML
-
-            $mail->Send();
-            echo 'Message has been sent.';
-        } catch (phpmailerException $e) {
-            echo $e->errorMessage();
+        if ($retval == true) {
+            echo "Message sent successfully...";
+        } else {
+            echo "Message could not be sent...";
         }
-
         exit;
-
         sendEmail("qudratullah1061@gmail.com", "Signup Successfull", "Registration completed. Please verify email by");
         exit;
     }
