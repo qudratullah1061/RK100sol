@@ -256,7 +256,7 @@ var CommonFunctions = function () {
                         closeOnConfirm: true
                     },
                     function () {
-
+                        window.location.href = base_url;
                     });
                 } else {
                     // exception message here.

@@ -5,6 +5,8 @@ if (!defined('BASEPATH'))
 
 class Misc extends CI_Controller {
 
+    public $selected_tab = 'login';
+
     public function __construct() {
         parent::__construct();
         $this->layout = 'frontend/main';
@@ -142,6 +144,7 @@ class Misc extends CI_Controller {
         //$this->_response(false, "Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com");
     }
 
+    // check this function. Will through an error.
     function verify($member_id, $member_code = "") {
         if ($member_code) {
             $this->Misc_Model->check_member_code_exist();
@@ -170,8 +173,9 @@ class Misc extends CI_Controller {
                     $data['verified'] = true;
                 }
             }
-
             $this->load->view('frontend/misc/verified_status', $data);
+        } else {
+            redirect(base_url());
         }
     }
 

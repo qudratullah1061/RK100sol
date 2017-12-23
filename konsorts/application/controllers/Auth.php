@@ -5,10 +5,7 @@ if (!defined('BASEPATH'))
 
 class Auth extends CI_Controller {
 
-//    private $errors = array(
-//        '1' => "Email address or password is invalid!",
-//        '2' => "Please enter data in all fields!",
-//    );
+    public $selected_tab = 'login';
 
     public function __construct() {
         parent::__construct();
