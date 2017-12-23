@@ -191,17 +191,17 @@ class Misc extends CI_Controller {
     function sendTestMail() {
 //        ini_set("SMTP", "ssl://smtp.gmail.com");
 //        ini_set("smtp_port", "465");
-        $this->load->library('email');
-        $this->email->from('itcomradetest@gmail.com', 'Itcomrade');
-        $this->email->to('qudratullah1061@gmail.com');
-        //$this->email->cc('another@another-example.com');
-        //$this->email->bcc('them@their-example.com');
-
-        $this->email->subject('Email Test');
-        $this->email->message('Testing the email class.');
-
-        $this->email->send();
-        exit;
+//        $this->load->library('email');
+//        $this->email->from('itcomradetest@gmail.com', 'Itcomrade');
+//        $this->email->to('qudratullah1061@gmail.com');
+//        //$this->email->cc('another@another-example.com');
+//        //$this->email->bcc('them@their-example.com');
+//
+//        $this->email->subject('Email Test');
+//        $this->email->message('Testing the email class.');
+//
+//        $this->email->send();
+//        exit;
         $to = "qudratullah1061@gmail.com";
         $subject = "This is subject";
 
