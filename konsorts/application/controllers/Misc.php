@@ -164,6 +164,9 @@ class Misc extends CI_Controller {
             $result = $this->Members_Model->getBy('email_verification_code', $verification_code);
             $data['verified'] = false;
             if (!empty($result)) {
+                echo $result[0]->email_verification_code == $verification_code;
+                echo $result[0]->email_verification_code;
+                exit;
                 if ($result[0]->email_verification_code == $verification_code) {
                     $update_data = array(
                         'email_verification_code' => '',
