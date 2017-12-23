@@ -5,23 +5,23 @@ if (!defined('BASEPATH'))
 
 class Auth extends CI_Controller {
 
-    private $errors = array(
-        '1' => "Email address or password is invalid!",
-        '2' => "Please enter data in all fields!",
-    );
+//    private $errors = array(
+//        '1' => "Email address or password is invalid!",
+//        '2' => "Please enter data in all fields!",
+//    );
 
     public function __construct() {
         parent::__construct();
-        
-        $this->layout = 'frontend/login';
-         $this->load->model('admin/members_model', 'Members_Model');
+
+        $this->layout = 'frontend/main';
+        $this->load->model('admin/members_model', 'Members_Model');
     }
 
     function login() {
         $this->selected_tab = 'login';
         $this->load->view('frontend/auth/login');
     }
-    
+
     function register() {
         $this->selected_tab = 'register';
         $this->load->view('frontend/auth/membership_plans');
@@ -41,47 +41,26 @@ class Auth extends CI_Controller {
                 $password = $this->input->post('password');
                 $result = $this->Members_Model->member_login($username, $password);
                 if ($result['error'] == 1) {
-                    $data['login_error'] = $this->errors[$result['error']];
+                    $data['login_error'] = $result['error_message'];
+                    $data['alert'] = 'danger';
+//                    echo "<pre>";
+//                    print_r($result);
+//                    exit;
+                    $this->selected_tab = 'login';
                     $this->load->view('frontend/auth/login', $data);
                 } else {
                     $user_info = $result['member_info'];
-                    if($user_info['is_email_verified'] != 1)
-                    {
-                        $data['login_error'] = 'Your account is not email verified.';
-                        $data['alert'] = 'danger';
-                        $this->load->view('frontend/auth/login', $data);
-                        
-                    }else{
-                        if($user_info['status'] == 'pending')
-                        {
-                            $data['login_error'] = 'Your account is not verify by admin.Please wait for 24 hours.';
-                            $data['alert'] = 'info';
-                            $this->load->view('frontend/auth/login', $data);
-                        }else if($user_info['status'] == 'suspended')
-                        {
-                            $data['login_error'] = 'Your account is suspended.';
-                            $data['alert'] = 'danger';
-                            $this->load->view('frontend/auth/login', $data);
-
-                        } else {
-                            $user_info = $this->Members_Model->get_member_by_id($user_info['member_id']);
-                            $this->session->set_userdata(array('member_id' => $user_info['member_id'],'member_info' => $user_info, 'username' => $user_info['username'], 'email' => $user_info['email'], 'member_type' => $user_info['member_type']));
-                            redirect(base_url('member/profile'));
-
-                        }
-                    }
-                    
-                    
-                    
-                    
+                    $user_info = $this->Members_Model->get_member_by_id($user_info['member_id']);
+                    $this->session->set_userdata(array('member_id' => $user_info['member_id'], 'member_info' => $user_info, 'username' => $user_info['username'], 'email' => $user_info['email'], 'member_type' => $user_info['member_type']));
+                    redirect(base_url('member/profile'));
                 }
-           }
-       } else {
-           redirect(base_url('auth/login'));
-       }
-   }
+            }
+        } else {
+            redirect(base_url('auth/login'));
+        }
+    }
 
- public function logout() {
+    public function logout() {
 //        $this->session->unset_userdata(array('admin_id'=> '', 'admin_name'=> '', 'admin_email'    => '', 'admin_username' => ''));
         $this->session->sess_destroy();
         redirect(base_url('auth/login'));

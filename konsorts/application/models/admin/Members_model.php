@@ -7,9 +7,11 @@
 include_once(APPPATH . 'models/Abstract_model.php');
 
 class Members_model extends Abstract_model {
+
     protected $is_error;
     public $member_exists;
     public $member_info;
+
     //Model Constructor
     function __construct() {
         // inherited from base class.
@@ -32,24 +34,22 @@ class Members_model extends Abstract_model {
             return isset($member_info[0]) ? $member_info[0] : array();
         }
     }
-    
-     function get_member_portfolio($member_id) {
+
+    function get_member_portfolio($member_id) {
         $sql = "SELECT `tb_countries`.country_name,`tb_states`.state_name,`tb_cities`.city_name,tb_member_portfolios.* FROM `tb_members` " .
                 " LEFT JOIN `tb_countries` ON `tb_countries`.country_id = tb_members.country" .
                 " LEFT JOIN `tb_states` ON `tb_states`.state_id = tb_members.state" .
                 " LEFT JOIN `tb_cities` ON `tb_cities`.city_id = tb_members.city" .
                 " LEFT JOIN `tb_member_portfolios` ON `tb_member_portfolios`.member_id = tb_members.member_id" .
-              
                 " WHERE `tb_members`.member_id = " . $member_id;
-        return  $this->db->query($sql)->result_array();
-       
+        return $this->db->query($sql)->result_array();
     }
-    
-     public function IsMember($username = "", $password = "") {
+
+    public function IsMember($username = "", $password = "") {
         $this->is_error = FALSE;
         $this->member_exists = FALSE;
         if (trim($username) && trim($password)) {
-            $password = sha1($password);
+            $password = md5($password);
             $member = $this->db->query("SELECT * FROM $this->table_name WHERE ((email='{$username}' OR username='{$username}') AND password='{$password}') LIMIT 1");
             if ($member->num_rows() > 0) {
                 $this->member_exists = TRUE;
@@ -61,11 +61,28 @@ class Members_model extends Abstract_model {
     public function member_login($username, $password) {
         $this->IsMember($username, $password);
         if (!$this->member_exists) {
-            $this->is_error = 1;
+            return array('error' => 1, 'member_info' => null, 'error_message' => "Please enter valid username and password to login.");
         } else {
-            $this->is_error = 0;
+            // check is email verified by member. Otherwise show message to user to verify email first before login.
+            if ($this->member_info[0]['subscription_date'] != "0000-00-00 00:00:00") {
+                if ($this->member_info[0]['member_type'] == 1) {
+                    redirect(base_url('guests/guest_payment/' . $this->member_info[0]['member_id'] . "/1"));
+                }
+            } elseif (strtotime($this->member_info[0]['end_subscription_date']) <= time()) {
+                if ($this->member_info[0]['member_type'] == 1) {
+                    redirect(base_url('guests/guest_payment/' . $this->member_info[0]['member_id'] . "/2"));
+                }
+            } elseif ($this->member_info[0]['is_email_verified'] == 0) {
+                return array('error' => 1, 'member_info' => $this->member_info[0], 'error_message' => "Please verify email address before login to your account.");
+            } elseif ($this->member_info[0]['status'] == "pending") {
+                return array('error' => 1, 'member_info' => $this->member_info[0], 'error_message' => "Account is under review by admin and will be approved within 24 hours. We will notify you when account will be activated by admin. Thanks for your patience.");
+            } elseif ($this->member_info[0]['status'] == "suspended") {
+                return array('error' => 1, 'member_info' => $this->member_info[0], 'error_message' => "Account is suspended by admin. Admin will contact you with the reason why account is suspended. Or you can directly send email to admin. Thanks for your patience.");
+            }
+            //$this->is_error = 0;
+            if ($this->member_info[0]['status'] == 'active')
+                return array('error' => 0, 'member_info' => $this->member_info[0]);
         }
-        return array('error' => $this->is_error, 'member_info' => $this->member_info[0]);
     }
 
     function get_member_images_by_type($where) {
@@ -124,33 +141,28 @@ class Members_model extends Abstract_model {
     public function get_all_selected_categories($member_id) {
         return $this->db->get_where('tb_member_categories', array('member_id' => $member_id))->result_array();
     }
-    
-    
+
     public function get_selected_categories($member_id) {
         $this->db->select('tb_categories.category_name,tb_categories.category_id');
         $this->db->from('tb_categories');
-        $this->db->join('tb_member_categories','tb_member_categories.category_id = tb_categories.category_id');
-        $this->db->where('tb_member_categories.member_id',$member_id);
+        $this->db->join('tb_member_categories', 'tb_member_categories.category_id = tb_categories.category_id');
+        $this->db->where('tb_member_categories.member_id', $member_id);
         $this->db->group_by('tb_categories.category_id');
         return $this->db->get()->result_array();
-        
     }
-    
-    
+
     public function get_selected_sub_categories($member_id) {
         $this->db->select('tb_sub_categories.sub_category_name,tb_sub_categories.sub_category_id');
         $this->db->from('tb_sub_categories');
-        $this->db->join('tb_member_categories','tb_member_categories.sub_category_id = tb_sub_categories.sub_category_id');
-        $this->db->where('tb_member_categories.member_id',$member_id);
+        $this->db->join('tb_member_categories', 'tb_member_categories.sub_category_id = tb_sub_categories.sub_category_id');
+        $this->db->where('tb_member_categories.member_id', $member_id);
         return $this->db->get()->result_array();
-        
     }
 
-    function AddUpdateMemberCategories($member_categories, $member_id,$added_by = 0) {
+    function AddUpdateMemberCategories($member_categories, $member_id, $added_by = 0) {
         if ($member_id) {
             // delete previous member ids
-            if($this->session->userdata('admin_id'))
-            {
+            if ($this->session->userdata('admin_id')) {
                 $added_by = $this->session->userdata('admin_id');
             }
             $this->table_name = 'tb_member_categories';

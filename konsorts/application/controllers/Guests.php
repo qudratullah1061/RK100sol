@@ -11,10 +11,14 @@ if (!defined('BASEPATH'))
 
 class Guests extends FrontEnd_Controller {
 
+    private $error_msgs = array(
+        '1' => "Please pay for your account before login.",
+        '2' => "Your subscription has been ended. Please renew your subscription before login to your account.",
+    );
+
     function __construct() {
         parent::__construct();
-        if($this->session->userdata('member_type') == 2)
-        {
+        if ($this->session->userdata('member_type') == 2) {
             redirect(base_url('companions/get_companion_profile'));
         }
         $this->layout = 'frontend/main';
@@ -169,8 +173,7 @@ class Guests extends FrontEnd_Controller {
             redirect(base_url('home'));
         }
     }
-    
-    
+
     function watermarkImage() {
         watermarkImage($this->config->item('root_path') . 'assets/watermark_img/gallery2.jpg');
         exit;
@@ -198,7 +201,7 @@ class Guests extends FrontEnd_Controller {
         $this->_response(true, 'File uploaded successfully!');
     }
 
-    function guest_payment($member_id) {
+    function guest_payment($member_id, $msg_id = 0) {
         // check user exist in db
         if ($member_id) {
             $result = $this->Members_Model->get_member_by_id($member_id);
@@ -206,12 +209,16 @@ class Guests extends FrontEnd_Controller {
                 // get guest member plans
                 $data['plans'] = $this->Members_Model->getPlans(1);
                 $data['member_id'] = $member_id;
+                if ($msg_id > 0) {
+                    $data['error_msg'] = isset($this->error_msgs[$msg_id]) ? $this->error_msgs[$msg_id] : "";
+                }
                 $this->load->view('frontend/guests/guest_payment', $data);
+            } else {
+                redirect(base_url());
             }
         }
     }
-    
-    
+
     public function get_guest_profile() {
 //        if (!$user_id || ($user_id == 1 && $this->admin_info['admin_id'] != 1)) {
 //            redirect(base_url('admin/dashboard'));

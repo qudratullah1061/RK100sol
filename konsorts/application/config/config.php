@@ -32,7 +32,7 @@ if ($_SERVER['HTTP_HOST'] == 'www.konsorts.com' || $_SERVER['HTTP_HOST'] == 'kon
     define("ENVO", "LIVE");
     ini_set('display_errors', 0);
     ini_set('display_startup_errors', 0);
-} else if ($_SERVER['HTTP_HOST'] == '100solutionz.net') {
+} else if ($_SERVER['HTTP_HOST'] == '100solutionz.net' || $_SERVER['HTTP_HOST'] == 'www.konsorts.com') {
     define("ENVO", "DEV");
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);

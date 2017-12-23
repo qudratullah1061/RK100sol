@@ -15,7 +15,7 @@
     -o-transition: .3s;
     -webkit-transition: .3s;
     transition: .3s;
-    height: 270px;
+    /*height: 270px;*/
 }
 .panel-login.bigHeight{height: 380px;}
 .panel.panel-login {

@@ -10,6 +10,12 @@
             <div class="portlet-body">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
+                        <?php if (isset($error_msg) && trim($error_msg) != "") { ?>
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><?php echo $error_msg; ?></span>
+                            </div>
+                        <?php } ?>
                         <div class="form-group">
                             <input type="hidden" name="member_id" id="member_id" value="<?php echo $member_id; ?>">
                             <label>Select Membership Plan<span class="required">*</span></label>
