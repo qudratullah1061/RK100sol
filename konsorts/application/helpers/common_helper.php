@@ -252,7 +252,7 @@ function sendEmail($to, $subject, $messages) {
     $mail->Username = "itcomradetest@gmail.com";
     $mail->Password = "itcomrade.us@123";
 //If SMTP requires TLS encryption then set it
-    $mail->SMTPSecure = "tls";
+    $mail->SMTPSecure = "ssl";
 //    $mail->SMTPOptions = array(
 //        'ssl' => array(
 //            'verify_peer' => 0,
