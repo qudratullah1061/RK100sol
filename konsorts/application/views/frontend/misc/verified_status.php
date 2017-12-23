@@ -21,7 +21,7 @@
         <div class="row">
             <!-- start contact-form head -->
             <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 center-col padding-30px-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center">
-                <h5 class="alt-font text-white font-weight-500"><?php echo ( $verified ? 'You account is verified. <a href="' . base_url('auth/login') . '">Click here</a> to login.' : 'Email verification code is invalid. <a href="' . base_url() . '">Home</a>.'); ?></h5>
+                <h5 class="alt-font text-white font-weight-500"><?php echo ( $verified ? 'You account is verified. <a href="' . base_url('auth/login') . '">Click here</a> to login.' : 'Email verification code is invalid. <a href="' . base_url() . '">Click here</a> to go to home page.'); ?></h5>
             </div>
             <!-- end contact-form head -->
         </div>
