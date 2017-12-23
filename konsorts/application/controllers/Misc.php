@@ -190,7 +190,7 @@ class Misc extends CI_Controller {
 
     function sendTestMail() {
         ini_set("SMTP", "ssl://smtp.gmail.com");
-        ini_set("smtp_port", "465");
+//        ini_set("smtp_port", "465");
 //        $to = "qudratullah1061@gmail.com";
 //        $subject = "This is subject";
 //

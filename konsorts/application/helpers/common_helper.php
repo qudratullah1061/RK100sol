@@ -261,7 +261,7 @@ function sendEmail($to, $subject, $messages) {
 //        )
 //    );
 //Set TCP port to connect to
-    $mail->Port = 587;
+//    $mail->Port = 587;
     $mail->From = "itcomradetest@gmail.com";
     $mail->FromName = "Full Name";
     $mail->addAddress($to); //addAddress($to, "Recepient Name");
