@@ -176,15 +176,15 @@ var CommonFunctions = function () {
             },
             success: function (data) {
                 if (!data.error) {
-                    
-                    if(typeof class_name != 'undefined')
+
+                    if (typeof class_name != 'undefined')
                     {
-                        $("."+class_name).html(data.options);
-                    }else
+                        $("." + class_name).html(data.options);
+                    } else
                     {
                         $("#dd-state").html(data.options);
                     }
-                    
+
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");
@@ -195,7 +195,7 @@ var CommonFunctions = function () {
             }
         });
     };
-    var GetCitiesOptions = function (state_id, city_id,class_name) {
+    var GetCitiesOptions = function (state_id, city_id, class_name) {
         $.ajax({
             url: base_url + "misc/get_cities/",
             dataType: 'json',
@@ -209,16 +209,16 @@ var CommonFunctions = function () {
                 App.unblockUI('body');
             },
             success: function (data) {
-                
+
                 if (!data.error) {
-                    if(typeof class_name != 'undefined')
+                    if (typeof class_name != 'undefined')
                     {
-                        $("."+class_name).html(data.options);
-                    }else
+                        $("." + class_name).html(data.options);
+                    } else
                     {
-                        $("#dd-city").html(data.options); 
+                        $("#dd-city").html(data.options);
                     }
-                   
+
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");
@@ -231,7 +231,7 @@ var CommonFunctions = function () {
     };
 
     var UpdatePaymentInfoInDB = function (data, member_id) {
-       // alert('here');
+        // alert('here');
         $.ajax({
             url: base_url + "misc/UpdatePaymentInfoInDB/",
             dataType: 'json',
@@ -255,9 +255,9 @@ var CommonFunctions = function () {
                         confirmButtonText: "Done",
                         closeOnConfirm: true
                     },
-                            function () {
+                    function () {
 
-                            });
+                    });
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");

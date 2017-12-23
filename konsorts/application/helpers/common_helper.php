@@ -235,9 +235,7 @@ function delete_file_from_directory($file_path) {
     }
 }
 
-function sendEmail($to, $subject, $messages) {
-    $message = "<b>This is HTML message.</b>";
-    $message .= "<h1>This is headline.</h1>";
+function sendEmail($to, $subject, $message) {
     $header = "From:itcomradetest@gmail.com \r\n";
 //        $header .= "Cc:afgh@somedomain.com \r\n";
     $header .= "MIME-Version: 1.0\r\n";
@@ -249,7 +247,6 @@ function sendEmail($to, $subject, $messages) {
         echo "Message could not be sent...";
         exit;
     }
-
 
 //    global $CI;
 //    

@@ -41,8 +41,8 @@
     $(".payment_options").change(function () {
         var price = $(this).val();
         var currency = $(this).find(':selected').data('currency');
-        console.log(price);
-        console.log(currency);
+//        console.log(price);
+//        console.log(currency);
         paypal.Button.render({
             env: 'sandbox', // sandbox | production
 
@@ -56,7 +56,6 @@
             commit: true,
             // payment() is called when the button is clicked
             payment: function (data, actions) {
-
                 // Make a call to the REST api to create the payment
                 return actions.payment.create({
                     payment: {
