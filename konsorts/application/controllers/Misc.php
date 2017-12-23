@@ -159,9 +159,9 @@ class Misc extends CI_Controller {
         $this->load->view('frontend/misc/about');
     }
 
-    function verify_email($verification_code = '') {
-        if ($verification_code != '') {
-            $result = $this->Members_Model->getBy('email_verification_code', $verification_code);
+    function verify_email($member_id, $verification_code = '') {
+        if ($verification_code != '' && $member_id > 0) {
+            $result = $this->Members_Model->getBy('email_verification_code', $verification_code, 'member_id', $member_id);
             $data['verified'] = false;
             if (!empty($result)) {
                 echo $result[0]->email_verification_code == $verification_code;
