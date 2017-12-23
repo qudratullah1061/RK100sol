@@ -189,7 +189,7 @@ class Misc extends CI_Controller {
     }
 
     function sendTestMail() {
-        sendEmail("qudratullah1061@gmail.com", "Signup Successfull", "Registration completed. Please verify email by");
+        echo sendEmail("qudratullah1061@gmail.com", "Signup Successfull", "Registration completed. Please verify email by");
         exit;
     }
 
