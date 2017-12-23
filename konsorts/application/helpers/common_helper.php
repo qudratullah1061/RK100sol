@@ -236,40 +236,55 @@ function delete_file_from_directory($file_path) {
 }
 
 function sendEmail($to, $subject, $messages) {
-    global $CI;
-    
-    $root_path = $CI->config->item('root_path');
-    require $root_path . 'vendor/autoload.php';
-    require $root_path . 'vendor/phpmailer/phpmailer/src/Exception.php';
-    require $root_path . 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-    require $root_path . 'vendor/phpmailer/phpmailer/src/SMTP.php';
-    //require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
-//PHPMailer Object
-    $mail = new PHPMailer;
-    //$mail->SMTPDebug = 3;
-//Set PHPMailer to use SMTP.
-    $mail->isSMTP();
-//Set SMTP host name                      
-    $mail->Host = "smtp.gmail.com";
-//Set this to true if SMTP host requires authentication to send email
-    $mail->SMTPAuth = true;
-//Provide username and password
-    $mail->Username = "itcomradetest@gmail.com";
-    $mail->Password = "itcomrade.us@123";
-//If SMTP requires TLS encryption then set it
-    $mail->SMTPSecure = "tls";
-//Set TCP port to connect to
-    $mail->Port = 587; //465;
-    $mail->From = "qudratullah1061@gmail.com";
-    $mail->FromName = "Full Name";
-    $mail->addAddress($to); //addAddress($to, "Recepient Name");
-    $mail->isHTML(true);
-    $mail->Subject = $subject;
-    $mail->Body = $messages;
-//    $mail->AltBody = "This is the plain text version of the email content";
-    if (!$mail->send()) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
+    $message = "<b>This is HTML message.</b>";
+    $message .= "<h1>This is headline.</h1>";
+    $header = "From:itcomradetest@gmail.com \r\n";
+//        $header .= "Cc:afgh@somedomain.com \r\n";
+    $header .= "MIME-Version: 1.0\r\n";
+    $header .= "Content-type: text/html\r\n";
+    $retval = mail($to, $subject, $message, $header);
+    if ($retval == true) {
+        return true;
+    } else {
+        echo "Message could not be sent...";
         exit;
     }
+
+
+//    global $CI;
+//    
+//    $root_path = $CI->config->item('root_path');
+//    require $root_path . 'vendor/autoload.php';
+//    require $root_path . 'vendor/phpmailer/phpmailer/src/Exception.php';
+//    require $root_path . 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+//    require $root_path . 'vendor/phpmailer/phpmailer/src/SMTP.php';
+//    //require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
+////PHPMailer Object
+//    $mail = new PHPMailer;
+//    //$mail->SMTPDebug = 3;
+////Set PHPMailer to use SMTP.
+//    $mail->isSMTP();
+////Set SMTP host name                      
+//    $mail->Host = "smtp.gmail.com";
+////Set this to true if SMTP host requires authentication to send email
+//    $mail->SMTPAuth = true;
+////Provide username and password
+//    $mail->Username = "itcomradetest@gmail.com";
+//    $mail->Password = "itcomrade.us@123";
+////If SMTP requires TLS encryption then set it
+//    $mail->SMTPSecure = "tls";
+////Set TCP port to connect to
+//    $mail->Port = 587; //465;
+//    $mail->From = "qudratullah1061@gmail.com";
+//    $mail->FromName = "Full Name";
+//    $mail->addAddress($to); //addAddress($to, "Recepient Name");
+//    $mail->isHTML(true);
+//    $mail->Subject = $subject;
+//    $mail->Body = $messages;
+////    $mail->AltBody = "This is the plain text version of the email content";
+//    if (!$mail->send()) {
+//        echo "Mailer Error: " . $mail->ErrorInfo;
+//        exit;
+//    }
     return true;
 }
