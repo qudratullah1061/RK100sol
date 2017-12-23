@@ -237,11 +237,16 @@ function delete_file_from_directory($file_path) {
 
 function sendEmail($to, $subject, $messages) {
     global $CI;
-    require_once APPPATH . "/libraries/phpmailer/class.phpmailer.php";
-//PHPMailer Object
-    $mail = new PHPMailer();
     
-    $mail->SMTPDebug = 4;
+    $root_path = $CI->config->item('root_path');
+    require $root_path . 'vendor/autoload.php';
+    require $root_path . 'vendor/phpmailer/phpmailer/src/Exception.php';
+    require $root_path . 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    require $root_path . 'vendor/phpmailer/phpmailer/src/SMTP.php';
+    //require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
+//PHPMailer Object
+    $mail = new PHPMailer;
+    //$mail->SMTPDebug = 3;
 //Set PHPMailer to use SMTP.
     $mail->isSMTP();
 //Set SMTP host name                      
@@ -252,25 +257,15 @@ function sendEmail($to, $subject, $messages) {
     $mail->Username = "itcomradetest@gmail.com";
     $mail->Password = "itcomrade.us@123";
 //If SMTP requires TLS encryption then set it
-    $mail->SMTPSecure = "ssl";
-//    $mail->SMTPOptions = array(
-//        'ssl' => array(
-//            'verify_peer' => 0,
-//            'verify_peer_name' => 0,
-//            'allow_self_signed' => true
-//        )
-//    );
+    $mail->SMTPSecure = "tls";
 //Set TCP port to connect to
-//    $mail->Port = 587;
-    $mail->From = "itcomradetest@gmail.com";
+    $mail->Port = 587; //465;
+    $mail->From = "qudratullah1061@gmail.com";
     $mail->FromName = "Full Name";
     $mail->addAddress($to); //addAddress($to, "Recepient Name");
     $mail->isHTML(true);
     $mail->Subject = $subject;
     $mail->Body = $messages;
-//    echo "<pre>";
-//    print_r($mail);
-//    exit;
 //    $mail->AltBody = "This is the plain text version of the email content";
     if (!$mail->send()) {
         echo "Mailer Error: " . $mail->ErrorInfo;
