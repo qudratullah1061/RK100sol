@@ -8,7 +8,7 @@
 <section class="pricing membership-plans">
     <div class="container">
 
-<h1 class="page-title"> Guest Member Profile | Account
+<h1 class="page-title"> Guest Member Profile | Account22
     <small>Guest account page</small>
 </h1>
 <!-- END PAGE TITLE-->
