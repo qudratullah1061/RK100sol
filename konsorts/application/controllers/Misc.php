@@ -196,11 +196,7 @@ class Misc extends CI_Controller {
         $this->email->to('qudratullah1061@gmail.com');
         //$this->email->cc('another@another-example.com');
         //$this->email->bcc('them@their-example.com');
-        $this->email->smtp_host('smtp.gmail.com');
-        $this->email->smtp_user('itcomradetest@gmail.com');
-        $this->email->smtp_pass('itcomrade.us@123');
-        $this->email->smtp_port('465');
-
+        
         $this->email->subject('Email Test');
         $this->email->message('Testing the email class.');
 
