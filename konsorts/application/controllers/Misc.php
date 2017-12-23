@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 
 class Misc extends CI_Controller {
 
-    public $selected_tab = 'login';
+    public $selected_tab = '';
 
     public function __construct() {
         parent::__construct();
