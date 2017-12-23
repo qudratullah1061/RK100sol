@@ -43,9 +43,6 @@ class Auth extends CI_Controller {
                 if ($result['error'] == 1) {
                     $data['login_error'] = $result['error_message'];
                     $data['alert'] = 'danger';
-//                    echo "<pre>";
-//                    print_r($result);
-//                    exit;
                     $this->selected_tab = 'login';
                     $this->load->view('frontend/auth/login', $data);
                 } else {

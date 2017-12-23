@@ -130,52 +130,48 @@
                                     <li class="<?php echo ActivateLink('contact'); ?>">
                                         <a href="<?php echo base_url('misc/contact'); ?>">Contact Us</a>
                                     </li>
-                                   <?php if(!isset($this->session->userdata['member_id'])){?>
-                                    <li class="dropdown megamenu-fw <?php echo ActivateLink('login'); ?>">
-                                        <a href="<?php echo base_url('auth/login'); ?>">Log in</a>
-                                        <!--<i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>-->
-                                        <!-- start sub menu -->
-                                    </li>
-                                    <li class="<?php echo ActivateLink('signup'); ?>">
-                                        <div class="signup-link">
-                                            <a href="<?php echo base_url('auth/register'); ?>" class="btn btn-small btn-deep-purple lato font-weight-700"> SIGN UP </a>
-                                        </div>
+                                    <?php if (!isset($this->session->userdata['member_id'])) { ?>
+                                        <li class="dropdown megamenu-fw <?php echo ActivateLink('login'); ?>">
+                                            <a href="<?php echo base_url('auth/login'); ?>">Log in</a>
+                                            <!--<i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>-->
+                                            <!-- start sub menu -->
+                                        </li>
+                                        <li class="<?php echo ActivateLink('signup'); ?>">
+                                            <div class="signup-link">
+                                                <a href="<?php echo base_url('auth/register'); ?>" class="btn btn-small btn-deep-purple lato font-weight-700"> SIGN UP </a>
+                                            </div>
 
-                                    </li>
-                                   <?php } ?>
+                                        </li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
-                        
-                        <?php if(isset($this->session->userdata['member_id'])){
-                            
-                           
-                            
-                            
+
+                        <?php if (isset($this->session->userdata['member_id'])) {
                             ?>
-                        <div class="col-md-2 col-xs-5 width-auto header-right">
-                            <div class="header-searchbar">
-                                <div class="notifications not">
-                                    <a href="#search-header" class="header-search-form text-white"><i class="fa fa-bell-o"></i></a>
-                                    <span class="counter">3</span>
-                                </div>
-                                <div class="notifications msg">
-                                    <a href="#search-header" class="header-search-form text-white"><i class="fa fa-envelope-o"></i></a>
-                                    <span class="counter">10</span>
-                                </div>
+                            <div class="col-md-2 col-xs-5 width-auto header-right">
+                                <div class="header-searchbar">
+                                    <div class="notifications not">
+                                        <a href="#search-header" class="header-search-form text-white"><i class="fa fa-bell-o"></i></a>
+                                        <span class="counter">3</span>
+                                    </div>
+                                    <div class="notifications msg">
+                                        <a href="#search-header" class="header-search-form text-white"><i class="fa fa-envelope-o"></i></a>
+                                        <span class="counter">10</span>
+                                    </div>
 
+                                </div>
+                                <div class="dropdown">
+                                    <a type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <img src="<?php echo base_url($this->session->userdata['member_info']['image_path'] . $this->session->userdata['member_info']['image']); ?>" alt="">   <?php echo $this->session->userdata['member_info']['first_name']; ?>
+                                        <span class="fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="<?php echo base_url(($this->session->userdata['member_info']['member_type'] == 1 ? 'guests/get_guest_profile' : 'companions/get_companion_profile')); ?>"><i class="fa fa-gear"></i> Settings</a></li>
+                                        <li><a href="<?php echo base_url('auth/logout'); ?>"><i class="fa fa-sign-out"></i> Log out</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="dropdown">
-                                <a type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <img src="<?php echo base_url($this->session->userdata['member_info']['image_path'].$this->session->userdata['member_info']['image']);?>" alt="">   <?php echo $this->session->userdata['member_info']['first_name'];?>
-                                    <span class="fa fa-angle-down"></span>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="<?php echo base_url(($this->session->userdata['member_info']['member_type'] == 1 ? 'guests/get_guest_profile' : 'companions/get_companion_profile'));?>"><i class="fa fa-gear"></i> Settings</a></li>
-                                    <li><a href="<?php echo base_url('auth/logout');?>"><i class="fa fa-sign-out"></i> Log out</a></li>
-                                </ul>
-                            </div>
-                        </div>
                         <?php } ?>
                         <!-- <div class="col-md-2 col-xs-5 width-auto">
                             <div class="header-searchbar">
