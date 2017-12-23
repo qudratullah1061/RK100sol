@@ -144,7 +144,7 @@ class Misc extends CI_Controller {
         //$this->_response(false, "Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com");
     }
 
-    // check this function. Will through an error.
+    // check this function. Doing nothing.
     function verify($member_id, $member_code = "") {
         if ($member_code) {
             $this->Misc_Model->check_member_code_exist();
@@ -155,9 +155,23 @@ class Misc extends CI_Controller {
 //    Misc pages start here
     function about() {
         $this->selected_tab = 'about';
-
         $this->load->view('frontend/misc/about');
     }
+
+    function contact() {
+        $this->selected_tab = 'contact';
+        $this->load->view('frontend/misc/contact_us');
+    }
+
+    function faq() {
+        $this->load->view('frontend/misc/faq');
+    }
+
+    function terms() {
+        $this->load->view('frontend/misc/terms');
+    }
+
+    //    Misc pages ends here
 
     function verify_email($member_id, $verification_code = '') {
         if ($verification_code != '' && $member_id > 0) {
@@ -179,23 +193,10 @@ class Misc extends CI_Controller {
         }
     }
 
-    function contact() {
-        $this->selected_tab = 'contact';
-        $this->load->view('frontend/misc/contact_us');
-    }
-
-    function faq() {
-        $this->load->view('frontend/misc/faq');
-    }
-
-    function terms() {
-        $this->load->view('frontend/misc/terms');
-    }
-
+    // remove it later.
     function sendTestMail() {
         echo sendEmail("qudratullah1061@gmail.com", "Signup Successfull", "Registration completed. Please verify email by");
         exit;
     }
 
-//    Misc pages ends here
 }

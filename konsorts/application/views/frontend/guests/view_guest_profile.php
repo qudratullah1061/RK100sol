@@ -231,7 +231,7 @@
                                     
                                     <!-- Id proof images start-->
                                     <div class="margin-top-20">
-                                        <form action="<?php echo base_url('guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                        <form action="<?php echo base_url('guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone2" >
                                             <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
                                             <input type="hidden" name="image_type" value="id_proof">
                                             <input type="hidden" name="image_dir" value="uploads/member_images/id_proofs/">
