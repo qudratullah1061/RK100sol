@@ -5,24 +5,26 @@ if (!defined('BASEPATH')) {
 }
 
 class FrontEnd_Controller extends CI_Controller {
+
     var $selected_tab = 'home';
     var $member_info = array();
-    
+
     function __construct() {
         parent::__construct();
         $this->authenticate();
     }
-    
+
     private function setMemberInfo() {
-         $this->load->model('admin/members_model', 'Members_Model');
+        $this->load->model('admin/members_model', 'Members_Model');
         //$loggedin_userInfo = $this->db->get_where('tb_members', array('member_id' => $this->session->userdata('member_id')))->result_array();
-        $loggedin_userInfo =   $this->Members_Model->get_member_by_id($this->session->userdata('member_id'));
+        $loggedin_userInfo = $this->Members_Model->get_member_by_id($this->session->userdata('member_id'));
         //echo '<pre>';print_r($loggedin_userInfo);exit;
         if ($loggedin_userInfo) {
             unset($loggedin_userInfo['password']);
             $this->member_info = isset($loggedin_userInfo) ? $loggedin_userInfo : null;
         }
     }
+
     //Authenticate function
     private function authenticate() {
         if (!$this->session->userdata('member_id')) {
@@ -30,12 +32,13 @@ class FrontEnd_Controller extends CI_Controller {
         }
         $this->setMemberInfo();
     }
+
     public function upload_temp_image($files, $unique_id, $image_type) {
         try {
             if ($files) {
                 $uploaddir = $this->config->item('root_path') . 'uploads/temp_images/';
                 foreach ($files as $file) {
-                    $file_name = $unique_id.basename($file['name']);
+                    $file_name = $unique_id . basename($file['name']);
                     $uploadfile = $uploaddir . $file_name;
                     move_uploaded_file($file['tmp_name'], $uploadfile);
                     // inset record in db
@@ -48,6 +51,7 @@ class FrontEnd_Controller extends CI_Controller {
             return $ex->getMessage();
         }
     }
+
     // general json error
     public function _response($is_error = true, $description = '', $status = '') {
         $this->output->set_status_header(200);
@@ -60,10 +64,11 @@ class FrontEnd_Controller extends CI_Controller {
         )))->_display();
         die();
     }
-    
+
     public function isAjax() {
         header('Content-Type: application/json');
     }
+
 }
 
 #Admin Core Controller

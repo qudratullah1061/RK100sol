@@ -169,7 +169,7 @@ class Profile extends CI_Controller {
     public function upload_images() {
         $unique_id = $this->input->post('file_upload_unique_id');
         $image_type = $this->input->post('image_type');
-        $result = $this->upload_temp_image($_FILES, $unique_id, $image_type);
+        $result = upload_temp_image($_FILES, $unique_id, $image_type);
         if ($result == 'success') {
             $this->_response(false, 'File uploaded successfully!');
         }
