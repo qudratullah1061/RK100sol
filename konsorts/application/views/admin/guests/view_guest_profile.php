@@ -53,6 +53,28 @@
             </div>
             <!-- END PORTLET MAIN -->
             <!-- PORTLET MAIN -->
+            <?php
+            $ribbon_clr = "ribbon-color-danger";
+            $msg = "";
+            if ($member_info['status'] == "active") {
+                $ribbon_clr = "ribbon-color-success";
+                $msg = "Account is active.";
+            } elseif ($member_info['status'] == "pending") {
+                $ribbon_clr = "ribbon-color-info";
+                $msg = "Account is in pending mode. Please verify all provided information are valid than activate account from privacy tab.";
+            } elseif ($member_info['status'] == "suspended") {
+                $ribbon_clr = "ribbon-color-danger";
+                $msg = "Account is suspended by admin. Please verify all provided information are valid than activate account from privacy tab.";
+            }
+            ?>
+            <div class="mt-element-ribbon bg-color-white">
+                <div class="ribbon ribbon-border-hor ribbon-clip <?php echo $ribbon_clr; ?> uppercase">
+                    <div class="ribbon-sub ribbon-clip"></div><?php echo $member_info['status']; ?></div>
+                <p class="ribbon-content"><?php echo $msg; ?></p>
+            </div>
+
+            <!-- END PORTLET MAIN -->
+            <!-- PORTLET MAIN -->
             <div class="portlet light ">
                 <!-- STAT -->
                 <div class="row list-separated profile-stat">
@@ -103,8 +125,12 @@
                                             <input type="text" placeholder="Unique ID" disabled="disabled" value="<?php echo $member_info['member_unique_code']; ?>" class="form-control" /> 
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Username<span class="required">*</span></label>
-                                            <input type="text" placeholder="Username" name="username" value="<?php echo $member_info['username']; ?>" class="form-control" /> 
+                                            <label class="control-label">Account Status<span class="required">*</span></label>
+                                            <select class="form-control" name="status">
+                                                <option value="active" <?php echo $member_info['status'] == "active" ? "selected='selected'" : ""; ?>>Active</option>
+                                                <option value="pending" <?php echo $member_info['status'] == "pending" ? "selected='selected'" : ""; ?>>Pending</option>
+                                                <option value="suspended" <?php echo $member_info['status'] == "suspended" ? "selected='selected'" : ""; ?>>Suspended</option>
+                                            </select>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
@@ -117,12 +143,12 @@
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Email<span class="required">*</span></label>
-                                            <input type="text" placeholder="Email" name="email" value="<?php echo $member_info['email']; ?>" class="form-control" /> 
+                                            <label class="control-label">Username<span class="required">*</span></label>
+                                            <input type="text" placeholder="Username" name="username" value="<?php echo $member_info['username']; ?>" class="form-control" /> 
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Phone number<span class="required">*</span></label>
-                                            <input type="text" placeholder="Phone Number" name="phone_number" value="<?php echo $member_info['phone_number']; ?>" class="form-control" /> 
+                                            <label class="control-label">Email<span class="required">*</span></label>
+                                            <input type="text" placeholder="Email" name="email" value="<?php echo $member_info['email']; ?>" class="form-control" /> 
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
@@ -135,6 +161,10 @@
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
+                                            <label class="control-label">Phone number<span class="required">*</span></label>
+                                            <input type="text" placeholder="Phone Number" name="phone_number" value="<?php echo $member_info['phone_number']; ?>" class="form-control" /> 
+                                        </div>
+                                        <div class="form-group col-md-6">
                                             <label class="control-label">Gender<span class="required">*</span></label>
                                             <select class="form-control" name="gender">
                                                 <option></option>
@@ -142,12 +172,15 @@
                                                 <option value="Female" <?php echo $member_info['gender'] == "Female" ? "selected='selected'" : ""; ?>>Female</option>
                                                 <option value="Other" <?php echo $member_info['gender'] == "Other" ? "selected='selected'" : ""; ?>>Other</option>
                                             </select>
-
                                         </div>
-
+                                        <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label">Date of birth<span class="required">*</span></label>
                                             <input class="form-control date-picker" size="16" type="text" data-date-format="yyyy-mm-dd" value="<?php echo $member_info['date_of_birth']; ?>" name="date_of_birth" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Address<span class="required">*</span></label>
+                                            <input type="text" placeholder="Address" name="address" value="<?php echo $member_info['address']; ?>" class="form-control" /> 
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
@@ -156,6 +189,7 @@
                                                 <?php echo isset($country_options) ? $country_options : ""; ?>
                                             </select>
                                         </div>
+                                        
                                         <div class="form-group col-md-6">
                                             <label class="control-label">State<span class="required">*</span></label>
                                             <select class="form-control edited" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
@@ -163,15 +197,11 @@
                                             </select>
                                         </div>
                                         <div class="clearfix"></div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-12">
                                             <label class="control-label">City<span class="required">*</span></label>
                                             <select class="form-control" id="dd-city" name="city">
                                                 <?php echo isset($city_options) ? $city_options : ""; ?>
                                             </select>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="control-label">Address<span class="required">*</span></label>
-                                            <input type="text" placeholder="Address" name="address" value="<?php echo $member_info['address']; ?>" class="form-control" /> 
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
@@ -237,10 +267,10 @@
                                         </div>
                                     </div>
                                     <!-- Profile images ends-->
-                                    
+
                                     <!-- Id proof images start-->
                                     <div class="margin-top-20">
-                                        <form action="<?php echo base_url('admin/guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone2" >
+                                        <form action="<?php echo base_url('admin/guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
                                             <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
                                             <input type="hidden" name="image_type" value="id_proof">
                                             <input type="hidden" name="image_dir" value="uploads/member_images/id_proofs/">
@@ -281,75 +311,34 @@
                                 <!-- END IMAGES SETTINGS TAB -->
                                 <!-- PRIVACY SETTINGS TAB -->
                                 <div class="tab-pane" id="tab_1_3">
-                                    <form action="#">
-                                        <table class="table table-light table-hover">
-                                            <tr>
-                                                <td> All privacy settings will goes here. </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios1" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios1" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios11" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios11" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios21" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios21" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios31" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios31" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <!--end profile-settings-->
-                                        <div class="margin-top-10">
-                                            <a href="javascript:;" class="btn red"> Save Changes </a>
-                                            <a href="javascript:;" class="btn default"> Cancel </a>
-                                        </div>
-                                    </form>
+                                    <!--                                    <form id="privacy_form">
+                                                                            <table class="table table-light table-hover">
+                                                                                <tr>
+                                                                                    <td> Account Status. </td>
+                                                                                    <td>
+                                                                                        <div class="mt-radio-inline">
+                                                                                            <label class="mt-radio">
+                                                                                                <input type="radio" name="status" <?php // echo $member_info['status'] == "active" ? "checked" : "";        ?> value="active" /> Active
+                                                                                                <span></span>
+                                                                                            </label>
+                                                                                            <label class="mt-radio">
+                                                                                                <input type="radio" name="status" checked="checked" value="pending" <?php // echo $member_info['status'] == "pending" ? "checked" : "";        ?>/> Pending
+                                                                                                <span></span>
+                                                                                            </label>
+                                                                                            <label class="mt-radio">
+                                                                                                <input type="radio" name="status" value="suspended" <?php // echo $member_info['status'] == "suspended" ? "checked" : "";        ?>/> Suspended
+                                                                                                <span></span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                            end profile-settings
+                                                                            <div class="margin-top-10 text-right">
+                                                                                <a href="javascript:;" class="btn green"> Save Changes </a>
+                                                                                <a href="<?php // echo base_url('admin/guests');        ?>" class="btn default"> Cancel </a>
+                                                                            </div>
+                                                                        </form>-->
                                 </div>
                                 <!-- END PRIVACY SETTINGS TAB -->
                             </div>

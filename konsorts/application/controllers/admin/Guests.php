@@ -98,6 +98,7 @@ class Guests extends Admin_Controller {
 
                 $result = false;
                 if ($edit_id > 0) {
+                    $data['status'] = $this->input->post('status');;
                     $this->Members_Model->update_member($edit_id, $data);
                     $result = true;
                 } else {

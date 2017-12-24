@@ -168,7 +168,7 @@ function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thu
     global $CI;
     $config['upload_path'] = $CI->config->item('root_path') . $upload_path;
     $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $config['max_size'] = 10000;
+    $config['max_size'] = 1000;
     $config['file_name'] = time() . $_FILES[$file_field_name]['name'];
 //    $config['max_width'] = 1024;
 //    $config['max_height'] = 768;

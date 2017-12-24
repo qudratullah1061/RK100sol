@@ -10,22 +10,18 @@ var FormDropzone = function () {
                 maxFilesize: 1, // MB
                 init: function () {
                     this.on("addedfile", function (file) {
-
                         // Create the remove button
                         var removeButton = Dropzone.createElement("<a href='javascript:;'' class='btn red btn-sm btn-block'>Remove</a>");
-
                         // Capture the Dropzone instance as closure.
                         var _this = this;
-
                         // Listen to the click event
                         removeButton.addEventListener("click", function (e) {
                             // Make sure the button click doesn't submit the form:
                             e.preventDefault();
                             e.stopPropagation();
-
                             // Remove the file preview.
-                            DeleteDropzoneFile(unique_id , file.name);
-                             _this.removeFile(file);
+                            DeleteDropzoneFile(unique_id, file.name);
+                            _this.removeFile(file);
                             // If you want to the delete the file on the server as well,
                             // you can do the AJAX request here.
                         });
