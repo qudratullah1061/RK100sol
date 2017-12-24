@@ -125,8 +125,12 @@
                                             <input type="text" placeholder="Unique ID" disabled="disabled" value="<?php echo $member_info['member_unique_code']; ?>" class="form-control" /> 
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Username<span class="required">*</span></label>
-                                            <input type="text" placeholder="Username" name="username" value="<?php echo $member_info['username']; ?>" class="form-control" /> 
+                                            <label class="control-label">Account Status<span class="required">*</span></label>
+                                            <select class="form-control" name="status">
+                                                <option value="active" <?php echo $member_info['status'] == "active" ? "selected='selected'" : ""; ?>>Active</option>
+                                                <option value="pending" <?php echo $member_info['status'] == "pending" ? "selected='selected'" : ""; ?>>Pending</option>
+                                                <option value="suspended" <?php echo $member_info['status'] == "suspended" ? "selected='selected'" : ""; ?>>Suspended</option>
+                                            </select>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
@@ -139,12 +143,12 @@
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Email<span class="required">*</span></label>
-                                            <input type="text" placeholder="Email" name="email" value="<?php echo $member_info['email']; ?>" class="form-control" /> 
+                                            <label class="control-label">Username<span class="required">*</span></label>
+                                            <input type="text" placeholder="Username" name="username" value="<?php echo $member_info['username']; ?>" class="form-control" /> 
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Phone number<span class="required">*</span></label>
-                                            <input type="text" placeholder="Phone Number" name="phone_number" value="<?php echo $member_info['phone_number']; ?>" class="form-control" /> 
+                                            <label class="control-label">Email<span class="required">*</span></label>
+                                            <input type="text" placeholder="Email" name="email" value="<?php echo $member_info['email']; ?>" class="form-control" /> 
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
@@ -164,9 +168,7 @@
                                                 <option value="Female" <?php echo $member_info['gender'] == "Female" ? "selected='selected'" : ""; ?>>Female</option>
                                                 <option value="Other" <?php echo $member_info['gender'] == "Other" ? "selected='selected'" : ""; ?>>Other</option>
                                             </select>
-
                                         </div>
-
                                         <div class="form-group col-md-6">
                                             <label class="control-label">Date of birth<span class="required">*</span></label>
                                             <input class="form-control date-picker" size="16" type="text" data-date-format="yyyy-mm-dd" value="<?php echo $member_info['date_of_birth']; ?>" name="date_of_birth" />
@@ -197,12 +199,18 @@
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Other Interest</label>
-                                            <textarea class="form-control" rows="3" name="other_interest" placeholder="Other Interest"><?php echo $member_info['other_interest']; ?></textarea>
+                                            <label class="control-label">Phone number<span class="required">*</span></label>
+                                            <input type="text" placeholder="Phone Number" name="phone_number" value="<?php echo $member_info['phone_number']; ?>" class="form-control" /> 
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="clearfix"></div>
+                                        <div class="form-group col-md-12">
                                             <label class="control-label">About</label>
                                             <textarea class="form-control" rows="3" name="about_me" placeholder="About Me"><?php echo $member_info['about_me']; ?></textarea>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label">Other Interest</label>
+                                            <textarea class="form-control" rows="3" name="other_interest" placeholder="Other Interest"><?php echo $member_info['other_interest']; ?></textarea>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-12 text-right">
