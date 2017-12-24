@@ -66,11 +66,11 @@ class Members_model extends Abstract_model {
             // check is email verified by member. Otherwise show message to user to verify email first before login.
             if ($this->member_info[0]['subscription_date'] == "0000-00-00 00:00:00") {
                 if ($this->member_info[0]['member_type'] == 1) {
-                    redirect(base_url('guests/guest_payment/' . $this->member_info[0]['member_id'] . "/1"));
+                    redirect(base_url('profile/guest_payment/' . $this->member_info[0]['member_id'] . "/1"));
                 }
             } elseif (strtotime($this->member_info[0]['end_subscription_date']) <= time()) {
                 if ($this->member_info[0]['member_type'] == 1) {
-                    redirect(base_url('guests/guest_payment/' . $this->member_info[0]['member_id'] . "/2"));
+                    redirect(base_url('profile/guest_payment/' . $this->member_info[0]['member_id'] . "/2"));
                 }
             } elseif ($this->member_info[0]['is_email_verified'] == 0) {
                 return array('error' => 1, 'member_info' => $this->member_info[0], 'error_message' => "Please verify email address before login to your account.");
