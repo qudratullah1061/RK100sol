@@ -103,7 +103,7 @@ class Companions extends Admin_Controller {
                 $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');
                 if ($edit_id > 0) {
                     // unset created on
-                    $data['status'] = $this->input->post('status');;
+                    $data['status'] = $this->input->post('status');
                     unset($data['created_on']);
                     unset($data['created_by']);
                 }
