@@ -51,6 +51,25 @@
                 </div>
                 <!-- END MENU -->
             </div>
+            <?php
+            $ribbon_clr = "ribbon-color-danger";
+            $msg = "";
+            if ($member_info['status'] == "active") {
+                $ribbon_clr = "ribbon-color-success";
+                $msg = "Account is active.";
+            } elseif ($member_info['status'] == "pending") {
+                $ribbon_clr = "ribbon-color-info";
+                $msg = "Account is in pending mode. Please verify all provided information are valid than activate account from personal info tab.";
+            } elseif ($member_info['status'] == "suspended") {
+                $ribbon_clr = "ribbon-color-danger";
+                $msg = "Account is suspended by admin. Please verify all provided information are valid than activate account from personal info tab.";
+            }
+            ?>
+            <div class="mt-element-ribbon bg-color-white">
+                <div class="ribbon ribbon-border-hor ribbon-clip <?php echo $ribbon_clr; ?> uppercase">
+                    <div class="ribbon-sub ribbon-clip"></div><?php echo $member_info['status']; ?></div>
+                <p class="ribbon-content"><?php echo $msg; ?></p>
+            </div>
             <!-- END PORTLET MAIN -->
             <!-- PORTLET MAIN -->
             <div class="portlet light ">

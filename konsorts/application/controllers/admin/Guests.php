@@ -76,7 +76,7 @@ class Guests extends Admin_Controller {
                 $data['username'] = $this->input->post('username');
                 $data['email'] = $this->input->post('email');
                 if ($this->input->post('password') != "") {
-                    $data['password'] = sha1($this->input->post('password'));
+                    $data['password'] = md5($this->input->post('password'));
                 }
                 $data['phone_number'] = $this->input->post('phone_number');
                 $data['gender'] = $this->input->post('gender');
