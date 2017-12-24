@@ -6,7 +6,7 @@ var FormWizard = function () {
     var handleCompanionSubmit = function (formId) {
         $.ajax({
             type: "POST",
-            url: base_url + "companions/add_companion_user",
+            url: base_url + "profile/add_companion_user",
             datatype: 'json',
             data: new FormData($("#" + formId)[0]),
             processData: false,
