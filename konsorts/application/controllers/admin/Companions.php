@@ -88,7 +88,7 @@ class Companions extends Admin_Controller {
                 $data['username'] = $this->input->post('username');
                 $data['email'] = $this->input->post('email');
                 if ($this->input->post('password') != "") {
-                    $data['password'] = sha1($this->input->post('password'));
+                    $data['password'] = md5($this->input->post('password'));
                 }
                 $data['phone_number'] = $this->input->post('phone_number');
                 $data['gender'] = $this->input->post('gender');
@@ -257,9 +257,9 @@ class Companions extends Admin_Controller {
             $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
             $data['categories'] = GetAllCategories();
             $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
-            
-           
-            
+
+
+
             $this->load->view('admin/companions/view_companion_profile', $data);
         } else {
             redirect(base_url('admin/companions'));
