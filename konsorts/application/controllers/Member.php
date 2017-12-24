@@ -39,7 +39,9 @@ class Member extends FrontEnd_Controller {
             // echo '<pre>';
             // print_r($data['portfolios']);exit;
 
-            $this->load->view('frontend/member/profile', $data);
+            if ($member_info['member_type'] == 2) {
+                $this->load->view('frontend/member/profile', $data);
+            }
         } else {
             redirect(base_url());
         }
