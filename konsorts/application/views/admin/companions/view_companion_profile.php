@@ -198,7 +198,7 @@
                                             <input type="text" placeholder="Phone Number" name="phone_number" value="<?php echo $member_info['phone_number']; ?>" class="form-control" /> 
                                         </div>
                                         <div class="clearfix"></div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-12">
                                             <label class="control-label">Address<span class="required">*</span></label>
                                             <input type="text" placeholder="Address" name="address" value="<?php echo $member_info['address']; ?>" class="form-control" /> 
                                         </div>

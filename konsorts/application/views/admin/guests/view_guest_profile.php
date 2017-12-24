@@ -179,42 +179,42 @@
                                             <input class="form-control date-picker" size="16" type="text" data-date-format="yyyy-mm-dd" value="<?php echo $member_info['date_of_birth']; ?>" name="date_of_birth" />
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Address<span class="required">*</span></label>
-                                            <input type="text" placeholder="Address" name="address" value="<?php echo $member_info['address']; ?>" class="form-control" /> 
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="form-group col-md-6">
                                             <label class="control-label">Country<span class="required">*</span></label>
                                             <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
                                                 <?php echo isset($country_options) ? $country_options : ""; ?>
                                             </select>
                                         </div>
-                                        
+                                        <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label">State<span class="required">*</span></label>
                                             <select class="form-control edited" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
                                                 <?php echo isset($state_options) ? $state_options : ""; ?>
                                             </select>
                                         </div>
-                                        <div class="clearfix"></div>
-                                        <div class="form-group col-md-12">
+                                        <div class="form-group col-md-6">
                                             <label class="control-label">City<span class="required">*</span></label>
                                             <select class="form-control" id="dd-city" name="city">
                                                 <?php echo isset($city_options) ? $city_options : ""; ?>
                                             </select>
                                         </div>
                                         <div class="clearfix"></div>
-                                        <div class="form-group col-md-6">
-                                            <label class="control-label">Other Interest</label>
-                                            <textarea class="form-control" rows="3" name="other_interest" placeholder="Other Interest"><?php echo $member_info['other_interest']; ?></textarea>
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label">Address<span class="required">*</span></label>
+                                            <input type="text" placeholder="Address" name="address" value="<?php echo $member_info['address']; ?>" class="form-control" /> 
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="clearfix"></div>
+                                        <div class="form-group col-md-12">
                                             <label class="control-label">About</label>
                                             <textarea class="form-control" rows="3" name="about_me" placeholder="About Me"><?php echo $member_info['about_me']; ?></textarea>
                                         </div>
                                         <div class="clearfix"></div>
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label">Other Interest</label>
+                                            <textarea class="form-control" rows="3" name="other_interest" placeholder="Other Interest"><?php echo $member_info['other_interest']; ?></textarea>
+                                        </div>
+                                        <div class="clearfix"></div>
                                         <div class="form-group col-md-12 text-right">
-                                            <div class="margiv-top-10">
+                                            <div class="margin-top-10">
                                                 <input type="submit" name="submit" value="Save Changes" class="btn green"/>
                                                 <a href="<?php echo base_url('admin/guests'); ?>" class="btn default"> Cancel </a>
                                             </div>
