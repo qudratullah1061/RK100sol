@@ -250,7 +250,7 @@ class Profile extends CI_Controller {
                     $member_info = $this->Members_Model->get_member_by_id($edit_id);
                     $member_email = $member_info['email'];
                     $member_email_v_code = $data['email_verification_code'];
-                    sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $member_email_v_code) . "'>Clicking here.</a>");
+                    sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $edit_id . '/' . $member_email_v_code) . "'>Clicking here.</a>");
                     $result = true;
                 }
                 // upload id proof images , add call
