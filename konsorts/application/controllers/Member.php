@@ -18,16 +18,12 @@ class Member extends FrontEnd_Controller {
     }
 
     function profile($member_id = '') {
-        if($member_id != '')
-        {
+        if ($member_id != '') {
             $member_id = base64_decode($member_id);
-        }else
-        {
+        } else {
             $member_id = $this->session->userdata('member_id');
         }
-        
-        
-        
+
         $member_info = $this->Members_Model->get_member_by_id($member_id);
         $data['member_profile_pics'] = $this->Members_Model->get_member_images_by_type(array('image_type' => 'profile', 'member_id' => $member_id));
         $data['member_id_proofs'] = $this->Members_Model->get_member_images_by_type(array('image_type' => 'id_proof', 'member_id' => $member_id));
@@ -40,22 +36,13 @@ class Member extends FrontEnd_Controller {
             //$data['country_options'] = GetCountriesOption($member_info['country']);
             //$data['state_options'] = GetStatesOption($member_info['country'], $member_info['state']);
             //$data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
-            
-           // echo '<pre>';
-           // print_r($data['portfolios']);exit;
-            
-            $this->load->view('frontend/member/profile',$data);
+            // echo '<pre>';
+            // print_r($data['portfolios']);exit;
+
+            $this->load->view('frontend/member/profile', $data);
         } else {
             redirect(base_url());
         }
-        
-        
-        
     }
-    
-    
-    
-
-    
 
 }

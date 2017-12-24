@@ -3,7 +3,7 @@ var GuestMembers = function () {
     var handleGuestSubmit = function (formId) {
         $.ajax({
             type: "POST",
-            url: base_url + "guests/add_guest_user",
+            url: base_url + "profile/add_guest_user",
             datatype: 'json',
             data: new FormData($("#" + formId)[0]),
             processData: false,
@@ -18,7 +18,7 @@ var GuestMembers = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    var redirect_path = 'guests/guest_payment/' + data.code;
+                    var redirect_path = 'profile/guest_payment/' + data.code;
                     if ('add_guest_member' == formId) {
                         setTimeout(function () {
                             window.location.href = base_url + redirect_path;

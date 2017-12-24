@@ -10,9 +10,8 @@ class FrontEnd_Controller extends CI_Controller {
     
     function __construct() {
         parent::__construct();
-       // $this->authenticate();
+        //$this->authenticate();
     }
-    
     
     private function setMemberInfo() {
          $this->load->model('admin/members_model', 'Members_Model');
@@ -24,7 +23,6 @@ class FrontEnd_Controller extends CI_Controller {
             $this->member_info = isset($loggedin_userInfo) ? $loggedin_userInfo : null;
         }
     }
-
     //Authenticate function
     private function authenticate() {
         if (!$this->session->userdata('member_id')) {

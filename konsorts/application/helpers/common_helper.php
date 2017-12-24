@@ -28,6 +28,10 @@ function ActivateLink($main_tab) {
 
 //frontend navigation
 
+function isAjax() {
+    header('Content-Type: application/json');
+}
+
 function GetAdminInfoWithId($UserId) {
     global $CI;
     $user_info = $CI->db->get_where('tb_admin_users', array('admin_id' => $UserId))->result_array();

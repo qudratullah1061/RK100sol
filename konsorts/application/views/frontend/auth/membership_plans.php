@@ -18,7 +18,7 @@
                         </div>
                         <div class="border-lr border-bottom border-width-2 border-color-a1 padding-10px-all pricing-features sm-padding-20px-all border-top border-width-2px">
                             <div class="pricing-action sm-no-margin-top">
-                                <a href="<?php echo base_url('guests/signup'); ?>" class="btn btn-deep-purple btn-small mon">Become a Member</a>
+                                <a href="<?php echo base_url('profile/guest_signup'); ?>" class="btn btn-deep-purple btn-small mon">Become a Member</a>
                             </div>
                         </div>
                     </div>

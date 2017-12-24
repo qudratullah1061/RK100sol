@@ -22,7 +22,7 @@ $unique_id = time();
                                 <!--<div class="">-->
                                 <!--<div class="row">-->
                                 <div class="col-md-12">
-                                    <form action="<?php echo base_url('guests/upload_images'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                    <form action="<?php echo base_url('profile/upload_images'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
                                         <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
                                         <input type="hidden" name="image_type" value="profile">
                                         <!--<label>Upload Image</label>-->
