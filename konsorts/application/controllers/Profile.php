@@ -177,8 +177,7 @@ class Profile extends CI_Controller {
     }
 
     public function add_companion_user() {
-        $this->isAjax();
-
+        isAjax();
         if ($this->input->post()) {
             $data = array();
             $edit_id = $this->input->post('member_id') > 0 ? $this->input->post('member_id') : 0;
