@@ -65,10 +65,20 @@ class Misc extends CI_Controller {
         $file_name = $unique_id . $this->input->get_post('file_name');
         $where_clause = array('unique_id' => $unique_id, 'image' => $file_name);
         $result = $this->Misc_Model->DeleteRecordDropZoneJs('tb_temp_images_upload', $where_clause);
-        if ($result) {
-            // delete file from directory
-            $file_path = 'uploads/temp_images/' . $file_name;
-            delete_file_from_directory($file_path);
+        $where_clause = array('image' => $file_name);
+        $result_member = $this->Misc_Model->DeleteRecordDropZoneJs('tb_member_images', $where_clause);
+        if ($result || $result_member) {
+            if ($result) {
+                // delete file from directory
+                $file_path = 'uploads/temp_images/' . $file_name;
+                delete_file_from_directory($file_path);
+            } else if ($result_member) {
+                // delete file from directory
+                $file_path = 'uploads/member_images/id_proofs/' . $file_name;
+                delete_file_from_directory($file_path);
+                $file_path = 'uploads/member_images/profile/' . $file_name;
+                delete_file_from_directory($file_path);
+            }
             $this->_response(false, "Record deleted successfully!");
         }
         $this->_response(true, "Problem while deleting record.");

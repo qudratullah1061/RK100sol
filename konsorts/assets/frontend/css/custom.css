@@ -1111,4 +1111,11 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     font-size: 14px;
     padding: 0; 
     margin:2px !important;
+    width: inherit;
+}
+.cbp-l-caption-buttonLeft, .cbp-l-caption-buttonRight{
+    min-width: 50px !important;
+}
+.cbp-caption-overlayBottomReveal .cbp-caption-activeWrap{
+    height: 70px !important;
 }

@@ -177,28 +177,6 @@ class Guests extends Admin_Controller {
         exit;
     }
 
-    public function upload_images_member() {
-        $member_id = $this->input->post('member_id');
-        $image_type = $this->input->post('image_type');
-        $image_dir = $this->input->post('image_dir');
-        $watermark = $image_type == 'profile' ? TRUE : FALSE;
-        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-        $result = UploadImage('file', $image_dir, TRUE, $thumb_options, $watermark);
-        if (isset($result['error'])) {
-            $this->_response(true, $result['error']);
-        }
-        // new image paths
-        $image = $result['upload_data']['file_name'];
-        $image_path = $result['upload_data']['file_path'];
-
-        $image_data = array('member_id' => $member_id, 'image_type' => $image_type, 'is_profile_image' => 0, 'image' => $image, 'image_path' => $image_dir);
-        $this->db->insert('tb_member_images', $image_data);
-        $this->_response(true, 'File uploaded successfully!');
-    }
-
     public function get_guest_users() {
         $records = array();
         $records["data"] = array();

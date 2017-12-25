@@ -6,7 +6,7 @@ if (!defined('BASEPATH')) {
 
 class FrontEnd_Controller extends CI_Controller {
 
-    var $selected_tab = 'home';
+    var $selected_tab = '';
     var $member_info = array();
 
     function __construct() {

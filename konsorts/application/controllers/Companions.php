@@ -45,7 +45,7 @@ class Companions extends FrontEnd_Controller {
         $this->isAjax();
         $member_id = $this->input->post('member_id');
         $categories = $this->input->post('categories');
-        $this->AddUpdateMemberCategories($categories, $member_id);
+        $this->Members_Model->AddUpdateMemberCategories($categories, $member_id);
         $this->_response(false, "Changes saved successfully!");
     }
 

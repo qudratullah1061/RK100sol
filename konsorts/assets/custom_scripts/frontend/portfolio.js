@@ -18,12 +18,11 @@ var Portfolios = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    //$('#datatable_categories').DataTable().ajax.reload();
-                    $("#static-modal-popup-small").modal('hide');
+                    $("#static-modal-popup-medium").modal('hide');
                     setTimeout(function(){
                         window.location.reload();
                         
-                    },2000);
+                    },1000);
                 } else {
                     toastr["error"](data.description, "Error!");
                 }

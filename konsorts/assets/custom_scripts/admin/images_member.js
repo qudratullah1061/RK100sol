@@ -23,7 +23,7 @@ function load_member_profile_images() {
                 cols: 4
             }, {
                 width: 800,
-                cols: 3
+                cols: 4
             }, {
                 width: 480,
                 cols: 3
@@ -87,7 +87,7 @@ function load_member_id_proofs() {
                 cols: 4
             }, {
                 width: 800,
-                cols: 3
+                cols: 4
             }, {
                 width: 480,
                 cols: 3

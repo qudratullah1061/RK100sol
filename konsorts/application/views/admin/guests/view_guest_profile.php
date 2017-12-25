@@ -1,3 +1,6 @@
+<?php
+$unique_id = time();
+?>
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link href="<?php echo base_url(); ?>assets/pages/css/profile.css" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL STYLES -->
@@ -228,8 +231,9 @@
                                 <div class="tab-pane" id="tab_1_2">
                                     <!-- Profile images start-->
                                     <div>
-                                        <form action="<?php echo base_url('admin/guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                        <form action="<?php echo base_url('admin/misc/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
                                             <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
+                                            <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
                                             <input type="hidden" name="image_type" value="profile">
                                             <input type="hidden" name="image_dir" value="uploads/member_images/profile/">
                                             <h3 class="sbold">Click to upload</h3>
@@ -257,8 +261,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center">Image <?php echo $counter++; ?></div>
-                                                        <div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img pic-caption-<?php echo $image_info['image_id']; ?>"><?php echo $image_info['is_profile_image'] ? "Profile Pic" : ""; ?></div>
+                                                        <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center pic-caption-img pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
                                                     </div>
                                                     <?php
                                                 }

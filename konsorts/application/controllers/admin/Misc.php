@@ -274,7 +274,7 @@ class Misc extends Admin_Controller {
         $column = $this->input->post('column');
         // if image table delete file from folder as well.
         if ($table == 'tb_member_images') {
-            $where_clause = array('image_id'=>$unique_id);
+            $where_clause = array('image_id' => $unique_id);
             $img_info = $this->Misc_Model->SelectByWhere($where_clause);
             delete_image_from_directory($img_info);
         }
@@ -285,6 +285,29 @@ class Misc extends Admin_Controller {
             $this->_response(false, "Record deleted successfully!");
         }
         $this->_response(true, "Problem while deleting record.");
+    }
+
+    public function upload_images_member() {
+        $member_id = $this->input->post('member_id');
+        $file_upload_unique_id = $this->input->post('file_upload_unique_id');
+        $image_type = $this->input->post('image_type');
+        $image_dir = $this->input->post('image_dir');
+        $watermark = $image_type == 'profile' ? TRUE : FALSE;
+        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+        $result = UploadImage('file', $image_dir, TRUE, $thumb_options, $watermark, $file_upload_unique_id);
+        if (isset($result['error'])) {
+            $this->_response(true, $result['error']);
+        }
+        // new image paths
+        $image = $result['upload_data']['file_name'];
+        $image_path = $result['upload_data']['file_path'];
+
+        $image_data = array('member_id' => $member_id, 'image_type' => $image_type, 'is_profile_image' => 0, 'image' => $image, 'image_path' => $image_dir);
+        $this->db->insert('tb_member_images', $image_data);
+        $this->_response(true, 'File uploaded successfully!');
     }
 
     function MarkAsProfileImage() {
@@ -298,12 +321,21 @@ class Misc extends Admin_Controller {
 
     function delete_dropzone_temp_file() {
         $unique_id = $this->input->get_post('unique_id');
-        $file_name = $this->input->get_post('file_name');
+        $file_name = $unique_id . $this->input->get_post('file_name');
         $where_clause = array('unique_id' => $unique_id, 'image' => $file_name);
         $result = $this->Misc_Model->DeleteRecordDropZoneJs('tb_temp_images_upload', $where_clause);
-        if ($result) {
+        $where_clause = array('image' => $file_name);
+        $result_member = $this->Misc_Model->DeleteRecordDropZoneJs('tb_member_images', $where_clause);
+        if ($result || $result_member) {
             // delete file from directory
             $file_path = 'uploads/temp_images/' . $file_name;
+            delete_file_from_directory($file_path);
+            $this->_response(false, "Record deleted successfully!");
+        } else if ($result_member) {
+            // delete file from directory
+            $file_path = 'uploads/member_images/id_proofs/' . $file_name;
+            delete_file_from_directory($file_path);
+            $file_path = 'uploads/member_images/profile/' . $file_name;
             delete_file_from_directory($file_path);
             $this->_response(false, "Record deleted successfully!");
         }

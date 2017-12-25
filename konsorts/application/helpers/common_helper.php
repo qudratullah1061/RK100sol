@@ -168,12 +168,12 @@ function delete_image_from_directory($images_info_array) {
     }
 }
 
-function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thump_options = array(), $watermark = FALSE) {
+function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thump_options = array(), $watermark = FALSE, $unique_idetifier = "") {
     global $CI;
     $config['upload_path'] = $CI->config->item('root_path') . $upload_path;
     $config['allowed_types'] = 'gif|jpg|png|jpeg';
     $config['max_size'] = 1000;
-    $config['file_name'] = time() . $_FILES[$file_field_name]['name'];
+    $config['file_name'] = ($unique_idetifier != "" ? $unique_idetifier : time()) . $_FILES[$file_field_name]['name'];
 //    $config['max_width'] = 1024;
 //    $config['max_height'] = 768;
     $CI->load->library('upload', $config);
@@ -210,7 +210,7 @@ function watermarkImage($source) {
 function CreateThumbnail($source, $destination, $thump_options, $water_mark = false) {
     global $CI;
     if ($water_mark) {
-        // water mark existing image first.
+// water mark existing image first.
         watermarkImage($source);
     }
     $CI->load->library('image_lib');
@@ -240,7 +240,7 @@ function upload_temp_image($files, $unique_id, $image_type) {
                 $file_name = $unique_id . basename($file['name']);
                 $uploadfile = $uploaddir . $file_name;
                 move_uploaded_file($file['tmp_name'], $uploadfile);
-                // inset record in db
+// inset record in db
                 $data = array('image' => $file_name, 'image_path' => str_replace($CI->config->item('root_path'), "", $uploaddir), 'unique_id' => $unique_id, 'image_type' => $image_type, 'created_on' => date("Y-m-d h:i:s"));
                 $CI->db->insert('tb_temp_images_upload', $data);
             }

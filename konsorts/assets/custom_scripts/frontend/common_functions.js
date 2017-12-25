@@ -82,8 +82,8 @@ var CommonFunctions = function () {
                                     text: data.description,
                                     type: "success",
                                 }, function () {
-                                    $(".pic-caption-img").html("");
-                                    $(".pic-caption-" + image_id).html("Profile Pic");
+                                    $(".pic-caption-img").css("color", "#474747");
+                                    $(".pic-caption-" + image_id).css("color", "green");
                                 });
                             } else {
                                 // exception message here.
@@ -128,17 +128,9 @@ var CommonFunctions = function () {
                                     text: data.description,
                                     type: "success",
                                 }, function () {
-                                    if (table == 'tb_admin_users') {
-                                        $('#datatable_adminusers').DataTable().ajax.reload();
-                                    } else if (table == 'tb_categories') {
-                                        $('#datatable_categories').DataTable().ajax.reload();
-                                    } else if (table == 'tb_sub_categories') {
-                                        $('#datatable_sub_categories').DataTable().ajax.reload();
-                                    } else if (table == 'tb_members') {
-                                        if ($('#datatable_guests').length > 0)
-                                            $('#datatable_guests').DataTable().ajax.reload();
-                                        else if ($('#datatable_companions').length > 0)
-                                            $('#datatable_companions').DataTable().ajax.reload();
+                                    alert(table);
+                                    if (table == 'tb_member_portfolios') {
+                                        window.location.reload();
                                     } else if (table == 'tb_member_images') {
                                         $("#pic-" + unique_id).remove();
                                         $('#load_member_profile_images').cubeportfolio('destroy');
@@ -255,9 +247,9 @@ var CommonFunctions = function () {
                         confirmButtonText: "Done",
                         closeOnConfirm: true
                     },
-                    function () {
-                        window.location.href = base_url;
-                    });
+                            function () {
+                                window.location.href = base_url;
+                            });
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");

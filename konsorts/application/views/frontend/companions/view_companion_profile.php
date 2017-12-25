@@ -1,3 +1,6 @@
+<?php
+$unique_id = time();
+?>
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link href="<?php echo base_url(); ?>assets/pages/css/profile.css" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL STYLES -->
@@ -250,8 +253,9 @@
                                         <div class="tab-pane" id="tab_1_3">
                                             <!-- Profile images start-->
                                             <div>
-                                                <form action="<?php echo base_url('guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                                <form action="<?php echo base_url('profile/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
                                                     <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
+                                                    <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
                                                     <input type="hidden" name="image_type" value="profile">
                                                     <input type="hidden" name="image_dir" value="uploads/member_images/profile/">
                                                     <h3 class="sbold">Click to upload</h3>
@@ -272,15 +276,15 @@
                                                                     <div class="cbp-caption-activeWrap">
                                                                         <div class="cbp-l-caption-alignCenter">
                                                                             <div class="cbp-l-caption-body">                                                                        
-                                                                                <a href="javascript:CommonFunctions.Delete('<?php echo $image_info['image_id']; ?>', 'tb_member_images', 'image_id', 'Are you sure you want to delete this image?')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Delete</a>
-                                                                                <a href="javascript:CommonFunctions.MakeProfileImage('<?php echo $image_info['image_id']; ?>', '<?php echo $image_info['member_id']; ?>')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Make profile</a>
+                                                                                <a href="javascript:CommonFunctions.Delete('<?php echo $image_info['image_id']; ?>', 'tb_member_images', 'image_id', 'Are you sure you want to delete this image?')" class="cbp-l-caption-buttonLeft btn red uppercase btn-xs" rel="nofollow">Delete</a>
+                                                                                <a href="javascript:CommonFunctions.MakeProfileImage('<?php echo $image_info['image_id']; ?>', '<?php echo $image_info['member_id']; ?>')" class="cbp-l-caption-buttonLeft btn red uppercase btn-xs" rel="nofollow">Make profile</a>
                                                                                 <a href="<?php echo base_url() . $image_info['image_path'] . $image_info['image']; ?>" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Konsorts.com">view larger</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center">Image <?php echo $counter++; ?></div>
-                                                                <div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img pic-caption-<?php echo $image_info['image_id']; ?>"><?php echo $image_info['is_profile_image'] ? "Profile Pic" : ""; ?></div>
+                                                                <div class="cbp-l-grid-projects-title uppercase text-center uppercase pic-caption-img text-center pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
+                                                                <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : ""; ?></div>-->
                                                             </div>
                                                             <?php
                                                         }
@@ -292,8 +296,9 @@
 
                                             <!-- Id proof images start-->
                                             <div class="margin-top-20">
-                                                <form action="<?php echo base_url('guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                                <form action="<?php echo base_url('profile/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
                                                     <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
+                                                    <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
                                                     <input type="hidden" name="image_type" value="id_proof">
                                                     <input type="hidden" name="image_dir" value="uploads/member_images/id_proofs/">
                                                     <h3 class="sbold">Click to upload</h3>
@@ -314,8 +319,8 @@
                                                                     <div class="cbp-caption-activeWrap">
                                                                         <div class="cbp-l-caption-alignCenter">
                                                                             <div class="cbp-l-caption-body">                                                                        
-                                                                                <a href="javascript:CommonFunctions.Delete('<?php echo $image_info['image_id']; ?>', 'tb_member_images', 'image_id', 'Are you sure you want to delete this id proof?')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Delete</a>
-                                                                                <a href="<?php echo base_url() . $image_info['image_path'] . $image_info['image']; ?>" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Konsorts.com">view larger</a>
+                                                                                <a href="javascript:CommonFunctions.Delete('<?php echo $image_info['image_id']; ?>', 'tb_member_images', 'image_id', 'Are you sure you want to delete this id proof?')" class="cbp-l-caption-buttonLeft btn red uppercase btn-xs" rel="nofollow">Delete</a>
+                                                                                <a href="<?php echo base_url() . $image_info['image_path'] . $image_info['image']; ?>" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase btn-xs" data-title="Konsorts.com">view larger</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>

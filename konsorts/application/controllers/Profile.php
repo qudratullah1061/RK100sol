@@ -346,6 +346,7 @@ class Profile extends CI_Controller {
 
     public function upload_images_member() {
         $member_id = $this->input->post('member_id');
+        $file_upload_unique_id = $this->input->post('file_upload_unique_id');
         $image_type = $this->input->post('image_type');
         $image_dir = $this->input->post('image_dir');
         $watermark = $image_type == 'profile' ? TRUE : FALSE;
@@ -353,7 +354,7 @@ class Profile extends CI_Controller {
         $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
         $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
         $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-        $result = UploadImage('file', $image_dir, TRUE, $thumb_options, $watermark);
+        $result = UploadImage('file', $image_dir, TRUE, $thumb_options, $watermark, $file_upload_unique_id);
         if (isset($result['error'])) {
             $this->_response(true, $result['error']);
         }

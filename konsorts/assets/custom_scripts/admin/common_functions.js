@@ -82,8 +82,8 @@ var CommonFunctions = function () {
                                     text: data.description,
                                     type: "success",
                                 }, function () {
-                                    $(".pic-caption-img").html("");
-                                    $(".pic-caption-" + image_id).html("Profile Pic");
+                                    $(".pic-caption-" + image_id).css("color","#474747");
+                                    $(".pic-caption-" + image_id).css("color","green");
                                 });
                             } else {
                                 // exception message here.
