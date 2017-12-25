@@ -35,13 +35,23 @@ class Members_model extends Abstract_model {
         }
     }
 
-    function get_member_portfolio($member_id) {
-        $sql = "SELECT `tb_countries`.country_name,`tb_states`.state_name,`tb_cities`.city_name,tb_member_portfolios.* FROM `tb_members` " .
-                " LEFT JOIN `tb_countries` ON `tb_countries`.country_id = tb_members.country" .
-                " LEFT JOIN `tb_states` ON `tb_states`.state_id = tb_members.state" .
-                " LEFT JOIN `tb_cities` ON `tb_cities`.city_id = tb_members.city" .
-                " LEFT JOIN `tb_member_portfolios` ON `tb_member_portfolios`.member_id = tb_members.member_id" .
-                " WHERE `tb_members`.member_id = " . $member_id;
+    // sarfraz.
+//    function get_member_portfolio($member_id) {
+//        $sql = "SELECT `tb_countries`.country_name,`tb_states`.state_name,`tb_cities`.city_name,tb_member_portfolios.* FROM `tb_members` " .
+//                " LEFT JOIN `tb_countries` ON `tb_countries`.country_id = tb_members.country" .
+//                " LEFT JOIN `tb_states` ON `tb_states`.state_id = tb_members.state" .
+//                " LEFT JOIN `tb_cities` ON `tb_cities`.city_id = tb_members.city" .
+//                " LEFT JOIN `tb_member_portfolios` ON `tb_member_portfolios`.member_id = tb_members.member_id" .
+//                " WHERE `tb_members`.member_id = " . $member_id;
+//        return $this->db->query($sql)->result_array();
+//    }
+
+    function get_member_portfolio($member_id, $active_condition = "") {
+        $sql = "SELECT `tb_countries`.country_name,`tb_states`.state_name,`tb_cities`.city_name,tb_member_portfolios.* FROM `tb_member_portfolios` " .
+                " LEFT JOIN `tb_countries` ON `tb_member_portfolios`.country = `tb_countries`.country_id " .
+                " LEFT JOIN `tb_states` ON `tb_member_portfolios`.state = `tb_states`.state_id " .
+                " LEFT JOIN `tb_cities` ON `tb_member_portfolios`.city = `tb_cities`.city_id " .
+                " WHERE `tb_member_portfolios`.member_id = " . $member_id . " " . $active_condition;
         return $this->db->query($sql)->result_array();
     }
 
@@ -73,7 +83,7 @@ class Members_model extends Abstract_model {
             } elseif (strtotime($this->member_info[0]['end_subscription_date']) <= time()) {
                 if ($this->member_info[0]['member_type'] == 1) {
                     redirect(base_url('profile/guest_payment/' . $this->member_info[0]['member_id'] . "/2"));
-                }elseif ($this->member_info[0]['member_type'] == 2) {
+                } elseif ($this->member_info[0]['member_type'] == 2) {
                     return array('error' => 1, 'member_info' => $this->member_info[0], 'error_message' => "Your subscription has been expired. Please renew your subscription to use konsorts.com");
                 }
             } elseif ($this->member_info[0]['is_email_verified'] == 0) {

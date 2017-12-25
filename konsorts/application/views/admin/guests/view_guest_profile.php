@@ -86,7 +86,7 @@
                 <!-- END STAT -->
                 <div class="text-center">
                     <h4 class="profile-desc-title">About <?php echo ucfirst($member_info['username']); ?></h4>
-                    <span class="profile-desc-text"> <?php echo $member_info['about_me']; ?> </span>
+                    <span class="profile-desc-text"><?php echo strlen($member_info['about_me']) > 450 ? substr($member_info['about_me'], 0, 450).'...' : $member_info['about_me']; ?></span>
                 </div>
             </div>
             <!-- END PORTLET MAIN -->

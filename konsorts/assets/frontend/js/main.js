@@ -2383,18 +2383,3 @@ $('.quantity').each(function () {
     });
 
 });
-//Star rating funciton
-$(function () {
-
-// Ref site http://rateyo.fundoocode.ninja
-    $(".rateyo").rateYo({
-        rating: 3.4,
-        spacing: "3px",
-        starWidth: "15px",
-        readOnly: true,
-        multiColor: {
-            "startColor": "#942192", //RED
-            "endColor": "#942192"  //GREEN
-        }
-    });
-});

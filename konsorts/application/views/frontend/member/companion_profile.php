@@ -7,19 +7,18 @@
                         <?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
                     </span>
                     <div class="profile-media">
-                        <img src="<?php echo base_url($member_info['image_path'].$member_info['image']);?>" alt="">
+                        <img src="<?php echo base_url($member_info['image_path'] . 'medium_' . $member_info['image']); ?>" alt="">
                     </div>
                     <div class="profile-info">
-                        <p><?php echo $member_info['first_name'];?> <?php echo ($member_info['last_name'] != '' ? $member_info['last_name'][0] : '');?>.</p>
-                        <span> <i class="fa fa-map-marker"></i> <?php echo $member_info['country_name'];?>, <?php echo $member_info['city_name'];?> </span>
+                        <p><?php echo $member_info['first_name']; ?> <?php echo ($member_info['last_name'] != '' ? $member_info['last_name'][0] : ''); ?>.</p>
+                        <span> <i class="fa fa-map-marker"></i> <?php echo $member_info['country_name']; ?>, <?php echo $member_info['city_name']; ?> </span>
                     </div>
-
                     <div class="profile-rating">
-                        <span class="profile-points">3.4</span>
+                        <span class="profile-points">0</span>
                         <!-- Ref site http://rateyo.fundoocode.ninja/-->
-                        <div class="rateyo"></div>
+                        <div class="rateyo profile_reviews"></div>
                         <span class="profile-reviews-counter">
-                            2 reviews
+                            0 reviews
                         </span>
                     </div>
                     <br>
@@ -29,13 +28,31 @@
                 </div>
                 <div class="profile-misc">
                     <ul>
-                        <li><p>Registration Date:</p>  <span><?php echo date("d-M,Y",strtotime($member_info['created_on'])); ;?></span></li>
-                        <li><p>Date of Birth: </p><span><?php echo date("d-M,Y",strtotime($member_info['date_of_birth'])); ;?></span></li>
-                        <li><p>Acalability: </p><span class="<?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"> <i class="fa fa-check-circle"></i><?php echo ($member_info['is_online'] == 1 ? 'Available' : 'Un Available'); ?></span></li>
-                        <li><p>Travel Option:</p> <span>Off</span></li>
-                        <li><p>Available From:</p></li>
-                        <li><p>Available To:</p></li>
-                        <li><p>Location:</p></li>
+                        <li>
+                            <p>Registration Date:</p>
+                            <span><?php echo date("d-M,Y", strtotime($member_info['created_on'])); ?></span>
+                        </li>
+                        <li>
+                            <p>Date of Birth: </p>
+                            <span><?php echo date("d-M,Y", strtotime($member_info['date_of_birth'])); ?></span>
+                        </li>
+                        <li>
+                            <p>Availability: </p>
+                            <span class="<?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"> <i class="fa fa-check-circle"></i><?php echo ($member_info['is_online'] == 1 ? 'Available' : 'Un Available'); ?></span>
+                        </li>
+                        <li>
+                            <p>Travel Option:</p>
+                            <span>Off</span>
+                        </li>
+                        <li>
+                            <p>Available From:</p>
+                        </li>
+                        <li>
+                            <p>Available To:</p>
+                        </li>
+                        <li>
+                            <p>Location:</p>
+                        </li>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -76,12 +93,9 @@
                 <div class="profile-skills">
                     <ul>
                         <li><h6>My Skills</h6></li>
-                        <?php foreach($selected_sub_categories as $sub_category){?>
-                        
-                        <li><?php echo $sub_category['sub_category_name']; ?></li>
-                        
+                        <?php foreach ($selected_sub_categories as $sub_category) { ?>
+                            <li><?php echo $sub_category['sub_category_name']; ?></li>
                         <?php } ?>
-                        
                     </ul>
                 </div>
             </div>
@@ -89,7 +103,7 @@
         <div class="col-md-9 col-sm-8">
             <div class="profile-right  wow fadeInUp">
                 <div class="profile-intro">
-                    <h5><?php echo implode(',',array_column($selected_categories,'category_name'));?>.</h5>
+                    <h5><?php echo implode(', ', array_column($selected_categories, 'category_name')); ?>.</h5>
                     <p><?php echo $member_info['about_me']; ?></p>
                 </div>
 
@@ -101,53 +115,52 @@
                                 <ul class="portfolio-grid work-4col gutter-large hover-option6 lightbox-portfolio">
                                     <li class="grid-sizer"></li>
                                     <!-- start portfolio item -->
-                                    
-                                    <?php 
-                                    $count_sec = 0.0;
-                                    foreach($portfolios as $portfolio){?>
-                                    <li class="grid-item wow zoomIn last-paragraph-no-margin" <?php echo ($count_sec == 0.0 ? '' : 'data-wow-delay="'.$count_sec.'s"');?>>
-                                        <figure>
-                                            <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                                <img src="<?php echo base_url($portfolio['portfolio_image_path'].$portfolio['portfolio_image']);?>" alt=""/>
-                                                <div class="portfolio-icon text-white text-left">
-                                                    <p><?php echo $portfolio['portfolio_title']; ?></p>
-                                                    <p><?php echo $portfolio['city_name']; ?>, <?php echo $portfolio['country_name']; ?></p>
-                                                    <span class="seperator bg-light-gray"></span>
-                                                    <h6>Travel Place</h6>
-                                                </div>
-                                            </div>
+                                    <?php
+                                    if (count($portfolios) > 0) {
+                                        $count_sec = 0.0;
+                                        foreach ($portfolios as $portfolio) {
+                                            ?>
+                                            <li class="grid-item wow zoomIn last-paragraph-no-margin" <?php echo ($count_sec == 0.0 ? '' : 'data-wow-delay="' . $count_sec . 's"'); ?>>
+                                                <figure>
+                                                    <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
+                                                        <img src="<?php echo base_url($portfolio['portfolio_image_path'] . $portfolio['portfolio_image']); ?>" alt=""/>
+                                                        <div class="portfolio-icon text-white text-left">
+                                                            <p><?php echo $portfolio['portfolio_title']; ?></p>
+                                                            <p><?php echo $portfolio['city_name']; ?>, <?php echo $portfolio['country_name']; ?></p>
+                                                            <span class="seperator bg-light-gray"></span>
+                                                            <h6>Travel Place</h6>
+                                                        </div>
+                                                    </div>
 
-                                        </figure>
-                                    </li>
-                                    <?php $count_sec = $count_sec+ 0.2;
-                                       }
-                                       ?>
-                                    
-                                    <!-- end portfolio item -->
-                                    <!-- start portfolio item -->
-                                    
-                                   
+                                                </figure>
+                                            </li>
+                                            <?php
+                                            $count_sec = $count_sec + 0.2;
+                                        }
+                                    } else {
+                                        echo "<li class='grid-item wow zoomIn last-paragraph-no-margin no-portfoli-found' data-wow-delay='0.02s'>No portfolio item added yet. Please go to settings and than add portfolio items in your profile.</li>";
+                                    }
+                                    ?>
                                     <!-- end portfolio item -->
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="profile-reviews  wow fadeInUp">
+<!--                <div class="profile-reviews  wow fadeInUp">
                     <h5>Reviews:</h5>
-
                     <ul>
                         <li>
                             <p class="title">Impressive Achievement, Realstic and Shocking.</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 11November, 2016</p>
                             <div class="rating">
-                                <!--                                <ul class="profile-stars">
-                                                                    <li><i  class="fa fa-star"></i></li>
-                                                                    <li><i  class="fa fa-star"></i></li>
-                                                                    <li><i  class="fa fa-star"></i></li>
-                                                                    <li><i  class="fa fa-star"></i></li>
-                                                                    <li><i  class="fa fa-star"></i></li>
-                                                                </ul>-->
+                                <ul class="profile-stars">
+                                    <li><i  class="fa fa-star"></i></li>
+                                    <li><i  class="fa fa-star"></i></li>
+                                    <li><i  class="fa fa-star"></i></li>
+                                    <li><i  class="fa fa-star"></i></li>
+                                    <li><i  class="fa fa-star"></i></li>
+                                </ul>
                                 <div class="rateyo"></div>
                                 <span class="profile-points">5.0</span>
                             </div>
@@ -157,20 +170,20 @@
                             <p class="title">Highly Recommended!</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 12January, 2017</p>
                             <div class="rating">
-                                <!--                                <ul class="profile-stars">
-                                                                    <li><i  class="fa fa-star"></i></li>
-                                                                    <li><i  class="fa fa-star"></i></li>
-                                                                    <li><i  class="fa fa-star"></i></li>
-                                                                    <li><i  class="fa fa-star"></i></li>
-                                                                    <li><i  class="fa fa-star"></i></li>
-                                                                </ul>-->
+                                <ul class="profile-stars">
+                                    <li><i  class="fa fa-star"></i></li>
+                                    <li><i  class="fa fa-star"></i></li>
+                                    <li><i  class="fa fa-star"></i></li>
+                                    <li><i  class="fa fa-star"></i></li>
+                                    <li><i  class="fa fa-star"></i></li>
+                                </ul>
                                 <div class="rateyo"></div>
                                 <span class="profile-points">5.0</span>
                             </div>
                             <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
                         </li>
                     </ul>
-                </div>
+                </div>-->
                 <div class="profile-reviews profile-educatoin  wow fadeInUp">
                     <h5>Education:</h5>
 
@@ -217,3 +230,17 @@
         </div>
     </div>
 </section>
+<script>
+    $(function () {
+        $(".profile_reviews").rateYo({
+            rating: 0,
+            spacing: "3px",
+            starWidth: "15px",
+            readOnly: true,
+            multiColor: {
+                "startColor": "#942192", //RED
+                "endColor": "#942192"  //GREEN
+            }
+        });
+    });
+</script>

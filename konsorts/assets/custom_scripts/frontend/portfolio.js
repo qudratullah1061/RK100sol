@@ -84,7 +84,7 @@ var Portfolios = function () {
             success: function (label) {
                 label.closest('.form-group').removeClass('has-error'); // set success class to the control group
             },
-            submitHandler: function (form) {
+            submitHandler: function () {
                 handlePortfolioSubmit(formId);
             }
         });
@@ -104,9 +104,9 @@ var Portfolios = function () {
             },
             success: function (data) {
                 if (data.key) {
-                    $("#static-modal-popup-small").html(data.value);
-                    $("#static-modal-popup-small").modal('show');
-                    App.initMaterialDesign();
+                    $("#static-modal-popup-medium").html(data.value);
+                    $("#static-modal-popup-medium").modal('show');
+//                    App.initMaterialDesign();
                     handleValidationAddPortfolio("form-add-portfolio");
                 }
             }

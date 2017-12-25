@@ -5,7 +5,7 @@
 <link href="<?php echo base_url(); ?>assets/pages/css/portfolio.min.css" rel="stylesheet" type="text/css" />
 <!-- BEGIN PAGE HEADER-->
 <!-- BEGIN PAGE BAR -->
-<section class="pricing membership-plans">
+<section class="profile_edit">
     <div class="container">
         <!--<h1 class="page-title"> Guest Member Profile | Account
             <small>Guest account page</small>
@@ -175,7 +175,7 @@
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-12 text-right">
                                                     <div class="margiv-top-10">
-                                                        <input type="submit" name="submit" value="Save Changes" class="btn green"/>
+                                                        <input type="submit" name="submit" value="Save Changes" class="btn green"/>&nbsp;&nbsp;
                                                         <a href="<?php echo base_url('admin/guests'); ?>" class="btn default"> Cancel </a>
                                                     </div>
                                                 </div>

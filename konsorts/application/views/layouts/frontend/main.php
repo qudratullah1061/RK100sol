@@ -283,16 +283,22 @@
                             </div>
                             <!-- end copyright -->
                         </div>
-
                     </div>
-
                     <div class="copyright  footer-btm">
                         <p>Please read carefully our <a href="<?php echo base_url('misc/terms'); ?>">Terms and Conditions</a>. </p>
                         <p>Copyright © 2016 - 2017 konsorts.com | All rights reserved.</p>
                     </div>
                 </div>
             </div>
+            <!--@*Modal Start*@-->
+            <div id="static-modal-popup" class="modal fade" data-width="70%" tabindex="-1" data-backdrop="static" data-keyboard="false"></div>
+            <!--@*Modal End*@-->
+            <!--@*Medium Modal Start*@-->
+            <div id="static-modal-popup-medium" class="modal fade" data-width="45%" tabindex="-1" data-backdrop="static" data-keyboard="false"></div>
+            <!--@*Medium Modal End*@-->
+            <!--@*Small Modal Start*@-->
             <div id="static-modal-popup-small" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false"></div>
+            <!--@*Modal End*@-->
         </footer>
 
         <!-- end banner -->
@@ -379,6 +385,10 @@
         <!--sweet alert js-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script>
         <!--sweet alert js ends-->
+        <!--Modal scripts-->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+        <!--Modal scripts end-->
         <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/common_functions.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {

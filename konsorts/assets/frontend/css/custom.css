@@ -831,14 +831,19 @@ span.profile-reviews-counter {
     color: #464646;
 }
 
-.certification-even {
-    background-color: #942192;
-    color: #fff;
+.profile-certification .certification-odd{
+    border-bottom: 4px solid #fff;
+}
+.profile-certification .certification-odd a {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 14px;
 }
 
-.profile-certification .certification-odd, .profile-certification .certification-even {
-    padding: 12px 14px;
-    border-bottom: 4px solid #fff;
+.profile-certification .certification-odd a:hover{
+    background-color: #942192;
+    color: #fff;
+    transition: all 0s ease;
 }
 .profile-skills {
     margin-top: 27px;
@@ -1075,4 +1080,35 @@ section.faq-header span {
 }
 .bg-color-white {
     background: #fff !important;
+}
+li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
+    margin-left: 30px;
+    width: 100%;
+}
+/*override bootstrap form-group margin*/
+#update_companion_member .form-group input,#update_companion_member .form-group select, #update_companion_member .form-group textarea,#update_companion_member .form-group checkbox{
+    margin-bottom: 0 !important;
+}
+#update_guest_member .form-group input,#update_guest_member .form-group select, #update_guest_member .form-group textarea,#update_guest_member .form-group checkbox{
+    margin-bottom: 0 !important;
+}
+.profile_edit{
+    margin-top: 122px;
+    background: #eef1f5;
+}
+#form_update_member_categories h1,#form_update_member_categories h2,#form_update_member_categories h3,#form_update_member_categories h4,#form_update_member_categories h5,#form_update_member_categories h6{
+    margin:0 !important;
+}
+
+/*modal style start*/
+.modal .modal-header {
+    border-bottom: 1px solid #EFEFEF;
+    background: #800080;
+    color: #fff;
+}
+/*modal style end*/
+#portfolio_table_wrapper input, #portfolio_table_wrapper textarea, #portfolio_table_wrapper select{
+    font-size: 14px;
+    padding: 0; 
+    margin:2px !important;
 }

@@ -65,10 +65,7 @@ class Companions extends FrontEnd_Controller {
             $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
             $data['categories'] = GetAllCategories();
             $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
-
             $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id);
-
-
             $this->load->view('frontend/companions/view_companion_profile', $data);
         } else {
             redirect(base_url());
@@ -76,14 +73,11 @@ class Companions extends FrontEnd_Controller {
     }
 
     function modal_portfolio() {
-
         $this->isAjax();
-
         $portfolio_id = $this->input->post('portfolio_id');
         $portfolio_data = $this->Misc_Model->get_portfolio($portfolio_id);
         $data['portfolio_data'] = $portfolio_data;
         $data['country_options'] = GetCountriesOption((isset($data['portfolio_data']->country) ? $data['portfolio_data']->country : ''));
-
         $data['state_options'] = GetStatesOption((isset($data['portfolio_data']->country) ? $data['portfolio_data']->country : ''), (isset($data['portfolio_data']->state) ? $data['portfolio_data']->state : ''));
         $data['city_options'] = GetCityOptions((isset($data['portfolio_data']->state) ? $data['portfolio_data']->state : ''), (isset($data['portfolio_data']->city) ? $data['portfolio_data']->city : ''));
         $html = $this->load->view('frontend/companions/add_portfolio', $data, TRUE);
@@ -123,7 +117,7 @@ class Companions extends FrontEnd_Controller {
                     $portfolio_images = $_FILES['portfolio_image'];
                     $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/portfolio/';
                     $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-                    $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                    $thumb_options[1] = array('width' => 194, 'height' => 194, 'prefix' => 'medium_');
                     $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
                     $file_name = basename($portfolio_images['name']);
                     $u_file_name = time() . $file_name;
