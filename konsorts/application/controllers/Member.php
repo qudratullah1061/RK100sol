@@ -41,7 +41,7 @@ class Member extends FrontEnd_Controller {
             // echo '<pre>';
             // print_r($data['portfolios']);exit;
 
-            if ($member_info['member_type'] == 2) {
+            if ($member_info['member_type'] == 2 || $member_info['member_type'] == 1) {
                 $this->load->view('frontend/member/companion_profile', $data);
             }
         } else {
