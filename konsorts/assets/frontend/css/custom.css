@@ -597,6 +597,10 @@ section.profle {
     border: 5px solid #942192;
     overflow: hidden;
 }
+.profile-media img {
+    width: 150px;
+    max-height: 150px;
+}
 .profile-right .profile-intro h5 {
     border-bottom: 0;
 }
