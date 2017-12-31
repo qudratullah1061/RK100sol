@@ -27,6 +27,18 @@ function ActivateLink($main_tab) {
 }
 
 //frontend navigation
+// frontend permission check
+function CheckPermission($permission_data, $privacy_name) {
+    if ($permission_data) {
+        foreach ($permission_data as $data) {
+            if ($data['privacy_name'] == $privacy_name) {
+                return $data['privacy_status'];
+            }
+        }
+    }
+}
+
+// frontend permission check ended here.
 
 function isAjax() {
     header('Content-Type: application/json');

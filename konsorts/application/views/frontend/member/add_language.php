@@ -7,12 +7,12 @@
         <div class="portlet-body form">
             <div class="form-body">
                 <input type="hidden" name="language_id" value="<?php echo isset($language_data->language_id) ? $language_data->language_id : ""; ?>">
-                <div class="form-group form-md-line-input form-md-floating-label">
-                    <input type="text" value="<?php echo isset($language_data->language_name) ? $language_data->language_name : ""; ?>" name="language_name" class="form-control edited">
+                <div class="form-group">
                     <label>Language Name</label>
-                    <span class="help-block">Don't use special characters</span>
+                    <input type="text" value="<?php echo isset($language_data->language_name) ? $language_data->language_name : ""; ?>" name="language_name" class="form-control edited">
                 </div>
-                <div class="form-group form-md-line-input form-md-floating-label">
+                <div class="form-group">
+                    <label>Language Proficiency</label>
                     <select class="form-control" name="language_level" id="language_level">
                         <option value="Elementary" <?php echo isset($language_data->language_level) && $language_data->language_level == "Elementary" ? "selected='selected'" : ""; ?>>Elementary</option>
                         <option value="Limited" <?php echo isset($language_data->language_level) && $language_data->language_level == "Limited" ? "selected='selected'" : ""; ?>>Limited</option>
