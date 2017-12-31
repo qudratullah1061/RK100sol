@@ -7,7 +7,7 @@
                         <?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
                     </span>
                     <div class="profile-media">
-                        <img src="<?php echo base_url($member_info['image_path'] . 'medium_' . $member_info['image']); ?>" alt="">
+                        <img src="<?php echo $member_info['image']!='' ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>" alt="">
                     </div>
                     <div class="profile-info">
                         <p><?php echo $member_info['first_name']; ?> <?php echo ($member_info['last_name'] != '' ? $member_info['last_name'][0] : ''); ?>.</p>
