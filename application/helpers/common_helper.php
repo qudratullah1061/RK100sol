@@ -79,8 +79,8 @@ function get_email_template($template_name, $macros_data) {
         if ($template_info) {
             $template_subject = isset($template_info[0]['template_subject']) ? $template_info[0]['template_subject'] : "";
             $template_message = isset($template_info[0]['template_body']) ? $template_info[0]['template_body'] : "";
-            $template_info[0]['template_body'] = replace_macros($template_message);
-            $template_info[0]['template_subject'] = replace_macros($template_subject);
+            $template_info[0]['template_body'] = replace_macros($template_message, $macros_data);
+            $template_info[0]['template_subject'] = replace_macros($template_subject, $macros_data);
             return $template_info[0];
         }
         return array();
