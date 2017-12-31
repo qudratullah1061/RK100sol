@@ -269,7 +269,7 @@ class Profile extends CI_Controller {
                     $macros_data['$$$FIRST_NAME$$$'] = $data['first_name'];
                     $macros_data['$$$LAST_NAME$$$'] = $data['last_name'];
                     $macros_data['$$$EMAIL$$'] = $data['email'];
-                    $macros_data['$$$CONFIRM_REGISTRATION$$$'] = base_url('misc/verify_email/' . $edit_id . '/' . $member_email_v_code);
+                    $macros_data['$$$CONFIRM_REGISTRATION$$$'] = (base_url('misc/verify_email/' . $edit_id . '/' . $member_email_v_code));
                     $email_template_info = get_email_template('member_signup', $macros_data);
                     if ($email_template_info) {
                         sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
