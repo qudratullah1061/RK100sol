@@ -499,6 +499,7 @@
                         </div>
                         <!-- end instagram -->
                     </div>
+                    
                     <div class="padding-10px-tb xs-padding-20px-tb border-bottom border-top  footer-mid">
 
                         <div class="row">
