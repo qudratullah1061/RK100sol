@@ -520,7 +520,7 @@
                                 <form class="form-inline">
                                     <div class="form-group">
                                         <label for="email">Newsletter:</label>
-                                        <input type="email" class="form-control placeholder-83" id="email" placeholder="Email">
+                                        <input type="email" class="form-control placeholder-83" id="newsletter_email" placeholder="Email">
                                     </div>
                                     <button type="submit" class="btn btn-deep-purple btn-small">Submit</button>
                                 </form>

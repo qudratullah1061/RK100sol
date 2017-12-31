@@ -1,4 +1,4 @@
-<section class="pricing membership-plans">
+<section class="signup-full-cover-image">
     <div class="container">
         <div class="portlet light bordered" id="form_wizard_1">
             <div class="portlet-title">

@@ -3,7 +3,7 @@ $unique_id = time();
 ?>
 <!--profile page css-->
 <link href="<?php echo base_url(); ?>assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
-<section class="pricing membership-plans">
+<section class="signup-full-cover-image">
     <div class="container">
         <div class="portlet box blue">
             <div class="portlet-title">

@@ -101,9 +101,6 @@ class Companions extends Admin_Controller {
                 $data['about_me'] = $this->input->post('about_me');
                 $data['subscription_date'] = date('Y-m-d H:i:s');
                 $data['end_subscription_date'] = date('Y-m-d H:i:s', strtotime("+1 month"));
-                // for admin only.
-                $data['is_email_verified'] = 1;
-                // for admin only ends here.
                 $data['other_interest'] = $this->input->post('other_interest');
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');
@@ -129,6 +126,9 @@ class Companions extends Admin_Controller {
                     $result = true;
                 } else {
                     $data['member_type'] = 2;
+                    // for admin only.
+                    $data['is_email_verified'] = 1;
+                    // for admin only ends here.
                     $edit_id = $result = $this->Members_Model->add_member($data);
                     // update unique id
                     $unique_id_update_data['member_unique_code'] = "C-" . date("Ymd") . $edit_id;

@@ -63,6 +63,30 @@ function is_member_username_exist($username, $exclude_id) {
     return false;
 }
 
+function replace_macros($template_message = "", $macros_data = array()) {
+    $template_message = str_replace('$$$BASE_URL$$$', base_url(), $template_message);
+    $template_message = str_replace('$$$FIRST_NAME$$$', isset($macros_data['$$$FIRST_NAME$$$']) ? $macros_data['$$$FIRST_NAME$$$'] : "", $template_message);
+    $template_message = str_replace('$$$LAST_NAME$$$', isset($macros_data['$$$LAST_NAME$$$']) ? $macros_data['$$$LAST_NAME$$$'] : "", $template_message);
+    $template_message = str_replace('$$$EMAIL$$$', isset($macros_data['$$$EMAIL$$$']) ? $macros_data['$$$EMAIL$$$'] : "", $template_message);
+    $template_message = str_replace('$$$CONFIRM_REGISTRATION$$$', isset($macros_data['$$$CONFIRM_REGISTRATION$$$']) ? $macros_data['$$$CONFIRM_REGISTRATION$$$'] : "", $template_message);
+    return $template_message;
+}
+
+function get_email_template($template_name, $macros_data) {
+    if ($template_name) {
+        global $CI;
+        $template_info = $CI->db->get_where('tb_email_templates', array('template_name' => $template_name))->result_array();
+        if ($template_info) {
+            $template_subject = isset($template_info[0]['template_subject']) ? $template_info[0]['template_subject'] : "";
+            $template_message = isset($template_info[0]['template_body']) ? $template_info[0]['template_body'] : "";
+            $template_info[0]['template_body'] = replace_macros($template_message);
+            $template_info[0]['template_subject'] = replace_macros($template_subject);
+            return $template_info[0];
+        }
+        return array();
+    }
+}
+
 function is_member_email_exist($email, $exclude_id) {
     global $CI;
     $exclude_id = $exclude_id > 0 ? $exclude_id : -1;
@@ -290,7 +314,7 @@ function delete_file_from_directory($file_path) {
 }
 
 function sendEmail($to, $subject, $message) {
-    $header = "From:itcomradetest@gmail.com \r\n";
+    $header = "From:admin@konsorts.com \r\n";
 //        $header .= "Cc:afgh@somedomain.com \r\n";
     $header .= "MIME-Version: 1.0\r\n";
     $header .= "Content-type: text/html\r\n";

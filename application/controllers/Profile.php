@@ -254,6 +254,7 @@ class Profile extends CI_Controller {
                     $this->Members_Model->update_member($edit_id, $data); //use for future
                     $result = true;
                 } else {
+                    $macros_data = array();
                     $data['member_type'] = 2;
                     $data['membership_type'] = 'Companion';
                     $data['email_verification_code'] = md5(time());
@@ -265,7 +266,14 @@ class Profile extends CI_Controller {
                     $member_info = $this->Members_Model->get_member_by_id($edit_id);
                     $member_email = $member_info['email'];
                     $member_email_v_code = $data['email_verification_code'];
-                    sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $edit_id . '/' . $member_email_v_code) . "'>Clicking here.</a>");
+                    $macros_data['$$$FIRST_NAME$$$'] = $data['first_name'];
+                    $macros_data['$$$LAST_NAME$$$'] = $data['last_name'];
+                    $macros_data['$$$EMAIL$$'] = $data['email'];
+                    $macros_data['$$$CONFIRM_REGISTRATION$$$'] = base_url('misc/verify_email/' . $edit_id . '/' . $member_email_v_code);
+                    $email_template_info = get_email_template('member_signup', $macros_data);
+                    if ($email_template_info) {
+                        sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
+                    }
                     $result = true;
                 }
                 // upload id proof images , add call
