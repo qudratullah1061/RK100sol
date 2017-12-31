@@ -80,7 +80,7 @@ header.sticky .header-right .dropdown{
     padding: 25px 0 22px;
 }
 header.sticky .header-searchbar{
-    padding: 25px 0 22px;
+        padding: 6px 0 18px;
 }
 
 nav.header-light .header-searchbar, header.header-appear nav.header-light .header-searchbar{border-left: 0 !important;}
@@ -139,7 +139,7 @@ header.sticky .header-right .dropdown ul.dropdown-menu {
     background: purple;
     color: #fff;
 }
-ul.dropdown-menu:before {
+/*ul.dropdown-menu:before {
     content: "\f106";
     font-family: FontAwesome;
     font-size: 18px;
@@ -147,9 +147,19 @@ ul.dropdown-menu:before {
     top: -16px;
     right: 25px;
     color: #800080;
+}*/
+
+ul.dropdown-menu:before {
+    position: absolute;
+    top: -8px;
+    right: 23px !important;
+    right: auto;
+    display: inline-block!important;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #e0e0e0;
+    border-left: 8px solid transparent;
+    content: '';
 }
-
-
 
 
 
@@ -1178,8 +1188,10 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     position: absolute;
     right: 10px;
     border: 0;
-    margin-top: -1px;
-    padding: 0 !important;
+    margin-top: -4px;
+    /* padding: 0 !important; */
+    padding: 1px 8px !important;
+    border-radius: 2px;
 }
 .dropdown.dropdown-extended>a>span{
     background: purple;
@@ -1218,15 +1230,10 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     top: 35px !important;
     left: -220px;
 }
-.label.label-icon {
+.header-right .label.label-icon {
     padding: 4px 0 4px 4px;
     margin-right: 2px;
     text-align: center!important;
-}
-
-.label.label-sm {
-    font-size: 13px;
-    padding: 2px 5px;
 }
 .dropdown-menu .dropdown-menu-list>li a .details .label-icon {
     margin-right: 10px;
@@ -1292,7 +1299,19 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     margin-right: 2px;
     text-align: center!important;
 }
-.label.label-sm {
+.header-searchbar .label.label-sm {
     font-size: 13px;
     padding: 2px 5px;
+    border-radius: 0;
+}
+.header-searchbar .label.label-icon > i{
+    width: 13px;
+    display: inline-block;
+    margin: 0 auto !important;
+    margin-left: 1px !important;
+}
+.header-searchbar .label.label-icon > i {
+    font-size: 12px !important;
+    text-align: center !important;
+    color:#fff;
 }
