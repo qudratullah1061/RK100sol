@@ -76,15 +76,9 @@
                             <p class="title">Impressive Achievement, Realstic and Shocking.</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 11November, 2016</p>
                             <div class="rating">
-                                <ul class="profile-stars">
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                </ul>
+                               <div class="rateyo user_reviews-1"></div>
                                 <div class="rateyo"></div>
-                                <span class="profile-points">5.0</span>
+                                <span class="profile-points">3.0</span>
                             </div>
                             <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
                         </li>
@@ -92,15 +86,9 @@
                             <p class="title">Highly Recommended!</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 12January, 2017</p>
                             <div class="rating">
-                                <ul class="profile-stars">
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                </ul>
+                                <div class="rateyo user_reviews-2"></div>
                                 <div class="rateyo"></div>
-                                <span class="profile-points">5.0</span>
+                                <span class="profile-points">3.5</span>
                             </div>
                             <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
                         </li>
@@ -114,6 +102,26 @@
     $(function () {
         $(".profile_reviews").rateYo({
             rating: 0,
+            spacing: "3px",
+            starWidth: "15px",
+            readOnly: true,
+            multiColor: {
+                "startColor": "#942192", //RED
+                "endColor": "#942192"  //GREEN
+            }
+        });
+        $(".user_reviews-1").rateYo({
+            rating: 3,
+            spacing: "3px",
+            starWidth: "15px",
+            readOnly: true,
+            multiColor: {
+                "startColor": "#942192", //RED
+                "endColor": "#942192"  //GREEN
+            }
+        });
+        $(".user_reviews-2").rateYo({
+            rating: 3.5,
             spacing: "3px",
             starWidth: "15px",
             readOnly: true,

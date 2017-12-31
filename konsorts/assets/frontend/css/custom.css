@@ -845,12 +845,13 @@ span.profile-reviews-counter {
     display: inline-block;
     width: 100%;
     padding: 12px 14px;
+     transition:none;
 }
 
 .profile-certification .certification-odd a:hover{
     background-color: #942192;
     color: #fff;
-    transition: all 0s ease;
+    transition:none;
 }
 .profile-skills {
     margin-top: 27px;
