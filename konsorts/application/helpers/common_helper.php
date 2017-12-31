@@ -203,17 +203,17 @@ function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thu
     }
 }
 
-function watermarkImage($source) {
+function watermarkImage($source, $water_mark_image_name = "Transparent-K-250.png") {
     global $CI;
     $CI->load->library('image_lib');
     $config['image_library'] = 'gd2';
     $config['source_image'] = $source;
     $config['quality'] = 100;
-    $config['wm_overlay_path'] = $CI->config->item('root_path') . 'assets/watermark_img/Transparent-K.png';
+    $config['wm_overlay_path'] = $CI->config->item('root_path') . 'assets/watermark_img/' . $water_mark_image_name;
     $config['wm_type'] = 'overlay';
-    $config['wm_opacity'] = 100;
-    $config['wm_vrt_alignment'] = 'middle';
-    $config['wm_hor_alignment'] = 'center';
+    $config['wm_opacity'] = 50;
+    $config['wm_vrt_alignment'] = 'bottom';
+    $config['wm_hor_alignment'] = 'left';
     $CI->image_lib->initialize($config);
     $CI->image_lib->watermark();
     $CI->image_lib->clear();
@@ -221,10 +221,6 @@ function watermarkImage($source) {
 
 function CreateThumbnail($source, $destination, $thump_options, $water_mark = false) {
     global $CI;
-    if ($water_mark) {
-// water mark existing image first.
-        watermarkImage($source);
-    }
     $CI->load->library('image_lib');
     $config['image_library'] = 'gd2';
     $config['source_image'] = $source;
@@ -240,7 +236,29 @@ function CreateThumbnail($source, $destination, $thump_options, $water_mark = fa
         $CI->image_lib->initialize($config);
         $CI->image_lib->resize();
         $CI->image_lib->clear();
+        if ($source != "") {
+            // create watermark on thumnails.
+            $source_array = explode("/", $source);
+            $file_name = $source_array[count($source_array) - 1];
+            $water_mark_image_name = "";
+            if ($options['width'] >= 700) {
+                $water_mark_image_name = "Transparent-K-350.png";
+            } elseif ($options['width'] >= 500) {
+                $water_mark_image_name = "Transparent-K-300.png";
+            } elseif ($options['width'] >= 300) {
+                $water_mark_image_name = "Transparent-K-150.png";
+            } elseif ($options['width'] >= 150) {
+                $water_mark_image_name = "Transparent-K-100.png";
+            }
+            if ($water_mark_image_name != "") {
+                watermarkImage($destination . $options['prefix'] . $file_name, $water_mark_image_name);
+            }
+        }
     }
+//    if ($water_mark) {
+//        // water mark original uploaded image.
+//        watermarkImage($source,$water_mark_image_name);
+//    }
 }
 
 function upload_temp_image($files, $unique_id, $image_type) {

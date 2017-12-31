@@ -57,6 +57,9 @@ class Misc extends CI_Controller {
         $member_id = $this->input->post('member_id');
         $this->Misc_Model->UpdateRecord('member_id', $member_id, array('is_profile_image' => 0));
         $this->Misc_Model->UpdateRecord('image_id', $unique_id, array('is_profile_image' => 1));
+        // update session info as well.
+        $user_info = $this->Members_Model->get_member_by_id($this->session->userdata('member_id'));
+        $this->session->set_userdata('member_info',$user_info);
         $this->_response(false, "Profile pic updated successfully!");
     }
 

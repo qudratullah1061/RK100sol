@@ -7,7 +7,7 @@
                         <?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
                     </span>
                     <div class="profile-media">
-                        <img src="<?php echo $member_info['image']!='' ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>" alt="">
+                        <img src="<?php echo $member_info['image'] != '' ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>" alt="">
                     </div>
                     <div class="profile-info">
                         <p><?php echo CheckPermission($member_info['privacy_info'], 'first_name_privacy') ? $member_info['first_name'] : ""; ?> <?php echo CheckPermission($member_info['privacy_info'], 'last_name_privacy') ? (strlen($member_info['last_name']) > 0 ? $member_info['last_name'][0] : "") : ""; ?>.</p>
@@ -36,6 +36,18 @@
                             <p>Date of Birth: </p>
                             <span><?php echo date("d-M,Y", strtotime($member_info['date_of_birth'])); ?></span>
                         </li>
+                        <?php if (CheckPermission($member_info['privacy_info'], 'email_privacy') && $member_info['email'] != "") { ?>
+                            <li>
+                                <p>Email:</p>
+                                <span><?php echo $member_info['email']; ?></span>
+                            </li>
+                        <?php } ?>
+                        <?php if (CheckPermission($member_info['privacy_info'], 'phone_number_privacy') && $member_info['phone_number'] != "") { ?>
+                            <li>
+                                <p>Phone Number:</p>
+                                <span><?php echo $member_info['phone_number']; ?></span>
+                            </li>
+                        <?php } ?>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -77,7 +89,7 @@
                             <p class="title">Impressive Achievement, Realstic and Shocking.</p>
                             <p class="date"> <i class="fa fa-calendar"></i> 11November, 2016</p>
                             <div class="rating">
-                               <div class="rateyo user_reviews-1"></div>
+                                <div class="rateyo user_reviews-1"></div>
                                 <div class="rateyo"></div>
                                 <span class="profile-points">3.0</span>
                             </div>
