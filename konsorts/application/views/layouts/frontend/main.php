@@ -151,10 +151,10 @@
                             ?>
                             <div class="col-md-2 col-xs-5 width-auto header-right">
                                 <div class="header-searchbar">
-                                    <div class="notifications not">
+<!--                                    <div class="notifications not">
                                         <a href="#search-header" class="header-search-form text-white"><i class="fa fa-bell-o"></i></a>
                                         <span class="counter">3</span>
-                                    </div>
+                                    </div>-->
                                     <div class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                             <i class="fa fa-bell-o"></i>
@@ -410,7 +410,7 @@
                                         <span class="fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a href="<?php echo base_url('member/profile'); ?>"><i class="fa fa-gear"></i> Profile</a></li>
+                                        <li><a href="<?php echo base_url('member/profile'); ?>"><i class="fa fa-user"></i> Profile</a></li>
                                         <li><a href="<?php echo base_url(($this->session->userdata['member_info']['member_type'] == 1 ? 'guests/get_guest_profile' : 'companions/get_companion_profile')); ?>"><i class="fa fa-gear"></i> Settings</a></li>
                                         <li><a href="<?php echo base_url('auth/logout'); ?>"><i class="fa fa-sign-out"></i> Log out</a></li>
                                     </ul>
