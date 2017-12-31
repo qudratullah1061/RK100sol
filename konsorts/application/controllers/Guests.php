@@ -34,6 +34,7 @@ class Guests extends FrontEnd_Controller {
             $data['country_options'] = GetCountriesOption($member_info['country']);
             $data['state_options'] = GetStatesOption($member_info['country'], $member_info['state']);
             $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
+            $data['language_data'] = $this->Members_Model->get_member_languages($member_id);
             $this->load->view('frontend/guests/view_guest_profile', $data);
         } else {
             redirect(base_url());

@@ -6,6 +6,7 @@ $unique_id = time();
 <!-- END PAGE LEVEL STYLES -->
 <link href="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/css/cubeportfolio.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url(); ?>assets/pages/css/portfolio.min.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 <!-- BEGIN PAGE HEADER-->
 <!-- BEGIN PAGE BAR -->
 <section class="profile_edit">
@@ -74,14 +75,17 @@ $unique_id = time();
                                         <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
                                     </div>
                                     <ul class="nav nav-tabs">
-                                        <li class="active">
+                                        <li class="active" onclick="CommonFunctions.changeHash('#tab_1_1')">
                                             <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
                                         </li>
-                                        <li onclick="">
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_2')">
                                             <a href="#tab_1_2" onclick="load_member_profile_images();load_member_id_proofs();" data-toggle="tab">Images</a>
                                         </li>
-                                        <li>
-                                            <a href="#tab_1_3" data-toggle="tab">Privacy Settings</a>
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_3')">
+                                            <a href="#tab_1_3" data-toggle="tab">Languages</a>
+                                        </li>
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_4')">
+                                            <a href="#tab_1_4" data-toggle="tab">Privacy Settings</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -172,14 +176,55 @@ $unique_id = time();
                                                     <textarea class="form-control" rows="3" name="other_interest" placeholder="Other Interest"><?php echo $member_info['other_interest']; ?></textarea>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label class="control-label">About</label>
+                                                    <label class="control-label">About<span class="required">*</span></label>
                                                     <textarea class="form-control" rows="3" name="about_me" placeholder="About Me"><?php echo $member_info['about_me']; ?></textarea>
                                                 </div>
                                                 <div class="clearfix"></div>
+                                                <hr/>
+                                                <div class="note note-info">
+                                                    <p> Social media information.</p>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Facebook Link</label>
+                                                    <input type="text" placeholder="Facebook" name="facebook" value="<?php echo $member_info['facebook']; ?>" class="form-control" /> 
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Youtube Link</label>
+                                                    <input type="text" placeholder="Youtube" name="youtube" value="<?php echo $member_info['youtube']; ?>" class="form-control" />
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Linkedin</label>
+                                                    <input type="text" placeholder="linkedin" name="linkedin" value="<?php echo $member_info['linkedin']; ?>" class="form-control" /> 
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Gmail</label>
+                                                    <input type="text" placeholder="Gmail" name="gmail" value="<?php echo $member_info['gmail']; ?>" class="form-control" /> 
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Twitter</label>
+                                                    <input type="text" placeholder="Twitter" name="twitter" value="<?php echo $member_info['twitter']; ?>" class="form-control" />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Instagram</label>
+                                                    <input type="text" placeholder="Instagram" name="instagram" value="<?php echo $member_info['instagram']; ?>" class="form-control" /> 
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Skype</label>
+                                                    <input type="text" placeholder="Skype" name="skype" value="<?php echo $member_info['skype']; ?>" class="form-control" />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Pinterest</label>
+                                                    <input type="text" placeholder="Pinterest" name="pintrest" value="<?php echo $member_info['pinterest']; ?>" class="form-control" /> 
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <hr/>
                                                 <div class="form-group col-md-12 text-right">
                                                     <div class="margiv-top-10">
                                                         <input type="submit" name="submit" value="Save Changes" class="btn green"/>&nbsp;&nbsp;
-                                                        <a href="<?php echo base_url('admin/guests'); ?>" class="btn default"> Cancel </a>
+                                                        <a href="<?php echo base_url('member/profile'); ?>" class="btn default"> Cancel </a>
                                                     </div>
                                                 </div>
                                                 <div class="clearfix"></div>
@@ -272,75 +317,87 @@ $unique_id = time();
                                             <!-- Id proof images ends-->
                                         </div>
                                         <!-- END IMAGES SETTINGS TAB -->
-                                        <!-- PRIVACY SETTINGS TAB -->
+                                        <!--Languages tab starts from here-->
                                         <div class="tab-pane" id="tab_1_3">
-                                            <form action="#">
+                                            <div id="" class="table-responsive">
+                                                <div class="table-actions-wrapper margin-bottom-20">
+                                                    <span> </span>
+                                                    <a class="purple" data-title="Add Type" href="javascript:Languages.modal_add_language()"><i class="fa fa-plus-circle"></i> Add Language</a>
+                                                </div>
+                                                <table id="language_table" class="table table-striped table-bordered table-hover text-center dataTable no-footer" cellspacing="0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Language</th>
+                                                            <th>Proficiency</th>
+                                                            <th>Added On</th>
+                                                            <th>Updated On</th>
+                                                            <th>Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <?php foreach ($language_data as $language) { ?>
+                                                            <tr>
+                                                                <td><?php echo $language['language_name']; ?></td>
+                                                                <td><?php echo $language['language_level']; ?></td>
+                                                                <td><?php echo date('Y-m-d', strtotime($language['created_on'])); ?></td>
+                                                                <td><?php echo date('Y-m-d', strtotime($language['updated_on'])); ?></td>
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled" id="checkbox<?php echo $language['language_id']; ?>" <?php echo ($language['is_active'] ? "checked='checked'" : ""); ?> class="md-check">
+                                                                            <label for="checkbox<?php echo $language['language_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable" onclick="Languages.modal_add_language(<?php echo $language['language_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $language["language_id"]; ?>, 'tb_member_languages', 'language_id', 'Language will be permanently deleted without further warning. Do you really want to delete this language from your profile?');">Delete</i></a></td>
+                                                            </tr>
+                                                        <?php } ?>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--Languages tabs ends here-->
+
+                                        <!-- PRIVACY SETTINGS TAB -->
+                                        <div class="tab-pane" id="tab_1_4">
+                                            <form role="form" id="update_privacy_member">
                                                 <table class="table table-light table-hover">
-                                                    <tr>
-                                                        <td> All privacy settings will goes here. </td>
-                                                        <td>
-                                                            <div class="mt-radio-inline">
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios1" value="option1" /> Yes
-                                                                    <span></span>
-                                                                </label>
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios1" value="option2" checked/> No
-                                                                    <span></span>
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                        <td>
-                                                            <div class="mt-radio-inline">
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios11" value="option1" /> Yes
-                                                                    <span></span>
-                                                                </label>
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios11" value="option2" checked/> No
-                                                                    <span></span>
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                        <td>
-                                                            <div class="mt-radio-inline">
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios21" value="option1" /> Yes
-                                                                    <span></span>
-                                                                </label>
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios21" value="option2" checked/> No
-                                                                    <span></span>
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                        <td>
-                                                            <div class="mt-radio-inline">
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios31" value="option1" /> Yes
-                                                                    <span></span>
-                                                                </label>
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios31" value="option2" checked/> No
-                                                                    <span></span>
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    <?php
+                                                    if (isset($member_info['privacy_info']) && count($member_info['privacy_info']) > 0) {
+                                                        foreach ($member_info['privacy_info'] as $privacy) {
+                                                            ?>
+                                                            <tr>
+                                                                <!--<td class="hide"><input type="hidden" name="privacy_id[]" value="<?php // echo $privacy['privacy_id'];                   ?>"></td>-->
+                                                                <td><?php echo "Show " . $privacy['privacy_label']; ?></td>
+                                                                <td>
+                                                                    <div class="mt-radio-inline">
+                                                                        <label class="mt-radio">
+                                                                            <input type="radio" name="<?php echo $privacy['privacy_name']; ?>" value="1" <?php echo $privacy['privacy_status'] == 1 ? "checked='checked'" : ""; ?> /> Yes
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="mt-radio">
+                                                                            <input type="radio" name="<?php echo $privacy['privacy_name']; ?>" value="0" <?php echo $privacy['privacy_status'] == 0 ? "checked='checked'" : ""; ?>/> No
+                                                                            <span></span>
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
                                                 </table>
                                                 <!--end profile-settings-->
                                                 <div class="margin-top-10">
-                                                    <a href="javascript:;" class="btn red"> Save Changes </a>
-                                                    <a href="javascript:;" class="btn default"> Cancel </a>
+                                                    <input type="submit" name="submit" value="Save Changes" class="btn green"/>&nbsp;&nbsp;
+                                                    <a href="<?php echo base_url('member/profile'); ?>" class="btn default">Cancel</a>
                                                 </div>
                                             </form>
                                         </div>
@@ -358,11 +415,20 @@ $unique_id = time();
 <script>
     $(document).ready(function () {
         GuestMembers.initAddUpdateGuestValidation("update_guest_member");
+        PrivacyMembers.initUpdatePrivacyValidation("update_privacy_member");
     });
 </script>
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/guest_members.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/privacy_members.js" type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom_scripts/frontend/languages.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    $(document).ready(function () {
+        $("#language_table").DataTable();
+    });
+</script>

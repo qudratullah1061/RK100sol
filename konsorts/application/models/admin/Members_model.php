@@ -19,6 +19,14 @@ class Members_model extends Abstract_model {
         parent::__construct();
     }
 
+    function get_member_privacy($member_id) {
+        $sql = "SELECT tb_members_privacy.* FROM tb_members_privacy WHERE tb_members_privacy.member_id = $member_id";
+        $member_privacy_info = $this->db->query($sql)->result_array();
+        if ($member_privacy_info) {
+            return isset($member_privacy_info) ? $member_privacy_info : array();
+        }
+    }
+
     function get_member_by_id($member_id) {
         $sql = "SELECT `tb_countries`.country_name,`tb_states`.state_name,`tb_cities`.city_name,`tb_member_images`.image, `tb_member_images`.image_path, `tb_member_images`.is_profile_image, `tb_member_images`.image_type, `tb_members`.* FROM `tb_members` " .
                 " LEFT JOIN `tb_countries` ON `tb_countries`.country_id = tb_members.country" .
@@ -31,6 +39,10 @@ class Members_model extends Abstract_model {
                 " WHERE `tb_members`.member_id = " . $member_id;
         $member_info = $this->db->query($sql)->result_array();
         if ($member_info) {
+            $member_privacy_info = $this->get_member_privacy($member_id);
+            if ($member_privacy_info) {
+                $member_info[0]['privacy_info'] = $member_privacy_info;
+            }
             return isset($member_info[0]) ? $member_info[0] : array();
         }
     }
@@ -53,6 +65,28 @@ class Members_model extends Abstract_model {
                 " LEFT JOIN `tb_cities` ON `tb_member_portfolios`.city = `tb_cities`.city_id " .
                 " WHERE `tb_member_portfolios`.member_id = " . $member_id . " " . $active_condition;
         return $this->db->query($sql)->result_array();
+    }
+
+    function get_member_languages($member_id, $active_condition = "") {
+        $sql = "SELECT * FROM tb_member_languages" .
+                " WHERE `tb_member_languages`.member_id = " . $member_id . " " . $active_condition;
+        return $this->db->query($sql)->result_array();
+    }
+
+    public function get_language($language_id) {
+        $this->table_name = 'tb_member_languages';
+        $result = $this->getBy('language_id', $language_id);
+        return isset($result[0]) ? $result[0] : array();
+    }
+
+    public function add_language($data) {
+        $this->table_name = "tb_member_languages";
+        return $this->save($data);
+    }
+
+    public function update_language($column, $row_id, $data) {
+        $this->table_name = "tb_member_languages";
+        return $this->updateBy($column, $row_id, $data);
     }
 
     public function IsMember($username = "", $password = "") {

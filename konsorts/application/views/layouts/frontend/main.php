@@ -116,7 +116,7 @@
                                 <ul id="accordion" class="nav navbar-nav navbar-left no-margin text-normal" data-in="fadeIn" data-out="fadeOut">
                                     <!-- start menu item -->
                                     <li class="<?php echo ActivateLink('home'); ?>">
-                                        <a href="<?php echo base_url('home'); ?>">Home</a>
+                                        <a href="<?php echo base_url(); ?>">Home</a>
                                     </li>
                                     <li class="<?php echo ActivateLink('about'); ?>">
                                         <a href="<?php echo base_url('misc/about'); ?>">About</a>

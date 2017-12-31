@@ -58,9 +58,13 @@
                 </div>
                 <div class="profile-language">
                     <h6>Language:</h6>
-                    <p>French (Native or Bilingual)</p>
-                    <p>German (Conversational)</p>
-                    <p>English (Frank)</p>
+                    <?php
+                    if (isset($data_languages) && count($data_languages) > 0) {
+                        foreach ($data_languages as $language) {
+                            echo "<p>" . $language['language_name'] . " (" . $language['language_level'] . ")</p>";
+                        }
+                    }
+                    ?>
                 </div>
                 <div class="profile-social">
                     <h6>Social Media:</h6>
@@ -147,43 +151,43 @@
                         </div>
                     </div>
                 </div>
-<!--                <div class="profile-reviews  wow fadeInUp">
-                    <h5>Reviews:</h5>
-                    <ul>
-                        <li>
-                            <p class="title">Impressive Achievement, Realstic and Shocking.</p>
-                            <p class="date"> <i class="fa fa-calendar"></i> 11November, 2016</p>
-                            <div class="rating">
-                                <ul class="profile-stars">
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                </ul>
-                                <div class="rateyo"></div>
-                                <span class="profile-points">5.0</span>
-                            </div>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
-                        </li>
-                        <li>
-                            <p class="title">Highly Recommended!</p>
-                            <p class="date"> <i class="fa fa-calendar"></i> 12January, 2017</p>
-                            <div class="rating">
-                                <ul class="profile-stars">
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                    <li><i  class="fa fa-star"></i></li>
-                                </ul>
-                                <div class="rateyo"></div>
-                                <span class="profile-points">5.0</span>
-                            </div>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
-                        </li>
-                    </ul>
-                </div>-->
+                <!--                <div class="profile-reviews  wow fadeInUp">
+                                    <h5>Reviews:</h5>
+                                    <ul>
+                                        <li>
+                                            <p class="title">Impressive Achievement, Realstic and Shocking.</p>
+                                            <p class="date"> <i class="fa fa-calendar"></i> 11November, 2016</p>
+                                            <div class="rating">
+                                                <ul class="profile-stars">
+                                                    <li><i  class="fa fa-star"></i></li>
+                                                    <li><i  class="fa fa-star"></i></li>
+                                                    <li><i  class="fa fa-star"></i></li>
+                                                    <li><i  class="fa fa-star"></i></li>
+                                                    <li><i  class="fa fa-star"></i></li>
+                                                </ul>
+                                                <div class="rateyo"></div>
+                                                <span class="profile-points">5.0</span>
+                                            </div>
+                                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
+                                        </li>
+                                        <li>
+                                            <p class="title">Highly Recommended!</p>
+                                            <p class="date"> <i class="fa fa-calendar"></i> 12January, 2017</p>
+                                            <div class="rating">
+                                                <ul class="profile-stars">
+                                                    <li><i  class="fa fa-star"></i></li>
+                                                    <li><i  class="fa fa-star"></i></li>
+                                                    <li><i  class="fa fa-star"></i></li>
+                                                    <li><i  class="fa fa-star"></i></li>
+                                                    <li><i  class="fa fa-star"></i></li>
+                                                </ul>
+                                                <div class="rateyo"></div>
+                                                <span class="profile-points">5.0</span>
+                                            </div>
+                                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
+                                        </li>
+                                    </ul>
+                                </div>-->
                 <div class="profile-reviews profile-educatoin  wow fadeInUp">
                     <h5>Education:</h5>
 

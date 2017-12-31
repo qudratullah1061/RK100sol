@@ -90,7 +90,10 @@ $unique_id = time();
                                             <a href="#tab_1_4" data-toggle="tab">Portfolio</a>
                                         </li>
                                         <li>
-                                            <a href="#tab_1_5" data-toggle="tab">Privacy Settings</a>
+                                            <a href="#tab_1_5" data-toggle="tab">Languages</a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab_1_6" data-toggle="tab">Privacy Settings</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -180,10 +183,51 @@ $unique_id = time();
                                                     <textarea class="form-control" rows="3" name="other_interest" placeholder="Other Interest"><?php echo $member_info['other_interest']; ?></textarea>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label class="control-label">About</label>
+                                                    <label class="control-label">About*</label>
                                                     <textarea class="form-control" rows="3" name="about_me" placeholder="About Me"><?php echo $member_info['about_me']; ?></textarea>
                                                 </div>
                                                 <div class="clearfix"></div>
+                                                <hr/>
+                                                <div class="note note-info">
+                                                    <p> Social media information.</p>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Facebook Link</label>
+                                                    <input type="text" placeholder="Facebook" name="facebook" value="<?php echo $member_info['facebook']; ?>" class="form-control" /> 
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Youtube Link</label>
+                                                    <input type="text" placeholder="Youtube" name="youtube" value="<?php echo $member_info['youtube']; ?>" class="form-control" />
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Linkedin</label>
+                                                    <input type="text" placeholder="linkedin" name="linkedin" value="<?php echo $member_info['linkedin']; ?>" class="form-control" /> 
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Gmail</label>
+                                                    <input type="text" placeholder="Gmail" name="gmail" value="<?php echo $member_info['gmail']; ?>" class="form-control" /> 
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Twitter</label>
+                                                    <input type="text" placeholder="Twitter" name="twitter" value="<?php echo $member_info['twitter']; ?>" class="form-control" />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Instagram</label>
+                                                    <input type="text" placeholder="Instagram" name="instagram" value="<?php echo $member_info['instagram']; ?>" class="form-control" /> 
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Skype</label>
+                                                    <input type="text" placeholder="Skype" name="skype" value="<?php echo $member_info['skype']; ?>" class="form-control" />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Pinterest</label>
+                                                    <input type="text" placeholder="Pinterest" name="pintrest" value="<?php echo $member_info['pinterest']; ?>" class="form-control" /> 
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <hr/>
                                                 <div class="form-group col-md-12 text-right">
                                                     <div class="margiv-top-10">
                                                         <input type="submit" name="submit" value="Save Changes" class="btn green"/>
@@ -284,7 +328,7 @@ $unique_id = time();
                                                                     </div>
                                                                 </div>
                                                                 <div class="cbp-l-grid-projects-title uppercase text-center uppercase pic-caption-img text-center pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
-                                                                <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : ""; ?></div>-->
+                                                                <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";     ?></div>-->
                                                             </div>
                                                             <?php
                                                         }
@@ -336,12 +380,9 @@ $unique_id = time();
                                             <!-- Id proof images ends-->
                                         </div>
                                         <!-- END IMAGES SETTINGS TAB -->
-
+                                        
+                                        <!--Portfolio tab starts from here-->
                                         <div class="tab-pane" id="tab_1_4">
-                                            <!-- Profile images start-->
-
-
-
                                             <div id="" class="table-responsive">
                                                 <div class="table-actions-wrapper margin-bottom-20">
                                                     <span> </span>
@@ -371,7 +412,7 @@ $unique_id = time();
                                                                 <td><?php echo $portfolio['state_name']; ?></td>
                                                                 <td><?php echo $portfolio['city_name']; ?></td>
                                                                 <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
-                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on'])); ?></td>-->
+                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));     ?></td>-->
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">
@@ -394,8 +435,57 @@ $unique_id = time();
                                             <!-- Profile images ends-->
                                             <!-- Id proof images start-->
                                         </div>
-                                        <!-- PRIVACY SETTINGS TAB -->
+                                        <!--Portfolio tabs ends here-->
+                                        <!--Languages tab starts from here-->
                                         <div class="tab-pane" id="tab_1_5">
+                                            <div id="" class="table-responsive">
+                                                <div class="table-actions-wrapper margin-bottom-20">
+                                                    <span> </span>
+                                                    <a class="purple" data-title="Add Type" href="javascript:Languages.modal_add_language()"><i class="fa fa-plus-circle"></i> Add Language</a>
+                                                </div>
+                                                <table id="language_table" class="table table-striped table-bordered table-hover text-center dataTable no-footer" cellspacing="0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Language</th>
+                                                            <th>Proficiency</th>
+                                                            <th>Added On</th>
+                                                            <th>Updated On</th>
+                                                            <th>Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <?php foreach ($language_data as $language) { ?>
+                                                            <tr>
+                                                                <td><?php echo $language['language_name']; ?></td>
+                                                                <td><?php echo $language['language_level']; ?></td>
+                                                                <td><?php echo date('Y-m-d', strtotime($language['created_on'])); ?></td>
+                                                                <td><?php echo date('Y-m-d', strtotime($language['updated_on'])); ?></td>
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled" id="checkbox<?php echo $language['language_id']; ?>" <?php echo ($language['is_active'] ? "checked='checked'" : ""); ?> class="md-check">
+                                                                            <label for="checkbox<?php echo $language['language_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable" onclick="Languages.modal_add_language(<?php echo $language['language_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $language["language_id"]; ?>, 'tb_member_languages', 'language_id', 'Language will be permanently deleted without further warning. Do you really want to delete this language from your profile?');">Delete</i></a></td>
+                                                            </tr>
+                                                        <?php } ?>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--Languages tabs ends here-->
+
+                                        <!-- PRIVACY SETTINGS TAB -->
+                                        <div class="tab-pane" id="tab_1_6">
                                             <form action="#">
                                                 <table class="table table-light table-hover">
                                                     <tr>
@@ -491,9 +581,11 @@ $unique_id = time();
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url('assets/custom_scripts/frontend/portfolio.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom_scripts/frontend/languages.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
 <script>
     $(document).ready(function () {
         $("#portfolio_table").DataTable();
+        $("#language_table").DataTable();
     });
 </script>

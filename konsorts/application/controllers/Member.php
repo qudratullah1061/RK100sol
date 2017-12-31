@@ -32,20 +32,67 @@ class Member extends FrontEnd_Controller {
             $data['member_info'] = $member_info;
             // not in used yet.
             //$data['member_images'] = $member_info;
-            $data['selected_categories'] = $this->Members_Model->get_selected_categories($member_id);
-            $data['selected_sub_categories'] = $this->Members_Model->get_selected_sub_categories($member_id);
-            $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id, "AND `tb_member_portfolios`.is_active = 1");
             //$data['country_options'] = GetCountriesOption($member_info['country']);
             //$data['state_options'] = GetStatesOption($member_info['country'], $member_info['state']);
             //$data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
             // echo '<pre>';
             // print_r($data['portfolios']);exit;
-
-            if ($member_info['member_type'] == 2 || $member_info['member_type'] == 1) {
+            $data['data_languages'] = $this->Members_Model->get_member_languages($member_id, "AND `tb_member_languages`.is_active = 1");
+            if ($member_info['member_type'] == 2) {
+                $data['selected_categories'] = $this->Members_Model->get_selected_categories($member_id);
+                $data['selected_sub_categories'] = $this->Members_Model->get_selected_sub_categories($member_id);
+                $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id, "AND `tb_member_portfolios`.is_active = 1");
                 $this->load->view('frontend/member/companion_profile', $data);
+            } elseif ($member_info['member_type'] == 1) {
+                $this->load->view('frontend/member/guest_profile', $data);
             }
         } else {
             redirect(base_url());
+        }
+    }
+    
+    function modal_language() {
+        $this->isAjax();
+        $language_id = $this->input->post('language_id');
+        $language_data = $this->Members_Model->get_language($language_id);
+        $data['language_data'] = $language_data;
+        $html = $this->load->view('frontend/member/add_language', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
+
+    function add_update_language() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            $edit_id = $this->input->post('language_id');
+            $member_id = $this->session->userdata('member_id');
+            $this->form_validation->set_rules('language_name', 'Language name', 'required|trim|strip_tags|xss_clean');
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->_response(true, validation_errors());
+            } else {
+                $data = array();
+                $data['language_name'] = $this->input->post('language_name');
+                $data['language_level'] = $this->input->post('language_level');
+                $data['member_id'] = $member_id;
+                $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
+                $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
+                if ($edit_id > 0) {
+                    // unset created on
+                    unset($data['created_on']);
+                }
+                if ($edit_id > 0) {
+                    $this->Members_Model->update_language('language_id', $edit_id, $data);
+                    $this->_response(false, "Changes saved successfully!");
+                } else {
+                    $result = $this->Members_Model->add_language($data);
+                    $this->_response(false, "Language added successfully!");
+                }
+                $this->_response(true, "Error while updating data!");
+            }
+        } else {
+            redirect(base_url('companions/get_companion_profile'));
         }
     }
 

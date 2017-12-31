@@ -9,6 +9,7 @@ class Misc extends Admin_Controller {
         parent::__construct();
         $this->layout = 'admin/main';
         $this->load->model('admin/misc_model', 'Misc_Model');
+        $this->load->model('admin/members_model', 'Members_Model');
     }
 
 //    public function add_guest() {
@@ -360,6 +361,53 @@ class Misc extends Admin_Controller {
         $city_options = GetCityOptions($state_id, $selected_city_id);
         echo json_encode(array('error' => 0, 'options' => $city_options));
         die();
+    }
+
+    function modal_language() {
+        $this->isAjax();
+        $language_id = $this->input->post('language_id');
+        $member_id = $this->input->post('member_id');
+        $language_data = $this->Members_Model->get_language($language_id);
+        $data['language_data'] = $language_data;
+        $data['member_id'] = $member_id;
+        $html = $this->load->view('admin/misc/add_language', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
+
+    function add_update_language() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            $edit_id = $this->input->post('language_id');
+            $member_id = $this->input->post('member_id');
+            $this->form_validation->set_rules('language_name', 'Language name', 'required|trim|strip_tags|xss_clean');
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->_response(true, validation_errors());
+            } else {
+                $data = array();
+                $data['language_name'] = $this->input->post('language_name');
+                $data['language_level'] = $this->input->post('language_level');
+                $data['member_id'] = $member_id;
+                $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
+                $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
+                if ($edit_id > 0) {
+                    // unset created on
+                    unset($data['created_on']);
+                }
+                if ($edit_id > 0) {
+                    $this->Members_Model->update_language('language_id', $edit_id, $data);
+                    $this->_response(false, "Changes saved successfully!");
+                } else {
+                    $result = $this->Members_Model->add_language($data);
+                    $this->_response(false, "Language added successfully!");
+                }
+                $this->_response(true, "Error while updating data!");
+            }
+        } else {
+            redirect(base_url('admin/admin_dashboard'));
+        }
     }
 
 }

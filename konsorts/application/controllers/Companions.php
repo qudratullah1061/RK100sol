@@ -66,6 +66,7 @@ class Companions extends FrontEnd_Controller {
             $data['categories'] = GetAllCategories();
             $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
             $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id);
+            $data['language_data'] = $this->Members_Model->get_member_languages($member_id);
             $this->load->view('frontend/companions/view_companion_profile', $data);
         } else {
             redirect(base_url());

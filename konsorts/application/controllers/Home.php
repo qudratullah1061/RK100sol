@@ -9,7 +9,9 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Home extends FrontEnd_Controller {
+class Home extends CI_Controller {
+
+    var $selected_tab = 'home';
 
     function __construct() {
         parent::__construct();

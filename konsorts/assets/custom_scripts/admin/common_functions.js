@@ -82,8 +82,8 @@ var CommonFunctions = function () {
                                     text: data.description,
                                     type: "success",
                                 }, function () {
-                                    $(".pic-caption-" + image_id).css("color","#474747");
-                                    $(".pic-caption-" + image_id).css("color","green");
+                                    $(".pic-caption-" + image_id).css("color", "#474747");
+                                    $(".pic-caption-" + image_id).css("color", "green");
                                 });
                             } else {
                                 // exception message here.
@@ -147,6 +147,8 @@ var CommonFunctions = function () {
                                         load_member_profile_images();
                                         is_init_id_proof_images = false;
                                         load_member_id_proofs();
+                                    } else if (table == 'tb_member_portfolios' || table == 'tb_member_languages') {
+                                        window.location.reload();
                                     }
                                 });
                             } else {
@@ -161,7 +163,7 @@ var CommonFunctions = function () {
                 });
     };
 
-    var GetStateOptions = function (country_id, state_id) {
+    var GetStateOptions = function (country_id, state_id, dropdown_class) {
         $.ajax({
             url: base_url + "admin/misc/get_states/",
             dataType: 'json',
@@ -176,7 +178,11 @@ var CommonFunctions = function () {
             },
             success: function (data) {
                 if (!data.error) {
-                    $("#dd-state").html(data.options);
+                    if (dropdown_class != undefined) {
+                        $("." + dropdown_class).html(data.options);
+                    } else {
+                        $("#dd-state").html(data.options);
+                    }
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");
@@ -187,7 +193,7 @@ var CommonFunctions = function () {
             }
         });
     };
-    var GetCitiesOptions = function (state_id, city_id) {
+    var GetCitiesOptions = function (state_id, city_id, dropdown_class) {
         $.ajax({
             url: base_url + "admin/misc/get_cities/",
             dataType: 'json',
@@ -202,7 +208,11 @@ var CommonFunctions = function () {
             },
             success: function (data) {
                 if (!data.error) {
-                    $("#dd-city").html(data.options);
+                    if (dropdown_class != undefined) {
+                        $("." + dropdown_class).html(data.options);
+                    } else {
+                        $("#dd-city").html(data.options);
+                    }
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");
@@ -224,11 +234,11 @@ var CommonFunctions = function () {
         DeleteDropzoneFile: function (unique_id, file_name) {
             DeleteDropzoneFile(unique_id, file_name);
         },
-        LoadStates: function (country_id, state_id) {
-            GetStateOptions(country_id, state_id);
+        LoadStates: function (country_id, state_id, dropdown_class) {
+            GetStateOptions(country_id, state_id, dropdown_class);
         },
-        LoadCities: function (state_id, city_id) {
-            GetCitiesOptions(state_id, city_id);
+        LoadCities: function (state_id, city_id, dropdown_class) {
+            GetCitiesOptions(state_id, city_id, dropdown_class);
         }
     };
 

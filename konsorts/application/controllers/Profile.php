@@ -77,6 +77,15 @@ class Profile extends CI_Controller {
                     // unset created on
                     unset($data['created_on']);
                     unset($data['created_by']);
+                    // receive social links
+                    $data['facebook'] = $this->input->post('facebook');
+                    $data['twitter'] = $this->input->post('twitter');
+                    $data['linkedin'] = $this->input->post('linkedin');
+                    $data['instagram'] = $this->input->post('instagram');
+                    $data['youtube'] = $this->input->post('youtube');
+                    $data['gmail'] = $this->input->post('gmail');
+                    $data['pinterest'] = $this->input->post('pinterest');
+                    $data['skype'] = $this->input->post('skype');
                 }
 
                 $result = false;
@@ -229,6 +238,15 @@ class Profile extends CI_Controller {
                     // unset created on
                     unset($data['created_on']);
                     unset($data['created_by']);
+                    // receive social links
+                    $data['facebook'] = $this->input->post('facebook');
+                    $data['twitter'] = $this->input->post('twitter');
+                    $data['linkedin'] = $this->input->post('linkedin');
+                    $data['instagram'] = $this->input->post('instagram');
+                    $data['youtube'] = $this->input->post('youtube');
+                    $data['gmail'] = $this->input->post('gmail');
+                    $data['pinterest'] = $this->input->post('pinterest');
+                    $data['skype'] = $this->input->post('skype');
                 }
 
                 $result = false;

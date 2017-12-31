@@ -94,11 +94,21 @@ class Guests extends Admin_Controller {
                     // unset created on
                     unset($data['created_on']);
                     unset($data['created_by']);
+                    // receive social links
+                    $data['facebook'] = $this->input->post('facebook');
+                    $data['twitter'] = $this->input->post('twitter');
+                    $data['linkedin'] = $this->input->post('linkedin');
+                    $data['instagram'] = $this->input->post('instagram');
+                    $data['youtube'] = $this->input->post('youtube');
+                    $data['gmail'] = $this->input->post('gmail');
+                    $data['pinterest'] = $this->input->post('pinterest');
+                    $data['skype'] = $this->input->post('skype');
                 }
 
                 $result = false;
                 if ($edit_id > 0) {
-                    $data['status'] = $this->input->post('status');;
+                    $data['status'] = $this->input->post('status');
+                    ;
                     $this->Members_Model->update_member($edit_id, $data);
                     $result = true;
                 } else {
@@ -213,7 +223,7 @@ class Guests extends Admin_Controller {
             }
         }
         $guest_members = $this->Members_Model->getMembers($cond, $offset, $this->page_limit, $sort_by);
-        
+
         $count = $guest_members['total'];
         if ($count > 0) {
             foreach ($guest_members['records'] as $result) {
@@ -251,6 +261,7 @@ class Guests extends Admin_Controller {
             $data['country_options'] = GetCountriesOption($member_info['country']);
             $data['state_options'] = GetStatesOption($member_info['country'], $member_info['state']);
             $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
+            $data['language_data'] = $this->Members_Model->get_member_languages($member_id);
             $this->load->view('admin/guests/view_guest_profile', $data);
         } else {
             redirect(base_url('admin/guests'));

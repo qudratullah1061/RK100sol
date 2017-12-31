@@ -9,6 +9,7 @@ class Companions extends Admin_Controller {
         parent::__construct();
         $this->layout = 'admin/main';
         $this->load->model('admin/members_model', 'Members_Model');
+        $this->load->model('admin/misc_model', 'Misc_Model');
     }
 
     //Main dashboard index function
@@ -111,6 +112,15 @@ class Companions extends Admin_Controller {
                     $data['status'] = $this->input->post('status');
                     unset($data['created_on']);
                     unset($data['created_by']);
+                    // receive social links
+                    $data['facebook'] = $this->input->post('facebook');
+                    $data['twitter'] = $this->input->post('twitter');
+                    $data['linkedin'] = $this->input->post('linkedin');
+                    $data['instagram'] = $this->input->post('instagram');
+                    $data['youtube'] = $this->input->post('youtube');
+                    $data['gmail'] = $this->input->post('gmail');
+                    $data['pinterest'] = $this->input->post('pinterest');
+                    $data['skype'] = $this->input->post('skype');
                 }
 
                 $result = false;
@@ -263,12 +273,87 @@ class Companions extends Admin_Controller {
             $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
             $data['categories'] = GetAllCategories();
             $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
-
-
-
+            $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id);
+            $data['language_data'] = $this->Members_Model->get_member_languages($member_id);
             $this->load->view('admin/companions/view_companion_profile', $data);
         } else {
             redirect(base_url('admin/companions'));
+        }
+    }
+
+    function modal_portfolio() {
+        $this->isAjax();
+        $portfolio_id = $this->input->post('portfolio_id');
+        $member_id = $this->input->post('member_id');
+        $portfolio_data = $this->Misc_Model->get_portfolio($portfolio_id);
+        $data['portfolio_data'] = $portfolio_data;
+        $data['member_id'] = $member_id;
+        $data['country_options'] = GetCountriesOption((isset($data['portfolio_data']->country) ? $data['portfolio_data']->country : ''));
+        $data['state_options'] = GetStatesOption((isset($data['portfolio_data']->country) ? $data['portfolio_data']->country : ''), (isset($data['portfolio_data']->state) ? $data['portfolio_data']->state : ''));
+        $data['city_options'] = GetCityOptions((isset($data['portfolio_data']->state) ? $data['portfolio_data']->state : ''), (isset($data['portfolio_data']->city) ? $data['portfolio_data']->city : ''));
+        $html = $this->load->view('admin/companions/add_portfolio', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
+
+    function add_update_portfolio() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            $edit_id = $this->input->post('portfolio_id');
+            $member_id = $this->input->post('member_id');
+            $this->form_validation->set_rules('portfolio_title', 'Portfolio Title', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('country', 'Country', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('city', 'City', 'required|trim|strip_tags|xss_clean');
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->_response(true, validation_errors());
+            } else {
+                $data = array();
+                $data['portfolio_title'] = $this->input->post('portfolio_title');
+                $data['country'] = $this->input->post('country');
+                $data['state'] = $this->input->post('state');
+                $data['city'] = $this->input->post('city');
+                $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
+                $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
+                $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');
+                $data['member_id'] = $member_id;
+                if ($edit_id > 0) {
+                    // unset created on
+                    unset($data['created_on']);
+                    unset($data['created_by']);
+                }
+                $result = false;
+                if (isset($_FILES['portfolio_image']['name']) && $_FILES['portfolio_image']['name'] != "") {
+                    //$id_proofs = reArrayFiles($_FILES['id_proofs']);
+                    $portfolio_images = $_FILES['portfolio_image'];
+                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/portfolio/';
+                    $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                    $thumb_options[1] = array('width' => 194, 'height' => 194, 'prefix' => 'medium_');
+                    $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+                    $file_name = basename($portfolio_images['name']);
+                    $u_file_name = time() . $file_name;
+                    $f_file_path = $f_upload_dir . '/' . $u_file_name;
+                    move_uploaded_file($portfolio_images['tmp_name'], $f_file_path);
+                    CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
+                    // insert in database as well.
+                    $data['portfolio_image_path'] = 'uploads/member_images/portfolio/';
+                    $data['portfolio_image'] = $u_file_name;
+                }
+
+                if ($edit_id > 0) {
+                    $this->Misc_Model->update_portfolio('portfolio_id', $edit_id, $data);
+                    $result = true;
+                } else {
+                    $result = $this->Misc_Model->add_portfolio($data);
+                }
+                if ($result) {
+                    $this->_response(false, "Changes saved successfully!");
+                }
+            }
+        } else {
+            redirect(base_url('companions/get_companion_profile'));
         }
     }
 

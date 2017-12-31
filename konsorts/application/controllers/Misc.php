@@ -60,6 +60,50 @@ class Misc extends CI_Controller {
         $this->_response(false, "Profile pic updated successfully!");
     }
 
+    function update_member_privacy() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data[0]['privacy_status'] = $this->input->post('first_name_privacy');
+            $data[0]['privacy_name'] = 'first_name_privacy';
+
+            $data[1]['privacy_status'] = $this->input->post('last_name_privacy');
+            $data[1]['privacy_name'] = 'last_name_privacy';
+
+            $data[2]['privacy_status'] = $this->input->post('email_privacy');
+            $data[2]['privacy_name'] = 'email_privacy';
+
+            $data[3]['privacy_status'] = $this->input->post('phone_number_privacy');
+            $data[3]['privacy_name'] = 'phone_number_privacy';
+
+            $data[4]['privacy_status'] = $this->input->post('facebook_privacy');
+            $data[4]['privacy_name'] = 'facebook_privacy';
+
+            $data[5]['privacy_status'] = $this->input->post('twitter_privacy');
+            $data[5]['privacy_name'] = 'twitter_privacy';
+
+            $data[6]['privacy_status'] = $this->input->post('linkedin_privacy');
+            $data[6]['privacy_name'] = 'linkedin_privacy';
+
+            $data[7]['privacy_status'] = $this->input->post('instagram_privacy');
+            $data[7]['privacy_name'] = 'instagram_privacy';
+
+            $data[8]['privacy_status'] = $this->input->post('skype_privacy');
+            $data[8]['privacy_name'] = 'skype_privacy';
+
+            $data[9]['privacy_status'] = $this->input->post('youtube_privacy');
+            $data[9]['privacy_name'] = 'youtube_privacy';
+
+            $data[10]['privacy_status'] = $this->input->post('pinterest_privacy');
+            $data[10]['privacy_name'] = 'pinterest_privacy';
+
+            $data[11]['privacy_status'] = $this->input->post('gmail_privacy');
+            $data[11]['privacy_name'] = 'gmail_privacy';
+
+            $this->Misc_Model->update_privacy($data, $this->session->userdata('member_id'));
+            $this->_response(false, "Privacy updated successfully!");
+        }
+    }
+
     function delete_dropzone_temp_file() {
         $unique_id = $this->input->get_post('unique_id');
         $file_name = $unique_id . $this->input->get_post('file_name');

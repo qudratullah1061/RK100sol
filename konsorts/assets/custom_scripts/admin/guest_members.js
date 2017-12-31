@@ -127,6 +127,24 @@ var GuestMembers = function () {
                 },
                 address: {
                     required: true,
+                },
+                facebook: {
+                    url: true
+                },
+                youtube: {
+                    url: true
+                },
+                twitter: {
+                    url: true
+                },
+                linkedin: {
+                    url: true
+                },
+                instagram: {
+                    url: true
+                },
+                pinterest: {
+                    url: true
                 }
             }
         }

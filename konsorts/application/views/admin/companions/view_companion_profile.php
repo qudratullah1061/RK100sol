@@ -6,6 +6,7 @@ $unique_id = time();
 <!-- END PAGE LEVEL STYLES -->
 <link href="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/css/cubeportfolio.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url(); ?>assets/pages/css/portfolio.min.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 <!-- BEGIN PAGE HEADER-->
 <!-- BEGIN PAGE BAR -->
 <div class="page-bar">
@@ -86,7 +87,7 @@ $unique_id = time();
                 <!-- END STAT -->
                 <div class="text-center">
                     <h4 class="profile-desc-title">About <?php echo ucfirst($member_info['username']); ?></h4>
-                    <span class="profile-desc-text"><?php echo strlen($member_info['about_me']) > 450 ? substr($member_info['about_me'], 0, 450).'...' : $member_info['about_me']; ?></span>
+                    <span class="profile-desc-text"><?php echo strlen($member_info['about_me']) > 450 ? substr($member_info['about_me'], 0, 450) . '...' : $member_info['about_me']; ?></span>
                 </div>
             </div>
             <!-- END PORTLET MAIN -->
@@ -113,7 +114,13 @@ $unique_id = time();
                                     <a href="#tab_1_3" onclick="load_member_profile_images();load_member_id_proofs();" data-toggle="tab">Images</a>
                                 </li>
                                 <li>
-                                    <a href="#tab_1_4" data-toggle="tab">Privacy Settings</a>
+                                    <a href="#tab_1_4" data-toggle="tab">Portfolio</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_1_5" data-toggle="tab">Languages</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_1_6" data-toggle="tab">Privacy Settings</a>
                                 </li>
                             </ul>
                         </div>
@@ -216,6 +223,47 @@ $unique_id = time();
                                             <textarea class="form-control" rows="3" name="other_interest" placeholder="Other Interest"><?php echo $member_info['other_interest']; ?></textarea>
                                         </div>
                                         <div class="clearfix"></div>
+                                        <hr/>
+                                        <div class="note note-info">
+                                            <p> Social media information.</p>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Facebook Link</label>
+                                            <input type="text" placeholder="Facebook" name="facebook" value="<?php echo $member_info['facebook']; ?>" class="form-control" /> 
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Youtube Link</label>
+                                            <input type="text" placeholder="Youtube" name="youtube" value="<?php echo $member_info['youtube']; ?>" class="form-control" />
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Linkedin</label>
+                                            <input type="text" placeholder="linkedin" name="linkedin" value="<?php echo $member_info['linkedin']; ?>" class="form-control" /> 
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Gmail</label>
+                                            <input type="text" placeholder="Gmail" name="gmail" value="<?php echo $member_info['gmail']; ?>" class="form-control" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Twitter</label>
+                                            <input type="text" placeholder="Twitter" name="twitter" value="<?php echo $member_info['twitter']; ?>" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Instagram</label>
+                                            <input type="text" placeholder="Instagram" name="instagram" value="<?php echo $member_info['instagram']; ?>" class="form-control" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Skype</label>
+                                            <input type="text" placeholder="Skype" name="skype" value="<?php echo $member_info['skype']; ?>" class="form-control" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Pinterest</label>
+                                            <input type="text" placeholder="Pinterest" name="pintrest" value="<?php echo $member_info['pinterest']; ?>" class="form-control" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <hr/>
                                         <div class="form-group col-md-12 text-right">
                                             <div class="margiv-top-10">
                                                 <input type="submit" name="submit" value="Save Changes" class="btn green"/>
@@ -280,6 +328,7 @@ $unique_id = time();
                                     </form>
                                 </div>
                                 <!-- Availabilities SETTINGS TAB end-->
+
                                 <!-- IMAGES SETTINGS TAB -->
                                 <div class="tab-pane" id="tab_1_3">
                                     <!-- Profile images start-->
@@ -366,8 +415,108 @@ $unique_id = time();
                                     <!-- Id proof images ends-->
                                 </div>
                                 <!-- END IMAGES SETTINGS TAB -->
-                                <!-- PRIVACY SETTINGS TAB -->
+
+                                <!--Portfolio tab starts from here-->
                                 <div class="tab-pane" id="tab_1_4">
+                                    <div class="table-actions-wrapper margin-bottom-20">
+                                        <span><a class="purple" data-title="Add Type" href="javascript:Portfolios.modal_add_portfolio(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add portfolio</a></span>
+                                    </div>
+                                    <table id="portfolio_table" class="table table-responsive table-striped table-bordered text-center dataTable no-footer" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>Title</th>
+                                                <th>Country</th>
+                                                <th>State</th>
+                                                <th>City</th>
+                                                <th>Added On</th>
+                                                <th>Updated On</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <?php foreach ($portfolios as $portfolio) { ?>
+                                                <tr>
+                                                    <td><img alt="Profile Image" class="img-circle" src="<?php echo base_url($portfolio['portfolio_image_path'] . 'small_' . $portfolio['portfolio_image']); ?>"></td>
+                                                    <td><?php echo $portfolio['portfolio_title']; ?></td>
+                                                    <td><?php echo $portfolio['country_name']; ?></td>
+                                                    <td><?php echo $portfolio['state_name']; ?></td>
+                                                    <td><?php echo $portfolio['city_name']; ?></td>
+                                                    <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
+                                                    <td><?php echo date('Y-m-d', strtotime($portfolio['updated_on'])); ?></td>
+                                                    <td>
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" disabled="disabled" id="checkbox<?php echo $portfolio['portfolio_id']; ?>" <?php echo ($portfolio['is_active'] ? "checked='checked'" : ""); ?> class="md-check">
+                                                                <label for="checkbox<?php echo $portfolio['portfolio_id']; ?>">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><a class="btn btn-xs default btn-editable" onclick="Portfolios.modal_add_portfolio(<?php echo $portfolio['portfolio_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $portfolio["portfolio_id"]; ?>, 'tb_member_portfolios', 'portfolio_id', 'Portfolio will be permanently deleted without further warning. Do you really want to delete this portfolio image?');">Delete</i></a></td>
+                                                </tr>
+                                            <?php } ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--Portfolio tabs ends here-->
+
+                                <!--Languages tab starts from here-->
+                                <div class="tab-pane" id="tab_1_5">
+                                    <div id="" class="table-responsive">
+                                        <div class="table-actions-wrapper margin-bottom-20">
+                                            <span> </span>
+                                            <a class="purple" data-title="Add Type" href="javascript:Languages.modal_add_language(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Language</a>
+                                        </div>
+                                        <table id="language_table" class="table table-striped table-bordered table-hover text-center dataTable no-footer" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Language</th>
+                                                    <th>Proficiency</th>
+                                                    <th>Added On</th>
+                                                    <th>Updated On</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <?php foreach ($language_data as $language) { ?>
+                                                    <tr>
+                                                        <td><?php echo $language['language_name']; ?></td>
+                                                        <td><?php echo $language['language_level']; ?></td>
+                                                        <td><?php echo date('Y-m-d', strtotime($language['created_on'])); ?></td>
+                                                        <td><?php echo date('Y-m-d', strtotime($language['updated_on'])); ?></td>
+                                                        <td>
+                                                            <div class="md-checkbox-inline">
+                                                                <div class="md-checkbox">
+                                                                    <input type="checkbox" disabled="disabled" id="checkbox<?php echo $language['language_id']; ?>" <?php echo ($language['is_active'] ? "checked='checked'" : ""); ?> class="md-check">
+                                                                    <label for="checkbox<?php echo $language['language_id']; ?>">
+                                                                        <span></span>
+                                                                        <span class="check"></span>
+                                                                        <span class="box"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><a class="btn btn-xs default btn-editable" onclick="Languages.modal_add_language(<?php echo $language['language_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $language["language_id"]; ?>, 'tb_member_languages', 'language_id', 'Language will be permanently deleted without further warning. Do you really want to delete this language from your profile?');">Delete</i></a></td>
+                                                    </tr>
+                                                <?php } ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--Languages tabs ends here-->
+
+                                <!-- PRIVACY SETTINGS TAB -->
+                                <div class="tab-pane" id="tab_1_6">
                                     <form action="#">
                                         <table class="table table-light table-hover">
                                             <tr>
@@ -461,4 +610,15 @@ $unique_id = time();
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom_scripts/admin/portfolio.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom_scripts/admin/languages.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    $(document).ready(function () {
+        $("#portfolio_table").DataTable({
+            "scrollX": false
+        });
+        $("#language_table").DataTable();
+    });
+</script>

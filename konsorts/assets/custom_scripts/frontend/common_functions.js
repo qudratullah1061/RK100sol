@@ -128,8 +128,7 @@ var CommonFunctions = function () {
                                     text: data.description,
                                     type: "success",
                                 }, function () {
-                                    alert(table);
-                                    if (table == 'tb_member_portfolios') {
+                                    if (table == 'tb_member_portfolios' || table == 'tb_member_languages') {
                                         window.location.reload();
                                     } else if (table == 'tb_member_images') {
                                         $("#pic-" + unique_id).remove();
@@ -279,6 +278,15 @@ var CommonFunctions = function () {
         },
         ExecutePayment: function (data, member_id) {
             UpdatePaymentInfoInDB(data, member_id);
+        },
+        changeHash: function (hashId) {
+            setTimeout(function () {
+                if (history.pushState) {
+                    history.pushState(null, null, hashId);
+                } else {
+                    location.hash = hashId;
+                }
+            }, 200);
         }
     };
 

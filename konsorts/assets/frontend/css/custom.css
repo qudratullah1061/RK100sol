@@ -1113,6 +1113,12 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     margin:2px !important;
     width: inherit;
 }
+#language_table_wrapper input, #language_table_wrapper textarea, #language_table_wrapper select{
+    font-size: 14px;
+    padding: 0; 
+    margin:2px !important;
+    width: inherit;
+}
 .cbp-l-caption-buttonLeft, .cbp-l-caption-buttonRight{
     min-width: 50px !important;
 }

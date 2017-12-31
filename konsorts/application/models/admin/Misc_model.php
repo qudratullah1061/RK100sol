@@ -45,13 +45,12 @@ class Misc_model extends Abstract_model {
         $this->table_name = "tb_categories";
         return $this->save($data);
     }
-    
-    
+
     public function add_portfolio($data) {
         $this->table_name = "tb_member_portfolios";
         return $this->save($data);
     }
-    
+
     public function get_portfolio($portfolio_id) {
         $this->table_name = 'tb_member_portfolios';
         $result = $this->getBy('portfolio_id', $portfolio_id);
@@ -59,7 +58,8 @@ class Misc_model extends Abstract_model {
             return isset($result[0]) ? $result[0] : array();
         }
     }
-     public function update_portfolio($column, $row_id, $data) {
+
+    public function update_portfolio($column, $row_id, $data) {
         $this->table_name = "tb_member_portfolios";
         return $this->updateBy($column, $row_id, $data);
     }
@@ -145,9 +145,21 @@ class Misc_model extends Abstract_model {
         $this->table_name = $table;
         return $this->save($data);
     }
-    
-    function getMemberPlanByPrice($where_clause){
+
+    function getMemberPlanByPrice($where_clause) {
         $this->table_name = "tb_member_plans";
         return $this->getByWhere("", $where_clause);
     }
+
+    function update_privacy($privacy_array, $member_id) {
+        $this->table_name = "tb_members_privacy";
+        if ($privacy_array) {
+            foreach ($privacy_array as $privacy) {
+                $where = array('privacy_name' => $privacy['privacy_name'], 'member_id' => $member_id);
+                $privacy_data = array('privacy_status'=> $privacy['privacy_status'], 'updated_on' => date("Y-m-d H:i:s"));
+                $this->updateByWhere($privacy_data, $where);
+            }
+        }
+    }
+
 }
