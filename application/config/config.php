@@ -25,6 +25,7 @@ date_default_timezone_set('Canada/Central');
   | a PHP script and you can easily do that on your own.
   |
  */
+
 $http = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://';
 $config['base_url'] = $http . $_SERVER['HTTP_HOST'] . "/RK100sol/";
 $config['root_path'] = $_SERVER['DOCUMENT_ROOT'] . "/RK100sol/";
