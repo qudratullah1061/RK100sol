@@ -794,6 +794,9 @@ span.profile-reviews-counter {
 .profile-social ul li  a:hover {
     color: #6a056a;
 }
+.profile-social ul li.disabled a{
+    pointer-events: none;
+}
 .profile-certification {
     background-color: #f6f3f4;
     margin-top: 30px;
