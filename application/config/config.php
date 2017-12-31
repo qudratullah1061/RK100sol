@@ -26,8 +26,8 @@ date_default_timezone_set('Canada/Central');
   |
  */
 $http = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://';
-$config['base_url'] = $http . $_SERVER['HTTP_HOST'] . "/RK100sol/konsorts/";
-$config['root_path'] = $_SERVER['DOCUMENT_ROOT'] . "/RK100sol/konsorts/";
+$config['base_url'] = $http . $_SERVER['HTTP_HOST'] . "/";
+$config['root_path'] = $_SERVER['DOCUMENT_ROOT'] . "/";
 if ($_SERVER['HTTP_HOST'] == 'www.konsorts.com' || $_SERVER['HTTP_HOST'] == 'konsorts.com') {
     define("ENVO", "LIVE");
     ini_set('display_errors', 0);
