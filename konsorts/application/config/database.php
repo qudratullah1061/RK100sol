@@ -101,9 +101,9 @@ $general = array(
 //set for live later
 $db['default'] = array_merge($general, array(
     'hostname' => 'localhost',
-    'username' => 'konsorts',
-    'password' => 'konsorts@12345',
-    'database' => 'konsorts',
+    'username' => 'konsorts_web',
+    'password' => 'NGve71OBeqNx',
+    'database' => 'konsorts_web',
         ));
 
 // set for dev here later

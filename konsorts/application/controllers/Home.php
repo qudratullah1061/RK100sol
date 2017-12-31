@@ -22,5 +22,8 @@ class Home extends CI_Controller {
         $this->selected_tab = 'home';
         $this->load->view('frontend/home');
     }
-
+    
+    function not_found(){
+        $this->load->view('frontend/page404');
+    }
 }
