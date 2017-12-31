@@ -107,7 +107,7 @@
         <div class="col-md-9 col-sm-8">
             <div class="profile-right  wow fadeInUp">
                 <div class="profile-intro">
-                    <h5><?php echo implode(', ', array_column($selected_categories, 'category_name')); ?>.</h5>
+                    <h5><?php echo implode(', ', array_column($selected_categories, 'category_name')); ?></h5>
                     <p><?php echo $member_info['about_me']; ?></p>
                 </div>
 
