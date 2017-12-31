@@ -405,7 +405,7 @@
                                 </div>
                                 <div class="dropdown">
                                     <a type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        <img src="<?php echo $this->session->userdata['member_info']['image'] != '' ? base_url($this->session->userdata['member_info']['image_path'] . $this->session->userdata['member_info']['image']) : base_url('uploads/member_images/profile/profile.png'); ?>" alt="">  
+                                        <img src="<?php echo $this->session->userdata['member_info']['image'] != '' && file_exists($this->config->item('root_path') . 'uploads/member_images/profile/' . $this->session->userdata['member_info']['image']) ? base_url($this->session->userdata['member_info']['image_path'] . $this->session->userdata['member_info']['image']) : base_url('uploads/member_images/profile/profile.png'); ?>" alt="">  
                                         <?php echo $this->session->userdata['member_info']['first_name']; ?>
                                         <span class="fa fa-angle-down"></span>
                                     </a>
