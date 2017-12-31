@@ -239,6 +239,15 @@ var CommonFunctions = function () {
         },
         LoadCities: function (state_id, city_id, dropdown_class) {
             GetCitiesOptions(state_id, city_id, dropdown_class);
+        },
+        changeHash: function (hashId) {
+            setTimeout(function () {
+                if (history.pushState) {
+                    history.pushState(null, null, hashId);
+                } else {
+                    location.hash = hashId;
+                }
+            }, 200);
         }
     };
 

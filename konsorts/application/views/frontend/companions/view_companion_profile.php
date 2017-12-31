@@ -77,22 +77,22 @@ $unique_id = time();
                                         <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
                                     </div>
                                     <ul class="nav nav-tabs">
-                                        <li class="active">
+                                        <li class="active" onclick="CommonFunctions.changeHash('#tab_1_1')">
                                             <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
                                         </li>
-                                        <li>
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_2')">
                                             <a href="#tab_1_2" data-toggle="tab">Availabilities</a>
                                         </li>
-                                        <li onclick="">
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_3')">
                                             <a href="#tab_1_3" onclick="load_member_profile_images();load_member_id_proofs();" data-toggle="tab">Images</a>
                                         </li>
-                                        <li>
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_4')">
                                             <a href="#tab_1_4" data-toggle="tab">Portfolio</a>
                                         </li>
-                                        <li>
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_5')">
                                             <a href="#tab_1_5" data-toggle="tab">Languages</a>
                                         </li>
-                                        <li>
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_6')">
                                             <a href="#tab_1_6" data-toggle="tab">Privacy Settings</a>
                                         </li>
                                     </ul>
@@ -328,7 +328,7 @@ $unique_id = time();
                                                                     </div>
                                                                 </div>
                                                                 <div class="cbp-l-grid-projects-title uppercase text-center uppercase pic-caption-img text-center pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
-                                                                <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";     ?></div>-->
+                                                                <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";      ?></div>-->
                                                             </div>
                                                             <?php
                                                         }
@@ -380,7 +380,7 @@ $unique_id = time();
                                             <!-- Id proof images ends-->
                                         </div>
                                         <!-- END IMAGES SETTINGS TAB -->
-                                        
+
                                         <!--Portfolio tab starts from here-->
                                         <div class="tab-pane" id="tab_1_4">
                                             <div id="" class="table-responsive">
@@ -412,7 +412,7 @@ $unique_id = time();
                                                                 <td><?php echo $portfolio['state_name']; ?></td>
                                                                 <td><?php echo $portfolio['city_name']; ?></td>
                                                                 <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
-                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));     ?></td>-->
+                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));      ?></td>-->
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">
@@ -486,72 +486,35 @@ $unique_id = time();
 
                                         <!-- PRIVACY SETTINGS TAB -->
                                         <div class="tab-pane" id="tab_1_6">
-                                            <form action="#">
+                                            <form role="form" id="update_privacy_member">
                                                 <table class="table table-light table-hover">
-                                                    <tr>
-                                                        <td> All privacy settings will goes here. </td>
-                                                        <td>
-                                                            <div class="mt-radio-inline">
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios1" value="option1" /> Yes
-                                                                    <span></span>
-                                                                </label>
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios1" value="option2" checked/> No
-                                                                    <span></span>
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                        <td>
-                                                            <div class="mt-radio-inline">
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios11" value="option1" /> Yes
-                                                                    <span></span>
-                                                                </label>
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios11" value="option2" checked/> No
-                                                                    <span></span>
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                        <td>
-                                                            <div class="mt-radio-inline">
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios21" value="option1" /> Yes
-                                                                    <span></span>
-                                                                </label>
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios21" value="option2" checked/> No
-                                                                    <span></span>
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                        <td>
-                                                            <div class="mt-radio-inline">
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios31" value="option1" /> Yes
-                                                                    <span></span>
-                                                                </label>
-                                                                <label class="mt-radio">
-                                                                    <input type="radio" name="optionsRadios31" value="option2" checked/> No
-                                                                    <span></span>
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    <?php
+                                                    if (isset($member_info['privacy_info']) && count($member_info['privacy_info']) > 0) {
+                                                        foreach ($member_info['privacy_info'] as $privacy) {
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo "Show " . $privacy['privacy_label']; ?></td>
+                                                                <td>
+                                                                    <div class="mt-radio-inline">
+                                                                        <label class="mt-radio">
+                                                                            <input type="radio" name="<?php echo $privacy['privacy_name']; ?>" value="1" <?php echo $privacy['privacy_status'] == 1 ? "checked='checked'" : ""; ?> /> Yes
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="mt-radio">
+                                                                            <input type="radio" name="<?php echo $privacy['privacy_name']; ?>" value="0" <?php echo $privacy['privacy_status'] == 0 ? "checked='checked'" : ""; ?>/> No
+                                                                            <span></span>
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
                                                 </table>
                                                 <!--end profile-settings-->
                                                 <div class="margin-top-10">
-                                                    <a href="javascript:;" class="btn red"> Save Changes </a>
+                                                    <input type="submit" name="submit" value="Save Changes" class="btn green"/>&nbsp;&nbsp;
                                                     <a href="<?php echo base_url('member/profile'); ?>" class="btn default">Cancel</a>
                                                 </div>
                                             </form>
@@ -571,11 +534,12 @@ $unique_id = time();
     $(document).ready(function () {
         FormWizard.handleCompanionValidation("update_companion_member");
         FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
+        PrivacyMembers.initUpdatePrivacyValidation("update_privacy_member");
     });
 </script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-<!--<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/guest_members.js" type="text/javascript"></script>-->
+<script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/privacy_members.js" type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>
