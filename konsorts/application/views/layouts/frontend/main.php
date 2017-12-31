@@ -167,7 +167,7 @@
                                                 <a href="page_user_profile_1.html">view all</a>
                                             </li>
                                             <li>
-                                                <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+                                                <ul class="dropdown-menu-list scroller" data-height="250" data-handle-color="#637283">
                                                     <li>
                                                         <a href="javascript:;">
                                                             <span class="time">just now</span>
@@ -175,6 +175,42 @@
                                                                 <span class="label label-sm label-icon label-success">
                                                                     <i class="fa fa-plus"></i>
                                                                 </span> New user registered. </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <span class="time">3 mins</span>
+                                                            <span class="details">
+                                                                <span class="label label-sm label-icon label-danger">
+                                                                    <i class="fa fa-bolt"></i>
+                                                                </span> Server #12 overloaded. </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <span class="time">10 mins</span>
+                                                            <span class="details">
+                                                                <span class="label label-sm label-icon label-warning">
+                                                                    <i class="fa fa-bell-o"></i>
+                                                                </span> Server #2 not responding. </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <span class="time">3 mins</span>
+                                                            <span class="details">
+                                                                <span class="label label-sm label-icon label-danger">
+                                                                    <i class="fa fa-bolt"></i>
+                                                                </span> Server #12 overloaded. </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <span class="time">10 mins</span>
+                                                            <span class="details">
+                                                                <span class="label label-sm label-icon label-warning">
+                                                                    <i class="fa fa-bell-o"></i>
+                                                                </span> Server #2 not responding. </span>
                                                         </a>
                                                     </li>
                                                     <li>
@@ -222,15 +258,7 @@
                                                                 </span> A user IP blocked. </span>
                                                         </a>
                                                     </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">4 days</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-warning">
-                                                                    <i class="fa fa-bell-o"></i>
-                                                                </span> Storage Server #4 not responding dfdfdfd. </span>
-                                                        </a>
-                                                    </li>
+                                                    
                                                     <li>
                                                         <a href="javascript:;">
                                                             <span class="time">5 days</span>
