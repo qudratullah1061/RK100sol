@@ -151,10 +151,10 @@
                             ?>
                             <div class="col-md-2 col-xs-5 width-auto header-right">
                                 <div class="header-searchbar">
-<!--                                    <div class="notifications not">
-                                        <a href="#search-header" class="header-search-form text-white"><i class="fa fa-bell-o"></i></a>
-                                        <span class="counter">3</span>
-                                    </div>-->
+                                    <!--                                    <div class="notifications not">
+                                                                            <a href="#search-header" class="header-search-form text-white"><i class="fa fa-bell-o"></i></a>
+                                                                            <span class="counter">3</span>
+                                                                        </div>-->
                                     <div class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                             <i class="fa fa-bell-o"></i>
@@ -163,120 +163,21 @@
                                         <ul class="dropdown-menu">
                                             <li class="external">
                                                 <h3>
-                                                    <span class="bold">12 pending</span> notifications</h3>
-                                                <a href="page_user_profile_1.html">view all</a>
+                                                    <span class="bold">0 pending</span> notifications
+                                                </h3>
+                                                <a href="javascript:;">view all</a>
                                             </li>
                                             <li>
                                                 <ul class="dropdown-menu-list scroller" data-height="250" data-handle-color="#637283">
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">just now</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-success">
-                                                                    <i class="fa fa-plus"></i>
-                                                                </span> New user registered. </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">3 mins</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-danger">
-                                                                    <i class="fa fa-bolt"></i>
-                                                                </span> Server #12 overloaded. </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">10 mins</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-warning">
-                                                                    <i class="fa fa-bell-o"></i>
-                                                                </span> Server #2 not responding. </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">3 mins</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-danger">
-                                                                    <i class="fa fa-bolt"></i>
-                                                                </span> Server #12 overloaded. </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">10 mins</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-warning">
-                                                                    <i class="fa fa-bell-o"></i>
-                                                                </span> Server #2 not responding. </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">3 mins</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-danger">
-                                                                    <i class="fa fa-bolt"></i>
-                                                                </span> Server #12 overloaded. </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">10 mins</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-warning">
-                                                                    <i class="fa fa-bell-o"></i>
-                                                                </span> Server #2 not responding. </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">14 hrs</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-info">
-                                                                    <i class="fa fa-bullhorn"></i>
-                                                                </span> Application error. </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">2 days</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-danger">
-                                                                    <i class="fa fa-bolt"></i>
-                                                                </span> Database overloaded 68%. </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">3 days</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-danger">
-                                                                    <i class="fa fa-bolt"></i>
-                                                                </span> A user IP blocked. </span>
-                                                        </a>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">5 days</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-info">
-                                                                    <i class="fa fa-bullhorn"></i>
-                                                                </span> System Error. </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <span class="time">9 days</span>
-                                                            <span class="details">
-                                                                <span class="label label-sm label-icon label-danger">
-                                                                    <i class="fa fa-bolt"></i>
-                                                                </span> Storage server failed. </span>
-                                                        </a>
-                                                    </li>
+                                                    <!--                                                    <li>
+                                                                                                            <a href="javascript:;">
+                                                                                                                <span class="time">just now</span>
+                                                                                                                <span class="details">
+                                                                                                                    <span class="label label-sm label-icon label-success">
+                                                                                                                        <i class="fa fa-plus"></i>
+                                                                                                                    </span> New user registered. </span>
+                                                                                                            </a>
+                                                                                                        </li>-->
                                                 </ul>
                                             </li>
                                         </ul>
@@ -286,7 +187,7 @@
     <!--                                            <i class="icon-envelope-open"></i>
                                             <span class="badge badge-default"> 4 </span>-->
                                             <a href="#search-header" class="header-search-form text-white"><i class="fa fa-envelope-o"></i>
-                                                <span class="counter">10</span>
+                                                <span class="counter">0</span>
                                             </a>
 
                                         </a>
@@ -294,12 +195,12 @@
                                         <ul class="dropdown-menu">
                                             <li class="external">
                                                 <h3>You have
-                                                    <span class="bold">7 New</span> Messages</h3>
-                                                <a href="app_inbox.html">view all</a>
+                                                    <span class="bold">0 New</span> Messages</h3>
+                                                <a href="javascript:;">view all</a>
                                             </li>
                                             <li>
                                                 <ul class="dropdown-menu-list scroller" data-height="250" data-handle-color="#637283">
-                                                    <li>
+<!--                                                    <li>
                                                         <a href="#">
                                                             <span class="photo">
                                                                 <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
@@ -309,95 +210,7 @@
                                                             </span>
                                                             <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
                                                         </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="photo">
-                                                                <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
-                                                            <span class="subject">
-                                                                <span class="from"> Richard Doe </span>
-                                                                <span class="time">16 mins </span>
-                                                            </span>
-                                                            <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="photo">
-                                                                <img src="../assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
-                                                            <span class="subject">
-                                                                <span class="from"> Bob Nilson </span>
-                                                                <span class="time">2 hrs </span>
-                                                            </span>
-                                                            <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="photo">
-                                                                <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
-                                                            <span class="subject">
-                                                                <span class="from"> Richard Doe </span>
-                                                                <span class="time">16 mins </span>
-                                                            </span>
-                                                            <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="photo">
-                                                                <img src="../assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
-                                                            <span class="subject">
-                                                                <span class="from"> Bob Nilson </span>
-                                                                <span class="time">2 hrs </span>
-                                                            </span>
-                                                            <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="photo">
-                                                                <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
-                                                            <span class="subject">
-                                                                <span class="from"> Richard Doe </span>
-                                                                <span class="time">16 mins </span>
-                                                            </span>
-                                                            <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="photo">
-                                                                <img src="../assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
-                                                            <span class="subject">
-                                                                <span class="from"> Bob Nilson </span>
-                                                                <span class="time">2 hrs </span>
-                                                            </span>
-                                                            <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="photo">
-                                                                <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
-                                                            <span class="subject">
-                                                                <span class="from"> Lisa Wong </span>
-                                                                <span class="time">40 mins </span>
-                                                            </span>
-                                                            <span class="message"> Vivamus sed auctor 40% nibh congue nibh... </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <span class="photo">
-                                                                <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
-                                                            <span class="subject">
-                                                                <span class="from"> Richard Doe </span>
-                                                                <span class="time">46 mins </span>
-                                                            </span>
-                                                            <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                        </a>
-                                                    </li>
+                                                    </li>-->
                                                 </ul>
                                             </li>
                                         </ul>
@@ -499,7 +312,7 @@
                         </div>
                         <!-- end instagram -->
                     </div>
-                    
+
                     <div class="padding-10px-tb xs-padding-20px-tb border-bottom border-top  footer-mid">
 
                         <div class="row">
