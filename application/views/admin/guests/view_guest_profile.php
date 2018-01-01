@@ -110,13 +110,13 @@ $unique_id = time();
                                 <li class="active" onclick="CommonFunctions.changeHash('#tab_1_1')">
                                     <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
                                 </li>
-                                <li onclick="CommonFunctions.changeHash('#tab_1_1')">
+                                <li onclick="CommonFunctions.changeHash('#tab_1_2')">
                                     <a href="#tab_1_2" onclick="load_member_profile_images();load_member_id_proofs();" data-toggle="tab">Images</a>
                                 </li>
-                                <li onclick="CommonFunctions.changeHash('#tab_1_1')">
+                                <li onclick="CommonFunctions.changeHash('#tab_1_3')">
                                     <a href="#tab_1_3" data-toggle="tab">Languages</a>
                                 </li>
-                                <li onclick="CommonFunctions.changeHash('#tab_1_1')">
+                                <li onclick="CommonFunctions.changeHash('#tab_1_4')">
                                     <a href="#tab_1_4" data-toggle="tab">Privacy Settings</a>
                                 </li>
                             </ul>
