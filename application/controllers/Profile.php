@@ -229,8 +229,6 @@ class Profile extends CI_Controller {
                 $data['city'] = $this->input->post('city');
                 $data['address'] = $this->input->post('address');
                 $data['about_me'] = $this->input->post('about_me');
-                $data['subscription_date'] = date('Y-m-d H:i:s');
-                $data['end_subscription_date'] = date('Y-m-d H:i:s', strtotime("+1 month"));
                 $data['other_interest'] = $this->input->post('other_interest');
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $edit_id;
@@ -257,6 +255,8 @@ class Profile extends CI_Controller {
                     $macros_data = array();
                     $data['member_type'] = 2;
                     $data['membership_type'] = 'Companion';
+                    $data['subscription_date'] = date('Y-m-d H:i:s');
+                    $data['end_subscription_date'] = date('Y-m-d H:i:s', strtotime("+1 month"));
                     $data['email_verification_code'] = md5(time());
                     $edit_id = $result = $this->Members_Model->add_member($data);
                     // update unique id
