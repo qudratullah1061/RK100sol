@@ -120,6 +120,32 @@ class Companions extends Admin_Controller {
 
                 $result = false;
                 if ($edit_id > 0) {
+                    if ($member_info['status'] != $data['status']) {
+                        //status changed of user.
+                        $member_info = $this->Members_Model->get_member_by_id($edit_id);
+                        $member_email = $member_info['email'];
+                        $member_email_v_code = $data['email_verification_code'];
+                        $macros_data['$$$FIRST_NAME$$$'] = $data['first_name'];
+                        if ($data['status'] == "active") {
+                            // account activated
+                            $email_template_info = get_email_template('member_activated', $macros_data);
+                            if ($email_template_info) {
+                                sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
+                            }
+                        } elseif ($data['status'] == "pending") {
+                            // account pending
+                            $email_template_info = get_email_template('member_pending', $macros_data);
+                            if ($email_template_info) {
+                                sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
+                            }
+                        } elseif ($data['status'] == "suspended") {
+                            // account suspended
+                            $email_template_info = get_email_template('member_suspended', $macros_data);
+                            if ($email_template_info) {
+                                sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
+                            }
+                        }
+                    }
                     $this->Members_Model->update_member($edit_id, $data);
                     $result = true;
                 } else {
