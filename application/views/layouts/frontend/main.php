@@ -294,19 +294,13 @@
                         <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center  padding-70px-left sm-padding-left-0">
                             <div class="widget-title">Terms</div>
                             <ul class="list-unstyled">
-                                <li><a href="">Privacy Policy</a></li>
                                 <li><a href="<?php echo base_url('misc/terms'); ?>">Terms and Conditions</a></li>
-                                <li><a href="">Copyright Policy</a></li>
-                                <li><a href="">Code of Conduct</a></li>
                             </ul>
                         </div>
                         <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
                             <div class="widget-title">Support</div>
                             <ul class="list-unstyled">
                                 <li><a href="<?php echo base_url('misc/faq'); ?>">Faq</a></li>
-                                <li><a href="<?php echo base_url('misc/terms'); ?>">Terms and Conditions</a></li>
-                                <li><a href="javascript:void(0);">Copyright Policy</a></li>
-                                <li><a href="javascript:void(0);">Code of Conduct</a></li>
                             </ul>
                         </div>
                         <!-- end instagram -->

@@ -236,6 +236,12 @@ class Misc extends CI_Controller {
     function secure_cummunity() {
         $this->load->view('frontend/misc/secure_cummunity');
     }
+    function find_perfect_buddy() {
+        $this->load->view('frontend/misc/find_perfect_buddy');
+    }
+    function rewards_hosting_traveling() {
+        $this->load->view('frontend/misc/rewards_hosting_traveling');
+    }
 
     //    Misc pages ends here
 
