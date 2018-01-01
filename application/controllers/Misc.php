@@ -227,6 +227,15 @@ class Misc extends CI_Controller {
     function terms() {
         $this->load->view('frontend/misc/terms');
     }
+    function how_it_works() {
+        $this->load->view('frontend/misc/how_it_works');
+    }
+    function earn_extra_cash() {
+        $this->load->view('frontend/misc/earn_extra_cash');
+    }
+    function secure_cummunity() {
+        $this->load->view('frontend/misc/secure_cummunity');
+    }
 
     //    Misc pages ends here
 

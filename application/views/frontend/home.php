@@ -735,8 +735,9 @@
                     <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle text-left">
-                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.....</p>
-                                <a href="#" class="text-white font-weight-700">Read More</a>
+                                <p class="text-white">Whether you are a personal fitness trainer, an event organizer or someone who needs either in their lives, Konsorts is an ideal pit stop for your needs.                     
+                                    So what makes us different? Among the burgeoning websites that cater specifically to traveling or dating, Konsorts is the only platform that looks out for all. </p>
+                                <a href="<?php echo base_url('misc/how_it_works'); ?>" class="text-white font-weight-700">Read More</a>
                             </div>
                         </div>
                     </figcaption>
@@ -747,15 +748,15 @@
                     <div class="banner-image bg-black height-370px cover-background" style="background-image:url('<?php echo base_url('assets/frontend/'); ?>img/work-2.jpg');">
                         <div class="works-caption">
                             <div class="text-center padding-30px-tb">
-                                <p>HOW KONSORTS WORKS?</p>
+                                <p>EARN EXTRA CASH</p>
                             </div>   
                         </div>
                     </div>
                     <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle text-left">
-                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.....</p>
-                                <a href="#" class="text-white font-weight-700">Read More</a>
+                                <p class="text-white">Unlike many other earning websites, Konsorts helps you make money online without needing any prior experience in most cases. You get the opportunity to earn extra money on top of your daily wages. This is especially useful for people who are looking to break out of their daily grind and change career paths. Instead of dropping...</p>
+                                <a href="<?php echo base_url('misc/earn_extra_cash') ?>" class="text-white font-weight-700">Read More</a>
                             </div>
                         </div>
                     </figcaption>
@@ -773,8 +774,8 @@
                     <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle text-left">
-                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.....</p>
-                                <a href="#" class="text-white font-weight-700">Read More</a>
+                                <p class="text-white">What if we told you that you could be a part of a market place that fulfills your every need? You could hire a chef, find travel companions, even walking partners within minutes? With Konsorts, we are shaping the way people do business. Gone are the days where it took hours of research and referrals to find what you were looking for.</p>
+                                <a href="<?php echo base_url('misc/secure_cummunity') ?>" class="text-white font-weight-700">Read More</a>
                             </div>
                         </div>
                     </figcaption>
