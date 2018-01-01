@@ -2,3 +2,4 @@
 /uploads/*
 application/config/config.php
 .gitignore
+.htaccess
