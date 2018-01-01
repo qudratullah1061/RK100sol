@@ -410,4 +410,41 @@ class Misc extends Admin_Controller {
         }
     }
 
+    function modal_subscription_date() {
+        $this->isAjax();
+        $member_id = $this->input->post('member_id');
+        $end_subscription_date = $this->input->post('end_subscription_date');
+        $data['member_id'] = $member_id;
+        $data['end_subscription_date'] = $end_subscription_date;
+        $html = $this->load->view('admin/misc/update_member_subscription', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
+
+    function update_member_subscription() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            $end_subscription_date = $this->input->post('end_subscription_date');
+            $member_id = $this->input->post('member_id');
+            $this->form_validation->set_rules('end_subscription_date', 'End subscription date', 'required|trim|strip_tags|xss_clean');
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->_response(true, validation_errors());
+            } else {
+                $data = array();
+                $data['end_subscription_date'] = $this->input->post('end_subscription_date');
+                $data['member_id'] = $member_id;
+                $data['updated_on'] = date("Y-m-d H:i:s");
+                if ($member_id > 0) {
+                    $this->Members_Model->update_member($member_id, $data);
+                    $this->_response(false, "Subscription date updated successfully!");
+                }
+                $this->_response(true, "Error while updating subscription date! No member id provided.");
+            }
+        } else {
+            redirect(base_url('admin/admin_dashboard'));
+        }
+    }
+
 }

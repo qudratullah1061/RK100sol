@@ -76,6 +76,14 @@ $unique_id = time();
                     <div class="ribbon-sub ribbon-clip"></div><?php echo $member_info['status']; ?></div>
                 <p class="ribbon-content"><?php echo $msg; ?></p>
             </div>
+            
+            <div class="mt-element-ribbon bg-color-white">
+                <div class="ribbon ribbon-border-hor ribbon-clip <?php echo "ribbon-color-danger"; ?> uppercase">
+                    <div class="ribbon-sub ribbon-clip"></div>
+                    <?php echo $member_info['end_subscription_date']; ?>
+                </div>
+                <p class="ribbon-content">Account was created on <?php echo $member_info['subscription_date']; ?> and will expire on <?php echo $member_info['end_subscription_date']; ?>. Click <a style="color:purple; font-weight: bold;" href="javascript:UpdateSubscription.UpdateSubscriptionModal(<?php echo $member_info['member_id']; ?>,'<?php echo $member_info['end_subscription_date']; ?>')">here</a> if you want to update subscription date for current member.</p>
+            </div>
 
             <!-- END PORTLET MAIN -->
             <!-- PORTLET MAIN -->
@@ -453,6 +461,7 @@ $unique_id = time();
 </script>
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/guest_members.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/member_subscription_update.js" type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>

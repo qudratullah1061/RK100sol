@@ -248,6 +248,9 @@ var CommonFunctions = function () {
                     location.hash = hashId;
                 }
             }, 200);
+        },
+        UpdateSubscriptionModal: function (member_id, end_subscription_date) {
+            ShowSubscriptionModal(member_id, end_subscription_date);
         }
     };
 

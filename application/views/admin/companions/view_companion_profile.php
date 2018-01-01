@@ -74,6 +74,14 @@ $unique_id = time();
                     <div class="ribbon-sub ribbon-clip"></div><?php echo $member_info['status']; ?></div>
                 <p class="ribbon-content"><?php echo $msg; ?></p>
             </div>
+
+            <div class="mt-element-ribbon bg-color-white">
+                <div class="ribbon ribbon-border-hor ribbon-clip <?php echo "ribbon-color-danger"; ?> uppercase">
+                    <div class="ribbon-sub ribbon-clip"></div>
+                    <?php echo $member_info['end_subscription_date']; ?>
+                </div>
+                <p class="ribbon-content">Account was created on <span class="bold italic" style="color:green;"><?php echo $member_info['subscription_date']; ?></span> and will expire on <span class="bold italic" style="color:red;"><?php echo $member_info['end_subscription_date']; ?></span>. Click <a style="color:purple; font-weight: bold;" href="javascript:UpdateSubscription.UpdateSubscriptionModal(<?php echo $member_info['member_id']; ?>,'<?php echo $member_info['end_subscription_date']; ?>')">here</a> if you want to update subscription date for current member.</p>
+            </div>
             <!-- END PORTLET MAIN -->
             <!-- PORTLET MAIN -->
             <div class="portlet light ">
@@ -187,20 +195,20 @@ $unique_id = time();
                                         <div class="form-group col-md-6">
                                             <label class="control-label">Country<span class="required">*</span></label>
                                             <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
-                                                <?php echo isset($country_options) ? $country_options : ""; ?>
+<?php echo isset($country_options) ? $country_options : ""; ?>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label">State<span class="required">*</span></label>
                                             <select class="form-control edited" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
-                                                <?php echo isset($state_options) ? $state_options : ""; ?>
+<?php echo isset($state_options) ? $state_options : ""; ?>
                                             </select>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label">City<span class="required">*</span></label>
                                             <select class="form-control" id="dd-city" name="city">
-                                                <?php echo isset($city_options) ? $city_options : ""; ?>
+<?php echo isset($city_options) ? $city_options : ""; ?>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
@@ -437,7 +445,7 @@ $unique_id = time();
                                         </thead>
 
                                         <tbody>
-                                            <?php foreach ($portfolios as $portfolio) { ?>
+<?php foreach ($portfolios as $portfolio) { ?>
                                                 <tr>
                                                     <td><img alt="Profile Image" class="img-circle" src="<?php echo base_url($portfolio['portfolio_image_path'] . 'small_' . $portfolio['portfolio_image']); ?>"></td>
                                                     <td><?php echo $portfolio['portfolio_title']; ?></td>
@@ -460,7 +468,7 @@ $unique_id = time();
                                                     </td>
                                                     <td><a class="btn btn-xs default btn-editable" onclick="Portfolios.modal_add_portfolio(<?php echo $portfolio['portfolio_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $portfolio["portfolio_id"]; ?>, 'tb_member_portfolios', 'portfolio_id', 'Portfolio will be permanently deleted without further warning. Do you really want to delete this portfolio image?');">Delete</i></a></td>
                                                 </tr>
-                                            <?php } ?>
+<?php } ?>
 
                                         </tbody>
                                     </table>
@@ -487,7 +495,7 @@ $unique_id = time();
                                             </thead>
 
                                             <tbody>
-                                                <?php foreach ($language_data as $language) { ?>
+<?php foreach ($language_data as $language) { ?>
                                                     <tr>
                                                         <td><?php echo $language['language_name']; ?></td>
                                                         <td><?php echo $language['language_level']; ?></td>
@@ -507,7 +515,7 @@ $unique_id = time();
                                                         </td>
                                                         <td><a class="btn btn-xs default btn-editable" onclick="Languages.modal_add_language(<?php echo $language['language_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $language["language_id"]; ?>, 'tb_member_languages', 'language_id', 'Language will be permanently deleted without further warning. Do you really want to delete this language from your profile?');">Delete</i></a></td>
                                                     </tr>
-                                                <?php } ?>
+<?php } ?>
 
                                             </tbody>
                                         </table>
@@ -519,52 +527,16 @@ $unique_id = time();
                                 <div class="tab-pane" id="tab_1_6">
                                     <form action="#">
                                         <table class="table table-light table-hover">
-                                            <tr>
-                                                <td> All privacy settings will goes here. </td>
+<!--                                            <tr>
+                                                <td> Last Subscription Date </td>
                                                 <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios1" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios1" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
+<?php // echo date("Y-m-d");  ?>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
                                                 <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios11" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios11" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
+                                                    <button class="btn btn-info">Update Subscription</button>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios21" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios21" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
+                                            </tr>-->
+<!--                                            <tr>
                                                 <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
                                                 <td>
                                                     <div class="mt-radio-inline">
@@ -578,7 +550,7 @@ $unique_id = time();
                                                         </label>
                                                     </div>
                                                 </td>
-                                            </tr>
+                                            </tr>-->
                                         </table>
                                         <!--end profile-settings-->
                                         <div class="margin-top-10">
@@ -606,7 +578,7 @@ $unique_id = time();
 </script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/companion-form-wizard.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-<!--<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/guest_members.js" type="text/javascript"></script>-->
+<script src="<?php echo base_url(); ?>assets/custom_scripts/admin/member_subscription_update.js" type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>

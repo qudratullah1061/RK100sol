@@ -112,6 +112,8 @@ class Guests extends Admin_Controller {
                     $result = true;
                 } else {
                     $data['member_type'] = 1;
+                    $data['subscription_date'] = date('Y-m-d H:i:s');
+                    $data['end_subscription_date'] = date('Y-m-d H:i:s', strtotime("+1 month"));
                     $edit_id = $result = $this->Members_Model->add_member($data);
                     // update unique id
                     $unique_id_update_data['member_unique_code'] = "G-" . date("Ymd") . $edit_id;
