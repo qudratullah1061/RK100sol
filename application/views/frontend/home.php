@@ -736,7 +736,7 @@
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle text-left">
                                 <p class="text-white">Whether you are a personal fitness trainer, an event organizer or someone who needs either in their lives, Konsorts is an ideal pit stop for your needs.                     
-                                    So what makes us different? Among the burgeoning websites that cater specifically to traveling or dating, Konsorts is the only platform that looks out for all. </p>
+                                    So what makes us different? Among the burgeoning websites that cater specifically to traveling or dating, Konsorts is the only platform that looks out for all... </p>
                                 <a href="<?php echo base_url('misc/how_it_works'); ?>" class="text-white font-weight-700">Read More</a>
                             </div>
                         </div>
@@ -774,7 +774,7 @@
                     <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle text-left">
-                                <p class="text-white">What if we told you that you could be a part of a market place that fulfills your every need? You could hire a chef, find travel companions, even walking partners within minutes? With Konsorts, we are shaping the way people do business. Gone are the days where it took hours of research and referrals to find what you were looking for.</p>
+                                <p class="text-white">What if we told you that you could be a part of a market place that fulfills your every need? You could hire a chef, find travel companions, even walking partners within minutes? With Konsorts, we are shaping the way people do business. Gone are the days where it took hours of research and referrals to find what you were looking for...</p>
                                 <a href="<?php echo base_url('misc/secure_cummunity') ?>" class="text-white font-weight-700">Read More</a>
                             </div>
                         </div>
