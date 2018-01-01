@@ -8,7 +8,7 @@ RewriteRule ^(.*)$ https://www.konsorts.com/$1 [R,L]
 #RewriteEngine OnRewriteCond %{HTTPS} offRewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
 
-RewriteCond $1 !^(index\.php|js|images|Scripts|css|resources|robots\.txt)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+#RewriteCond $1 !^(index\.php|js|images|Scripts|css|resources|robots\.txt)
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
