@@ -48,7 +48,7 @@ Table of contents
 body{ font-family: 'Roboto', sans-serif; -webkit-font-smoothing: antialiased;  font-smoothing: antialiased; font-size:14px; color:#6f6f6f; font-weight: 400;line-height: 24px;}
 body, html { height: 100%; -moz-osx-font-smoothing: grayscale;}
 a, a:active, a:focus { color: #6f6f6f; text-decoration: none; }
-a:hover, a:active{color: #ff214f; text-decoration: none;}
+a:hover, a:active{color: #800080; text-decoration: none;}
 a:focus, a:active, button:focus, button:active,.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: none;}
 img {max-width:100%; height:auto; }
 video { background-size: cover; display: table-cell; vertical-align: middle; width: 100%; }
@@ -2859,7 +2859,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
 .portfolio-grid .grid-item figure {margin: 0; position: relative; overflow: hidden}
 .portfolio-grid .grid-item figure img {display: block; width: 100%; cursor: pointer; }
 .portfolio-grid .grid-item {opacity: 1;overflow: hidden;}
-.portfolio-grid .grid-item figure img {cursor: pointer; display: block; opacity: 1; width: 100%; transition: all 0.3s ease 0s; max-height: 194px; min-height: 194px; max-width: 194px;}
+.portfolio-grid .grid-item figure img {cursor: pointer; display: block; opacity: 1; width: 100%; transition: all 0.3s ease 0s; min-height: 194px; max-height: 194px; max-width: 194px;}
 .portfolio-grid .grid-item figcaption {bottom:0; left:0; opacity: 0; position: absolute; transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -ms-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s; width: 100%; height: 100%; padding:45px; z-index: 1; text-align: center}
 .portfolio-grid .grid-item figure:hover .portfolio-img {transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -ms-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s;}
 .portfolio-grid .grid-item figure .portfolio-img { transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -ms-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s;}
