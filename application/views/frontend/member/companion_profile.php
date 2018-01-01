@@ -91,7 +91,7 @@
                         <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i class="fa fa-pinterest-square"></i></a></li>
                     </ul>
                 </div>
-                <div class="profile-certification">
+<!--                <div class="profile-certification">
                     <div class="profile-cert-head"><h6>Certification:</h6></div>
                     <div class="certification-odd">
                         <a href="#">
@@ -105,7 +105,7 @@
                             <span>Lorem Ipsum Foundation</span>
                         </a>
                     </div>
-                </div>
+                </div>-->
                 <div class="profile-skills">
                     <ul>
                         <li><h6>My Skills</h6></li>
@@ -200,7 +200,7 @@
                                         </li>
                                     </ul>
                                 </div>-->
-                <div class="profile-reviews profile-educatoin  wow fadeInUp">
+<!--                <div class="profile-reviews profile-educatoin  wow fadeInUp">
                     <h5>Education:</h5>
 
                     <ul>
@@ -241,7 +241,7 @@
                         </li>
 
                     </ul>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

@@ -82,7 +82,7 @@
                     <h5>About Me</h5>
                     <p><?php echo $member_info['about_me']; ?></p>
                 </div>
-                <div class="profile-reviews  wow fadeInUp">
+<!--                <div class="profile-reviews  wow fadeInUp">
                     <h5>Reviews:</h5>
                     <ul>
                         <li>
@@ -106,7 +106,7 @@
                             <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus. </p>
                         </li>
                     </ul>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
