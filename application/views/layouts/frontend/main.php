@@ -146,7 +146,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <?php if (isset($this->session->userdata['member_id'])) {
                             ?>
                             <div class="col-md-2 col-xs-5 width-auto header-right">
