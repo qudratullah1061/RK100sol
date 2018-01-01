@@ -820,7 +820,11 @@ span.profile-reviews-counter {
     color: #6a056a;
 }
 .profile-social ul li.disabled a{
-    pointer-events: none;
+    /*pointer-events: none;*/
+    cursor: not-allowed;
+}
+.profile-social ul li.disabled a:hover{
+    color:#6f6f6f;  
 }
 .profile-certification {
     background-color: #f6f3f4;
