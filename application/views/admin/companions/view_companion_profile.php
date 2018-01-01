@@ -104,22 +104,22 @@ $unique_id = time();
                                 <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
                             </div>
                             <ul class="nav nav-tabs">
-                                <li class="active">
+                                <li class="active" onclick="CommonFunctions.changeHash('#tab_1_1')">
                                     <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
                                 </li>
-                                <li>
+                                <li onclick="CommonFunctions.changeHash('#tab_1_2')">
                                     <a href="#tab_1_2" data-toggle="tab">Availabilities</a>
                                 </li>
-                                <li onclick="">
+                                <li onclick="CommonFunctions.changeHash('#tab_1_3')">
                                     <a href="#tab_1_3" onclick="load_member_profile_images();load_member_id_proofs();" data-toggle="tab">Images</a>
                                 </li>
-                                <li>
+                                <li onclick="CommonFunctions.changeHash('#tab_1_4')">
                                     <a href="#tab_1_4" data-toggle="tab">Portfolio</a>
                                 </li>
-                                <li>
+                                <li onclick="CommonFunctions.changeHash('#tab_1_5')">
                                     <a href="#tab_1_5" data-toggle="tab">Languages</a>
                                 </li>
-                                <li>
+                                <li onclick="CommonFunctions.changeHash('#tab_1_6')">
                                     <a href="#tab_1_6" data-toggle="tab">Privacy Settings</a>
                                 </li>
                             </ul>
