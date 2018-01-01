@@ -2648,7 +2648,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
 .page-title-extra-small h1 {font-size: 12px; line-height: 20px; text-transform: uppercase;}
 .page-title-small h1 {font-size: 20px; line-height: 26px}
 .page-title-medium h1 {font-size: 32px; line-height: 37px}
-.page-title-large h1 {font-size: 46px; line-height: 49px}
+.page-title-large h1 {font-size: 46px; line-height: 49px; text-transform: uppercase;}
 .page-title-extra-large h1 {font-size: 55px; line-height: 50px}
 
 /* breadcrumb */

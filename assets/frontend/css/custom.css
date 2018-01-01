@@ -403,7 +403,7 @@ section.pricing .title-bar {margin-top: 0;margin-bottom: 45px;}
     font-size: 32px;
     font-weight: bold;
     color: #942192;
-    margin-bottom: 4px;
+    margin-bottom: 14px;
 }
 .guide-text h5 {
     color: #363636;
@@ -431,6 +431,9 @@ section.pricing .title-bar {margin-top: 0;margin-bottom: 45px;}
 }
 .guide-media {
     margin-top: 10px;
+}
+.guide-media img {
+    border: 4px solid #942192;
 }
 .guide-text.left-box {
     padding-right: 55px;
