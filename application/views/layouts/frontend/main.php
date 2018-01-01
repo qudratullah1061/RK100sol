@@ -158,7 +158,7 @@
                                     <div class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                             <i class="fa fa-bell-o"></i>
-                                            <span class="badge badge-default"> 7 </span>
+                                            <span class="badge badge-default"> 0 </span>
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li class="external">
@@ -200,17 +200,17 @@
                                             </li>
                                             <li>
                                                 <ul class="dropdown-menu-list scroller" data-height="250" data-handle-color="#637283">
-<!--                                                    <li>
-                                                        <a href="#">
-                                                            <span class="photo">
-                                                                <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
-                                                            <span class="subject">
-                                                                <span class="from"> Lisa Wong </span>
-                                                                <span class="time">Just Now </span>
-                                                            </span>
-                                                            <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                        </a>
-                                                    </li>-->
+                                                    <!--                                                    <li>
+                                                                                                            <a href="#">
+                                                                                                                <span class="photo">
+                                                                                                                    <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                                                                                <span class="subject">
+                                                                                                                    <span class="from"> Lisa Wong </span>
+                                                                                                                    <span class="time">Just Now </span>
+                                                                                                                </span>
+                                                                                                                <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                                                                                            </a>
+                                                                                                        </li>-->
                                                 </ul>
                                             </li>
                                         </ul>
