@@ -131,17 +131,17 @@ class Auth extends CI_Controller {
                 $member_id = $this->input->post('member_id');
                 $email_verification_code = $this->input->post('email_verification_code');
                 if ($member_id > 0 && $email_verification_code != "") {
-                    echo "should here";
-                    echo "<pre>";
-                    print_r($this->input->post());
-                    exit;
-                    $member_update['password'] = $this->input->post('password');
+                    $member_update['password'] = md5($this->input->post('password'));
                     $member_update['email_verification_code'] = "";
                     $this->Members_Model->update_member($member_id, $member_update);
                     $data['member_id'] = $member_id;
                     $data['email_verification_code'] = $email_verification_code;
                     $data['email_msg'] = "Password updted successfully. Please goto login page to access your account.";
                     $data['alert'] = 'success';
+                    echo "fine till here";
+                    echo "<pre>";
+                    print_r($this->input->post());
+                    exit;
                     $this->load->view('frontend/auth/reset_password_form', $data);
                 } else {
                     echo "y here";
