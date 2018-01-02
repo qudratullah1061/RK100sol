@@ -90,7 +90,7 @@ class Auth extends CI_Controller {
                     $member_email_v_code = $member_update['email_verification_code'];
                     $macros_data['$$$FIRST_NAME$$$'] = $member_info[0]->first_name;
                     $macros_data['$$$EMAIL$$'] = $member_info[0]->email;
-                    $macros_data['$$$CONFIRMATION_LINK$$$'] = (base_url('misc/reset_password/' . $member_id . '/' . $member_email_v_code));
+                    $macros_data['$$$CONFIRMATION_LINK$$$'] = (base_url('auth/reset_password/' . $member_id . '/' . $member_email_v_code));
                     $email_template_info = get_email_template('member_forgot_password', $macros_data);
                     if ($email_template_info) {
                         sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
