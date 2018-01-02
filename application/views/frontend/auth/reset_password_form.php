@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-lg-12">
 
-                                <form id="reset-password-form" action="<?php echo base_url('auth/reset_password'); ?>" method="post" role="form">
+                                <form id="reset-password-form" action="<?php echo base_url('auth/update_password'); ?>" method="post" role="form">
                                     <?php if (isset($email_msg)) { ?>
                                         <div class="alert alert-<?php echo $alert; ?>">
                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -21,10 +21,10 @@
                                     <input type='hidden' name="member_id" value="<?php echo isset($member_id) ? $member_id : 0; ?>">
                                     <input type='hidden' name="email_verification_code" value="<?php echo isset($email_verification_code) ? $email_verification_code : 0; ?>">
                                     <div class="form-group">
-                                        <input type="password" name="passowrd" class="form-control" placeholder="Password" value="">
+                                        <input type="password" name="password" class="form-control" placeholder="Password">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="confirm_passowrd" class="form-control" placeholder="Confirm Password" value="">
+                                        <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password">
                                     </div>
 
                                     <div class="form-group row">
