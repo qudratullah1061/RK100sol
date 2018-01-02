@@ -90,7 +90,7 @@ class Auth extends CI_Controller {
                     $member_email_v_code = $member_update['email_verification_code'];
                     $macros_data['$$$FIRST_NAME$$$'] = $member_info[0]->first_name;
                     $macros_data['$$$EMAIL$$'] = $member_info[0]->email;
-                    $macros_data['$$$CONFIRMATION_LINK$$$'] = (base_url('misc/reset_password/' . $edit_id . '/' . $member_email_v_code));
+                    $macros_data['$$$CONFIRMATION_LINK$$$'] = (base_url('misc/reset_password/' . $member_id . '/' . $member_email_v_code));
                     $email_template_info = get_email_template('member_forgot_password', $macros_data);
                     if ($email_template_info) {
                         sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
@@ -102,4 +102,48 @@ class Auth extends CI_Controller {
             }
         }
     }
+
+    function reset_password($member_id, $verification_code = '') {
+        if ($verification_code != '' && $member_id > 0) {
+            $result = $this->Members_Model->getBy('email_verification_code', $verification_code, 'member_id', $member_id);
+            $data['verified'] = false;
+            if (!empty($result)) {
+                $data['member_id'] = $member_id;
+                $data['email_verification_code'] = $verification_code;
+                $this->load->view('frontend/auth/reset_password_form', $data);
+            } else {
+                redirect(base_url());
+            }
+        } else {
+            redirect(base_url());
+        }
+    }
+
+    function update_password() {
+        if ($this->input->post()) {
+            $this->form_validation->set_rules('password', 'Password', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|trim|strip_tags|xss_clean|matches[password]');
+            if ($this->form_validation->run() == FALSE) {
+                $data['email_msg'] = validation_errors();
+                $data['alert'] = 'danger';
+                $this->load->view('frontend/auth/reset_password_form', $data);
+            } else {
+                $member_id = $this->input->post('member_id');
+                $email_verification_code = $this->input->post('email_verification_code');
+                if ($member_id > 0 && $email_verification_code != "") {
+                    $member_update['password'] = $this->input->post('password');
+                    $member_update['email_verification_code'] = "";
+                    $data['member_id'] = $member_id;
+                    $data['email_verification_code'] = $email_verification_code;
+                    $this->Members_Model->update_member($member_id, $member_update);
+                    $data['email_msg'] = "Password updted successfully. Please goto login page to access your account.";
+                    $data['alert'] = 'success';
+                    $this->load->view('frontend/auth/reset_password_form', $data);
+                } else {
+                    redirect(base_url());
+                }
+            }
+        }
+    }
+
 }

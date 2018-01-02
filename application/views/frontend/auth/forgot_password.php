@@ -9,7 +9,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="forget-password" action="<?php echo base_url('auth/sendForgotPasswordEmail'); ?>" method="post" role="form" style="">
+                                <form id="forget-password" action="<?php echo base_url('auth/sendForgotPasswordEmail'); ?>" method="post" role="form">
                                     <?php if (isset($email_msg)) { ?>
                                         <div class="alert alert-<?php echo $alert; ?>">
                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -24,7 +24,7 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-md-4"><input type="submit" name="login-submit" id="login-submit" tabindex="4" class="btn btn-default" value="Send Email"></div>
+                                        <div class="col-md-4"><input type="submit" name="forgot-submit" id="forgot-submit" class="btn btn-default" value="Send Email"></div>
                                         <div class="col-md-8 text-right"><a href="<?php echo base_url('auth/login'); ?>" class="forgot-password">Login</a></div>
                                     </div>
                                 </form>
