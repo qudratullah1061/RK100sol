@@ -242,6 +242,12 @@ class Misc extends CI_Controller {
     function rewards_hosting_traveling() {
         $this->load->view('frontend/misc/rewards_hosting_traveling');
     }
+    function blog() {
+        $this->load->view('frontend/misc/blog');
+    }
+    function blog_detail() {
+        $this->load->view('frontend/misc/blog_detail');
+    }
 
     //    Misc pages ends here
 
