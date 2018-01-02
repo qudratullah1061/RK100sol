@@ -1340,3 +1340,6 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     text-align: center !important;
     color:#fff;
 }
+/*blog page*/
+.blog-banner {margin-top: 122px;padding: 0;margin-bottom: 30px;}
+.blog-banner img{max-height:95px;margin: 0 auto;display: block;}
