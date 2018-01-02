@@ -2,7 +2,6 @@
     <div class="outer">
         <div class="middle">
             <div class="inner">
-
                 <div class="panel panel-login panel-reset">
                     <div class="panel-heading">
                         <a href="#" class="pointer-none" id="login-form-link"> Forgot Password</a>

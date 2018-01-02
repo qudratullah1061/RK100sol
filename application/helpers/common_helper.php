@@ -325,7 +325,6 @@ function sendEmail($to, $subject, $message) {
         echo "Message could not be sent...";
         exit;
     }
-
 //    global $CI;
 //    
 //    $root_path = $CI->config->item('root_path');
