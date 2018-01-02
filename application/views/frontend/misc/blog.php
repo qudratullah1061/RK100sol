@@ -1,6 +1,6 @@
      <!-- start page title section -->
         <section class="wow fadeIn blog-banner" >
-           <img src="<?php echo base_url('assets/frontend/img/k-Blog-Cover.jpg') ?>" >
+           <img src="<?php echo base_url('assets/frontend/img/k-Blog-Cover.png') ?>" >
         </section>
         <!-- end page title section -->
         <!-- start post content section -->
