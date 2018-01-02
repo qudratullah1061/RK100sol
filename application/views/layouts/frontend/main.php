@@ -100,8 +100,8 @@
                         <!-- start logo -->
                         <div class="col-md-2 col-xs-5">
                             <a href="<?php echo base_url('home'); ?>" title="Konsorts" class="logo">
-                                <img src="<?php echo base_url('assets/frontend/img/logo.png'); ?>" data-at2x="img/logo.png" class="logo-dark" alt="Konsorts">
-                                <img src="<?php echo base_url('assets/frontend/img/logo.png'); ?>" data-at2x="img/logo.png" alt="Konsorts" class="logo-light default">
+                                <img src="<?php echo base_url('assets/frontend/img/logo.png'); ?>" data-at2x="<?php echo base_url('assets/frontend/img/logo.png'); ?>" class="logo-dark" alt="Konsorts">
+                                <img src="<?php echo base_url('assets/frontend/img/logo.png'); ?>" data-at2x="<?php echo base_url('assets/frontend/img/logo.png'); ?>" alt="Konsorts" class="logo-light default">
                             </a>
                         </div>
                         <!-- end logo -->
