@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-4"><input type="submit" name="login-submit" id="login-submit" tabindex="4" class="btn btn-default" value="Log In"></div>
-                                        <div class="col-md-8 text-right"><a href="password-forgot.php" class="forgot-password">Forgot Password?</a></div>
+                                        <div class="col-md-8 text-right"><a href="<?php echo base_url('auth/forgot_password'); ?>" class="forgot-password">Forgot Password?</a></div>
                                     </div>
                                 </form>
                             </div>
