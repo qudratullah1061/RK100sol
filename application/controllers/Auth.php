@@ -147,6 +147,8 @@ class Auth extends CI_Controller {
                     redirect(base_url());
                 }
             }
+        } else {
+            redirect(base_url());
         }
     }
 
