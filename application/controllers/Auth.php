@@ -138,10 +138,6 @@ class Auth extends CI_Controller {
                     $data['email_verification_code'] = $email_verification_code;
                     $data['email_msg'] = "Password updted successfully. Please goto login page to access your account.";
                     $data['alert'] = 'success';
-                    echo "fine till here";
-                    echo "<pre>";
-                    print_r($this->input->post());
-                    exit;
                     $this->load->view('frontend/auth/reset_password_form', $data);
                 } else {
                     echo "y here";
