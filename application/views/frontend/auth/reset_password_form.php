@@ -34,7 +34,7 @@
                                         </div>
                                         <?php
                                     } else {
-                                        echo "<div class='col-md-8 text-right'><a href='<?php echo base_url(\"auth/login\"); ?>' class='forgot-password='>Login</a></div>";
+                                        echo "<div class='col-md-8 text-right'><a href='<?php echo base_url(\"auth/login\"); ?>' class='btn btn-success'>Login</a></div>";
                                     }
                                     ?>
                                 </form>
