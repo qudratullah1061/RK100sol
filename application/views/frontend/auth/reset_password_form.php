@@ -18,19 +18,25 @@
                                             <span><?php echo $email_msg; ?></span>
                                         </div>
                                     <?php } ?>
-                                    <input type='hidden' name="member_id" value="<?php echo isset($member_id) ? $member_id : 0; ?>">
-                                    <input type='hidden' name="email_verification_code" value="<?php echo isset($email_verification_code) ? $email_verification_code : 0; ?>">
-                                    <div class="form-group">
-                                        <input type="password" name="password" class="form-control" placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password">
-                                    </div>
+                                    <?php if ($alert != "success") { ?>
+                                        <input type='hidden' name="member_id" value="<?php echo isset($member_id) ? $member_id : 0; ?>">
+                                        <input type='hidden' name="email_verification_code" value="<?php echo isset($email_verification_code) ? $email_verification_code : 0; ?>">
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password">
+                                        </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-md-4"><input type="submit" name="reset-submit" id="reset-submit" class="btn btn-default" value="Reset"></div>
-                                        <div class="col-md-8 text-right"><a href="<?php echo base_url('auth/login'); ?>" class="forgot-password">Login</a></div>
-                                    </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-4"><input type="submit" name="reset-submit" id="reset-submit" class="btn btn-default" value="Reset"></div>
+                                            <div class="col-md-8 text-right"><a href="<?php echo base_url('auth/login'); ?>" class="forgot-password">Login</a></div>
+                                        </div>
+                                        <?php
+                                    } else {
+                                        echo "<div class='col-md-8 text-right'><a href='<?php echo base_url(\"auth/login\"); ?>' class='forgot-password='>Login</a></div>";
+                                    }
+                                    ?>
                                 </form>
                             </div>
                         </div>
