@@ -229,7 +229,7 @@ nav.navbar.bootsnav ul.nav>li>a:hover,
 
 /* ================== Buttons style =======================*/
 
-.btn.btn-deep-purple {background-color: #942192;color: #fff;}
+.btn.btn-deep-purple {background-color: #800080;color: #fff;}
 .btn.btn-deep-purple:hover,.btn.btn-deep-purple:focus {background-color: #640664;}
 .btn.btn-purple-white-border {background-color: #942192;border: 1px solid #fff;color: #fff;}
 .btn.btn-purple-white-border:hover {border-color: #942192;}
