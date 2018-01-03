@@ -120,9 +120,9 @@ class Companions extends Admin_Controller {
 
                 $result = false;
                 if ($edit_id > 0) {
+                    $member_info = $this->Members_Model->get_member_by_id($edit_id);
                     if ($member_info['status'] != $data['status']) {
                         //status changed of user.
-                        $member_info = $this->Members_Model->get_member_by_id($edit_id);
                         $member_email = $member_info['email'];
                         $member_email_v_code = $data['email_verification_code'];
                         $macros_data['$$$FIRST_NAME$$$'] = $data['first_name'];

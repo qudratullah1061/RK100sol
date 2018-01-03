@@ -1,6 +1,3 @@
-
-
-
 var FormWizard = function () {
 
     var handleCompanionSubmit = function (formId) {
@@ -241,10 +238,11 @@ var FormWizard = function () {
     return {
         //main function to initiate the module
         init: function () {
-            if (!jQuery().bootstrapWizard) {
-                return;
+            if ($("input[name='date_of_birth']").val() != "") {
+                $("input[name='date_of_birth']").datepicker();
+            } else {
+                $("input[name='date_of_birth']").datepicker('setDate', new Date(1992, 1, 1));
             }
-            $("input[name='date_of_birth']").datepicker();
             $("#dd-country").select2({
                 placeholder: "Select",
                 allowClear: true,
@@ -260,6 +258,9 @@ var FormWizard = function () {
                 allowClear: true,
                 width: 'auto',
             });
+            if (!jQuery().bootstrapWizard) {
+                return;
+            }
             handleCompanionFormValidation('add_companion_member');
             var form = $('#add_companion_member');
             var error = $('.alert-danger', form);

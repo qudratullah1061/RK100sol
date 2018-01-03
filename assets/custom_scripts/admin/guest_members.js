@@ -192,7 +192,11 @@ var GuestMembers = function () {
     };
     return {
         initAddUpdateGuestValidation: function (formId) {
-            $(".date-picker").datepicker();
+            if ($(".dateofbirht").val() != "") {
+                $(".dateofbirht").datepicker();
+            } else {
+                $(".dateofbirht").datepicker('setDate', new Date(1992, 1, 1));
+            }
             $("#dd-country").select2({
                 placeholder: "Select",
                 allowClear: true,

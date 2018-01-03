@@ -195,20 +195,20 @@ $unique_id = time();
                                         <div class="form-group col-md-6">
                                             <label class="control-label">Country<span class="required">*</span></label>
                                             <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
-<?php echo isset($country_options) ? $country_options : ""; ?>
+                                                <?php echo isset($country_options) ? $country_options : ""; ?>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label">State<span class="required">*</span></label>
                                             <select class="form-control edited" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
-<?php echo isset($state_options) ? $state_options : ""; ?>
+                                                <?php echo isset($state_options) ? $state_options : ""; ?>
                                             </select>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label">City<span class="required">*</span></label>
                                             <select class="form-control" id="dd-city" name="city">
-<?php echo isset($city_options) ? $city_options : ""; ?>
+                                                <?php echo isset($city_options) ? $city_options : ""; ?>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
@@ -445,7 +445,7 @@ $unique_id = time();
                                         </thead>
 
                                         <tbody>
-<?php foreach ($portfolios as $portfolio) { ?>
+                                            <?php foreach ($portfolios as $portfolio) { ?>
                                                 <tr>
                                                     <td><img alt="Profile Image" class="img-circle" src="<?php echo base_url($portfolio['portfolio_image_path'] . 'small_' . $portfolio['portfolio_image']); ?>"></td>
                                                     <td><?php echo $portfolio['portfolio_title']; ?></td>
@@ -468,7 +468,7 @@ $unique_id = time();
                                                     </td>
                                                     <td><a class="btn btn-xs default btn-editable" onclick="Portfolios.modal_add_portfolio(<?php echo $portfolio['portfolio_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $portfolio["portfolio_id"]; ?>, 'tb_member_portfolios', 'portfolio_id', 'Portfolio will be permanently deleted without further warning. Do you really want to delete this portfolio image?');">Delete</i></a></td>
                                                 </tr>
-<?php } ?>
+                                            <?php } ?>
 
                                         </tbody>
                                     </table>
@@ -495,7 +495,7 @@ $unique_id = time();
                                             </thead>
 
                                             <tbody>
-<?php foreach ($language_data as $language) { ?>
+                                                <?php foreach ($language_data as $language) { ?>
                                                     <tr>
                                                         <td><?php echo $language['language_name']; ?></td>
                                                         <td><?php echo $language['language_level']; ?></td>
@@ -515,7 +515,7 @@ $unique_id = time();
                                                         </td>
                                                         <td><a class="btn btn-xs default btn-editable" onclick="Languages.modal_add_language(<?php echo $language['language_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $language["language_id"]; ?>, 'tb_member_languages', 'language_id', 'Language will be permanently deleted without further warning. Do you really want to delete this language from your profile?');">Delete</i></a></td>
                                                     </tr>
-<?php } ?>
+                                                <?php } ?>
 
                                             </tbody>
                                         </table>
@@ -530,7 +530,7 @@ $unique_id = time();
 <!--                                            <tr>
                                                 <td> Last Subscription Date </td>
                                                 <td>
-<?php // echo date("Y-m-d");  ?>
+                                            <?php // echo date("Y-m-d");  ?>
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-info">Update Subscription</button>
