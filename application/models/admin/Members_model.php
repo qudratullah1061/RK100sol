@@ -108,6 +108,9 @@ class Members_model extends Abstract_model {
             return array('error' => 1, 'member_info' => null, 'error_message' => "Please enter valid username and password to login.");
         } else {
             // check is email verified by member. Otherwise show message to user to verify email first before login.
+            echo "<pre>";
+            print_r($this->member_info);
+            exit;
             if ($this->member_info[0]['subscription_date'] == "0000-00-00 00:00:00") {
                 if ($this->member_info[0]['member_type'] == 1) {
                     redirect(base_url('profile/guest_payment/' . $this->member_info[0]['member_id'] . "/1"));
