@@ -6,13 +6,13 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span>Companions</span>
+            <span>Service Members</span>
         </li>
     </ul>
 </div>
 <!-- END PAGE BAR -->
 <!-- BEGIN PAGE TITLE-->
-<h3 class="page-title"> Companions Members Listing</h3>
+<h3 class="page-title"> Service Members Listing</h3>
 <!-- END PAGE TITLE-->
 <!-- BEGIN Datatable-->
 <div class="row">
@@ -23,7 +23,7 @@
                 <div class="table-container">
                     <div class="table-actions-wrapper">
                         <span> </span>
-                        <a data-title="Add Companion" href="<?php echo base_url('admin/companions/add_companion'); ?>"><i class="fa fa-plus-circle"></i> Add new companion</a>
+                        <a data-title="Add Companion" href="<?php echo base_url('admin/companions/add_companion'); ?>"><i class="fa fa-plus-circle"></i> Add new service member</a>
                     </div>
                     <table class="table table-striped table-bordered table-hover table-checkable text-center" id="datatable_companions">
                         <thead>

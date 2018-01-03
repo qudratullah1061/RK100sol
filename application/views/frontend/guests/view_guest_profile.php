@@ -30,7 +30,7 @@ $unique_id = time();
                         <!-- SIDEBAR USER TITLE -->
                         <div class="profile-usertitle">
                             <div class="profile-usertitle-name"><?php echo $member_info['first_name']; ?> <?php echo $member_info['last_name']; ?> </div>
-                            <div class="profile-usertitle-job"> <?php echo $member_info['member_type'] == 1 ? "Guest" : "Companion"; ?> Member </div>
+                            <div class="profile-usertitle-job"> <?php echo $member_info['member_type'] == 1 ? "Guest" : "Service"; ?> Member </div>
                         </div>
                         <!-- END SIDEBAR USER TITLE -->
                         <!-- SIDEBAR BUTTONS -->

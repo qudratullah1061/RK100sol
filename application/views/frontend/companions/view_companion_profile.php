@@ -13,8 +13,8 @@ $unique_id = time();
     <div class="container">
 
         <!-- END PAGE BAR -->
-        <!--<h1 class="page-title"> Companion Member Profile | Account
-            <small>Companion account page</small>
+        <!--<h1 class="page-title"> Service Member Profile | Account
+            <small>Service member account page</small>
         </h1>-->
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -32,7 +32,7 @@ $unique_id = time();
                         <!-- SIDEBAR USER TITLE -->
                         <div class="profile-usertitle">
                             <div class="profile-usertitle-name"><?php echo $member_info['first_name']; ?> <?php echo $member_info['last_name']; ?> </div>
-                            <div class="profile-usertitle-job"> <?php echo $member_info['member_type'] == 1 ? "Guest" : "Companion"; ?> Member </div>
+                            <div class="profile-usertitle-job"> <?php echo $member_info['member_type'] == 1 ? "Guest" : "Service"; ?> Member </div>
                         </div>
                         <!-- END SIDEBAR USER TITLE -->
                         <!-- SIDEBAR BUTTONS -->
@@ -104,7 +104,7 @@ $unique_id = time();
                                             <form role="form" id="update_companion_member" method="post">
                                                 <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
                                                 <div class="form-group col-md-6">
-                                                    <label class="control-label">Companion Member ID<span class="required">*</span></label>
+                                                    <label class="control-label">Service Member ID<span class="required">*</span></label>
                                                     <input type="text" placeholder="Unique ID" disabled="disabled" value="<?php echo $member_info['member_unique_code']; ?>" class="form-control" /> 
                                                 </div>
                                                 <div class="form-group col-md-6">
@@ -303,7 +303,7 @@ $unique_id = time();
                                                     <input type="hidden" name="image_type" value="profile">
                                                     <input type="hidden" name="image_dir" value="uploads/member_images/profile/">
                                                     <h3 class="sbold">Click to upload</h3>
-                                                    <p> Upload Companion Member Profile Images </p>
+                                                    <p> Upload Service Member Profile Images </p>
                                                 </form>
 
                                                 <div id="load_member_profile_images" class="cbp margin-top-20">
@@ -346,7 +346,7 @@ $unique_id = time();
                                                     <input type="hidden" name="image_type" value="id_proof">
                                                     <input type="hidden" name="image_dir" value="uploads/member_images/id_proofs/">
                                                     <h3 class="sbold">Click to upload</h3>
-                                                    <p>Upload Companion Member Id Proofs</p>
+                                                    <p>Upload Service Member Id Proofs</p>
                                                 </form>
 
                                                 <div id="load_member_id_proofs" class="cbp margin-top-20">

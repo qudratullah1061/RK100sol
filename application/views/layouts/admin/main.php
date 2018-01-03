@@ -201,7 +201,7 @@
                             <li class="nav-item <?php ActivateParentLink('companion'); ?>">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-users"></i>
-                                    <span class="title">Companions</span>
+                                    <span class="title">Service Members</span>
                                     <span class="selected"></span>
                                     <span class="arrow open"></span>
                                 </a>
@@ -209,13 +209,13 @@
                                     <li class="nav-item <?php ActivateCurrentLink('companion', 'view'); ?>">
                                         <a href="<?php echo base_url('admin/companions'); ?>" class="nav-link ">
                                             <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Companions</span>
+                                            <span class="title">View Service Member</span>
                                         </a>
                                     </li>
                                     <li class="nav-item <?php ActivateCurrentLink('companion', 'add'); ?>">
                                         <a href="<?php echo base_url('admin/companions/add_companion'); ?>" class="nav-link ">
                                             <!--<i class="fa fa-plus"></i>-->
-                                            <span class="title">Add Companion</span>
+                                            <span class="title">Add Service Member</span>
                                         </a>
                                     </li>
                                 </ul>

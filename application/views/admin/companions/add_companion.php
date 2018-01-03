@@ -2,7 +2,7 @@
     <div class="portlet-title">
         <div class="caption">
             <i class=" icon-user purple"></i>
-            <span class="caption-subject purple bold uppercase"> Create Companion -
+            <span class="caption-subject purple bold uppercase"> Create Service Member -
                 <span class="step-title"> Step 1 of 3 </span>
             </span>
         </div>

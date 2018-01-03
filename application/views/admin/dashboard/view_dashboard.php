@@ -15,7 +15,7 @@
 <!-- END PAGE BAR -->
 <!-- BEGIN PAGE TITLE-->
 <h1 class="page-title"> Konsorts Dashboard
-    <small>Total Memberships, Companion Members, Guest Members , Pending Approval Accounts</small>
+    <small>Total Memberships, Service Members, Guest Members , Pending Approval Accounts</small>
 </h1>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
@@ -54,7 +54,7 @@
                     <h3 class="font-red-haze">
                         <span data-counter="counterup" data-value="1349">0</span>
                     </h3>
-                    <small>COMPANION MEMBERS</small>
+                    <small>SERVICE MEMBERS</small>
                 </div>
                 <div class="icon">
                     <i class="icon-users"></i>
