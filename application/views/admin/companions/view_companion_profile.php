@@ -128,7 +128,13 @@ $unique_id = time();
                                     <a href="#tab_1_5" data-toggle="tab">Languages</a>
                                 </li>
                                 <li onclick="CommonFunctions.changeHash('#tab_1_6')">
-                                    <a href="#tab_1_6" data-toggle="tab">Privacy Settings</a>
+                                    <a href="#tab_1_6" data-toggle="tab">Education</a>
+                                </li>
+                                <li onclick="CommonFunctions.changeHash('#tab_1_7')">
+                                    <a href="#tab_1_7" data-toggle="tab">Experience</a>
+                                </li>
+                                <li onclick="CommonFunctions.changeHash('#tab_1_8')">
+                                    <a href="#tab_1_8" data-toggle="tab">Privacy Settings</a>
                                 </li>
                             </ul>
                         </div>
@@ -522,9 +528,118 @@ $unique_id = time();
                                     </div>
                                 </div>
                                 <!--Languages tabs ends here-->
+                                 <div class="tab-pane" id="tab_1_6">
+                                            <div id="" class="table-responsive">
+                                                <div class="table-actions-wrapper margin-bottom-20">
+                                                    <span> </span>
+                                                    <a class="purple" data-title="Add Type" href="javascript:Degrees.modal_add_degree(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Degree</a>
+                                                </div>
+                                                <table id="education_table" class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer" cellspacing="0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            
+                                                            <th>Title</th>
+                                                            <th>Degree Name</th>
+                                                            <th>Start Date</th>
+                                                            <th>End Date</th>
+                                                            
+                                                            
+                                                            <th>Status</th>
+                                                            <th>Pub Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
 
+                                                    <tbody>
+                                                        <?php foreach ($degrees as $value) { ?>
+                                                            <tr>
+                                                                
+                                                                <td><?php echo $value['title']; ?></td>
+                                                                <td><?php echo $value['degree_name']; ?></td>
+                                                                <td><?php echo $value['start_date']; ?></td>
+                                                                <td><?php echo $value['end_date']; ?></td>
+                                                                
+                                                                <td><?php echo $value['approval_status']; ?></td>
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled" id="checkbox<?php echo $value['member_degree_id']; ?>" <?php echo ($value['pub_status'] == 1 ? "checked='checked'" : ""); ?> class="md-check">
+                                                                            <label for="checkbox<?php echo $value['member_degree_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable" onclick="Degrees.modal_add_degree(<?php echo $value['member_degree_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_degree_id"]; ?>, 'tb_member_degrees', 'member_degree_id', 'Are you sure you want to delete ?');">Delete</i></a></td>
+                                                            </tr>
+                                                        <?php } ?>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- Profile images ends-->
+                                            <!-- Id proof images start-->
+                                        </div>
+                                        
+                                        
+                                        <div class="tab-pane" id="tab_1_7">
+                                            <div id="" class="table-responsive">
+                                                <div class="table-actions-wrapper margin-bottom-20">
+                                                    <span> </span>
+                                                    <a class="purple" data-title="Add Type" href="javascript:Experiences.modal_add_experience(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Experience</a>
+                                                </div>
+                                                <table id="experience_table" class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer" cellspacing="0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            
+                                                            <th>Title</th>
+                                                            <th>Position</th>
+                                                            <th>Start Date</th>
+                                                            <th>End Date</th>
+                                                            
+                                                            
+                                                            <th>Status</th>
+                                                            <th>Pub Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <?php foreach ($experiences as $value) { ?>
+                                                            <tr>
+                                                                
+                                                                <td><?php echo $value['title']; ?></td>
+                                                                <td><?php echo $value['position']; ?></td>
+                                                                <td><?php echo $value['start_date']; ?></td>
+                                                                <td><?php echo $value['end_date']; ?></td>
+                                                                
+                                                                <td><?php echo $value['approval_status']; ?></td>
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled" id="checkbox<?php echo $value['member_experience_id']; ?>" <?php echo ($value['pub_status'] == 1 ? "checked='checked'" : ""); ?> class="md-check">
+                                                                            <label for="checkbox<?php echo $value['member_experience_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable" onclick="Experiences.modal_add_experience(<?php echo $value['member_experience_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_experience_id"]; ?>, 'tb_member_experience', 'member_experience_id', 'Are you sure you want to delete ?');">Delete</i></a></td>
+                                                            </tr>
+                                                        <?php } ?>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- Profile images ends-->
+                                            <!-- Id proof images start-->
+                                        </div>   
                                 <!-- PRIVACY SETTINGS TAB -->
-                                <div class="tab-pane" id="tab_1_6">
+                                <div class="tab-pane" id="tab_1_8">
                                     <form action="#">
                                         <table class="table table-light table-hover">
 <!--                                            <tr>
@@ -584,6 +699,8 @@ $unique_id = time();
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/portfolio.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/languages.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom_scripts/admin/education.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom_scripts/admin/experience.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
@@ -592,5 +709,7 @@ $unique_id = time();
             "scrollX": false
         });
         $("#language_table").DataTable();
+        $("#experience_table").DataTable();
+        $("#education_table").DataTable();
     });
 </script>

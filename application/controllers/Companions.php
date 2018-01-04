@@ -67,6 +67,8 @@ class Companions extends FrontEnd_Controller {
             $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
             $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id);
             $data['language_data'] = $this->Members_Model->get_member_languages($member_id);
+            $data['degrees'] = $this->Members_Model->get_member_degrees($member_id);
+            $data['experiences'] = $this->Members_Model->get_member_experiences($member_id);
             $this->load->view('frontend/companions/view_companion_profile', $data);
         } else {
             redirect(base_url());
@@ -135,6 +137,119 @@ class Companions extends FrontEnd_Controller {
                     $result = true;
                 } else {
                     $result = $this->Misc_Model->add_portfolio($data);
+                }
+                if ($result) {
+                    $this->_response(false, "Changes saved successfully!");
+                }
+            }
+        } else {
+            redirect(base_url('companions/get_companion_profile'));
+        }
+    }
+    
+    
+    
+    
+    function modal_degree() {
+        $this->isAjax();
+        $member_degree_id = $this->input->post('member_degree_id');
+        $degree_data = $this->Members_Model->get_degree($member_degree_id);
+        $data['degree_data'] = $degree_data;
+        $html = $this->load->view('frontend/companions/add_degree', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
+
+    function add_update_degree() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            $edit_id = $this->input->post('member_degree_id');
+            $this->form_validation->set_rules('title', 'Title', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('degree_name', 'Degree Name', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('start_date', 'Start Date', 'required|trim|strip_tags|xss_clean');
+           
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->_response(true, validation_errors());
+            } else {
+                $data = array();
+                $data['title'] = $this->input->post('title');
+                $data['degree_name'] = $this->input->post('degree_name');
+                $data['start_date'] = $this->input->post('start_date');
+                $data['end_date']   = $this->input->post('present') == null ? $this->input->post('end_date') : 'Present';
+                $data['pub_status'] = $this->input->post('pub_status') == null ? 0 : 1;
+                $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
+                $data['updated_by'] = $data['created_by'] = $data['member_id'] = $this->session->userdata['member_info']['member_id'];
+                if ($edit_id > 0) {
+                    // unset created on
+                    unset($data['created_on']);
+                    unset($data['created_by']);
+                }
+                $result = false;
+                
+
+                if ($edit_id > 0) {
+                    $this->Members_Model->update_degree('member_degree_id', $edit_id, $data);
+                    $result = true;
+                } else {
+                    $result = $this->Members_Model->add_degree($data);
+                }
+                if ($result) {
+                    $this->_response(false, "Changes saved successfully!");
+                }
+            }
+        } else {
+            redirect(base_url('companions/get_companion_profile'));
+        }
+    }
+    
+    
+    
+     function modal_experience() {
+        $this->isAjax();
+        $member_experience_id = $this->input->post('member_experience_id');
+        $experience_data = $this->Members_Model->get_experience($member_experience_id);
+        $data['experience_data'] = $experience_data;
+        $html = $this->load->view('frontend/companions/add_experience', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
+
+    function add_update_experience() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            $edit_id = $this->input->post('member_experience_id');
+            $this->form_validation->set_rules('title', 'Title', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('position', 'Position', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('start_date', 'Start Date', 'required|trim|strip_tags|xss_clean');
+           
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->_response(true, validation_errors());
+            } else {
+                $data = array();
+                $data['title'] = $this->input->post('title');
+                $data['position'] = $this->input->post('position');
+                $data['start_date'] = $this->input->post('start_date');
+                $data['end_date']   = $this->input->post('present') == null ? $this->input->post('end_date') : 'Present';
+                $data['pub_status'] = $this->input->post('pub_status') == null ? 0 : 1;
+                $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
+                $data['updated_by'] = $data['created_by'] = $data['member_id'] = $this->session->userdata['member_info']['member_id'];
+                if ($edit_id > 0) {
+                    // unset created on
+                    unset($data['created_on']);
+                    unset($data['created_by']);
+                }
+                $result = false;
+                
+
+                if ($edit_id > 0) {
+                    $this->Members_Model->update_experience('member_experience_id', $edit_id, $data);
+                    $result = true;
+                } else {
+                    $result = $this->Members_Model->add_experience($data);
                 }
                 if ($result) {
                     $this->_response(false, "Changes saved successfully!");

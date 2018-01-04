@@ -88,6 +88,52 @@ class Members_model extends Abstract_model {
         $this->table_name = "tb_member_languages";
         return $this->updateBy($column, $row_id, $data);
     }
+    
+    
+    function get_member_degrees($member_id, $active_condition = "") {
+        $sql = "SELECT * FROM tb_member_degrees" .
+                " WHERE `tb_member_degrees`.member_id = " . $member_id . " " . $active_condition;
+        return $this->db->query($sql)->result_array();
+    }
+
+    public function get_degree($degree_id) {
+        $this->table_name = 'tb_member_degrees';
+        $result = $this->getBy('member_degree_id', $degree_id);
+        return isset($result[0]) ? $result[0] : array();
+    }
+
+    public function add_degree($data) {
+        $this->table_name = "tb_member_degrees";
+        return $this->save($data);
+    }
+
+    public function update_degree($column, $row_id, $data) {
+        $this->table_name = "tb_member_degrees";
+        return $this->updateBy($column, $row_id, $data);
+    }
+    
+    
+    function get_member_experiences($member_id, $active_condition = "") {
+        $sql = "SELECT * FROM tb_member_experience" .
+                " WHERE `tb_member_experience`.member_id = " . $member_id . " " . $active_condition;
+        return $this->db->query($sql)->result_array();
+    }
+
+    public function get_experience($experience_id) {
+        $this->table_name = 'tb_member_experience';
+        $result = $this->getBy('member_experience_id', $experience_id);
+        return isset($result[0]) ? $result[0] : array();
+    }
+
+    public function add_experience($data) {
+        $this->table_name = "tb_member_experience";
+        return $this->save($data);
+    }
+
+    public function update_experience($column, $row_id, $data) {
+        $this->table_name = "tb_member_experience";
+        return $this->updateBy($column, $row_id, $data);
+    }
 
     public function IsMember($username = "", $password = "") {
         $this->is_error = FALSE;
