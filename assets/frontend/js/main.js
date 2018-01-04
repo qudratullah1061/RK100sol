@@ -398,7 +398,7 @@ $(document).ready(function () {
         pagination: '.swiper-pagination',
         paginationClickable: true,
         loop: true,
-        autoplay: 5000,
+        autoplay: false,
         slidesPerView: 1,
         keyboardControl: true,
         preventClicks: false,

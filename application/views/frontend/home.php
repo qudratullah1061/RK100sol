@@ -697,7 +697,6 @@
         </p>
 
     </div>
-</div>
 </section>
 <section class="wow fadeIn bright-career no-padding">
     <div class="container">
@@ -961,30 +960,30 @@
             </div>
 
         </div>
-<!--        <div class="row margin-60px-tb">
-            <div class="col-md-7 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s">
-                <h4>Coaching (Article 3)</h4>
-
-                <h5>1. Post your project</h5>
-                <p>It's always free to post your project. Invite our freelancers to submit bids, or browse relevant freelancers and make an offer. You'll have replies to your job within minutes!</p>
-
-                <h5>2. Choose the perfect freelancer</h5>
-
-                <ul class="list-style-1">
-                    <li>Browse freelancer profiles</li>
-                    <li>Chat in real-time</li>
-                    <li>Compare proposals and select the best one</li>
-                    <li>Award your project and your freelancer goes to work</li>
-                </ul>
-
-                <h5>3. Pay when you are satisfied!</h5>
-                <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
-                <a href="#" class="btn btn-deep-purple btn-small">See More</a>
-            </div>
-            <div class="col-md-5 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
-                <img src="<?php echo base_url('assets/frontend/'); ?>img/guide-3.jpg" alt="">
-            </div>
-        </div>-->
+        <!--        <div class="row margin-60px-tb">
+                    <div class="col-md-7 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s">
+                        <h4>Coaching (Article 3)</h4>
+        
+                        <h5>1. Post your project</h5>
+                        <p>It's always free to post your project. Invite our freelancers to submit bids, or browse relevant freelancers and make an offer. You'll have replies to your job within minutes!</p>
+        
+                        <h5>2. Choose the perfect freelancer</h5>
+        
+                        <ul class="list-style-1">
+                            <li>Browse freelancer profiles</li>
+                            <li>Chat in real-time</li>
+                            <li>Compare proposals and select the best one</li>
+                            <li>Award your project and your freelancer goes to work</li>
+                        </ul>
+        
+                        <h5>3. Pay when you are satisfied!</h5>
+                        <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
+                        <a href="#" class="btn btn-deep-purple btn-small">See More</a>
+                    </div>
+                    <div class="col-md-5 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
+                        <img src="<?php // echo base_url('assets/frontend/'); ?>img/guide-3.jpg" alt="">
+                    </div>
+                </div>-->
 
     </div>
 </section>
