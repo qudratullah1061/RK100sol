@@ -697,7 +697,6 @@
         </p>
 
     </div>
-</div>
 </section>
 <section class="wow fadeIn bright-career no-padding">
     <div class="container">
