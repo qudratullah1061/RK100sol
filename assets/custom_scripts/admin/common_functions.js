@@ -27,7 +27,6 @@ var GlobalPlugins = function () {
 }();
 //#region global plugins ends
 //
-//
 //#region common functions
 var CommonFunctions = function () {
 
