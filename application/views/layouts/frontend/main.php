@@ -80,6 +80,10 @@
         <!-- responsive css -->
         <!--Q included files emds-->
 
+        <!--Slick slder--> 
+        <link href="<?php echo base_url(); ?>assets/frontend/slick/slick.css" rel="stylesheet" type="text/css" />
+        <!-- END Slick slider -->
+
         <link rel="stylesheet" href="<?php echo base_url('assets/frontend/'); ?>css/responsive.css" />
         <link rel="stylesheet" href="<?php echo base_url('assets/frontend/'); ?>css/custom.css" />
         <!--jquery start-->
@@ -440,6 +444,11 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
         <!--Modal scripts end-->
+
+        <!--Slick slder--> 
+        <script src="<?php echo base_url(); ?>assets/frontend/slick/slick.min.js" type="text/javascript"></script>
+        <!-- END Slick slider -->
+
         <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/common_functions.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
