@@ -259,6 +259,29 @@
                                     </li>
                                 </ul>
                             </li>
+
+                            <li class="nav-item <?php ActivateParentLink('blog'); ?>">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="fa fa-newspaper-o"></i>
+                                    <span class="title"> Blogs </span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item <?php ActivateCurrentLink('blog', 'view_blogs'); ?>">
+                                        <a href="<?php echo base_url('admin/blogs/view_blogs'); ?>" class="nav-link ">
+                                            <!--<i class="fa fa-eye"></i>-->
+                                            <span class="title">View Blogs</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item <?php ActivateCurrentLink('blog', 'view_tags'); ?>">
+                                        <a href="<?php echo base_url('admin/blogs/view_tags'); ?>" class="nav-link ">
+                                            <!--<i class="fa fa-eye"></i>-->
+                                            <span class="title">View Tags</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
 
                         <!-- END SIDEBAR MENU -->

@@ -147,6 +147,8 @@ var CommonFunctions = function () {
                                         load_member_profile_images();
                                         is_init_id_proof_images = false;
                                         load_member_id_proofs();
+                                    } else if (table == 'tb_tags') {
+                                        $('#datatable_tags').DataTable().ajax.reload();
                                     } else if (table == 'tb_member_portfolios' || table == 'tb_member_languages') {
                                         window.location.reload();
                                     }
