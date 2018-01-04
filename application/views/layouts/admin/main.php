@@ -54,6 +54,14 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/layouts/layout/css/custom.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
+
+        <!--Slick slder--> 
+        <link href="<?php echo base_url(); ?>assets/frontend/slick/slick.css" rel="stylesheet" type="text/css" />
+        <!-- END Slick slider -->
+
+
+
+
         <link rel="shortcut icon" href="<?php echo base_url('assets/favicon.png'); ?>" /> 
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -906,6 +914,11 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/form-dropzone.js" type="text/javascript"></script>
         <!--profile js-->
+
+        <!--Slick slder--> 
+         <script src="<?php echo base_url(); ?>assets/frontend/slick/slick.min.js" type="text/javascript"></script>
+        <!-- END Slick slider -->
+
         <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/common_functions.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
