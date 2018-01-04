@@ -918,6 +918,7 @@
         <!--Slick slder--> 
          <script src="<?php echo base_url(); ?>assets/frontend/slick/slick.min.js" type="text/javascript"></script>
         <!-- END Slick slider -->
+        
 
         <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/common_functions.js" type="text/javascript"></script>
         <script>
