@@ -260,7 +260,7 @@
                                 </ul>
                             </li>
 
-                            <li class="nav-item <?php ActivateParentLink('blog'); ?>">
+                            <li class="nav-item <?php ActivateParentLink('blogs'); ?>">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="fa fa-newspaper-o"></i>
                                     <span class="title"> Blogs </span>
@@ -274,7 +274,7 @@
                                             <span class="title">View Blogs</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('blog', 'view_tags'); ?>">
+                                    <li class="nav-item <?php ActivateCurrentLink('blogs', 'view_tags'); ?>">
                                         <a href="<?php echo base_url('admin/blogs/view_tags'); ?>" class="nav-link ">
                                             <!--<i class="fa fa-eye"></i>-->
                                             <span class="title">View Tags</span>
