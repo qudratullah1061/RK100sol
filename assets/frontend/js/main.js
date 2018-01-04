@@ -398,7 +398,7 @@ $(document).ready(function () {
         pagination: '.swiper-pagination',
         paginationClickable: true,
         loop: true,
-        autoplay: 5000,
+        autoplay: false,
         slidesPerView: 1,
         keyboardControl: true,
         preventClicks: false,
@@ -524,42 +524,6 @@ $(document).ready(function () {
             }
         }
     });
-    var homestaySlider = new Swiper('.homestay-slider', {
-//        pagination: '.swiper-pagination',
-//        paginationClickable: true,
-//        loop: true,
-//        autoplay: false,
-//        slidesPerView: 1,
-//        keyboardControl: true,
-//        preventClicks: false,
-//        nextButton: '.swiper-button-next',
-//        prevButton: '.swiper-button-prev',
-        spaceBetween: 30,
-        hashNavigation: {
-            watchState: true,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            850: {
-                slidesPerView: 1
-            },
-            650: {
-                slidesPerView: 1
-            },
-            480: {
-                slidesPerView: 1
-            }
-        }
-    });
-
-
 
     var swiperDemoHeaderStyle = new Swiper('.swiper-demo-header-style', {
         pagination: '.swiper-pagination-demo-header-style',
@@ -741,8 +705,6 @@ $(document).ready(function () {
                     swiperThreeSlides.onResize()
                 if ($(".swiper-four-slides").length > 0)
                     swiperFourSlides.onResize()
-                if ($(".homestay-slider").length > 0)
-                    homestaySlider.onResize()
                 if ($(".swiper-vertical-pagination").length > 0)
                     swiperVerticalPagination.onResize()
                 if ($(".swiper-auto-height-container").length > 0)
@@ -777,8 +739,6 @@ $(document).ready(function () {
                 swiperThreeSlides.onResize()
             if ($(".swiper-four-slides").length > 0)
                 swiperFourSlides.onResize()
-            if ($(".homestay-slider").length > 0)
-                homestaySlider.onResize()
             if ($(".swiper-vertical-pagination").length > 0)
                 swiperVerticalPagination.onResize()
             if ($(".swiper-auto-height-container").length > 0)
