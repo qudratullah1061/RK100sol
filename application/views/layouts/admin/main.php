@@ -268,12 +268,12 @@
                                     <span class="arrow open"></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li class="nav-item <?php ActivateCurrentLink('blog', 'view_blogs'); ?>">
-                                        <a href="<?php echo base_url('admin/blogs/view_blogs'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
+<!--                                    <li class="nav-item <?php // ActivateCurrentLink('blog', 'view_blogs'); ?>">
+                                        <a href="<?php // echo base_url('admin/blogs/view_blogs'); ?>" class="nav-link ">
+                                            <i class="fa fa-eye"></i>
                                             <span class="title">View Blogs</span>
                                         </a>
-                                    </li>
+                                    </li>-->
                                     <li class="nav-item <?php ActivateCurrentLink('blogs', 'view_tags'); ?>">
                                         <a href="<?php echo base_url('admin/blogs/view_tags'); ?>" class="nav-link ">
                                             <!--<i class="fa fa-eye"></i>-->
