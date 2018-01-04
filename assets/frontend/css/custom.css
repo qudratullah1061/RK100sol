@@ -1159,6 +1159,18 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     margin:2px !important;
     width: inherit;
 }
+#education_table_wrapper input, #education_table_wrapper textarea, #education_table_wrapper select{
+    font-size: 14px;
+    padding: 0; 
+    margin:2px !important;
+    width: inherit;
+}
+#experience_table_wrapper input, #experience_table_wrapper textarea, #experience_table_wrapper select{
+    font-size: 14px;
+    padding: 0; 
+    margin:2px !important;
+    width: inherit;
+}
 .cbp-l-caption-buttonLeft, .cbp-l-caption-buttonRight{
     min-width: 50px !important;
 }
@@ -1350,7 +1362,7 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
 .blog-banner img{max-height:95px;margin: 0 auto;display: block;}
 
 /*Homestay Page*/
-.paginationx .pagination li a {
+/*.paginationx .pagination li a {
     border: 0;
     padding-left: 5px;
     padding-right: 5px;
@@ -1365,7 +1377,7 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
 .paginationx .pagination li:first-child {
     float: left;
     margin-right: 14px;
-    /* margin-top: 1px; */
+     margin-top: 1px; 
 }
 .slick-prev:before, .slick-next:before {
     color: black;
@@ -1373,7 +1385,7 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
 .paginationx .pagination li:last-child {
     float: right;
     margin-left: 16px;
-    /* margin-top: 1px; */
+     margin-top: 1px; 
 }
 .title-bar.margin-35px-top {
     margin-top: 35px;
@@ -1440,7 +1452,7 @@ ul.hosting-list li:before {
 }
 
 ul.hosting-list li {
-    /*margin-bottom: 7px;*/
+    margin-bottom: 7px;
 }
 
-ul.hosting-list {}
+ul.hosting-list {}*/

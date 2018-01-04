@@ -72,10 +72,10 @@ $unique_id = time();
                         <div class="col-md-12">
                             <div class="portlet light ">
                                 <div class="portlet-title tabbable-line">
-                                    <div class="caption caption-md">
+<!--                                    <div class="caption caption-md">
                                         <i class="icon-globe theme-font hide"></i>
-                                        <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
-                                    </div>
+                                        <span class="caption-subject font-blue-madison bold uppercase">Profile Info</span>
+                                    </div>-->
                                     <ul class="nav nav-tabs">
                                         <li class="active" onclick="CommonFunctions.changeHash('#tab_1_1')">
                                             <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
@@ -334,7 +334,7 @@ $unique_id = time();
                                                                     </div>
                                                                 </div>
                                                                 <div class="cbp-l-grid-projects-title uppercase text-center uppercase pic-caption-img text-center pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
-                                                                <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";      ?></div>-->
+                                                                <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";         ?></div>-->
                                                             </div>
                                                             <?php
                                                         }
@@ -418,7 +418,7 @@ $unique_id = time();
                                                                 <td><?php echo $portfolio['state_name']; ?></td>
                                                                 <td><?php echo $portfolio['city_name']; ?></td>
                                                                 <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
-                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));      ?></td>-->
+                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));         ?></td>-->
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">
@@ -490,38 +490,35 @@ $unique_id = time();
                                         </div>
                                         <!--Languages tabs ends here-->
 
-                                        
+
                                         <div class="tab-pane" id="tab_1_6">
                                             <div id="" class="table-responsive">
                                                 <div class="table-actions-wrapper margin-bottom-20">
                                                     <span> </span>
                                                     <a class="purple" data-title="Add Type" href="javascript:Degrees.modal_add_degree()"><i class="fa fa-plus-circle"></i> Add Degree</a>
                                                 </div>
-                                                <table id="education_table" class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer" cellspacing="0" width="100%">
+                                                <table id="education_table" class="table table-striped table-bordered table-hover text-center dataTable no-footer" cellspacing="0" width="100%">
                                                     <thead>
                                                         <tr>
-                                                            
-                                                            <th>Title</th>
-                                                            <th>Degree Name</th>
-                                                            <th>Start Date</th>
-                                                            <th>End Date</th>
-                                                            
-                                                            
-                                                            <th>Status</th>
-                                                            <th>Pub Status</th>
-                                                            <th>Actions</th>
+                                                            <th width="25%"> Title </th>
+                                                            <th width="25%">Deg. Name</th>
+                                                            <th width="10%">Start Date</th>
+                                                            <th width="10%">End Date</th>
+                                                            <th width="10%">Status</th>
+                                                            <th width="10%">Status</th>
+                                                            <th width="10%">Actions</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
                                                         <?php foreach ($degrees as $value) { ?>
                                                             <tr>
-                                                                
+
                                                                 <td><?php echo $value['title']; ?></td>
                                                                 <td><?php echo $value['degree_name']; ?></td>
                                                                 <td><?php echo $value['start_date']; ?></td>
                                                                 <td><?php echo $value['end_date']; ?></td>
-                                                                
+
                                                                 <td><?php echo $value['approval_status']; ?></td>
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
@@ -535,7 +532,7 @@ $unique_id = time();
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td><a class="btn btn-xs default btn-editable" onclick="Degrees.modal_add_degree(<?php echo $value['member_degree_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_degree_id"]; ?>, 'tb_member_degrees', 'member_degree_id', 'Are you sure you want to delete ?');">Delete</i></a></td>
+                                                                <td><a class="btn btn-xs default btn-editable" onclick="Degrees.modal_add_degree(<?php echo $value['member_degree_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_degree_id"]; ?>, 'tb_member_degrees', 'member_degree_id', 'Are you sure you want to delete ?');">Delete</a></td>
                                                             </tr>
                                                         <?php } ?>
 
@@ -545,24 +542,24 @@ $unique_id = time();
                                             <!-- Profile images ends-->
                                             <!-- Id proof images start-->
                                         </div>
-                                        
-                                        
+
+
                                         <div class="tab-pane" id="tab_1_7">
                                             <div id="" class="table-responsive">
                                                 <div class="table-actions-wrapper margin-bottom-20">
                                                     <span> </span>
                                                     <a class="purple" data-title="Add Type" href="javascript:Experiences.modal_add_experience()"><i class="fa fa-plus-circle"></i> Add Experience</a>
                                                 </div>
-                                                <table id="experience_table" class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer" cellspacing="0" width="100%">
+                                                <table id="experience_table" class="table table-striped table-bordered table-hover text-center dataTable no-footer" cellspacing="0" width="100%">
                                                     <thead>
                                                         <tr>
-                                                            
+
                                                             <th>Title</th>
                                                             <th>Position</th>
                                                             <th>Start Date</th>
                                                             <th>End Date</th>
-                                                            
-                                                            
+
+
                                                             <th>Status</th>
                                                             <th>Pub Status</th>
                                                             <th>Actions</th>
@@ -572,12 +569,12 @@ $unique_id = time();
                                                     <tbody>
                                                         <?php foreach ($experiences as $value) { ?>
                                                             <tr>
-                                                                
+
                                                                 <td><?php echo $value['title']; ?></td>
                                                                 <td><?php echo $value['position']; ?></td>
                                                                 <td><?php echo $value['start_date']; ?></td>
                                                                 <td><?php echo $value['end_date']; ?></td>
-                                                                
+
                                                                 <td><?php echo $value['approval_status']; ?></td>
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
@@ -601,7 +598,7 @@ $unique_id = time();
                                             <!-- Profile images ends-->
                                             <!-- Id proof images start-->
                                         </div>
-                                        
+
                                         <!-- PRIVACY SETTINGS TAB -->
                                         <div class="tab-pane" id="tab_1_8">
                                             <form role="form" id="update_privacy_member">

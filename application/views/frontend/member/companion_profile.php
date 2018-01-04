@@ -91,21 +91,21 @@
                         <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i class="fa fa-pinterest-square"></i></a></li>
                     </ul>
                 </div>
-<!--                <div class="profile-certification">
-                    <div class="profile-cert-head"><h6>Certification:</h6></div>
-                    <div class="certification-odd">
-                        <a href="#">
-                            <p>Fitness Trainer (2016)</p>
-                            <span>Lorem Ipsum Foundation</span>                        
-                        </a>
-                    </div>
-                    <div class="certification-odd">
-                        <a href="#">
-                            <p>Online Coaching (2017)</p>
-                            <span>Lorem Ipsum Foundation</span>
-                        </a>
-                    </div>
-                </div>-->
+                <!--                <div class="profile-certification">
+                                    <div class="profile-cert-head"><h6>Certification:</h6></div>
+                                    <div class="certification-odd">
+                                        <a href="#">
+                                            <p>Fitness Trainer (2016)</p>
+                                            <span>Lorem Ipsum Foundation</span>                        
+                                        </a>
+                                    </div>
+                                    <div class="certification-odd">
+                                        <a href="#">
+                                            <p>Online Coaching (2017)</p>
+                                            <span>Lorem Ipsum Foundation</span>
+                                        </a>
+                                    </div>
+                                </div>-->
                 <div class="profile-skills">
                     <ul>
                         <li><h6>My Skills</h6></li>
@@ -128,14 +128,14 @@
                     <div class="row">
                         <div class="col-md-12 no-padding xs-padding-15px-lr">
                             <div class="filter-content overflow-hidden">
-                                <ul class="portfolio-grid work-4col gutter-large hover-option6 lightbox-portfolio">
-                                    <li class="grid-sizer"></li>
-                                    <!-- start portfolio item -->
-                                    <?php
-                                    if (count($portfolios) > 0) {
-                                        $count_sec = 0.0;
-                                        foreach ($portfolios as $portfolio) {
-                                            ?>
+                                <?php
+                                if (count($portfolios) > 0) {
+                                    $count_sec = 0.0;
+                                    foreach ($portfolios as $portfolio) {
+                                        ?>
+                                        <ul class="portfolio-grid work-4col gutter-large hover-option6 lightbox-portfolio">
+                                            <li class="grid-sizer"></li>
+                                            <!-- start portfolio item -->
                                             <li class="grid-item wow zoomIn last-paragraph-no-margin" <?php echo ($count_sec == 0.0 ? '' : 'data-wow-delay="' . $count_sec . 's"'); ?>>
                                                 <figure>
                                                     <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
@@ -150,15 +150,16 @@
 
                                                 </figure>
                                             </li>
-                                            <?php
-                                            $count_sec = $count_sec + 0.2;
-                                        }
-                                    } else {
-                                        echo "<li class='grid-item wow zoomIn last-paragraph-no-margin no-portfoli-found' data-wow-delay='0.02s'>No portfolio item added yet. Please go to settings and than add portfolio items in your profile.</li>";
+
+                                            <!-- end portfolio item -->
+                                        </ul>
+                                        <?php
+                                        $count_sec = $count_sec + 0.2;
                                     }
-                                    ?>
-                                    <!-- end portfolio item -->
-                                </ul>
+                                } else {
+                                    echo "<p data-wow-delay='0.02s'>No portfolio item added yet. Please go to settings and than add portfolio items in your profile.</p>";
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -200,48 +201,48 @@
                                         </li>
                                     </ul>
                                 </div>-->
-<!--                <div class="profile-reviews profile-educatoin  wow fadeInUp">
-                    <h5>Education:</h5>
-
-                    <ul>
-                        <li>
-                            <p class="title">HEC Lausanne - The Faculty of Business and Economics Faculty of the University of Lausanne</p>
-                            <p>Executive Master of Science in Technology Management</p>
-                            <p class="date"> <i class="fa fa-calendar"></i> 2004 - 2006</p>
-                        </li>
-                        <li>
-                            <p class="title">Notre-Dame de Jamhour, Jesuit College - Lebanon</p>
-                            <p>Executive Master of Science in Technology Management</p>
-                            <p class="date"> <i class="fa fa-calendar"></i> 1984 - 1997</p>
-                        </li>
-                        <li>
-                            <p class="title">University of Oxford !</p>
-                            <p>Executive Master of Science in Technology Management</p>
-                            <p class="date"> <i class="fa fa-calendar"></i> 2003 - 2004</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="profile-reviews profile-educatoin  wow fadeInUp">
-                    <h5>Work Experience:</h5>
-                    <ul>
-                        <li>
-                            <p class="title">International Consultant</p>
-                            <p>CD Consulting</p>
-                            <p class="date"> <i class="fa fa-calendar"></i> 2010 - Present</p>
-                        </li>
-                        <li>
-                            <p class="title">International Consultant</p>
-                            <p>CD Consulting</p>
-                            <p class="date"> <i class="fa fa-calendar"></i> 2010 - Present</p>
-                        </li>
-                        <li>
-                            <p class="title">Business Anylist</p>
-                            <p>Consulting and Development Service</p>
-                            <p class="date"> <i class="fa fa-calendar"></i> 2006 - 2007</p>
-                        </li>
-
-                    </ul>
-                </div>-->
+                <!--                <div class="profile-reviews profile-educatoin  wow fadeInUp">
+                                    <h5>Education:</h5>
+                
+                                    <ul>
+                                        <li>
+                                            <p class="title">HEC Lausanne - The Faculty of Business and Economics Faculty of the University of Lausanne</p>
+                                            <p>Executive Master of Science in Technology Management</p>
+                                            <p class="date"> <i class="fa fa-calendar"></i> 2004 - 2006</p>
+                                        </li>
+                                        <li>
+                                            <p class="title">Notre-Dame de Jamhour, Jesuit College - Lebanon</p>
+                                            <p>Executive Master of Science in Technology Management</p>
+                                            <p class="date"> <i class="fa fa-calendar"></i> 1984 - 1997</p>
+                                        </li>
+                                        <li>
+                                            <p class="title">University of Oxford !</p>
+                                            <p>Executive Master of Science in Technology Management</p>
+                                            <p class="date"> <i class="fa fa-calendar"></i> 2003 - 2004</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="profile-reviews profile-educatoin  wow fadeInUp">
+                                    <h5>Work Experience:</h5>
+                                    <ul>
+                                        <li>
+                                            <p class="title">International Consultant</p>
+                                            <p>CD Consulting</p>
+                                            <p class="date"> <i class="fa fa-calendar"></i> 2010 - Present</p>
+                                        </li>
+                                        <li>
+                                            <p class="title">International Consultant</p>
+                                            <p>CD Consulting</p>
+                                            <p class="date"> <i class="fa fa-calendar"></i> 2010 - Present</p>
+                                        </li>
+                                        <li>
+                                            <p class="title">Business Anylist</p>
+                                            <p>Consulting and Development Service</p>
+                                            <p class="date"> <i class="fa fa-calendar"></i> 2006 - 2007</p>
+                                        </li>
+                
+                                    </ul>
+                                </div>-->
             </div>
         </div>
     </div>

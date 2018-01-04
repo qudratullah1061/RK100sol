@@ -7,30 +7,21 @@
         <div class="portlet-body form">
             <div class="form-body">
                 <input type="hidden" name="member_degree_id" value="<?php echo isset($degree_data->member_degree_id) ? $degree_data->member_degree_id : ""; ?>">
-                <div class="form-group form-md-line-input form-md-floating-label">
-                    <input type="text" value="<?php echo isset($degree_data->title) ? $degree_data->title : ""; ?>" name="title" class="edited form-control">
+                <div class="form-group">
                     <label>Title</label>
-                    <span class="help-block">Don't use special characters</span>
+                    <input type="text" value="<?php echo isset($degree_data->title) ? $degree_data->title : ""; ?>" name="title" class="form-control">
                 </div>
-                
-                <div class="form-group form-md-line-input form-md-floating-label">
-                    <input type="text" value="<?php echo isset($degree_data->degree_name) ? $degree_data->degree_name : ""; ?>" name="degree_name" class="edited form-control">
+                <div class="form-group">
                     <label>Degree Name</label>
-                    <span class="help-block">Don't use special characters</span>
+                    <input type="text" value="<?php echo isset($degree_data->degree_name) ? $degree_data->degree_name : ""; ?>" name="degree_name" class="form-control">
                 </div>
-                
-                
-                <div class="form-group form-md-line-input form-md-floating-label">
-                    <input type="text" value="<?php echo isset($degree_data->start_date) ? $degree_data->start_date : ""; ?>" name="start_date" class="edited form-control">
+                <div class="form-group">
                     <label>Start Year</label>
-                    
+                    <input type="text" value="<?php echo isset($degree_data->start_date) ? $degree_data->start_date : ""; ?>" name="start_date" class="form-control">
                 </div>
-                
-                
-                <div class="form-group form-md-line-input form-md-floating-label" id="end_year">
-                    <input type="text" value="<?php echo isset($degree_data->end_date) ? $degree_data->end_date : ""; ?>" name="end_date" class="edited form-control">
+                <div class="form-group" id="end_year">
                     <label>End Year</label>
-                   
+                    <input type="text" value="<?php echo isset($degree_data->end_date) ? $degree_data->end_date : ""; ?>" name="end_date" class="form-control">
                 </div>
                 
                 <div class="md-checkbox-inline margin-top-20">

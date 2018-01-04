@@ -7,30 +7,22 @@
         <div class="portlet-body form">
             <div class="form-body">
                 <input type="hidden" name="member_experience_id" value="<?php echo isset($experience_data->member_experience_id) ? $experience_data->member_experience_id : ""; ?>">
-                <div class="form-group form-md-line-input form-md-floating-label">
-                    <input type="text" value="<?php echo isset($experience_data->title) ? $experience_data->title : ""; ?>" name="title" class="edited form-control">
+                <div class="form-group">
                     <label>Title</label>
-                    <span class="help-block">Don't use special characters</span>
+                    <input type="text" value="<?php echo isset($experience_data->title) ? $experience_data->title : ""; ?>" name="title" class="edited form-control">
                 </div>
                 
-                <div class="form-group form-md-line-input form-md-floating-label">
-                    <input type="text" value="<?php echo isset($experience_data->position) ? $experience_data->position : ""; ?>" name="position" class="edited form-control">
+                <div class="form-group">
                     <label>Position</label>
-                    <span class="help-block">Don't use special characters</span>
+                    <input type="text" value="<?php echo isset($experience_data->position) ? $experience_data->position : ""; ?>" name="position" class="edited form-control">
                 </div>
-                
-                
-                <div class="form-group form-md-line-input form-md-floating-label">
-                    <input type="text" value="<?php echo isset($experience_data->start_date) ? $experience_data->start_date : ""; ?>" name="start_date" class="edited form-control">
+                <div class="form-group">
                     <label>Start Year</label>
-                    
+                    <input type="text" value="<?php echo isset($experience_data->start_date) ? $experience_data->start_date : ""; ?>" name="start_date" class="edited form-control">
                 </div>
-                
-                
-                <div class="form-group form-md-line-input form-md-floating-label" id="end_year">
-                    <input type="text" value="<?php echo isset($experience_data->end_date) ? $experience_data->end_date : ""; ?>" name="end_date" class="edited form-control">
+                <div class="form-group" id="end_year">
                     <label>End Year</label>
-                   
+                    <input type="text" value="<?php echo isset($experience_data->end_date) ? $experience_data->end_date : ""; ?>" name="end_date" class="edited form-control">
                 </div>
                 
                 <div class="md-checkbox-inline margin-top-20">
