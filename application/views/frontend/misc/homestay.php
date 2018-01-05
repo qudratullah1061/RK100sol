@@ -620,3 +620,122 @@
         </div>
     </div>
 </section>
+<section class="homestay-articles wow fadeIn">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 no-padding xs-padding-15px-lr">
+                <h5 class="alt-font text-white font-weight-600 text-large">Recommended For You (Blog Articles):</h5>
+                <div class="filter-content overflow-hidden">
+                    <ul class="portfolio-grid work-4col gutter-large hover-option6 lightbox-portfolio">
+                        <li class="grid-sizer"></li>
+                        <!-- start portfolio item -->
+                        <li class="grid-item wow zoomIn last-paragraph-no-margin">
+                            <figure>
+                                <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
+                                    <img src="<?php echo base_url('assets/frontend/img/art-1.jpg') ?>" alt=""/>
+                                    <div class="portfolio-icon">
+                                        <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <figcaption class="">
+                                    <div class="portfolio-hover-main text-left">
+                                        <div class="portfolio-hover-box vertical-align-middle">
+                                            <div class="portfolio-hover-content position-relative">
+                                                <p class="text-white text-samll font-weight-500">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- end portfolio item -->
+                        <!-- start portfolio item -->
+                        <li class="grid-item wow zoomIn last-paragraph-no-margin">
+                            <figure>
+                                <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
+                                    <img src="<?php echo base_url('assets/frontend/img/art-2.jpg') ?>" alt=""/>
+                                    <div class="portfolio-icon">
+                                        <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <figcaption class="">
+                                    <div class="portfolio-hover-main text-left">
+                                        <div class="portfolio-hover-box vertical-align-middle">
+                                            <div class="portfolio-hover-content position-relative">
+                                                <p class="text-white text-samll font-weight-500">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- end portfolio item -->
+                        <!-- start portfolio item -->
+                        <li class="grid-item wow zoomIn last-paragraph-no-margin">
+                            <figure>
+                                <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
+                                    <img src="<?php echo base_url('assets/frontend/img/art-3.jpg') ?>" alt=""/>
+                                    <div class="portfolio-icon">
+                                        <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <figcaption class="">
+                                    <div class="portfolio-hover-main text-left">
+                                        <div class="portfolio-hover-box vertical-align-middle">
+                                            <div class="portfolio-hover-content position-relative">
+                                                <p class="text-white text-samll font-weight-500">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- end portfolio item -->
+                        <!-- start portfolio item -->
+                        <li class="grid-item wow zoomIn last-paragraph-no-margin">
+                            <figure>
+                                <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
+                                    <img src="<?php echo base_url('assets/frontend/img/art-4.jpg') ?>" alt=""/>
+                                    <div class="portfolio-icon">
+                                        <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <figcaption class="">
+                                    <div class="portfolio-hover-main text-left">
+                                        <div class="portfolio-hover-box vertical-align-middle">
+                                            <div class="portfolio-hover-content position-relative">
+                                                <p class="text-white text-samll font-weight-500">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- end portfolio item -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="paginationx pagenation-white text-center">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true"><i class="fa fa-arrow-circle-left"></i></span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li class="active"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true"><i class="fa fa-arrow-circle-right"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</section>

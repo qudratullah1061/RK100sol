@@ -297,7 +297,7 @@ section{padding: 60px 0;}
 .cat-members .container .hover-option6 .grid-item figcaption {padding: 10px 0;}
 .cat-members .grid-item figure .portfolio-img {border-bottom: 3px solid #942192;}
 section.cat-members {padding: 50px 0 40px;}
-section.gold-members {padding-top: 0;padding-bottom: 35px;}
+section.gold-members {padding-top: 0;padding-bottom: 0;}
 .title-bar {height: 41px;line-height: 41px;font-size: 19px;margin-top: 10px; text-transform: uppercase;}
 .title-bar i {margin: 0 8px;}
 .gold-members .feature-box .content {padding: 0;}
@@ -1362,7 +1362,7 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
 .blog-banner img{max-height:95px;margin: 0 auto;display: block;}
 
 /*Homestay Page*/
-/*.paginationx .pagination li a {
+.paginationx .pagination li a {
     border: 0;
     padding-left: 5px;
     padding-right: 5px;
@@ -1370,14 +1370,22 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     color: #404040;
     font-family: 'roboto';
     font-size: 21px;
+    background-color: transparent;
 }
 .paginationx .pagination li a:hover, .paginationx .pagination li a:active, .paginationx .pagination li a:focus,
 .paginationx .pagination .active a
 {color:#800080; background-color: transparent;}
+.paginationx.pagenation-white li a {
+    color: #fff;
+}
+.paginationx.pagenation-white .pagination li a:hover, .paginationx.pagenation-white .pagination li a:active, .paginationx.pagenation-white .pagination li a:focus,
+.paginationx.pagenation-white .pagination .active a
+{color:#c22bbf;}
+/**/
 .paginationx .pagination li:first-child {
     float: left;
     margin-right: 14px;
-     margin-top: 1px; 
+    margin-top: 1px; 
 }
 .slick-prev:before, .slick-next:before {
     color: black;
@@ -1385,7 +1393,7 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
 .paginationx .pagination li:last-child {
     float: right;
     margin-left: 16px;
-     margin-top: 1px; 
+    margin-top: 1px; 
 }
 .title-bar.margin-35px-top {
     margin-top: 35px;
@@ -1395,7 +1403,9 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     top: -1px;
     position: relative;
 }
-
+.hosting {
+    padding-top: 0;
+}
 .hosting .swiper-container-horizontal > .swiper-pagination-bullets {
     bottom: 6px;
     width: 100%;
@@ -1454,5 +1464,22 @@ ul.hosting-list li:before {
 ul.hosting-list li {
     margin-bottom: 7px;
 }
-
-ul.hosting-list {}*/
+.homestay-articles .portfolio-grid .grid-item figure img {
+    max-width: 100%;
+    max-height: -webkit-fill-available;
+}
+.homestay-articles .container .hover-option6 .grid-item figcaption{background: transparent; padding-left: 0;padding-right: 0;padding-top: 18px;padding-bottom: 18px;}
+.homestay-articles {
+    background-image: url(../img/blog-article.jpg);
+    background-repeat: no-repeat; background-size: cover;
+    padding-bottom: 10px;
+}
+.homestay-articles h5 {
+    font-size: 35px;
+    font-weight: 500;
+    border-bottom: 2px solid;
+    line-height: 43px;
+    display: inline-block;
+    margin-left: 21px;
+    margin-bottom: 15px;
+}
