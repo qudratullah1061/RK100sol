@@ -42,6 +42,8 @@ class Member extends FrontEnd_Controller {
                 $data['selected_categories'] = $this->Members_Model->get_selected_categories($member_id);
                 $data['selected_sub_categories'] = $this->Members_Model->get_selected_sub_categories($member_id);
                 $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id, "AND `tb_member_portfolios`.is_active = 1");
+                $data['degrees'] = $this->Members_Model->get_member_degrees($member_id, "AND `tb_member_degrees`.pub_status = 1 AND `tb_member_degrees`.approval_status = 'Approved'");
+                $data['experiences'] = $this->Members_Model->get_member_experiences($member_id, "AND `tb_member_experience`.pub_status = 1 AND `tb_member_experience`.approval_status = 'Approved'");
                 $this->load->view('frontend/member/companion_profile', $data);
             } elseif ($member_info['member_type'] == 1) {
                 $this->load->view('frontend/member/guest_profile', $data);

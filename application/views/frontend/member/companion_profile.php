@@ -201,48 +201,45 @@
                                         </li>
                                     </ul>
                                 </div>-->
-                <!--                <div class="profile-reviews profile-educatoin  wow fadeInUp">
+                               <div class="profile-reviews profile-educatoin  wow fadeInUp">
                                     <h5>Education:</h5>
                 
                                     <ul>
+                                         <?php
+                                            if (count($degrees) > 0) {
+                                                foreach($degrees as $value){ ?>
                                         <li>
-                                            <p class="title">HEC Lausanne - The Faculty of Business and Economics Faculty of the University of Lausanne</p>
-                                            <p>Executive Master of Science in Technology Management</p>
-                                            <p class="date"> <i class="fa fa-calendar"></i> 2004 - 2006</p>
+                                            <p class="title"><?php echo $value['title']; ?></p>
+                                            <p><?php echo $value['degree_name']; ?></p>
+                                            <p class="date"> <i class="fa fa-calendar"></i> <?php echo $value['start_date']; ?> - <?php echo $value['end_date']; ?></p>
                                         </li>
-                                        <li>
-                                            <p class="title">Notre-Dame de Jamhour, Jesuit College - Lebanon</p>
-                                            <p>Executive Master of Science in Technology Management</p>
-                                            <p class="date"> <i class="fa fa-calendar"></i> 1984 - 1997</p>
-                                        </li>
-                                        <li>
-                                            <p class="title">University of Oxford !</p>
-                                            <p>Executive Master of Science in Technology Management</p>
-                                            <p class="date"> <i class="fa fa-calendar"></i> 2003 - 2004</p>
-                                        </li>
+                                        
+                                            <?php } }else{ 
+                                                
+                                               echo "<p data-wow-delay='0.02s'>No education item added yet. Please go to settings and than add portfolio items in your profile.</p>"; 
+                                            }?>
+                                        
                                     </ul>
                                 </div>
                                 <div class="profile-reviews profile-educatoin  wow fadeInUp">
                                     <h5>Work Experience:</h5>
                                     <ul>
+                                        <?php 
+                                        if(count($experiences) > 0){
+                                        foreach($experiences as $value){ ?>
                                         <li>
-                                            <p class="title">International Consultant</p>
-                                            <p>CD Consulting</p>
-                                            <p class="date"> <i class="fa fa-calendar"></i> 2010 - Present</p>
+                                            <p class="title"><?php echo $value['title']; ?></p>
+                                            <p><?php echo $value['position']; ?></p>
+                                            <p class="date"> <i class="fa fa-calendar"></i> <?php echo $value['start_date']; ?> - <?php echo $value['end_date']; ?></p>
                                         </li>
-                                        <li>
-                                            <p class="title">International Consultant</p>
-                                            <p>CD Consulting</p>
-                                            <p class="date"> <i class="fa fa-calendar"></i> 2010 - Present</p>
-                                        </li>
-                                        <li>
-                                            <p class="title">Business Anylist</p>
-                                            <p>Consulting and Development Service</p>
-                                            <p class="date"> <i class="fa fa-calendar"></i> 2006 - 2007</p>
-                                        </li>
+                                        <?php } }else{ 
+                                                
+                                               echo "<p data-wow-delay='0.02s'>No experience item added yet. Please go to settings and than add portfolio items in your profile.</p>"; 
+                                            }?>
+                                        
                 
                                     </ul>
-                                </div>-->
+                                </div>
             </div>
         </div>
     </div>
