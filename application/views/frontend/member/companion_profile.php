@@ -91,21 +91,31 @@
                         <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i class="fa fa-pinterest-square"></i></a></li>
                     </ul>
                 </div>
-                <!--                <div class="profile-certification">
-                                    <div class="profile-cert-head"><h6>Certification:</h6></div>
-                                    <div class="certification-odd">
-                                        <a href="#">
-                                            <p>Fitness Trainer (2016)</p>
-                                            <span>Lorem Ipsum Foundation</span>                        
-                                        </a>
-                                    </div>
-                                    <div class="certification-odd">
-                                        <a href="#">
-                                            <p>Online Coaching (2017)</p>
-                                            <span>Lorem Ipsum Foundation</span>
-                                        </a>
-                                    </div>
-                                </div>-->
+                
+                <div class="profile-certification">
+                    <div class="profile-cert-head"><h6>Certification:</h6></div>
+
+                    <?php
+                    if (count($certifications) > 0) {
+                        foreach ($certifications as $value) {
+                            ?>
+                            <div class="certification-odd">
+                                <a href="#">
+                                    <p><?php echo $value['title']; ?></p>
+                                    <span><?php echo $value['description']; ?></span>                        
+                                </a>
+                            </div>    
+                            <?php
+                            }
+                        } else {
+
+                            echo "<p data-wow-delay='0.02s'>No certification item added yet. Please go to settings and than add portfolio items in your profile.</p>";
+                        }
+                        ?>
+                    
+
+                </div>
+                               
                 <div class="profile-skills">
                     <ul>
                         <li><h6>My Skills</h6></li>

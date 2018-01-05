@@ -99,7 +99,10 @@ $unique_id = time();
                                             <a href="#tab_1_7" data-toggle="tab">Experience</a>
                                         </li>
                                         <li onclick="CommonFunctions.changeHash('#tab_1_8')">
-                                            <a href="#tab_1_8" data-toggle="tab">Privacy Settings</a>
+                                            <a href="#tab_1_8" data-toggle="tab">Certification</a>
+                                        </li>
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_9')">
+                                            <a href="#tab_1_9" data-toggle="tab">Privacy Settings</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -598,9 +601,62 @@ $unique_id = time();
                                             <!-- Profile images ends-->
                                             <!-- Id proof images start-->
                                         </div>
+                                        
+                                        <div class="tab-pane" id="tab_1_8">
+                                            <div id="" class="table-responsive">
+                                                <div class="table-actions-wrapper margin-bottom-20">
+                                                    <span> </span>
+                                                    <a class="purple" data-title="Add Type" href="javascript:Certifications.modal_add_certification()"><i class="fa fa-plus-circle"></i> Add Certification</a>
+                                                </div>
+                                                <table id="certification_table" class="table table-striped table-bordered table-hover text-center dataTable no-footer" cellspacing="0" width="100%">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th>Title</th>
+                                                            <th>Description</th>
+                                                            
+
+
+                                                            <th>Status</th>
+                                                            <th>Pub Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <?php foreach ($certifications as $value) { ?>
+                                                            <tr>
+
+                                                                <td><?php echo $value['title']; ?></td>
+                                                                <td><?php echo $value['description']; ?></td>
+                                                               
+
+                                                                <td><?php echo $value['approval_status']; ?></td>
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled" id="checkbox<?php echo $value['member_certification_id']; ?>" <?php echo ($value['pub_status'] == 1 ? "checked='checked'" : ""); ?> class="md-check">
+                                                                            <label for="checkbox<?php echo $value['member_certification_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable" onclick="Certifications.modal_add_certification(<?php echo $value['member_certification_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_certification_id"]; ?>, 'tb_member_certifications', 'member_certification_id', 'Are you sure you want to delete ?');">Delete</i></a></td>
+                                                            </tr>
+                                                        <?php } ?>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- Profile images ends-->
+                                            <!-- Id proof images start-->
+                                        </div>
 
                                         <!-- PRIVACY SETTINGS TAB -->
-                                        <div class="tab-pane" id="tab_1_8">
+                                        <div class="tab-pane" id="tab_1_9">
                                             <form role="form" id="update_privacy_member">
                                                 <table class="table table-light table-hover">
                                                     <?php
@@ -662,6 +718,7 @@ $unique_id = time();
 <script src="<?php echo base_url('assets/custom_scripts/frontend/portfolio.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/education.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/experience.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom_scripts/frontend/certification.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/languages.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
 <script>
@@ -670,5 +727,6 @@ $unique_id = time();
         $("#language_table").DataTable();
         $("#experience_table").DataTable();
         $("#education_table").DataTable();
+        $("#certification_table").DataTable();
     });
 </script>

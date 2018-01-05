@@ -69,6 +69,7 @@ class Companions extends FrontEnd_Controller {
             $data['language_data'] = $this->Members_Model->get_member_languages($member_id);
             $data['degrees'] = $this->Members_Model->get_member_degrees($member_id);
             $data['experiences'] = $this->Members_Model->get_member_experiences($member_id);
+            $data['certifications'] = $this->Members_Model->get_member_certification($member_id);
             $this->load->view('frontend/companions/view_companion_profile', $data);
         } else {
             redirect(base_url());
@@ -206,7 +207,7 @@ class Companions extends FrontEnd_Controller {
     
     
     
-     function modal_experience() {
+    function modal_experience() {
         $this->isAjax();
         $member_experience_id = $this->input->post('member_experience_id');
         $experience_data = $this->Members_Model->get_experience($member_experience_id);
@@ -250,6 +251,60 @@ class Companions extends FrontEnd_Controller {
                     $result = true;
                 } else {
                     $result = $this->Members_Model->add_experience($data);
+                }
+                if ($result) {
+                    $this->_response(false, "Changes saved successfully!");
+                }
+            }
+        } else {
+            redirect(base_url('companions/get_companion_profile'));
+        }
+    }
+    
+    
+    function modal_certification() {
+        $this->isAjax();
+        $member_certification_id = $this->input->post('member_certification_id');
+        $certification_data = $this->Members_Model->get_certification($member_certification_id);
+        $data['certification_data'] = $certification_data;
+        $html = $this->load->view('frontend/companions/add_certification', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
+
+    function add_update_certification() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            $edit_id = $this->input->post('member_certification_id');
+            $this->form_validation->set_rules('title', 'Title', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('description', 'Position', 'required|trim|strip_tags|xss_clean');
+            
+           
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->_response(true, validation_errors());
+            } else {
+                $data = array();
+                $data['title'] = $this->input->post('title');
+                $data['description'] = $this->input->post('description');
+                
+                $data['pub_status'] = $this->input->post('pub_status') == null ? 0 : 1;
+                $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
+                $data['updated_by'] = $data['created_by'] = $data['member_id'] = $this->session->userdata['member_info']['member_id'];
+                if ($edit_id > 0) {
+                    // unset created on
+                    unset($data['created_on']);
+                    unset($data['created_by']);
+                }
+                $result = false;
+                
+
+                if ($edit_id > 0) {
+                    $this->Members_Model->update_certification('member_certification_id', $edit_id, $data);
+                    $result = true;
+                } else {
+                    $result = $this->Members_Model->add_certification($data);
                 }
                 if ($result) {
                     $this->_response(false, "Changes saved successfully!");

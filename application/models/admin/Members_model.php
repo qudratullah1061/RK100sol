@@ -113,6 +113,29 @@ class Members_model extends Abstract_model {
     }
     
     
+    function get_member_certification($member_id, $active_condition = "") {
+        $sql = "SELECT * FROM tb_member_certifications" .
+                " WHERE `tb_member_certifications`.member_id = " . $member_id . " " . $active_condition;
+        return $this->db->query($sql)->result_array();
+    }
+
+    public function get_certification($certification_id) {
+        $this->table_name = 'tb_member_certifications';
+        $result = $this->getBy('member_certification_id', $certification_id);
+        return isset($result[0]) ? $result[0] : array();
+    }
+
+    public function add_certification($data) {
+        $this->table_name = "tb_member_certifications";
+        return $this->save($data);
+    }
+
+    public function update_certification($column, $row_id, $data) {
+        $this->table_name = "tb_member_certifications";
+        return $this->updateBy($column, $row_id, $data);
+    }
+    
+    
     function get_member_experiences($member_id, $active_condition = "") {
         $sql = "SELECT * FROM tb_member_experience" .
                 " WHERE `tb_member_experience`.member_id = " . $member_id . " " . $active_condition;
