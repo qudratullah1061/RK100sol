@@ -107,10 +107,10 @@ $unique_id = time();
                 <div class="col-md-12">
                     <div class="portlet light ">
                         <div class="portlet-title tabbable-line">
-                            <div class="caption caption-md">
+<!--                            <div class="caption caption-md">
                                 <i class="icon-globe theme-font hide"></i>
                                 <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
-                            </div>
+                            </div>-->
                             <ul class="nav nav-tabs">
                                 <li class="active" onclick="CommonFunctions.changeHash('#tab_1_1')">
                                     <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
@@ -133,9 +133,9 @@ $unique_id = time();
                                 <li onclick="CommonFunctions.changeHash('#tab_1_7')">
                                     <a href="#tab_1_7" data-toggle="tab">Experience</a>
                                 </li>
-                                <li onclick="CommonFunctions.changeHash('#tab_1_8')">
+<!--                                <li onclick="CommonFunctions.changeHash('#tab_1_8')">
                                     <a href="#tab_1_8" data-toggle="tab">Privacy Settings</a>
-                                </li>
+                                </li>-->
                             </ul>
                         </div>
                         <div class="portlet-body">
