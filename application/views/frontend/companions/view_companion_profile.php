@@ -102,7 +102,7 @@ $unique_id = time();
                                             <a href="#tab_1_8" data-toggle="tab">Certification</a>
                                         </li>
                                         <li onclick="CommonFunctions.changeHash('#tab_1_9')">
-                                            <a href="#tab_1_9" data-toggle="tab">Privacy Settings</a>
+                                            <a href="#tab_1_9" data-toggle="tab">Privacy</a>
                                         </li>
                                     </ul>
                                 </div>

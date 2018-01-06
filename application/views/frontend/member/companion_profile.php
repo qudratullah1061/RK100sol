@@ -109,7 +109,7 @@
                             }
                         } else {
 
-                            echo "<p data-wow-delay='0.02s'>No certification item added yet. Please go to settings and than add portfolio items in your profile.</p>";
+                            echo "<p data-wow-delay='0.02s' class='no-certification'>No certification item added yet. Please go to settings and than add your certifications into your profile.</p>";
                         }
                         ?>
                     

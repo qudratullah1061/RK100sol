@@ -1171,6 +1171,12 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     margin:2px !important;
     width: inherit;
 }
+#certification_table_wrapper input, #certification_table_wrapper textarea, #certification_table_wrapper select{
+    font-size: 14px;
+    padding: 0; 
+    margin:2px !important;
+    width: inherit;
+}
 .cbp-l-caption-buttonLeft, .cbp-l-caption-buttonRight{
     min-width: 50px !important;
 }
@@ -1482,4 +1488,12 @@ ul.hosting-list li {
     display: inline-block;
     margin-left: 21px;
     margin-bottom: 15px;
+}
+/*Homestay ends*/
+
+.portlet.light > .portlet-title > .nav-tabs > li > a{
+    font-size: 11px;
+}
+.no-certification{
+    padding:15px;
 }
