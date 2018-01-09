@@ -84,3 +84,6 @@
 .portlet.light > .portlet-title > .nav-tabs > li > a{
     font-size: 11px;
 }
+.education_table_wrapper,.experience_table_wrapper{
+    overflow: hidden;
+}
