@@ -348,7 +348,7 @@ function sendEmail($to, $subject, $message) {
     $mail->SMTPSecure = "tls";
 //Set TCP port to connect to
     $mail->Port = 587; //465;
-    $mail->From = "admin@konsorts.com";
+    $mail->From = "itcomradetest@gmail.com";
     $mail->FromName = "Full Name";
     $mail->addAddress($to); //addAddress($to, "Recepient Name");
     $mail->isHTML(true);
