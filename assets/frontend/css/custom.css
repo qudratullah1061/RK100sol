@@ -46,7 +46,9 @@ nav.navbar.navbar-default ul.nav>li>a {padding: 54px 0 48px;background: transpar
     position: relative;
     top: 8px;
 }
-
+.header-right .header-searchbar+ .dropdown>a {
+    top: 6px;
+}
 .header-searchbar> div .fa {
     font-size: 23px;
     color: #942192;
@@ -121,7 +123,7 @@ nav .accordion-menu {
     margin-top: 0;
     min-width: 150px;
     /*border: 1px solid #800080;*/
-    top: 68px;
+    top: 62px;
     border-radius: 0px;
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
@@ -576,6 +578,8 @@ footer a:hover {
 .pricing.membership-plans {
     margin-top: 122px;
     background-image: url(../img/home-banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .signup-full-cover-image {
     margin-top: 122px;
