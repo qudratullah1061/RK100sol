@@ -327,6 +327,8 @@ function sendEmail($to, $subject, $message) {
 //    }
 //    
     global $CI;
+    echo "here";
+    exit;
     require APPPATH . 'libraries/phpmailer_master/PHPMailerAutoload.php';
     echo "here";
     exit;
