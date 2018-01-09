@@ -171,7 +171,7 @@ class Admin_dashboard extends Admin_Controller {
                 if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != "") {
                     $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
                     $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-                    $result = UploadImage('image', "uploads/admin/admin_profiles", TRUE, $thumb_options);
+                    $result = UploadImage('image', "uploads/admin/admin_profiles/", TRUE, $thumb_options);
                     if (isset($result['error'])) {
                         $this->_response(true, $result['error']);
                     }
