@@ -327,7 +327,6 @@ function sendEmail($to, $subject, $message) {
 //    }
 //    
     global $CI;
-    //$root_path = $CI->config->item('root_path');
     require APPPATH . 'libraries/phpmailer_master/PHPMailerAutoload.php';
 //    require $root_path . 'vendor/phpmailer/phpmailer/src/Exception.php';
 //    require $root_path . 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
@@ -354,7 +353,7 @@ function sendEmail($to, $subject, $message) {
     $mail->addAddress($to); //addAddress($to, "Recepient Name");
     $mail->isHTML(true);
     $mail->Subject = $subject;
-    $mail->Body = $messages;
+    $mail->Body = $message;
 //    $mail->AltBody = "This is the plain text version of the email content";
     if (!$mail->send()) {
         echo "Mailer Error: " . $mail->ErrorInfo;
