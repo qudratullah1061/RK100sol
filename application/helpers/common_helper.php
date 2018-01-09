@@ -326,38 +326,38 @@ function sendEmail($to, $subject, $message) {
         exit;
     }
 //    
-//    global $CI;
-//    require APPPATH . 'libraries/phpmailer_master/PHPMailerAutoload.php';
+    global $CI;
+    require APPPATH . 'libraries/phpmailer_master/PHPMailerAutoload.php';
 //    require $root_path . 'vendor/phpmailer/phpmailer/src/Exception.php';
 //    require $root_path . 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
 //    require $root_path . 'vendor/phpmailer/phpmailer/src/SMTP.php';
-    //require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
+//    require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
 //PHPMailer Object
-//    $mail = new PHPMailer();
-//    //$mail->SMTPDebug = 3;
-////Set PHPMailer to use SMTP.
-//    $mail->isSMTP();
-////Set SMTP host name                      
-//    $mail->Host = "smtp.gmail.com";
-////Set this to true if SMTP host requires authentication to send email
-//    $mail->SMTPAuth = true;
-////Provide username and password
-//    $mail->Username = "itcomradetest@gmail.com";
-//    $mail->Password = "itcomrade.us@123";
-////If SMTP requires TLS encryption then set it
-//    $mail->SMTPSecure = "tls";
-////Set TCP port to connect to
-//    $mail->Port = 587; //465;
-//    $mail->From = "itcomradetest@gmail.com";
-//    $mail->FromName = "Full Name";
-//    $mail->addAddress($to); //addAddress($to, "Recepient Name");
-//    $mail->isHTML(true);
-//    $mail->Subject = $subject;
-//    $mail->Body = $message;
-////    $mail->AltBody = "This is the plain text version of the email content";
-//    if (!$mail->send()) {
-//        echo "Mailer Error: " . $mail->ErrorInfo;
-//        exit;
-//    }
-//    return true;
+    $mail = new PHPMailer();
+    //$mail->SMTPDebug = 3;
+//Set PHPMailer to use SMTP.
+    $mail->isSMTP();
+//Set SMTP host name                      
+    $mail->Host = "smtp.gmail.com";
+//Set this to true if SMTP host requires authentication to send email
+    $mail->SMTPAuth = true;
+//Provide username and password
+    $mail->Username = "itcomradetest@gmail.com";
+    $mail->Password = "itcomrade.us@123";
+//If SMTP requires TLS encryption then set it
+    $mail->SMTPSecure = "tls";
+//Set TCP port to connect to
+    $mail->Port = 587; //465;
+    $mail->From = "itcomradetest@gmail.com";
+    $mail->FromName = "Full Name";
+    $mail->addAddress($to); //addAddress($to, "Recepient Name");
+    $mail->isHTML(true);
+    $mail->Subject = $subject;
+    $mail->Body = $message;
+//    $mail->AltBody = "This is the plain text version of the email content";
+    if (!$mail->send()) {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+        exit;
+    }
+    return true;
 }
