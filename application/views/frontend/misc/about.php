@@ -63,8 +63,8 @@
 
                     <!-- end sub title -->
                     <!-- start page title -->
-                    <span class="display-block text-white opacity6 width-45 sm-width-100 center-col alt-font margin-10px-bottom">members </span>
-                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom text-uppercase">OFFERING SERVICES</h1>
+                    <!--<span class="display-block text-white opacity6 width-45 sm-width-100 center-col alt-font margin-10px-bottom">Members </span>-->
+                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom text-uppercase">Members OFFERING SERVICES</h1>
                     <!--<span class="display-block text-white opacity6 width-45 sm-width-100 center-col alt-font margin-10px-bottom">Guest Members</span>-->
                     <!-- end page title -->
                 </div>
