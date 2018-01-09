@@ -358,6 +358,9 @@ function sendEmail($to, $subject, $message) {
     if (!$mail->send()) {
         echo "Mailer Error: " . $mail->ErrorInfo;
         exit;
+    }else{
+        echo "mail sent.";
+        exit;
     }
     return true;
 }
