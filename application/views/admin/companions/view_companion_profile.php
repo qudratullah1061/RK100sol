@@ -107,10 +107,10 @@ $unique_id = time();
                 <div class="col-md-12">
                     <div class="portlet light ">
                         <div class="portlet-title tabbable-line">
-<!--                            <div class="caption caption-md">
-                                <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
-                            </div>-->
+                            <!--                            <div class="caption caption-md">
+                                                            <i class="icon-globe theme-font hide"></i>
+                                                            <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
+                                                        </div>-->
                             <ul class="nav nav-tabs">
                                 <li class="active" onclick="CommonFunctions.changeHash('#tab_1_1')">
                                     <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
@@ -438,7 +438,7 @@ $unique_id = time();
                                     <div class="table-actions-wrapper margin-bottom-20">
                                         <span><a class="purple" data-title="Add Type" href="javascript:Portfolios.modal_add_portfolio(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add portfolio</a></span>
                                     </div>
-                                    <table id="portfolio_table" class="table table-responsive table-striped table-bordered text-center dataTable no-footer" cellspacing="0" width="100%">
+                                    <table id="portfolio_table" class="table table-striped table-bordered text-center dataTable no-footer" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
                                                 <th>Image</th>
@@ -486,12 +486,11 @@ $unique_id = time();
 
                                 <!--Languages tab starts from here-->
                                 <div class="tab-pane" id="tab_1_5">
-                                    <div id="" class="table-responsive">
+                                    <div>
                                         <div class="table-actions-wrapper margin-bottom-20">
-                                            <span> </span>
-                                            <a class="purple" data-title="Add Type" href="javascript:Languages.modal_add_language(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Language</a>
+                                            <span><a class="purple" data-title="Add Type" href="javascript:Languages.modal_add_language(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Language</a></span>
                                         </div>
-                                        <table id="language_table" class="table table-striped table-bordered table-hover text-center dataTable no-footer" cellspacing="0" width="100%">
+                                        <table id="language_table" class="table table-striped table-bordered text-center dataTable no-footer" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>Language</th>
@@ -531,168 +530,168 @@ $unique_id = time();
                                     </div>
                                 </div>
                                 <!--Languages tabs ends here-->
-                                 <div class="tab-pane" id="tab_1_6">
-                                            <div id="" class="table-responsive">
-                                                <div class="table-actions-wrapper margin-bottom-20">
-                                                    <span> </span>
-                                                    <a class="purple" data-title="Add Type" href="javascript:Degrees.modal_add_degree(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Degree</a>
-                                                </div>
-                                                <table id="education_table" class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer" cellspacing="0" width="100%">
-                                                    <thead>
-                                                        <tr>
-                                                            
-                                                            <th>Title</th>
-                                                            <th>Degree Name</th>
-                                                            <th>Start Date</th>
-                                                            <th>End Date</th>
-                                                            
-                                                            
-                                                            <th>Status</th>
-                                                            <th>Pub Status</th>
-                                                            <th>Actions</th>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <tbody>
-                                                        <?php foreach ($degrees as $value) { ?>
-                                                            <tr>
-                                                                
-                                                                <td><?php echo $value['title']; ?></td>
-                                                                <td><?php echo $value['degree_name']; ?></td>
-                                                                <td><?php echo $value['start_date']; ?></td>
-                                                                <td><?php echo $value['end_date']; ?></td>
-                                                                
-                                                                <td><?php echo $value['approval_status']; ?></td>
-                                                                <td>
-                                                                    <div class="md-checkbox-inline">
-                                                                        <div class="md-checkbox">
-                                                                            <input type="checkbox" disabled="disabled" id="checkbox<?php echo $value['member_degree_id']; ?>" <?php echo ($value['pub_status'] == 1 ? "checked='checked'" : ""); ?> class="md-check">
-                                                                            <label for="checkbox<?php echo $value['member_degree_id']; ?>">
-                                                                                <span></span>
-                                                                                <span class="check"></span>
-                                                                                <span class="box"></span>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><a class="btn btn-xs default btn-editable" onclick="Degrees.modal_add_degree(<?php echo $value['member_degree_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_degree_id"]; ?>, 'tb_member_degrees', 'member_degree_id', 'Are you sure you want to delete ?');">Delete</i></a></td>
-                                                            </tr>
-                                                        <?php } ?>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!-- Profile images ends-->
-                                            <!-- Id proof images start-->
+                                <div class="tab-pane" id="tab_1_6">
+                                    <div id="" class="table-responsive">
+                                        <div class="table-actions-wrapper margin-bottom-20">
+                                            <span> </span>
+                                            <a class="purple" data-title="Add Type" href="javascript:Degrees.modal_add_degree(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Degree</a>
                                         </div>
-                                        
-                                        
-                                        <div class="tab-pane" id="tab_1_7">
-                                            <div id="" class="table-responsive">
-                                                <div class="table-actions-wrapper margin-bottom-20">
-                                                    <span> </span>
-                                                    <a class="purple" data-title="Add Type" href="javascript:Experiences.modal_add_experience(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Experience</a>
-                                                </div>
-                                                <table id="experience_table" class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer" cellspacing="0" width="100%">
-                                                    <thead>
-                                                        <tr>
-                                                            
-                                                            <th>Title</th>
-                                                            <th>Position</th>
-                                                            <th>Start Date</th>
-                                                            <th>End Date</th>
-                                                            
-                                                            
-                                                            <th>Status</th>
-                                                            <th>Pub Status</th>
-                                                            <th>Actions</th>
-                                                        </tr>
-                                                    </thead>
+                                        <table id="education_table" class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
 
-                                                    <tbody>
-                                                        <?php foreach ($experiences as $value) { ?>
-                                                            <tr>
-                                                                
-                                                                <td><?php echo $value['title']; ?></td>
-                                                                <td><?php echo $value['position']; ?></td>
-                                                                <td><?php echo $value['start_date']; ?></td>
-                                                                <td><?php echo $value['end_date']; ?></td>
-                                                                
-                                                                <td><?php echo $value['approval_status']; ?></td>
-                                                                <td>
-                                                                    <div class="md-checkbox-inline">
-                                                                        <div class="md-checkbox">
-                                                                            <input type="checkbox" disabled="disabled" id="checkbox<?php echo $value['member_experience_id']; ?>" <?php echo ($value['pub_status'] == 1 ? "checked='checked'" : ""); ?> class="md-check">
-                                                                            <label for="checkbox<?php echo $value['member_experience_id']; ?>">
-                                                                                <span></span>
-                                                                                <span class="check"></span>
-                                                                                <span class="box"></span>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><a class="btn btn-xs default btn-editable" onclick="Experiences.modal_add_experience(<?php echo $value['member_experience_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_experience_id"]; ?>, 'tb_member_experience', 'member_experience_id', 'Are you sure you want to delete ?');">Delete</i></a></td>
-                                                            </tr>
-                                                        <?php } ?>
+                                                    <th>Title</th>
+                                                    <th>Degree Name</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
 
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!-- Profile images ends-->
-                                            <!-- Id proof images start-->
-                                        </div>   
+
+                                                    <th>Status</th>
+                                                    <th>Pub Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <?php foreach ($degrees as $value) { ?>
+                                                    <tr>
+
+                                                        <td><?php echo $value['title']; ?></td>
+                                                        <td><?php echo $value['degree_name']; ?></td>
+                                                        <td><?php echo $value['start_date']; ?></td>
+                                                        <td><?php echo $value['end_date']; ?></td>
+
+                                                        <td><?php echo $value['approval_status']; ?></td>
+                                                        <td>
+                                                            <div class="md-checkbox-inline">
+                                                                <div class="md-checkbox">
+                                                                    <input type="checkbox" disabled="disabled" id="checkbox<?php echo $value['member_degree_id']; ?>" <?php echo ($value['pub_status'] == 1 ? "checked='checked'" : ""); ?> class="md-check">
+                                                                    <label for="checkbox<?php echo $value['member_degree_id']; ?>">
+                                                                        <span></span>
+                                                                        <span class="check"></span>
+                                                                        <span class="box"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><a class="btn btn-xs default btn-editable" onclick="Degrees.modal_add_degree(<?php echo $value['member_degree_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_degree_id"]; ?>, 'tb_member_degrees', 'member_degree_id', 'Are you sure you want to delete ?');">Delete</i></a></td>
+                                                    </tr>
+                                                <?php } ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Profile images ends-->
+                                    <!-- Id proof images start-->
+                                </div>
+
+
+                                <div class="tab-pane" id="tab_1_7">
+                                    <div id="" class="table-responsive">
+                                        <div class="table-actions-wrapper margin-bottom-20">
+                                            <span> </span>
+                                            <a class="purple" data-title="Add Type" href="javascript:Experiences.modal_add_experience(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Experience</a>
+                                        </div>
+                                        <table id="experience_table" class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+
+                                                    <th>Title</th>
+                                                    <th>Position</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
+
+
+                                                    <th>Status</th>
+                                                    <th>Pub Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <?php foreach ($experiences as $value) { ?>
+                                                    <tr>
+
+                                                        <td><?php echo $value['title']; ?></td>
+                                                        <td><?php echo $value['position']; ?></td>
+                                                        <td><?php echo $value['start_date']; ?></td>
+                                                        <td><?php echo $value['end_date']; ?></td>
+
+                                                        <td><?php echo $value['approval_status']; ?></td>
+                                                        <td>
+                                                            <div class="md-checkbox-inline">
+                                                                <div class="md-checkbox">
+                                                                    <input type="checkbox" disabled="disabled" id="checkbox<?php echo $value['member_experience_id']; ?>" <?php echo ($value['pub_status'] == 1 ? "checked='checked'" : ""); ?> class="md-check">
+                                                                    <label for="checkbox<?php echo $value['member_experience_id']; ?>">
+                                                                        <span></span>
+                                                                        <span class="check"></span>
+                                                                        <span class="box"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><a class="btn btn-xs default btn-editable" onclick="Experiences.modal_add_experience(<?php echo $value['member_experience_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_experience_id"]; ?>, 'tb_member_experience', 'member_experience_id', 'Are you sure you want to delete ?');">Delete</i></a></td>
+                                                    </tr>
+                                                <?php } ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Profile images ends-->
+                                    <!-- Id proof images start-->
+                                </div>   
                                 <div class="tab-pane" id="tab_1_8">
-                                            <div id="" class="table-responsive">
-                                                <div class="table-actions-wrapper margin-bottom-20">
-                                                    <span> </span>
-                                                    <a class="purple" data-title="Add Type" href="javascript:Certifications.modal_add_certification(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Certification</a>
-                                                </div>
-                                                <table id="certification_table" class="table table-striped table-bordered table-hover text-center dataTable no-footer" cellspacing="0" width="100%">
-                                                    <thead>
-                                                        <tr>
-
-                                                            <th>Title</th>
-                                                            <th>Description</th>
-                                                            
-
-
-                                                            <th>Status</th>
-                                                            <th>Pub Status</th>
-                                                            <th>Actions</th>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <tbody>
-                                                        <?php foreach ($certifications as $value) { ?>
-                                                            <tr>
-
-                                                                <td><?php echo $value['title']; ?></td>
-                                                                <td><?php echo $value['description']; ?></td>
-                                                               
-
-                                                                <td><?php echo $value['approval_status']; ?></td>
-                                                                <td>
-                                                                    <div class="md-checkbox-inline">
-                                                                        <div class="md-checkbox">
-                                                                            <input type="checkbox" disabled="disabled" id="checkbox<?php echo $value['member_certification_id']; ?>" <?php echo ($value['pub_status'] == 1 ? "checked='checked'" : ""); ?> class="md-check">
-                                                                            <label for="checkbox<?php echo $value['member_certification_id']; ?>">
-                                                                                <span></span>
-                                                                                <span class="check"></span>
-                                                                                <span class="box"></span>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><a class="btn btn-xs default btn-editable" onclick="Certifications.modal_add_certification(<?php echo $value['member_certification_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_certification_id"]; ?>, 'tb_member_certifications', 'member_certification_id', 'Are you sure you want to delete ?');">Delete</i></a></td>
-                                                            </tr>
-                                                        <?php } ?>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!-- Profile images ends-->
-                                            <!-- Id proof images start-->
+                                    <div id="" class="table-responsive">
+                                        <div class="table-actions-wrapper margin-bottom-20">
+                                            <span> </span>
+                                            <a class="purple" data-title="Add Type" href="javascript:Certifications.modal_add_certification(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Certification</a>
                                         </div>
+                                        <table id="certification_table" class="table table-striped table-bordered table-hover text-center dataTable no-footer" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+
+                                                    <th>Title</th>
+                                                    <th>Description</th>
+
+
+
+                                                    <th>Status</th>
+                                                    <th>Pub Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <?php foreach ($certifications as $value) { ?>
+                                                    <tr>
+
+                                                        <td><?php echo $value['title']; ?></td>
+                                                        <td><?php echo $value['description']; ?></td>
+
+
+                                                        <td><?php echo $value['approval_status']; ?></td>
+                                                        <td>
+                                                            <div class="md-checkbox-inline">
+                                                                <div class="md-checkbox">
+                                                                    <input type="checkbox" disabled="disabled" id="checkbox<?php echo $value['member_certification_id']; ?>" <?php echo ($value['pub_status'] == 1 ? "checked='checked'" : ""); ?> class="md-check">
+                                                                    <label for="checkbox<?php echo $value['member_certification_id']; ?>">
+                                                                        <span></span>
+                                                                        <span class="check"></span>
+                                                                        <span class="box"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><a class="btn btn-xs default btn-editable" onclick="Certifications.modal_add_certification(<?php echo $value['member_certification_id']; ?>,<?php echo $member_info['member_id']; ?>)">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(<?php echo $value["member_certification_id"]; ?>, 'tb_member_certifications', 'member_certification_id', 'Are you sure you want to delete ?');">Delete</i></a></td>
+                                                    </tr>
+                                                <?php } ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Profile images ends-->
+                                    <!-- Id proof images start-->
+                                </div>
                                 <!-- PRIVACY SETTINGS TAB -->
                                 <div class="tab-pane" id="tab_1_9">
                                     <form action="#">
@@ -761,12 +760,10 @@ $unique_id = time();
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
     $(document).ready(function () {
-        $("#portfolio_table").DataTable({
-            "scrollX": false
-        });
-        $("#language_table").DataTable();
-        $("#experience_table").DataTable();
-        $("#education_table").DataTable();
-        $("#certification_table").DataTable();
+        $("#portfolio_table").DataTable({"scrollX": false});
+        $("#language_table").DataTable({"scrollX": false});
+        $("#experience_table").DataTable({"scrollX": false});
+        $("#education_table").DataTable({"scrollX": false});
+        $("#certification_table").DataTable({"scrollX": false});
     });
 </script>

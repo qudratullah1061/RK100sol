@@ -723,10 +723,10 @@ $unique_id = time();
 <script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
 <script>
     $(document).ready(function () {
-        $("#portfolio_table").DataTable();
-        $("#language_table").DataTable();
-        $("#experience_table").DataTable();
-        $("#education_table").DataTable();
-        $("#certification_table").DataTable();
+        $("#portfolio_table").DataTable({"scrollX": false});
+        $("#language_table").DataTable({"scrollX": false});
+        $("#experience_table").DataTable({"scrollX": false});
+        $("#education_table").DataTable({"scrollX": false});
+        $("#certification_table").DataTable({"scrollX": false});
     });
 </script>
