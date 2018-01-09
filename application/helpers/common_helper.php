@@ -328,6 +328,8 @@ function sendEmail($to, $subject, $message) {
 //    
     global $CI;
     require APPPATH . 'libraries/phpmailer_master/PHPMailerAutoload.php';
+    echo "here";
+    exit;
 //    require $root_path . 'vendor/phpmailer/phpmailer/src/Exception.php';
 //    require $root_path . 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
 //    require $root_path . 'vendor/phpmailer/phpmailer/src/SMTP.php';
