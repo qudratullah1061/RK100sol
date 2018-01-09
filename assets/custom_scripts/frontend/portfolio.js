@@ -19,10 +19,10 @@ var Portfolios = function () {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
                     $("#static-modal-popup-medium").modal('hide');
-                    setTimeout(function(){
+                    setTimeout(function () {
                         window.location.reload();
-                        
-                    },1000);
+
+                    }, 1000);
                 } else {
                     toastr["error"](data.description, "Error!");
                 }
@@ -42,7 +42,6 @@ var Portfolios = function () {
             focusInvalid: false, // do not focus the last invalid input
             ignore: "", // validate all fields including form hidden input
             messages: {
-                
             },
             rules: {
                 portfolio_title: {
@@ -105,7 +104,6 @@ var Portfolios = function () {
                 if (data.key) {
                     $("#static-modal-popup-medium").html(data.value);
                     $("#static-modal-popup-medium").modal('show');
-//                    App.initMaterialDesign();
                     handleValidationAddPortfolio("form-add-portfolio");
                 }
             }

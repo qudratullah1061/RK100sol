@@ -75,6 +75,8 @@
                         foreach ($data_languages as $language) {
                             echo "<p>" . $language['language_name'] . " (" . $language['language_level'] . ")</p>";
                         }
+                    }else{
+                        echo "<p>No language item found.</p>";
                     }
                     ?>
                 </div>
@@ -91,7 +93,7 @@
                         <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i class="fa fa-pinterest-square"></i></a></li>
                     </ul>
                 </div>
-                
+
                 <div class="profile-certification">
                     <div class="profile-cert-head"><h6>Certification:</h6></div>
 
@@ -106,16 +108,16 @@
                                 </a>
                             </div>    
                             <?php
-                            }
-                        } else {
-
-                            echo "<p data-wow-delay='0.02s' class='no-certification'>No certification item added yet. Please go to settings and than add your certifications into your profile.</p>";
                         }
-                        ?>
-                    
+                    } else {
+
+                        echo "<p data-wow-delay='0.02s' class='no-certification'>No certification item added yet. Please go to settings and than add your certifications into your profile.</p>";
+                    }
+                    ?>
+
 
                 </div>
-                               
+
                 <div class="profile-skills">
                     <ul>
                         <li><h6>My Skills</h6></li>
@@ -132,14 +134,15 @@
                     <h5><?php echo count($selected_categories) > 0 ? implode(', ', array_column($selected_categories, 'category_name')) : "About Me."; ?></h5>
                     <p><?php echo $member_info['about_me']; ?></p>
                 </div>
-
-                <div class="profile-portfolio">
-                    <h5>Portfolio:</h5>
-                    <div class="row">
-                        <div class="col-md-12 no-padding xs-padding-15px-lr">
-                            <div class="filter-content overflow-hidden">
-                                <?php
-                                if (count($portfolios) > 0) {
+                <?php
+                if (count($portfolios) > 0) {
+                    ?>
+                    <div class="profile-portfolio">
+                        <h5>Portfolio:</h5>
+                        <div class="row">
+                            <div class="col-md-12 no-padding xs-padding-15px-lr">
+                                <div class="filter-content overflow-hidden">
+                                    <?php
                                     $count_sec = 0.0;
                                     foreach ($portfolios as $portfolio) {
                                         ?>
@@ -166,14 +169,22 @@
                                         <?php
                                         $count_sec = $count_sec + 0.2;
                                     }
-                                } else {
-                                    echo "<p data-wow-delay='0.02s'>No portfolio item added yet. Please go to settings and than add portfolio items in your profile.</p>";
-                                }
-                                ?>
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <?php
+                } else {
+                    ?>
+                    <div class="profile-reviews profile-educatoin  wow fadeInUp">
+                        <h5>Portfolio:</h5>
+                        <p data-wow-delay='0.02s' class='no-item'>No portfolio item added yet. Please go to settings and than add portfolio items in your profile.</p>
+                    </div>
+                    <?php
+                }
+                ?>
+
                 <!--                <div class="profile-reviews  wow fadeInUp">
                                     <h5>Reviews:</h5>
                                     <ul>
@@ -211,45 +222,51 @@
                                         </li>
                                     </ul>
                                 </div>-->
-                               <div class="profile-reviews profile-educatoin  wow fadeInUp">
-                                    <h5>Education:</h5>
-                
-                                    <ul>
-                                         <?php
-                                            if (count($degrees) > 0) {
-                                                foreach($degrees as $value){ ?>
-                                        <li>
-                                            <p class="title"><?php echo $value['title']; ?></p>
-                                            <p><?php echo $value['degree_name']; ?></p>
-                                            <p class="date"> <i class="fa fa-calendar"></i> <?php echo $value['start_date']; ?> - <?php echo $value['end_date']; ?></p>
-                                        </li>
-                                        
-                                            <?php } }else{ 
-                                                
-                                               echo "<p data-wow-delay='0.02s'>No education item added yet. Please go to settings and than add portfolio items in your profile.</p>"; 
-                                            }?>
-                                        
-                                    </ul>
-                                </div>
-                                <div class="profile-reviews profile-educatoin  wow fadeInUp">
-                                    <h5>Work Experience:</h5>
-                                    <ul>
-                                        <?php 
-                                        if(count($experiences) > 0){
-                                        foreach($experiences as $value){ ?>
-                                        <li>
-                                            <p class="title"><?php echo $value['title']; ?></p>
-                                            <p><?php echo $value['position']; ?></p>
-                                            <p class="date"> <i class="fa fa-calendar"></i> <?php echo $value['start_date']; ?> - <?php echo $value['end_date']; ?></p>
-                                        </li>
-                                        <?php } }else{ 
-                                                
-                                               echo "<p data-wow-delay='0.02s'>No experience item added yet. Please go to settings and than add portfolio items in your profile.</p>"; 
-                                            }?>
-                                        
-                
-                                    </ul>
-                                </div>
+                <div class="profile-reviews profile-educatoin  wow fadeInUp">
+                    <h5>Education:</h5>
+                    <?php if (count($degrees) > 0) { ?>
+                        <ul>
+                            <?php
+                            foreach ($degrees as $value) {
+                                ?>
+                                <li>
+                                    <p class="title"><?php echo $value['title']; ?></p>
+                                    <p><?php echo $value['degree_name']; ?></p>
+                                    <p class="date"> <i class="fa fa-calendar"></i> <?php echo $value['start_date']; ?> - <?php echo $value['end_date']; ?></p>
+                                </li>
+                                <?php
+                            }
+                            ?>
+                        </ul>
+                        <?php
+                    } else {
+                        echo "<p data-wow-delay='0.02s'>No education item added yet. Please go to settings and than add portfolio items in your profile.</p>";
+                    }
+                    ?>
+                </div>
+                <div class="profile-reviews profile-educatoin  wow fadeInUp">
+                    <h5>Work Experience:</h5>
+                    <ul>
+                        <?php
+                        if (count($experiences) > 0) {
+                            foreach ($experiences as $value) {
+                                ?>
+                                <li>
+                                    <p class="title"><?php echo $value['title']; ?></p>
+                                    <p><?php echo $value['position']; ?></p>
+                                    <p class="date"> <i class="fa fa-calendar"></i> <?php echo $value['start_date']; ?> - <?php echo $value['end_date']; ?></p>
+                                </li>
+                                <?php
+                            }
+                        } else {
+
+                            echo "<p data-wow-delay='0.02s'>No experience item added yet. Please go to settings and than add portfolio items in your profile.</p>";
+                        }
+                        ?>
+
+
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

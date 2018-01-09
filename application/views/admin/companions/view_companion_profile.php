@@ -531,12 +531,12 @@ $unique_id = time();
                                 </div>
                                 <!--Languages tabs ends here-->
                                 <div class="tab-pane" id="tab_1_6">
-                                    <div id="" class="table-responsive">
+                                    <div id="">
                                         <div class="table-actions-wrapper margin-bottom-20">
                                             <span> </span>
                                             <a class="purple" data-title="Add Type" href="javascript:Degrees.modal_add_degree(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Degree</a>
                                         </div>
-                                        <table id="education_table" class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer" cellspacing="0" width="100%">
+                                        <table id="education_table" class="table table-striped table-bordered text-center dataTable no-footer" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
 
@@ -587,12 +587,12 @@ $unique_id = time();
 
 
                                 <div class="tab-pane" id="tab_1_7">
-                                    <div id="" class="table-responsive">
+                                    <div>
                                         <div class="table-actions-wrapper margin-bottom-20">
                                             <span> </span>
                                             <a class="purple" data-title="Add Type" href="javascript:Experiences.modal_add_experience(0,<?php echo $member_info['member_id']; ?>)"><i class="fa fa-plus-circle"></i> Add Experience</a>
                                         </div>
-                                        <table id="experience_table" class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer" cellspacing="0" width="100%">
+                                        <table id="experience_table" class="table table-striped table-bordered text-center dataTable no-footer" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
 

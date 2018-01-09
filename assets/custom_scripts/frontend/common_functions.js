@@ -128,7 +128,7 @@ var CommonFunctions = function () {
                                     text: data.description,
                                     type: "success",
                                 }, function () {
-                                    if (table == 'tb_member_portfolios' || table == 'tb_member_languages') {
+                                    if (table == 'tb_member_portfolios' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications') {
                                         window.location.reload();
                                     } else if (table == 'tb_member_images') {
                                         $("#pic-" + unique_id).remove();
@@ -175,7 +175,6 @@ var CommonFunctions = function () {
                     {
                         $("#dd-state").html(data.options);
                     }
-
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");
@@ -205,11 +204,9 @@ var CommonFunctions = function () {
                     if (typeof class_name != 'undefined')
                     {
                         $("." + class_name).html(data.options);
-                    } else
-                    {
+                    } else {
                         $("#dd-city").html(data.options);
                     }
-
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");

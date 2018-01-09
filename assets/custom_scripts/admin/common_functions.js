@@ -150,6 +150,8 @@ var CommonFunctions = function () {
                                         $('#datatable_tags').DataTable().ajax.reload();
                                     } else if (table == 'tb_member_portfolios' || table == 'tb_member_languages') {
                                         window.location.reload();
+                                    } else if (table == 'tb_member_portfolios' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications') {
+                                        window.location.reload();
                                     }
                                 });
                             } else {
