@@ -204,5 +204,18 @@ class Abstract_model extends CI_Model {
         }
         return $this->db->get()->num_rows();
     }
+    
+    
+    
+    public function insert_batch($data)
+    {
+        return $this->db->insert_batch($this->table_name, $data);
+    }
+	
+    public function update_batch($data,$update_by)
+    {
+        return $this->db->update_batch($this->table_name, $data,$update_by);
+
+    }
 
 }

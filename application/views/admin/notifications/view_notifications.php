@@ -2,6 +2,9 @@
     <div class="col-lg-12 col-xs-12 col-sm-12">
         <div class="portlet light ">
             <div class="portlet-title tabbable-line">
+                <div class="note note-info">
+                    <a class="purple" data-title="Add Type" href="javascript:Notifications.modal_add_notification()"><i class="fa fa-plus-circle"></i> Add Notification</a>
+                </div>
                 <div class="caption">
                     <i class="icon-bubbles font-dark hide"></i>
                     <span class="caption-subject font-dark bold uppercase">Admin Notifications Sent To Members</span>
@@ -20,62 +23,70 @@
                     <div class="tab-pane active" id="portlet_comments_1">
                         <!-- BEGIN: Comments -->
                         <div class="mt-comments">
+                            <?php foreach($notifications as $notification){ 
+                                if($notification['notification_for'] == 1  || $notification['notification_for'] == 3){
+                            ?>
                             <div class="mt-comment">
                                 <div class="mt-comment-img">
-                                    <img src="<?php echo base_url($this->admin_info['image_path'] . "/small_" . $this->admin_info['image']); ?>" /> </div>
+                                    <img src="<?php echo base_url($notification['image_path']."/".$notification['image']); ?>" /> </div>
                                 <div class="mt-comment-body">
                                     <div class="mt-comment-info">
-                                        <span class="mt-comment-author">Michael Baker</span>
-                                        <span class="mt-comment-date">26 Feb, 10:30AM</span>
+                                        <span class="mt-comment-author"><?php echo $notification['username']; ?></span>
+                                        <span class="mt-comment-date"><?php echo date('j F, g:i a',strtotime($notification['created_on'])); ?></span>
                                     </div>
-                                    <div class="mt-comment-text"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. </div>
+                                    <div class="mt-comment-text"> <?php echo $notification['notification_message']; ?> </div>
                                     <div class="mt-comment-details">
                                         <span class="mt-comment-status mt-comment-status-pending">Pending</span>
                                         <ul class="mt-comment-actions">
                                             <li>
-                                                <a href="#">Quick Edit</a>
+                                                <a href="javascript:Notifications.modal_add_notification('<?php echo $notification['notification_id']; ?>')">Quick Edit</a>
                                             </li>
                                             <li>
-                                                <a href="#">View</a>
+                                                <a href="javascript:Notifications.modal_add_notification('<?php echo $notification['notification_id']; ?>',1)">View</a>
                                             </li>
                                             <li>
-                                                <a href="#">Delete</a>
+                                                <a href="javascript:CommonFunctions.Delete('<?php echo $notification['notification_id']; ?>', 'tb_notifications', 'notification_id', 'Are you sure you want to delete this notification?')">Delete</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
+                            <?php } } ?> 
                         </div>
                         <!-- END: Comments -->
                     </div>
                     <div class="tab-pane" id="portlet_comments_2">
                         <!-- BEGIN: Comments -->
                         <div class="mt-comments">
+                            <?php foreach($notifications as $notification){ 
+                                if($notification['notification_for'] == 2 || $notification['notification_for'] == 3){
+                            ?>
                             <div class="mt-comment">
                                 <div class="mt-comment-img">
-                                    <img src="<?php echo base_url($this->admin_info['image_path'] . "/small_" . $this->admin_info['image']); ?>" /> </div>
+                                    <img src="<?php echo base_url($notification['image_path']."/".$notification['image']); ?>" /> </div>
                                 <div class="mt-comment-body">
                                     <div class="mt-comment-info">
-                                        <span class="mt-comment-author">Michael Baker</span>
-                                        <span class="mt-comment-date">26 Feb, 10:30AM</span>
+                                        <span class="mt-comment-author"><?php echo $notification['username']; ?></span>
+                                        <span class="mt-comment-date"><?php echo date('j F, g:i a',strtotime($notification['created_on'])); ?></span>
                                     </div>
-                                    <div class="mt-comment-text"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy. </div>
+                                    <div class="mt-comment-text"> <?php echo $notification['notification_message']; ?> </div>
                                     <div class="mt-comment-details">
-                                        <span class="mt-comment-status mt-comment-status-approved">Approved</span>
+                                        <span class="mt-comment-status mt-comment-status-pending">Pending</span>
                                         <ul class="mt-comment-actions">
                                             <li>
-                                                <a href="#">Quick Edit</a>
+                                                <a href="javascript:Notifications.modal_add_notification('<?php echo $notification['notification_id']; ?>')">Quick Edit</a>
                                             </li>
                                             <li>
-                                                <a href="#">View</a>
+                                                <a href="javascript:Notifications.modal_add_notification('<?php echo $notification['notification_id']; ?>',1)">View</a>
                                             </li>
                                             <li>
-                                                <a href="#">Delete</a>
+                                                <a href="javascript:CommonFunctions.Delete('<?php echo $notification['notification_id']; ?>', 'tb_notifications', 'notification_id', 'Are you sure you want to delete this notification?')">Delete</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
+                            <?php } } ?> 
                         </div>
                         <!-- END: Comments -->
                     </div>
@@ -84,3 +95,4 @@
         </div>
     </div>
 </div>
+<script src="<?php echo base_url('assets/custom_scripts/admin/notification.js'); ?>" type="text/javascript"></script>
