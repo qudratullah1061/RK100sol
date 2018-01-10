@@ -28,7 +28,8 @@
                             ?>
                             <div class="mt-comment">
                                 <div class="mt-comment-img">
-                                    <img src="<?php echo base_url($notification['image_path']."/".$notification['image']); ?>" /> </div>
+                                    <img src="<?php echo base_url($notification['image_path']."small_".$notification['image']); ?>" /> 
+                                </div>
                                 <div class="mt-comment-body">
                                     <div class="mt-comment-info">
                                         <span class="mt-comment-author"><?php echo $notification['username']; ?></span>
@@ -36,7 +37,7 @@
                                     </div>
                                     <div class="mt-comment-text"> <?php echo $notification['notification_message']; ?> </div>
                                     <div class="mt-comment-details">
-                                        <span class="mt-comment-status mt-comment-status-pending">Pending</span>
+                                        <span class="mt-comment-status mt-comment-status-approved">Delivered</span>
                                         <ul class="mt-comment-actions">
                                             <li>
                                                 <a href="javascript:Notifications.modal_add_notification('<?php echo $notification['notification_id']; ?>')">Quick Edit</a>
@@ -63,7 +64,7 @@
                             ?>
                             <div class="mt-comment">
                                 <div class="mt-comment-img">
-                                    <img src="<?php echo base_url($notification['image_path']."/".$notification['image']); ?>" /> </div>
+                                    <img src="<?php echo base_url($notification['image_path']."small_".$notification['image']); ?>" /> </div>
                                 <div class="mt-comment-body">
                                     <div class="mt-comment-info">
                                         <span class="mt-comment-author"><?php echo $notification['username']; ?></span>
@@ -71,7 +72,7 @@
                                     </div>
                                     <div class="mt-comment-text"> <?php echo $notification['notification_message']; ?> </div>
                                     <div class="mt-comment-details">
-                                        <span class="mt-comment-status mt-comment-status-pending">Pending</span>
+                                        <span class="mt-comment-status mt-comment-status-approved">Delivered</span>
                                         <ul class="mt-comment-actions">
                                             <li>
                                                 <a href="javascript:Notifications.modal_add_notification('<?php echo $notification['notification_id']; ?>')">Quick Edit</a>

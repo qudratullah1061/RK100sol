@@ -18,12 +18,8 @@ class Notification_model extends Abstract_model {
         $this->table_name = "tb_notifications";
         parent::__construct();
     }
-
-    
-    
     
     function get_all_notifications($is_admin = 1,$active_condition = "") {
-        
         $join = '';
         $select = '';
         if($is_admin == 1)
