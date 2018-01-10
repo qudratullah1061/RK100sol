@@ -241,7 +241,7 @@ var FormWizard = function () {
             if ($("input[name='date_of_birth']").val() != "") {
                 $("input[name='date_of_birth']").datepicker();
             } else {
-                $("input[name='date_of_birth']").datepicker('setDate', new Date(1992, 1, 1));
+                $("input[name='date_of_birth']").datepicker({ changeMonth: true, changeYear: true, showButtonPanel: true,dateFormat:"yy-mm-dd"});
             }
             $("#dd-country").select2({
                 placeholder: "Select",

@@ -204,7 +204,7 @@ var GuestMembers = function () {
             if ($(".dateofbirht").val() != "") {
                 $(".dateofbirht").datepicker();
             } else {
-                $(".dateofbirht").datepicker('setDate', new Date(1992, 1, 1));
+                $(".dateofbirht").datepicker({ changeMonth: true, changeYear: true, showButtonPanel: true,dateFormat:"yy-mm-dd"});
             }
             $("#dd-country").select2({
                 placeholder: "Select",
