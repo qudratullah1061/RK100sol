@@ -191,7 +191,7 @@
                                         foreach ($categories as $category) {
                                             ?>
                                             <div class="form-group form-md-line-input">
-                                                <label class="control-label col-md-3"> <?php echo $category['category_name']; ?> <span class="required"> * </span> </label>
+                                                <label class="control-label col-md-3"> <?php echo $category['category_name']; ?></label>
                                                 <div class="col-md-6">
                                                     <div class="md-checkbox-inline row">
                                                         <!--get sub categories and loop through-->

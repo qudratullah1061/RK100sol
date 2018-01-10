@@ -1501,3 +1501,9 @@ ul.hosting-list li {
 .no-certification{
     padding:15px;
 }
+.ui-datepicker .ui-datepicker-title{
+    margin:0 1.4em !important;
+}
+div#certification_table_wrapper{
+    overflow: hidden;
+}
