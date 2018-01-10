@@ -11,7 +11,7 @@
                                 <h4 class="text-white alt-font font-weight-700 open-sans xs-width-100 xs-margin-100px-bottom">
                                     Contract a Service Member
                                 </h4>
-                                <p class="open-sans text-white">Professionals and Companion services for Exclusive Clients</p>
+                                <p class="open-sans text-white">Community of independent service providers.</p>
                                 <a href='#' class='btn btn-purple-white-border open-sans'> I want to HIRE </a>
                                 <a href='#' class='btn btn-purple-white-border open-sans'> I want to WORK </a>
 
