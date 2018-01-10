@@ -1504,3 +1504,6 @@ ul.hosting-list li {
 .ui-datepicker .ui-datepicker-title{
     margin:0 1.4em !important;
 }
+div#certification_table_wrapper{
+    overflow: hidden;
+}

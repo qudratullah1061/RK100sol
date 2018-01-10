@@ -87,3 +87,6 @@
 .education_table_wrapper,.experience_table_wrapper{
     overflow: hidden;
 }
+div#certification_table_wrapper{
+    overflow: hidden;
+}
