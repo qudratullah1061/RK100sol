@@ -306,12 +306,56 @@ function upload_temp_image($files, $unique_id, $image_type) {
     }
 }
 
+
+function get_notifications($is_admin = 1,$member_id,$is_read = '')
+{
+    global $CI;
+    $where = '';
+   
+    if($is_read == 0 || $is_read == 1 ){
+         
+        $where = ' AND tb_notification_users.is_read = '.$is_read.'';
+    }
+    $CI->load->model('admin/notification_model', 'Notification_Model');
+    $notifications = $CI->Notification_Model->get_all_notifications($is_admin,'AND tb_notification_users.receiver_id = '.$member_id.' '.$where.'');
+    return $notifications;
+}
+
 function delete_file_from_directory($file_path) {
     global $CI;
     $complete_path = $CI->config->item('root_path') . $file_path;
     if (file_exists($complete_path)) {
         unlink($complete_path);
     }
+}
+
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'min',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
 
 function sendEmail($to, $subject, $message) {

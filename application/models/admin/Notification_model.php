@@ -18,8 +18,12 @@ class Notification_model extends Abstract_model {
         $this->table_name = "tb_notifications";
         parent::__construct();
     }
+
+    
+    
     
     function get_all_notifications($is_admin = 1,$active_condition = "") {
+        
         $join = '';
         $select = '';
         if($is_admin == 1)
@@ -30,9 +34,10 @@ class Notification_model extends Abstract_model {
             $join = 'JOIN tb_members on tb_members.member_id = tb_notification_users.sender_id';
             $select = ', tb_members.username';//need to add join with member images will add later when work on user notification
         }
-        $sql = "SELECT tb_notifications.* ".$select." FROM tb_notifications " .
+        $sql = "SELECT tb_notifications.*,tb_notification_users.notification_user_id".$select." FROM tb_notifications " .
                "JOIN tb_notification_users on tb_notification_users.notification_id = tb_notifications.notification_id ".$join."" .
                " WHERE `tb_notifications`.is_admin_notification = 1 " . $active_condition ." Group By tb_notifications.notification_id";
+        
         return $this->db->query($sql)->result_array();
     }
 
@@ -50,6 +55,11 @@ class Notification_model extends Abstract_model {
     public function update_notification($column, $row_id, $data) {
         $this->table_name = "tb_notifications";
         return $this->updateBy($column, $row_id, $data);
+    }
+    
+    public function update_notification_user($data, $where) {
+        $this->table_name = "tb_notification_users";
+        return $this->updateByWhere($data, $where);
     }
     
     

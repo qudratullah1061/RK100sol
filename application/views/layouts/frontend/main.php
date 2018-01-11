@@ -158,6 +158,7 @@
                             </div>
                         </div>
                         <?php if (isset($this->session->userdata['member_id'])) {
+                           $notifications = get_notifications(1,$this->session->userdata['member_id'],0);
                             ?>
                             <div class="col-md-2 col-xs-5 width-auto header-right">
                                 <div class="header-searchbar">
@@ -168,26 +169,29 @@
                                     <div class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                             <i class="fa fa-bell-o"></i>
-                                            <span class="badge badge-default"> 0 </span>
+                                            <span class="badge badge-default"><?php echo count($notifications); ?></span>
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li class="external">
                                                 <h3>
-                                                    <span class="bold">0 pending</span> notifications
+                                                    <span class="bold"><?php echo count($notifications); ?> pending</span> notifications
                                                 </h3>
-                                                <a href="javascript:;">view all</a>
+                                                <a href="<?php echo base_url('notifications/view_notifications');?>">view all</a>
                                             </li>
                                             <li>
                                                 <ul class="dropdown-menu-list scroller" data-height="250" data-handle-color="#637283">
-                                                    <!--                                                    <li>
-                                                                                                            <a href="javascript:;">
-                                                                                                                <span class="time">just now</span>
-                                                                                                                <span class="details">
-                                                                                                                    <span class="label label-sm label-icon label-success">
-                                                                                                                        <i class="fa fa-plus"></i>
-                                                                                                                    </span> New user registered. </span>
-                                                                                                            </a>
-                                                                                                        </li>-->
+                                                        
+                                                    <?php foreach($notifications as $notification){?>
+                                                        <li>
+                                                            <a href="<?php echo base_url('notifications/view_notifications/'.$notification['notification_user_id']);?>">
+                                                                  <span class="time"><?php echo time_elapsed_string($notification['created_on']); ?></span>
+                                                                  <span class="details">
+                                                                      <span class="label label-sm label-icon label-success">
+                                                                          <i class="fa fa-plus"></i>
+                                                                      </span> <?php echo $notification['notification_title']; ?> </span>
+                                                              </a>
+                                                        </li>
+                                                    <?php } ?>
                                                 </ul>
                                             </li>
                                         </ul>

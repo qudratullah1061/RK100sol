@@ -15,6 +15,7 @@ class Member extends FrontEnd_Controller {
         parent::__construct();
         $this->layout = 'frontend/main';
         $this->load->model('admin/members_model', 'Members_Model');
+        $this->load->model('admin/notification_model', 'Notification_Model');
     }
 
     function profile($member_id = '') {
@@ -37,6 +38,9 @@ class Member extends FrontEnd_Controller {
             //$data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
             // echo '<pre>';
             // print_r($data['portfolios']);exit;
+            
+            //$data['notifications']  = $this->Notification_Model->get_all_notifications(1,'AND tb_notification_users.receiver_id = '.$member_id.'');
+           
             $data['data_languages'] = $this->Members_Model->get_member_languages($member_id, "AND `tb_member_languages`.is_active = 1");
             if ($member_info['member_type'] == 2) {
                 $data['selected_categories'] = $this->Members_Model->get_selected_categories($member_id);
