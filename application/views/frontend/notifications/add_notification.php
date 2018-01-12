@@ -16,16 +16,7 @@
                     <textarea name="notification_message" class="form-control" <?php echo isset($is_view) && $is_view == 1 ? "readonly" : ""; ?>><?php echo isset($notification_data->notification_message) ? $notification_data->notification_message : ""; ?></textarea>
                    
                 </div>
-                <div class="form-group">
-                    <label>Notification For</label>
-                    <select class="form-control"  name="notification_for" <?php echo isset($is_view) && $is_view == 1 ? "readonly" : ""; ?>>
-                        <option value="">Please Select</option>
-                        <option value="1" <?php echo isset($notification_data->notification_for) && $notification_data->notification_for == 1 ? "selected" : ""; ?>>Guest Member</option>
-                        <option value="2" <?php echo isset($notification_data->notification_for) && $notification_data->notification_for == 2 ? "selected" : ""; ?>>Companion Member</option>
-                        <option value="3" <?php echo isset($notification_data->notification_for) && $notification_data->notification_for == 3 ? "selected" : ""; ?>>Both</option>
-                        
-                    </select>
-                </div>
+                
                 
                 
                 
