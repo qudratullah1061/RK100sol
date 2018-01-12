@@ -128,7 +128,7 @@ var CommonFunctions = function () {
                                     text: data.description,
                                     type: "success",
                                 }, function () {
-                                    if (table == 'tb_member_portfolios' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications') {
+                                    if (table == 'tb_member_portfolios' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications'  || table == 'tb_notification_users') {
                                         window.location.reload();
                                     } else if (table == 'tb_member_images') {
                                         $("#pic-" + unique_id).remove();
