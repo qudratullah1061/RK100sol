@@ -188,7 +188,7 @@
                                                                   <span class="details">
                                                                       <span class="label label-sm label-icon label-success">
                                                                           <i class="fa fa-plus"></i>
-                                                                      </span> <?php echo $notification['notification_title']; ?> </span>
+                                                                      </span> <?php echo substr($notification['notification_title'],0,9); ?><?php echo (strlen($notification['notification_title']) > 10 ? '...' : '');?> </span>
                                                               </a>
                                                         </li>
                                                     <?php } ?>

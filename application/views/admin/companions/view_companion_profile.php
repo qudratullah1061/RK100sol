@@ -546,7 +546,7 @@ $unique_id = time();
                                                     <th>End Date</th>
 
 
-                                                    <th>Status</th>
+                                                    
                                                     <th>Pub Status</th>
                                                     <th>Actions</th>
                                                 </tr>
@@ -561,7 +561,7 @@ $unique_id = time();
                                                         <td><?php echo $value['start_date']; ?></td>
                                                         <td><?php echo $value['end_date']; ?></td>
 
-                                                        <td><?php echo $value['approval_status']; ?></td>
+                                                        
                                                         <td>
                                                             <div class="md-checkbox-inline">
                                                                 <div class="md-checkbox">
@@ -602,7 +602,7 @@ $unique_id = time();
                                                     <th>End Date</th>
 
 
-                                                    <th>Status</th>
+                                                    
                                                     <th>Pub Status</th>
                                                     <th>Actions</th>
                                                 </tr>
@@ -617,7 +617,7 @@ $unique_id = time();
                                                         <td><?php echo $value['start_date']; ?></td>
                                                         <td><?php echo $value['end_date']; ?></td>
 
-                                                        <td><?php echo $value['approval_status']; ?></td>
+                                                        
                                                         <td>
                                                             <div class="md-checkbox-inline">
                                                                 <div class="md-checkbox">
@@ -650,12 +650,13 @@ $unique_id = time();
                                             <thead>
                                                 <tr>
 
+                                                    <th>Image</th>
                                                     <th>Title</th>
                                                     <th>Description</th>
 
 
 
-                                                    <th>Status</th>
+                                                    
                                                     <th>Pub Status</th>
                                                     <th>Actions</th>
                                                 </tr>
@@ -664,12 +665,12 @@ $unique_id = time();
                                             <tbody>
                                                 <?php foreach ($certifications as $value) { ?>
                                                     <tr>
-
+                                                        <td><img alt="Certification Image" class="img-circle" src="<?php echo base_url($value['certification_image_path'] . 'small_' . $value['certification_image']); ?>"></td>
                                                         <td><?php echo $value['title']; ?></td>
                                                         <td><?php echo $value['description']; ?></td>
 
 
-                                                        <td><?php echo $value['approval_status']; ?></td>
+                                                        
                                                         <td>
                                                             <div class="md-checkbox-inline">
                                                                 <div class="md-checkbox">

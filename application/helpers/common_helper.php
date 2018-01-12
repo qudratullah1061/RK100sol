@@ -342,9 +342,9 @@ function time_elapsed_string($datetime, $full = false) {
         'm' => 'month',
         'w' => 'week',
         'd' => 'day',
-        'h' => 'hour',
+        'h' => 'hr',
         'i' => 'min',
-        's' => 'second',
+        's' => 'sec',
     );
     foreach ($string as $k => &$v) {
         if ($diff->$k) {

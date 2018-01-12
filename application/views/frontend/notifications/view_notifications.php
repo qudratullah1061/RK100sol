@@ -1,5 +1,7 @@
-<section class="pricing membership-plans">
+<section class="profile">
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
         <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
@@ -24,7 +26,7 @@
                                     </div>
                                     <div class="mt-comment-text"> <?php echo $notification['notification_message']; ?> </div>
                                     <div class="mt-comment-details">
-                                        <!--<span class="mt-comment-status mt-comment-status-pending">Pending</span>-->
+                                        <span class="mt-comment-status mt-comment-status-pending">Read</span>
                                         <ul class="mt-comment-actions">
                                             
                                             <li>
@@ -45,6 +47,8 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
     </div>
 </section>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/notification.js'); ?>" type="text/javascript"></script>

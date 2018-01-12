@@ -17,6 +17,32 @@
                    
                 </div>
                 
+                <div class="form-group">
+                    <label>Type of Certification</label>
+                    <input type="text" value="<?php echo isset($certification_data->type_of_certification) ? $certification_data->type_of_certification : ""; ?>" name="type_of_certification" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label>Year Issued</label>
+                    <input type="text" value="<?php echo isset($certification_data->year_issued) ? $certification_data->year_issued : ""; ?>" name="year_issued" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label>Issued By</label>
+                    <input type="text" value="<?php echo isset($certification_data->issued_by) ? $certification_data->issued_by : ""; ?>" name="issued_by" class="form-control">
+                </div>
+                
+                
+                <?php if (isset($certification_data->member_certification_id)) { ?>
+                    <div class="form-group form-md-line-input form-md-floating-label">
+                        <img src="<?php echo base_url($certification_data->certification_image_path . 'medium_' . $certification_data->certification_image); ?>" class="image-thumbnail">
+
+                    </div>
+                <?php } ?>
+                <div class="form-group form-md-line-input form-md-floating-label">
+                    <input type="file"  name="certification_image" class="form-control">
+                    <label></label>
+                </div>
                 
                 
                 

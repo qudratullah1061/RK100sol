@@ -45,14 +45,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="form-group form-md-line-input form-md-floating-label">
-                    <select class="form-control" name="approval_status">
-                        <option value="Pending" <?php echo (isset($degree_data->approval_status) && $degree_data->approval_status == 'Pending' ? 'selected' : ''); ?>>Pending</option>
-                        <option value="Approved" <?php echo (isset($degree_data->approval_status) && $degree_data->approval_status == 'Approved' ? 'selected' : ''); ?>>Approved</option>
-                        <option value="Rejected" <?php echo (isset($degree_data->approval_status) && $degree_data->approval_status == 'Rejected' ? 'selected' : ''); ?> >Rejected</option>
-                       
-                    </select>
-                </div>
+                
                 
                 <div class="md-checkbox-inline margin-top-20">
                     <div class="md-checkbox">

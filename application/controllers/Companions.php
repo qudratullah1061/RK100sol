@@ -110,6 +110,7 @@ class Companions extends FrontEnd_Controller {
                 $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $data['member_id'] = $this->session->userdata['member_info']['member_id'];
+                
                 if ($edit_id > 0) {
                     // unset created on
                     unset($data['created_on']);
@@ -289,6 +290,10 @@ class Companions extends FrontEnd_Controller {
                 $data['title'] = $this->input->post('title');
                 $data['description'] = $this->input->post('description');
                 
+                $data['type_of_certification'] = $this->input->post('type_of_certification');
+                $data['year_issued'] = $this->input->post('year_issued');
+                $data['issued_by'] = $this->input->post('issued_by');
+                
                 $data['pub_status'] = $this->input->post('pub_status') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $data['member_id'] = $this->session->userdata['member_info']['member_id'];
@@ -298,7 +303,22 @@ class Companions extends FrontEnd_Controller {
                     unset($data['created_by']);
                 }
                 $result = false;
-                
+                if (isset($_FILES['certification_image']['name']) && $_FILES['certification_image']['name'] != "") {
+                    //$id_proofs = reArrayFiles($_FILES['id_proofs']);
+                    $certification_images = $_FILES['certification_image'];
+                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/certification/';
+                    $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                    $thumb_options[1] = array('width' => 194, 'height' => 194, 'prefix' => 'medium_');
+                    $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+                    $file_name = basename($certification_images['name']);
+                    $u_file_name = time() . $file_name;
+                    $f_file_path = $f_upload_dir . '/' . $u_file_name;
+                    move_uploaded_file($certification_images['tmp_name'], $f_file_path);
+                    CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
+                    // insert in database as well.
+                    $data['certification_image_path'] = 'uploads/member_images/certification/';
+                    $data['certification_image'] = $u_file_name;
+                }
 
                 if ($edit_id > 0) {
                     $this->Members_Model->update_certification('member_certification_id', $edit_id, $data);

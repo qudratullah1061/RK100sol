@@ -78,6 +78,12 @@ class Notifications extends Admin_Controller {
                     if(!empty($members))
                     {
                         $notify_members = array();
+                        $notify_members[] = [
+                                'notification_id' => ($edit_id > 0 ? $edit_id : $result),
+                                'sender_id'       =>  $this->session->userdata('admin_id'),
+                                'receiver_id'     =>  -1,
+                                'is_read'         => 0
+                        ];
                         foreach($members as $member)
                         {
                             $notify_members[] = [
