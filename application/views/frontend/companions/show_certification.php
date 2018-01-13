@@ -8,7 +8,7 @@
                     <ul class="cbp-slider-wrap cbp-wrapper">
                         <li class="cbp-slider-item cbp-item center-align">
                             <div class="cbp-item-wrapper">
-                                <a href=":;" class="cbp-lightbox">
+                                <a href="javascript:void(0)" class="cbp-lightbox">
                                     <img src="<?php echo isset($certification_data->certification_image_path) ? (base_url($certification_data->certification_image_path . "" . $certification_data->certification_image)) : ""; ?>" alt="">
                                 </a>
                             </div>
