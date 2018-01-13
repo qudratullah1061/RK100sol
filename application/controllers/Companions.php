@@ -272,6 +272,16 @@ class Companions extends FrontEnd_Controller {
         echo json_encode(array('key' => true, 'value' => $html));
         die();
     }
+    
+    function show_certification() {
+        $this->isAjax();
+        $member_certification_id = $this->input->post('member_certification_id');
+        $certification_data = $this->Members_Model->get_certification($member_certification_id);
+        $data['certification_data'] = $certification_data;
+        $html = $this->load->view('frontend/companions/show_certification', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
 
     function add_update_certification() {
         $this->isAjax();

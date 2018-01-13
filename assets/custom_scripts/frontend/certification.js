@@ -110,10 +110,39 @@ var Certifications = function () {
             }
         });
     };
+    
+    var show_certification = function (edit_id) {
+       
+        $.ajax({
+            type: "POST",
+            url: base_url + "companions/show_certification",
+            datatype: 'json',
+            data: {member_certification_id: edit_id},
+            beforeSend: function ()
+            {
+                App.blockUI({target: 'body', animate: true});
+            },
+            complete: function () {
+                App.unblockUI('body');
+            },
+            success: function (data) {
+                if (data.key) {
+                    $("#static-modal-popup").html(data.value);
+                    $("#static-modal-popup").modal('show');
+                    $(".cbp-popup-close").click(function(){
+                        $("#static-modal-popup").modal('hide');
+                    });
+                }
+            }
+        });
+    };
 
     return{
         modal_add_certification: function (edit_id) {
             show_modal_certification(edit_id);
+        },
+        modal_show_certification: function (edit_id) {
+            show_certification(edit_id);
         },
     }
 }();

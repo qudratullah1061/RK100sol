@@ -1,3 +1,4 @@
+<link href="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/css/cubeportfolio.css" rel="stylesheet" type="text/css" />
 <section class="profle">
     <div class="container">
         <div class="col-md-3 col-sm-4">
@@ -75,7 +76,7 @@
                         foreach ($data_languages as $language) {
                             echo "<p>" . $language['language_name'] . " (" . $language['language_level'] . ")</p>";
                         }
-                    }else{
+                    } else {
                         echo "<p>No language item found.</p>";
                     }
                     ?>
@@ -102,7 +103,7 @@
                         foreach ($certifications as $value) {
                             ?>
                             <div class="certification-odd">
-                                <a href="#">
+                                <a class="" href="javascript:Certifications.modal_show_certification(<?php echo $value['member_certification_id']; ?>)">
                                     <p><?php echo $value['title']; ?></p>
                                     <span><?php echo $value['description']; ?></span>                        
                                 </a>
@@ -271,6 +272,8 @@
         </div>
     </div>
 </section>
+<script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom_scripts/frontend/certification.js'); ?>" type="text/javascript"></script>
 <script>
     $(function () {
         $(".profile_reviews").rateYo({
