@@ -1,4 +1,4 @@
-<div class="cbp-popup-wrap cbp-popup-singlePage cbp-popup-singlePage-open cbp-popup-transitionend cbp-popup-singlePage-sticky cbp-popup-ready" data-action="" style="display: block;">
+<div class="cbp-popup-wrap cbp-popup-singlePage cbp-popup-singlePage-open cbp-popup-transitionend adjust-scroll cbp-popup-singlePage-sticky cbp-popup-ready" data-action="" style="display: block;">
     <div class="cbp-popup-content">
         <div class="portfolio-content">
             <div class="cbp-l-project-title"><?php echo isset($certification_data->title) ? $certification_data->title : ""; ?></div>
@@ -6,19 +6,13 @@
             <div class="cbp-slider cbp cbp-ready cbp-mode-slider">
                 <div class="cbp-wrapper-outer">
                     <ul class="cbp-slider-wrap cbp-wrapper">
-                        <li class="cbp-slider-item cbp-item">
+                        <li class="cbp-slider-item cbp-item center-align">
                             <div class="cbp-item-wrapper">
                                 <a href=":;" class="cbp-lightbox">
                                     <img src="<?php echo isset($certification_data->certification_image_path) ? (base_url($certification_data->certification_image_path . "" . $certification_data->certification_image)) : ""; ?>" alt="">
                                 </a>
                             </div>
                         </li>
-                        <!--                        <li class="cbp-slider-item cbp-item" style="width: 1024px; left: 2048px; top: 0px;">
-                                                    <div class="cbp-item-wrapper">
-                                                        <a href="../assets/global/img/portfolio/1200x900/77.jpg" class="cbp-lightbox">
-                                                            <img src="../assets/global/img/portfolio/1200x900/77.jpg" alt=""> </a>
-                                                    </div>
-                                                </li>-->
                     </ul>
                 </div>
             </div>

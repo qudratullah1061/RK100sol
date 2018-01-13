@@ -1507,3 +1507,26 @@ ul.hosting-list li {
 div#certification_table_wrapper{
     overflow: hidden;
 }
+/*lightbox img alignment*/
+li.cbp-slider-item.cbp-item.center-align {
+    position: static !important;
+    width: 100%;
+     text-align: center;
+}
+
+.center-align .cbp-lightbox img {
+    position: static;
+    width: auto;
+    display: inline-block;
+    max-height: 400px;
+}
+.modal-scrollable {
+    overflow-y: auto !important;
+}
+.adjust-scroll.cbp-popup-transitionend {
+    overflow-y: auto;
+}
+.adjust-scroll .cbp{height:auto;}
+.adjust-scroll .cbp-wrapper {
+    position: static;
+}
