@@ -105,7 +105,7 @@
                             <div class="certification-odd">
                                 <a class="" href="javascript:Certifications.modal_show_certification(<?php echo $value['member_certification_id']; ?>)">
                                     <p><?php echo $value['title']; ?></p>
-                                    <span><?php echo strlen($value['description']) > 20 ? substr($value['description'], 0, 20)."..." : $value['description']; ?></span>                        
+                                    <span><?php echo strlen($value['issued_by']) > 30 ? substr($value['issued_by'], 0, 30)."..." : $value['issued_by']; ?></span>                        
                                 </a>
                             </div>    
                             <?php
