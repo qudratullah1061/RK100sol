@@ -312,7 +312,7 @@ class Companions extends FrontEnd_Controller {
                     $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
                     $file_name = basename($certification_images['name']);
                     $u_file_name = time() . $file_name;
-                    $f_file_path = $f_upload_dir . '/' . $u_file_name;
+                    $f_file_path = $f_upload_dir . $u_file_name;
                     move_uploaded_file($certification_images['tmp_name'], $f_file_path);
                     CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
                     // insert in database as well.
