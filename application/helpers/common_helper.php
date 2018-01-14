@@ -66,6 +66,8 @@ function is_member_username_exist($username, $exclude_id) {
 function replace_macros($template_message = "", $macros_data = array()) {
     $template_message = str_replace('$$$BASE_URL$$$', base_url(), $template_message);
     $template_message = str_replace('$$$FIRST_NAME$$$', (isset($macros_data['$$$FIRST_NAME$$$']) ? $macros_data['$$$FIRST_NAME$$$'] : ""), $template_message);
+    $template_message = str_replace('$$$TITLE$$$', (isset($macros_data['$$$TITLE$$$']) ? $macros_data['$$$TITLE$$$'] : ""), $template_message);
+    $template_message = str_replace('$$$MESSAGE$$$', (isset($macros_data['$$$MESSAGE$$$']) ? $macros_data['$$$MESSAGE$$$'] : ""), $template_message);
     $template_message = str_replace('$$$LAST_NAME$$$', (isset($macros_data['$$$LAST_NAME$$$']) ? $macros_data['$$$LAST_NAME$$$'] : ""), $template_message);
     $template_message = str_replace('$$$EMAIL$$$', (isset($macros_data['$$$EMAIL$$$']) ? $macros_data['$$$EMAIL$$$'] : ""), $template_message);
     $template_message = str_replace('$$$CONFIRM_REGISTRATION$$$', (isset($macros_data['$$$CONFIRM_REGISTRATION$$$']) ? $macros_data['$$$CONFIRM_REGISTRATION$$$'] : ""), $template_message);

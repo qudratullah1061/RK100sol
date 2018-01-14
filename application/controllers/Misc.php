@@ -273,6 +273,46 @@ class Misc extends CI_Controller {
             redirect(base_url());
         }
     }
+    
+    
+    
+    function save_contactus_form()
+    {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            
+            $this->form_validation->set_rules('name', 'Full Name', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('email', 'Email', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('phone', 'Phone', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('subject', 'Subject', 'required|trim|strip_tags|xss_clean');
+             $this->form_validation->set_rules('comment', 'Comment', 'required|trim|strip_tags|xss_clean');
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->_response(true, validation_errors());
+            } else {
+               
+                $data['name'] = $this->input->post('name');
+                $data['email'] = $this->input->post('email');
+                $data['phone'] = $this->input->post('phone');
+                $data['subject'] = $this->input->post('subject');
+                $data['comment'] = $this->input->post('comment');
+                $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
+                
+                $result = $this->Misc_Model->add_contact($data);
+                if($result)
+                {
+                    $this->_response(false, "Request sent successfully!");
+                } else {
+                    $this->_response(true, "Error while sending requrst!");
+                }
+                
+                
+            }
+        } else {
+            redirect(base_url('misc/contact'));
+        }
+    }
 
     // remove it later.
     function sendTestMail() {

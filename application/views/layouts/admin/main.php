@@ -307,6 +307,12 @@
                                             <span class="title">View Categories</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item <?php ActivateCurrentLink('misc', 'contact_us_form'); ?>">
+                                        <a href="<?php echo base_url('admin/misc/contact_us_form'); ?>" class="nav-link ">
+                                            <!--<i class="fa fa-eye"></i>-->
+                                            <span class="title">View Contact us requests</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 

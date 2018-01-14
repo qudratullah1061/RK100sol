@@ -1,3 +1,4 @@
+<script src="<?php echo base_url('assets/custom_scripts/frontend/contactus.js'); ?>" type="text/javascript"></script>
 <section class="wow fadeIn faq-header cover-background background-position-top top-space">
     <div class="opacity-medium bg-purple "></div>
     <div class="container">
@@ -27,7 +28,7 @@
             <!-- end contact-form head -->
         </div>
         <!-- start contact-form -->
-        <form id="project-contact-form" action="javascript:void(0)" method="post">
+        <form id="form-add-contact" onsubmit="Contact.validation_to_contact();">
             <div class="row">
                 <div class="col-md-12">
                     <div id="success-project-contact-form" class="no-margin-lr" style="display: none;"></div>
@@ -66,3 +67,12 @@
         <!-- end contact-form -->
     </div>
 </section>
+
+
+
+<script>
+  $(document).ready(function () {
+        Contact.validation_to_contact();
+        
+    });
+</script>
