@@ -311,9 +311,8 @@ class Misc extends CI_Controller {
                     $email_template_info = get_email_template('contact_us_email_to_admin', $macros_data);
                     if ($email_template_info) {
                         sendEmail($this->config->item('admin_email'), $email_template_info['template_subject'], $email_template_info['template_body']);
-                        $this->_response(false, "Replyed Successfully!");
                     }
-                    $this->_response(false, "Request sent successfully!");
+                    $this->_response(false, "Message sent successfully to admin!");
                 } else {
                     $this->_response(true, "Error while sending requrst!");
                 }

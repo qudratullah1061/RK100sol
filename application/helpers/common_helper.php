@@ -410,8 +410,12 @@ function time_elapsed_string($datetime, $full = false) {
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
 
-function sendEmail($to, $subject, $message) {
-    $header = "From:admin@konsorts.com \r\n";
+function sendEmail($to, $subject, $message, $reply_to = "") {
+    if ($reply_to) {
+        $headers = "From:admin@konsorts.com \r\n Reply-to: $reply_to";
+    } else {
+        $header = "From:admin@konsorts.com \r\n";
+    }
     $header .= "MIME-Version: 1.0\r\n";
     $header .= "Content-type: text/html\r\n";
     $retval = mail($to, $subject, $message, $header);
