@@ -301,8 +301,8 @@
                             <div class="widget-title">About</div>
                             <ul class="list-unstyled">
                                 <li><a href="<?php echo base_url('misc/about'); ?>">About us</a></li>
-                                <li><a href="">How it Works</a></li>
-                                <li><a href="">Security</a></li>
+                                <li><a href="<?php echo base_url('misc/how_it_works'); ?>">How it Works</a></li>
+                                <li><a href="<?php echo base_url('misc/secure_community') ?>">Security</a></li>
                             </ul>
                         </div>
                         <!-- end contact information -->

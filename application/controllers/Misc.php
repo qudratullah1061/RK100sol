@@ -236,8 +236,8 @@ class Misc extends CI_Controller {
         $this->load->view('frontend/misc/earn_extra_cash');
     }
 
-    function secure_cummunity() {
-        $this->load->view('frontend/misc/secure_cummunity');
+    function secure_community() {
+        $this->load->view('frontend/misc/secure_community');
     }
 
     function find_perfect_buddy() {
