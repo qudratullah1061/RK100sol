@@ -1,7 +1,6 @@
 var Contact = function () {
 
     var handleContactSubmit = function (formId) {
-        
         $.ajax({
             type: "POST",
             url: base_url + "misc/save_contactus_form",
@@ -19,11 +18,9 @@ var Contact = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    $("#static-modal-popup-medium").modal('hide');
-                    setTimeout(function(){
+                    setTimeout(function () {
                         window.location.reload();
-                        
-                    },1000);
+                    }, 1000);
                 } else {
                     toastr["error"](data.description, "Error!");
                 }
@@ -33,7 +30,7 @@ var Contact = function () {
     var handleValidationAddContact = function (formId) {
         // for more info visit the official plugin documentation: 
         // http://docs.jquery.com/Plugins/Validation
-      
+
         var form1 = $('#' + formId);
         var error1 = $('.alert-danger', form1);
         var success1 = $('.alert-success', form1);
@@ -44,7 +41,6 @@ var Contact = function () {
             focusInvalid: false, // do not focus the last invalid input
             ignore: "", // validate all fields including form hidden input
             messages: {
-                
             },
             rules: {
                 name: {
@@ -62,9 +58,6 @@ var Contact = function () {
                 comment: {
                     required: true
                 },
-               
-                
-                
             },
             invalidHandler: function (event, validator) { //display error alert on form submit              
                 success1.hide();
@@ -96,13 +89,11 @@ var Contact = function () {
             }
         });
     };
-    
+
 
     return{
         validation_to_contact: function () {
-           
             handleValidationAddContact("form-add-contact");
-            //show_modal_contact(edit_id);
         },
     }
 }();

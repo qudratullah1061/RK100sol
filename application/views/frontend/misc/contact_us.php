@@ -28,7 +28,7 @@
             <!-- end contact-form head -->
         </div>
         <!-- start contact-form -->
-        <form id="form-add-contact" onsubmit="Contact.validation_to_contact();">
+        <form id="form-add-contact">
             <div class="row">
                 <div class="col-md-12">
                     <div id="success-project-contact-form" class="no-margin-lr" style="display: none;"></div>
@@ -45,22 +45,12 @@
                 <div class="col-md-6">
                     <input type="text" name="subject" id="subject" placeholder="Enter your subject *" class="big-input">
                 </div>
-
-                <!--                <div class="col-md-6">
-                                    <div class="select-style big-select">
-                                        <select name="budget" id="budget" class="bg-transparent no-margin-bottom">
-                                            <option value="">Select your budget</option>
-                                            <option value="$500 - $1000">$500 - $1000</option>
-                                            <option value="$1000 - $2000">$1000 - $2000</option>
-                                            <option value="$2000 - $5000">$2000 - $5000</option>
-                                        </select>
-                                    </div>
-                                </div>-->
                 <div class="col-md-12">
                     <textarea name="comment" id="message" placeholder="Message for me *" rows="6" class="big-textarea"></textarea>
                 </div>
                 <div class="col-md-12 text-center">
-                    <button id="project-contact-us-button" type="submit" class="btn btn-white btn-large margin-20px-top">send message</button>
+                    <input type="submit" name="submit" value="Send Message" class="btn btn-white btn-large margin-20px-top">
+                    <!--<button id="project-contact-us-button" type="submit" class="btn btn-white btn-large margin-20px-top">send message</button>-->
                 </div>
             </div>
         </form>
@@ -73,6 +63,5 @@
 <script>
   $(document).ready(function () {
         Contact.validation_to_contact();
-        
     });
 </script>
