@@ -282,7 +282,7 @@
                         <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
                             <a href="index.html" class="margin-15px-bottom display-inline-block"><img class="footer-logo" src="<?php echo base_url('assets/frontend/'); ?>img/logo.png" alt="Konsorts"></a>
                             <p class=" margin-0">Konsorts is a community of individuals offering personal services world wide, like: Personal trainers, tour guides, international hosts, personal shoppers and many other platonic services.</p>
-                            <a href="#" class="text-purple font-weight-400 more-details">More Details</a>
+                            <a href="<?php echo base_url('misc/about'); ?>" class="text-purple font-weight-400 more-details">More Details</a>
                         </div>
                         <!-- start additional links -->
                         <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">

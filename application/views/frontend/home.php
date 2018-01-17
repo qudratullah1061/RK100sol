@@ -774,7 +774,7 @@
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle text-left">
                                 <p class="text-white">What if we told you that you could be a part of a market place that fulfills your every need? You could hire a chef, find travel companions, even walking partners within minutes? With Konsorts, we are shaping the way people do business. Gone are the days where it took hours of research and referrals to find what you were looking for...</p>
-                                <a href="<?php echo base_url('misc/secure_cummunity') ?>" class="text-white font-weight-700">Read More</a>
+                                <a href="<?php echo base_url('misc/secure_community') ?>" class="text-white font-weight-700">Read More</a>
                             </div>
                         </div>
                     </figcaption>
