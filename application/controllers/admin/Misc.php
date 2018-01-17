@@ -72,11 +72,12 @@ class Misc extends Admin_Controller {
         $this->selected_child_tab = 'view_categories';
         $this->load->view('admin/misc/view_categories');
     }
+
     function contact_us_form() {
         $this->selected_tab = 'misc';
         $this->selected_child_tab = 'contact_us_form';
         $data['contact_us_form'] = $this->Misc_Model->get_contact_forms();
-        $this->load->view('admin/misc/contact_us_form',$data);
+        $this->load->view('admin/misc/contact_us_form', $data);
     }
 
     function get_categories() {
@@ -380,78 +381,65 @@ class Misc extends Admin_Controller {
         echo json_encode(array('key' => true, 'value' => $html));
         die();
     }
-    
+
     function modal_contact() {
         $this->isAjax();
         $contact_id = $this->input->post('contact_form_id');
-       
+
         $contact_data = $this->Misc_Model->get_contact($contact_id);
         $data['contact_data'] = $contact_data;
-     
+
         $html = $this->load->view('admin/misc/add_contact', $data, TRUE);
         echo json_encode(array('key' => true, 'value' => $html));
         die();
     }
+
     function modal_contact_reply() {
         $this->isAjax();
         $contact_id = $this->input->post('contact_form_id');
-       
+
         $contact_data = $this->Misc_Model->get_contact($contact_id);
         $data['contact_data'] = $contact_data;
-     
+
         $html = $this->load->view('admin/misc/add_contact_reply', $data, TRUE);
         echo json_encode(array('key' => true, 'value' => $html));
         die();
     }
-    
-    function save_contactus_form()
-    {
+
+    function save_contactus_form() {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
             $edit_id = $this->input->post('contact_form_id');
             $data['is_read'] = $this->input->post('is_read');
             $data['updated_by'] = $this->session->userdata('admin_id');
-           
-            
+
+
             $result = $this->Misc_Model->update_contact('contact_form_id', $edit_id, $data);
             $this->_response(false, "Updated Successfully!");
-
-            
         } else {
             redirect(base_url('admin/misc/contact_us_form'));
         }
     }
-    
-    
-    function save_contactus_form_reply()
-    {
+
+    function save_contactus_form_reply() {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
             $edit_id = $this->input->post('contact_form_id');
             $contact_data = $this->Misc_Model->get_contact($edit_id);
-           
             $data['is_reply'] = 1;
             $data['is_read'] = 1;
             $data['updated_by'] = $this->session->userdata('admin_id');
             $this->Misc_Model->update_contact('contact_form_id', $edit_id, $data);
-           
-            
             $macros_data['$$$FIRST_NAME$$$'] = $contact_data->name;
-            $macros_data['$$$TITLE$$'] = $this->input->post('title');
-            $macros_data['$$$MESSAGE$$$'] = $this->input->post('message');;
+            $macros_data['$$$TITLE$$$'] = $this->input->post('title');
+            $macros_data['$$$MESSAGE$$$'] = $this->input->post('message');
             $email_template_info = get_email_template('contact_us_form_reply', $macros_data);
-           
             if ($email_template_info) {
                 sendEmail($contact_data->email, $email_template_info['template_subject'], $email_template_info['template_body']);
                 $this->_response(false, "Replyed Successfully!");
-                
             }
-            
-           
-
-            
         } else {
             redirect(base_url('admin/misc/contact_us_form'));
         }
