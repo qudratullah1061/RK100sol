@@ -33,6 +33,8 @@
                 <div class="col-md-12">
                     <div id="success-project-contact-form" class="no-margin-lr" style="display: none;"></div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <input type="text" name="name" id="name" placeholder="Full Name *" class="big-input">
@@ -40,19 +42,24 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="text" name="email" id="email" placeholder="E-mail *" class="big-input">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
                         <input type="text" name="phone" id="phone" placeholder="Phone *" class="big-input">
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="email" id="email" placeholder="E-mail *" class="big-input">
+                    </div>
+                </div>
+
                 <div class="col-md-6">
                     <div class="form-group">
                         <input type="text" name="subject" id="subject" placeholder="Enter your subject *" class="big-input">
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                         <textarea name="comment" id="message" placeholder="Message for me *" rows="6" class="big-textarea"></textarea>
@@ -63,9 +70,10 @@
                     <!--<button id="project-contact-us-button" type="submit" class="btn btn-white btn-large margin-20px-top">send message</button>-->
                 </div>
             </div>
-        </form>
-        <!-- end contact-form -->
     </div>
+</form>
+<!-- end contact-form -->
+</div>
 </section>
 
 
