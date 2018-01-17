@@ -8,7 +8,6 @@ $unique_id = time();
 <!-- END PAGE LEVEL STYLES -->
 <link href="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/css/cubeportfolio.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url(); ?>assets/pages/css/portfolio.min.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 <!-- BEGIN PAGE HEADER-->
 <!-- BEGIN PAGE BAR -->
 <div class="page-bar">
@@ -755,7 +754,6 @@ $unique_id = time();
 <script src="<?php echo base_url('assets/custom_scripts/admin/education.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/certification.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/experience.js'); ?>" type="text/javascript"></script>
-<script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
 $(document).ready(function () {

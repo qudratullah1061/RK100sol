@@ -60,8 +60,9 @@
 </div>
 
 <!-- End datatable-->
-<!--<script src="<?php // echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>-->
 <script src="<?php echo base_url('assets/custom_scripts/admin/contactus.js'); ?>" type="text/javascript"></script>
 <script>
-                                        $("#contact_table").DataTable({"scrollX": false});
+                                        $(document).ready(function () {
+                                            $("#contact_table").DataTable();
+                                        });
 </script>
