@@ -113,7 +113,7 @@ var DatatablesObj = function () {
                     "url": base_url + "admin/companions/get_companion_users", // ajax source
                 },
                 "order": [
-                    [1, "asc"]
+                    //[1, "asc"]
                 ], // set first column as a default sort by asc
                 "aoColumnDefs": [
                     {'sName': 'Image', 'bSortable': false, 'aTargets': [0]},
@@ -191,7 +191,7 @@ var DatatablesObj = function () {
                     "url": base_url + "admin/guests/get_guest_users", // ajax source
                 },
                 "order": [
-                    [1, "asc"]
+                    //[1, "asc"]
                 ], // set first column as a default sort by asc
                 "aoColumnDefs": [
                     {'sName': 'Image', 'bSortable': false, 'aTargets': [0]},
