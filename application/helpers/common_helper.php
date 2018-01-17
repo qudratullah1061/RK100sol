@@ -411,11 +411,11 @@ function time_elapsed_string($datetime, $full = false) {
 }
 
 function sendEmail($to, $subject, $message, $reply_to = "") {
-    if ($reply_to != "") {
-        $header = "From:admin@konsorts.com \r\n Reply-to: $reply_to";
-    } else {
-        $header = "From:admin@konsorts.com \r\n";
-    }
+//    if ($reply_to != "") {
+//        $header = "From:admin@konsorts.com \r\n Reply-to: $reply_to";
+//    } else {
+    $header = "From:admin@konsorts.com \r\n";
+//    }
     $header .= "MIME-Version: 1.0\r\n";
     $header .= "Content-type: text/html\r\n";
     $retval = mail($to, $subject, $message, $header);
