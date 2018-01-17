@@ -412,7 +412,7 @@ function time_elapsed_string($datetime, $full = false) {
 
 function sendEmail($to, $subject, $message, $reply_to = "") {
     if ($reply_to != "") {
-        $header = "From:admin@konsorts.com\r\nReply-to: $reply_to";
+        $header = "From:admin@konsorts.com \r\n Reply-to: $reply_to";
     } else {
         $header = "From:admin@konsorts.com \r\n";
     }
