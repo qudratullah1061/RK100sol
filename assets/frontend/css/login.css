@@ -3,6 +3,7 @@
     font-family: 'Raleway', sans-serif;
     margin-top: 120px;
     padding: 120px 0;
+    background-size: cover;
 }
 .panel-login {
     border-color: #ccc;
