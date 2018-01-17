@@ -47,7 +47,8 @@ var Contact = function () {
                     required: true
                 },
                 email: {
-                    required: true
+                    required: true,
+                    email:true
                 },
                 phone: {
                     required: true
