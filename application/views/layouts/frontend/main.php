@@ -116,7 +116,7 @@
                             </a>
                         </div>
                         <!-- end logo -->
-                        <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
+                        <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu">
                             <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
                                 <span class="sr-only">toggle navigation</span>
                                 <span class="icon-bar"></span>

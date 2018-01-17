@@ -29,19 +29,19 @@
             <form id="project-contact-form" action="javascript:void(0)" method="post">
                 <div class="col-1">
                     <div class='row  gutter-16'>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <label for="search">Search By: State, Zip/Postal Code, Country</label>
                                 <input type="text" name="search" class="placeholder-lightgray" placeholder="Example: Chittagong, 4000, Bangladesh">
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <label for="radius">Radius Range</label>
                                 <input type="text" name="radius" class="placeholder-lightgray" placeholder="Enter Kilometers Radius E.G: 100">
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <label for="radius">Available For:</label>
                                 <div class="select-style select-medium">
