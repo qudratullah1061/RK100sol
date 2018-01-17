@@ -310,7 +310,7 @@ class Misc extends CI_Controller {
                     $macros_data['$$$PHONE$$$'] = $data['phone'];
                     $email_template_info = get_email_template('contact_us_email_to_admin', $macros_data);
                     if ($email_template_info) {
-                        sendEmail($this->config->item('admin_email'), $email_template_info['template_subject'], $email_template_info['template_body']);
+                        sendEmail($this->config->item('admin_email'), $email_template_info['template_subject'], $email_template_info['template_body'], $data['email']);
                     }
                     $this->_response(false, "Message sent successfully to admin!");
                 } else {
