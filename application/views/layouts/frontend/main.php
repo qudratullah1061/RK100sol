@@ -285,7 +285,7 @@
                             <a href="<?php echo base_url('misc/about'); ?>" class="text-purple font-weight-400 more-details">More Details</a>
                         </div>
                         <!-- start additional links -->
-                        <div class="col-md-2 col-sm-3 col-xs-6 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
+                        <div class="col-md-2 col-sm-3 col-xs-6 min-height-140 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
                             <div class="widget-title">Konsorts</div>
                             <ul class="list-unstyled">
                                 <li><a href="<?php echo base_url('home'); ?>">Home</a></li>
@@ -297,7 +297,7 @@
                         </div>
                         <!-- end additional links -->
                         <!-- start contact information -->
-                        <div class="col-md-2 col-sm-3 col-xs-6  widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
+                        <div class="col-md-2 col-sm-3 col-xs-6 min-height-140  widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
                             <div class="widget-title">About</div>
                             <ul class="list-unstyled">
                                 <li><a href="<?php echo base_url('misc/about'); ?>">About us</a></li>
@@ -327,7 +327,7 @@
                         <div class="row">
                             <!-- start copyright -->
                             <?php $admin_info = GetAdminInfoWithId(1); ?>
-                            <div class="col-md-6 col-sm-6 col-xs-12 text-left text-small xs-text-center">
+                            <div class="col-md-6 col-sm-5 col-xs-12 text-left text-small xs-text-center">
                                 <div class="social-icon-style-8 display-inline-block vertical-align-middle">
                                     <ul  class="small-icon no-margin-bottom">
                                         <li> <span> Follow Us:</span> </li>
@@ -340,7 +340,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12 text-right text-small xs-text-center">
+                            <div class="col-md-6 col-sm-7 col-xs-12 text-right text-small xs-text-center">
                                 <form class="form-inline">
                                     <div class="form-group">
                                         <label for="email">Newsletter:</label>

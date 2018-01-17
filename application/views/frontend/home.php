@@ -8,7 +8,7 @@
                     <div class="slider-text-middle-main">
                         <div class="slider-text-middle">
                             <div class="col-lg-12 text-left">
-                                <h4 class="text-white alt-font font-weight-700 open-sans xs-width-100 xs-margin-100px-bottom">
+                                <h4 class="text-white alt-font font-weight-700 open-sans xs-width-100">
                                     Contract a Service Member
                                 </h4>
                                 <p class="open-sans text-white">Community of independent service providers.</p>
