@@ -59,7 +59,7 @@ class Misc extends CI_Controller {
         $this->Misc_Model->UpdateRecord('image_id', $unique_id, array('is_profile_image' => 1));
         // update session info as well.
         $user_info = $this->Members_Model->get_member_by_id($this->session->userdata('member_id'));
-        $this->session->set_userdata('member_info',$user_info);
+        $this->session->set_userdata('member_info', $user_info);
         $this->_response(false, "Profile pic updated successfully!");
     }
 
@@ -227,27 +227,35 @@ class Misc extends CI_Controller {
     function terms() {
         $this->load->view('frontend/misc/terms');
     }
+
     function how_it_works() {
         $this->load->view('frontend/misc/how_it_works');
     }
+
     function earn_extra_cash() {
         $this->load->view('frontend/misc/earn_extra_cash');
     }
+
     function secure_cummunity() {
         $this->load->view('frontend/misc/secure_cummunity');
     }
+
     function find_perfect_buddy() {
         $this->load->view('frontend/misc/find_perfect_buddy');
     }
+
     function rewards_hosting_traveling() {
         $this->load->view('frontend/misc/rewards_hosting_traveling');
     }
+
     function blog() {
         $this->load->view('frontend/misc/blog');
     }
+
     function blog_detail() {
         $this->load->view('frontend/misc/blog_detail');
     }
+
     function homestay() {
         $this->load->view('frontend/misc/homestay');
     }
@@ -273,11 +281,8 @@ class Misc extends CI_Controller {
             redirect(base_url());
         }
     }
-    
-    
-    
-    function save_contactus_form()
-    {
+
+    function save_contactus_form() {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -285,12 +290,12 @@ class Misc extends CI_Controller {
             $this->form_validation->set_rules('email', 'Email', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('phone', 'Phone', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('subject', 'Subject', 'required|trim|strip_tags|xss_clean');
-             $this->form_validation->set_rules('comment', 'Comment', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('comment', 'Comment', 'required|trim|strip_tags|xss_clean');
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
             } else {
-               
+
                 $data['name'] = $this->input->post('name');
                 $data['email'] = $this->input->post('email');
                 $data['phone'] = $this->input->post('phone');
@@ -298,8 +303,16 @@ class Misc extends CI_Controller {
                 $data['comment'] = $this->input->post('comment');
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $result = $this->Misc_Model->add_contact($data);
-                if($result)
-                {
+                if ($result) {
+                    $macros_data['$$$TITLE$$$'] = $data['subject'];
+                    $macros_data['$$$MESSAGE$$$'] = $data['comment'];
+                    $macros_data['$$$EMAIL$$$'] = $data['email'];
+                    $macros_data['$$$PHONE$$$'] = $data['phone'];
+                    $email_template_info = get_email_template('contact_us_email_to_admin', $macros_data);
+                    if ($email_template_info) {
+                        sendEmail($contact_data->email, $email_template_info['template_subject'], $email_template_info['template_body']);
+                        $this->_response(false, "Replyed Successfully!");
+                    }
                     $this->_response(false, "Request sent successfully!");
                 } else {
                     $this->_response(true, "Error while sending requrst!");

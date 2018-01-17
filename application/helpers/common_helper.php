@@ -120,6 +120,7 @@ function replace_macros($template_message = "", $macros_data = array()) {
     $template_message = str_replace('$$$MESSAGE$$$', (isset($macros_data['$$$MESSAGE$$$']) ? $macros_data['$$$MESSAGE$$$'] : ""), $template_message);
     $template_message = str_replace('$$$LAST_NAME$$$', (isset($macros_data['$$$LAST_NAME$$$']) ? $macros_data['$$$LAST_NAME$$$'] : ""), $template_message);
     $template_message = str_replace('$$$EMAIL$$$', (isset($macros_data['$$$EMAIL$$$']) ? $macros_data['$$$EMAIL$$$'] : ""), $template_message);
+    $template_message = str_replace('$$$PHONE$$', (isset($macros_data['$$$PHONE$$$']) ? $macros_data['$$$PHONE$$$'] : ""), $template_message);
     $template_message = str_replace('$$$CONFIRM_REGISTRATION$$$', (isset($macros_data['$$$CONFIRM_REGISTRATION$$$']) ? $macros_data['$$$CONFIRM_REGISTRATION$$$'] : ""), $template_message);
     $template_message = str_replace('$$$CONFIRMATION_LINK$$$', (isset($macros_data['$$$CONFIRMATION_LINK$$$']) ? $macros_data['$$$CONFIRMATION_LINK$$$'] : ""), $template_message);
     return $template_message;

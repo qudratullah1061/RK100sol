@@ -10,17 +10,17 @@ var Contact = function () {
             contentType: false,
             beforeSend: function ()
             {
-                App.blockUI({target: '.modal', animate: true});
+                App.blockUI({target: 'body', animate: true});
             },
             complete: function () {
-                App.unblockUI('.modal');
+                App.unblockUI('body');
             },
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
                     setTimeout(function () {
                         window.location.reload();
-                    }, 1000);
+                    }, 2000);
                 } else {
                     toastr["error"](data.description, "Error!");
                 }
