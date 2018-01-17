@@ -95,4 +95,25 @@ class Admin_model extends Abstract_model {
     public function update_admin_user($edit_id, $data) {
         $this->updateBy('admin_id', $edit_id, $data);
     }
+
+    public function getMembers($member_type = "", $current_month = "") {
+        if ($member_type) {
+            $this->db->where('member_type', $member_type);
+        }
+        if ($current_month) {
+            $this->db->like('created_on', $current_month);
+        }
+        return $this->db->get('tb_members')->num_rows();
+    }
+
+    public function getMemberPaymentsTotal($member_type = "") {
+        if ($member_type) {
+            $sql = "SELECT SUM(pd.payment_amount) as total_amount FROM tb_member_payment_details pd INNER JOIN tb_members m ON m.member_id = pd.member_id WHERE m.member_type = $member_type";
+        } else {
+            $sql = "SELECT SUM(payment_amount) as total_amount FROM tb_member_payment_details";
+        }
+        $result = $this->db->query($sql)->result_array();
+        return isset($result[0]['total_amount']) ? $result[0]['total_amount'] : 0;
+    }
+
 }

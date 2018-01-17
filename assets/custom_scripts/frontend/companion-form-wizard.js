@@ -111,9 +111,9 @@ var FormWizard = function () {
                 location: {
                     required: true,
                 },
-                zipcode: {
-                    required: true,
-                },
+//                zipcode: {
+//                    required: true,
+//                },
 //                state: {
 //                    required: true,
 //                },
@@ -156,9 +156,9 @@ var FormWizard = function () {
                 location: {
                     required: true,
                 },
-                zipcode: {
-                    required: true,
-                },
+//                zipcode: {
+//                    required: true,
+//                },
 //                state: {
 //                    required: true,
 //                },

@@ -138,7 +138,7 @@
                                 </div>
                             </div>
                             <div class="form-group form-md-line-input">
-                                <label class="control-label col-md-3">Zip Code<span class="required">*</span></label>
+                                <label class="control-label col-md-3">Zip Code</label>
                                 <div class="col-md-6">
                                     <input type="text" name="zipcode" id="zipcode" class="form-control form-md-line-input">
                                     <label></label>

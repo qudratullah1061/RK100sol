@@ -226,7 +226,7 @@ $unique_id = time();
                                             <input type="text" name="location" id="location" value="<?php echo $member_info['location']; ?>" class="location form-control">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Zip Code<span class="required">*</span></label>
+                                            <label class="control-label">Zip Code</label>
                                             <input type="text" name="zipcode" value="<?php echo $member_info['zipcode']; ?>" id="zipcode" class="form-control">
                                         </div>
                                         <div class="clearfix"></div>

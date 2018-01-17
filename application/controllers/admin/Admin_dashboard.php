@@ -15,7 +15,10 @@ class Admin_dashboard extends Admin_Controller {
     public function index() {
         $this->selected_tab = 'admin';
         $this->selected_child_tab = 'dashboard';
-        $data = array();
+        $data['total_companions'] = $this->Admin_Model->getMembers(2);
+        $data['total_guests'] = $this->Admin_Model->getMembers(1);
+        $data['users_this_month'] = $this->Admin_Model->getMembers("", date("Y-m"));
+        $data['total_payment'] = $this->Admin_Model->getMemberPaymentsTotal();
         $this->load->view('admin/dashboard/view_dashboard', $data);
     }
 

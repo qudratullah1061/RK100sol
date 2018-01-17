@@ -206,7 +206,7 @@ class Profile extends CI_Controller {
 //            $this->form_validation->set_rules('gender', 'Gender', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('date_of_birth', 'Date Of Birth', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('location', 'Location', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('zipcode', 'Zip Code', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('zipcode', 'Zip Code', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('city', 'City', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('address', 'Address', 'required|trim|strip_tags|xss_clean');

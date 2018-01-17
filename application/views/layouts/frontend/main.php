@@ -72,7 +72,7 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
         <!--sweet alert ends-->
         <!-- BEGIN datepicker-->
-        <!--<link href="<?php // echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="<?php // echo base_url();    ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
         <!--datepicker ends-->
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -157,8 +157,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <?php if (isset($this->session->userdata['member_id'])) {
-                           $notifications = get_notifications(1,$this->session->userdata['member_id'],0);
+                        <?php
+                        if (isset($this->session->userdata['member_id'])) {
+                            $notifications = get_notifications(1, $this->session->userdata['member_id'], 0);
                             ?>
                             <div class="col-md-2 col-xs-5 width-auto header-right">
                                 <div class="header-searchbar">
@@ -176,20 +177,20 @@
                                                 <h3>
                                                     <span class="bold"><?php echo count($notifications); ?> pending</span> notifications
                                                 </h3>
-                                                <a href="<?php echo base_url('notifications/view_notifications');?>">view all</a>
+                                                <a href="<?php echo base_url('notifications/view_notifications'); ?>">view all</a>
                                             </li>
                                             <li>
                                                 <ul class="dropdown-menu-list scroller" data-height="250" data-handle-color="#637283">
-                                                        
-                                                    <?php foreach($notifications as $notification){?>
+
+                                                    <?php foreach ($notifications as $notification) { ?>
                                                         <li>
-                                                            <a href="<?php echo base_url('notifications/view_notifications/'.$notification['notification_user_id']);?>">
-                                                                  <span class="time"><?php echo time_elapsed_string($notification['created_on']); ?></span>
-                                                                  <span class="details">
-                                                                      <span class="label label-sm label-icon label-success">
-                                                                          <i class="fa fa-plus"></i>
-                                                                      </span> <?php echo substr($notification['notification_title'],0,9); ?><?php echo (strlen($notification['notification_title']) > 10 ? '...' : '');?> </span>
-                                                              </a>
+                                                            <a href="<?php echo base_url('notifications/view_notifications/' . $notification['notification_user_id']); ?>">
+                                                                <span class="time"><?php echo time_elapsed_string($notification['created_on']); ?></span>
+                                                                <span class="details">
+                                                                    <span class="label label-sm label-icon label-success">
+                                                                        <i class="fa fa-plus"></i>
+                                                                    </span> <?php echo substr($notification['notification_title'], 0, 9); ?><?php echo (strlen($notification['notification_title']) > 10 ? '...' : ''); ?> </span>
+                                                            </a>
                                                         </li>
                                                     <?php } ?>
                                                 </ul>
@@ -325,16 +326,17 @@
 
                         <div class="row">
                             <!-- start copyright -->
+                            <?php $admin_info = GetAdminInfoWithId(1); ?>
                             <div class="col-md-6 col-sm-6 col-xs-12 text-left text-small xs-text-center">
                                 <div class="social-icon-style-8 display-inline-block vertical-align-middle">
                                     <ul  class="small-icon no-margin-bottom">
                                         <li> <span> Follow Us:</span> </li>
-                                        <li class="enabled"><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                                        <li class="enabled"><a href="#"><i class="fa fa-youtube-square"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-                                        <li class="enabled"><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                        <li class="enabled"><a href="<?php echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['facebook_link'] : ""; ?>"><i class="fa fa-facebook-square"></i></a></li>
+                                        <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";    ?>"><i class="fa fa-youtube-square"></i></a></li>-->
+                                        <li><a href="<?php echo isset($admin_info[0]['linkedin_link']) ? $admin_info[0]['linkedin_link'] : ""; ?>"><i class="fa fa-linkedin-square"></i></a></li>
+                                        <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";    ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
+                                        <li class="enabled"><a href="<?php echo isset($admin_info[0]['twitter_link']) ? $admin_info[0]['twitter_link'] : ""; ?>"><i class="fa fa-twitter-square"></i></a></li>
+                                        <li><a href="<?php echo isset($admin_info[0]['instagram_link']) ? $admin_info[0]['instagram_link'] : ""; ?>"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -431,7 +433,7 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
         <!--Form Validation end-->
         <!--datepicker start-->
-        <!--<script src="<?php // echo base_url(); ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
+        <!--<script src="<?php // echo base_url();    ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
         <!--datepicker ends-->
         <!--select2 start-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>

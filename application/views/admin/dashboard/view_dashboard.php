@@ -25,10 +25,10 @@
             <div class="display">
                 <div class="number">
                     <h3 class="font-green-sharp">
-                        <span data-counter="counterup" data-value="7800">0</span>
+                        <span data-counter="counterup" data-value="<?php echo isset($total_payment) ? $total_payment : 0; ?>"><?php echo isset($total_payment) ? $total_payment : 0; ?></span>
                         <small class="font-green-sharp">$</small>
                     </h3>
-                    <small>REGISTRATIONS TOTAL</small>
+                    <small>TOTAL PAYMENTS</small>
                 </div>
                 <div class="icon">
                     <i class="fa fa-money"></i>
@@ -36,13 +36,13 @@
             </div>
             <div class="progress-info">
                 <div class="progress">
-                    <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
-                        <span class="sr-only">76% progress</span>
+                    <span style="width: 56%;" class="progress-bar progress-bar-success green-sharp">
+                        <span class="sr-only">56% progress</span>
                     </span>
                 </div>
                 <div class="status">
                     <div class="status-title"> progress </div>
-                    <div class="status-number"> 76% </div>
+                    <div class="status-number"> 56% </div>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
             <div class="display">
                 <div class="number">
                     <h3 class="font-red-haze">
-                        <span data-counter="counterup" data-value="1349">0</span>
+                        <span data-counter="counterup" data-value="<?php echo isset($total_companions) ? $total_companions : 0; ?>"><?php echo isset($total_companions) ? $total_companions : 0; ?></span>
                     </h3>
                     <small>SERVICE MEMBERS</small>
                 </div>
@@ -62,13 +62,13 @@
             </div>
             <div class="progress-info">
                 <div class="progress">
-                    <span style="width: 85%;" class="progress-bar progress-bar-success red-haze">
-                        <span class="sr-only">85% change</span>
+                    <span style="width: 20%;" class="progress-bar progress-bar-success red-haze">
+                        <span class="sr-only">20% completed</span>
                     </span>
                 </div>
                 <div class="status">
-                    <div class="status-title"> change </div>
-                    <div class="status-number"> 85% </div>
+                    <div class="status-title"> completed </div>
+                    <div class="status-number"> 20% </div>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
             <div class="display">
                 <div class="number">
                     <h3 class="font-blue-sharp">
-                        <span data-counter="counterup" data-value="567"></span>
+                        <span data-counter="counterup" data-value="<?php echo isset($total_guests) ? $total_guests : 0; ?>"><?php echo isset($total_guests) ? $total_guests : 0; ?></span>
                     </h3>
                     <small>GUEST MEMBERS</small>
                 </div>
@@ -88,13 +88,13 @@
             </div>
             <div class="progress-info">
                 <div class="progress">
-                    <span style="width: 45%;" class="progress-bar progress-bar-success blue-sharp">
-                        <span class="sr-only">45% grow</span>
+                    <span style="width: 20%;" class="progress-bar progress-bar-success blue-sharp">
+                        <span class="sr-only">20% completed</span>
                     </span>
                 </div>
                 <div class="status">
-                    <div class="status-title"> grow </div>
-                    <div class="status-number"> 45% </div>
+                    <div class="status-title"> completed </div>
+                    <div class="status-number"> 20% </div>
                 </div>
             </div>
         </div>
@@ -104,7 +104,7 @@
             <div class="display">
                 <div class="number">
                     <h3 class="font-purple-soft">
-                        <span data-counter="counterup" data-value="276"></span>
+                        <span data-counter="counterup" data-value="<?php echo isset($users_this_month) ? $users_this_month : 0; ?>"><?php echo isset($users_this_month) ? $users_this_month : 0; ?></span>
                     </h3>
                     <small>USERS THIS MONTH</small>
                 </div>
@@ -114,13 +114,13 @@
             </div>
             <div class="progress-info">
                 <div class="progress">
-                    <span style="width: 57%;" class="progress-bar progress-bar-success purple-soft">
-                        <span class="sr-only">56% change</span>
+                    <span style="width: 30%;" class="progress-bar progress-bar-success purple-soft">
+                        <span class="sr-only">30% change</span>
                     </span>
                 </div>
                 <div class="status">
                     <div class="status-title"> change </div>
-                    <div class="status-number"> 57% </div>
+                    <div class="status-number"> 30% </div>
                 </div>
             </div>
         </div>
