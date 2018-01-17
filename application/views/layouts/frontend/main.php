@@ -285,7 +285,7 @@
                             <a href="<?php echo base_url('misc/about'); ?>" class="text-purple font-weight-400 more-details">More Details</a>
                         </div>
                         <!-- start additional links -->
-                        <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
+                        <div class="col-md-2 col-sm-3 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
                             <div class="widget-title">Konsorts</div>
                             <ul class="list-unstyled">
                                 <li><a href="<?php echo base_url('home'); ?>">Home</a></li>
@@ -297,7 +297,7 @@
                         </div>
                         <!-- end additional links -->
                         <!-- start contact information -->
-                        <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
+                        <div class="col-md-2 col-sm-3 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
                             <div class="widget-title">About</div>
                             <ul class="list-unstyled">
                                 <li><a href="<?php echo base_url('misc/about'); ?>">About us</a></li>
@@ -307,13 +307,13 @@
                         </div>
                         <!-- end contact information -->
                         <!-- start instagram -->
-                        <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center  padding-70px-left sm-padding-left-0">
+                        <div class="col-md-3 col-sm-3 col-xs-12 widget sm-margin-20px-bottom xs-text-center  padding-70px-left sm-padding-left-0">
                             <div class="widget-title">Terms</div>
                             <ul class="list-unstyled">
                                 <li><a href="<?php echo base_url('misc/terms'); ?>">Terms and Conditions</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
+                        <div class="col-md-2 col-sm-3 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
                             <div class="widget-title">Support</div>
                             <ul class="list-unstyled">
                                 <li><a href="<?php echo base_url('misc/faq'); ?>">Faq</a></li>

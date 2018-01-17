@@ -915,7 +915,11 @@
     <div class="container">
         <!--first guide-->
         <div class="row margin-60px-tb">
-            <div class="col-md-7 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s" data-wow-delay="0s">
+
+            <div class="col-md-5 col-md-push-7  col-sm-6 col-sm-push-6 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s" >
+                <img src="<?php echo base_url('assets/frontend/'); ?>img/guide-1.jpg" alt="">
+            </div>
+            <div class="col-md-7 col-md-pull-5 col-sm-6 col-sm-pull-6 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s" data-wow-delay="0s">
                 <h4>Find your perfect fitness buddy</h4>
                 <p>Do you wish you could find a buddy to keep you company during your favorite activities? Or are you an active fitness enthusiasts who would like to make some extra money doing what you love?</p>
 
@@ -930,18 +934,15 @@
 
                 <a href="<?php echo base_url('misc/find_perfect_buddy'); ?>" class="btn btn-deep-purple btn-small">See More</a>
             </div>
-            <div class="col-md-5 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s" >
-                <img src="<?php echo base_url('assets/frontend/'); ?>img/guide-1.jpg" alt="">
-            </div>
         </div>
         <!--second guide-->
         <div class="row padding-60px-tb">
 
-            <div class="col-md-5 guide-media wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s">
+            <div class="col-md-5 col-sm-6 guide-media wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s">
                 <img src="<?php echo base_url('assets/frontend/'); ?>img/guide-2.jpg" alt="">
             </div>
 
-            <div class="col-md-7 guide-text right-box roboto-cond wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
+            <div class="col-md-7 col-sm-6 guide-text right-box roboto-cond wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
                 <h4>The Rewards of Hosting a Traveling Nomad</h4>
                 <p>Living in a family environment can help make the travel experience of wandering nomads feel at home and give them that sense of security in an unfamiliar and new place. </p>
                 <h5>1. Homestay hosting as an ideal hospitality business. </h5>
@@ -981,7 +982,7 @@
                         <a href="#" class="btn btn-deep-purple btn-small">See More</a>
                     </div>
                     <div class="col-md-5 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
-                        <img src="<?php // echo base_url('assets/frontend/'); ?>img/guide-3.jpg" alt="">
+                        <img src="<?php // echo base_url('assets/frontend/');  ?>img/guide-3.jpg" alt="">
                     </div>
                 </div>-->
 
