@@ -1580,6 +1580,9 @@ header.sticky nav.header-light .logo .logo-dark {
     .guide-text h5 {font-size: 16px;}
     .guide-text p, .guide-text ul li {font-size: 14px;}
     section.guide .container>div:last-child {padding-top: 0;}
+    footer .padding-70px-left {
+        padding-left: 15px;
+    }
 }
 @media(max-width:767px){
     .search-box .btn {width: 100%;}
