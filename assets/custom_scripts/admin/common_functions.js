@@ -150,7 +150,7 @@ var CommonFunctions = function () {
                                         $('#datatable_tags').DataTable().ajax.reload();
                                     } else if (table == 'tb_member_portfolios' || table == 'tb_member_languages') {
                                         window.location.reload();
-                                    } else if (table == 'tb_member_portfolios' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications'  || table == 'tb_notification_users') {
+                                    } else if (table == 'tb_contact_form' || table == 'tb_member_portfolios' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications' || table == 'tb_notification_users') {
                                         window.location.reload();
                                     }
                                 });

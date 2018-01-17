@@ -28,6 +28,7 @@
                     <table id="contact_table" class="table table-striped table-bordered table-hover text-center dataTable no-footer" cellspacing="0" width="100%">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -40,13 +41,18 @@
                         <tbody>
                             <?php foreach ($contact_us_form as $value) { ?>
                                 <tr>
+                                    <td><?php echo $value->contact_form_id; ?></td>
                                     <td><?php echo $value->name; ?></td>
                                     <td><?php echo $value->email; ?></td>
                                     <td><?php echo $value->phone; ?></td>
                                     <td><?php echo $value->subject; ?></td>
-                                    <td><?php echo ($value->is_read == 1 ? 'Yes' : 'No'); ?></td>
-                                    <td><?php echo ($value->is_reply == 1 ? 'Yes' : 'No'); ?></td>
-                                    <td><a class="btn btn-xs default btn-editable" onclick="Contact.modal_add_contact(<?php echo $value->contact_form_id; ?>)">View</a><a class="btn btn-xs default btn-editable" onclick="Contact.modal_add_contact_reply(<?php echo $value->contact_form_id; ?>)">Reply</a> </td>
+                                    <td><?php echo ($value->is_read == 1 ? '<span class="label label-sm label-info"> Yes </span>' : '<span class="label label-sm label-danger"> No </span>'); ?></td>
+                                    <td><?php echo ($value->is_reply == 1 ? '<span class="label label-sm label-info"> Yes </span>' : '<span class="label label-sm label-danger"> No </span>'); ?></td>
+                                    <td>
+                                        <a href="javascript:CommonFunctions.Delete('<?php echo $value->contact_form_id; ?>', 'tb_contact_form', 'contact_form_id', 'Are you sure you want to delete this contact query?')" class="btn btn-xs default btn-editable" rel="nofollow">Delete</a>
+                                        <a class="btn btn-xs default btn-editable" onclick="Contact.modal_add_contact(<?php echo $value->contact_form_id; ?>)">View</a>
+                                        <a class="btn btn-xs default btn-editable" onclick="Contact.modal_add_contact_reply(<?php echo $value->contact_form_id; ?>)">Reply</a> 
+                                    </td>
                                 </tr>
                             <?php } ?>
 
@@ -63,6 +69,6 @@
 <script src="<?php echo base_url('assets/custom_scripts/admin/contactus.js'); ?>" type="text/javascript"></script>
 <script>
                                         $(document).ready(function () {
-                                            $("#contact_table").DataTable();
+                                            $("#contact_table").DataTable({"order": []});
                                         });
 </script>

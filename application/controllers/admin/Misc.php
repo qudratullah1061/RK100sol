@@ -74,7 +74,7 @@ class Misc extends Admin_Controller {
     }
 
     function contact_us_form() {
-        $this->selected_tab = 'misc';
+        $this->selected_tab = 'contactus';
         $this->selected_child_tab = 'contact_us_form';
         $data['contact_us_form'] = $this->Misc_Model->get_contact_forms();
         $this->load->view('admin/misc/contact_us_form', $data);

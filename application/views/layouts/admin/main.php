@@ -307,15 +307,9 @@
                                             <span class="title">View Categories</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('misc', 'contact_us_form'); ?>">
-                                        <a href="<?php echo base_url('admin/misc/contact_us_form'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Contact us requests</span>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
-
+                            
                             <li class="nav-item <?php ActivateParentLink('blogs'); ?>">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="fa fa-newspaper-o"></i>
@@ -334,6 +328,23 @@
                                         <a href="<?php echo base_url('admin/blogs/view_tags'); ?>" class="nav-link ">
                                             <!--<i class="fa fa-eye"></i>-->
                                             <span class="title">View Tags</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item <?php ActivateParentLink('contactus'); ?>">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="fa fa-tasks"></i>
+                                    <span class="title">Contact Us</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item <?php ActivateCurrentLink('contactus', 'contact_us_form'); ?>">
+                                        <a href="<?php echo base_url('admin/misc/contact_us_form'); ?>" class="nav-link ">
+                                            <!--<i class="fa fa-eye"></i>-->
+                                            <span class="title">View Contact us requests</span>
                                         </a>
                                     </li>
                                 </ul>

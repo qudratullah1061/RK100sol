@@ -147,7 +147,7 @@ class Misc_model extends Abstract_model {
     }
     function get_contact_forms() {
         $this->table_name = "tb_contact_form";
-        return $this->getAll("","",'is_read',0);
+        return $this->getAll("","",'is_read',"ASC");
     }
 
     function saveRecord($table, $data) {
