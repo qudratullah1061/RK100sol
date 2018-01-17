@@ -34,19 +34,29 @@
                     <div id="success-project-contact-form" class="no-margin-lr" style="display: none;"></div>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="name" id="name" placeholder="Full Name *" class="big-input">
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" placeholder="Full Name *" class="big-input">
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="email" id="email" placeholder="E-mail *" class="big-input">
+                    <div class="form-group">
+                        <input type="text" name="email" id="email" placeholder="E-mail *" class="big-input">
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="phone" id="phone" placeholder="Phone *" class="big-input">
+                    <div class="form-group">
+                        <input type="text" name="phone" id="phone" placeholder="Phone *" class="big-input">
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="subject" id="subject" placeholder="Enter your subject *" class="big-input">
+                    <div class="form-group">
+                        <input type="text" name="subject" id="subject" placeholder="Enter your subject *" class="big-input">
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <textarea name="comment" id="message" placeholder="Message for me *" rows="6" class="big-textarea"></textarea>
+                    <div class="form-group">
+                        <textarea name="comment" id="message" placeholder="Message for me *" rows="6" class="big-textarea"></textarea>
+                    </div>
                 </div>
                 <div class="col-md-12 text-center">
                     <input type="submit" name="submit" value="Send Message" class="btn btn-white btn-large margin-20px-top">
@@ -61,7 +71,7 @@
 
 
 <script>
-  $(document).ready(function () {
+    $(document).ready(function () {
         Contact.validation_to_contact();
     });
 </script>
