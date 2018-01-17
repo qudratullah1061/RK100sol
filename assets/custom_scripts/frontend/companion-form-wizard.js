@@ -105,21 +105,21 @@ var FormWizard = function () {
                 phone_number: {
                     required: true,
                 },
-                gender: {
-                    required: true,
-                },
                 date_of_birth: {
                     required: true,
                 },
-                country: {
+                location: {
                     required: true,
                 },
-                state: {
+                zipcode: {
                     required: true,
                 },
-                city: {
-                    required: true,
-                },
+//                state: {
+//                    required: true,
+//                },
+//                city: {
+//                    required: true,
+//                },
                 address: {
                     required: true,
                 },
@@ -150,24 +150,21 @@ var FormWizard = function () {
                 phone_number: {
                     required: true,
                 },
-                gender: {
-                    required: true,
-                },
                 date_of_birth: {
                     required: true,
                 },
-                country: {
+                location: {
                     required: true,
                 },
-                state: {
+                zipcode: {
                     required: true,
                 },
-                city: {
-                    required: true,
-                },
-                address: {
-                    required: true,
-                },
+//                state: {
+//                    required: true,
+//                },
+//                city: {
+//                    required: true,
+//                },
                 about_me: {
                     required: true
                 },

@@ -1,3 +1,5 @@
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDVw_YgvMUxH6KawXzlwM9meU3HAUnbsLQ&libraries=places&language=en"></script>
+<script src="<?php echo base_url(); ?>assets/geocode/jquery.geocomplete.js" type="text/javascript"></script>
 <?php
 $unique_id = time();
 ?>
@@ -72,10 +74,10 @@ $unique_id = time();
                         <div class="col-md-12">
                             <div class="portlet light ">
                                 <div class="portlet-title tabbable-line">
-<!--                                    <div class="caption caption-md">
-                                        <i class="icon-globe theme-font hide"></i>
-                                        <span class="caption-subject font-blue-madison bold uppercase">Profile Info</span>
-                                    </div>-->
+                                    <!--                                    <div class="caption caption-md">
+                                                                            <i class="icon-globe theme-font hide"></i>
+                                                                            <span class="caption-subject font-blue-madison bold uppercase">Profile Info</span>
+                                                                        </div>-->
                                     <ul class="nav nav-tabs">
                                         <li class="active" onclick="CommonFunctions.changeHash('#tab_1_1')">
                                             <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
@@ -164,27 +166,12 @@ $unique_id = time();
                                                 </div>
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-6">
-                                                    <label class="control-label">Country<span class="required">*</span></label>
-                                                    <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
-                                                        <?php echo isset($country_options) ? $country_options : ""; ?>
-                                                    </select>
+                                                    <label class="control-label">Location<span class="required">*</span></label>
+                                                    <input type="text" name="location" id="location" value="<?php echo $member_info['location']; ?>" class="location form-control">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label class="control-label">State<span class="required">*</span></label>
-                                                    <select class="form-control edited" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
-                                                        <?php echo isset($state_options) ? $state_options : ""; ?>
-                                                    </select>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="control-label">City<span class="required">*</span></label>
-                                                    <select class="form-control" id="dd-city" name="city">
-                                                        <?php echo isset($city_options) ? $city_options : ""; ?>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="control-label">Address<span class="required">*</span></label>
-                                                    <input type="text" placeholder="Address" name="address" value="<?php echo $member_info['address']; ?>" class="form-control" /> 
+                                                    <label class="control-label">Zip Code<span class="required">*</span></label>
+                                                    <input type="text" name="zipcode" value="<?php echo $member_info['zipcode']; ?>" id="zipcode" class="form-control">
                                                 </div>
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-6">
@@ -337,7 +324,7 @@ $unique_id = time();
                                                                     </div>
                                                                 </div>
                                                                 <div class="cbp-l-grid-projects-title uppercase text-center uppercase pic-caption-img text-center pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
-                                                                <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";         ?></div>-->
+                                                                <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";            ?></div>-->
                                                             </div>
                                                             <?php
                                                         }
@@ -421,7 +408,7 @@ $unique_id = time();
                                                                 <td><?php echo $portfolio['state_name']; ?></td>
                                                                 <td><?php echo $portfolio['city_name']; ?></td>
                                                                 <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
-                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));         ?></td>-->
+                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));            ?></td>-->
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">
@@ -507,7 +494,7 @@ $unique_id = time();
                                                             <th width="25%">Deg. Name</th>
                                                             <th width="10%">Start Date</th>
                                                             <th width="10%">End Date</th>
-                                                            
+
                                                             <th width="10%">Status</th>
                                                             <th width="10%">Actions</th>
                                                         </tr>
@@ -522,7 +509,7 @@ $unique_id = time();
                                                                 <td><?php echo $value['start_date']; ?></td>
                                                                 <td><?php echo $value['end_date']; ?></td>
 
-                                                                
+
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">
@@ -563,7 +550,7 @@ $unique_id = time();
                                                             <th>End Date</th>
 
 
-                                                           
+
                                                             <th>Pub Status</th>
                                                             <th>Actions</th>
                                                         </tr>
@@ -578,7 +565,7 @@ $unique_id = time();
                                                                 <td><?php echo $value['start_date']; ?></td>
                                                                 <td><?php echo $value['end_date']; ?></td>
 
-                                                                
+
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">
@@ -601,7 +588,7 @@ $unique_id = time();
                                             <!-- Profile images ends-->
                                             <!-- Id proof images start-->
                                         </div>
-                                        
+
                                         <div class="tab-pane" id="tab_1_8">
                                             <div id="" class="table-responsive">
                                                 <div class="table-actions-wrapper margin-bottom-20">
@@ -615,10 +602,10 @@ $unique_id = time();
                                                             <th>Image</th>
                                                             <th>Title</th>
                                                             <th>Description</th>
-                                                            
 
 
-                                                            
+
+
                                                             <th>Pub Status</th>
                                                             <th>Actions</th>
                                                         </tr>
@@ -630,9 +617,9 @@ $unique_id = time();
                                                                 <td><img alt="Certification Image" class="img-circle" src="<?php echo base_url($value['certification_image_path'] . 'small_' . $value['certification_image']); ?>"></td>
                                                                 <td><?php echo $value['title']; ?></td>
                                                                 <td><?php echo $value['description']; ?></td>
-                                                               
 
-                                                                
+
+
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">
@@ -701,14 +688,9 @@ $unique_id = time();
                 <!-- END PROFILE CONTENT -->
             </div>
         </div>
-    </div></section>
-<script>
-    $(document).ready(function () {
-        FormWizard.handleCompanionValidation("update_companion_member");
-        FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
-        PrivacyMembers.initUpdatePrivacyValidation("update_privacy_member");
-    });
-</script>
+    </div>
+</section>
+
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/privacy_members.js" type="text/javascript"></script>
@@ -724,10 +706,14 @@ $unique_id = time();
 <script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
 <script>
     $(document).ready(function () {
+        FormWizard.handleCompanionValidation("update_companion_member");
+        FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
+        PrivacyMembers.initUpdatePrivacyValidation("update_privacy_member");
         $("#portfolio_table").DataTable({"scrollX": false});
         $("#language_table").DataTable({"scrollX": false});
         $("#experience_table").DataTable({"scrollX": false});
         $("#education_table").DataTable({"scrollX": false});
         $("#certification_table").DataTable({"scrollX": false});
+        $("#location").geocomplete();
     });
 </script>

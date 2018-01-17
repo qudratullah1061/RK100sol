@@ -203,17 +203,19 @@ class Profile extends CI_Controller {
                 $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|trim|strip_tags|xss_clean|matches[password]');
             }
             $this->form_validation->set_rules('phone_number', 'Phone Number', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('gender', 'Gender', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('gender', 'Gender', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('date_of_birth', 'Date Of Birth', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('country', 'Country', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('city', 'City', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('address', 'Address', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('location', 'Location', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('zipcode', 'Zip Code', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('city', 'City', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('address', 'Address', 'required|trim|strip_tags|xss_clean');
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
             } else {
                 $data = array();
+                $geoCodesData = getGeoCodes($this->input->post('location'));
                 $data['first_name'] = $this->input->post('first_name');
                 $data['last_name'] = $this->input->post('last_name');
                 $data['username'] = $this->input->post('username');
@@ -224,10 +226,13 @@ class Profile extends CI_Controller {
                 $data['phone_number'] = $this->input->post('phone_number');
                 $data['gender'] = $this->input->post('gender');
                 $data['date_of_birth'] = $this->input->post('date_of_birth');
-                $data['country'] = $this->input->post('country');
-                $data['state'] = $this->input->post('state');
-                $data['city'] = $this->input->post('city');
-                $data['address'] = $this->input->post('address');
+                $data['location'] = $this->input->post('location');
+                $data['zipcode'] = $this->input->post('zipcode');
+                $data['country'] = $geoCodesData['country_long'];
+                $data['state'] = $geoCodesData['state_long'];
+                $data['city'] = $geoCodesData['city_long'];
+                $data['latitude'] = $geoCodesData['latitude'];
+                $data['longitude'] = $geoCodesData['longitude'];
                 $data['about_me'] = $this->input->post('about_me');
                 $data['other_interest'] = $this->input->post('other_interest');
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");

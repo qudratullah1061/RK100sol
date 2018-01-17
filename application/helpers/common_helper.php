@@ -52,6 +52,56 @@ function GetAdminInfoWithId($UserId) {
     }
 }
 
+function getGeoCodes($address = "") {
+    // Google HQ
+    if ($address != "") {
+        $prepAddr = str_replace(' ', '+', $address);
+        $geocode = file_get_contents('https://maps.google.com/maps/api/geocode/json?address=' . $prepAddr . '&sensor=false&key=AIzaSyB0Br2gkjBR3__xlPRrqP1TQhB8G2njLl8');
+        $output = json_decode($geocode);
+
+        $result_array = array();
+        $result_array['latitude'] = "";
+        $result_array['longitude'] = "";
+        $result_array['country_long'] = "";
+        $result_array['country_short'] = "";
+        $result_array['state_long'] = "";
+        $result_array['state_short'] = "";
+        $result_array['district_long'] = "";
+        $result_array['district_short'] = "";
+        $result_array['city_long'] = "";
+        $result_array['city_short'] = "";
+        $result_array['street_long'] = "";
+        $result_array['street_short'] = "";
+        if ($output->status == "OK") {
+
+            if (isset($output->results[0]->address_components) && count($output->results[0]->address_components) > 0) {
+                foreach ($output->results[0]->address_components as $comp) {
+                    if ($comp->types[0] == 'country') {
+                        $result_array['country_long'] = isset($comp->long_name) ? $comp->long_name : "";
+                        $result_array['country_short'] = isset($comp->short_name) ? $comp->short_name : "";
+                    } else if ($comp->types[0] == 'administrative_area_level_1') {
+                        $result_array['state_long'] = isset($comp->long_name) ? $comp->long_name : "";
+                        $result_array['state_short'] = isset($comp->short_name) ? $comp->short_name : "";
+                    } else if ($comp->types[0] == 'administrative_area_level_2') {
+                        $result_array['district_long'] = isset($comp->long_name) ? $comp->long_name : "";
+                        $result_array['district_short'] = isset($comp->short_name) ? $comp->short_name : "";
+                    } else if ($comp->types[0] == 'locality') {
+                        $result_array['city_long'] = isset($comp->long_name) ? $comp->long_name : "";
+                        $result_array['city_short'] = isset($comp->short_name) ? $comp->short_name : "";
+                    } else if ($comp->types[0] == 'political') {
+                        $result_array['street_long'] = isset($comp->long_name) ? $comp->long_name : "";
+                        $result_array['street_short'] = isset($comp->short_name) ? $comp->short_name : "";
+                    }
+                }
+            }
+
+            $result_array['latitude'] = isset($output->results[0]->geometry->location->lat) ? $output->results[0]->geometry->location->lat : "";
+            $result_array['longitude'] = isset($output->results[0]->geometry->location->lng) ? $output->results[0]->geometry->location->lng : "";
+        }
+        return $result_array;
+    }
+}
+
 function is_member_username_exist($username, $exclude_id) {
     global $CI;
     $exclude_id = $exclude_id > 0 ? $exclude_id : -1;
@@ -308,18 +358,16 @@ function upload_temp_image($files, $unique_id, $image_type) {
     }
 }
 
-
-function get_notifications($is_admin = 1,$member_id,$is_read = '')
-{
+function get_notifications($is_admin = 1, $member_id, $is_read = '') {
     global $CI;
     $where = '';
-   
-    if($is_read == 0 || $is_read == 1 ){
-         
-        $where = ' AND tb_notification_users.is_read = '.$is_read.'';
+
+    if ($is_read == 0 || $is_read == 1) {
+
+        $where = ' AND tb_notification_users.is_read = ' . $is_read . '';
     }
     $CI->load->model('admin/notification_model', 'Notification_Model');
-    $notifications = $CI->Notification_Model->get_all_notifications($is_admin,'AND tb_notification_users.receiver_id = '.$member_id.' '.$where.'');
+    $notifications = $CI->Notification_Model->get_all_notifications($is_admin, 'AND tb_notification_users.receiver_id = ' . $member_id . ' ' . $where . '');
     return $notifications;
 }
 
@@ -356,7 +404,8 @@ function time_elapsed_string($datetime, $full = false) {
         }
     }
 
-    if (!$full) $string = array_slice($string, 0, 1);
+    if (!$full)
+        $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
 

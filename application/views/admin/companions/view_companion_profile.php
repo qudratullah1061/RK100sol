@@ -1,3 +1,5 @@
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDVw_YgvMUxH6KawXzlwM9meU3HAUnbsLQ&libraries=places&language=en"></script>
+<script src="<?php echo base_url(); ?>assets/geocode/jquery.geocomplete.js" type="text/javascript"></script>
 <?php
 $unique_id = time();
 ?>
@@ -200,44 +202,47 @@ $unique_id = time();
                                             <label class="control-label">Date of birth<span class="required">*</span></label>
                                             <input class="form-control date-picker" size="16" type="text" data-date-format="yyyy-mm-dd" value="<?php echo $member_info['date_of_birth']; ?>" name="date_of_birth" />
                                         </div>
+                                        <!--                                        <div class="form-group col-md-6">
+                                                                                    <label class="control-label">Country<span class="required">*</span></label>
+                                                                                    <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
+                                        <?php // echo isset($country_options) ? $country_options : ""; ?>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="form-group col-md-6">
+                                                                                    <label class="control-label">State<span class="required">*</span></label>
+                                                                                    <select class="form-control edited" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
+                                        <?php // echo isset($state_options) ? $state_options : ""; ?>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="clearfix"></div>
+                                                                                <div class="form-group col-md-6">
+                                                                                    <label class="control-label">City<span class="required">*</span></label>
+                                                                                    <select class="form-control" id="dd-city" name="city">
+                                        <?php // echo isset($city_options) ? $city_options : ""; ?>
+                                                                                    </select>
+                                                                                </div>-->
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Country<span class="required">*</span></label>
-                                            <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
-                                                <?php echo isset($country_options) ? $country_options : ""; ?>
-                                            </select>
+                                            <label class="control-label">Location<span class="required">*</span></label>
+                                            <input type="text" name="location" id="location" value="<?php echo $member_info['location']; ?>" class="location form-control">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">State<span class="required">*</span></label>
-                                            <select class="form-control edited" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
-                                                <?php echo isset($state_options) ? $state_options : ""; ?>
-                                            </select>
+                                            <label class="control-label">Zip Code<span class="required">*</span></label>
+                                            <input type="text" name="zipcode" value="<?php echo $member_info['zipcode']; ?>" id="zipcode" class="form-control">
                                         </div>
                                         <div class="clearfix"></div>
-                                        <div class="form-group col-md-6">
-                                            <label class="control-label">City<span class="required">*</span></label>
-                                            <select class="form-control" id="dd-city" name="city">
-                                                <?php echo isset($city_options) ? $city_options : ""; ?>
-                                            </select>
-                                        </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label">Phone number<span class="required">*</span></label>
                                             <input type="text" placeholder="Phone Number" name="phone_number" value="<?php echo $member_info['phone_number']; ?>" class="form-control" /> 
                                         </div>
-                                        <div class="clearfix"></div>
-                                        <div class="form-group col-md-12">
-                                            <label class="control-label">Address<span class="required">*</span></label>
-                                            <input type="text" placeholder="Address" name="address" value="<?php echo $member_info['address']; ?>" class="form-control" /> 
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Other Interest</label>
+                                            <input class="form-control" name="other_interest" value="<?php echo $member_info['other_interest']; ?>" placeholder="Other Interest"/>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-12">
                                             <label class="control-label">About</label>
                                             <textarea class="form-control" rows="3" name="about_me" placeholder="About Me"><?php echo $member_info['about_me']; ?></textarea>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="form-group col-md-12">
-                                            <label class="control-label">Other Interest</label>
-                                            <textarea class="form-control" rows="3" name="other_interest" placeholder="Other Interest"><?php echo $member_info['other_interest']; ?></textarea>
                                         </div>
                                         <div class="clearfix"></div>
                                         <hr/>
@@ -546,7 +551,7 @@ $unique_id = time();
                                                     <th>End Date</th>
 
 
-                                                    
+
                                                     <th>Pub Status</th>
                                                     <th>Actions</th>
                                                 </tr>
@@ -561,7 +566,7 @@ $unique_id = time();
                                                         <td><?php echo $value['start_date']; ?></td>
                                                         <td><?php echo $value['end_date']; ?></td>
 
-                                                        
+
                                                         <td>
                                                             <div class="md-checkbox-inline">
                                                                 <div class="md-checkbox">
@@ -602,7 +607,7 @@ $unique_id = time();
                                                     <th>End Date</th>
 
 
-                                                    
+
                                                     <th>Pub Status</th>
                                                     <th>Actions</th>
                                                 </tr>
@@ -617,7 +622,7 @@ $unique_id = time();
                                                         <td><?php echo $value['start_date']; ?></td>
                                                         <td><?php echo $value['end_date']; ?></td>
 
-                                                        
+
                                                         <td>
                                                             <div class="md-checkbox-inline">
                                                                 <div class="md-checkbox">
@@ -656,7 +661,7 @@ $unique_id = time();
 
 
 
-                                                    
+
                                                     <th>Pub Status</th>
                                                     <th>Actions</th>
                                                 </tr>
@@ -670,7 +675,7 @@ $unique_id = time();
                                                         <td><?php echo $value['description']; ?></td>
 
 
-                                                        
+
                                                         <td>
                                                             <div class="md-checkbox-inline">
                                                                 <div class="md-checkbox">
@@ -739,13 +744,6 @@ $unique_id = time();
         <!-- END PROFILE CONTENT -->
     </div>
 </div>
-
-<script>
-    $(document).ready(function () {
-        FormWizard.handleCompanionValidation("update_companion_member");
-        FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
-    });
-</script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/companion-form-wizard.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/member_subscription_update.js" type="text/javascript"></script>
@@ -760,11 +758,14 @@ $unique_id = time();
 <script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
-    $(document).ready(function () {
-        $("#portfolio_table").DataTable({"scrollX": false});
-        $("#language_table").DataTable({"scrollX": false});
-        $("#experience_table").DataTable({"scrollX": false});
-        $("#education_table").DataTable({"scrollX": false});
-        $("#certification_table").DataTable({"scrollX": false});
-    });
+$(document).ready(function () {
+    FormWizard.handleCompanionValidation("update_companion_member");
+    FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
+    $("#portfolio_table").DataTable({"scrollX": false});
+    $("#language_table").DataTable({"scrollX": false});
+    $("#experience_table").DataTable({"scrollX": false});
+    $("#education_table").DataTable({"scrollX": false});
+    $("#certification_table").DataTable({"scrollX": false});
+    $("#location").geocomplete();
+});
 </script>

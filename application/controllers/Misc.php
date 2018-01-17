@@ -281,7 +281,6 @@ class Misc extends CI_Controller {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
-            
             $this->form_validation->set_rules('name', 'Full Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('email', 'Email', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('phone', 'Phone', 'required|trim|strip_tags|xss_clean');
@@ -298,7 +297,6 @@ class Misc extends CI_Controller {
                 $data['subject'] = $this->input->post('subject');
                 $data['comment'] = $this->input->post('comment');
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
-                
                 $result = $this->Misc_Model->add_contact($data);
                 if($result)
                 {
@@ -306,8 +304,6 @@ class Misc extends CI_Controller {
                 } else {
                     $this->_response(true, "Error while sending requrst!");
                 }
-                
-                
             }
         } else {
             redirect(base_url('misc/contact'));
