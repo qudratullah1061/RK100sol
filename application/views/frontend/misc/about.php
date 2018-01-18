@@ -1,4 +1,4 @@
-<section class="wow fadeIn faq-header cover-background background-position-top top-space">
+<section class="wow fadeIn faq-header cover-background background-position-top">
     <div class="opacity-medium bg-purple "></div>
     <div class="container">
         <div class="row">
@@ -53,20 +53,13 @@
     </div>
 </section>
 
-<section class="wow fadeIn faq-header cover-background background-position-top top-space">
+<section class="wow fadeIn faq-header cover-background background-position-top">
     <div class="opacity-medium bg-purple "></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
                 <div class="display-table-cell vertical-align-middle text-center padding-30px-tb">
-                    <!-- start sub title -->
-
-                    <!-- end sub title -->
-                    <!-- start page title -->
-                    <!--<span class="display-block text-white opacity6 width-45 sm-width-100 center-col alt-font margin-10px-bottom">Members </span>-->
-                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom text-uppercase">Members OFFERING SERVICES</h1>
-                    <!--<span class="display-block text-white opacity6 width-45 sm-width-100 center-col alt-font margin-10px-bottom">Guest Members</span>-->
-                    <!-- end page title -->
+                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom text-uppercase large-heading">Members OFFERING SERVICES</h1>
                 </div>
             </div>
         </div>
@@ -89,19 +82,13 @@
 </section>
 
 
-<section class="wow fadeIn faq-header cover-background background-position-top top-space">
+<section class="wow fadeIn faq-header cover-background background-position-top">
     <div class="opacity-medium bg-purple "></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
                 <div class="display-table-cell vertical-align-middle text-center padding-30px-tb">
-                    <!-- start sub title -->
-                    <!-- end sub title -->
-                    <!-- start page title -->
-<!--                    <span class="display-block text-white opacity6 width-45 sm-width-100 center-col alt-font margin-10px-bottom">Konsorts Founder</span>-->
-                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom text-uppercase">Konsorts Founder</h1>
-                    <!--<span class="display-block text-white opacity6 width-45 sm-width-100 center-col alt-font margin-10px-bottom">Guest Members</span>-->
-                    <!-- end page title -->
+                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom text-uppercase large-heading">Konsorts Founder</h1>
                 </div>
             </div>
         </div>
