@@ -261,13 +261,13 @@
                                             <span class="title">Add Service Member</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('companion', 'add'); ?>">
-                                        <a href="<?php echo base_url('admin/companions/add_companion'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-plus"></i>-->
+<!--                                    <li class="nav-item <?php // ActivateCurrentLink('companion', 'add'); ?>">
+                                        <a href="<?php // echo base_url('admin/companions/add_companion'); ?>" class="nav-link ">
+                                            <i class="fa fa-plus"></i>
                                             <span class="title">Members Activities</span>
                                             <span class="badge badge-success">1</span>
                                         </a>
-                                    </li>
+                                    </li>-->
                                 </ul>
                             </li>
                             <li class="nav-item <?php ActivateParentLink('guest'); ?>">

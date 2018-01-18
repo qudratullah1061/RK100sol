@@ -179,6 +179,7 @@ class Profile extends CI_Controller {
         if ($plan_type == 'silver' || $plan_type == 'gold') {
             $data['country_options'] = GetCountriesOption();
             $data['categories'] = GetAllCategories();
+            $data['plan_type'] = $plan_type;
             $this->load->view('frontend/companions/signup', $data);
         } else {
             redirect(base_url('auth/register'));
@@ -259,6 +260,7 @@ class Profile extends CI_Controller {
                 } else {
                     $macros_data = array();
                     $data['member_type'] = 2;
+                    $data['plan_type'] = $this->input->post('plan_type');
                     $data['membership_type'] = 'Companion';
                     $data['subscription_date'] = date('Y-m-d H:i:s');
                     $data['end_subscription_date'] = date('Y-m-d H:i:s', strtotime("+1 month"));

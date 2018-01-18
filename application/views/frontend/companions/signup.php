@@ -16,6 +16,7 @@
                     <div class="form-wizard">
                         <div class="form-body">
                             <input type="hidden" name='call_type' value="add">
+                            <input type="hidden" name='plan_type' value="<?php echo isset($plan_type) ? $plan_type : ""; ?>">
                             <ul class="nav nav-pills nav-justified steps">
                                 <li>
                                     <a href="#tab1" data-toggle="tab" class="step active">
