@@ -1,4 +1,4 @@
-<section class="wow fadeIn faq-header cover-background background-position-top top-space">
+<section class="wow fadeIn faq-header cover-background background-position-top">
     <div class="opacity-medium bg-purple "></div>
     <div class="container">
         <div class="row">
@@ -8,7 +8,7 @@
                     <!--<span class="display-block text-white opacity6 width-45 sm-width-100 center-col alt-font margin-10px-bottom">Frequently asked questions</span>-->
                     <!-- end sub title -->
                     <!-- start page title -->
-                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom">A SECURE COMMUNITY</h1>
+                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom large-heading">A SECURE COMMUNITY</h1>
 
 
 

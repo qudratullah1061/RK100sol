@@ -1,4 +1,4 @@
-<section class="wow fadeIn faq-header cover-background background-position-top top-space">
+<section class="wow fadeIn faq-header cover-background background-position-top">
     <div class="opacity-medium bg-purple "></div>
     <div class="container">
         <div class="row">
