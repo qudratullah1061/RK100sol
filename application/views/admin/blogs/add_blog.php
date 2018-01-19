@@ -80,6 +80,11 @@
                             <select name="tag_id[]" multiple="" id="blog_tags" class="form-control">
                                 <?php if(isset($tags_data)) { foreach ($tags_data as $tag) {
                                 $selected = "";
+                                if(isset($selected_tags) && $selected_tags != ''){
+                                    $selected_tags = $selected_tags;
+                                }else{
+                                    $selected_tags = array();
+                                }
                                 if (in_array($tag->tag_id, array_column($selected_tags, 'tag_id'))) {
                                     $selected = 'selected="selected"';
                                 } ?>
@@ -103,6 +108,11 @@
                                                 if ($sub_categories && count($sub_categories) > 0) {
                                                     foreach ($sub_categories as $sub_cat) {
                                                     $selected = "";
+                                                    if(isset($selected_categories) && $selected_categories != ''){
+                                                        $selected_categories = $selected_categories;
+                                                    }else{
+                                                        $selected_categories = array();
+                                                    }
                                                     if (in_array($sub_cat['sub_category_id'], array_column($selected_categories, 'sub_category_id')) && in_array($category['category_id'], array_column($selected_categories, 'category_id'))) {
                                                         $selected = 'checked="checked"';
                                                     }
