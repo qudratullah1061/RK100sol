@@ -133,6 +133,8 @@ var CommonFunctions = function () {
                                         $('#datatable_categories').DataTable().ajax.reload();
                                     } else if (table == 'tb_sub_categories') {
                                         $('#datatable_sub_categories').DataTable().ajax.reload();
+                                    } else if (table == 'tb_blogs') {
+                                        $('#datatable_blogs').DataTable().ajax.reload();
                                     } else if (table == 'tb_members') {
                                         if ($('#datatable_guests').length > 0)
                                             $('#datatable_guests').DataTable().ajax.reload();
