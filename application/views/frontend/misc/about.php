@@ -53,7 +53,7 @@
     </div>
 </section>
 
-<section class="wow fadeIn faq-header cover-background background-position-top">
+<section class="wow fadeIn cover-background background-position-top padding-0">
     <div class="opacity-medium bg-purple "></div>
     <div class="container">
         <div class="row">
@@ -82,7 +82,7 @@
 </section>
 
 
-<section class="wow fadeIn faq-header cover-background background-position-top">
+<section class="wow fadeIn cover-background background-position-top padding-0">
     <div class="opacity-medium bg-purple "></div>
     <div class="container">
         <div class="row">

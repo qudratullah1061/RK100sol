@@ -204,7 +204,7 @@ nav.navbar.bootsnav ul.nav>li>a:hover,
 .margin-60px-tb{margin-top:60px; margin-bottom: 60px;}
 
 .padding-60px-tb{padding-top: 60px; padding-bottom: 60px;}
-
+.padding-0{padding: 0;}
 /* 16px gutter */
 
 .gutter-16.row {margin-right: -8px;margin-left: -8px;}
@@ -1119,16 +1119,19 @@ section.faq-header span {
 /*Media Quries*/ 
 
 
-.help-block-error{
+#form-add-contact .help-block-error{
     color: maroon !important;
     background-color: rgba(255,255,255, .3);
     padding: 0px 10px;
     border-radius: 2px;
     font-size: 11px;
-    margin-top: 11px;
+    /*margin-top: 11px;*/
     font-weight: bold;
     line-height: 26px;
-    border: 1px solid #828282;
+    /*border: 1px solid #828282;*/
+}
+.ui-widget.ui-widget-content {
+    z-index: 9 !important;
 }
 .block-spinner-bar > div{
     background: purple !important;
@@ -1552,6 +1555,22 @@ header.sticky nav.header-light .logo .logo-light {
 header.sticky nav.header-light .logo .logo-dark {
     display:none;
 }
+.alert p {
+    margin-bottom: 0;
+}
+.alert button.close {
+    text-indent: 1px;
+    position: absolute;
+    right: 30px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 999;
+    opacity: .7;
+    width: auto;
+    height: auto;
+    top:12px;
+    color:#611616;
+}
 @media(min-width:1199px) {
     .career-box p {padding-right: 114px;text-align: justify;}
 }
@@ -1587,7 +1606,7 @@ header.sticky nav.header-light .logo .logo-dark {
     .search-box .col-1 {padding-right: 0px;width: 100%;}
     .search-box .btn {margin-top: 10px;}
 
-    .faq-header, .pricing.membership-plans {
+    .faq-header, .pricing.membership-plans, .signup-full-cover-image, .login-page {
         margin-top: 96px;
     }
     .navbar-nav li > a, nav.navbar.navbar-default ul.nav > li > a, nav.navbar-brand-top.navbar.navbar-default ul.nav > li > a, header .navbar-nav li > a, header nav.navbar-fixed-top.header-light-transparent.white-link .navbar-nav > li > a, header nav.navbar-fixed-top.header-light.white-link .navbar-nav > li > a, nav.navbar.bootsnav li.dropdown ul.mega-menu-full li > a, header.sticky nav.navbar.navbar-default.navbar-fixed-top ul.nav > li > a, header.sticky nav.navbar.navbar-default.navbar-top ul.nav > li > a, nav.navbar.bootsnav li.dropdown ul.mega-menu-full li.dropdown-header{padding:10px 20px; color:#fff; margin: 0;}
@@ -1609,6 +1628,17 @@ header.sticky nav.header-light .logo .logo-dark {
     section.guide .container>div:last-child {padding-top: 0;}
     footer .padding-70px-left {padding-left: 15px;}
     .footer-mid .form-inline .form-control {margin-right: 10px;max-width: 200px;}
+    .panel-login form>.form-group.row div {
+        width: auto;
+    }
+
+    .panel-login form>.form-group.row div:first-child {
+        float: left;
+    }
+
+    .panel-login form>.form-group.row div:last-child {
+        float: right;
+    }
 }
 @media(max-width:768px){
     .guide-media img {width: 100%;margin-bottom: 30px;}
@@ -1618,12 +1648,8 @@ header.sticky nav.header-light .logo .logo-dark {
 
 }
 @media(max-width:767px){
-    .navbar-fixed-top, .navbar-fixed-top.sticky .navbar-fixed-top {
-        position: static;
-    }
-    .home-banner {
-        margin-top: 0 !important;
-    }
+    .navbar-fixed-top, .navbar-fixed-top.sticky .navbar-fixed-top {position: static;}
+    .home-banner {margin-top: 0 !important;}
     .search-box .btn {width: 100%;}
     .cat-members .portfolio-grid.work-6col li, .cat-members .blog-grid.blog-6col li,
     .portfolio-grid.work-6col li {width: 33.33333%;padding: 10px 10px;}
@@ -1638,25 +1664,13 @@ header.sticky nav.header-light .logo .logo-dark {
     footer .small-icon li {display: inline-block;float: none;}
     footer .small-icon {text-align: center;}
     .footer-mid .small-icon li span {margin-right: 0;}
-    .faq-header, .pricing.membership-plans {
-        margin-top: 0;
-    }
+    .faq-header, .pricing.membership-plans, .signup-full-cover-image, .login-page {margin-top: 0;}
     /*temp*/
     header nav .nav-header-container{padding: 0;}
     header nav .row{margin:0;}
-    .faq .panel-title {
-        position: relative;
-    }
-
-    .faq .panel-title .tab-tag {
-        position: absolute;
-        top: calc(50% - 10px);
-        font-size: 16px;
-    }
-    .faq .panel-title .tab-tag+span {
-        padding-left: 38px;
-        width: 93%;
-    }
+    .faq .panel-title {position: relative;}
+    .faq .panel-title .tab-tag {position: absolute;top: calc(50% - 10px);font-size: 16px;}
+    .faq .panel-title .tab-tag+span {padding-left: 38px;width: 93%;}
 }
 @media(max-width:676px){
     .cat-members .portfolio-grid.work-6col li, .cat-members .blog-grid.blog-6col li,
@@ -1672,6 +1686,7 @@ header.sticky nav.header-light .logo .logo-dark {
     .home-banner h4 {font-size: 32px;line-height: 40px;margin-bottom: 12px;}
     .home-banner .btn {text-transform: unset;margin-right: 10px;}
     .title-bar {font-size: 16px;}
+    .login-page .inner {width: calc(100% - 20px);}
 }
 @media(max-width:414px){
     .search-box {padding: 30px 15px 30px;}
@@ -1684,27 +1699,19 @@ header.sticky nav.header-light .logo .logo-dark {
     .pricing-lists {padding-right: 10px;}
     .bright-career .container {padding: 0;}
     .guide-text h4 {font-size: 20px;}
-    .footer-mid .form-inline .form-control {
-        margin-right: 2px;
-    }
-    .footer-mid .btn.btn-deep-purple {
-        top: -2px;
-    }
-    .footer-logo {
-        max-height: 45px;
-    }
-    header a.logo img, header.sticky nav.header-light .logo .logo-light {
-        max-height: 36px;
-    }
-    .page-title-large h1.large-heading {
-        font-size: 20px;
-    }
-    .faq .accordion-style2 .panel .panel-heading {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .faq .panel-title .tab-tag+span {
-        font-size: 14px;
+    .footer-mid .form-inline .form-control {margin-right: 2px;}
+    .footer-mid .btn.btn-deep-purple {top: -2px;}
+    .footer-logo {max-height: 45px;}
+    header a.logo img, header.sticky nav.header-light .logo .logo-light {max-height: 36px;}
+    .page-title-large h1.large-heading {font-size: 20px;}
+    .faq .accordion-style2 .panel .panel-heading {padding-left: 0;padding-right: 0;}
+    .faq .panel-title .tab-tag+span {font-size: 14px;}
+    h3.sbold {font-size: 20px;margin-bottom: 4px;}
+    .add-guest .portlet.light {padding-left: 0;padding-right: 0;}
+    section.signup-full-cover-image .caption {font-size: 15px !important;line-height: 20px !important;}
+    #form_wizard_1.portlet.light > .portlet-title > .caption > .caption-subject {
+        font-size: 13px; 
+        float: left; 
     }
 }
 @media(max-width:375px){

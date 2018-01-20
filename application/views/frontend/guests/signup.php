@@ -17,7 +17,7 @@ $unique_id = time();
                         <!-- BEGIN PROFILE SIDEBAR -->
                         <div class="profile-sidebar">
                             <!-- PORTLET MAIN -->
-                            <div class="portlet light profile-sidebar-portlet ">
+                            <div class="row portlet light profile-sidebar-portlet ">
                                 <!-- SIDEBAR USERPIC -->
                                 <!--<div class="">-->
                                 <!--<div class="row">-->
