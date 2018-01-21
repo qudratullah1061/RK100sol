@@ -121,6 +121,11 @@ class Blogs_model extends Abstract_model {
         return $this->getAll("is_active", 1);
     }
     
+    public function get_all_active_blogs() {
+        $this->table_name = "tb_blogs";
+        return $this->getAll("is_active", 1);
+    }
+    
     function AddUpdateBlogCategories($blog_categories, $blog_id, $added_by = 0) {
         if ($blog_id) {
             // delete previous member ids

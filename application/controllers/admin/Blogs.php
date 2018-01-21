@@ -298,11 +298,12 @@ class Blogs extends Admin_Controller {
                 
                 //Upload Author Image
                 if (isset($_FILES['author_image']['name']) && $_FILES['author_image']['name'] != "") {
+                    $thumb_options = array();
                     $author_images = $_FILES['author_image'];
                     $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/authors/';
                     $thumb_options[0] = array('width' => 30, 'height' => 30, 'prefix' => 'small_');
                     $thumb_options[1] = array('width' => 100, 'height' => 100, 'prefix' => 'medium_');
-                    $thumb_options[1] = array('width' => 270, 'height' => 180, 'prefix' => 'large_');
+                    $thumb_options[2] = array('width' => 270, 'height' => 180, 'prefix' => 'large_');
                     $file_name = basename($author_images['name']);
                     $author_image_name = time() . $file_name;
                     $f_file_path = $f_upload_dir . '/' . $author_image_name;
@@ -319,6 +320,7 @@ class Blogs extends Admin_Controller {
                 
                 //Upload Blog Image
                 if (isset($_FILES['blog_image']['name']) && $_FILES['blog_image']['name'] != "") {
+                    $thumb_options = array();
                     $blog_images = $_FILES['blog_image'];
                     $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/blog_images/';
                     $thumb_options[0] = array('width' => 270, 'height' => 180, 'prefix' => 'medium_');
@@ -353,6 +355,7 @@ class Blogs extends Admin_Controller {
                         $blog_des['blog_description'] = $bl_data['blog_description'];
                         // upload Blog Description images , add call
                         if (isset($_FILES['blog_data']['name'][$counter]['blog_description_image']) && $_FILES['blog_data']['name'][$counter]['blog_description_image'] != "") {
+                            $thumb_options = array();
                             $blog_description_images = $_FILES['blog_data']['name'][$counter]['blog_description_image'];
                             $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/blog_description/';
                             $thumb_options[0] = array('width' => 150, 'height' => 150, 'prefix' => 'small_');
@@ -370,6 +373,7 @@ class Blogs extends Admin_Controller {
                         $blog_des['blog_feature_description'] = $bl_data['blog_feature_description'];
                         // upload Feature Description images , add call
                         if (isset($_FILES['blog_data']['name'][$counter]['blog_feature_image']) && $_FILES['blog_data']['name'][$counter]['blog_feature_image'] != "") {
+                            $thumb_options = array();
                             $blog_feature_images = $_FILES['blog_data']['name'][$counter]['blog_feature_image'];
                             $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/feature_description/';
                             $thumb_options[0] = array('width' => 75, 'height' => 26, 'prefix' => 'small_');
