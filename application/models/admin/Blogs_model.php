@@ -161,5 +161,9 @@ class Blogs_model extends Abstract_model {
             }
         }
     }
-
+    
+    function deleteByWhereInArray($table , $where){
+        $this->table_name = $table;
+        $this->deleteByWhereIN($where);
+    }
 }

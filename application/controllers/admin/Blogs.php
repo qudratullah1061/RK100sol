@@ -395,7 +395,10 @@ class Blogs extends Admin_Controller {
                     }
                 }
                 // update edit form data
-                $edited_blog_description_ids = $this->input->post('blog_description_id');
+                $edited_blog_description_ids = $this->input->post('blog_description_ids');
+                $hidden_blog_description_ids = $this->input->post('hidden_blog_description_ids');
+                // where array filter delete.
+                $where_array = explode(",", $hidden_blog_description_ids);
                 $edited_blog_description = $this->input->post('blog_description');
                 $edited_blog_feature_description = $this->input->post('blog_feature_description');
                 if (count($edited_blog_description_ids) > 0) {
@@ -447,8 +450,18 @@ class Blogs extends Admin_Controller {
                             $result_desc = true;
                         }
                     }
-                } else {
-                    //delete all items from description table.
+                }
+                //delete all items from description table which are removed on update call.
+                if ($where_array) {
+                    if ($edited_blog_description_ids) {
+                        // filter items
+                        $delete_filtered = array_diff($where_array, $edited_blog_description_ids);
+                    } else {
+                        $delete_filtered = $where_array;
+                    }
+                    if ($delete_filtered) {
+                        $this->Blogs_Model->deleteByWhereInArray('tb_blog_descriptions', $delete_filtered);
+                    }
                 }
 
                 // Adding Categories

@@ -102,6 +102,11 @@ class Abstract_model extends CI_Model {
         return $this->db->delete($this->table_name, $where_clause);
     }
 
+    public function deleteByWhereIN($ids_array = array()) {
+        $this->db->where_in('blog_description_id', $ids_array);
+        return $this->db->delete($this->table_name);
+    }
+
     public function or_where($data) {
         $this->db->select('*');
         $this->db->or_where_in('role', $data);
@@ -204,18 +209,13 @@ class Abstract_model extends CI_Model {
         }
         return $this->db->get()->num_rows();
     }
-    
-    
-    
-    public function insert_batch($data)
-    {
+
+    public function insert_batch($data) {
         return $this->db->insert_batch($this->table_name, $data);
     }
-	
-    public function update_batch($data,$update_by)
-    {
-        return $this->db->update_batch($this->table_name, $data,$update_by);
 
+    public function update_batch($data, $update_by) {
+        return $this->db->update_batch($this->table_name, $data, $update_by);
     }
 
 }

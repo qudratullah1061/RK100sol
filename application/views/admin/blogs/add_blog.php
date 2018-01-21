@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">Author Image</label>
+                        <label class="col-md-2 control-label">Author Image <span class="label label-sm label-info">(300*200)</span></label>
                         <div class="col-md-10">
                             <?php if (isset($blog_data->author_image_path) && isset($blog_data->author_image)) { ?>
                                 <img src="<?php echo base_url($blog_data->author_image_path . $blog_data->author_image); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">Blog Image</label>
+                        <label class="col-md-2 control-label">Blog Image <span class="label label-sm label-info">(300*200)</span></label>
                         <div class="col-md-10">
                             <?php if (isset($blog_data->blog_image_path) && isset($blog_data->blog_image)) { ?>
                                 <img src="<?php echo base_url($blog_data->blog_image_path . $blog_data->blog_image); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
@@ -63,17 +63,22 @@
                             <input name="blog_image" type="file" class="form-control" />
                         </div>
                     </div>
-                    <div class="md-checkbox-inline">
-                        <div class="md-checkbox">
-                            <input type="checkbox" <?php echo (isset($blog_data->is_active) && $blog_data->is_active) ? "checked='checked'" : ""; ?> name="is_active" id="checkbox" class="md-check">
-                            <label for="checkbox">
-                                <span></span>
-                                <span class="check"></span>
-                                <span class="box"></span>
-                                Activate
-                            </label>
+                    <br/>
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="md-checkbox-inline">
+                            <div class="md-checkbox">
+                                <input type="checkbox" <?php echo (isset($blog_data->is_active) && $blog_data->is_active) ? "checked='checked'" : ""; ?> name="is_active" id="checkbox" class="md-check">
+                                <label for="checkbox">
+                                    <span></span>
+                                    <span class="check"></span>
+                                    <span class="box"></span>
+                                    Activate
+                                </label>
+                            </div>
                         </div>
                     </div>
+                    <br/>
+                    <br/>
                     <div class="form-group">
                         <label class="col-md-2 control-label">Select Tag</label>
                         <div class="col-md-10">
@@ -159,15 +164,17 @@
                                 <label class="col-md-1 control-label"></label>
                                 <div class="col-md-10">
                                     <div class="mt-repeater">
-                                        <?php
-                                        if (isset($blog_descriptions) && count($blog_descriptions) > 0) {
+                                        <?php if (isset($blog_descriptions) && count($blog_descriptions) > 0) {
+                                            ?>
+                                            <input type="hidden" name="hidden_blog_description_ids" value="<?php echo implode(",", array_column($blog_descriptions, 'blog_description_id')); ?>">
+                                            <?php
                                             foreach ($blog_descriptions as $blog_des) {
                                                 ?>
                                                 <div data-repeater-item class="row remove-edit-block">
-                                                    <input type="hidden" name="blog_description_id[]" value="<?php echo isset($blog_des['blog_description_id']) ? $blog_des['blog_description_id'] : ""; ?>">
+                                                    <input type="hidden" name="blog_description_ids[]" value="<?php echo isset($blog_des['blog_description_id']) ? $blog_des['blog_description_id'] : ""; ?>">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <label class="control-label">Image</label>
+                                                            <label class="control-label"><span class="label label-sm label-info">(850*600)</span> Image</label>
                                                             <?php if ($blog_des['blog_description_image'] != "") { ?>
                                                                 <img src="<?php echo base_url($blog_des['blog_description_image_path'] . $blog_des['blog_description_image']); ?>" style="width: 50px; height: 50px; border-radius: 10px !important; margin-left: 50px;">
                                                             <?php } ?>
@@ -181,7 +188,7 @@
                                                     <div class="clearfix"></div>
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <label class="control-label">Feature Image</label>
+                                                            <label class="control-label"><span class="label label-sm label-info">(370*265)</span> Feature Image</label>
                                                             <?php if ($blog_des['blog_feature_image'] != "") { ?>
                                                                 <img src="<?php echo base_url($blog_des['blog_feature_image_path'] . $blog_des['blog_feature_image']); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
                                                             <?php } ?>
@@ -199,7 +206,6 @@
                                                         <!--</div>-->
                                                     </div>
                                                 </div>
-
                                                 <?php
                                             }
                                         }
@@ -208,7 +214,7 @@
                                             <div data-repeater-item class="row">
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label class="control-label">Image</label>
+                                                        <label class="control-label"><span class="label label-sm label-info">(850*600)</span> Image</label>
                                                         <input name="blog_description_image" type="file" class="form-control" />
                                                     </div>
                                                     <div class="col-md-7">
@@ -219,7 +225,7 @@
                                                 <div class="clearfix"></div>
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label class="control-label">Feature Image</label>
+                                                        <label class="control-label"><span class="label label-sm label-info">(370*265)</span> Feature Image</label>
                                                         <input name="blog_feature_image" type="file" class="form-control" />
                                                     </div>
                                                     <div class="col-md-7">
@@ -235,7 +241,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <hr>
+
                                         <a href="javascript:;" data-repeater-create class="btn btn-info mt-repeater-add">
                                             <i class="fa fa-plus"></i> Add More Blog Data</a>
                                         <br>
@@ -250,7 +256,7 @@
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn btn-circle green">Submit</button>
-                                <a href='<?php echo base_url('admin/blogs/view_blogs'); ?>' class="btn btn-circle grey-salsa btn-outline">Cancel</button>
+                                <a href='<?php echo base_url('admin/blogs/view_blogs'); ?>' class="btn btn-circle grey-salsa btn-outline">Cancel</a>
                             </div>
                         </div>
                     </div>
