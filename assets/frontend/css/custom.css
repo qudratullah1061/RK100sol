@@ -1490,7 +1490,10 @@ ul.hosting-list li {
 }
 .homestay-articles .portfolio-grid .grid-item figure img {
     max-width: 100%;
-    max-height: -webkit-fill-available;
+    /*max-height: -webkit-fill-available;*/
+}
+.homestay-articles .hover-option6 .grid-item .portfolio-icon a {
+    line-height: 28px;
 }
 .homestay-articles .container .hover-option6 .grid-item figcaption{background: transparent; padding-left: 0;padding-right: 0;padding-top: 18px;padding-bottom: 18px;}
 .homestay-articles {
@@ -1591,7 +1594,10 @@ header.sticky nav.header-light .logo .logo-dark {
         padding-left: 0;
         margin-top: 20px;
     }
-
+    /*profile page*/
+    .profile-portfolio .portfolio-grid.work-4col li {
+        width: 25%;
+    }
 }
 @media(max-width:991px){
     .search-box .btn {width: 270px;}
@@ -1647,6 +1653,19 @@ header.sticky nav.header-light .logo .logo-dark {
     .homestay-articles h5 {
         font-size: 28px;
     }
+
+    .profile-portfolio .portfolio-grid.work-4col li {
+        width: 50%;
+    }
+    .profile-portfolio .portfolio-grid.work-4col li {
+        width: 50%;
+        max-height: 200px;
+    }
+    .profile-portfolio .portfolio-grid .grid-item figure img {
+        /*height: 100% !important;*/
+        max-height: 200px !important;
+        /*width: 100% !important;*/
+    }
 }
 @media(max-width:768px){
     .guide-media img {width: 100%;margin-bottom: 30px;}
@@ -1679,6 +1698,12 @@ header.sticky nav.header-light .logo .logo-dark {
     .faq .panel-title {position: relative;}
     .faq .panel-title .tab-tag {position: absolute;top: calc(50% - 10px);font-size: 16px;}
     .faq .panel-title .tab-tag+span {padding-left: 38px;width: 93%;}
+    .profile-portfolio .portfolio-grid.work-4col li{
+        padding: 10px 5px;
+    }
+    section.profle {
+        margin-top: 0;
+    }
 }
 @media(max-width:676px){
     .cat-members .portfolio-grid.work-6col li, .cat-members .blog-grid.blog-6col li,
@@ -1691,6 +1716,13 @@ header.sticky nav.header-light .logo .logo-dark {
     .portfolio-grid .feature-box{padding:0;}
     .home-banner h4 br {display: none;}
     .homestay-articles h5 {font-size: 23px;margin-left: 0;}
+}
+
+@media (max-width:767px) and (min-width:568px){
+    .homestay-articles .portfolio-grid.work-4col li {
+        width: 50%;
+        padding: 5px 10px;;
+    }
 }
 @media(max-width:568px){
     .home-banner h4 {font-size: 32px;line-height: 40px;margin-bottom: 12px;}
@@ -1729,6 +1761,15 @@ header.sticky nav.header-light .logo .logo-dark {
     #form_wizard_1.portlet.light > .portlet-title > .caption > .caption-subject {
         font-size: 13px; 
         float: left; 
+    }
+    .profile-portfolio .portfolio-grid.work-4col li {
+        width: 100%;
+        max-height: unset;
+    }
+    .profile-portfolio .portfolio-grid .grid-item figure img {
+        /*height: 100% !important;*/
+        max-height: unset !important;
+        /*width: 100% !important;*/
     }
 }
 @media(max-width:375px){
