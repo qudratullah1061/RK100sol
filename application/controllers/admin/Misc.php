@@ -483,9 +483,11 @@ class Misc extends Admin_Controller {
     function modal_subscription_date() {
         $this->isAjax();
         $member_id = $this->input->post('member_id');
+        $member_info = $this->Members_Model->get_member_by_id($member_id);
         $end_subscription_date = $this->input->post('end_subscription_date');
         $data['member_id'] = $member_id;
         $data['end_subscription_date'] = $end_subscription_date;
+        $data['show_on_homepage'] = isset($member_info['show_on_homepage']) ? $member_info['show_on_homepage'] : 0;
         $html = $this->load->view('admin/misc/update_member_subscription', $data, TRUE);
         echo json_encode(array('key' => true, 'value' => $html));
         die();
@@ -496,15 +498,16 @@ class Misc extends Admin_Controller {
         if ($this->input->post()) {
             $data = array();
             $end_subscription_date = $this->input->post('end_subscription_date');
+            $show_on_homepage = $this->input->post('show_on_homepage');
             $member_id = $this->input->post('member_id');
             $this->form_validation->set_rules('end_subscription_date', 'End subscription date', 'required|trim|strip_tags|xss_clean');
-
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
             } else {
                 $data = array();
                 $data['end_subscription_date'] = $this->input->post('end_subscription_date');
                 $data['member_id'] = $member_id;
+                $data['show_on_homepage'] = $show_on_homepage;
                 $data['updated_on'] = date("Y-m-d H:i:s");
                 if ($member_id > 0) {
                     $this->Members_Model->update_member($member_id, $data);
