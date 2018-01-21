@@ -324,7 +324,7 @@
                                             <span class="title">Add Blog</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('blog', 'view_blogs'); ?>">
+                                    <li class="nav-item <?php ActivateCurrentLink('blogs', 'view_blogs'); ?>">
                                         <a href="<?php echo base_url('admin/blogs/view_blogs'); ?>" class="nav-link ">
                                             <!--<i class="fa fa-eye"></i>-->
                                             <span class="title">View Blogs</span>

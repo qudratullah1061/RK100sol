@@ -97,7 +97,6 @@
 
                 <div class="profile-certification">
                     <div class="profile-cert-head"><h6>Certification:</h6></div>
-
                     <?php
                     if (count($certifications) > 0) {
                         foreach ($certifications as $value) {
@@ -105,7 +104,7 @@
                             <div class="certification-odd">
                                 <a class="" href="javascript:Certifications.modal_show_certification(<?php echo $value['member_certification_id']; ?>)">
                                     <p><?php echo $value['title']; ?></p>
-                                    <span><?php echo strlen($value['issued_by']) > 30 ? substr($value['issued_by'], 0, 30)."..." : $value['issued_by']; ?></span>                        
+                                    <span><?php echo strlen($value['issued_by']) > 30 ? substr($value['issued_by'], 0, 30) . "..." : $value['issued_by']; ?></span>                        
                                 </a>
                             </div>    
                             <?php
@@ -143,11 +142,12 @@
                         <div class="row">
                             <div class="col-md-12 no-padding xs-padding-15px-lr">
                                 <div class="filter-content overflow-hidden">
-                                    <?php
-                                    $count_sec = 0.0;
-                                    foreach ($portfolios as $portfolio) {
-                                        ?>
-                                        <ul class="portfolio-grid work-4col gutter-large hover-option6 lightbox-portfolio">
+                                    <ul class="portfolio-grid work-4col gutter-large hover-option6 lightbox-portfolio">
+                                        <?php
+                                        $count_sec = 0.0;
+                                        foreach ($portfolios as $portfolio) {
+                                            ?>
+
                                             <li class="grid-sizer"></li>
                                             <!-- start portfolio item -->
                                             <li class="grid-item wow zoomIn last-paragraph-no-margin" <?php echo ($count_sec == 0.0 ? '' : 'data-wow-delay="' . $count_sec . 's"'); ?>>
@@ -164,13 +164,12 @@
 
                                                 </figure>
                                             </li>
-
                                             <!-- end portfolio item -->
-                                        </ul>
-                                        <?php
-                                        $count_sec = $count_sec + 0.2;
-                                    }
-                                    ?>
+                                            <?php
+                                            $count_sec = $count_sec + 0.2;
+                                        }
+                                        ?>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

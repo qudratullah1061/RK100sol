@@ -48,8 +48,8 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">Author Image</label>
                         <div class="col-md-10">
-                            <?php if(isset($blog_data->author_image_path) && isset($blog_data->author_image)) { ?>
-                                <img src="<?php echo base_url($blog_data->author_image_path.$blog_data->author_image); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
+                            <?php if (isset($blog_data->author_image_path) && isset($blog_data->author_image)) { ?>
+                                <img src="<?php echo base_url($blog_data->author_image_path . $blog_data->author_image); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
                             <?php } ?>
                             <input name="author_image" type="file" class="form-control" />
                         </div>
@@ -57,8 +57,8 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">Blog Image</label>
                         <div class="col-md-10">
-                            <?php if(isset($blog_data->blog_image_path) && isset($blog_data->blog_image)) { ?>
-                                <img src="<?php echo base_url($blog_data->blog_image_path.$blog_data->blog_image); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
+                            <?php if (isset($blog_data->blog_image_path) && isset($blog_data->blog_image)) { ?>
+                                <img src="<?php echo base_url($blog_data->blog_image_path . $blog_data->blog_image); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
                             <?php } ?>
                             <input name="blog_image" type="file" class="form-control" />
                         </div>
@@ -78,65 +78,71 @@
                         <label class="col-md-2 control-label">Select Tag</label>
                         <div class="col-md-10">
                             <select name="tag_id[]" multiple="" id="blog_tags" class="form-control">
-                                <?php if(isset($tags_data)) { foreach ($tags_data as $tag) {
-                                $selected = "";
-                                if(isset($selected_tags) && $selected_tags != ''){
-                                    $selected_tags = $selected_tags;
-                                }else{
-                                    $selected_tags = array();
+                                <?php
+                                if (isset($tags_data)) {
+                                    foreach ($tags_data as $tag) {
+                                        $selected = "";
+                                        if (isset($selected_tags) && $selected_tags != '') {
+                                            $selected_tags = $selected_tags;
+                                        } else {
+                                            $selected_tags = array();
+                                        }
+                                        if (in_array($tag->tag_id, array_column($selected_tags, 'tag_id'))) {
+                                            $selected = 'selected="selected"';
+                                        }
+                                        ?>
+                                        <option <?php echo $selected; ?> value="<?php echo $tag->tag_id; ?>"><?php echo $tag->tag_name; ?></option>
+                                        <?php
+                                    }
                                 }
-                                if (in_array($tag->tag_id, array_column($selected_tags, 'tag_id'))) {
-                                    $selected = 'selected="selected"';
-                                } ?>
-                                    <option <?php echo $selected; ?> value="<?php echo $tag->tag_id; ?>"><?php echo $tag->tag_name; ?></option>
-                                <?php } } ?>
+                                ?>
                             </select>
                         </div>
                     </div>
-                    
+
                     <?php
-                            if (isset($categories) && count($categories) > 0) {
-                                foreach ($categories as $category) {
-                                    ?>
-                                    <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> <?php echo $category['category_name']; ?> <span class="required"> * </span> </label>
-                                        <div class="col-md-6">
-                                            <div class="md-checkbox-inline row">
-                                                <!--get sub categories and loop through-->
-                                                <?php
-                                                $sub_categories = getSubCategoriesByCategoryId($category['category_id']);
-                                                if ($sub_categories && count($sub_categories) > 0) {
-                                                    foreach ($sub_categories as $sub_cat) {
-                                                    $selected = "";
-                                                    if(isset($selected_categories) && $selected_categories != ''){
-                                                        $selected_categories = $selected_categories;
-                                                    }else{
-                                                        $selected_categories = array();
-                                                    }
-                                                    if (in_array($sub_cat['sub_category_id'], array_column($selected_categories, 'sub_category_id')) && in_array($category['category_id'], array_column($selected_categories, 'category_id'))) {
-                                                        $selected = 'checked="checked"';
-                                                    }
-                                                        ?>
-                                                        <div class="col-md-6">
-                                                            <div class="md-checkbox">
-                                                                <input <?php echo $selected; ?> type="checkbox" name='categories[]' value="<?php echo $category['category_id'] . "::" . $sub_cat['sub_category_id']; ?>" id="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>" class="md-check">
-                                                                <label for="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>">
-                                                                    <span></span>
-                                                                    <span class="check"></span>
-                                                                    <span class="box"></span> <?php echo $sub_cat['sub_category_name']; ?></label>
-                                                            </div>
-                                                        </div>
-                                                        <?php
-                                                    }
+                    if (isset($categories) && count($categories) > 0) {
+                        foreach ($categories as $category) {
+                            ?>
+                            <div class="form-group form-md-line-input">
+                                <label class="control-label col-md-3"> <?php echo $category['category_name']; ?> <span class="required"> * </span> </label>
+                                <div class="col-md-6">
+                                    <div class="md-checkbox-inline row">
+                                        <!--get sub categories and loop through-->
+                                        <?php
+                                        $sub_categories = getSubCategoriesByCategoryId($category['category_id']);
+                                        if ($sub_categories && count($sub_categories) > 0) {
+                                            foreach ($sub_categories as $sub_cat) {
+                                                $selected = "";
+                                                if (isset($selected_categories) && $selected_categories != '') {
+                                                    $selected_categories = $selected_categories;
+                                                } else {
+                                                    $selected_categories = array();
+                                                }
+                                                if (in_array($sub_cat['sub_category_id'], array_column($selected_categories, 'sub_category_id')) && in_array($category['category_id'], array_column($selected_categories, 'category_id'))) {
+                                                    $selected = 'checked="checked"';
                                                 }
                                                 ?>
-                                            </div>
-                                        </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-checkbox">
+                                                        <input <?php echo $selected; ?> type="checkbox" name='categories[]' value="<?php echo $category['category_id'] . "::" . $sub_cat['sub_category_id']; ?>" id="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>" class="md-check">
+                                                        <label for="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>">
+                                                            <span></span>
+                                                            <span class="check"></span>
+                                                            <span class="box"></span> <?php echo $sub_cat['sub_category_name']; ?></label>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
                                     </div>
-                                    <?php
-                                }
-                            }
-                            ?>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
 
                     <!--Blog Data Start-->
                     <div class="portlet box grey-salsa">
@@ -153,77 +159,81 @@
                                 <label class="col-md-1 control-label"></label>
                                 <div class="col-md-10">
                                     <div class="mt-repeater">
+                                        <?php
+                                        if (isset($blog_descriptions) && count($blog_descriptions) > 0) {
+                                            foreach ($blog_descriptions as $blog_des) {
+                                                ?>
+                                                <div data-repeater-item class="row remove-edit-block">
+                                                    <input type="hidden" name="blog_description_id[]" value="<?php echo isset($blog_des['blog_description_id']) ? $blog_des['blog_description_id'] : ""; ?>">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <label class="control-label">Image</label>
+                                                            <?php if ($blog_des['blog_description_image'] != "") { ?>
+                                                                <img src="<?php echo base_url($blog_des['blog_description_image_path'] . $blog_des['blog_description_image']); ?>" style="width: 50px; height: 50px; border-radius: 10px !important; margin-left: 50px;">
+                                                            <?php } ?>
+                                                            <input name="blog_description_image[]" type="file" class="form-control" />
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <label class="control-label">Blog Description</label>
+                                                            <textarea name="blog_description[]" class="form-control" rows="3" placeholder="Description About Blog"><?php echo $blog_des['blog_description']; ?></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <label class="control-label">Feature Image</label>
+                                                            <?php if ($blog_des['blog_feature_image'] != "") { ?>
+                                                                <img src="<?php echo base_url($blog_des['blog_feature_image_path'] . $blog_des['blog_feature_image']); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
+                                                            <?php } ?>
+                                                            <input name="blog_feature_image[]" type="file" class="form-control" />
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <label class="control-label">Feature Description</label>
+                                                            <textarea name="blog_feature_description[]" class="form-control" rows="3" placeholder="Featured Description About Blog"><?php echo $blog_des['blog_feature_description']; ?></textarea>
+                                                        </div>
+                                                        <!--                                                    <div class="col-md-1">-->
+                                                        <label class="control-label"> </label>
+                                                        <a href="javascript:;" onclick="removeCurrentBlock(this)" data-repeater-delete class="btn btn-danger">
+                                                            <i class="fa fa-close"></i>
+                                                        </a>
+                                                        <!--</div>-->
+                                                    </div>
+                                                </div>
+
+                                                <?php
+                                            }
+                                        }
+                                        ?>
                                         <div data-repeater-list="blog_data">
-                                            <?php if(isset($blog_descriptions) && count($blog_descriptions) > 0){
-                                                foreach ($blog_descriptions as $blog_des) { ?>
-                                                <div data-repeater-item class="row">
-                                                    <input type="hidden" name="blog_description_id[]" value="<?php echo isset($blog_des['blog_id']) ? $blog_des['blog_id'] : ""; ?>">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <label class="control-label">Image</label>
-                                                            <?php if(isset($blog_des['blog_description_image_path']) && isset($blog_des['blog_description_image'])) { ?>
-                                                                <img src="<?php echo base_url($blog_des['blog_description_image_path'].$blog_des['blog_description_image']); ?>" style="width: 50px; height: 50px; border-radius: 10px !important; margin-left: 50px;">
-                                                            <?php } ?>
-                                                            <input name="blog_description_image" type="file" class="form-control" />
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            <label class="control-label">Blog Description</label>
-                                                            <textarea name="blog_description" class="form-control" rows="3" placeholder="Description About Blog"><?php echo $blog_des['blog_description']; ?></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <label class="control-label">Feature Image</label>
-                                                            <?php if(isset($blog_des['blog_feature_image_path']) && isset($blog_des['blog_feature_image'])) { ?>
-                                                                <img src="<?php echo base_url($blog_des['blog_feature_image_path'].$blog_des['blog_feature_image']); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
-                                                            <?php } ?>
-                                                            <input name="blog_feature_image" type="file" class="form-control" />
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            <label class="control-label">Feature Description</label>
-                                                            <textarea name="blog_feature_description" class="form-control" rows="3" placeholder="Featured Description About Blog"><?php echo $blog_des['blog_feature_description']; ?></textarea>
-                                                        </div>
-    <!--                                                    <div class="col-md-1">-->
-                                                            <label class="control-label"> </label>
-                                                            <a href="javascript:;" data-repeater-delete class="btn btn-danger">
-                                                                <i class="fa fa-close"></i>
-                                                            </a>
-                                                        <!--</div>-->
-                                                    </div>
-                                                </div>
-                                            <?php } } else { ?>
                                             <div data-repeater-item class="row">
-                                                    <input type="hidden" name="blog_description_id" value="<?php echo isset($blog_des->blog_id) ? $blog_des->blog_id : ""; ?>">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <label class="control-label">Image</label>
-                                                            <input name="blog_description_image" type="file" class="form-control" />
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            <label class="control-label">Blog Description</label>
-                                                            <textarea name="blog_description" class="form-control" rows="3" placeholder="Descriptionn About Blog"></textarea>
-                                                        </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label class="control-label">Image</label>
+                                                        <input name="blog_description_image" type="file" class="form-control" />
                                                     </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <label class="control-label">Feature Image</label>
-                                                            <input name="blog_feature_image" type="file" class="form-control" />
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            <label class="control-label">Feature Description</label>
-                                                            <textarea name="blog_feature_description" class="form-control" rows="3" placeholder="Featured Descriptionn About Blog"></textarea>
-                                                        </div>
-    <!--                                                    <div class="col-md-1">-->
-                                                            <label class="control-label"> </label>
-                                                            <a href="javascript:;" data-repeater-delete class="btn btn-danger">
-                                                                <i class="fa fa-close"></i>
-                                                            </a>
-                                                        <!--</div>-->
+                                                    <div class="col-md-7">
+                                                        <label class="control-label">Blog Description</label>
+                                                        <textarea name="blog_description" class="form-control" rows="3" placeholder="Descriptionn About Blog"></textarea>
                                                     </div>
                                                 </div>
-                                            <?php } ?>
+                                                <div class="clearfix"></div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label class="control-label">Feature Image</label>
+                                                        <input name="blog_feature_image" type="file" class="form-control" />
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <label class="control-label">Feature Description</label>
+                                                        <textarea name="blog_feature_description" class="form-control" rows="3" placeholder="Featured Descriptionn About Blog"></textarea>
+                                                    </div>
+                                                    <!--                                                    <div class="col-md-1">-->
+                                                    <label class="control-label"> </label>
+                                                    <a href="javascript:;" data-repeater-delete class="btn btn-danger">
+                                                        <i class="fa fa-close"></i>
+                                                    </a>
+                                                    <!--</div>-->
+                                                </div>
+                                            </div>
                                         </div>
                                         <hr>
                                         <a href="javascript:;" data-repeater-create class="btn btn-info mt-repeater-add">
@@ -240,7 +250,7 @@
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn btn-circle green">Submit</button>
-                                <button type="button" class="btn btn-circle grey-salsa btn-outline">Cancel</button>
+                                <a href='<?php echo base_url('admin/blogs/view_blogs'); ?>' class="btn btn-circle grey-salsa btn-outline">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -254,7 +264,13 @@
 <script src="<?php echo base_url(); ?>assets/pages/scripts/form-repeater.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/blogs.js" type="text/javascript"></script>
 <script>
-    $(document).ready(function(){
-        Blogs.add_blog_validation("blog-data");    
-    });
+                                                    $(document).ready(function () {
+                                                        Blogs.add_blog_validation("blog-data");
+                                                    });
+
+                                                    function removeCurrentBlock(obj) {
+                                                        if (confirm("Are you sure you want to delete this item?")) {
+                                                            $(obj).parent().parent().remove();
+                                                        }
+                                                    }
 </script>

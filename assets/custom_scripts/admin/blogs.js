@@ -40,7 +40,6 @@ var Blogs = function () {
             focusInvalid: false, // do not focus the last invalid input
             ignore: "", // validate all fields including form hidden input
             messages: {
-
             },
             rules: {
                 tag_name: {
@@ -89,16 +88,18 @@ var Blogs = function () {
             contentType: false,
             beforeSend: function ()
             {
-                App.blockUI({target: '.modal', animate: true});
+                App.blockUI({target: 'body', animate: true});
             },
             complete: function () {
-                App.unblockUI('.modal');
+                App.unblockUI('body');
             },
             success: function (data) {
+                console.log(data);
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    $('#datatable_blogs').DataTable().ajax.reload();
-                    $("#static-modal-popup-small").modal('hide');
+                    setTimeout(function () {
+                        window.location.href = base_url + "admin/blogs/view_blogs"
+                    }, 2000);
                 } else {
                     toastr["error"](data.description, "Error!");
                 }
@@ -125,7 +126,6 @@ var Blogs = function () {
             focusInvalid: false, // do not focus the last invalid input
             ignore: "", // validate all fields including form hidden input
             messages: {
-
             },
             rules: {
                 blog_title: {
@@ -141,10 +141,16 @@ var Blogs = function () {
                     required: true
                 },
                 author_image: {
-                    required: true
+                    required: function () {
+                        //add conditional expression here.
+                        return false;
+                    }
                 },
                 blog_image: {
-                    required: true
+                    required: function () {
+                        //add conditional expression here.
+                        return false;
+                    }
                 },
             },
             invalidHandler: function (event, validator) { //display error alert on form submit              
@@ -251,7 +257,7 @@ var Blogs = function () {
                     if (!data.error) {
                         toastr["success"](data.description, "Success!");
                         $("#static-modal-popup").modal('hide');
-                        
+
                     } else {
                         toastr["error"](data.description, "Error!");
                     }

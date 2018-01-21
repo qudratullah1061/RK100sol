@@ -22,6 +22,7 @@ class Blogs extends Admin_Controller {
         echo json_encode(array('key' => true, 'value' => $html));
         die();
     }
+
     function modal_categories() {
         $this->is_ajax();
         $data['blog_id'] = $blog_id = $this->input->post('blog_id');
@@ -143,6 +144,7 @@ class Blogs extends Admin_Controller {
         echo json_encode($records);
         exit();
     }
+
     function get_blogs() {
         $records = array();
         $records["data"] = array();
@@ -203,13 +205,13 @@ class Blogs extends Admin_Controller {
                     $result['blog_title'],
                     $result['blog_author'],
 //                    $result['blog_date'],
-                    '<img src="'.base_url($result['blog_image_path'].$result['blog_image']).'" style="width: 50px; height: 50px; border-radius: 10px !important;">',
-                    '<img src="'.base_url($result['author_image_path'].$result['author_image']).'" style="width: 50px; height: 50px; border-radius: 10px !important;">',
+                    '<img src="' . base_url($result['blog_image_path'] . $result['blog_image']) . '" style="width: 50px; height: 50px; border-radius: 10px !important;">',
+                    '<img src="' . base_url($result['author_image_path'] . $result['author_image']) . '" style="width: 50px; height: 50px; border-radius: 10px !important;">',
                     date('Y-m-d', strtotime($result['created_on'])),
 //                    $result['updated_on'],
                     $result['admin_name'],
                     $active_html,
-                    '<a class="btn btn-xs default btn-editable" onclick="Blogs.modal_view_categories(' . $result['blog_id'] . ')">Tags & Categories</a> <a class="btn btn-xs default btn-editable" href="'.base_url('admin/blogs/edit_blog/').$result['blog_id'].'">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(' . $result["blog_id"] . ' , \'tb_blogs\' , \'blog_id\' , \'Blog will be permanently deleted without further warning. Do you really want to delete this blog?\');">Delete</i></a> '
+                    '<a class="btn btn-xs default btn-editable" onclick="Blogs.modal_view_categories(' . $result['blog_id'] . ')">Tags & Categories</a> <a class="btn btn-xs default btn-editable" href="' . base_url('admin/blogs/edit_blog/') . $result['blog_id'] . '">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(' . $result["blog_id"] . ' , \'tb_blogs\' , \'blog_id\' , \'Blog will be permanently deleted without further warning. Do you really want to delete this blog?\');">Delete</i></a> '
                 );
             }
         }
@@ -240,14 +242,14 @@ class Blogs extends Admin_Controller {
         }
         $this->_response(true, "Problem while deleting record.");
     }
-    
+
     //Work by Sufyan
     function view_blogs() {
         $this->selected_tab = 'blogs';
         $this->selected_child_tab = 'view_blogs';
         $this->load->view('admin/blogs/view_blogs');
     }
-    
+
     function add_blog() {
         $this->selected_tab = 'blogs';
         $this->selected_child_tab = 'add_blog';
@@ -255,7 +257,7 @@ class Blogs extends Admin_Controller {
         $data['categories'] = GetAllCategories();
         $this->load->view('admin/blogs/add_blog', $data);
     }
-    
+
     function edit_blog($blog_id) {
         $this->selected_tab = 'blogs';
         $this->selected_child_tab = 'add_blog';
@@ -267,7 +269,7 @@ class Blogs extends Admin_Controller {
         $data['selected_categories'] = $this->db->get_where('tb_blog_categories', array('blog_id' => $blog_id))->result_array();
         $this->load->view('admin/blogs/add_blog', $data);
     }
-    
+
     function add_update_blog() {
         $this->isAjax();
         if ($this->input->post()) {
@@ -277,11 +279,13 @@ class Blogs extends Admin_Controller {
             $this->form_validation->set_rules('blog_author', 'Author Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('blog_author_about', 'About Author', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('blog_date', 'Blog Date', 'required|trim|strip_tags|xss_clean');
-            if (empty($_FILES['author_image']['name'])){
-                $this->form_validation->set_rules('author_image', 'Author Image', 'required');
+            // add image condition here as well.
+            if (empty($_FILES['author_image']['name'])) {
+                //$this->form_validation->set_rules('author_image', 'Author Image', 'required');
             }
-            if (empty($_FILES['blog_image']['name'])){
-                $this->form_validation->set_rules('blog_image', 'Blog Image', 'required');
+            // add image condition here as well.
+            if (empty($_FILES['blog_image']['name'])) {
+                //$this->form_validation->set_rules('blog_image', 'Blog Image', 'required');
             }
 
             if ($this->form_validation->run() == FALSE) {
@@ -295,7 +299,7 @@ class Blogs extends Admin_Controller {
                 $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');
-                
+
                 //Upload Author Image
                 if (isset($_FILES['author_image']['name']) && $_FILES['author_image']['name'] != "") {
                     $thumb_options = array();
@@ -317,7 +321,7 @@ class Blogs extends Admin_Controller {
                     unset($data['created_on']);
                     unset($data['created_by']);
                 }
-                
+
                 //Upload Blog Image
                 if (isset($_FILES['blog_image']['name']) && $_FILES['blog_image']['name'] != "") {
                     $thumb_options = array();
@@ -338,25 +342,74 @@ class Blogs extends Admin_Controller {
                     $this->Blogs_Model->update_blog('blog_id', $edit_id, $data);
                     $result = true;
                 } else {
-                    $result = $insert_id = $this->Blogs_Model->add_blog($data);
+                    $result = $edit_id = $insert_id = $this->Blogs_Model->add_blog($data);
                 }
-                
+
                 // Start Repeated Data of Blog
                 $blog_data = $this->input->post('blog_data');
-                if(count($blog_data) >= 1){
+                if (count($blog_data) >= 1) {
                     $counter = 0;
                     foreach ($blog_data as $bl_data) {
-                        if($edit_id > 0){
-                            $blog_des['blog_id'] = $edit_id;
-                        }else{
-                            $blog_des['blog_id'] = $insert_id;
-                        }
-                        $blog_description_id = $this->input->post($bl_data['blog_description_id']);
+                        $blog_des['blog_id'] = $edit_id;
                         $blog_des['blog_description'] = $bl_data['blog_description'];
-                        // upload Blog Description images , add call
-                        if (isset($_FILES['blog_data']['name'][$counter]['blog_description_image']) && $_FILES['blog_data']['name'][$counter]['blog_description_image'] != "") {
+                        if ($bl_data['blog_description'] != "" || $bl_data['blog_feature_description'] != "" || (isset($_FILES['blog_data']['name'][$counter]['blog_feature_image']) && $_FILES['blog_data']['name'][$counter]['blog_feature_image'] != "") || (isset($_FILES['blog_data']['name'][$counter]['blog_feature_image']) && $_FILES['blog_data']['name'][$counter]['blog_feature_image'] != "")) {
+                            // upload Blog Description images , add call
+                            if (isset($_FILES['blog_data']['name'][$counter]['blog_description_image']) && $_FILES['blog_data']['name'][$counter]['blog_description_image'] != "") {
+                                $thumb_options = array();
+                                $blog_description_images = $_FILES['blog_data']['name'][$counter]['blog_description_image'];
+                                $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/blog_description/';
+                                $thumb_options[0] = array('width' => 150, 'height' => 150, 'prefix' => 'small_');
+                                $thumb_options[1] = array('width' => 400, 'height' => 400, 'prefix' => 'medium_');
+                                $thumb_options[2] = array('width' => 825, 'height' => 578, 'prefix' => 'large_');
+                                $file_name = basename($blog_description_images);
+                                $blog_description_image_name = time() . $file_name;
+                                $f_file_path = $f_upload_dir . '/' . $blog_description_image_name;
+                                move_uploaded_file($_FILES['blog_data']['tmp_name'][$counter]['blog_description_image'], $f_file_path);
+                                CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
+                                $blog_des['blog_description_image_path'] = 'uploads/blogs/blog_description/';
+                                $blog_des['blog_description_image'] = $blog_description_image_name;
+                            }
+
+                            $blog_des['blog_feature_description'] = $bl_data['blog_feature_description'];
+                            // upload Feature Description images , add call
+                            if (isset($_FILES['blog_data']['name'][$counter]['blog_feature_image']) && $_FILES['blog_data']['name'][$counter]['blog_feature_image'] != "") {
+                                $thumb_options = array();
+                                $blog_feature_images = $_FILES['blog_data']['name'][$counter]['blog_feature_image'];
+                                $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/feature_description/';
+                                $thumb_options[0] = array('width' => 75, 'height' => 26, 'prefix' => 'small_');
+                                $thumb_options[1] = array('width' => 353, 'height' => 257, 'prefix' => 'medium_');
+//                            $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+                                $file_name = basename($blog_feature_images);
+                                $blog_feature_image_name = time() . $file_name;
+                                $f_file_path = $f_upload_dir . '/' . $blog_feature_image_name;
+                                move_uploaded_file($_FILES['blog_data']['tmp_name'][$counter]['blog_feature_image'], $f_file_path);
+                                CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
+                                $blog_des['blog_feature_image_path'] = 'uploads/blogs/feature_description/';
+                                $blog_des['blog_feature_image'] = $blog_feature_image_name;
+                            }
+                            $blog_des['updated_on'] = $blog_des['created_on'] = date("Y-m-d h:i:s");
+                            $blog_des['updated_by'] = $blog_des['created_by'] = $this->session->userdata('admin_id');
+                            $result_desc = $this->Blogs_Model->add_blog_des($blog_des);
+                            $counter++;
+                        }
+                    }
+                }
+                // update edit form data
+                $edited_blog_description_ids = $this->input->post('blog_description_id');
+                $edited_blog_description = $this->input->post('blog_description');
+                $edited_blog_feature_description = $this->input->post('blog_feature_description');
+                if (count($edited_blog_description_ids) > 0) {
+                    $blog_edited_data = array();
+                    foreach ($edited_blog_description_ids as $key => $edited_id) {
+                        $blog_edited_data['blog_description'] = $edited_blog_description[$key];
+                        $blog_edited_data['blog_feature_description'] = $edited_blog_feature_description[$key];
+
+                        // blog description image here.
+                        if (isset($_FILES['blog_description_image']['name'][$key]) && $_FILES['blog_description_image']['name'][$key] != "") {
+                            // unlink previous image here from directory.
+                            // get record detail by record id. make image path with rootpath and execure unlink statement.
                             $thumb_options = array();
-                            $blog_description_images = $_FILES['blog_data']['name'][$counter]['blog_description_image'];
+                            $blog_description_images = $_FILES['blog_description_image']['name'][$key];
                             $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/blog_description/';
                             $thumb_options[0] = array('width' => 150, 'height' => 150, 'prefix' => 'small_');
                             $thumb_options[1] = array('width' => 400, 'height' => 400, 'prefix' => 'medium_');
@@ -364,17 +417,18 @@ class Blogs extends Admin_Controller {
                             $file_name = basename($blog_description_images);
                             $blog_description_image_name = time() . $file_name;
                             $f_file_path = $f_upload_dir . '/' . $blog_description_image_name;
-                            move_uploaded_file($_FILES['blog_data']['tmp_name'][$counter]['blog_description_image'], $f_file_path);
+                            move_uploaded_file($_FILES['blog_description_image']['tmp_name'][$key], $f_file_path);
                             CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
-                            $blog_des['blog_description_image_path'] = 'uploads/blogs/blog_description/';
-                            $blog_des['blog_description_image'] = $blog_description_image_name;
+                            $blog_edited_data['blog_description_image_path'] = 'uploads/blogs/blog_description/';
+                            $blog_edited_data['blog_description_image'] = $blog_description_image_name;
                         }
-                        
-                        $blog_des['blog_feature_description'] = $bl_data['blog_feature_description'];
-                        // upload Feature Description images , add call
-                        if (isset($_FILES['blog_data']['name'][$counter]['blog_feature_image']) && $_FILES['blog_data']['name'][$counter]['blog_feature_image'] != "") {
+
+                        // blog feature description image here.
+                        if (isset($_FILES['blog_feature_image']['name'][$key]) && $_FILES['blog_feature_image']['name'][$key] != "") {
+                            // unlink previous image here from directory.
+                            // get record detail by record id. make image path with rootpath and execure unlink statement.
                             $thumb_options = array();
-                            $blog_feature_images = $_FILES['blog_data']['name'][$counter]['blog_feature_image'];
+                            $blog_feature_images = $_FILES['blog_feature_image']['name'][$key];
                             $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/feature_description/';
                             $thumb_options[0] = array('width' => 75, 'height' => 26, 'prefix' => 'small_');
                             $thumb_options[1] = array('width' => 353, 'height' => 257, 'prefix' => 'medium_');
@@ -382,37 +436,28 @@ class Blogs extends Admin_Controller {
                             $file_name = basename($blog_feature_images);
                             $blog_feature_image_name = time() . $file_name;
                             $f_file_path = $f_upload_dir . '/' . $blog_feature_image_name;
-                            move_uploaded_file($_FILES['blog_data']['tmp_name'][$counter]['blog_feature_image'], $f_file_path);
+                            move_uploaded_file($_FILES['blog_feature_image']['tmp_name'][$key], $f_file_path);
                             CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
-                            $blog_des['blog_feature_image_path'] = 'uploads/blogs/feature_description/';
-                            $blog_des['blog_feature_image'] = $blog_feature_image_name;
+                            $blog_edited_data['blog_feature_image_path'] = 'uploads/blogs/feature_description/';
+                            $blog_edited_data['blog_feature_image'] = $blog_feature_image_name;
                         }
-                        $blog_des['updated_on'] = $blog_des['created_on'] = date("Y-m-d h:i:s");
-                        $blog_des['updated_by'] = $blog_des['created_by'] = $this->session->userdata('admin_id');
-                        
-                        if ($blog_description_id > 0) {
-                            // unset created on
-                            unset($blog_des['created_on']);
-                            unset($blog_des['created_by']);
-                        }
-                        
-                        $result_desc = false;
-                        if ($blog_description_id > 0) {
-                            $this->Blogs_Model->update_blog_des('blog_description_id', $blog_description_id, $blog_des);
+                        // be sure blog id is passing as hidden field check.
+                        if ($edit_id > 0) {
+                            $this->Blogs_Model->update_blog_des('blog_description_id', $edited_id, $blog_edited_data);
                             $result_desc = true;
-                        } else {
-                            $result_desc = $this->Blogs_Model->add_blog_des($blog_des);
                         }
-                        $counter++;
                     }
+                } else {
+                    //delete all items from description table.
                 }
+
                 // Adding Categories
                 $categories = $this->input->post('categories');
-                $this->Blogs_Model->AddUpdateBlogCategories($categories, $insert_id);
-                
+                $this->Blogs_Model->AddUpdateBlogCategories($categories, $edit_id);
+
                 //Adding Tags
                 $tags = $this->input->post('tag_id');
-                $this->Blogs_Model->add_tags($tags, $insert_id);
+                $this->Blogs_Model->add_tags($tags, $edit_id);
                 // End Repeated Data of Blog
                 if ($result) {
                     $this->_response(false, "Changes saved successfully!");
@@ -422,7 +467,7 @@ class Blogs extends Admin_Controller {
             redirect(base_url('admin/admin_auth'));
         }
     }
-    
+
     function update_blog_categories() {
         $this->isAjax();
         $blog_id = $this->input->post('blog_id');

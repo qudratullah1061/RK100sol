@@ -28,16 +28,16 @@
                     <table class="table table-striped table-bordered table-hover text-center" id="datatable_blogs">
                         <thead>
                             <tr role="row" class="heading">
-                                <th width="30%"> Blog Title </th>
-                                <th width="30%"> Author Name </th>
+                                <th width="20%"> Blog Title </th>
+                                <th width="15%"> Author Name </th>
                                 <!--<th width="30%"> Blog Date </th>-->
-                                <th width="30%"> Blog Image </th>
-                                <th width="30%"> Author Image </th>
-                                <th width="11%"> Created On </th>
+                                <th width="10%"> Blog Image </th>
+                                <th width="10%"> Author Image </th>
+                                <th width="15%"> Created On </th>
                                 <!--<th width="11%"> Updated On </th>-->
-                                <th width="11%"> Created By </th>
-                                <th width="11%"> Status </th>
-                                <th width="15%"> Actions </th>
+                                <th width="10%"> Created By </th>
+                                <th width="10%"> Status </th>
+                                <th width="10%"> Actions </th>
                             </tr>
                             <tr role="row" class="filter">
                                 <td>
