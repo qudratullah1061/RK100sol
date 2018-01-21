@@ -136,7 +136,7 @@
                                         <a href="javascript:void(0);">Our Services</a>
                                     </li>
                                     <li class="<?php echo ActivateLink('blog'); ?>">
-                                        <a href="<?php echo base_url('misc/blog'); ?>" title="Blog">Blog</a>
+                                        <a href="<?php echo base_url('blogs'); ?>" title="Blog">Blog</a>
                                     </li>
                                     <li class="<?php echo ActivateLink('contact'); ?>">
                                         <a href="<?php echo base_url('misc/contact'); ?>">Contact Us</a>

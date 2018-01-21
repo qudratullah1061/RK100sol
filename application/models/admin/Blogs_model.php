@@ -42,6 +42,32 @@ class Blogs_model extends Abstract_model {
         $results_array['total'] = $count[0]['total'];
         return $results_array;
     }
+    
+    public function getBlogsLists($condition = '', $offset = -1, $limit = 10, $order_by = '') {
+        $sql = "SELECT blogs.* , admins.username as admin_name FROM tb_blogs as blogs LEFT JOIN tb_admin_users as admins ON (blogs.created_by = admins.admin_id)";
+        $sql_count = "SELECT count(blogs.blog_id) as total, blogs.* , admins.username as admin_name FROM tb_blogs as blogs LEFT JOIN tb_admin_users as admins ON (blogs.created_by = admins.admin_id)";
+
+        if ($condition != '') {
+            $sql .= " WHERE " . $condition;
+            $sql_count .= " WHERE " . $condition;
+        }
+        if (trim($order_by) != '') {
+            $sql .= $order_by;
+        } else {
+            $sql .= " ORDER BY blogs.blog_id DESC ";
+        }
+        if ($offset >= 0 && $limit != -1) {
+            $sql .= " LIMIT " . ($offset) . ', ' . $limit;
+        }
+        //echo $sql; exit;
+        $count = $this->db->query($sql_count)->result('array');
+        $results = $this->db->query($sql)->result('array');
+        $results_array = array();
+        $results_array['records'] = $results;
+        $results_array['query'] = $sql;
+        $results_array['total'] = $count[0]['total'];
+        return $results_array;
+    }
 
     public function get_tag($category_id) {
         $this->table_name = 'tb_tags';
@@ -59,6 +85,81 @@ class Blogs_model extends Abstract_model {
     public function update_tag($column, $row_id, $data) {
         $this->table_name = "tb_tags";
         return $this->updateBy($column, $row_id, $data);
+    }
+    
+    //Working by Sufyan
+    public function get_blog($blog_id) {
+        $this->table_name = 'tb_blogs';
+        $result = $this->getBy('blog_id', $blog_id);
+        if ($result) {
+            return isset($result[0]) ? $result[0] : array();
+        }
+    }
+    
+    public function add_blog($data) {
+        $this->table_name = "tb_blogs";
+        return $this->save($data);
+    }
+    
+    public function update_blog($column, $row_id, $data) {
+        $this->table_name = "tb_blogs";
+        return $this->updateBy($column, $row_id, $data);
+    }
+    
+    public function add_blog_des($data) {
+        $this->table_name = "tb_blog_descriptions";
+        return $this->save($data);
+    }
+    
+    public function update_blog_des($column, $row_id, $data) {
+        $this->table_name = "tb_blog_descriptions";
+        return $this->updateBy($column, $row_id, $data);
+    }
+    
+    public function get_all_tags() {
+        $this->table_name = "tb_tags";
+        return $this->getAll("is_active", 1);
+    }
+    
+    public function get_all_active_blogs() {
+        $this->table_name = "tb_blogs";
+        return $this->getAll("is_active", 1);
+    }
+    
+    function AddUpdateBlogCategories($blog_categories, $blog_id, $added_by = 0) {
+        if ($blog_id) {
+            // delete previous member ids
+            if ($this->session->userdata('admin_id')) {
+                $added_by = $this->session->userdata('admin_id');
+            }
+            $this->table_name = 'tb_blog_categories';
+            $this->db->where('blog_id', $blog_id);
+            $this->db->delete($this->table_name);
+            if ($blog_categories) {
+                foreach ($blog_categories as $category) {
+                    $category_array = explode("::", $category);
+                    $category_id = isset($category_array[0]) ? $category_array[0] : 0;
+                    $sub_category_id = isset($category_array[1]) ? $category_array[1] : 0;
+                    $data = array('blog_id' => $blog_id, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id, 'created_on' => date("Y-m-d H:i:s"), 'created_by' => $added_by);
+                    $this->save($data);
+                }
+            }
+        }
+    }
+    
+    function add_tags($tags, $blog_id, $added_by = 0) {
+        if ($this->session->userdata('admin_id')) {
+            $added_by = $this->session->userdata('admin_id');
+        }
+        $this->table_name = 'tb_blog_tags';
+        $this->db->where('blog_id', $blog_id);
+        $this->db->delete($this->table_name);
+        if($tags){
+            foreach ($tags as $tag_id) {
+                $data = array('blog_id' => $blog_id, 'tag_id' => $tag_id, 'created_on' => date("Y-m-d H:i:s"), 'created_by' => $added_by);
+                $this->save($data);
+            }
+        }
     }
 
 }
