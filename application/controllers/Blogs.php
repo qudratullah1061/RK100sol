@@ -22,7 +22,7 @@ class Blogs extends CI_Controller {
     function blog_detail($blog_id) {
         $this->selected_tab = 'blog';
         $blog_data = $this->Blogs_Model->get_blog($blog_id);
-        if ($data['blog'] && isset($data['blog']->blog_id) && $data['blog']->is_active == 1) {
+        if ($blog_data && isset($blog_data->blog_id) && $blog_data->is_active == 1) {
             $data['blog'] = $blog_data;
             $data['blog_descriptions'] = $this->db->get_where('tb_blog_descriptions', array('blog_id' => $blog_id))->result_array();
             $data['selected_categories'] = $this->Blogs_Model->get_all_selected_categories($blog_id);
