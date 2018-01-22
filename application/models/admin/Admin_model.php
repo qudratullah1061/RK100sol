@@ -116,4 +116,14 @@ class Admin_model extends Abstract_model {
         return isset($result[0]['total_amount']) ? $result[0]['total_amount'] : 0;
     }
 
+    public function add_admin_role($admin_id,$data) {
+        $this->table_name = 'tb_admin_user_in_roles';
+        return $this->save($data);
+    }
+
+    public function delete_admin_roles($admin_id) {
+        $this->table_name = 'tb_admin_user_in_roles';
+        $this->deleteBy('admin_user_id', $admin_id);
+    }
+
 }

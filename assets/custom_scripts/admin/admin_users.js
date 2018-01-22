@@ -1,5 +1,30 @@
 var AdminUsers = function () {
 
+    var handleRolesSubmit = function (formId) {
+        $.ajax({
+            type: "POST",
+            url: base_url + "admin/admin_dashboard/update_admin_role",
+            datatype: 'json',
+            data: new FormData($("#" + formId)[0]),
+            processData: false,
+            contentType: false,
+            beforeSend: function ()
+            {
+                App.blockUI({target: '#' + formId, animate: true});
+            },
+            complete: function () {
+                App.unblockUI('#' + formId);
+            },
+            success: function (data) {
+                if (!data.error) {
+                    toastr["success"](data.description, "Success!");
+                } else {
+                    toastr["error"](data.description, "Error!");
+                }
+            }
+        });
+    }
+
     var handleAdminSubmit = function (formId) {
         $.ajax({
             type: "POST",
@@ -32,6 +57,7 @@ var AdminUsers = function () {
             }
         });
     }
+
     var handleValidationAdminUser = function (formId) {
         // for more info visit the official plugin documentation: 
         // http://docs.jquery.com/Plugins/Validation
@@ -181,6 +207,12 @@ var AdminUsers = function () {
         },
         initUpdateValidation: function (formId) {
             handleValidationAdminUser(formId);
+        },
+        initRolesSubmit: function (formId) {
+            $("#" + formId).on('submit', function (e) {
+                e.preventDefault();
+                handleRolesSubmit(formId);
+            });
         }
     };
 }();

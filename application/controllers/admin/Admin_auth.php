@@ -52,7 +52,12 @@ class Admin_auth extends CI_Controller {
                 } else {
                     $admin_info = $result['admin_info'];
                     $this->session->set_userdata(array('admin_id' => $admin_info['admin_id'], 'username' => $admin_info['username'], 'email' => $admin_info['email'], 'is_locked' => false));
-                    redirect(base_url('admin/admin_dashboard'));
+                    // super admin redirect to dashboard
+                    if ($admin_info['admin_id'] == 1) {
+                        redirect(base_url('admin/admin_dashboard'));
+                    } else {
+                        RedirectAdminToAppropriatePage($admin_info['admin_id']);
+                    }
                 }
             }
         } else {

@@ -98,7 +98,10 @@ class Admin_Controller extends CI_Controller {
             redirect(base_url('admin/admin_auth'));
         } elseif ($this->session->userdata('is_locked')) {
             redirect(base_url('admin/admin_auth'));
+        } elseif (!isAdminHasAccess($this->router->fetch_class(), $this->router->fetch_method())) {
+            RedirectAdminToAppropriatePage();
         }
+
         $this->setAdminInfo();
     }
 

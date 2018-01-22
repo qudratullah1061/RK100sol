@@ -219,159 +219,169 @@
                                                             </form>
                                                             END RESPONSIVE QUICK SEARCH FORM 
                                                         </li>-->
-                            <li class="nav-item start <?php ActivateParentLink('admin'); ?>">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="icon-home"></i>
-                                    <span class="title">Dashboard</span>
-                                    <span class="selected"></span>
-                                    <span class="arrow open"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item start <?php ActivateCurrentLink('admin', 'dashboard'); ?>">
-                                        <a href="<?php echo base_url('admin/admin_dashboard'); ?>" class="nav-link ">
-                                            <!--<i class="icon-bar-chart"></i>-->
-                                            <span class="title">Home</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('admin', 'admin_users'); ?>">
-                                        <a href="<?php echo base_url('admin/admin_dashboard/admin_users'); ?>" class="nav-link ">
-                                            <!--<i class="icon-users"></i>-->
-                                            <span class="title">Admin Users</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item <?php ActivateParentLink('companion'); ?>">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="icon-users"></i>
-                                    <span class="title">Service Members</span>
-                                    <span class="selected"></span>
-                                    <span class="arrow open"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item <?php ActivateCurrentLink('companion', 'view'); ?>">
-                                        <a href="<?php echo base_url('admin/companions'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Service Member</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('companion', 'add'); ?>">
-                                        <a href="<?php echo base_url('admin/companions/add_companion'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-plus"></i>-->
-                                            <span class="title">Add Service Member</span>
-                                        </a>
-                                    </li>
-<!--                                    <li class="nav-item <?php // ActivateCurrentLink('companion', 'add'); ?>">
-                                        <a href="<?php // echo base_url('admin/companions/add_companion'); ?>" class="nav-link ">
-                                            <i class="fa fa-plus"></i>
-                                            <span class="title">Members Activities</span>
-                                            <span class="badge badge-success">1</span>
-                                        </a>
-                                    </li>-->
-                                </ul>
-                            </li>
-                            <li class="nav-item <?php ActivateParentLink('guest'); ?>">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="icon-users"></i>
-                                    <span class="title">Guests</span>
-                                    <span class="selected"></span>
-                                    <span class="arrow open"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item <?php ActivateCurrentLink('guest', 'view'); ?>">
-                                        <a href="<?php echo base_url('admin/guests'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Guest</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('guest', 'add'); ?>">
-                                        <a href="<?php echo base_url('admin/guests/add_guest'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-plus"></i>-->
-                                            <span class="title">Add Guest</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item <?php ActivateParentLink('misc'); ?>">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="fa fa-tasks"></i>
-                                    <span class="title">Misc</span>
-                                    <span class="selected"></span>
-                                    <span class="arrow open"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item <?php ActivateCurrentLink('misc', 'view_categories'); ?>">
-                                        <a href="<?php echo base_url('admin/misc/view_categories'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Categories</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            
-                            <li class="nav-item <?php ActivateParentLink('blogs'); ?>">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="fa fa-newspaper-o"></i>
-                                    <span class="title"> Blogs </span>
-                                    <span class="selected"></span>
-                                    <span class="arrow open"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item <?php ActivateCurrentLink('blogs', 'add_blog'); ?>">
-                                        <a href="<?php echo base_url('admin/blogs/add_blog'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">Add Blog</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('blogs', 'view_blogs'); ?>">
-                                        <a href="<?php echo base_url('admin/blogs/view_blogs'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Blogs</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item <?php ActivateCurrentLink('blogs', 'view_tags'); ?>">
-                                        <a href="<?php echo base_url('admin/blogs/view_tags'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Tags</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            
-                            <li class="nav-item <?php ActivateParentLink('contactus'); ?>">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="fa fa-tasks"></i>
-                                    <span class="title">Contact Us</span>
-                                    <span class="selected"></span>
-                                    <span class="arrow open"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item <?php ActivateCurrentLink('contactus', 'contact_us_form'); ?>">
-                                        <a href="<?php echo base_url('admin/misc/contact_us_form'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Contact us requests</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item <?php ActivateParentLink('notifications'); ?>">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="fa fa-bell"></i>
-                                    <span class="title">Notifications</span>
-                                    <span class="selected"></span>
-                                    <span class="arrow open"></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item <?php ActivateCurrentLink('notifications', 'view_notifications'); ?>">
-                                        <a href="<?php echo base_url('admin/notifications/view_notifications'); ?>" class="nav-link ">
-                                            <!--<i class="fa fa-eye"></i>-->
-                                            <span class="title">View Admin Notifications</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <?php if (isAdminHasAccess("admin_dashboard")) { ?>
+                                <li class="nav-item start <?php ActivateParentLink('admin'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="icon-home"></i>
+                                        <span class="title">Dashboard</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item start <?php ActivateCurrentLink('admin', 'dashboard'); ?>">
+                                            <a href="<?php echo base_url('admin/admin_dashboard'); ?>" class="nav-link ">
+                                                <!--<i class="icon-bar-chart"></i>-->
+                                                <span class="title">Home</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item <?php ActivateCurrentLink('admin', 'admin_users'); ?>">
+                                            <a href="<?php echo base_url('admin/admin_dashboard/admin_users'); ?>" class="nav-link ">
+                                                <!--<i class="icon-users"></i>-->
+                                                <span class="title">Admin Users</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+                            <?php if (isAdminHasAccess("companions")) { ?>
+                                <li class="nav-item <?php ActivateParentLink('companion'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="icon-users"></i>
+                                        <span class="title">Service Members</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item <?php ActivateCurrentLink('companion', 'view'); ?>">
+                                            <a href="<?php echo base_url('admin/companions'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Service Member</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item <?php ActivateCurrentLink('companion', 'add'); ?>">
+                                            <a href="<?php echo base_url('admin/companions/add_companion'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-plus"></i>-->
+                                                <span class="title">Add Service Member</span>
+                                            </a>
+                                        </li>
+    <!--                                    <li class="nav-item <?php // ActivateCurrentLink('companion', 'add');                                    ?>">
+                                            <a href="<?php // echo base_url('admin/companions/add_companion');                                    ?>" class="nav-link ">
+                                                <i class="fa fa-plus"></i>
+                                                <span class="title">Members Activities</span>
+                                                <span class="badge badge-success">1</span>
+                                            </a>
+                                        </li>-->
+                                    </ul>
+                                </li>
+                            <?php } ?>
+                            <?php if (isAdminHasAccess("guests")) { ?>
+                                <li class="nav-item <?php ActivateParentLink('guest'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="icon-users"></i>
+                                        <span class="title">Guests</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item <?php ActivateCurrentLink('guest', 'view'); ?>">
+                                            <a href="<?php echo base_url('admin/guests'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Guest</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item <?php ActivateCurrentLink('guest', 'add'); ?>">
+                                            <a href="<?php echo base_url('admin/guests/add_guest'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-plus"></i>-->
+                                                <span class="title">Add Guest</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+                            <?php if (isAdminHasAccess("misc")) { ?>   
+                                <li class="nav-item <?php ActivateParentLink('misc'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-tasks"></i>
+                                        <span class="title">Misc</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item <?php ActivateCurrentLink('misc', 'view_categories'); ?>">
+                                            <a href="<?php echo base_url('admin/misc/view_categories'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Categories</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+                            <?php if (isAdminHasAccess("blogs")) { ?>
+                                <li class="nav-item <?php ActivateParentLink('blogs'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-newspaper-o"></i>
+                                        <span class="title"> Blogs </span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item <?php ActivateCurrentLink('blogs', 'add_blog'); ?>">
+                                            <a href="<?php echo base_url('admin/blogs/add_blog'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">Add Blog</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item <?php ActivateCurrentLink('blogs', 'view_blogs'); ?>">
+                                            <a href="<?php echo base_url('admin/blogs/view_blogs'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Blogs</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item <?php ActivateCurrentLink('blogs', 'view_tags'); ?>">
+                                            <a href="<?php echo base_url('admin/blogs/view_tags'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Tags</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+                            <?php if (isAdminHasAccess("misc")) { ?>
+                                <li class="nav-item <?php ActivateParentLink('contactus'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-tasks"></i>
+                                        <span class="title">Contact Us</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item <?php ActivateCurrentLink('contactus', 'contact_us_form'); ?>">
+                                            <a href="<?php echo base_url('admin/misc/contact_us_form'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Contact us requests</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+                            <?php if (isAdminHasAccess("notifications")) { ?>
+                                <li class="nav-item <?php ActivateParentLink('notifications'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-bell"></i>
+                                        <span class="title">Notifications</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item <?php ActivateCurrentLink('notifications', 'view_notifications'); ?>">
+                                            <a href="<?php echo base_url('admin/notifications/view_notifications'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Admin Notifications</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
                         </ul>
                         <!-- END SIDEBAR MENU -->
                         <!-- END SIDEBAR MENU -->

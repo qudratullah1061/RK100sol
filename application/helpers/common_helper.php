@@ -52,6 +52,34 @@ function GetAdminInfoWithId($UserId) {
     }
 }
 
+function GetAdminRolesPermissionWithId($UserId) {
+    global $CI;
+    $sql = "SELECT roles.*, userInRoles.* FROM `tb_admin_user_roles` roles LEFT JOIN tb_admin_user_in_roles userInRoles ON (admin_user_role_id = role_id AND userInRoles.admin_user_id = $UserId)";
+    return $CI->db->query($sql)->result_array();
+}
+
+function isAdminHasAccess($class, $method = "") {
+    $CI = &get_instance();
+    $admin_id = $CI->session->userdata('admin_id');
+    $roles_info = $CI->db->get_where('tb_admin_user_in_roles', array('admin_user_id' => $admin_id))->result_array();
+    if ($roles_info && in_array('1', array_column($roles_info, 'role_id'))) {
+        return true;
+    } elseif ($roles_info && in_array('2', array_column($roles_info, 'role_id')) && (strtolower($class) == "blogs" || (strtolower($class) == 'misc' && strtolower($method) == 'deleterecord'))) {
+        return true;
+    }
+    return false;
+}
+
+function RedirectAdminToAppropriatePage() {
+    $CI = &get_instance();
+    $admin_id = $CI->session->userdata('admin_id');
+    $roles_info = $CI->db->get_where('tb_admin_user_in_roles', array('admin_user_id' => $admin_id))->result_array();
+    if ($roles_info && in_array('2', array_column($roles_info, 'role_id'))) {
+        redirect(base_url('admin/blogs/view_blogs'));
+    }
+    redirect(base_url('admin/admin_dashboard'));
+}
+
 function getGeoCodes($address = "") {
     // Google HQ
     if ($address != "") {

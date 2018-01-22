@@ -12,7 +12,7 @@ class Blogs extends CI_Controller {
         $this->layout = 'frontend/main';
         $this->load->model('admin/blogs_model', 'Blogs_Model');
     }
-    
+
     function index() {
         $data['blogs'] = $blogs = $this->Blogs_Model->get_all_active_blogs();
 //        foreach ($blogs as $blog) {
@@ -24,12 +24,16 @@ class Blogs extends CI_Controller {
         $this->selected_tab = 'blog';
         $this->load->view('frontend/blogs/blog', $data);
     }
-    
+
     function blog_detail($blog_id) {
         $data['blog'] = $this->Blogs_Model->get_blog($blog_id);
-        $data['blog_descriptions'] = $this->db->get_where('tb_blog_descriptions', array('blog_id' => $blog_id))->result_array();
-        $this->selected_tab = 'blog';
-        $this->load->view('frontend/blogs/blog_detail', $data);
+        if ($data['blog'] && isset($data['blog']->blog_id) && $data['blog']->is_active == 1) {
+            $data['blog_descriptions'] = $this->db->get_where('tb_blog_descriptions', array('blog_id' => $blog_id))->result_array();
+            $this->selected_tab = 'blog';
+            $this->load->view('frontend/blogs/blog_detail', $data);
+        } else {
+            redirect(base_url());
+        }
     }
 
 }

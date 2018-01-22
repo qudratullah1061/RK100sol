@@ -30,13 +30,15 @@ class Admin_dashboard extends Admin_Controller {
     }
 
     public function admin_profile($user_id) {
-        if (!$user_id || ($user_id == 1 && $this->admin_info['admin_id'] != 1)) {
+        if (!$user_id || ($this->admin_info['admin_id'] != 1 && $this->admin_info['admin_id'] != $user_id)) {
             redirect(base_url('admin/dashboard'));
         }
         $this->selected_tab = 'admin';
-        $this->selected_child_tab = 'AdminUsers';
+        $this->selected_child_tab = 'admin_users';
         $admin_info = GetAdminInfoWithId($user_id);
+        $admin_roles_info = GetAdminRolesPermissionWithId($user_id);
         $data['admin_info'] = $admin_info;
+        $data['admin_roles_info'] = $admin_roles_info;
         $this->load->view('admin/dashboard/view_admin_profile', $data);
     }
 
@@ -197,6 +199,29 @@ class Admin_dashboard extends Admin_Controller {
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
+        } else {
+            redirect(base_url('admin/admin_auth'));
+        }
+    }
+
+    function update_admin_role() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $admin_id = $this->input->post('admin_id');
+            $posted_data = $this->input->post();
+            $this->Admin_Model->delete_admin_roles($admin_id);
+            foreach ($posted_data as $key => $data) {
+                if ($key != "admin_id") {
+                    $role_data = explode("::", $data);
+                    $role_id = $role_data[0];
+                    $role_status = $role_data[1];
+                    if ($role_status == 1) {
+                        $data = array('admin_user_id' => $admin_id, 'role_id' => $role_id,'created_by'=>$this->session->userdata('admin_id'));
+                        $this->Admin_Model->add_admin_role($admin_id, $data);
+                    }
+                }
+            }
+            $this->_response(false, "Changes saved successfully!");
         } else {
             redirect(base_url('admin/admin_auth'));
         }

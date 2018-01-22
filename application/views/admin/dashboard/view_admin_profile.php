@@ -112,10 +112,10 @@
                             </div>
                             <ul class="nav nav-tabs">
                                 <li class="active">
-                                    <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
+                                    <a href="#tab_1_1" data-toggle="tab" onclick="CommonFunctions.changeHash('#tab_1_1')">Personal Info</a>
                                 </li>
                                 <li>
-                                    <a href="#tab_1_2" data-toggle="tab">Privacy Settings</a>
+                                    <a href="#tab_1_2" data-toggle="tab" onclick="CommonFunctions.changeHash('#tab_1_2')">Privacy Settings</a>
                                 </li>
                             </ul>
                         </div>
@@ -187,73 +187,37 @@
                                 <!-- END PERSONAL INFO TAB -->
                                 <!-- PRIVACY SETTINGS TAB -->
                                 <div class="tab-pane" id="tab_1_2">
-                                    <form action="#">
+                                    <form role="form" id="form-update-role" method="post">
+                                        <input type="hidden" name="admin_id" value="<?php echo $admin_info['admin_id']; ?>">
                                         <table class="table table-light table-hover">
-                                            <tr>
-                                                <td> All privacy settings will goes here. </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios1" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios1" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios11" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios11" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios21" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios21" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-                                                <td>
-                                                    <div class="mt-radio-inline">
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios31" value="option1" /> Yes
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="mt-radio">
-                                                            <input type="radio" name="optionsRadios31" value="option2" checked/> No
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            if ($admin_roles_info) {
+                                                foreach ($admin_roles_info as $role_info) {
+                                                    ?>
+                                                    <tr>
+                                                        <td><span class="label label-sm label-info"><?php echo $role_info['role_name']; ?></span> <span class="font-green">(<?php echo $role_info['role_description']; ?>)</span></td>
+                                                        <td>
+                                                            <div class="mt-radio-inline">
+                                                                <label class="mt-radio">
+                                                                    <input type="radio" <?php echo $role_info['admin_user_id'] > 0 ? "checked='checked'" : ""; ?> name="admin_roles<?php echo $role_info['admin_user_role_id']; ?>" value="<?php echo $role_info['admin_user_role_id']; ?>::1" /> Yes
+                                                                    <span></span>
+                                                                </label>
+                                                                <label class="mt-radio">
+                                                                    <input type="radio" <?php echo $role_info['admin_user_id'] == "" ? "checked='checked'" : ""; ?> name="admin_roles<?php echo $role_info['admin_user_role_id']; ?>" value="<?php echo $role_info['admin_user_role_id']; ?>::0"/> No
+                                                                    <span></span>
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
                                         </table>
                                         <!--end profile-settings-->
                                         <div class="margin-top-10">
-                                            <a href="javascript:;" class="btn red"> Save Changes </a>
-                                            <a href="javascript:;" class="btn default"> Cancel </a>
+                                            <input type="submit" name="submit" value="Save Changes" class="btn green"/>
+                                            <a href="<?php echo base_url('admin/admin_dashboard/admin_users'); ?>" class="btn default"> Cancel </a>
                                         </div>
                                     </form>
                                 </div>
@@ -274,5 +238,6 @@
 <script>
     $(document).ready(function () {
         AdminUsers.initUpdateValidation("form-update-admin");
+        AdminUsers.initRolesSubmit("form-update-role");
     });
 </script>
