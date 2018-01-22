@@ -220,6 +220,4 @@ class Blogs_model extends Abstract_model {
         $query = $this->db->get();
         return $query->result();
     }
-    
->>>>>>> cbb20e3f28acf2ba68e22b62df3c177be13afb78
 }
