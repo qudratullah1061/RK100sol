@@ -814,7 +814,11 @@ span.profile-reviews-counter {
     width: 100%;
     display: inline-block;
 }
-
+.profile-social ul {
+    margin-top: 4px;
+    margin-left:0;
+    width: 100%;
+}
 .profile-social ul li {
     display: inline-block;
     margin-right: 8px;
@@ -825,10 +829,7 @@ span.profile-reviews-counter {
 .profile-social ul li:last-child {
     margin-right: 0;
 }
-.profile-social ul {
-    margin-top: 4px;
-    margin-left:0;
-}
+
 .profile-social ul li.enabled a{
     color:#942192;
 }
@@ -905,6 +906,8 @@ span.profile-reviews-counter {
     -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.35);
     -moz-box-shadow:    1px 1px 2px 0px rgba(0, 0, 0, 0.35);
     box-shadow:         1px 1px 2px 0px rgba(0, 0, 0, 0.35);
+    display: inline-block;
+    width:100%;
 }
 .profile-skills ul {
     width: 100%;
@@ -1008,6 +1011,7 @@ span.seperator.bg-light-gray {}
     margin-left: 38px;
     margin-bottom: 10px;
 }
+.profile-portfolio .portfolio-grid .grid-item figure img{max-width: 100%;}
 .profile-reviews {
     margin-top: 22px;
     background-color: #f6f3f4;
@@ -1574,6 +1578,12 @@ header.sticky nav.header-light .logo .logo-dark {
     top:12px;
     color:#611616;
 }
+/*border issue*/
+.tabbable-line > .nav-tabs > li{border-bottom: 4px solid transparent !important;}
+.tabbable-line > .nav-tabs > li.open, .tabbable-line > .nav-tabs > li:hover {background: none;border-bottom: 4px solid rgba(128, 0, 128, 0.49) !important;}
+.tabbable-line > .nav-tabs > li.active {border-bottom: 4px solid #800080 !important;position: relative;}
+/*border issue end*/
+.show-xs{display: none !important;}
 @media(max-width:1199px) and (min-width:992px) {
     .homestay-articles .portfolio-grid.work-4col li {
         width: 25%;
@@ -1605,14 +1615,32 @@ header.sticky nav.header-light .logo .logo-dark {
     nav.navbar.bootsnav .navbar-toggle:hover, nav.navbar.bootsnav .navbar-toggle:active, nav.navbar.bootsnav .navbar-toggle:focus{background-color: #5b2d61 !important;}
     .navbar-default .navbar-toggle .icon-bar, .navbar-default .navbar-toggle .icon-bar, header.sticky .navbar-default.header-light .navbar-toggle .icon-bar {background: #fff;}
     header a.logo img, header.sticky nav.header-light .logo .logo-light {max-height: 45px;height:45px;}
+
+    .header-right {
+        padding-left: 0;
+        margin-right: 60px;
+    }
+    nav .accordion-menu {
+        position: absolute;
+        right: 0;
+        top:13px;
+        width: 100%;
+    }
+
     /*header{overflow: hidden;}*/
     .home-banner{margin-top: 96px !important}
     nav .accordion-menu {padding-right: 15px;}
     nav.navbar.bootsnav .navbar-toggle {
         top: 4px;
     }
+    .sticky nav.navbar.bootsnav .navbar-toggle {
+        top: -4px;
+    }
     nav.navbar.bootsnav .navbar-collapse.collapse.in {
         z-index: 9999;
+        width: 100%;
+        left: 0;
+        position: absolute;
     }
     .search-box .col-1 {padding-right: 0px;width: 100%;}
     .search-box .btn {margin-top: 10px;}
@@ -1666,11 +1694,16 @@ header.sticky nav.header-light .logo .logo-dark {
         max-height: 200px !important;
         /*width: 100% !important;*/
     }
+
+
 }
 @media(max-width:768px){
     .guide-media img {width: 100%;margin-bottom: 30px;}
     .min-height-140 {
         min-height: 194px;
+    }
+    .profile-intro{
+        padding-bottom: 26px;
     }
 
 }
@@ -1704,6 +1737,9 @@ header.sticky nav.header-light .logo .logo-dark {
     section.profle {
         margin-top: 0;
     }
+    .profile-skills {
+        margin-bottom: 20px;
+    }
 }
 @media(max-width:676px){
     .cat-members .portfolio-grid.work-6col li, .cat-members .blog-grid.blog-6col li,
@@ -1736,6 +1772,10 @@ header.sticky nav.header-light .logo .logo-dark {
         padding-bottom: 13px;
         line-height: 30px;
     }
+    .show-xs{display: block !important;}
+    .header-right>.dropdown {
+        display: none;
+    }
 }
 @media(max-width:414px){
     .search-box {padding: 30px 15px 30px;}
@@ -1765,17 +1805,45 @@ header.sticky nav.header-light .logo .logo-dark {
     .profile-portfolio .portfolio-grid.work-4col li {
         width: 100%;
         max-height: unset;
+        padding: 10px 0;
     }
     .profile-portfolio .portfolio-grid .grid-item figure img {
-        /*height: 100% !important;*/
         max-height: unset !important;
-        /*width: 100% !important;*/
+    }
+    .profile-portfolio h5 {
+        margin-left: 5px;
+    }
+    .profile-intro {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .profile-right .profile-intro h5 {
+        font-size: 17px;
+        line-height: 24px;
+    }
+    .profile-reviews, .profile-skills ul li, .profile-intro {
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+}
+
+@media(max-width:385px){
+    .header-right {
+        margin-right: 55px;
+    }
+    header .logo .logo-dark.default, header .logo .logo-light.default {
+        height: auto;
+        width: 100%;
+        position: relative;
+        top: -20px;
     }
 }
 @media(max-width:375px){
     .career-box h3 span {display: blsock;}
     .career-box h3 {margin-bottom: 20px;}
+
 }
+
 @media(max-width:320px){
     .works-box figcaption.padding-30px-all p {font-size: 11px;}
 }

@@ -72,7 +72,7 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
         <!--sweet alert ends-->
         <!-- BEGIN datepicker-->
-        <!--<link href="<?php // echo base_url();    ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="<?php // echo base_url();      ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
         <!--datepicker ends-->
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -153,7 +153,13 @@
                                             </div>
 
                                         </li>
-                                    <?php } ?>
+                                    <?php } else { ?>
+                                        <li class="show-xs"><a href="<?php echo base_url('member/profile'); ?>"> Profile</a></li>
+                                        <li class="show-xs"><a href="<?php echo base_url(($this->session->userdata['member_info']['member_type'] == 1 ? 'guests/get_guest_profile' : 'companions/get_companion_profile')); ?>"> Settings</a></li>
+                                        <li class="show-xs"><a href="<?php echo base_url('auth/logout'); ?>"> Log out</a></li>
+                                        <?php
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
@@ -332,9 +338,9 @@
                                     <ul  class="small-icon no-margin-bottom">
                                         <li> <span> Follow Us:</span> </li>
                                         <li class="enabled"><a href="<?php echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['facebook_link'] : ""; ?>"><i class="fa fa-facebook-square"></i></a></li>
-                                        <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";    ?>"><i class="fa fa-youtube-square"></i></a></li>-->
+                                        <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";      ?>"><i class="fa fa-youtube-square"></i></a></li>-->
                                         <li><a href="<?php echo isset($admin_info[0]['linkedin_link']) ? $admin_info[0]['linkedin_link'] : ""; ?>"><i class="fa fa-linkedin-square"></i></a></li>
-                                        <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";    ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
+                                        <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";      ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
                                         <li class="enabled"><a href="<?php echo isset($admin_info[0]['twitter_link']) ? $admin_info[0]['twitter_link'] : ""; ?>"><i class="fa fa-twitter-square"></i></a></li>
                                         <li><a href="<?php echo isset($admin_info[0]['instagram_link']) ? $admin_info[0]['instagram_link'] : ""; ?>"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
@@ -433,7 +439,7 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
         <!--Form Validation end-->
         <!--datepicker start-->
-        <!--<script src="<?php // echo base_url();    ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
+        <!--<script src="<?php // echo base_url();      ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
         <!--datepicker ends-->
         <!--select2 start-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
