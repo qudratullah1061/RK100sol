@@ -45,7 +45,7 @@ class Misc_model extends Abstract_model {
         $this->table_name = "tb_categories";
         return $this->save($data);
     }
-    
+
     public function add_contact($data) {
         $this->table_name = "tb_contact_form";
         return $this->save($data);
@@ -145,9 +145,10 @@ class Misc_model extends Abstract_model {
         $this->table_name = "tb_member_images";
         return $this->getByWhere("", $where_clause);
     }
+
     function get_contact_forms() {
         $this->table_name = "tb_contact_form";
-        return $this->getAll("","",'is_read',"ASC");
+        return $this->getAll("", "", 'is_read', "ASC");
     }
 
     function saveRecord($table, $data) {
@@ -165,21 +166,26 @@ class Misc_model extends Abstract_model {
         if ($privacy_array) {
             foreach ($privacy_array as $privacy) {
                 $where = array('privacy_name' => $privacy['privacy_name'], 'member_id' => $member_id);
-                $privacy_data = array('privacy_status'=> $privacy['privacy_status'], 'updated_on' => date("Y-m-d H:i:s"));
+                $privacy_data = array('privacy_status' => $privacy['privacy_status'], 'updated_on' => date("Y-m-d H:i:s"));
                 $this->updateByWhere($privacy_data, $where);
             }
         }
     }
-    
-     public function get_contact($contact_id) {
+
+    public function get_contact($contact_id) {
         $this->table_name = 'tb_contact_form';
         $result = $this->getBy('contact_form_id', $contact_id);
         return isset($result[0]) ? $result[0] : array();
     }
-    
-     public function update_contact($column, $row_id, $data) {
+
+    public function update_contact($column, $row_id, $data) {
         $this->table_name = "tb_contact_form";
         return $this->updateBy($column, $row_id, $data);
+    }
+
+    function get_all_categories() {
+        $this->table_name = "tb_categories";
+        return $this->getAll("is_active", 1, '', "");
     }
 
 }

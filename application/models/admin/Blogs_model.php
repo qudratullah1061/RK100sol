@@ -166,4 +166,60 @@ class Blogs_model extends Abstract_model {
         $this->table_name = $table;
         $this->deleteByWhereIN($where);
     }
+
+    function get_all_selected_categories() {
+        $this->db->select('COUNT(DISTINCT (tbc.blog_id)) AS count_blogs, tb_categories.*, tbc.blog_id');
+        $this->db->from('tb_categories');
+        $this->db->join('tb_blog_categories AS tbc', '(`tb_categories`.`category_id`=`tbc`.`category_id` AND `tb_categories`.`is_active` = 1)', 'left');
+        $this->db->group_by('tb_categories.category_id');
+        $query = $this->db->get();
+//        echo $this->db->last_query();exit();
+        return $query->result_array();
+    }
+    
+    function get_all_blogs_as_per_category($category_id) {
+        $this->db->select('tb_blogs.*');
+        $this->db->from('tb_blog_categories AS tbc');
+        $this->db->join('tb_blogs', 'tb_blogs.blog_id=tbc.blog_id');
+        $this->db->where('tbc.category_id', $category_id);
+        $this->db->where('tb_blogs.is_active', 1);
+        $this->db->group_by('tb_blogs.blog_id'); 
+        $query = $this->db->get();
+        return $query->result();
+    }
+    function get_all_selected_tags($blog_id) {
+        $this->db->select('COUNT(tbt.tag_id) AS count_tags, tbt.*, tb_tags.*');
+        $this->db->from('tb_blog_tags AS tbt');
+        $this->db->join('tb_tags', 'tb_tags.tag_id=tbt.tag_id');
+        $this->db->where('tbt.blog_id', $blog_id);
+        $this->db->where('tb_tags.is_active', 1);
+        $this->db->group_by('tbt.tag_id'); 
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    
+    function get_all_blogs_as_per_tag($tag_id) {
+        $this->db->select('tb_blogs.*');
+        $this->db->from('tb_blog_tags AS tbt');
+        $this->db->join('tb_blogs', 'tb_blogs.blog_id=tbt.blog_id');
+        $this->db->where('tbt.tag_id', $tag_id);
+        $this->db->where('tb_blogs.is_active', 1);
+        $this->db->group_by('tb_blogs.blog_id'); 
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+    function search_by_keyword($keyword) {
+        $this->db->select('tb_blogs.*');
+        $this->db->from('tb_blog_descriptions AS tbd');
+        $this->db->join('tb_blogs', 'tb_blogs.blog_id=tbd.blog_id');
+        $this->db->or_like('blog_title',$keyword);
+        $this->db->or_like('tbd.blog_description',$keyword);
+        $this->db->where('tb_blogs.is_active', 1);
+        $this->db->group_by('tb_blogs.blog_id'); 
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+>>>>>>> cbb20e3f28acf2ba68e22b62df3c177be13afb78
 }

@@ -16,14 +16,26 @@ class Home extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->layout = 'frontend/main';
+        $this->load->model('admin/misc_model', 'Misc_Model');
     }
 
     function index() {
         $this->selected_tab = 'home';
-        $this->load->view('frontend/home');
+        $categories_data = $this->Misc_Model->get_all_categories();
+        $data['categories_data'] = $categories_data;
+        $this->load->view('frontend/home', $data);
     }
-    
-    function not_found(){
+
+    function searchmember() {
+        if (isset($_GET['location']) && isset($_GET['radius']) && isset($_GET['category_available'])) {
+            $this->load->view('frontend/member/search');
+        } else {
+            redirect(base_url());
+        }
+    }
+
+    function not_found() {
         $this->load->view('frontend/page404');
     }
+
 }
