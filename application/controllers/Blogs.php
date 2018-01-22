@@ -15,12 +15,6 @@ class Blogs extends CI_Controller {
     
     function index() {
         $data['blogs'] = $blogs = $this->Blogs_Model->get_all_active_blogs();
-//        foreach ($blogs as $blog) {
-//            $blog_id = $blog->blog_id;
-//            $data['blog_descriptions'][] = $this->db->get_where('tb_blog_descriptions', array('blog_id' => $blog_id))->result_array();
-//            $data['selected_tags'][] = $this->db->get_where('tb_blog_tags', array('blog_id' => $blog_id))->result_array();
-//            $data['selected_categories'][] = $this->db->get_where('tb_blog_categories', array('blog_id' => $blog_id))->result_array();
-//        }
         $this->selected_tab = 'blog';
         $this->load->view('frontend/blogs/blog', $data);
     }
@@ -28,8 +22,29 @@ class Blogs extends CI_Controller {
     function blog_detail($blog_id) {
         $data['blog'] = $this->Blogs_Model->get_blog($blog_id);
         $data['blog_descriptions'] = $this->db->get_where('tb_blog_descriptions', array('blog_id' => $blog_id))->result_array();
+        $data['selected_categories'] = $this->Blogs_Model->get_all_selected_categories($blog_id);
+        $data['selected_tags'] = $this->Blogs_Model->get_all_selected_tags($blog_id);
         $this->selected_tab = 'blog';
         $this->load->view('frontend/blogs/blog_detail', $data);
+    }
+    
+    function blogs_as_per_categories($category_id) {
+        $data['blogs'] = $this->Blogs_Model->get_all_blogs_as_per_category($category_id);
+        $this->selected_tab = 'blog';
+        $this->load->view('frontend/blogs/blog', $data);
+    }
+    
+    function blogs_as_per_tags($tag_id) {
+        $data['blogs'] = $this->Blogs_Model->get_all_blogs_as_per_tag($tag_id);
+        $this->selected_tab = 'blog';
+        $this->load->view('frontend/blogs/blog', $data);
+    }
+    
+    function search_keyword() {
+        $keyword = $this->input->post('keyword');
+        $data['blogs'] = $this->Blogs_Model->search_by_keyword($keyword);
+        $this->selected_tab = 'blog';
+        $this->load->view('frontend/blogs/blog', $data);
     }
 
 }
