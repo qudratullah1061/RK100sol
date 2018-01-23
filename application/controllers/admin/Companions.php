@@ -337,6 +337,7 @@ class Companions extends Admin_Controller {
             $edit_id = $this->input->post('portfolio_id');
             $member_id = $this->input->post('member_id');
             $this->form_validation->set_rules('portfolio_title', 'Portfolio Title', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('portfolio_type', 'Portfolio Type', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('country', 'Country', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('city', 'City', 'required|trim|strip_tags|xss_clean');
@@ -346,6 +347,7 @@ class Companions extends Admin_Controller {
             } else {
                 $data = array();
                 $data['portfolio_title'] = $this->input->post('portfolio_title');
+                $data['portfolio_type'] = $this->input->post('portfolio_type');
                 $data['country'] = $this->input->post('country');
                 $data['state'] = $this->input->post('state');
                 $data['city'] = $this->input->post('city');

@@ -356,7 +356,7 @@ function CreateThumbnail($source, $destination, $thump_options, $water_mark = fa
             } elseif ($options['width'] >= 150) {
                 $water_mark_image_name = "Transparent-K-100.png";
             }
-            if ($water_mark_image_name != "") {
+            if ($water_mark_image_name != "" && $water_mark) {
                 watermarkImage($destination . $options['prefix'] . $file_name, $water_mark_image_name);
             }
         }

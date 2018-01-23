@@ -47,6 +47,9 @@ var Portfolios = function () {
                 portfolio_title: {
                     required: true
                 },
+                portfolio_type: {
+                    required: true
+                },
                 country: {
                     required: true
                 },

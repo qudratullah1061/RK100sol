@@ -72,7 +72,7 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
         <!--sweet alert ends-->
         <!-- BEGIN datepicker-->
-        <!--<link href="<?php // echo base_url();      ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="<?php // echo base_url();               ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
         <!--datepicker ends-->
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -176,7 +176,9 @@
                                     <div class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                             <i class="fa fa-bell-o"></i>
-                                            <span class="badge badge-default"><?php echo count($notifications); ?></span>
+                                            <?php if (count($notifications) > 0) { ?>
+                                                <span class="badge badge-default"><?php echo count($notifications); ?></span>
+                                            <?php } ?>
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li class="external">
@@ -208,7 +210,7 @@
     <!--                                            <i class="icon-envelope-open"></i>
                                             <span class="badge badge-default"> 4 </span>-->
                                             <a href="#search-header" class="header-search-form text-white"><i class="fa fa-envelope-o"></i>
-                                                <span class="counter">0</span>
+                                                <!--<span class="counter">0</span>-->
                                             </a>
 
                                         </a>
@@ -338,9 +340,9 @@
                                     <ul  class="small-icon no-margin-bottom">
                                         <li> <span> Follow Us:</span> </li>
                                         <li class="enabled"><a href="<?php echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['facebook_link'] : ""; ?>"><i class="fa fa-facebook-square"></i></a></li>
-                                        <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";      ?>"><i class="fa fa-youtube-square"></i></a></li>-->
+                                        <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";               ?>"><i class="fa fa-youtube-square"></i></a></li>-->
                                         <li><a href="<?php echo isset($admin_info[0]['linkedin_link']) ? $admin_info[0]['linkedin_link'] : ""; ?>"><i class="fa fa-linkedin-square"></i></a></li>
-                                        <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";      ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
+                                        <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";               ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
                                         <li class="enabled"><a href="<?php echo isset($admin_info[0]['twitter_link']) ? $admin_info[0]['twitter_link'] : ""; ?>"><i class="fa fa-twitter-square"></i></a></li>
                                         <li><a href="<?php echo isset($admin_info[0]['instagram_link']) ? $admin_info[0]['instagram_link'] : ""; ?>"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
@@ -439,7 +441,7 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
         <!--Form Validation end-->
         <!--datepicker start-->
-        <!--<script src="<?php // echo base_url();      ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
+        <!--<script src="<?php // echo base_url();               ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
         <!--datepicker ends-->
         <!--select2 start-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>

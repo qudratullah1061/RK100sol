@@ -159,7 +159,7 @@
                                                                 <p><?php echo $portfolio['portfolio_title']; ?></p>
                                                                 <p><?php echo $portfolio['city_name']; ?>, <?php echo $portfolio['country_name']; ?></p>
                                                                 <span class="seperator bg-light-gray"></span>
-                                                                <h6>Travel Place</h6>
+                                                                <h6><?php echo $portfolio['portfolio_type']; ?></h6>
                                                             </div>
                                                         </div>
 

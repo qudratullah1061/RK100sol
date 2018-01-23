@@ -11,6 +11,10 @@
                 <div class="form-group">
                     <input type="text" placeholder="Portfolio Title" value="<?php echo isset($portfolio_data->portfolio_title) ? $portfolio_data->portfolio_title : ""; ?>" name="portfolio_title" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label>Portfolio Type</label>
+                    <input type="text" value="<?php echo isset($portfolio_data->portfolio_type) ? $portfolio_data->portfolio_type : ""; ?>" name="portfolio_type" class="form-control">
+                </div>
                 <div class="form-group form-md-line-input form-md-floating-label">
                     <select class="form-control country dd-country-portfolio" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value, '', 'dd-state-portfolio');">
                         <?php echo isset($country_options) ? $country_options : ""; ?>
