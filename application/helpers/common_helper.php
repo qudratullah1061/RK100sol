@@ -333,7 +333,8 @@ function CreateThumbnail($source, $destination, $thump_options, $water_mark = fa
     $config['new_image'] = $destination;
     $config['quality'] = 100;
     $config['create_thumb'] = TRUE;
-    $config['maintain_ratio'] = FALSE;
+    $config['maintain_ratio'] = TRUE;
+//    $config['master_dim'] = 'width';
 
     foreach ($thump_options as $options) {
         $config['width'] = $options['width'];

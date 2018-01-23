@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">Author Image <span class="label label-sm label-info">(300*200)</span></label>
+                        <label class="col-md-2 control-label">Author Image <span class="label label-sm label-info">(500*500)</span></label>
                         <div class="col-md-10">
                             <?php if (isset($blog_data->author_image_path) && isset($blog_data->author_image)) { ?>
                                 <img src="<?php echo base_url($blog_data->author_image_path . $blog_data->author_image); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">Blog Image <span class="label label-sm label-info">(300*200)</span></label>
+                        <label class="col-md-2 control-label">Blog Image <span class="label label-sm label-info">(500*500)</span></label>
                         <div class="col-md-10">
                             <?php if (isset($blog_data->blog_image_path) && isset($blog_data->blog_image)) { ?>
                                 <img src="<?php echo base_url($blog_data->blog_image_path . $blog_data->blog_image); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
@@ -174,7 +174,7 @@
                                                     <input type="hidden" name="blog_description_ids[]" value="<?php echo isset($blog_des['blog_description_id']) ? $blog_des['blog_description_id'] : ""; ?>">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <label class="control-label"><span class="label label-sm label-info">(850*600)</span> Image</label>
+                                                            <label class="control-label"><span class="label label-sm label-info">(900*630)</span> Image</label>
                                                             <?php if ($blog_des['blog_description_image'] != "") { ?>
                                                                 <img src="<?php echo base_url($blog_des['blog_description_image_path'] . $blog_des['blog_description_image']); ?>" style="width: 50px; height: 50px; border-radius: 10px !important; margin-left: 50px;">
                                                             <?php } ?>
@@ -188,7 +188,7 @@
                                                     <div class="clearfix"></div>
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <label class="control-label"><span class="label label-sm label-info">(370*265)</span> Feature Image</label>
+                                                            <label class="control-label"><span class="label label-sm label-info">(350*250)</span> Feature Image</label>
                                                             <?php if ($blog_des['blog_feature_image'] != "") { ?>
                                                                 <img src="<?php echo base_url($blog_des['blog_feature_image_path'] . $blog_des['blog_feature_image']); ?>" style="width: 50px; height: 50px; border-radius: 10px !important;">
                                                             <?php } ?>
@@ -214,7 +214,7 @@
                                             <div data-repeater-item class="row">
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label class="control-label"><span class="label label-sm label-info">(850*600)</span> Image</label>
+                                                        <label class="control-label"><span class="label label-sm label-info">(900*630)</span> Image</label>
                                                         <input name="blog_description_image" type="file" class="form-control" />
                                                     </div>
                                                     <div class="col-md-7">
@@ -225,7 +225,7 @@
                                                 <div class="clearfix"></div>
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label class="control-label"><span class="label label-sm label-info">(370*265)</span> Feature Image</label>
+                                                        <label class="control-label"><span class="label label-sm label-info">(350*250)</span> Feature Image</label>
                                                         <input name="blog_feature_image" type="file" class="form-control" />
                                                     </div>
                                                     <div class="col-md-7">

@@ -307,7 +307,7 @@ class Blogs extends Admin_Controller {
                     $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/authors/';
                     $thumb_options[0] = array('width' => 30, 'height' => 30, 'prefix' => 'small_');
                     $thumb_options[1] = array('width' => 100, 'height' => 100, 'prefix' => 'medium_');
-                    $thumb_options[2] = array('width' => 270, 'height' => 180, 'prefix' => 'large_');
+                    $thumb_options[2] = array('width' => 500, 'height' => 500, 'prefix' => 'large_');
                     $file_name = basename($author_images['name']);
                     $author_image_name = time() . $file_name;
                     $f_file_path = $f_upload_dir . '/' . $author_image_name;
@@ -326,8 +326,9 @@ class Blogs extends Admin_Controller {
                 if (isset($_FILES['blog_image']['name']) && $_FILES['blog_image']['name'] != "") {
                     $thumb_options = array();
                     $blog_images = $_FILES['blog_image'];
+                    list($width, $height, $type, $attr) = getimagesize($blog_images['tmp_name']);
                     $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/blog_images/';
-                    $thumb_options[0] = array('width' => 270, 'height' => 180, 'prefix' => 'medium_');
+                    $thumb_options[0] = array('a_width' => $width, 'a_height' => $height, 'width' => 300, 'height' => 300, 'prefix' => 'medium_');
                     $file_name = basename($blog_images['name']);
                     $blog_image_name = time() . $file_name;
                     $f_file_path = $f_upload_dir . '/' . $blog_image_name;
@@ -360,7 +361,7 @@ class Blogs extends Admin_Controller {
                                 $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/blog_description/';
                                 $thumb_options[0] = array('width' => 150, 'height' => 150, 'prefix' => 'small_');
                                 $thumb_options[1] = array('width' => 400, 'height' => 400, 'prefix' => 'medium_');
-                                $thumb_options[2] = array('width' => 825, 'height' => 578, 'prefix' => 'large_');
+                                $thumb_options[2] = array('width' => 900, 'height' => 630, 'prefix' => 'large_');
                                 $file_name = basename($blog_description_images);
                                 $blog_description_image_name = time() . $file_name;
                                 $f_file_path = $f_upload_dir . '/' . $blog_description_image_name;
@@ -377,7 +378,7 @@ class Blogs extends Admin_Controller {
                                 $blog_feature_images = $_FILES['blog_data']['name'][$counter]['blog_feature_image'];
                                 $f_upload_dir = $this->config->item('root_path') . 'uploads/blogs/feature_description/';
                                 $thumb_options[0] = array('width' => 75, 'height' => 26, 'prefix' => 'small_');
-                                $thumb_options[1] = array('width' => 353, 'height' => 257, 'prefix' => 'medium_');
+                                $thumb_options[1] = array('width' => 350, 'height' => 250, 'prefix' => 'medium_');
 //                            $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
                                 $file_name = basename($blog_feature_images);
                                 $blog_feature_image_name = time() . $file_name;
