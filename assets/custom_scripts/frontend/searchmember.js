@@ -18,14 +18,7 @@ var SearchMember = function () {
             rules: {
                 location: {
                     required: true
-                },
-                radius: {
-                    required: true,
-                    number: true
-                },
-                category_available: {
-                    required: true
-                },
+                }
             },
             invalidHandler: function (event, validator) { //display error alert on form submit              
                 success1.hide();

@@ -88,8 +88,7 @@ class Members_model extends Abstract_model {
         $this->table_name = "tb_member_languages";
         return $this->updateBy($column, $row_id, $data);
     }
-    
-    
+
     function get_member_degrees($member_id, $active_condition = "") {
         $sql = "SELECT * FROM tb_member_degrees" .
                 " WHERE `tb_member_degrees`.member_id = " . $member_id . " " . $active_condition;
@@ -111,8 +110,7 @@ class Members_model extends Abstract_model {
         $this->table_name = "tb_member_degrees";
         return $this->updateBy($column, $row_id, $data);
     }
-    
-    
+
     function get_member_certification($member_id, $active_condition = "") {
         $sql = "SELECT * FROM tb_member_certifications" .
                 " WHERE `tb_member_certifications`.member_id = " . $member_id . " " . $active_condition;
@@ -134,8 +132,7 @@ class Members_model extends Abstract_model {
         $this->table_name = "tb_member_certifications";
         return $this->updateBy($column, $row_id, $data);
     }
-    
-    
+
     function get_member_experiences($member_id, $active_condition = "") {
         $sql = "SELECT * FROM tb_member_experience" .
                 " WHERE `tb_member_experience`.member_id = " . $member_id . " " . $active_condition;
@@ -295,6 +292,53 @@ class Members_model extends Abstract_model {
                 }
             }
         }
+    }
+
+    public function search_members($loc, $radius, $cat_available, $geo_codes) {
+        $sql = "SELECT tb_members.* , tb_categories.*, tb_member_categories.* FROM tb_members"
+                . " LEFT JOIN tb_member_categories ON (tb_members.member_id = tb_member_categories.member_id)"
+                . " LEFT JOIN tb_categories ON (tb_member_categories.category_id = tb_categories.category_id) WHERE ";
+        $condition = '';
+        if ($cat_available != '') {
+            $condition .= " tb_categories.category_id = $cat_available";
+        }
+        if ((isset($geo_codes['country_long']) && $geo_codes['country_long']) || (isset($geo_codes['country_short']) && $geo_codes['country_short'])) {
+            $condition = $condition != '' ? $condition . ' AND ' : '';
+            $condition .= " (`country` = '" . $geo_codes["country_long"] . "' OR `country` = '" . $geo_codes["country_short"] . "') ";
+        }
+        if ((isset($geo_codes['city_long']) && $geo_codes['city_long']) || (isset($geo_codes['city_short']) && $geo_codes['city_short'])) {
+            $condition = $condition != '' ? $condition . ' AND ' : '';
+            $condition .= " (`city` = '" . $geo_codes["city_long"] . "' OR `city` = '" . $geo_codes["city_short"] . "') ";
+        }
+        if ((isset($geo_codes['state_long']) && $geo_codes['state_long']) || (isset($geo_codes['state_short']) && $geo_codes['state_short'])) {
+            $condition = $condition != '' ? $condition . ' AND ' : '';
+            $condition.= " (`state` = '" . $geo_codes["state_short"] . "' OR `state` = '" . $geo_codes["state_short"] . "') ";
+        }
+        $lat = isset($geo_codes['latitude']) ? $geo_codes['latitude'] : "";
+        $lon = isset($geo_codes['longitude']) ? $geo_codes['longitude'] : "";
+        if ($radius > 0 && $lat != "" && $lon != "") {
+            $distance_miles = $radius / 1.609344; //M
+            $nearby_members = $this->SearchNearByMembers($lat, $lon, $distance_miles);
+            if (count($nearby_members) > 0) {
+                $nearby_members_id = '';
+                foreach ($nearby_members as $nearby_ids) {
+                    if ($nearby_members_id != '') {
+                        $nearby_members_id .= ',';
+                    }
+                    $nearby_members_id .= $nearby_ids['member_id'];
+                }
+                $condition = $condition != '' ? $condition . ' AND ' : '';
+                $condition.= ' tb_members.member_id IN (' . $nearby_members_id . ')';
+            }
+        }
+        $sql .= $condition;
+        $sql .= ' GROUP BY tb_members.member_id';
+        return $this->db->query($sql)->result('array');
+    }
+
+    public function SearchNearByMembers($lat, $lon, $radius) {
+        $sql = 'SELECT distinct(member_id) FROM tb_members  WHERE (3958*3.1415926*sqrt((Latitude-' . $lat . ')*(Latitude-' . $lat . ') + cos(Latitude/57.29578)*cos(' . $lat . '/57.29578)*(Longitude-' . $lon . ')*(Longitude-' . $lon . '))/180) <= ' . $radius . ';';
+        return $this->db->query($sql)->result('array');
     }
 
 }

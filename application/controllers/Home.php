@@ -17,6 +17,7 @@ class Home extends CI_Controller {
         parent::__construct();
         $this->layout = 'frontend/main';
         $this->load->model('admin/misc_model', 'Misc_Model');
+        $this->load->model('admin/members_model', 'Members_model');
     }
 
     function index() {
@@ -27,8 +28,21 @@ class Home extends CI_Controller {
     }
 
     function searchmember() {
-        if (isset($_GET['location']) && isset($_GET['radius']) && isset($_GET['category_available'])) {
-            $this->load->view('frontend/member/search');
+        if (isset($_GET['location']) && $_GET['location'] != '') {
+            $categories_data = $this->Misc_Model->get_all_categories();
+            $data['categories_data'] = $categories_data;
+            $geo_codes = getGeoCodes($_GET['location']);
+            if (count($geo_codes) > 0) {
+                $loc = $_GET['location'];
+                $radius = $_GET['radius'];
+                $cat_available = $_GET['category_available'];
+                $members_list = $this->Members_model->search_members($loc, $radius, $cat_available, $geo_codes);
+            }
+            $data['members_list'] = $members_list;
+//            echo '<pre>';
+//            print_r($members_list);
+//            exit;
+            $this->load->view('frontend/member/search', $data);
         } else {
             redirect(base_url());
         }
