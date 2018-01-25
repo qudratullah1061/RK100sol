@@ -420,6 +420,12 @@ function get_notifications($is_admin = 1, $member_id, $is_read = '') {
     $notifications = $CI->Notification_Model->get_all_notifications($is_admin, 'AND tb_notification_users.receiver_id = ' . $member_id . ' ' . $where . '');
     return $notifications;
 }
+function get_sub_comments($blog_id, $parent_id) {
+    global $CI;
+    $CI->load->model('admin/blogs_model', 'Blogs_Model');
+    $sub_comments = $CI->Blogs_Model->get_selected_comments($blog_id, $parent_id);
+    return $sub_comments;
+}
 
 function delete_file_from_directory($file_path) {
     global $CI;
