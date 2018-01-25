@@ -294,45 +294,27 @@ class Members_model extends Abstract_model {
         }
     }
 
-    public function search_members($loc, $radius, $cat_available, $geo_codes) {
-        $sql = "SELECT tb_members.* , tb_categories.*, tb_member_categories.* FROM tb_members"
+    public function search_members($cat_available, $geo_codes, $nearby_members_id) {
+        $sql = "SELECT tb_members.* , tb_categories.*, tb_member_categories.*, tb_member_images.image, tb_member_images.image_path FROM tb_members"
                 . " LEFT JOIN tb_member_categories ON (tb_members.member_id = tb_member_categories.member_id)"
-                . " LEFT JOIN tb_categories ON (tb_member_categories.category_id = tb_categories.category_id) WHERE ";
-        $condition = '';
+                . " LEFT JOIN tb_member_images ON (tb_members.member_id = tb_member_images.member_id)"
+                . " LEFT JOIN tb_categories ON (tb_member_categories.category_id = tb_categories.category_id) WHERE tb_members.member_type = 2";
         if ($cat_available != '') {
-            $condition .= " tb_categories.category_id = $cat_available";
+            $sql .= " AND tb_categories.category_id = $cat_available";
         }
         if ((isset($geo_codes['country_long']) && $geo_codes['country_long']) || (isset($geo_codes['country_short']) && $geo_codes['country_short'])) {
-            $condition = $condition != '' ? $condition . ' AND ' : '';
-            $condition .= " (`country` = '" . $geo_codes["country_long"] . "' OR `country` = '" . $geo_codes["country_short"] . "') ";
+            $sql .= " AND (`country` = '" . $geo_codes["country_long"] . "' OR `country` = '" . $geo_codes["country_short"] . "') ";
         }
         if ((isset($geo_codes['city_long']) && $geo_codes['city_long']) || (isset($geo_codes['city_short']) && $geo_codes['city_short'])) {
-            $condition = $condition != '' ? $condition . ' AND ' : '';
-            $condition .= " (`city` = '" . $geo_codes["city_long"] . "' OR `city` = '" . $geo_codes["city_short"] . "') ";
+            $sql .= " AND (`city` = '" . $geo_codes["city_long"] . "' OR `city` = '" . $geo_codes["city_short"] . "') ";
         }
         if ((isset($geo_codes['state_long']) && $geo_codes['state_long']) || (isset($geo_codes['state_short']) && $geo_codes['state_short'])) {
-            $condition = $condition != '' ? $condition . ' AND ' : '';
-            $condition.= " (`state` = '" . $geo_codes["state_short"] . "' OR `state` = '" . $geo_codes["state_short"] . "') ";
+            $sql.= " AND (`state` = '" . $geo_codes["state_short"] . "' OR `state` = '" . $geo_codes["state_short"] . "') ";
         }
-        $lat = isset($geo_codes['latitude']) ? $geo_codes['latitude'] : "";
-        $lon = isset($geo_codes['longitude']) ? $geo_codes['longitude'] : "";
-        if ($radius > 0 && $lat != "" && $lon != "") {
-            $distance_miles = $radius / 1.609344; //M
-            $nearby_members = $this->SearchNearByMembers($lat, $lon, $distance_miles);
-            if (count($nearby_members) > 0) {
-                $nearby_members_id = '';
-                foreach ($nearby_members as $nearby_ids) {
-                    if ($nearby_members_id != '') {
-                        $nearby_members_id .= ',';
-                    }
-                    $nearby_members_id .= $nearby_ids['member_id'];
-                }
-                $condition = $condition != '' ? $condition . ' AND ' : '';
-                $condition.= ' tb_members.member_id IN (' . $nearby_members_id . ')';
-            }
+        if ($nearby_members_id != '') {
+            $sql.= ' AND tb_members.member_id IN (' . $nearby_members_id . ')';
         }
-        $sql .= $condition;
-        $sql .= ' GROUP BY tb_members.member_id';
+        $sql .= ' GROUP BY tb_members.member_id ORDER BY tb_member_images.is_profile_image DESC';
         return $this->db->query($sql)->result('array');
     }
 

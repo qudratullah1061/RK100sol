@@ -36,7 +36,26 @@ class Home extends CI_Controller {
                 $loc = $_GET['location'];
                 $radius = $_GET['radius'];
                 $cat_available = $_GET['category_available'];
-                $members_list = $this->Members_model->search_members($loc, $radius, $cat_available, $geo_codes);
+                $lat = isset($geo_codes['latitude']) ? $geo_codes['latitude'] : "";
+                $lon = isset($geo_codes['longitude']) ? $geo_codes['longitude'] : "";
+                $nearby_members_id = '';
+                $members_list = array();
+                if ($radius > 0 && $lat != "" && $lon != "") {
+                    $distance_miles = $radius / 1.609344; //M
+                    $nearby_members = $this->Members_model->SearchNearByMembers($lat, $lon, $distance_miles);
+                    if (count($nearby_members) > 0) {
+                        $nearby_members_id = '';
+                        foreach ($nearby_members as $nearby_ids) {
+                            if ($nearby_members_id != '') {
+                                $nearby_members_id .= ',';
+                            }
+                            $nearby_members_id .= $nearby_ids['member_id'];
+                        }
+                        $members_list = $this->Members_model->search_members($cat_available, $geo_codes, $nearby_members_id);
+                    }
+                } else {
+                    $members_list = $this->Members_model->search_members($cat_available, $geo_codes, $nearby_members_id);
+                }
             }
             $data['members_list'] = $members_list;
 //            echo '<pre>';
