@@ -20,6 +20,9 @@ class Blogs extends CI_Controller {
     }
 
     function blog_detail($blog_id) {
+        $this->selected_tab = 'blog';
+        $blog_data = $this->Blogs_Model->get_blog($blog_id);
+        if ($blog_data && isset($blog_data->blog_id) && $blog_data->is_active == 1) {
 //        delete_cookie('anonymous_user_id');
         $cookie = get_cookie('anonymous_user_id', FALSE);
         $data['blog'] = $this->Blogs_Model->get_blog($blog_id);
@@ -32,6 +35,9 @@ class Blogs extends CI_Controller {
         $data['anonymous_user_id'] = $cookie;
         $this->selected_tab = 'blog';
         $this->load->view('frontend/blogs/blog_detail', $data);
+        } else {
+            redirect(base_url());
+        }
     }
 
     function blogs_as_per_categories($category_id) {
@@ -45,7 +51,7 @@ class Blogs extends CI_Controller {
         $this->selected_tab = 'blog';
         $this->load->view('frontend/blogs/blog', $data);
     }
-
+    
     function search_keyword() {
         $category_id = $this->input->post('search_by_category');
         $keyword = $this->input->post('keyword');
