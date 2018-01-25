@@ -36,6 +36,48 @@ class Companions extends Admin_Controller {
         }
     }
 
+    public function upload_images_member($member_id = "") {
+        // profile image upload
+        $member_id = $this->input->post('member_id') ? $this->input->post('member_id') : $member_id;
+        if ($member_id) {
+            $image_info = isset($_POST['profile_images'][0]) ? json_decode($_POST['profile_images'][0]) : "";
+            if ($image_info) {
+                $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/profile/';
+                $uploaded_file_info = upload_base_64_image($image_info, $f_upload_dir);
+                if (isset($uploaded_file_info['image_full_path']) && $uploaded_file_info['image_full_path'] != "") {
+                    $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                    $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                    $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//                        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+                    CreateThumbnail($uploaded_file_info['image_full_path'], $f_upload_dir, $thumb_options);
+                    // insert in database as well.
+                    $image_data = array('member_id' => $member_id, 'image_type' => 'profile', 'is_profile_image' => 1, 'image' => $uploaded_file_info['image_name'], 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+                    $this->db->insert('tb_member_images', $image_data);
+                }
+            }
+            // id prof image upload
+            $image_info = isset($_POST['id_proofs'][0]) ? json_decode($_POST['id_proofs'][0]) : "";
+            if ($image_info) {
+                $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/id_proofs/';
+                $uploaded_file_info = upload_base_64_image($image_info, $f_upload_dir);
+                if (isset($uploaded_file_info['image_full_path']) && $uploaded_file_info['image_full_path'] != "") {
+                    $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                    $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                    $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//                        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+                    CreateThumbnail($uploaded_file_info['image_full_path'], $f_upload_dir, $thumb_options);
+                    // insert in database as well.
+                    $image_data = array('member_id' => $member_id, 'image_type' => 'id_proof', 'image' => $uploaded_file_info['image_name'], 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+                    $this->db->insert('tb_member_images', $image_data);
+                }
+            }
+        }
+        // front end user call.
+        if ($this->input->post()) {
+            redirect(base_url('admin/companions/get_companion_profile/' . $member_id));
+        }
+    }
+
     function chk_member_username_exist($email, $exclude_id) {
         $result = is_member_username_exist($email, $exclude_id);
         if ($result) {
@@ -167,44 +209,47 @@ class Companions extends Admin_Controller {
                     $result = true;
                 }
                 // upload id proof images , add call
-                if (isset($_FILES['id_proofs']['name']) && $_FILES['id_proofs']['name'] != "" && $edit_id > 0) {
-                    $id_proofs = reArrayFiles($_FILES['id_proofs']);
-                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/id_proofs/';
-                    foreach ($id_proofs as $id_proof) {
-                        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-                        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-                        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-                        $file_name = basename($id_proof['name']);
-                        $u_file_name = time() . $file_name;
-                        $f_file_path = $f_upload_dir . '/' . $u_file_name;
-                        move_uploaded_file($id_proof['tmp_name'], $f_file_path);
-                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
-                        // insert in database as well.
-                        $image_data = array('member_id' => $edit_id, 'image_type' => 'id_proof', 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
-                        $this->db->insert('tb_member_images', $image_data);
-                    }
-                }
-                // upload profile images , add call
-                if (isset($_FILES['profile_images']['name']) && $_FILES['profile_images']['name'] != "" && $edit_id > 0) {
-                    $images = reArrayFiles($_FILES['profile_images']);
-                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/profile/';
-                    $is_profile_image = 1;
-                    foreach ($images as $img) {
-                        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-                        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-                        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-                        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-                        $file_name = basename($img['name']);
-                        $u_file_name = time() . $file_name;
-                        $f_file_path = $f_upload_dir . '/' . $u_file_name;
-                        move_uploaded_file($img['tmp_name'], $f_file_path);
-                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options, TRUE);
-                        // insert in database as well.
-                        $image_data = array('member_id' => $edit_id, 'image_type' => 'profile', 'is_profile_image' => $is_profile_image, 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
-                        $this->db->insert('tb_member_images', $image_data);
-                        $is_profile_image = 0;
-                    }
-                }
+//                if (isset($_FILES['id_proofs']['name']) && $_FILES['id_proofs']['name'] != "" && $edit_id > 0) {
+//                    $id_proofs = reArrayFiles($_FILES['id_proofs']);
+//                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/id_proofs/';
+//                    foreach ($id_proofs as $id_proof) {
+//                        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+//                        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+//                        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//                        $file_name = basename($id_proof['name']);
+//                        $u_file_name = time() . $file_name;
+//                        $f_file_path = $f_upload_dir . '/' . $u_file_name;
+//                        move_uploaded_file($id_proof['tmp_name'], $f_file_path);
+//                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
+//                        // insert in database as well.
+//                        $image_data = array('member_id' => $edit_id, 'image_type' => 'id_proof', 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+//                        $this->db->insert('tb_member_images', $image_data);
+//                    }
+//                }
+//                // upload profile images , add call
+//                if (isset($_FILES['profile_images']['name']) && $_FILES['profile_images']['name'] != "" && $edit_id > 0) {
+//                    $images = reArrayFiles($_FILES['profile_images']);
+//                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/profile/';
+//                    $is_profile_image = 1;
+//                    foreach ($images as $img) {
+//                        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+//                        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+//                        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//                        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+//                        $file_name = basename($img['name']);
+//                        $u_file_name = time() . $file_name;
+//                        $f_file_path = $f_upload_dir . '/' . $u_file_name;
+//                        move_uploaded_file($img['tmp_name'], $f_file_path);
+//                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options, TRUE);
+//                        // insert in database as well.
+//                        $image_data = array('member_id' => $edit_id, 'image_type' => 'profile', 'is_profile_image' => $is_profile_image, 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+//                        $this->db->insert('tb_member_images', $image_data);
+//                        $is_profile_image = 0;
+//                    }
+//                }
+
+                // upload id proofs and profile images function.
+                $this->upload_images_member($edit_id);
 
                 // add user categories.
                 $categories = $this->input->post('categories');
@@ -306,8 +351,8 @@ class Companions extends Admin_Controller {
             $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
             $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id);
             $data['language_data'] = $this->Members_Model->get_member_languages($member_id);
-            $data['degrees']       = $this->Members_Model->get_member_degrees($member_id);
-            $data['experiences']   = $this->Members_Model->get_member_experiences($member_id);
+            $data['degrees'] = $this->Members_Model->get_member_degrees($member_id);
+            $data['experiences'] = $this->Members_Model->get_member_experiences($member_id);
             $data['certifications'] = $this->Members_Model->get_member_certification($member_id);
             $this->load->view('admin/companions/view_companion_profile', $data);
         } else {
@@ -392,8 +437,7 @@ class Companions extends Admin_Controller {
             redirect(base_url('admin/companions/get_companion_profile'));
         }
     }
-    
-    
+
     function modal_degree() {
         $this->isAjax();
         $member_degree_id = $this->input->post('member_degree_id');
@@ -415,7 +459,7 @@ class Companions extends Admin_Controller {
             $this->form_validation->set_rules('title', 'Title', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('degree_name', 'Degree Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('start_date', 'Start Date', 'required|trim|strip_tags|xss_clean');
-           
+
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
@@ -423,9 +467,9 @@ class Companions extends Admin_Controller {
                 $data = array();
                 $data['title'] = $this->input->post('title');
                 $data['degree_name'] = $this->input->post('degree_name');
-                
+
                 $data['start_date'] = $this->input->post('start_date');
-                $data['end_date']   = $this->input->post('present') == null ? $this->input->post('end_date') : 'Present';
+                $data['end_date'] = $this->input->post('present') == null ? $this->input->post('end_date') : 'Present';
                 $data['pub_status'] = $this->input->post('pub_status') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $data['member_id'] = $this->session->userdata('admin_id');
@@ -436,7 +480,7 @@ class Companions extends Admin_Controller {
                     unset($data['created_by']);
                 }
                 $result = false;
-                
+
 
                 if ($edit_id > 0) {
                     $this->Members_Model->update_degree('member_degree_id', $edit_id, $data);
@@ -452,10 +496,8 @@ class Companions extends Admin_Controller {
             redirect(base_url('admin/companions/get_companion_profile'));
         }
     }
-    
-    
-    
-     function modal_experience() {
+
+    function modal_experience() {
         $this->isAjax();
         $member_experience_id = $this->input->post('member_experience_id');
         $member_id = $this->input->post('member_id');
@@ -476,7 +518,7 @@ class Companions extends Admin_Controller {
             $this->form_validation->set_rules('title', 'Title', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('position', 'Position', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('start_date', 'Start Date', 'required|trim|strip_tags|xss_clean');
-           
+
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
@@ -485,11 +527,11 @@ class Companions extends Admin_Controller {
                 $data['title'] = $this->input->post('title');
                 $data['position'] = $this->input->post('position');
                 $data['start_date'] = $this->input->post('start_date');
-                
-                $data['end_date']   = $this->input->post('present') == null ? $this->input->post('end_date') : 'Present';
+
+                $data['end_date'] = $this->input->post('present') == null ? $this->input->post('end_date') : 'Present';
                 $data['pub_status'] = $this->input->post('pub_status') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
-                $data['updated_by'] = $data['created_by']  = $this->session->userdata('admin_id');
+                $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');
                 $data['member_id'] = $member_id;
                 if ($edit_id > 0) {
                     // unset created on
@@ -497,7 +539,7 @@ class Companions extends Admin_Controller {
                     unset($data['created_by']);
                 }
                 $result = false;
-                
+
 
                 if ($edit_id > 0) {
                     $this->Members_Model->update_experience('member_experience_id', $edit_id, $data);
@@ -513,9 +555,7 @@ class Companions extends Admin_Controller {
             redirect(base_url('admin/companions/get_companion_profile'));
         }
     }
-    
-    
-    
+
     function modal_certification() {
         $this->isAjax();
         $member_certification_id = $this->input->post('member_certification_id');
@@ -536,8 +576,8 @@ class Companions extends Admin_Controller {
             $member_id = $this->input->post('member_id');
             $this->form_validation->set_rules('title', 'Title', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('description', 'Position', 'required|trim|strip_tags|xss_clean');
-            
-           
+
+
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
@@ -545,11 +585,11 @@ class Companions extends Admin_Controller {
                 $data = array();
                 $data['title'] = $this->input->post('title');
                 $data['description'] = $this->input->post('description');
-                
+
                 $data['type_of_certification'] = $this->input->post('type_of_certification');
                 $data['year_issued'] = $this->input->post('year_issued');
                 $data['issued_by'] = $this->input->post('issued_by');
-                
+
                 $data['pub_status'] = $this->input->post('pub_status') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');
@@ -576,7 +616,7 @@ class Companions extends Admin_Controller {
                     unset($data['created_by']);
                 }
                 $result = false;
-                
+
 
                 if ($edit_id > 0) {
                     $this->Members_Model->update_certification('member_certification_id', $edit_id, $data);

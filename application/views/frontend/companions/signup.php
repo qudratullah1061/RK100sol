@@ -1,5 +1,7 @@
 <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDVw_YgvMUxH6KawXzlwM9meU3HAUnbsLQ&libraries=places&language=en"></script>
 <script src="<?php echo base_url(); ?>assets/geocode/jquery.geocomplete.js" type="text/javascript"></script>
+<link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.min.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/styles/styles.css" rel="stylesheet">
 <section class="signup-full-cover-image">
     <div class="container">
         <div class="portlet light bordered" id="form_wizard_1">
@@ -54,6 +56,7 @@
                                 </div>
                                 <div class="tab-pane active" id="tab1">
                                     <h3 class="block text-center">Login Details</h3>
+
                                     <div class="form-group form-md-line-input">
                                         <label class="control-label col-md-3">Username <span class="required">*</span></label>
                                         <div class="col-md-6">
@@ -88,6 +91,24 @@
                                         <div class="col-md-6">
                                             <input type="password" name="confirm_password" id="confirm_password" class="form-control">
                                             <label></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <label class="control-label col-md-3"> Profile Image <span class="required">*</span></label>
+                                        <div class="col-md-6">
+                                            <div class="frame">
+                                                <input type="file" id="profile_images" name='profile_images[]' multiple="multiple" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <label class="control-label col-md-3"> ID Proof <span class="required">*</span></label>
+                                        <div class="col-md-6">
+                                            <div class="frame">
+                                                <input type="file" id='id_proofs' name="id_proofs[]" multiple="multiple">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -180,21 +201,6 @@
                                 </div>
                                 <div class="tab-pane" id="tab3">
                                     <h3 class="block text-center">Further Details</h3>
-                                    <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> Profile Images <span class="required">*</span></label>
-                                        <div class="col-md-6">
-                                            <input type="file" class="form-control" multiple="multiple"  placeholder="" name="profile_images[]">
-                                            <label></label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> ID Proofs <span class="required">*</span></label>
-                                        <div class="col-md-6">
-                                            <input type="file" class="form-control" multiple="multiple"  placeholder="" name="id_proofs[]">
-                                            <label></label>
-                                        </div>
-                                    </div>
 
                                     <?php
                                     if (isset($categories) && count($categories) > 0) {
@@ -276,6 +282,8 @@
 </section>
 <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.kickstart.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
 <script>
     $(function () {
         $("#location").geocomplete(

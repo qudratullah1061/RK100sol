@@ -286,6 +286,26 @@ function delete_image_from_directory($images_info_array) {
     }
 }
 
+function upload_base_64_image($image_info,$file_path) {
+    global $CI;
+    if ($image_info) {
+        $image = isset($image_info->output->image) ? $image_info->output->image : "";
+        $image_data_info = explode(";", $image);
+        $img_extension_arr = explode("/", $image_data_info[0]);
+        $extension = isset($img_extension_arr[1]) ? $img_extension_arr[1] : "png";
+
+        $encoded_img = str_replace($image_data_info[0] . ";", '', $image);
+        $encoded_img = str_replace('base64,', '', $encoded_img);
+        $encoded_img = str_replace(' ', '+', $encoded_img);
+        $data = base64_decode($encoded_img);
+
+        $file_name = uniqid() . "." . $extension;
+        $file = $file_path . $file_name;
+        $success = file_put_contents($file, $data);
+        return $success ? array('image_path' => $file_path, 'image_name' => $file_name, 'image_full_path' => $file_path . $file_name) : 'Unable to save the file.';
+    }
+}
+
 function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thump_options = array(), $watermark = FALSE, $unique_idetifier = "") {
     global $CI;
     $config['upload_path'] = $CI->config->item('root_path') . $upload_path;

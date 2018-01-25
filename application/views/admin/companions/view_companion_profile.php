@@ -353,58 +353,69 @@ $unique_id = time();
                                 <!-- IMAGES SETTINGS TAB -->
                                 <div class="tab-pane" id="tab_1_3">
                                     <!-- Profile images start-->
-                                    <div>
-                                        <form action="<?php echo base_url('admin/misc/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
-                                            <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
-                                            <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
-                                            <input type="hidden" name="image_type" value="profile">
-                                            <input type="hidden" name="image_dir" value="uploads/member_images/profile/">
-                                            <h3 class="sbold">Click to upload</h3>
-                                            <p> Upload Service Member Profile Images </p>
-                                        </form>
+                                    <div class="note note-info">
+                                        <p>Upload Profile Images Here.</p>
+                                    </div>
+                                    <form class="form-horizontal text-center" action="<?php echo base_url('profile/upload_images_member'); ?>" method="post">
+                                        <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
+                                        <div class="form-group form-md-line-input">
+                                            <div class="col-md-12">
+                                                <div class="frame middle-elem">
+                                                    <input type="file" id="profile_images" name='profile_images[]' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="submit" name="submit" class="btn green" value="Submit">
+                                    </form>
 
-                                        <div id="load_member_profile_images" class="cbp margin-top-20">
-                                            <?php
-                                            if ($member_profile_pics && count($member_profile_pics) > 0) {
-                                                $counter = 1;
-                                                foreach ($member_profile_pics as $image_info) {
-                                                    ?>
-                                                    <div class="cbp-item graphic" id='pic-<?php echo $image_info['image_id']; ?>'>
-                                                        <div class="cbp-caption">
-                                                            <div class="cbp-caption-defaultWrap">
-                                                                <img src="<?php echo base_url() . $image_info['image_path'] . 'large_' . $image_info['image']; ?>" alt=""> 
-                                                            </div>
-                                                            <div class="cbp-caption-activeWrap">
-                                                                <div class="cbp-l-caption-alignCenter">
-                                                                    <div class="cbp-l-caption-body">                                                                        
-                                                                        <a href="javascript:CommonFunctions.Delete('<?php echo $image_info['image_id']; ?>', 'tb_member_images', 'image_id', 'Are you sure you want to delete this image?')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Delete</a>
-                                                                        <a href="javascript:CommonFunctions.MakeProfileImage('<?php echo $image_info['image_id']; ?>', '<?php echo $image_info['member_id']; ?>')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Make profile</a>
-                                                                        <a href="<?php echo base_url() . $image_info['image_path'] . $image_info['image']; ?>" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Konsorts.com">view larger</a>
-                                                                    </div>
+
+                                    <div id="load_member_profile_images" class="cbp margin-top-20">
+                                        <?php
+                                        if ($member_profile_pics && count($member_profile_pics) > 0) {
+                                            $counter = 1;
+                                            foreach ($member_profile_pics as $image_info) {
+                                                ?>
+                                                <div class="cbp-item graphic" id='pic-<?php echo $image_info['image_id']; ?>'>
+                                                    <div class="cbp-caption">
+                                                        <div class="cbp-caption-defaultWrap">
+                                                            <img src="<?php echo base_url() . $image_info['image_path'] . 'large_' . $image_info['image']; ?>" alt=""> 
+                                                        </div>
+                                                        <div class="cbp-caption-activeWrap">
+                                                            <div class="cbp-l-caption-alignCenter">
+                                                                <div class="cbp-l-caption-body">                                                                        
+                                                                    <a href="javascript:CommonFunctions.Delete('<?php echo $image_info['image_id']; ?>', 'tb_member_images', 'image_id', 'Are you sure you want to delete this image?')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Delete</a>
+                                                                    <a href="javascript:CommonFunctions.MakeProfileImage('<?php echo $image_info['image_id']; ?>', '<?php echo $image_info['member_id']; ?>')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Make profile</a>
+                                                                    <a href="<?php echo base_url() . $image_info['image_path'] . $image_info['image']; ?>" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Konsorts.com">view larger</a>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center pic-caption-img pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
                                                     </div>
-                                                    <?php
-                                                }
+                                                    <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center pic-caption-img pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
+                                                </div>
+                                                <?php
                                             }
-                                            ?>
-                                        </div>
+                                        }
+                                        ?>
                                     </div>
+
                                     <!-- Profile images ends-->
 
                                     <!-- Id proof images start-->
                                     <div class="margin-top-20">
-                                        <form action="<?php echo base_url('admin/misc/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                        <div class="note note-info">
+                                            <p>Upload ID Proof Images Here.</p>
+                                        </div>
+                                        <form class="form-horizontal text-center" action="<?php echo base_url('admin/companions/upload_images_member'); ?>" method="post">
                                             <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
-                                            <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
-                                            <input type="hidden" name="image_type" value="id_proof">
-                                            <input type="hidden" name="image_dir" value="uploads/member_images/id_proofs/">
-                                            <h3 class="sbold">Click to upload</h3>
-                                            <p>Upload Service Member Id Proofs</p>
+                                            <div class="form-group form-md-line-input">
+                                                <div class="col-md-12">
+                                                    <div class="frame middle-elem">
+                                                        <input type="file" id="id_proofs" name='id_proofs[]' />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="submit" class="btn green" name="submit" value="Submit">
                                         </form>
-
                                         <div id="load_member_id_proofs" class="cbp margin-top-20">
                                             <?php
                                             if ($member_id_proofs && count($member_id_proofs) > 0) {
@@ -756,14 +767,14 @@ $unique_id = time();
 <script src="<?php echo base_url('assets/custom_scripts/admin/experience.js'); ?>" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
-$(document).ready(function () {
-    FormWizard.handleCompanionValidation("update_companion_member");
-    FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
-    $("#portfolio_table").DataTable({"scrollX": false});
-    $("#language_table").DataTable({"scrollX": false});
-    $("#experience_table").DataTable({"scrollX": false});
-    $("#education_table").DataTable({"scrollX": false});
-    $("#certification_table").DataTable({"scrollX": false});
-    $("#location").geocomplete();
-});
+                                                        $(document).ready(function () {
+                                                            FormWizard.handleCompanionValidation("update_companion_member");
+                                                            FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
+                                                            $("#portfolio_table").DataTable({"scrollX": false});
+                                                            $("#language_table").DataTable({"scrollX": false});
+                                                            $("#experience_table").DataTable({"scrollX": false});
+                                                            $("#education_table").DataTable({"scrollX": false});
+                                                            $("#certification_table").DataTable({"scrollX": false});
+                                                            $("#location").geocomplete();
+                                                        });
 </script>

@@ -283,45 +283,8 @@ class Profile extends CI_Controller {
                     }
                     $result = true;
                 }
-                // upload id proof images , add call
-                if (isset($_FILES['id_proofs']['name']) && $_FILES['id_proofs']['name'] != "" && $edit_id > 0) {
-                    $id_proofs = reArrayFiles($_FILES['id_proofs']);
-                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/id_proofs/';
-                    foreach ($id_proofs as $id_proof) {
-                        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-                        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-                        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-                        $file_name = basename($id_proof['name']);
-                        $u_file_name = time() . $file_name;
-                        $f_file_path = $f_upload_dir . '/' . $u_file_name;
-                        move_uploaded_file($id_proof['tmp_name'], $f_file_path);
-                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
-                        // insert in database as well.
-                        $image_data = array('member_id' => $edit_id, 'image_type' => 'id_proof', 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
-                        $this->db->insert('tb_member_images', $image_data);
-                    }
-                }
-                // upload profile images , add call
-                if (isset($_FILES['profile_images']['name']) && $_FILES['profile_images']['name'] != "" && $edit_id > 0) {
-                    $images = reArrayFiles($_FILES['profile_images']);
-                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/profile/';
-                    $is_profile_image = 1;
-                    foreach ($images as $img) {
-                        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-                        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-                        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-                        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-                        $file_name = basename($img['name']);
-                        $u_file_name = time() . $file_name;
-                        $f_file_path = $f_upload_dir . '/' . $u_file_name;
-                        move_uploaded_file($img['tmp_name'], $f_file_path);
-                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options, TRUE);
-                        // insert in database as well.
-                        $image_data = array('member_id' => $edit_id, 'image_type' => 'profile', 'is_profile_image' => $is_profile_image, 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
-                        $this->db->insert('tb_member_images', $image_data);
-                        $is_profile_image = 0;
-                    }
-                }
+                // profile image upload
+                $this->upload_images_member($edit_id);
 
                 // add user categories.
                 $categories = $this->input->post('categories');
@@ -377,27 +340,69 @@ class Profile extends CI_Controller {
         exit;
     }
 
-    public function upload_images_member() {
-        $member_id = $this->input->post('member_id');
-        $file_upload_unique_id = $this->input->post('file_upload_unique_id');
-        $image_type = $this->input->post('image_type');
-        $image_dir = $this->input->post('image_dir');
-        $watermark = $image_type == 'profile' ? TRUE : FALSE;
-        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-        $result = UploadImage('file', $image_dir, TRUE, $thumb_options, $watermark, $file_upload_unique_id);
-        if (isset($result['error'])) {
-            $this->_response(true, $result['error']);
-        }
-        // new image paths
-        $image = $result['upload_data']['file_name'];
-        $image_path = $result['upload_data']['file_path'];
+//    public function upload_images_member() {
+//        $member_id = $this->input->post('member_id');
+//        $file_upload_unique_id = $this->input->post('file_upload_unique_id');
+//        $image_type = $this->input->post('image_type');
+//        $image_dir = $this->input->post('image_dir');
+//        $watermark = $image_type == 'profile' ? TRUE : FALSE;
+//        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+//        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+//        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+//        $result = UploadImage('file', $image_dir, TRUE, $thumb_options, $watermark, $file_upload_unique_id);
+//        if (isset($result['error'])) {
+//            $this->_response(true, $result['error']);
+//        }
+//        // new image paths
+//        $image = $result['upload_data']['file_name'];
+//        $image_path = $result['upload_data']['file_path'];
+//
+//        $image_data = array('member_id' => $member_id, 'image_type' => $image_type, 'is_profile_image' => 0, 'image' => $image, 'image_path' => $image_dir);
+//        $this->db->insert('tb_member_images', $image_data);
+//        $this->_response(true, 'File uploaded successfully!');
+//    }
 
-        $image_data = array('member_id' => $member_id, 'image_type' => $image_type, 'is_profile_image' => 0, 'image' => $image, 'image_path' => $image_dir);
-        $this->db->insert('tb_member_images', $image_data);
-        $this->_response(true, 'File uploaded successfully!');
+    public function upload_images_member($member_id = "") {
+        // profile image upload
+        $member_id = $this->input->post('member_id') ? $this->input->post('member_id') : $member_id;
+        if ($member_id) {
+            $image_info = isset($_POST['profile_images'][0]) ? json_decode($_POST['profile_images'][0]) : "";
+            if ($image_info) {
+                $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/profile/';
+                $uploaded_file_info = upload_base_64_image($image_info, $f_upload_dir);
+                if (isset($uploaded_file_info['image_full_path']) && $uploaded_file_info['image_full_path'] != "") {
+                    $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                    $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                    $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//                        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+                    CreateThumbnail($uploaded_file_info['image_full_path'], $f_upload_dir, $thumb_options);
+                    // insert in database as well.
+                    $image_data = array('member_id' => $member_id, 'image_type' => 'profile', 'is_profile_image' => 1, 'image' => $uploaded_file_info['image_name'], 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+                    $this->db->insert('tb_member_images', $image_data);
+                }
+            }
+            // id prof image upload
+            $image_info = isset($_POST['id_proofs'][0]) ? json_decode($_POST['id_proofs'][0]) : "";
+            if ($image_info) {
+                $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/id_proofs/';
+                $uploaded_file_info = upload_base_64_image($image_info, $f_upload_dir);
+                if (isset($uploaded_file_info['image_full_path']) && $uploaded_file_info['image_full_path'] != "") {
+                    $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                    $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                    $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//                        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+                    CreateThumbnail($uploaded_file_info['image_full_path'], $f_upload_dir, $thumb_options);
+                    // insert in database as well.
+                    $image_data = array('member_id' => $member_id, 'image_type' => 'id_proof', 'image' => $uploaded_file_info['image_name'], 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+                    $this->db->insert('tb_member_images', $image_data);
+                }
+            }
+        }
+        // front end user call.
+        if ($this->input->post()) {
+            redirect(base_url('companions/get_companion_profile#tab_1_3'));
+        }
     }
 
     public function _response($is_error = true, $description = '', $status = '') {
