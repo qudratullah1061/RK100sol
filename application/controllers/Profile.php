@@ -363,9 +363,9 @@ class Profile extends CI_Controller {
 //        $this->_response(true, 'File uploaded successfully!');
 //    }
 
-    public function upload_images_member($member_id = "") {
+    public function upload_images_member($member_id_param = "") {
         // profile image upload
-        $member_id = $this->input->post('member_id') ? $this->input->post('member_id') : $member_id;
+        $member_id = $this->input->post('member_id') ? $this->input->post('member_id') : $member_id_param;
         if ($member_id) {
             $image_info = isset($_POST['profile_images'][0]) ? json_decode($_POST['profile_images'][0]) : "";
             if ($image_info) {
@@ -400,7 +400,7 @@ class Profile extends CI_Controller {
             }
         }
         // front end user call.
-        if ($this->input->post()) {
+        if (!$member_id_param) {
             redirect(base_url('companions/get_companion_profile#tab_1_3'));
         }
     }

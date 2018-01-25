@@ -8,6 +8,8 @@ $unique_id = time();
 <!-- END PAGE LEVEL STYLES -->
 <link href="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/css/cubeportfolio.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url(); ?>assets/pages/css/portfolio.min.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.min.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/styles/styles.css" rel="stylesheet">
 <!-- BEGIN PAGE HEADER-->
 <!-- BEGIN PAGE BAR -->
 <div class="page-bar">
@@ -765,6 +767,8 @@ $unique_id = time();
 <script src="<?php echo base_url('assets/custom_scripts/admin/education.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/certification.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/experience.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.kickstart.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
                                                         $(document).ready(function () {
