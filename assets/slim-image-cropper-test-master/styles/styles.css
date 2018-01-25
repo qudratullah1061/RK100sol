@@ -1,0 +1,14 @@
+div.frame {
+    max-width: 300px;
+    max-height: 400px;
+}
+.slim {
+    border-radius: 0.5rem;
+    border: 1px solid #eaeaea;
+}
+.slim-btn-cancel{
+    display: none !important;
+}
+.middle-elem{
+    margin:0 auto;
+}
