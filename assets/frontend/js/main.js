@@ -405,7 +405,22 @@ $(document).ready(function () {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev'
     });
-
+    var swiperPag = new Swiper('.swipper-pagination', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        loop: true,
+        autoplay: false,
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        keyboardControl: true,
+        preventClicks: false,
+         spaceBetween: 25,
+        paginationBulletRender: function (swiper, index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+        },
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
+    });
     var swiperAutoFade = new Swiper('.swiper-auto-fade', {
         pagination: '.swiper-pagination',
         loop: true,
@@ -479,6 +494,8 @@ $(document).ready(function () {
             }
         }
     });
+
+
 
     var swiperThreeSlides = new Swiper('.swiper-three-slides', {
         pagination: '.swiper-pagination-three-slides',
@@ -689,6 +706,8 @@ $(document).ready(function () {
     if (isIE()) {
         setTimeout(function () {
             $(document).imagesLoaded(function () {
+                if ($(".swipper-pagination").length > 0)
+                    swiperPag.onResize()
                 if ($(".swiper-full-screen").length > 0)
                     swiperFull.onResize()
                 if ($(".swiper-auto-fade").length > 0)
@@ -723,6 +742,8 @@ $(document).ready(function () {
 
     $(window).resize(function () {
         setTimeout(function () {
+            if ($(".swipper-pagination").length > 0)
+                swiperPag.onResize()
             if ($(".swiper-full-screen").length > 0)
                 swiperFull.onResize()
             if ($(".swiper-auto-fade").length > 0)

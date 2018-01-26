@@ -1400,6 +1400,9 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     font-size: 21px;
     background-color: transparent;
 }
+.homestay-panner-height {
+    height: 500px;
+}
 .paginationx .pagination li a:hover, .paginationx .pagination li a:active, .paginationx .pagination li a:focus,
 .paginationx .pagination .active a
 {color:#800080; background-color: transparent;}
@@ -1507,12 +1510,106 @@ ul.hosting-list li {
 }
 .homestay-articles h5 {
     font-size: 35px;
-    font-weight: 500;
+    font-weight: 400;
     border-bottom: 2px solid;
     line-height: 43px;
     display: inline-block;
     margin-left: 21px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+/*pagiation slider*/
+.swiper-pagination-bullet {
+    width: 18px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #fff;
+    opacity: 1;
+    background: transparent;
+    font-weight: bold;
+    font-size: 21px;
+    font-family: 'roboto';
+}
+.swiper-pagination-bullet:hover{
+    color:#bd2db9;
+}
+.swiper-pagination-bullet-active {
+    background: transparent;
+    color: #bd2db9;
+}
+.swipper-pagination .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+    bottom: 34px;
+    z-index: 999;
+}
+
+.swipper-pagination {
+    /*padding-bottom: 100px;*/
+}
+.paginatin-wrapper {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 45px;
+}
+
+.paginatin-wrapper .swiper-button-next, .paginatin-wrapper  .swiper-button-prev {
+    position: static;
+    display: inline-block;
+}
+
+.paginatin-wrapper .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+    position: static;
+    display: inline-block;
+    width: auto;
+}
+.paginatin-wrapper .swiper-button-next{
+    background-image: none;
+}
+.paginatin-wrapper .swiper-button-prev{
+    background-image: none;
+}
+.paginatin-wrapper .swiper-button-next:before{
+    content: "\f0a9";
+    font-family: fontAwesome;
+    font-size: 21px;
+    color: #fff;
+}
+.paginatin-wrapper .swiper-button-prev:before{
+    content: "\f0a8";
+    font-family: fontAwesome;
+    font-size: 21px;
+    color: #fff;
+}
+.paginatin-wrapper .swiper-button-next:before:hover, .paginatin-wrapper .swiper-button-prev:before:hover{
+    color: purple;
+}
+.swipper-pagination .portfolio-img img {
+    width: 100%;
+}
+.swipper-pagination .portfolio-icon {
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    top: 55%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+}
+.swipper-pagination figure:hover .portfolio-icon {
+    opacity: 1;
+    top: 50%;
+}
+.hover-option6 .swipper-pagination figcaption{
+    padding: 15px 10px 0;
+    background: transparent;
+}
+.hover-option6 .swipper-pagination .portfolio-icon:hover i.fa-link{
+    color:#fff;
 }
 /*Homestay ends*/
 
