@@ -528,17 +528,7 @@
                         <div class="swiper-wrapper">
                             <!-- start slider item -->
                             <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url('assets/frontend/img/T2-A.jpg'); ?>" alt="">
                             </div>
                             <!-- end slider item -->
                         </div>
@@ -549,20 +539,44 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <p class="margin-0"> Living in a family environment can help make the travel experience of wandering nomads feel at home and give them that sense of security in an unfamiliar and new place.  It can help combat their feeling of homesickness and being alone. It also gives the guests and hosts alike the chance to gain that kind of exciting sibling and family relative bonding moments they may have never had the chance to have since they each came from a different race or country. Hosting foreign travelers is a perfect way to promote fun and warm accommodation to help them feel secure and at home from the hassles of travel.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">How to select a travel companion for an unforgettable trip</h5>
+                        <p>You’ve decided that you want to take your next trip in the company of a travel companion. </p>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Homestay hosting as an ideal hospitality business. </h5>
+                        <p>But now comes the question: how do you find the perfect travel buddy who will make your foray into the world that much easier and more enjoyable?</p>
 
-                        <p>Homestay hosting is one of the most popular forms of hospitality and travel lodging alternatives to host travelers wandering from places to places. Many families are very much interested in the homestay accommodation business as host families for travelers wandering for places to stay.  In fact, more are welcoming foreign guests into their homes as a way to win international friends and let them earn extra income as paid host family through room rentals of the spare rooms in the house.</p>
-                        <p  class="margin-0">Does the idea about being a homestay host family sound great to you? If so, the following benefits will make it very clear that a homestay paid host family is a rewarding choice.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Who is a travel companion?</h5>
+                        <p>First, we have to understand what a travel companion for hire does and what they don’t.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Benefits of Homestay Hosting:</h5>
+                        <p class="font-weight-700 margin-10px-top margin-10px-bottom">A travel companion is a person who goes on a trip with you to provide company and any additional support you may need.</p>
 
-                        <p><span class="text-dark-gray font-weight-600 italic">You can make a dream come true. </span> There are many travelers around the world who are on a budget and are looking for a host family for a travel accommodation that can get them through their journey and realize their travel goals and missions.  It’s amazing to know that there are countless people all over the world who are excited to connect, help and be visited by someone even if it’s just one short stay or prolonged accommodation.  Friendship and the feeling of belongingness are exalting and inspiring that can help you realize your goals. </p>
-                        <p><span class="text-dark-gray font-weight-600 italic">It can help you widen your horizon. </span> If you are used living in a common place it can somehow affect our perspective of the rest of the world.  Fact is, understanding a different nation and culture can be a challenge.  But still, it is best to have a broader perspective to help you better understand the diversity of the world. Your homestay guest can help you see the world from their own place of perspective and other diversities from his journeys.  By asking some questions to your guests, you’ll gain a better understanding of the world around you.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">You can gain a lasting international connection. </span> Another great thing about being an international homestay host is that you’ll always have that connection with someone somewhere else in the world. If you ever got to visit the country of your guests, you might be able to have a chance to stay with them or near them so they can help also you get around.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">The chance to family guests from other parts of the world. </span> Most travelling nomads due to their passion in travelling different places might be able to impart to you and your family their journey experiences from other countries.  Thus, simply meeting them can widen your horizons about other places of the world.  You’ll have a better appreciation and ideas of how diverse people are living from other parts of the world.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">A chance to become a host parent. </span> When you welcome a traveling student guest in your home, you can become not just a host but a guardian parent to them.  Remember that as a student, they’re still on the learning stage of their life and may need guidance from a  parent.  They might still be going on life challenges and may need adult assistance from time to time. As paid host family, parenting to the young is somewhat an instinct in order to safeguard them. After all, hosting is actually an act of safekeeping and protecting your guests. This might come as an unexpected benefit that will create the bond that will be beneficial to you and your guests. Actually, the entire homestay hosting journey is a fun and eye-opening learning experience which you and your family can enjoy.  Although you’re going to be the host, you clearly have a lot to gain from the experience.</p>
+                        <p>In that sense, it seems that a travel companion is very similar to a personal tour guide.</p>
+
+                        <p>That is true that they fill the same role, however, a personal tour guide will have traveled to the destination many times before, and that may not be the case for your travel companion.</p>
+
+                        <p>Expectation should not be high in that regard: he is there to explore your destination of choice with you, not guide you around like a professional who’s been there many times.</p>
+
+                        <p>A personal tour guide also may not be equipped to help you with security or assistance due to a physical disability, while you can make sure that you travel companion will be. A travel companion for seniors will be able to take care of their special needs.</p>
+
+                        <p>So, how do you make sure they will be the right one for you?</p>
+
+                        <p>Accordingly to what we mentioned above, you should choose your travel partner according to those criteria: </p>
+                        <ul class="margin-20px-tb">
+                            <li class="font-weight-700 margin-0">Will he or she be pleasant to be around</li>
+                            <li class="font-weight-700">Can they help you with any assistance you may need</li>
+                        </ul>
+                        <p>And if they happen to have any special skills, like knowing the local language or having previous experience as tour guides, that much better!</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">What to look for in a travel companion</h5>
+                        <p>If you don’t know where to start, here are a couple of areas that are most important when choosing a travel companion:</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Common interests</h5>
+                        <p>If you have something you both like, it will be much easier and faster to establish the all-important first connection. Later, when you get to know each other more, you can start sharing other parts of your personality and interests that you might not have in common, but at first, we tend to bond over a common ground.</p>
+                        <p class="margin-10px-top">Maybe you both enjoy fishing, a certain sport, or you both a have a passion for languages. You will be able to see many of these on the profiles of various companions, so you can already start to make a selection here.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Matching personality</h5>
+                        <p>When you meet in real life for the first time, it will become apparent whether you click or if you don’t. It is best to choose someone with a personality that is close to yours, as that will make a long trip (where you will have to spend a lot of time with each other) much more enjoyable.</p>
+                        <p class="margin-10px-top">For example, if you enjoy order and have to plan everything in advance to feel comfortable, make sure that your partner isn’t a free spirit who likes to wing it and go by feel. Ask about this either online or when you first meet, but make sure you’re on the same page before travelling together.</p>
+
 
                     </div>
                 </div>
@@ -571,17 +585,7 @@
                         <div class="swiper-wrapper">
                             <!-- start slider item -->
                             <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url('assets/frontend/img/T2-B.jpg'); ?>" alt="">
                             </div>
                             <!-- end slider item -->
                         </div>
@@ -593,26 +597,40 @@
                     </div>
                     <div class="hosting-textture">
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom"> What do guests expect from their homestay experience? </h5>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Flexible people only</h5>
+                        <p>You won’t have to worry about this much with the <a href="https://www.konsorts.com/misc/about">people on Konsorts</a>, as all of the people we have here are flexible (or they wouldn’t be doing this), but you want someone who is able to adjust and accommodate your needs. Makes the trip that much more enjoyable!</p>
 
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Have an honest conversation</h5>
+                        <p>The basis of any good relationship between two travelers is honesty. Talk openly about what you want and don’t want, and don’t hide any important details. In the end, it is better to know everything beforehand and have less unexpected surprises which can leave a sour taste on the memory of your voyage.</p>
+                        <p class="margin-10px-top">And now, we come to...</p>
 
-                        <p class="margin-0"> Homestays offers an alternative and affordable place to stay to a wandering traveler. But the warmth of a home welcome was the foremost reason why travelers prefer homestay living than checking in a hotel. Your guests preferred to stay with a paid host family rather than in a hotel because they want to experience living in home environment. Apart from its practical reasons, and the homey atmosphere, your travelling guest would be delighted to: </p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">The first meeting</h5>
 
-                        <ul class="hosting-list">
+                        <p>Before you embark on a journey with a new travel companion, it is best to <span class="">meet them over lunch or coffee</span> to see if the two of you click.</p>
 
+                        <p class="margin-10px-top"> If you’re worried about the <a href="https://www.konsorts.com/misc/secure_community">safety</a>, don’t be: every individual on this website has been verified with our thorough background check. For us, your safety comes first.</p>
 
+                        <p class="margin-10px-top">This is a great opportunity to get to know each other and to see if you have any common interests, if your personalities mesh well together and all in all, if they’re the kind of person you could imagine yourself spending a few days with.</p>
 
-                            <li>Meet local people.  Your guests would surely be delighted to not only meet you and your family but would likewise be delighted meeting the local people and possibly get the chance to experience to get to live with them too. In order to get that full discovery experience. It’s another way on how to adapt to the place and not just to visit it.</li>
-                            <li>Economical.  There is quite a big difference in terms of monetary value between homestay and hotel accommodation.  Budgetwise, you can always come into terms with your host families to consider a bargain.</li>
-                            <li>Value for money.  Needless to say, a home accommodation is somewhat incomparable to start with.  But the added bonding and experiences while staying with a family often cannot come near any monetary exchange.</li>
-                            <li>Comfort and security.  The home environment inhibits peace of mind.  Meeting the locals and the family members will initiate the feeling of security and ease to help you out on your journey.</li>
-                            <li>Home cooked meals.  If you are somewhat used to city and fast food meals, your homestay hosts will cook and share to you the family’s valued meals for guests.  Who knows what you knew as gourmet could just be some family home grown dishes.</li>
-                            <li>Nomad’s delight.  Homestay accommodation with a paid host family is perfect especially for single or solo travelers.  Most wandering nomads agree that an experience in a homestay host family is the best.  It’s a way to travel and a chance to meet interesting locals, exchange and share stories and experience unique journey of lives.</li>
-                            <li>Improve skills and knowledge.  Every journey is a learning experience.  Staying in a homestay will allow you to learn a new language, culture, added skills, knowledge and generally make you a better person.</li>
-                            <li>Home away from home. What can lessen your feeling of homesickness than staying in an actual home? Homestays are just that. Stay in a homestay, and feel at home though you’re away from your own.</li>
-                            <li>Memories to cherish.  Most travelers plan their travel scouting hotel accommodations.  But cherished memories are best if your host is a real and genuine family and people that will leave lasting memories and one of a kind experience in your life beyond any tourist trails and sights.      </li>
-                        </ul>
-                        <p>Feel at home!  What can make you best feel home during your travel than to stay in homestay home along with host families you will surely consider your family away from your very own.  Travel with the feeling you are always home.  Homestays are the best travel accommodation to experience for every travelling nomad.</p>
+                        <p class="margin-10px-top">An honest conversation is very important at this point: be honest about what you like and don’t like, and do tell what you expect from the trip. If everything is out on the table beforehand, the trip will be much more enjoyable!</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">“Test drive” your travel companion</h5>
+                        <p>If you’re already sure you will click well with you travel partner, you can skip this step, but you may choose to first take a shorter trip together.</p>
+                        <p class="margin-10px-top">This can be an overnight or a weekend getaway, where you will get a much better look into the dynamic between yourself and your companion. If you still get along well at this point, the chance of any new problems arising on a longer trip is practically zero.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">How should you pay your travel companion</h5>
+
+                        <p> No one likes to discuss payment, so it is best to get it out of the way as soon as possible, so that you can enjoy your travel without trifle details.</p>
+
+                        <p class="margin-10px-top">The best time to talk about it would be at the end of your first meeting. Remember, they expect you to bring it up, so there’s no need to be shy about it. Like with everything else, being honest and straightforward is the surest way to a deal that suits you both.</p>
+
+                        <p class="margin-10px-top">Covering cost for your travel companion plus contract cost should be negotiated. You may negotiate to pay for his travel expenses plus a daily fee, which is a common arrangement, but it is entirely up to you.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Your travel companion - here</h5>
+
+                        <p> Who you select for your travel companion will have a big impact on your travels, so make sure you find the right one before taking the plunge.</p>
+
+                        <p class="margin-10px-top">All the effort will be worth it in the end when you travel to an exotic destination with a person who you enjoy spending time with.</p>
 
                     </div>
                 </div>
@@ -907,25 +925,25 @@
                 </div>
             </div>
 
-<!--            <div class="paginationx pagenation-white text-center">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true"><i class="fa fa-arrow-circle-left"></i></span>
-                            </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true"><i class="fa fa-arrow-circle-right"></i></span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>-->
+            <!--            <div class="paginationx pagenation-white text-center">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true"><i class="fa fa-arrow-circle-left"></i></span>
+                                        </a>
+                                    </li>
+                                    <li><a href="#">1</a></li>
+                                    <li class="active"><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true"><i class="fa fa-arrow-circle-right"></i></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>-->
 
         </div>
 </section>

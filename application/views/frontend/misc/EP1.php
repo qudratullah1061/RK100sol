@@ -528,18 +528,9 @@
                         <div class="swiper-wrapper">
                             <!-- start slider item -->
                             <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url('assets/frontend/img/EP1-A.jpg'); ?>" alt="">
                             </div>
                             <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
-                            </div>
                             <!-- end slider item -->
                         </div>
                         <!-- start slider pagination -->
@@ -549,20 +540,16 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <p class="margin-0"> Living in a family environment can help make the travel experience of wandering nomads feel at home and give them that sense of security in an unfamiliar and new place.  It can help combat their feeling of homesickness and being alone. It also gives the guests and hosts alike the chance to gain that kind of exciting sibling and family relative bonding moments they may have never had the chance to have since they each came from a different race or country. Hosting foreign travelers is a perfect way to promote fun and warm accommodation to help them feel secure and at home from the hassles of travel.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">What to expect as an event planner </h5>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Homestay hosting as an ideal hospitality business. </h5>
 
-                        <p>Homestay hosting is one of the most popular forms of hospitality and travel lodging alternatives to host travelers wandering from places to places. Many families are very much interested in the homestay accommodation business as host families for travelers wandering for places to stay.  In fact, more are welcoming foreign guests into their homes as a way to win international friends and let them earn extra income as paid host family through room rentals of the spare rooms in the house.</p>
-                        <p  class="margin-0">Does the idea about being a homestay host family sound great to you? If so, the following benefits will make it very clear that a homestay paid host family is a rewarding choice.</p>
+                        <p>Gone are the days where you have to be tied down to event planning companies or even an event organizer to have a customer base. Today you can hire an event planner without having to go through the hassle of approaching many. </p>
+                        <p>There are a few traits that you need to possess in order to succeed and if you possess those traits you can kick start your career through Konsorts and be the proud owner of a thriving home based event planner business. </p>
+                        <p><span class="text-dark-gray font-weight-600 italic">The devil and an event planner’s success</span> lie in the details. In order to keep up with the demands of clients, an event planner needs to plan ahead and consider every possible outcome – and in cases where things go wrong, there better be a plan B, C maybe even a D. How well prepared you are will give you your edge with the client. After all, why else would they hire an event planner? </p>
+                        <p><span class="text-dark-gray font-weight-600 italic">A client needs to trust his event planner completely.</span> While working at event planning companies, you may not have had the privilege to make decisions yourself. But herein lies your advantage, at Konsorts you fly solo. By being your own boss you can cut through the hierarchy and plan the event exactly as you envision it – a vision that aligns with your clients, of course. </p>
+                        <p><span class="text-dark-gray font-weight-600 italic">Consider the client as the script writer</span> and yourself as the director. The clients can nudge you in the right direction and explain what the purpose of the event is but it is your aesthetics and your eye for the unobserved that will make you the event organizer of their choice. This is your moment to dazzle them with your creativity, your strategy and most importantly, your resolve. </p>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Benefits of Homestay Hosting:</h5>
-
-                        <p><span class="text-dark-gray font-weight-600 italic">You can make a dream come true. </span> There are many travelers around the world who are on a budget and are looking for a host family for a travel accommodation that can get them through their journey and realize their travel goals and missions.  It’s amazing to know that there are countless people all over the world who are excited to connect, help and be visited by someone even if it’s just one short stay or prolonged accommodation.  Friendship and the feeling of belongingness are exalting and inspiring that can help you realize your goals. </p>
-                        <p><span class="text-dark-gray font-weight-600 italic">It can help you widen your horizon. </span> If you are used living in a common place it can somehow affect our perspective of the rest of the world.  Fact is, understanding a different nation and culture can be a challenge.  But still, it is best to have a broader perspective to help you better understand the diversity of the world. Your homestay guest can help you see the world from their own place of perspective and other diversities from his journeys.  By asking some questions to your guests, you’ll gain a better understanding of the world around you.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">You can gain a lasting international connection. </span> Another great thing about being an international homestay host is that you’ll always have that connection with someone somewhere else in the world. If you ever got to visit the country of your guests, you might be able to have a chance to stay with them or near them so they can help also you get around.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">The chance to family guests from other parts of the world. </span> Most travelling nomads due to their passion in travelling different places might be able to impart to you and your family their journey experiences from other countries.  Thus, simply meeting them can widen your horizons about other places of the world.  You’ll have a better appreciation and ideas of how diverse people are living from other parts of the world.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">A chance to become a host parent. </span> When you welcome a traveling student guest in your home, you can become not just a host but a guardian parent to them.  Remember that as a student, they’re still on the learning stage of their life and may need guidance from a  parent.  They might still be going on life challenges and may need adult assistance from time to time. As paid host family, parenting to the young is somewhat an instinct in order to safeguard them. After all, hosting is actually an act of safekeeping and protecting your guests. This might come as an unexpected benefit that will create the bond that will be beneficial to you and your guests. Actually, the entire homestay hosting journey is a fun and eye-opening learning experience which you and your family can enjoy.  Although you’re going to be the host, you clearly have a lot to gain from the experience.</p>
+                        <!--<p><span class="text-dark-gray font-weight-600 italic">A chance to become a host parent. </span> When you welcome a traveling student guest in your home, you can become not just a host but a guardian parent to them.  Remember that as a student, they’re still on the learning stage of their life and may need guidance from a  parent.  They might still be going on life challenges and may need adult assistance from time to time. As paid host family, parenting to the young is somewhat an instinct in order to safeguard them. After all, hosting is actually an act of safekeeping and protecting your guests. This might come as an unexpected benefit that will create the bond that will be beneficial to you and your guests. Actually, the entire homestay hosting journey is a fun and eye-opening learning experience which you and your family can enjoy.  Although you’re going to be the host, you clearly have a lot to gain from the experience.</p>-->
 
                     </div>
                 </div>
@@ -571,17 +558,7 @@
                         <div class="swiper-wrapper">
                             <!-- start slider item -->
                             <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url('assets/frontend/img/EP1-B.jpg'); ?>" alt="">
                             </div>
                             <!-- end slider item -->
                         </div>
@@ -592,35 +569,136 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom"> What do guests expect from their homestay experience? </h5>
-
-
-                        <p class="margin-0"> Homestays offers an alternative and affordable place to stay to a wandering traveler. But the warmth of a home welcome was the foremost reason why travelers prefer homestay living than checking in a hotel. Your guests preferred to stay with a paid host family rather than in a hotel because they want to experience living in home environment. Apart from its practical reasons, and the homey atmosphere, your travelling guest would be delighted to: </p>
-
-                        <ul class="hosting-list">
-
-
-
-                            <li>Meet local people.  Your guests would surely be delighted to not only meet you and your family but would likewise be delighted meeting the local people and possibly get the chance to experience to get to live with them too. In order to get that full discovery experience. It’s another way on how to adapt to the place and not just to visit it.</li>
-                            <li>Economical.  There is quite a big difference in terms of monetary value between homestay and hotel accommodation.  Budgetwise, you can always come into terms with your host families to consider a bargain.</li>
-                            <li>Value for money.  Needless to say, a home accommodation is somewhat incomparable to start with.  But the added bonding and experiences while staying with a family often cannot come near any monetary exchange.</li>
-                            <li>Comfort and security.  The home environment inhibits peace of mind.  Meeting the locals and the family members will initiate the feeling of security and ease to help you out on your journey.</li>
-                            <li>Home cooked meals.  If you are somewhat used to city and fast food meals, your homestay hosts will cook and share to you the family’s valued meals for guests.  Who knows what you knew as gourmet could just be some family home grown dishes.</li>
-                            <li>Nomad’s delight.  Homestay accommodation with a paid host family is perfect especially for single or solo travelers.  Most wandering nomads agree that an experience in a homestay host family is the best.  It’s a way to travel and a chance to meet interesting locals, exchange and share stories and experience unique journey of lives.</li>
-                            <li>Improve skills and knowledge.  Every journey is a learning experience.  Staying in a homestay will allow you to learn a new language, culture, added skills, knowledge and generally make you a better person.</li>
-                            <li>Home away from home. What can lessen your feeling of homesickness than staying in an actual home? Homestays are just that. Stay in a homestay, and feel at home though you’re away from your own.</li>
-                            <li>Memories to cherish.  Most travelers plan their travel scouting hotel accommodations.  But cherished memories are best if your host is a real and genuine family and people that will leave lasting memories and one of a kind experience in your life beyond any tourist trails and sights.      </li>
-                        </ul>
-                        <p>Feel at home!  What can make you best feel home during your travel than to stay in homestay home along with host families you will surely consider your family away from your very own.  Travel with the feeling you are always home.  Homestays are the best travel accommodation to experience for every travelling nomad.</p>
-
+                        <p><span class="text-dark-gray font-weight-600 italic">While the world is at our fingertips,</span> this can be both a blessing and a curse. For extroverts this is a chance to shine but for introverts this can be a bit of a problem. With either personality type’s one thing is certain; as an event planner, marketing is of utmost importance. </p>
+                        <p><span class="text-dark-gray font-weight-600 italic">Through the internet,</span> we have access to everyone in the world. We are now acquainted with the grittiest most diligent workers, the ones who can get their hands dirty and do the work phenomenally. With so much choice, how does a client know they’ve picked the right candidate? Websites exist for event planning companies and event organizers, even Konsorts has its own pick of the cream of the crop. While other websites and commercial services might require advertisements, banners and shameless self-promotion, Konsorts makes the job cleaner. You are your biggest marketing asset. </p>
+                        <p><span class="text-dark-gray font-weight-600 italic">When a client comes to our website </span> to hire an event planner, he has the option to review your profile, your work and most importantly the reviews left for you by other clients. Word of mouth is your strongest asset and through this you can establish yourself as a force to be reckoned with. </p>
+                        <p><span class="text-dark-gray font-weight-600 italic">Event planning companies provide the comfort</span> of economic backing and experience but through Konsorts, a client can be assured that they will have a customized experience of their choice. </p>
+                        <p><span class="text-dark-gray font-weight-600 italic">They can sit back in their seats </span> and wait for the magic to unfold. And that is where you step in. </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<section class="homestay-articles wow fadeIn hide">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 no-padding xs-padding-15px-lr">
+                <h5 class="alt-font text-white font-weight-600 text-large">Recommended For You (Blog Articles):</h5>
+                <div class="filter-content overflow-hidden">
+                    <ul class="portfolio-grid work-4col gutter-large hover-option6 lightbox-portfolio">
+                        <li class="grid-sizer"></li>
+                        <!-- start portfolio item -->
+                        <li class="grid-item wow zoomIn last-paragraph-no-margin">
+                            <figure>
+                                <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
+                                    <img src="<?php echo base_url('assets/frontend/img/art-1.jpg') ?>" alt=""/>
+                                    <div class="portfolio-icon">
+                                        <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <figcaption class="">
+                                    <div class="portfolio-hover-main text-left">
+                                        <div class="portfolio-hover-box vertical-align-middle">
+                                            <div class="portfolio-hover-content position-relative">
+                                                <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- end portfolio item -->
+                        <!-- start portfolio item -->
+                        <li class="grid-item wow zoomIn last-paragraph-no-margin">
+                            <figure>
+                                <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
+                                    <img src="<?php echo base_url('assets/frontend/img/art-2.jpg') ?>" alt=""/>
+                                    <div class="portfolio-icon">
+                                        <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <figcaption class="">
+                                    <div class="portfolio-hover-main text-left">
+                                        <div class="portfolio-hover-box vertical-align-middle">
+                                            <div class="portfolio-hover-content position-relative">
+                                                <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- end portfolio item -->
+                        <!-- start portfolio item -->
+                        <li class="grid-item wow zoomIn last-paragraph-no-margin">
+                            <figure>
+                                <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
+                                    <img src="<?php echo base_url('assets/frontend/img/art-3.jpg') ?>" alt=""/>
+                                    <div class="portfolio-icon">
+                                        <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <figcaption class="">
+                                    <div class="portfolio-hover-main text-left">
+                                        <div class="portfolio-hover-box vertical-align-middle">
+                                            <div class="portfolio-hover-content position-relative">
+                                                <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- end portfolio item -->
+                        <!-- start portfolio item -->
+                        <li class="grid-item wow zoomIn last-paragraph-no-margin">
+                            <figure>
+                                <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
+                                    <img src="<?php echo base_url('assets/frontend/img/art-4.jpg') ?>" alt=""/>
+                                    <div class="portfolio-icon">
+                                        <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <figcaption class="">
+                                    <div class="portfolio-hover-main text-left">
+                                        <div class="portfolio-hover-box vertical-align-middle">
+                                            <div class="portfolio-hover-content position-relative">
+                                                <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- end portfolio item -->
+                    </ul>
+                </div>
+            </div>
+        </div>
 
+        <div class="paginationx pagenation-white text-center">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true"><i class="fa fa-arrow-circle-left"></i></span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li class="active"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true"><i class="fa fa-arrow-circle-right"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</section>
 
 <!--paginatin slider-->
 <section class="homestay-articles wow fadeIn">
@@ -907,25 +985,25 @@
                 </div>
             </div>
 
-<!--            <div class="paginationx pagenation-white text-center">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true"><i class="fa fa-arrow-circle-left"></i></span>
-                            </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true"><i class="fa fa-arrow-circle-right"></i></span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>-->
+            <!--            <div class="paginationx pagenation-white text-center">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true"><i class="fa fa-arrow-circle-left"></i></span>
+                                        </a>
+                                    </li>
+                                    <li><a href="#">1</a></li>
+                                    <li class="active"><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true"><i class="fa fa-arrow-circle-right"></i></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>-->
 
         </div>
 </section>

@@ -1495,9 +1495,19 @@ ul.hosting-list li:before {
 ul.hosting-list li {
     margin-bottom: 7px;
 }
+ul.hosting-list li.margin-0 {margin: 0;}
 .homestay-articles .portfolio-grid .grid-item figure img {
     max-width: 100%;
     /*max-height: -webkit-fill-available;*/
+}
+.hosting-textture p.margin-10px-top {
+    margin-top: 10px;
+}
+.hosting-textture p.margin-10px-bottom {
+    margin-bottom: 10px;
+}
+.hosting-textture p.margin-bottom-10px {
+    margin-bottom: 10px;
 }
 .homestay-articles .hover-option6 .grid-item .portfolio-icon a {
     line-height: 28px;

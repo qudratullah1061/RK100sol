@@ -259,6 +259,24 @@ class Misc extends CI_Controller {
     function homestay() {
         $this->load->view('frontend/misc/homestay');
     }
+    function EP1() {
+        $this->load->view('frontend/misc/EP1');
+    }
+    function F1() {
+        $this->load->view('frontend/misc/F1');
+    }
+    function FA3() {
+        $this->load->view('frontend/misc/FA3');
+    }
+    function SO2() {
+        $this->load->view('frontend/misc/SO2');
+    }
+    function T2() {
+        $this->load->view('frontend/misc/T2');
+    }
+    function T6() {
+        $this->load->view('frontend/misc/T6');
+    }
 
     //    Misc pages ends here
 

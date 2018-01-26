@@ -528,17 +528,7 @@
                         <div class="swiper-wrapper">
                             <!-- start slider item -->
                             <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url('assets/frontend/img/T6-A.jpg'); ?>" alt="">
                             </div>
                             <!-- end slider item -->
                         </div>
@@ -549,20 +539,20 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <p class="margin-0"> Living in a family environment can help make the travel experience of wandering nomads feel at home and give them that sense of security in an unfamiliar and new place.  It can help combat their feeling of homesickness and being alone. It also gives the guests and hosts alike the chance to gain that kind of exciting sibling and family relative bonding moments they may have never had the chance to have since they each came from a different race or country. Hosting foreign travelers is a perfect way to promote fun and warm accommodation to help them feel secure and at home from the hassles of travel.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Be A Host Family & Cherish The Awesome Experience </h5>
+                        <p class="margin-bottom-10px">Family homes are now the tourism competitors of hotels and other travel accommodations!</p>
+                        <p class="margin-bottom-10px">There are millions of travelers around the world.  All of them are seeking that place to stay while on journey.  Although away from home, they always consider to stay in a place as perfect and close like the home they have wanted to live in though they were just travelers and passers-by in a place.  Some place that could make them feel home as if they were in their very own home.  Homestays are the ideal and perfect form of living in for travel bugs in terms of that homey atmosphere better than any other form of travel accommodations.
+                            <br>  Over the decade, the way to travel different destinations has been revolutionized when travelers were introduced to the Homestay type of short term room rental accommodation.  It was so popular that backpack traveling became a viral sensational accommodation idea to most travelers who loved the very homey freedom experience.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Homestay hosting as an ideal hospitality business. </h5>
+                        <p class="margin-bottom-10px">Homestay accommodation though not that much competitive in terms of guest perks and amenities brought by pricey hotels and exclusive tourists accommodation, is more on winning guests over the much personalized and homey accommodation.  And because of these, travelers rage over searching off and online for homestay host families that can take them in during their travel.  In turn, Homestay hosting was introduced to willing families to become local paid homestay host family for stay in travelers.  Aside from earning extra income from the room rental of their spare room in the house, the host families can also gain the following awesome benefits:  </p>
+                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Bringing the world to your home.</span>  Homestay travelers like those wandering nomads are passionate in travelling different places around the world.  As host, you will have that first-hand account of their various travel experiences.</p>
 
-                        <p>Homestay hosting is one of the most popular forms of hospitality and travel lodging alternatives to host travelers wandering from places to places. Many families are very much interested in the homestay accommodation business as host families for travelers wandering for places to stay.  In fact, more are welcoming foreign guests into their homes as a way to win international friends and let them earn extra income as paid host family through room rentals of the spare rooms in the house.</p>
-                        <p  class="margin-0">Does the idea about being a homestay host family sound great to you? If so, the following benefits will make it very clear that a homestay paid host family is a rewarding choice.</p>
+                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Meeting people and making new friends.</span> Welcoming a foreign guest to live in the house infuses friendly relations that can be worth cherishing through life while having some company and filling a spare room in the house and turn it into a room rental facility that earns extra income for you from travelers.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Benefits of Homestay Hosting:</h5>
+                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Chance to connect with people from other countries.</span>  The world is an immense place full of people in diversity.  Hosting a traveler from other countries will bring the connection of other people from other places here on Earth.  You will be amazed on the different ways of how they will adapt to your cultural ways</p>
 
-                        <p><span class="text-dark-gray font-weight-600 italic">You can make a dream come true. </span> There are many travelers around the world who are on a budget and are looking for a host family for a travel accommodation that can get them through their journey and realize their travel goals and missions.  It’s amazing to know that there are countless people all over the world who are excited to connect, help and be visited by someone even if it’s just one short stay or prolonged accommodation.  Friendship and the feeling of belongingness are exalting and inspiring that can help you realize your goals. </p>
-                        <p><span class="text-dark-gray font-weight-600 italic">It can help you widen your horizon. </span> If you are used living in a common place it can somehow affect our perspective of the rest of the world.  Fact is, understanding a different nation and culture can be a challenge.  But still, it is best to have a broader perspective to help you better understand the diversity of the world. Your homestay guest can help you see the world from their own place of perspective and other diversities from his journeys.  By asking some questions to your guests, you’ll gain a better understanding of the world around you.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">You can gain a lasting international connection. </span> Another great thing about being an international homestay host is that you’ll always have that connection with someone somewhere else in the world. If you ever got to visit the country of your guests, you might be able to have a chance to stay with them or near them so they can help also you get around.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">The chance to family guests from other parts of the world. </span> Most travelling nomads due to their passion in travelling different places might be able to impart to you and your family their journey experiences from other countries.  Thus, simply meeting them can widen your horizons about other places of the world.  You’ll have a better appreciation and ideas of how diverse people are living from other parts of the world.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">A chance to become a host parent. </span> When you welcome a traveling student guest in your home, you can become not just a host but a guardian parent to them.  Remember that as a student, they’re still on the learning stage of their life and may need guidance from a  parent.  They might still be going on life challenges and may need adult assistance from time to time. As paid host family, parenting to the young is somewhat an instinct in order to safeguard them. After all, hosting is actually an act of safekeeping and protecting your guests. This might come as an unexpected benefit that will create the bond that will be beneficial to you and your guests. Actually, the entire homestay hosting journey is a fun and eye-opening learning experience which you and your family can enjoy.  Although you’re going to be the host, you clearly have a lot to gain from the experience.</p>
+                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Chance to learn a new language, culture and skills.</span>  Part of the adaptation process of a homestay accommodation is communication.  Through exchange of communication between you and your guest, you will be amazed that one of the things that will make you understand each other was learning each other’s spoken languages.  Sooner or later during the stay of your guests, you will find yourself learning and speaking in their terms of communication.  And the best thing about homestay travel accommodations is that you will learn each other languages free of charge and no need to enroll into a language or cultural class.</p>
+
 
                     </div>
                 </div>
@@ -571,17 +561,7 @@
                         <div class="swiper-wrapper">
                             <!-- start slider item -->
                             <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url('assets/frontend/img/T6-B.jpg'); ?>" alt="">
                             </div>
                             <!-- end slider item -->
                         </div>
@@ -592,27 +572,13 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
+                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Chance to tour and show off places of interest in your country.</span>  This opportunity may be your chance to tour your own country.  How many of us will be able to tour places of interest even within our own country.  But if you have a foreign guest, you will find yourself showing off what’s interesting and great about your own country even though you haven’t been or have limited time in the past to visit them.  Now, is the perfect opportunity to show off and impress people from other countries what your country has to offer especially to tourists and foreigners.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom"> What do guests expect from their homestay experience? </h5>
+                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Chance to show off your native culinary skills.</span>  For sure your own family must have savored each dish you put in the dining table.  But with a foreign guest sharing a meal with you, the food and how the dishes are prepared will be a good way to entertain your guests while dining with them.  Who knows, there might be that chance that your guests will also do some cooking for you about their own food back from their country or even cook a local dish learned from one of your cooking lessons together.</p>
 
+                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">You will help practice  sustainable economy.</span>  When you become a homestay host, you’ll participate in the sharing economy, which has been found to be more sustainable than other forms of travel. So as a host, you’ll be supporting more sustainable practices.  By participating and promoting homestay accommodation both your country and the country of your guest traveler can address the unemployment and poverty problems by saving traditional practices like earning extra income, learning cultures and preserving the environment that create social solidarity as you help build leadership  awareness in the community. Homestay hosting programs are one of the important tools for sustainable tourism development in the host country and builds promote people capacities on various areas.</p>
 
-                        <p class="margin-0"> Homestays offers an alternative and affordable place to stay to a wandering traveler. But the warmth of a home welcome was the foremost reason why travelers prefer homestay living than checking in a hotel. Your guests preferred to stay with a paid host family rather than in a hotel because they want to experience living in home environment. Apart from its practical reasons, and the homey atmosphere, your travelling guest would be delighted to: </p>
-
-                        <ul class="hosting-list">
-
-
-
-                            <li>Meet local people.  Your guests would surely be delighted to not only meet you and your family but would likewise be delighted meeting the local people and possibly get the chance to experience to get to live with them too. In order to get that full discovery experience. It’s another way on how to adapt to the place and not just to visit it.</li>
-                            <li>Economical.  There is quite a big difference in terms of monetary value between homestay and hotel accommodation.  Budgetwise, you can always come into terms with your host families to consider a bargain.</li>
-                            <li>Value for money.  Needless to say, a home accommodation is somewhat incomparable to start with.  But the added bonding and experiences while staying with a family often cannot come near any monetary exchange.</li>
-                            <li>Comfort and security.  The home environment inhibits peace of mind.  Meeting the locals and the family members will initiate the feeling of security and ease to help you out on your journey.</li>
-                            <li>Home cooked meals.  If you are somewhat used to city and fast food meals, your homestay hosts will cook and share to you the family’s valued meals for guests.  Who knows what you knew as gourmet could just be some family home grown dishes.</li>
-                            <li>Nomad’s delight.  Homestay accommodation with a paid host family is perfect especially for single or solo travelers.  Most wandering nomads agree that an experience in a homestay host family is the best.  It’s a way to travel and a chance to meet interesting locals, exchange and share stories and experience unique journey of lives.</li>
-                            <li>Improve skills and knowledge.  Every journey is a learning experience.  Staying in a homestay will allow you to learn a new language, culture, added skills, knowledge and generally make you a better person.</li>
-                            <li>Home away from home. What can lessen your feeling of homesickness than staying in an actual home? Homestays are just that. Stay in a homestay, and feel at home though you’re away from your own.</li>
-                            <li>Memories to cherish.  Most travelers plan their travel scouting hotel accommodations.  But cherished memories are best if your host is a real and genuine family and people that will leave lasting memories and one of a kind experience in your life beyond any tourist trails and sights.      </li>
-                        </ul>
-                        <p>Feel at home!  What can make you best feel home during your travel than to stay in homestay home along with host families you will surely consider your family away from your very own.  Travel with the feeling you are always home.  Homestays are the best travel accommodation to experience for every travelling nomad.</p>
+                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Lifelong impact of the resulting relationship goes both ways.</span> The experiences gained through homestay tourism were often worth cherishing and remembering.  In fact, homestay tourism experience echoes from the memories of those who have experienced homestay travel accommodations and tells them over and over again.</p>
 
                     </div>
                 </div>
@@ -907,25 +873,25 @@
                 </div>
             </div>
 
-<!--            <div class="paginationx pagenation-white text-center">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true"><i class="fa fa-arrow-circle-left"></i></span>
-                            </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true"><i class="fa fa-arrow-circle-right"></i></span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>-->
+            <!--            <div class="paginationx pagenation-white text-center">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true"><i class="fa fa-arrow-circle-left"></i></span>
+                                        </a>
+                                    </li>
+                                    <li><a href="#">1</a></li>
+                                    <li class="active"><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true"><i class="fa fa-arrow-circle-right"></i></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>-->
 
         </div>
 </section>

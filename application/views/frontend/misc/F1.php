@@ -528,18 +528,10 @@
                         <div class="swiper-wrapper">
                             <!-- start slider item -->
                             <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url('assets/frontend/img/F1-A.jpg'); ?>" alt="">
                             </div>
                             <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
-                            </div>
+
                             <!-- end slider item -->
                         </div>
                         <!-- start slider pagination -->
@@ -549,20 +541,23 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <p class="margin-0"> Living in a family environment can help make the travel experience of wandering nomads feel at home and give them that sense of security in an unfamiliar and new place.  It can help combat their feeling of homesickness and being alone. It also gives the guests and hosts alike the chance to gain that kind of exciting sibling and family relative bonding moments they may have never had the chance to have since they each came from a different race or country. Hosting foreign travelers is a perfect way to promote fun and warm accommodation to help them feel secure and at home from the hassles of travel.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">9 Reasons That Make A Personal Fitness Trainer Essential For Your Health & Wellbeing</h5>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Homestay hosting as an ideal hospitality business. </h5>
+                        <p>There was a time in the past that the popularity of personal fitness trainers for hire were said to be only for the super-rich.  But through time, more and more people are finding value on the role and service given by a personal fitness trainer as essential for one’s health and wellbeing.  Their popularity has been proven to be not just for the buff or for drawing attention with a spandex-sporting crowd.  But more and more their role was something one can get results and health values.   Here are 9 reasons that make a personal fitness trainer essential for your health & wellbeing.</p>
 
-                        <p>Homestay hosting is one of the most popular forms of hospitality and travel lodging alternatives to host travelers wandering from places to places. Many families are very much interested in the homestay accommodation business as host families for travelers wandering for places to stay.  In fact, more are welcoming foreign guests into their homes as a way to win international friends and let them earn extra income as paid host family through room rentals of the spare rooms in the house.</p>
-                        <p  class="margin-0">Does the idea about being a homestay host family sound great to you? If so, the following benefits will make it very clear that a homestay paid host family is a rewarding choice.</p>
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">1) Program vs Workout.</h5>
+                        <p>Sure, anyone can get you to do exercises and make you limp and sweat, but it takes an efficient plan to build a program that aim to develop fitness routines that fits your strength, conditioning, and body mobility as you get results safely. If you find a personal trainer, it is an instinct for them to know what they need you to accomplish in every session you will accomplish.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Benefits of Homestay Hosting:</h5>
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">2) Full Assessment of Your Capabilities</h5>
+                        <p>Before engaging you to a fitness program, an ideal personal trainer will thoroughly analyze your physical condition and abilities before designing you a program.  They need to do this routine in order for you to reveal your fitness capabilities. Checks like postural assessment will show your weak limbs and other problem areas and highlight them in the program addressing issues and using appropriate exercises suited for your condition.</p>
 
-                        <p><span class="text-dark-gray font-weight-600 italic">You can make a dream come true. </span> There are many travelers around the world who are on a budget and are looking for a host family for a travel accommodation that can get them through their journey and realize their travel goals and missions.  It’s amazing to know that there are countless people all over the world who are excited to connect, help and be visited by someone even if it’s just one short stay or prolonged accommodation.  Friendship and the feeling of belongingness are exalting and inspiring that can help you realize your goals. </p>
-                        <p><span class="text-dark-gray font-weight-600 italic">It can help you widen your horizon. </span> If you are used living in a common place it can somehow affect our perspective of the rest of the world.  Fact is, understanding a different nation and culture can be a challenge.  But still, it is best to have a broader perspective to help you better understand the diversity of the world. Your homestay guest can help you see the world from their own place of perspective and other diversities from his journeys.  By asking some questions to your guests, you’ll gain a better understanding of the world around you.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">You can gain a lasting international connection. </span> Another great thing about being an international homestay host is that you’ll always have that connection with someone somewhere else in the world. If you ever got to visit the country of your guests, you might be able to have a chance to stay with them or near them so they can help also you get around.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">The chance to family guests from other parts of the world. </span> Most travelling nomads due to their passion in travelling different places might be able to impart to you and your family their journey experiences from other countries.  Thus, simply meeting them can widen your horizons about other places of the world.  You’ll have a better appreciation and ideas of how diverse people are living from other parts of the world.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">A chance to become a host parent. </span> When you welcome a traveling student guest in your home, you can become not just a host but a guardian parent to them.  Remember that as a student, they’re still on the learning stage of their life and may need guidance from a  parent.  They might still be going on life challenges and may need adult assistance from time to time. As paid host family, parenting to the young is somewhat an instinct in order to safeguard them. After all, hosting is actually an act of safekeeping and protecting your guests. This might come as an unexpected benefit that will create the bond that will be beneficial to you and your guests. Actually, the entire homestay hosting journey is a fun and eye-opening learning experience which you and your family can enjoy.  Although you’re going to be the host, you clearly have a lot to gain from the experience.</p>
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">3) Customized for Your Body Type</h5>
+                        <p>Every individual has its own unique goal, movement capacity, and fitness history. It is the role of a smart personal fitness trainers for hire was to design programs to meet each client’s specific needs. 
+                            Mediocre trainers however might just give you inappropriate exercises not suited for your physical condition and capacity. Novices normally offer exercises without properly assessing the condition of their client leading them get a second opinion from a respected fitness coach.  You not only loose the wellness program and likewise wasted your money on them.
+                        </p>
+
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">4) Updated with the Latest Fitness Routines & Events</h5>
+                        <p>Just as the saying goes: “If you’re not getting better, you’re getting worse.” Find personal trainer who always have an updated stack of knowledge about his role as a fitness trainer.  It is through them that you can learn valuable fitness techniques and routines needed by your body to achieve your fitness health goals.  If your trainer is someone who answers you with silence and a perplexed look while you spend money attending their sessions, that’s a red flag and your cue to get a better one! </p>
 
                     </div>
                 </div>
@@ -571,17 +566,7 @@
                         <div class="swiper-wrapper">
                             <!-- start slider item -->
                             <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-1.jpg'); ?>" alt="">
-                            </div>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/homestay-slide-2.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url('assets/frontend/img/F1-B.jpg'); ?>" alt="">
                             </div>
                             <!-- end slider item -->
                         </div>
@@ -593,27 +578,22 @@
                     </div>
                     <div class="hosting-textture">
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom"> What do guests expect from their homestay experience? </h5>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">5) Full Attention During the Workout</h5>
+                        <p>Focus to your program is their prime responsibility.  Great trainers are focused on you. They’re watching your every progress making sure you are properly hydrated during the workout and allow you proper rest intervals. They’re keen on observing your every routine and normally paces around you while doing your routine to see your technique from every angle and suggest or teach you proper positioning every time not only for you to do better exercise but most importantly avoid the risk of injury during the workout.</p>
 
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">6) Coaches the Right Movement When Necessary</h5>
+                        <p>Good trainers have in their knowledge bank, a stack of every single exercise and give good and relevant cues not just some barking commands during the session.   Find a personal trainer who knows how to properly position your body and even use tools and equipment to attain the better mechanics to execute every routine. </p>
 
-                        <p class="margin-0"> Homestays offers an alternative and affordable place to stay to a wandering traveler. But the warmth of a home welcome was the foremost reason why travelers prefer homestay living than checking in a hotel. Your guests preferred to stay with a paid host family rather than in a hotel because they want to experience living in home environment. Apart from its practical reasons, and the homey atmosphere, your travelling guest would be delighted to: </p>
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">7) Administer Proper Warmup Executions</h5>
+                        <p>An ideal trainer will properly design you a smart dynamic warmup ideal for your body to improve mobility of common problem areas like the shoulders, hips, ankles, etc. as well as activate chronically weak muscles such as the glutes, shoulder stabilizers and your nervous system area so you can lift weight and move efficiently without the risk of injury.</p>
 
-                        <ul class="hosting-list">
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">8) A Good Listener</h5>
+                        <p>Being your companion in your health routines, it is but natural that a personal fitness trainer can become someone closer to you in terms of giving you advices and listening to your woes.  It is part of their support role in order to properly execute the fitness program.  Moreover, they are your trainer but also a friend ready to listen to you.</p>
 
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">9) Recommend Able Alternatives</h5>
+                        <p>Since they have assessed your body capacity beforehand, your personal trainer is the ideal person to recommend you to proper medical experts to address your other issues for you to be well and properly do your routines.  Never believer trainers who tells they can cure a disability or disease.  Although they might have good intentions telling your flaws, they are not qualified to handle injuries and ailments in your body. </p>
 
-
-                            <li>Meet local people.  Your guests would surely be delighted to not only meet you and your family but would likewise be delighted meeting the local people and possibly get the chance to experience to get to live with them too. In order to get that full discovery experience. It’s another way on how to adapt to the place and not just to visit it.</li>
-                            <li>Economical.  There is quite a big difference in terms of monetary value between homestay and hotel accommodation.  Budgetwise, you can always come into terms with your host families to consider a bargain.</li>
-                            <li>Value for money.  Needless to say, a home accommodation is somewhat incomparable to start with.  But the added bonding and experiences while staying with a family often cannot come near any monetary exchange.</li>
-                            <li>Comfort and security.  The home environment inhibits peace of mind.  Meeting the locals and the family members will initiate the feeling of security and ease to help you out on your journey.</li>
-                            <li>Home cooked meals.  If you are somewhat used to city and fast food meals, your homestay hosts will cook and share to you the family’s valued meals for guests.  Who knows what you knew as gourmet could just be some family home grown dishes.</li>
-                            <li>Nomad’s delight.  Homestay accommodation with a paid host family is perfect especially for single or solo travelers.  Most wandering nomads agree that an experience in a homestay host family is the best.  It’s a way to travel and a chance to meet interesting locals, exchange and share stories and experience unique journey of lives.</li>
-                            <li>Improve skills and knowledge.  Every journey is a learning experience.  Staying in a homestay will allow you to learn a new language, culture, added skills, knowledge and generally make you a better person.</li>
-                            <li>Home away from home. What can lessen your feeling of homesickness than staying in an actual home? Homestays are just that. Stay in a homestay, and feel at home though you’re away from your own.</li>
-                            <li>Memories to cherish.  Most travelers plan their travel scouting hotel accommodations.  But cherished memories are best if your host is a real and genuine family and people that will leave lasting memories and one of a kind experience in your life beyond any tourist trails and sights.      </li>
-                        </ul>
-                        <p>Feel at home!  What can make you best feel home during your travel than to stay in homestay home along with host families you will surely consider your family away from your very own.  Travel with the feeling you are always home.  Homestays are the best travel accommodation to experience for every travelling nomad.</p>
-
+                        <p class="margin-top-20">See how your own trainer measures up to our list.  If you have a great trainer consider yourself fortunate and if you are shopping around for one, you are in the right place. </p>
                     </div>
                 </div>
             </div>
@@ -907,25 +887,25 @@
                 </div>
             </div>
 
-<!--            <div class="paginationx pagenation-white text-center">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true"><i class="fa fa-arrow-circle-left"></i></span>
-                            </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true"><i class="fa fa-arrow-circle-right"></i></span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>-->
+            <!--            <div class="paginationx pagenation-white text-center">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true"><i class="fa fa-arrow-circle-left"></i></span>
+                                        </a>
+                                    </li>
+                                    <li><a href="#">1</a></li>
+                                    <li class="active"><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true"><i class="fa fa-arrow-circle-right"></i></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>-->
 
         </div>
 </section>
