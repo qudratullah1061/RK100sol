@@ -50,6 +50,20 @@ class Misc extends CI_Controller {
         }
         $this->_response(true, "Problem while deleting record.");
     }
+    
+    function DeleteChilds() {
+        $this->isAjax();
+        $unique_id = $this->input->post('unique_id');
+        $table = $this->input->post('table');
+        $column = $this->input->post('column');
+        $result = $this->Misc_Model->DeleteRecord($unique_id, $table, $column);
+        $result = $this->Misc_Model->DeleteRecord($unique_id, $table, 'parent_id');
+
+        if ($result) {
+            $this->_response(false, "Record deleted successfully!");
+        }
+        $this->_response(true, "Problem while deleting record.");
+    }
 
     function MarkAsProfileImage() {
         $this->isAjax();

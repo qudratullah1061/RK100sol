@@ -31,8 +31,9 @@ class Blogs extends CI_Controller {
         $data['selected_tags'] = $this->Blogs_Model->get_all_selected_tags($blog_id);
         $data['blog_comments'] = $this->Blogs_Model->get_selected_comments($blog_id);
         $data['categories'] = GetAllCategories();
-        $data['member_id'] = $this->session->userdata('member_id');
-        $data['anonymous_user_id'] = $cookie;
+        $data['member_id'] = $member_id = $this->session->userdata('member_id');
+        $data['anonymous_user_id'] = $anonymous_user_id = $cookie;
+        $data['admin_id'] = $this->session->userdata('admin_id');
         $this->selected_tab = 'blog';
         $this->load->view('frontend/blogs/blog_detail', $data);
         } else {
@@ -50,6 +51,15 @@ class Blogs extends CI_Controller {
         $data['blogs'] = $this->Blogs_Model->get_all_blogs_as_per_tag($tag_id);
         $this->selected_tab = 'blog';
         $this->load->view('frontend/blogs/blog', $data);
+    }
+    
+    function update_comment() {
+        isAjax();
+        $blog_comment_id = $this->input->post('blog_comment_id');
+        $comment = $this->input->post('comment');
+        $this->Blogs_Model->update_comment($blog_comment_id, $comment);
+        echo json_encode(array("error" => FALSE, "message" => "Comment Updated Successfully"));
+        die();
     }
     
     function search_keyword() {

@@ -128,7 +128,7 @@ var CommonFunctions = function () {
                                     text: data.description,
                                     type: "success",
                                 }, function () {
-                                    if (table == 'tb_member_portfolios' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications'  || table == 'tb_notification_users') {
+                                    if (table == 'tb_member_portfolios' || table == 'tb_blog_comments' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications'  || table == 'tb_notification_users') {
                                         window.location.reload();
                                     } else if (table == 'tb_member_images') {
                                         $("#pic-" + unique_id).remove();
@@ -151,6 +151,62 @@ var CommonFunctions = function () {
                     });
                 });
     };
+    
+    var Delete_Childs = function (unique_id, table, column, msg) {
+
+        swal({
+            title: "Are you sure?",
+            text: "Warning! " + msg,
+            type: "warning",
+            closeOnConfirm: false,
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, delete it!",
+        },
+                function () {
+                    $.ajax({
+                        url: base_url + "misc/DeleteChilds/",
+                        dataType: 'json',
+                        method: 'post',
+                        cache: false,
+                        data: {unique_id: unique_id, table: table, column: column},
+                        beforeSend: function () {
+                            App.blockUI({target: 'body', animate: true});
+                        },
+                        complete: function () {
+                            App.unblockUI('body');
+                        },
+                        success: function (data) {
+                            if (!data.error) {
+                                swal({
+                                    title: "Deleted",
+                                    text: data.description,
+                                    type: "success",
+                                }, function () {
+                                    if (table == 'tb_member_portfolios' || table == 'tb_blog_comments' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications'  || table == 'tb_notification_users') {
+                                        window.location.reload();
+                                    } else if (table == 'tb_member_images') {
+                                        $("#pic-" + unique_id).remove();
+                                        $('#load_member_profile_images').cubeportfolio('destroy');
+                                        $('#load_member_id_proofs').cubeportfolio('destroy');
+                                        is_init_profile_images = false;
+                                        load_member_profile_images();
+                                        is_init_id_proof_images = false;
+                                        load_member_id_proofs();
+                                    }
+                                });
+                            } else {
+                                // exception message here.
+                                swal("Error!", data.description, "error");
+                            }
+                        },
+                        error: function (xhr, desc, err) {
+                            toastr["error"](xhr.statusText, "Error.");
+                        }
+                    });
+                });
+    };
+    
 
     var GetStateOptions = function (country_id, state_id, class_name) {
         $.ajax({
@@ -260,6 +316,9 @@ var CommonFunctions = function () {
     return {
         Delete: function (unique_id, table, column, msg) {
             Delete(unique_id, table, column, msg);
+        },
+        Delete_Childs: function (unique_id, table, column, msg) {
+            Delete_Childs(unique_id, table, column, msg);
         },
         MakeProfileImage: function (image_id, member_id) {
             MarkAsProfileImage(image_id, member_id);

@@ -106,6 +106,14 @@ class Blogs_model extends Abstract_model {
         return $this->updateBy($column, $row_id, $data);
     }
     
+    public function update_comment($blog_comment_id, $comment) {
+        $this->table_name = "tb_blog_comments";
+        $column = 'blog_comment_id';
+        $row_id = $blog_comment_id;
+        $data = array('comment' => $comment);
+        return $this->updateBy($column, $row_id, $data);
+    }
+    
     public function add_blog_des($data) {
         $this->table_name = "tb_blog_descriptions";
         return $this->save($data);
