@@ -1446,7 +1446,7 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     opacity: 1;
 }
 .hosting .swiper-pagination-bullet-active{background: #000;}
-.swiper-button-next, .swiper-button-prev {
+.hosting .swiper-button-next, .hosting .swiper-button-prev {
     height: 48px;
     width: 33px;
 }
@@ -1506,7 +1506,7 @@ ul.hosting-list li {
 .homestay-articles {
     background-image: url(../img/blog-article.jpg);
     background-repeat: no-repeat; background-size: cover;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
 }
 .homestay-articles h5 {
     font-size: 35px;
@@ -1520,8 +1520,8 @@ ul.hosting-list li {
 
 /*pagiation slider*/
 .swiper-pagination-bullet {
-    width: 18px;
-    height: 20px;
+    /*width: 18px;*/
+    /*height: 20px;*/
     text-align: center;
     line-height: 20px;
     font-size: 12px;
@@ -1720,7 +1720,7 @@ header.sticky nav.header-light .logo .logo-dark {
     nav .accordion-menu {
         position: absolute;
         right: 0;
-        top:13px;
+        /*top:13px;*/
         width: 100%;
     }
 
