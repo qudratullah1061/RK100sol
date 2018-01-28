@@ -273,22 +273,22 @@ class Misc extends CI_Controller {
     function homestay() {
         $this->load->view('frontend/misc/homestay');
     }
-    function EP1() {
+    function event_planning() {
         $this->load->view('frontend/misc/EP1');
     }
-    function F1() {
+    function fitness() {
         $this->load->view('frontend/misc/F1');
     }
-    function FA3() {
+    function tourism() {
         $this->load->view('frontend/misc/FA3');
     }
-    function SO2() {
+    function social_occasion() {
         $this->load->view('frontend/misc/SO2');
     }
-    function T2() {
+    function coaching() {
         $this->load->view('frontend/misc/T2');
     }
-    function T6() {
+    function hosting() {
         $this->load->view('frontend/misc/T6');
     }
 
