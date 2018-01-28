@@ -1,5 +1,5 @@
 <!-- banner -->
-<section class="wow fadeIn no-padding home-banner  xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo base_url('assets/frontend/'); ?>img/T2.jpg');">
+<section class="wow fadeIn no-padding home-banner  margin-20px-bottom  xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo base_url('assets/frontend/'); ?>img/T2.jpg');">
     <!-- <div class="opacity-extra-medium bg-black"></div> -->
     <div class="container homestay-panner-height xs-padding-15px-lr">
         <div class="row height-100">
@@ -24,7 +24,7 @@
         </div>
     </div>
 </section>
-<section class="wow fadeIn gold-members">
+<section class="wow fadeIn gold-members hide">
     <div class="container">
         <p class="title-bar bg-purple text-white font-weight-600 text-center margin-35px-top">
             <i class="fa fa-star"></i> Find A Host

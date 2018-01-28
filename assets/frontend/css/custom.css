@@ -296,8 +296,13 @@ section{padding: 60px 0;}
 /* gold members */
 
 .cat-members .grid-item figure { border: 2px solid #942192;}
-.cat-members .container .hover-option6 .grid-item figcaption {padding: 10px 0;}
+.cat-members .container .hover-option6 .grid-item figcaption {padding: 9px 0;}
 .cat-members .grid-item figure .portfolio-img {border-bottom: 3px solid #942192;}
+.cat-members .container .hover-option6 .grid-item figcaption a {
+    color: purple;
+    text-transform: uppercase;
+    font-weight: 600;
+}
 section.cat-members {padding: 50px 0 40px;}
 section.gold-members {padding-top: 0;padding-bottom: 0;}
 .title-bar {height: 41px;line-height: 41px;font-size: 19px;margin-top: 10px; text-transform: uppercase;}

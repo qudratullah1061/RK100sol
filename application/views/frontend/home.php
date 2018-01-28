@@ -91,7 +91,8 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <span class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Fitness</span>
+                                                <!--<span class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Fitness</span>-->
+                                                <a href="<?php echo base_url('misc/fitness'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Fitness</a>
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +115,7 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <span class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Tourism</span>
+                                                <a href="<?php echo base_url('misc/tourism'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Tourism</a>
                                             </div>
                                         </div>
                                     </div>
@@ -137,7 +138,7 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <span class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">SOCIAL OCCASION</span>
+                                                <a href="<?php echo base_url('misc/social_occasion'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">SOCIAL OCCASION</a>
                                             </div>
                                         </div>
                                     </div>
@@ -160,7 +161,7 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <span class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">COACHING</span>
+                                                <a href="<?php echo base_url('misc/coaching'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">COACHING</a>
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +184,7 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <span class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Hosting</span>
+                                                <a href="<?php echo base_url('misc/hosting'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Hosting</a>
                                             </div>
                                         </div>
                                     </div>
@@ -206,7 +207,7 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <span class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">EVENT PLANNING</span>
+                                                <a href="<?php echo base_url('misc/event_planning'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">EVENT PLANNING</a>
                                             </div>
                                         </div>
                                     </div>
