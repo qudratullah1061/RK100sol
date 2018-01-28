@@ -82,7 +82,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-1.jpg" alt="" />
                                     <div class="portfolio-icon">
-                                        <a href="single-project-page-01.html">
+                                        <a href="<?php echo base_url('misc/fitness'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -105,7 +105,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-2.jpg" alt="" />
                                     <div class="portfolio-icon">
-                                        <a href="single-project-page-01.html">
+                                        <a href="<?php echo base_url('misc/tourism'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -128,7 +128,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-3.jpg" alt="" />
                                     <div class="portfolio-icon">
-                                        <a href="single-project-page-01.html">
+                                        <a href="<?php echo base_url('misc/social_occasion'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -151,7 +151,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-4.jpg" alt="" />
                                     <div class="portfolio-icon">
-                                        <a href="single-project-page-01.html">
+                                        <a href="<?php echo base_url('misc/coaching'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -174,7 +174,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-5.jpg" alt="" />
                                     <div class="portfolio-icon">
-                                        <a href="single-project-page-01.html">
+                                        <a href="<?php echo base_url('misc/hosting'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -197,7 +197,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-6.jpg" alt="" />
                                     <div class="portfolio-icon">
-                                        <a href="single-project-page-01.html">
+                                        <a href="<?php echo base_url('misc/event_planning'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
