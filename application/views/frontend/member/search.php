@@ -35,13 +35,13 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <label for="search">Search By: State, Zip/Postal Code, Country</label>
-                                <input type="text" name="location" id="location" class="placeholder-lightgray" placeholder="Example: Chittagong, 4000, Bangladesh" value="<?php echo $_GET['location']; ?>">
+                                <input type="text" name="location" id="location" class="placeholder-lightgray" placeholder="Example: Chittagong, 4000, Bangladesh" value="<?php echo isset($_GET['location']) ? $_GET['location'] : ""; ?>">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <label for="radius">Radius Range</label>
-                                <input type="text" name="radius" id="radius" class="placeholder-lightgray" placeholder="Enter Kilometers Radius E.G: 100" value="<?php echo $_GET['radius']; ?>">
+                                <input type="text" name="radius" id="radius" class="placeholder-lightgray" placeholder="Enter Kilometers Radius E.G: 100" value="<?php echo isset($_GET['radius']) ? $_GET['radius'] : ""; ?>">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
