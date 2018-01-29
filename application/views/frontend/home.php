@@ -1,6 +1,6 @@
-<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDVw_YgvMUxH6KawXzlwM9meU3HAUnbsLQ&libraries=places&language=en"></script>
-<script src="<?php echo base_url(); ?>assets/geocode/jquery.geocomplete.js" type="text/javascript"></script>
-<script src="<?php echo base_url('assets/custom_scripts/frontend/searchmember.js'); ?>" type="text/javascript"></script>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS -->
 <!-- banner -->
 <section class="wow fadeIn no-padding home-banner  xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo base_url('assets/frontend/'); ?>img/home-banner.jpg');">
     <!-- <div class="opacity-extra-medium bg-black"></div> -->
@@ -50,10 +50,10 @@
                                 <!--<div class="select-style select-medium">-->
                                 <div class="portlet-body">
                                     <!--<select name="category_available" id="category_available" class="bg-transparent no-margin-bottom">-->
-                                    <select name="category_available[]" id="category_available" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-collapse-groups="true" data-width="100%">
+                                    <select name="category_available[]" id="category_available" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-collapse-groups="true" data-width="100%" data-action-onchange="true">
                                         <!--<option value="">Available For:</option>-->
                                         <?php foreach ($categories_data as $catDataRow) { ?>
-                                        <optgroup label="<?php echo $catDataRow->category_name; ?>" class="<?php echo 'group-'.$catDataRow->category_id; ?>">
+                                            <optgroup label="<?php echo $catDataRow->category_name; ?>" class="<?php echo 'group-' . $catDataRow->category_id; ?>">
                                                 <?php
                                                 $sub_categories = getSubCategoriesByCategoryId($catDataRow->category_id);
                                                 if ($sub_categories && count($sub_categories) > 0) {
@@ -996,14 +996,19 @@
                         <a href="#" class="btn btn-deep-purple btn-small">See More</a>
                     </div>
                     <div class="col-md-5 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
-                        <img src="<?php // echo base_url('assets/frontend/');                                                                 ?>img/guide-3.jpg" alt="">
+                        <img src="<?php // echo base_url('assets/frontend/');                                                                      ?>img/guide-3.jpg" alt="">
                     </div>
                 </div>-->
 
     </div>
 </section>
-<script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js" type="text/javascript"></script>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/pages/scripts/components-bootstrap-multiselect.js" type="text/javascript"></script>
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDVw_YgvMUxH6KawXzlwM9meU3HAUnbsLQ&libraries=places&language=en"></script>
+<script src="<?php echo base_url(); ?>assets/geocode/jquery.geocomplete.js" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom_scripts/frontend/searchmember.js'); ?>" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
 <script>
     $(document).ready(function () {
         SearchMember.validation_to_search();

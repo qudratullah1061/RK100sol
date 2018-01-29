@@ -1976,3 +1976,6 @@ header.sticky nav.header-light .logo .logo-dark {
 @media(max-width:320px){
     .works-box figcaption.padding-30px-all p {font-size: 11px;}
 }
+.search-box .dropdown-menu>.active>a, .search-box .dropdown-menu>.active>a:focus, .search-box .dropdown-menu>.active>a:hover{
+    background-color: #fff !important;
+}
