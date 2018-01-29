@@ -105,7 +105,13 @@ var FormWizard = function () {
                 phone_number: {
                     required: true,
                 },
-                date_of_birth: {
+                years: {
+                    required: true,
+                },
+                months: {
+                    required: true,
+                },
+                days: {
                     required: true,
                 },
                 location: {

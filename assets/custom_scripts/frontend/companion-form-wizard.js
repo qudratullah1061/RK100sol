@@ -105,7 +105,13 @@ var FormWizard = function () {
                 phone_number: {
                     required: true,
                 },
-                date_of_birth: {
+                years: {
+                    required: true,
+                },
+                months: {
+                    required: true,
+                },
+                days: {
                     required: true,
                 },
                 location: {
@@ -235,11 +241,7 @@ var FormWizard = function () {
     return {
         //main function to initiate the module
         init: function () {
-            if ($("input[name='date_of_birth']").val() != "") {
-                $("input[name='date_of_birth']").datepicker();
-            } else {
-                $("input[name='date_of_birth']").datepicker({ changeMonth: true, changeYear: true, showButtonPanel: true,dateFormat:"yy-mm-dd"});
-            }
+            $("input[name='date_of_birth']").datepicker({ changeMonth: true, changeYear: true, showButtonPanel: true,dateFormat:"yy-mm-dd"});
             $("#dd-country").select2({
                 placeholder: "Select",
                 allowClear: true,

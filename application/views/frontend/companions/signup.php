@@ -139,8 +139,44 @@
                                     <div class="form-group form-md-line-input">
                                         <label class="control-label col-md-3"> Date of Birth <span class="required"> * </span> </label>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" data-date-format="yyyy-mm-dd" name="date_of_birth">
-                                            <label></label>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <select name="years">
+                                                        <?php
+                                                        $cutoff = 1910;
+                                                        $now = date('Y');
+                                                        for ($i = $now; $i >= $cutoff; $i--) {
+                                                            ?>
+                                                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select name="months">
+                                                        <option value="01">January</option>
+                                                        <option value="02">February</option>
+                                                        <option value="03">March</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">May</option>
+                                                        <option value="06">June</option>
+                                                        <option value="07">July</option>
+                                                        <option value="08">August</option>
+                                                        <option value="09">September</option>
+                                                        <option value="10">October</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">December</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select name="days">
+                                                        <?php for ($d = 1; $d <= 31; $d++) { ?>
+                                                            <option value="<?php echo $d; ?>"><?php echo $d; ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                            <!--<input type="text" class="form-control" data-date-format="yyyy-mm-dd" name="date_of_birth">-->
+                                                <label></label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group form-md-line-input">
@@ -175,7 +211,7 @@
                                                                             <label class="control-label col-md-3">Country<span class="required">*</span></label>
                                                                             <div class="col-md-6">
                                                                                 <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
-                                    <?php // echo isset($country_options) ? $country_options : ""; ?>
+                                    <?php // echo isset($country_options) ? $country_options : "";   ?>
                                                                                 </select>
                                                                                 <label></label>
                                                                             </div>
