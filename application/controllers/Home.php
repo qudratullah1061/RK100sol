@@ -82,9 +82,6 @@ class Home extends CI_Controller {
             $data['members_list'] = $members_list;
             $data['selected_cat_ids'] = isset($unique_cat_ids) ? $unique_cat_ids : array();
             $data['selected_sub_cat_ids'] = isset($unique_sub_cat_ids) ? $unique_sub_cat_ids : array();
-//            echo '<pre>';
-//            print_r($members_list);
-//            exit;
             $this->load->view('frontend/member/search', $data);
         } else {
             redirect(base_url());
