@@ -53,7 +53,7 @@ class Home extends CI_Controller {
                     }
                     $unique_cat_ids = array_unique($category_ids);
                     $unique_sub_cat_ids = array_unique($sub_category_ids);
-                    $cat_id = implode(',', $unique_cat_id);
+                    $cat_id = implode(',', $unique_cat_ids);
                     $sub_cat_id = rtrim($sub_cat_id_str, ',');
                 }
                 //End
