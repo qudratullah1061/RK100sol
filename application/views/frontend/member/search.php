@@ -51,13 +51,13 @@
                                     <select name="category_available[]" id="category_available" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-collapse-groups="true" data-width="100%" data-action-onchange="true">
                                         <!--<option value="">Available For:</option>-->
                                         <?php foreach ($categories_data as $catDataRow) { ?>
-                                        <optgroup label="<?php echo $catDataRow->category_name; ?>" class="<?php echo 'group-'.$catDataRow->category_id; ?>">
+                                            <optgroup label="<?php echo $catDataRow->category_name; ?>" <?php echo in_array($catDataRow->category_id, $selected_cat_ids) ? "checked" : ""; ?> class="<?php echo 'group-' . $catDataRow->category_id; ?>">
                                                 <?php
                                                 $sub_categories = getSubCategoriesByCategoryId($catDataRow->category_id);
                                                 if ($sub_categories && count($sub_categories) > 0) {
                                                     foreach ($sub_categories as $sub_cat) {
                                                         ?>
-                                                        <option value="<?php echo $catDataRow->category_id; ?>:<?php echo $sub_cat['sub_category_id']; ?>"><?php echo $sub_cat['sub_category_name']; ?></option>
+                                                        <option <?php echo in_array($sub_cat['sub_category_id'], $selected_sub_cat_ids) ? "checked" : ""; ?> value="<?php echo $catDataRow->category_id; ?>:<?php echo $sub_cat['sub_category_id']; ?>"><?php echo $sub_cat['sub_category_name']; ?></option>
                                                         <?php
                                                     }
                                                 }
@@ -114,10 +114,10 @@
                                                             <span class="line-height-normal font-weight-600 display-block lato"><?php echo $members_list_row['first_name'] . ' ' . $members_list_row['last_name']; ?> </span>
                                                             <p class=""><?php
                                                                 if ($members_list_row['country'] != '') {
-                                                                    $living_status .= $members_list_row['country'].', ';
+                                                                    $living_status .= $members_list_row['country'] . ', ';
                                                                 }
                                                                 if ($members_list_row['state'] != '') {
-                                                                    $living_status .= $members_list_row['state'].', ';
+                                                                    $living_status .= $members_list_row['state'] . ', ';
                                                                 }
                                                                 if ($members_list_row['city'] != '') {
                                                                     $living_status .= $members_list_row['city'];

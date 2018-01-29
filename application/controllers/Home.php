@@ -31,6 +31,8 @@ class Home extends CI_Controller {
         $cat_id = '';
         $sub_cat_id = '';
         $sub_cat_id_str = '';
+        $category_ids = array();
+        $sub_category_ids = array();
         if (isset($_GET['location']) && $_GET['location'] != '') {
             $categories_data = $this->Misc_Model->get_all_categories();
             $data['categories_data'] = $categories_data;
@@ -45,10 +47,12 @@ class Home extends CI_Controller {
                 if (isset($cat_available)) {
                     foreach ($cat_available as $sel_cat) {
                         $selected_cat = explode(':', $sel_cat);
-                        $category_id[] = $selected_cat[0];
+                        $category_ids[] = $selected_cat[0];
+                        $sub_category_ids[] = $selected_cat[1];
                         $sub_cat_id_str .= $selected_cat[1] . ',';
                     }
-                    $unique_cat_id = array_unique($category_id);
+                    $unique_cat_ids = array_unique($category_ids);
+                    $unique_sub_cat_ids = array_unique($sub_category_ids);
                     $cat_id = implode(',', $unique_cat_id);
                     $sub_cat_id = rtrim($sub_cat_id_str, ',');
                 }
@@ -76,6 +80,8 @@ class Home extends CI_Controller {
                 }
             }
             $data['members_list'] = $members_list;
+            $data['selected_cat_ids'] = isset($unique_cat_ids) ? $unique_cat_ids : array();
+            $data['selected_sub_cat_ids'] = isset($unique_sub_cat_ids) ? $unique_sub_cat_ids : array();
 //            echo '<pre>';
 //            print_r($members_list);
 //            exit;
