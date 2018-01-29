@@ -48,7 +48,7 @@
                             <div class="form-group">
                                 <label for="radius">Available For:</label>
                                 <div class="portlet-body">
-                                    <select name="category_available[]" id="category_available" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-collapse-groups="true" data-width="100%">
+                                    <select name="category_available[]" id="category_available" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-collapse-groups="true" data-width="100%" data-action-onchange="true">
                                         <!--<option value="">Available For:</option>-->
                                         <?php foreach ($categories_data as $catDataRow) { ?>
                                         <optgroup label="<?php echo $catDataRow->category_name; ?>" class="<?php echo 'group-'.$catDataRow->category_id; ?>">
