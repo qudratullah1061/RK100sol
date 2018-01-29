@@ -88,7 +88,9 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
         <!-- responsive css -->
         <!--Q included files emds-->
-
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
         <link rel="stylesheet" href="<?php echo base_url('assets/frontend/'); ?>css/responsive.css" />
         <link rel="stylesheet" href="<?php echo base_url('assets/frontend/'); ?>css/custom.css" />
         <!--jquery start-->
@@ -454,6 +456,12 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/global/scripts/app.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="<?php echo base_url(); ?>assets/pages/scripts/components-bootstrap-multiselect.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
         <!--dropzone-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/form-dropzone.js" type="text/javascript"></script>

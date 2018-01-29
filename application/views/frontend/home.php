@@ -47,12 +47,26 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <label for="radius">Available For:</label>
-                                <div class="select-style select-medium">
-                                    <select name="category_available" id="category_available" class="bg-transparent no-margin-bottom">
-                                        <option value="">Available For:</option>
+                                <!--<div class="select-style select-medium">-->
+                                <div class="portlet-body">
+                                    <!--<select name="category_available" id="category_available" class="bg-transparent no-margin-bottom">-->
+                                    <select name="category_available[]" id="category_available" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-collapse-groups="true" data-width="100%">
+                                        <!--<option value="">Available For:</option>-->
                                         <?php foreach ($categories_data as $catDataRow) { ?>
-                                            <option value="<?php echo $catDataRow->category_id; ?>"><?php echo $catDataRow->category_name; ?></option>
-                                        <?php } ?>
+                                        <optgroup label="<?php echo $catDataRow->category_name; ?>" class="<?php echo 'group-'.$catDataRow->category_id; ?>">
+                                                <?php
+                                                $sub_categories = getSubCategoriesByCategoryId($catDataRow->category_id);
+                                                if ($sub_categories && count($sub_categories) > 0) {
+                                                    foreach ($sub_categories as $sub_cat) {
+                                                        ?>
+                                                        <option value="<?php echo $catDataRow->category_id; ?>:<?php echo $sub_cat['sub_category_id']; ?>"><?php echo $sub_cat['sub_category_name']; ?></option>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </optgroup>
+                                        <?php }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -982,7 +996,7 @@
                         <a href="#" class="btn btn-deep-purple btn-small">See More</a>
                     </div>
                     <div class="col-md-5 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
-                        <img src="<?php // echo base_url('assets/frontend/');   ?>img/guide-3.jpg" alt="">
+                        <img src="<?php // echo base_url('assets/frontend/');                                                                 ?>img/guide-3.jpg" alt="">
                     </div>
                 </div>-->
 

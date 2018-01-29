@@ -294,13 +294,16 @@ class Members_model extends Abstract_model {
         }
     }
 
-    public function search_members($cat_available, $geo_codes, $nearby_members_id) {
+    public function search_members($cat_id, $sub_cat_id, $geo_codes, $nearby_members_id) {
         $sql = "SELECT tb_members.* , tb_categories.*, tb_member_categories.*, tb_member_images.image, tb_member_images.image_path FROM tb_members"
                 . " LEFT JOIN tb_member_categories ON (tb_members.member_id = tb_member_categories.member_id)"
-                . " LEFT JOIN tb_member_images ON (tb_members.member_id = tb_member_images.member_id)"
+                . " LEFT JOIN `tb_member_images` ON `tb_member_images`.image_id = " .
+                "   (SELECT image_id " .
+                "      FROM `tb_member_images` " .
+                "   WHERE `tb_member_images`.member_id = `tb_members`.member_id AND `tb_member_images`.image_type = 'profile' ORDER BY `tb_member_images`.is_profile_image DESC Limit 0,1 )"
                 . " LEFT JOIN tb_categories ON (tb_member_categories.category_id = tb_categories.category_id) WHERE tb_members.member_type = 2";
-        if ($cat_available != '') {
-            $sql .= " AND tb_categories.category_id = $cat_available";
+        if ($cat_id != '' || $sub_cat_id != '') {
+            $sql .= " AND (tb_member_categories.category_id IN ($cat_id) OR tb_member_categories.sub_category_id IN ($sub_cat_id))";
         }
         if ((isset($geo_codes['country_long']) && $geo_codes['country_long']) || (isset($geo_codes['country_short']) && $geo_codes['country_short'])) {
             $sql .= " AND (`country` = '" . $geo_codes["country_long"] . "' OR `country` = '" . $geo_codes["country_short"] . "') ";

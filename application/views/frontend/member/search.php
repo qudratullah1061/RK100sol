@@ -47,18 +47,24 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <label for="radius">Available For:</label>
-                                <div class="select-style select-medium">
-                                    <select name="category_available" id="category_available" class="bg-transparent no-margin-bottom">
-                                        <option value="">Available For:</option>
-                                        <?php
-                                        foreach ($categories_data as $catDataRow) {
-                                            $seleced = '';
-                                            if ($catDataRow->category_id == $_GET['category_available']) {
-                                                $seleced = 'selected = "selected"';
-                                            }
-                                            ?>
-                                            <option <?php echo $seleced; ?> value="<?php echo $catDataRow->category_id; ?>"><?php echo $catDataRow->category_name; ?></option>
-                                        <?php } ?>
+                                <div class="portlet-body">
+                                    <select name="category_available[]" id="category_available" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-collapse-groups="true" data-width="100%">
+                                        <!--<option value="">Available For:</option>-->
+                                        <?php foreach ($categories_data as $catDataRow) { ?>
+                                        <optgroup label="<?php echo $catDataRow->category_name; ?>" class="<?php echo 'group-'.$catDataRow->category_id; ?>">
+                                                <?php
+                                                $sub_categories = getSubCategoriesByCategoryId($catDataRow->category_id);
+                                                if ($sub_categories && count($sub_categories) > 0) {
+                                                    foreach ($sub_categories as $sub_cat) {
+                                                        ?>
+                                                        <option value="<?php echo $catDataRow->category_id; ?>:<?php echo $sub_cat['sub_category_id']; ?>"><?php echo $sub_cat['sub_category_name']; ?></option>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </optgroup>
+                                        <?php }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -88,6 +94,7 @@
 
                     <!-- start portfolio item -->
                     <?php
+                    $living_status = '';
                     if (count($members_list) > 0) {
                         foreach ($members_list as $members_list_row) {
                             ?>
@@ -97,7 +104,7 @@
                                         <figure>
                                             <div class="portfolio-img  position-relative text-center overflow-hidden">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url($members_list_row['image_path']). $members_list_row['image']; ?>" alt="" />
+                                                    <img src="<?php echo base_url($members_list_row['image_path']) . $members_list_row['image']; ?>" alt="" />
                                                 </a>
                                             </div>
                                             <figcaption class="">
@@ -105,7 +112,18 @@
                                                     <div class="portfolio-hover-box vertical-align-middle">
                                                         <div class="portfolio-hover-content position-relative">
                                                             <span class="line-height-normal font-weight-600 display-block lato"><?php echo $members_list_row['first_name'] . ' ' . $members_list_row['last_name']; ?> </span>
-                                                            <p class=""><?php echo $members_list_row['category_name']; ?></p>
+                                                            <p class=""><?php
+                                                                if ($members_list_row['country'] != '') {
+                                                                    $living_status .= $members_list_row['country'].', ';
+                                                                }
+                                                                if ($members_list_row['state'] != '') {
+                                                                    $living_status .= $members_list_row['state'].', ';
+                                                                }
+                                                                if ($members_list_row['city'] != '') {
+                                                                    $living_status .= $members_list_row['city'];
+                                                                }
+                                                                echo rtrim($living_status, ', ');
+                                                                ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -141,10 +159,10 @@
 <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js" type="text/javascript"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         SearchMember.validation_to_search();
     });
-    $(function() {
+    $(function () {
         $("#location").geocomplete();
     });
 </script>

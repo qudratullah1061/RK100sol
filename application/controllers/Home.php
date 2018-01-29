@@ -28,6 +28,9 @@ class Home extends CI_Controller {
     }
 
     function searchmember() {
+        $cat_id = '';
+        $sub_cat_id = '';
+        $sub_cat_id_str = '';
         if (isset($_GET['location']) && $_GET['location'] != '') {
             $categories_data = $this->Misc_Model->get_all_categories();
             $data['categories_data'] = $categories_data;
@@ -35,7 +38,21 @@ class Home extends CI_Controller {
             if (count($geo_codes) > 0) {
                 $loc = $_GET['location'];
                 $radius = $_GET['radius'];
-                $cat_available = $_GET['category_available'];
+                if(isset($_GET['category_available'])){
+                    $cat_available = $_GET['category_available'];
+                }
+                //Start Categories and Sub Categories
+                if (isset($cat_available)) {
+                    foreach ($cat_available as $sel_cat) {
+                        $selected_cat = explode(':', $sel_cat);
+                        $category_id[] = $selected_cat[0];
+                        $sub_cat_id_str .= $selected_cat[1] . ',';
+                    }
+                    $unique_cat_id = array_unique($category_id);
+                    $cat_id = implode(',', $unique_cat_id);
+                    $sub_cat_id = rtrim($sub_cat_id_str, ',');
+                }
+                //End
                 $lat = isset($geo_codes['latitude']) ? $geo_codes['latitude'] : "";
                 $lon = isset($geo_codes['longitude']) ? $geo_codes['longitude'] : "";
                 $nearby_members_id = '';
@@ -51,10 +68,11 @@ class Home extends CI_Controller {
                             }
                             $nearby_members_id .= $nearby_ids['member_id'];
                         }
-                        $members_list = $this->Members_model->search_members($cat_available, $geo_codes, $nearby_members_id);
+                        $members_list = $this->Members_model->search_members($cat_id, $sub_cat_id, $geo_codes, $nearby_members_id);
                     }
                 } else {
-                    $members_list = $this->Members_model->search_members($cat_available, $geo_codes, $nearby_members_id);
+                    $members_list = $this->Members_model->search_members($cat_id, $sub_cat_id, $geo_codes, $nearby_members_id);
+//                    $members_list = $this->Members_model->search_members($cat_available, $geo_codes, $nearby_members_id);
                 }
             }
             $data['members_list'] = $members_list;
