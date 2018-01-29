@@ -277,7 +277,7 @@ section{padding: 60px 0;}
 
 /* +++++++Search-box+++++++ */
 
-.search-section {margin-top: -78px;}
+.search-section {margin-top: -78px;    overflow: visible;}
 .search-box {display: inline-block;width: 100%;padding: 32px 27px 30px;-webkit-box-shadow: 0px 3px 16px 0px rgba(1, 1, 1, 0.35);-moz-box-shadow: 0px 3px 16px 0px rgba(1, 1, 1, 0.35);box-shadow: 0px 3px 16px 0px rgba(1, 1, 1, 0.35);background-color: #fff;}
 .search-box label {font-weight: 600;color: #404040;font-family: 'Open Sans';padding-left: 10px;font-size: 12px;}
 .search-box input {margin-bottom: 0;height: 46px !important;border-color: #585858 !important; padding-top: 5px; font-size: 16px !important;}
@@ -1696,6 +1696,23 @@ header.sticky nav.header-light .logo .logo-dark {
 .tabbable-line > .nav-tabs > li.active {border-bottom: 4px solid #800080 !important;position: relative;}
 /*border issue end*/
 .show-xs{display: none !important;}
+
+.search-box button.multiselect {
+    margin-top: 0;
+    border: 1px solid #585858;
+}
+.search-box button.multiselect span {
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.search-box input[type="checkbox"] {
+    width: auto;
+    height: auto !important;
+ 
+}
+.search-box ul.multiselect-container.dropdown-menu li:not(.multiselect-item) label {
+    left: 15px;
+}
 @media(max-width:1199px) and (min-width:992px) {
     .homestay-articles .portfolio-grid.work-4col li {
         width: 25%;
