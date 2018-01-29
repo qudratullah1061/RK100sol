@@ -89,6 +89,9 @@ class Blogs extends CI_Controller {
             }elseif(!empty(get_cookie('anonymous_user_id', FALSE))){
                 $comment_data['user_type'] = '2';
                 $comment_data['user_id'] = get_cookie('anonymous_user_id', FALSE);
+            }elseif(!empty($this->session->userdata('admin_id'))){
+                $comment_data['user_type'] = '3';
+                $comment_data['user_id'] = $this->session->userdata('admin_id');
             }else {
                 $anonymous_user_id = $this->Blogs_Model->add_anonymous_user_data($data);
                 $comment_data['user_type'] = '2';

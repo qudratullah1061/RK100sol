@@ -218,11 +218,12 @@ class Blogs_model extends Abstract_model {
     }
     
     function get_selected_comments($blog_id, $parent_id=NULL) {
-        $this->db->select('tb_blog_anonymous_user.*, tbc.*, tbc.created_on AS tbc_created_on, tb_members.username');
+        $this->db->select('tb_blog_anonymous_user.*, tbc.*, tbc.created_on AS tbc_created_on, tb_members.username, tb_admin_users.username AS admin_username');
         $this->db->from('tb_blog_comments AS tbc');
         $this->db->join('tb_blogs', 'tb_blogs.blog_id=tbc.blog_id');
         $this->db->join('tb_blog_anonymous_user', 'tb_blog_anonymous_user.anonymous_user_id=tbc.user_id', 'left');
         $this->db->join('tb_members', 'tb_members.member_id=tbc.user_id', 'left');
+        $this->db->join('tb_admin_users', 'tb_admin_users.admin_id=tbc.user_id', 'left');
         $this->db->where('tbc.blog_id', $blog_id);
         if($parent_id != NULL){
             $this->db->where('tbc.parent_id', $parent_id);

@@ -122,7 +122,7 @@
                                             <img src="http://placehold.it/149x149" class="img-circle width-85 xs-width-100" alt="" />
                                         </div>
                                         <div class="padding-40px-left display-table-cell vertical-align-top last-paragraph-no-margin xs-no-padding-left xs-display-block">
-                                            <a href="javascript:void(0)" class="text-extra-dark-gray text-uppercase alt-font font-weight-500 text-small"><?php echo ($comment->user_type == '2') ? $comment->anonymous_user_name : $comment->username; ?></a>
+                                            <a href="javascript:void(0)" class="text-extra-dark-gray text-uppercase alt-font font-weight-500 text-small"><?php if($comment->user_type == '3'){ $name = $comment->admin_username; } elseif($comment->user_type == '1'){ $name = $comment->username; } elseif($comment->user_type == '2'){ $name = $comment->anonymous_user_name; } echo $name; ?></a>
                                             <a href="#comments" data-comment-id="<?php echo $comment->blog_comment_id; ?>" id="child_comments" class="inner-link btn-reply text-uppercase alt-font text-extra-dark-gray">Reply</a>
                                             <?php if ($admin_id) { ?>
                                                 <a onclick="CommonFunctions.Delete_Childs(<?php echo $comment->blog_comment_id; ?> , 'tb_blog_comments' , 'blog_comment_id' , 'This comment will be permanently deleted without further warning. Do you really want to delete this comment?');" class="inner-link btn-reply text-uppercase alt-font text-extra-dark-gray">Delete</a>
@@ -158,7 +158,7 @@
                                                     <img src="http://placehold.it/149x149" class="img-circle width-85 xs-width-100" alt="" />
                                                 </div>
                                                 <div class="padding-40px-left display-table-cell vertical-align-top last-paragraph-no-margin xs-no-padding-left xs-display-block">
-                                                    <a href="javascript:void(0)" class="text-extra-dark-gray text-uppercase alt-font font-weight-500 text-small"><?php echo ($sub_comment->user_type == '2') ? $sub_comment->anonymous_user_name : $sub_comment->username; ?></a>
+                                                    <a href="javascript:void(0)" class="text-extra-dark-gray text-uppercase alt-font font-weight-500 text-small"><?php if($sub_comment->user_type == '3'){ $name = $sub_comment->admin_username; } elseif($sub_comment->user_type == '1'){ $name = $sub_comment->username; } elseif($sub_comment->user_type == '2'){ $name = $sub_comment->anonymous_user_name; } echo $name; ?></a>
                                                     <?php if ($admin_id) { ?>
                                                         <a onclick="CommonFunctions.Delete_Childs(<?php echo $sub_comment->blog_comment_id; ?> , 'tb_blog_comments' , 'blog_comment_id' , 'This comment will be permanently deleted without further warning. Do you really want to delete this comment?');" class="inner-link btn-reply text-uppercase alt-font text-extra-dark-gray">Delete</a>
                                                         <a href="javascript:void(0)" class="inner-link btn-reply text-uppercase alt-font text-extra-dark-gray edit_parent_comment">Edit</a>
@@ -199,7 +199,7 @@
                 <?php // echo $anonymous_user_id.'/'.$member_id;  ?>
                 <form action="<?php echo base_url('blogs/blog_comment/' . $blog->blog_id); ?>" method="post">
                     <input type="hidden" name="parent_id" id="comment_parent_id" value=""/>
-                    <?php if (!$member_id && !$anonymous_user_id) { ?>
+                    <?php if (!$member_id && !$anonymous_user_id && !$admin_id) { ?>
                         <div class="col-md-4 col-sm-12 col-xs-12">
                             <input type="text" name="anonymous_user_name" placeholder="Name *" class="medium-input">
                         </div>
