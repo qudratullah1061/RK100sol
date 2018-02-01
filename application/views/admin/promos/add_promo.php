@@ -13,8 +13,9 @@
                     <span class="help-block">Don't use special characters</span>
                 </div>
                 <div class="form-group form-md-line-input form-md-floating-label">
-                    <textarea type="text" name="promo_description" class="form-control"><?php echo isset($promo_data->promo_description) ? $promo_data->promo_description : ""; ?></textarea>
-                    <label>Promo Description</label>
+                    <input type="text" value="<?php echo isset($promo_data->promo_code) ? $promo_data->promo_code : ""; ?>" name="promo_code" class="form-control">
+                    <input type="hidden" value="<?php echo isset($promo_data->promo_code) ? $promo_data->promo_code : ""; ?>" name="current_promo_code" class="form-control">
+                    <label>Promo Code</label>
                 </div>
                 <div class="form-group form-md-line-input form-md-floating-label">
                     <input type="radio" name="promo_subscription_discount" value="0" <?php echo (isset($promo_data->promo_subscription_discount) && $promo_data->promo_subscription_discount == '0') ? "checked" : ""; ?> /> Subscription

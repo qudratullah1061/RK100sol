@@ -26,16 +26,23 @@ class Promos extends Admin_Controller {
     function add_update_promo() {
         $this->isAjax();
         if ($this->input->post()) {
+            $cur_promo_code = $this->input->post('current_promo_code');
+            if ($this->input->post('promo_code') != $cur_promo_code) {
+                $is_unique = '|is_unique[tb_promos.promo_code]';
+            } else {
+                $is_unique = '';
+            }
             $data = array();
             $edit_id = $this->input->post('promo_id');
             $this->form_validation->set_rules('promo_title', 'Promo Title', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('promo_code', 'Promo Code', 'required|trim|strip_tags|xss_clean'.$is_unique);
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
             } else {
                 $data = array();
                 $data['promo_title'] = $this->input->post('promo_title');
-                $data['promo_description'] = $this->input->post('promo_description');
+                $data['promo_code'] = $this->input->post('promo_code');
                 $data['promo_subscription_discount'] = $this->input->post('promo_subscription_discount');
                 $data['promo_sub_dis_value'] = $this->input->post('promo_sub_dis_value');
                 $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;

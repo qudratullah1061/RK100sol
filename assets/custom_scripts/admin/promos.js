@@ -45,6 +45,9 @@ var Promos = function () {
                 promo_title: {
                     required: true
                 },
+                promo_code: {
+                    required: true
+                },
             },
             invalidHandler: function (event, validator) { //display error alert on form submit              
                 success1.hide();
