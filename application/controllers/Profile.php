@@ -186,6 +186,10 @@ class Profile extends CI_Controller {
         }
     }
 
+    public function thankyou() {
+        $this->load->view('frontend/companions/thankyou');
+    }
+
     public function add_companion_user() {
         isAjax();
         if ($this->input->post()) {
@@ -231,7 +235,7 @@ class Profile extends CI_Controller {
                 $year = $this->input->post('years');
                 $month = $this->input->post('months');
                 $day = $this->input->post('days');
-                $data['date_of_birth'] = $year.'-'.$month.'-'.$day;
+                $data['date_of_birth'] = $year . '-' . $month . '-' . $day;
                 $data['location'] = $this->input->post('location');
                 $data['zipcode'] = $this->input->post('zipcode');
                 $data['country'] = $geoCodesData['country_long'];
