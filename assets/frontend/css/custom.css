@@ -1713,6 +1713,15 @@ header.sticky nav.header-light .logo .logo-dark {
 .search-box ul.multiselect-container.dropdown-menu li:not(.multiselect-item) label {
     left: 15px;
 }
+
+.id-proof .slim .slim-file-hopper {
+    background-image: url(../img/IDp.jpg);
+    background-size: contain;
+}
+.profile-image .slim .slim-file-hopper {
+    background-image: url(../img/pp1.jpg);
+    background-size: contain;
+}
 @media(max-width:1199px) and (min-width:992px) {
     .homestay-articles .portfolio-grid.work-4col li {
         width: 25%;

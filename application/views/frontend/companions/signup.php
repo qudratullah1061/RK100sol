@@ -97,7 +97,7 @@
                                     <div class="form-group form-md-line-input">
                                         <label class="control-label col-md-3"> Profile Image <span class="required">*</span></label>
                                         <div class="col-md-6">
-                                            <div class="frame">
+                                            <div class="frame profile-image">
                                                 <input type="file" id="profile_images" name='profile_images[]' multiple="multiple" />
                                             </div>
                                         </div>
@@ -106,7 +106,7 @@
                                     <div class="form-group form-md-line-input">
                                         <label class="control-label col-md-3"> ID Proof <span class="required">*</span></label>
                                         <div class="col-md-6">
-                                            <div class="frame">
+                                            <div class="frame id-proof">
                                                 <input type="file" id='id_proofs' name="id_proofs[]" multiple="multiple">
                                             </div>
                                         </div>
