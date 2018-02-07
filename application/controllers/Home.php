@@ -21,6 +21,8 @@ class Home extends CI_Controller {
     }
 
     function index() {
+        echo "here";
+        exit;
         $this->selected_tab = 'home';
         $categories_data = $this->Misc_Model->get_all_categories();
         $data['categories_data'] = $categories_data;
