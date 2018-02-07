@@ -1,1 +1,133 @@
 [31-Dec-2017 11:39:43] PHP Parse error:  syntax error, unexpected T_CONST in /home5/konsorts/public_html/system/core/CodeIgniter.php on line 58
+[07-Feb-2018 04:27:52] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/imagick.so' - /usr/php/56/usr/lib64/php/modules/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:27:52] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/pdo_mysql.so' - /usr/php/56/usr/lib64/php/modules/pdo_mysql.so: undefined symbol: mysqlnd_allocator in Unknown on line 0
+[07-Feb-2018 04:27:52] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:27:52] PHP Warning:  PHP Startup: pdo_pgsql: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:27:52] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:27:52] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/mailparse.so' - /usr/php/56/usr/lib64/php/modules/mailparse.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:27:52] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oauth.so' - /usr/php/56/usr/lib64/php/modules/oauth.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:27:52] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oci8.so' - /usr/php/56/usr/lib64/php/modules/oci8.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:27:52] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/uploadprogress.so' - /usr/php/56/usr/lib64/php/modules/uploadprogress.so: undefined symbol: zend_ini_string_ex in Unknown on line 0
+[07-Feb-2018 04:27:52] PHP Parse error:  syntax error, unexpected T_CONST in /home5/konsorts/public_html/system/core/CodeIgniter.php on line 58
+[07-Feb-2018 04:27:58] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/imagick.so' - /usr/php/56/usr/lib64/php/modules/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:27:58] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/pdo_mysql.so' - /usr/php/56/usr/lib64/php/modules/pdo_mysql.so: undefined symbol: mysqlnd_allocator in Unknown on line 0
+[07-Feb-2018 04:27:58] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:27:58] PHP Warning:  PHP Startup: pdo_pgsql: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:27:58] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:27:58] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/mailparse.so' - /usr/php/56/usr/lib64/php/modules/mailparse.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:27:58] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oauth.so' - /usr/php/56/usr/lib64/php/modules/oauth.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:27:59] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oci8.so' - /usr/php/56/usr/lib64/php/modules/oci8.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:27:59] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/uploadprogress.so' - /usr/php/56/usr/lib64/php/modules/uploadprogress.so: undefined symbol: zend_ini_string_ex in Unknown on line 0
+[07-Feb-2018 04:27:59] PHP Parse error:  syntax error, unexpected T_CONST in /home5/konsorts/public_html/system/core/CodeIgniter.php on line 58
+[07-Feb-2018 04:29:07] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/imagick.so' - /usr/php/56/usr/lib64/php/modules/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:29:07] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/pdo_mysql.so' - /usr/php/56/usr/lib64/php/modules/pdo_mysql.so: undefined symbol: mysqlnd_allocator in Unknown on line 0
+[07-Feb-2018 04:29:07] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:29:07] PHP Warning:  PHP Startup: pdo_pgsql: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:29:07] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:29:07] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/mailparse.so' - /usr/php/56/usr/lib64/php/modules/mailparse.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:29:07] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oauth.so' - /usr/php/56/usr/lib64/php/modules/oauth.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:29:07] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oci8.so' - /usr/php/56/usr/lib64/php/modules/oci8.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:29:07] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/uploadprogress.so' - /usr/php/56/usr/lib64/php/modules/uploadprogress.so: undefined symbol: zend_ini_string_ex in Unknown on line 0
+[07-Feb-2018 04:29:07] PHP Parse error:  syntax error, unexpected T_CONST in /home5/konsorts/public_html/system/core/CodeIgniter.php on line 58
+[07-Feb-2018 04:30:14] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/imagick.so' - /usr/php/56/usr/lib64/php/modules/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:14] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/pdo_mysql.so' - /usr/php/56/usr/lib64/php/modules/pdo_mysql.so: undefined symbol: mysqlnd_allocator in Unknown on line 0
+[07-Feb-2018 04:30:14] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:30:14] PHP Warning:  PHP Startup: pdo_pgsql: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:30:14] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:30:14] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/mailparse.so' - /usr/php/56/usr/lib64/php/modules/mailparse.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:14] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oauth.so' - /usr/php/56/usr/lib64/php/modules/oauth.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:14] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oci8.so' - /usr/php/56/usr/lib64/php/modules/oci8.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:14] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/uploadprogress.so' - /usr/php/56/usr/lib64/php/modules/uploadprogress.so: undefined symbol: zend_ini_string_ex in Unknown on line 0
+[07-Feb-2018 04:30:14] PHP Parse error:  syntax error, unexpected T_CONST in /home5/konsorts/public_html/system/core/CodeIgniter.php on line 58
+[07-Feb-2018 04:30:15] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/imagick.so' - /usr/php/56/usr/lib64/php/modules/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:15] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/pdo_mysql.so' - /usr/php/56/usr/lib64/php/modules/pdo_mysql.so: undefined symbol: mysqlnd_allocator in Unknown on line 0
+[07-Feb-2018 04:30:15] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:30:15] PHP Warning:  PHP Startup: pdo_pgsql: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:30:15] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:30:15] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/mailparse.so' - /usr/php/56/usr/lib64/php/modules/mailparse.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:15] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oauth.so' - /usr/php/56/usr/lib64/php/modules/oauth.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:15] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oci8.so' - /usr/php/56/usr/lib64/php/modules/oci8.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:15] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/uploadprogress.so' - /usr/php/56/usr/lib64/php/modules/uploadprogress.so: undefined symbol: zend_ini_string_ex in Unknown on line 0
+[07-Feb-2018 04:30:15] PHP Parse error:  syntax error, unexpected T_CONST in /home5/konsorts/public_html/system/core/CodeIgniter.php on line 58
+[07-Feb-2018 04:30:25] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/imagick.so' - /usr/php/56/usr/lib64/php/modules/imagick.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:25] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/pdo_mysql.so' - /usr/php/56/usr/lib64/php/modules/pdo_mysql.so: undefined symbol: mysqlnd_allocator in Unknown on line 0
+[07-Feb-2018 04:30:25] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:30:25] PHP Warning:  PHP Startup: pdo_pgsql: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:30:25] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20131226, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[07-Feb-2018 04:30:25] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/mailparse.so' - /usr/php/56/usr/lib64/php/modules/mailparse.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:25] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oauth.so' - /usr/php/56/usr/lib64/php/modules/oauth.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:25] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/oci8.so' - /usr/php/56/usr/lib64/php/modules/oci8.so: undefined symbol: zend_new_interned_string in Unknown on line 0
+[07-Feb-2018 04:30:25] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/php/56/usr/lib64/php/modules/uploadprogress.so' - /usr/php/56/usr/lib64/php/modules/uploadprogress.so: undefined symbol: zend_ini_string_ex in Unknown on line 0
+[07-Feb-2018 04:30:25] PHP Parse error:  syntax error, unexpected T_CONST in /home5/konsorts/public_html/system/core/CodeIgniter.php on line 58
