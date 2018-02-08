@@ -1,5 +1,5 @@
 <!-- banner -->
-<section class="wow fadeIn no-padding home-banner  margin-20px-bottom  xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo base_url('assets/frontend/'); ?>img/T6.jpg');">
+<section class="wow fadeIn no-padding home-banner  margin-20px-bottom  xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo base_url('assets/frontend/'); ?>img/SO2.jpg');">
     <!-- <div class="opacity-extra-medium bg-black"></div> -->
     <div class="container homestay-panner-height xs-padding-15px-lr">
         <div class="row height-100">
@@ -528,7 +528,7 @@
                         <div class="swiper-wrapper">
                             <!-- start slider item -->
                             <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/T6-A.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url('assets/frontend/img/SO2-A.jpg'); ?>" alt="">
                             </div>
                             <!-- end slider item -->
                         </div>
@@ -539,28 +539,39 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Be A Host Family & Cherish The Awesome Experience </h5>
-                        <p class="margin-bottom-10px">Family homes are now the tourism competitors of hotels and other travel accommodations!</p>
-                        <p class="margin-bottom-10px">There are millions of travelers around the world.  All of them are seeking that place to stay while on journey.  Although away from home, they always consider to stay in a place as perfect and close like the home they have wanted to live in though they were just travelers and passers-by in a place.  Some place that could make them feel home as if they were in their very own home.  Homestays are the ideal and perfect form of living in for travel bugs in terms of that homey atmosphere better than any other form of travel accommodations.
-                            <br>  Over the decade, the way to travel different destinations has been revolutionized when travelers were introduced to the Homestay type of short term room rental accommodation.  It was so popular that backpack traveling became a viral sensational accommodation idea to most travelers who loved the very homey freedom experience.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">10 Exciting Ways To Enjoy Life With Your Activity Buddy</h5>
+                        <p> There comes a time in life for everybody where you just don’t have a friend to confide in.</p>
 
-                        <p class="margin-bottom-10px">Homestay accommodation though not that much competitive in terms of guest perks and amenities brought by pricey hotels and exclusive tourists accommodation, is more on winning guests over the much personalized and homey accommodation.  And because of these, travelers rage over searching off and online for homestay host families that can take them in during their travel.  In turn, Homestay hosting was introduced to willing families to become local paid homestay host family for stay in travelers.  Aside from earning extra income from the room rental of their spare room in the house, the host families can also gain the following awesome benefits:  </p>
-                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Bringing the world to your home.</span>  Homestay travelers like those wandering nomads are passionate in travelling different places around the world.  As host, you will have that first-hand account of their various travel experiences.</p>
+                        <p>Maybe you’ve just moved to a new city and you don’t know anyone yet. Maybe your work keeps you too busy to make lasting friendships. Or maybe you’re at a point in your life where you’d just like to enjoy some youthful company to make your days brighter and go by faster.</p>
 
-                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Meeting people and making new friends.</span> Welcoming a foreign guest to live in the house infuses friendly relations that can be worth cherishing through life while having some company and filling a spare room in the house and turn it into a room rental facility that earns extra income for you from travelers.</p>
+                        <p>In any case, it is something everyone experiences - and something we as a society are experiencing more and more.</p>
 
-                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Chance to connect with people from other countries.</span>  The world is an immense place full of people in diversity.  Hosting a traveler from other countries will bring the connection of other people from other places here on Earth.  You will be amazed on the different ways of how they will adapt to your cultural ways</p>
+                        <p>Today, there are more singles and elderly who are looking for non-committed friendly relationships and are able to pay for assistance (when travelling or doing other activities) because they prefer to enjoy life with good company.</p>
 
-                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Chance to learn a new language, culture and skills.</span>  Part of the adaptation process of a homestay accommodation is communication.  Through exchange of communication between you and your guest, you will be amazed that one of the things that will make you understand each other was learning each other’s spoken languages.  Sooner or later during the stay of your guests, you will find yourself learning and speaking in their terms of communication.  And the best thing about homestay travel accommodations is that you will learn each other languages free of charge and no need to enroll into a language or cultural class.</p>
+                        <p><span class="text-dark-gray font-weight-600 italic">Life is always better in good company </span>- and if you don’t have any, how do you find some?</p>
 
-                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Chance to tour and show off places of interest in your country.</span>  This opportunity may be your chance to tour your own country.  How many of us will be able to tour places of interest even within our own country.  But if you have a foreign guest, you will find yourself showing off what’s interesting and great about your own country even though you haven’t been or have limited time in the past to visit them.  Now, is the perfect opportunity to show off and impress people from other countries what your country has to offer especially to tourists and foreigners.</p>
+                        <p>“Hiring” a friend sure does seem like a strange concept. But think about it this way: our companions are people who would be doing these things anyway. They are volunteers, travel guides,...true hospitality pros that enjoy their work, and above all, friendly people.</p>
 
-                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Chance to show off your native culinary skills.</span>  For sure your own family must have savored each dish you put in the dining table.  But with a foreign guest sharing a meal with you, the food and how the dishes are prepared will be a good way to entertain your guests while dining with them.  Who knows, there might be that chance that your guests will also do some cooking for you about their own food back from their country or even cook a local dish learned from one of your cooking lessons together.</p>
+                        <p><span class="text-dark-gray font-weight-600 italic">In truth, you aren’t paying them to be your friend.</span> You’re only paying for their time - they’d be your friend anyway.</p>
 
-                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">You will help practice  sustainable economy.</span>  When you become a homestay host, you’ll participate in the sharing economy, which has been found to be more sustainable than other forms of travel. So as a host, you’ll be supporting more sustainable practices.  By participating and promoting homestay accommodation both your country and the country of your guest traveler can address the unemployment and poverty problems by saving traditional practices like earning extra income, learning cultures and preserving the environment that create social solidarity as you help build leadership  awareness in the community. Homestay hosting programs are one of the important tools for sustainable tourism development in the host country and builds promote people capacities on various areas.</p>
+                        <p>Is there an activity that you love to do, but would like to share it with someone else? Below are just some of the activities our companions do - use them as inspiration to try something new.</p>
 
-                        <p class="margin-bottom-10px"><span class="text-dark-gray font-weight-600 italic">Lifelong impact of the resulting relationship goes both ways.</span> The experiences gained through homestay tourism were often worth cherishing and remembering.  In fact, homestay tourism experience echoes from the memories of those who have experienced homestay travel accommodations and tells them over and over again.</p>
+                        <p><span class="text-dark-gray font-weight-600 italic">That doesn’t mean that your first meeting with your companion</span> will be one of these events, though it can be. But usually, you’ll meet in a more neutral setting - perhaps a cup of coffee - to get to know each other a bit. That way, you’ll already see if you click and will have a rapport going into these events, which is sure to make them fun.</p>
 
+                        <p><span class="text-dark-gray font-weight-600 italic">And companions, take note: if you enjoy any of these activities,</span> make sure you add them to your profiles so that people who are looking for them can find you.</p>
+
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cinema buddy</h5>
+                        <p>Have you ever been afraid to go watch a movie alone? Well, you’re not the only one. Beyond that, watching a quality movie with someone who is a movie buff himself can enhance the experience further. I mean, who doesn’t like a good after-movie debate?</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cooking buddy</h5>
+                        <p>Are you an aspiring culinary master chef? Even if you’re just burning pans, you know they joys that can be had in the kitchen. Making a delicious meal by yourself is a ton of fun - now imagine if there’d be two of you! Our companions know how to cook and they will be able to give you tips that will bring out the flavour in your dishes - and in your life.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Dining out buddy</h5>
+                        <p>Alternatively, leave the cooking for another day and go dine in a fancy restaurant. There’s just something about food that invites titillating conversation. After all, drinking good wine with good food in good company is one of life's most civilized pleasures.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Dinner party buddy</h5>
+                        <p>Dinner parties are great - but not so much if you’re forced to play the third wheel. An even number of guests makes the whole event much more fun. Whether you’re throwing one of your own or going somewhere else, a companion can help: with preparation and conversation alike.</p>
 
                     </div>
                 </div>
@@ -569,7 +580,7 @@
                         <div class="swiper-wrapper">
                             <!-- start slider item -->
                             <div class="swiper-slide last-paragraph-no-margin">
-                                <img src="<?php echo base_url('assets/frontend/img/T6-B.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url('assets/frontend/img/SO2-B.jpg'); ?>" alt="">
                             </div>
                             <!-- end slider item -->
                         </div>
@@ -580,118 +591,30 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">How To Launch A Profitable Homestay Hosting Business And Earn Extra Money</h5>
-                        <p>Do you have an extra room or two in your house or apartment? Then you are perfectly eligible to start your own homestay hosting business, which is a great way to earn extra money.</p>
-                        <p>Really, that is the only prerequisite, as anyone can start this simple business that can make you money while you make friends all over the world. Sounds interesting? Are you ready to become a host for travellers? Here’s how you can do it.</p>
 
 
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">The How</h5>
-                        <p>Running a successful homestay is like running any other successful business.</p>
-                        <p>It can be broken down into small, manageable steps that act as guideline you can follow to set it up correctly.</p>
-                        <p>You have to follow a few guidelines to ensure you will present your home and yourself in a positive light to potential guests.</p>
-                        <p>There are three steps towards a profitable homestay business:</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Night club buddy</h5>
+                        <p>Young or just young at heart? Find a perfect partner in crime and hit up the downtown for a night of fun, fun, fun! Night clubs are the best way to start new friendships and meet people full of life. And it’s never too late to get your party on - believe me, you’ll rock the club. Your perfect wingman or wingwoman awaits.</p>
 
-                        <ul class="list-style-custom margin-10px-top margin-10px-bottom font-weight-700 text-extra-dark-gray">
-                            <li>Step #1: Preparing your homestay</li>
-                            <li>Step #2: Marketing your homestay</li>
-                            <li>Step #3: Making your guests happy</li>
-                        </ul>
-                        <p>Let’s take a look at each.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Office events buddy</h5>
+                        <p>Office parties can be hit or miss - but if you bring your own company along, you’re guaranteed a good time. And when your coworkers see you having fun, they’ll want a piece of it too, making it easier to make friends at work. When a small party gathers around yourself, you boss is also sure to notice that you’re the centre of attention.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Step One: Preparing your homestay</h5>
-                        <p>When you are preparing your homestay, it is a good time to first think about the kind of people you want to host.</p>
-                        <p>Would you rather host young hippies or classy older couples? Both demographics have different needs, and pleasing everyone at the same time isn’t possible.</p>
-                        <p>Take a look at what you’re working with (your house, apartment, rooms) and think about who would most like to stay here. If you figure this out now, you’ll have an easier time figuring out how to present yourself in the right way to the right guests.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Sporting events buddy</h5>
+                        <p>A fan of sports, but none of your friends are? Find someone equally passionate among our companions. Many are fans of various sports and we’re sure you’ll find one who you can go to games with and cheer together for your favorite team or athlete.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Furnishing your homestay</h5>
-                        <p>While many homestays decide to go for a certain theme and pick furniture to go along with it, it isn’t a necessity.</p>
-                        <p>If you have the resources to refurbish a room in a certain style, or do a few tweaks to improve what you already have, do go ahead! It certainly is a selling point and can attract more customers.</p>
-                        <p>However, many homestay owners focus on things like this and forget about the very basics.</p>
-                        <p>There are a few guidelines that can take a mediocre place and turn it into a great experience for your guests.</p>
-                        <ol class="list-style-1 padding-15px-left margin-0">
-                            <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cleanliness</h5>
-                                <p>If your rooms are impeccably clean, most your guests won’t even notice. But you can be sure that they will notice every bit of dirt and dust (and might mention it in a review).</p>
-                                <p>So make sure that the floor is hoovered, that the shelves are dusted and that the bins are empty - especially when they first arrive. You can’t improve a bad first impression. </p>
-                            </li>
-                            <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Amenities</h5>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Theatre buddy</h5>
+                        <p>Prefer the fine arts? If you’re looking for a companion to see a play with, look no further. If you’d like someone who can discuss the intricacies of dramatic structure or the performances of individual actors, or just enjoy the play with, you will find someone who will suit your taste.</p>
 
-                                <p>Will you include a breakfast for your guests? Do you have a hot tub installed? Will you also host pets?</p>
-                                <p>Make a list of amenities (we’ll need it later when writing the listing).</p>
-                                <p>At the top of the list is a Wi-Fi connection. If you don’t have one (or if it’s a slow one), you sales may reflect that - especially if you want to attract young people.</p>
-                                <p>In general, try to offer anything a good hotel would. That means fresh towels, shampoo and other personal hygiene products. Guest will appreciate it.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Travel buddy</h5>
+                        <p>Traveling is one of the best ways to get to know yourself, not just the world. But a lot of people don’t have anyone go with. Travelling alone can not only be much less fun, it can also be dangerous. A travel buddy takes those worries away and makes your worldly travels that much more fun. As a buddy, you can exchange your time and company for the cost of travel - an arrangement both of you will like.</p>
 
-                            </li>
-                            <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Decoration</h5>
-                                <p>You don’t need to go overboard with decorations - a small piece of art can go a long way to liven up a room.</p>
-                                <p>Pick something that goes with the existing style of your place, something that will appeal to your target demographic.</p>
-                            </li>
-                        </ol>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Wedding buddy</h5>
+                        <p>Sick of being the only single person at yet another wedding (we’re just kidding...)? Appear cool to your friends and finally please your parents by bringing along someone they would approve of...or, go against their wishes and introduce them to a tattooed, pierced in-law they will hate you for. Your choice! But seriously, we know that being alone at a wedding can be a bad experience. A buddy to bring along makes a world of difference - you can finally enjoy yourself.</p>
 
-
-                        <div class="section-seperator"></div>
-
-
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Step Two: Marketing your homestay</h5>
-                        <p>This is where you choice of demographic comes into play.</p>
-                        <p>You know what kind of guests you want to host and you can gear your profile towards them, which will make them more likely to stay with you.</p>
-                        <p>(If you don’t yet have a picked demographic or you would just like a nice mix of people to come stay with you, feel free to have a more general profile - but still follow the basics!)</p>
-                        <ol class="list-style-1 padding-15px-left margin-0">
-                            <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Take excellent photos</h5>
-                                <p>Taking great photos is a skill you definitely need to present your home in the best possible way.</p>
-                                <p>Luckily you might not even need to hire a photographer or buy a professional camera. Most modern smartphones have cameras that can do a great job at taking photos.</p>
-                                <p>A good photo is more about the photographer than it is about the camera.</p>
-                                <p>Take a few pictures of every room of your place, as well as the outside area, if any. That means the living room, kitchen, bathroom,... Take multiple of each: you can pick the best ones later.</p>
-                                <p>Follow these tips to get great smartphone photos:</p>
-                                <ul class="list-style-3 margin-15px-tb">
-                                    <li class="margin-0">Try to take them in sunny weather, they’ll look better</li>
-                                    <li class="margin-0">Hold your phone horizontally</li>
-                                    <li class="margin-0">Try to place the phone on a stable surface to minimize blur</li>
-                                </ul>
-
-                                <p>If you know how to use Photoshop, you can touch the photos up on your own, or just use an app like Instagram to add a bit of flair to the photos - but beware, don’t go overboard! An over-the-top filter might come across as if you’re trying to hide something. Go for bright, lively photos.</p>
-                            </li>
-                            <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Write a compelling description</h5>
-
-                                <p>This is where you take out the list of amenities you’ve written before and showcase your homestay in the best way possible.</p>
-                                <p>Make sure to include all the details about your place: the amenities, the services you offer (airport pickup, doing laundry, cooking meals, spending time with the guests,...). </p>
-                                <p>Also, if there’s something that’s a dealbreaker for you in a guest (you don’t like smoking, are allergic to cats, etc.), make sure to write it down too. It’s better to lose a guest than to have to endure something you don’t want to.</p>
-                                <p>Besides writing about the place your guests will be staying at, also write about yourself! After all, you are half of the “attraction”. </p>
-                                <p>Tell them a bit about yourself, mention hobbies, which languages you speak (a bonus if you host international travellers) and give them an idea of what they can expect. They’re going to be staying with you, so give them a reason why they should care. </p>
-                                <p>The main thing you can get in a homestay that you can’t get in a hotel is a personal relationship with a local who can help you get around - if you can reflect that in your profile, you’re good to go.</p>
-                                <p>Remember, your profile is a preview of what staying with you will be like. Make sure that it’s true to that and that you don’t promise anything you can’t deliver.</p>
-
-                            </li>
-                            <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Decide on the price</h5>
-                                <p>The price you decide to set for your homestay is entirely in your hands, but it also has to be appropriate.</p>
-                                <p>The more you can offer, the more you can ask for - any additional things that you can provide increase your value, and therefore your price.</p>
-                                <p>In order to not price yourself out, take a look at how much others are charging, and in doubt, go a bit lower - you can always increase your prices later. </p>
-                            </li>
-                        </ol>
-
-
-                        <div class="section-seperator"></div>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Step Three: Making your guests happy</h5>
-
-                        <p>Ultimately, the homestay experience is all about being welcome like a family member visiting from out of town.</p>
-                        <p>What kind of things would you do for a member of your family? How would you treat them? </p>
-                        <p>Make that the basis of how you treat your guests.</p>
-                        <p>This isn’t a science, but much more of an art that you will master with time. But there are two keys that will help you: flexibility and pleasantness.</p>
-                        <p>Being flexible is necessary because you will meet people who won’t be exactly like you and since they’re staying with you, both sides will have to show a little bit of flexibility.</p>
-                        <p>Of course, this doesn’t mean that certain things like basic house rules (which you set) go out the window, but different personalities mash together in various ways.</p>
-                        <p>I always like to imagine it like seeing a relative who came out of town and you haven’t seen for years. At first, it might be a bit awkward, the conversation might not flow, but as long as you stay pleasant, they will open up.</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Homestay made profitable</h5>
-                        <p>There you have it: how to start a successful homestay business and earn extra money.</p>
-                        <p>If you follow these tips, you will have the best chance of attracting many guests and becoming a sought-after host for travellers.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Come and see</h5>
+                        <p>Life is so much better when it is shared with others. While meeting someone new can be scary - you don’t know if you’ll like them, if they’ll like you - the “risk” is well worth taking, as it can be a start of a wonderful new adventure.</p>
+                        <p class="margin-top-10">we’ll sure you’ll see someone you’ll like.</p>
 
                     </div>
                 </div>

@@ -517,7 +517,7 @@
 <section class="wow fadeIn hosting">
     <div class="container">
         <p class="title-bar bg-purple text-white font-weight-600 text-center">
-            <i class="fa fa-circle"></i> Hosting <i class="fa fa-circle"></i>
+            <i class="fa fa-circle"></i> Social Occasions <i class="fa fa-circle"></i>
         </p>
 
         <div class="hosting-boxes">
@@ -539,39 +539,22 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">10 Exciting Ways To Enjoy Life With Your Activity Buddy</h5>
-                        <p> There comes a time in life for everybody where you just don’t have a friend to confide in.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Unique Party Ideas From A Local Chef</h5>
+                        <p>The mention to hire a personal chef might sure sounds like a luxury, but if you really think about the benefits, it all makes sense and hiring one can really save you money, effort and time when entertaining. If you have a busy lifestyle, an in home chef could be your savior.   Aside from the convenience of having a personal local chef, they will organized before, during and after the party.   All you have to do is join your guests or enjoy watching.</p>
+                        <p>But setting aside the stereotype of thinking about luxury and having to hire a chef for a dinner party especially if it’s a local chef, more people are realizing and finding out the true value of hiring a personal chef.  If you wanted a unique experience and you’re looking for a great way to enjoy an evening with friends, hiring a personal chef who knows how to prepare meals of different culture is the next big thing to do.  But more about that glamorous idea of having to hire a personal chef for your events and parties, a local chef can help you prep party themes for a special someone.  One great idea was to hire a chef for a dinner party.  Below are 7 unique party ideas from a local chef’s kitchen fancies.  Enjoy dinner with these 7 fantastic party galore!</p>
 
-                        <p>Maybe you’ve just moved to a new city and you don’t know anyone yet. Maybe your work keeps you too busy to make lasting friendships. Or maybe you’re at a point in your life where you’d just like to enjoy some youthful company to make your days brighter and go by faster.</p>
-
-                        <p>In any case, it is something everyone experiences - and something we as a society are experiencing more and more.</p>
-
-                        <p>Today, there are more singles and elderly who are looking for non-committed friendly relationships and are able to pay for assistance (when travelling or doing other activities) because they prefer to enjoy life with good company.</p>
-
-                        <p><span class="text-dark-gray font-weight-600 italic">Life is always better in good company </span>- and if you don’t have any, how do you find some?</p>
-
-                        <p>“Hiring” a friend sure does seem like a strange concept. But think about it this way: our companions are people who would be doing these things anyway. They are volunteers, travel guides,...true hospitality pros that enjoy their work, and above all, friendly people.</p>
-
-                        <p><span class="text-dark-gray font-weight-600 italic">In truth, you aren’t paying them to be your friend.</span> You’re only paying for their time - they’d be your friend anyway.</p>
-
-                        <p>Is there an activity that you love to do, but would like to share it with someone else? Below are just some of the activities our companions do - use them as inspiration to try something new.</p>
-
-                        <p><span class="text-dark-gray font-weight-600 italic">That doesn’t mean that your first meeting with your companion</span> will be one of these events, though it can be. But usually, you’ll meet in a more neutral setting - perhaps a cup of coffee - to get to know each other a bit. That way, you’ll already see if you click and will have a rapport going into these events, which is sure to make them fun.</p>
-
-                        <p><span class="text-dark-gray font-weight-600 italic">And companions, take note: if you enjoy any of these activities,</span> make sure you add them to your profiles so that people who are looking for them can find you.</p>
-
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cinema buddy</h5>
-                        <p>Have you ever been afraid to go watch a movie alone? Well, you’re not the only one. Beyond that, watching a quality movie with someone who is a movie buff himself can enhance the experience further. I mean, who doesn’t like a good after-movie debate?</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cooking buddy</h5>
-                        <p>Are you an aspiring culinary master chef? Even if you’re just burning pans, you know they joys that can be had in the kitchen. Making a delicious meal by yourself is a ton of fun - now imagine if there’d be two of you! Our companions know how to cook and they will be able to give you tips that will bring out the flavour in your dishes - and in your life.</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Dining out buddy</h5>
-                        <p>Alternatively, leave the cooking for another day and go dine in a fancy restaurant. There’s just something about food that invites titillating conversation. After all, drinking good wine with good food in good company is one of life's most civilized pleasures.</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Dinner party buddy</h5>
-                        <p>Dinner parties are great - but not so much if you’re forced to play the third wheel. An even number of guests makes the whole event much more fun. Whether you’re throwing one of your own or going somewhere else, a companion can help: with preparation and conversation alike.</p>
+                        <ol class="list-style-1 padding-15px-left">
+                            <li><span class="font-weight-700 text-purple">Barn Party.</span>  One unique party theme was dinner served in a barn.   Set along those old long  wood tables, roll out those old farm barrels and decorate the ground with dry hay and farm leaves , the countryside air becomes lovely and nostalgic.  Serve barbecue meals like grilled corn cobs, stone-oven baked whole wheat bread, kebabs, grilled prawns, squids and caramel apple on stick for dessert. Not so much fancy but perfect for people who dearly miss life in the country farm.</li>
+                            <li><span class="font-weight-700 text-purple">Hawaiian Luau Party.</span>  Another easy to prepare party theme a local chef can prepare with less effort.  Hang some banana leaves around the party area.  Put some tiki-themed lantern stand  on the corners as some hibiscus lanterns hang around the area.  A few weaves of some local flowers like jasmine and wild roses as garlands.  Wear something floral and hang those flower garlands in your collar and your set to experience the Hawaiian dinner at once.  Dinner is served with a big decorated pineapple as centerpiece with the matching scent of pineapple scent.  Meals include some fruit and seafood kebabs, tropical salad, healthy quinoa cooked with nuts and wrapped in banana leaves on the dinner platter.  Pina colada to go with pineapple punch as thirst quencher. Hawaii comes alive in a breeze.</li>
+                            <li><span class="font-weight-700 text-purple">Carnival Time Party.</span>  A fun way to set the mood, the carnival time party can be another great culinary arts idea your local chef can prepare.    Set the area with colorful balloons, feathers and colorful party favors, lights and lanterns and you’re on for some fun party adventures.  Add a wacky photo booth to capture exciting party moments for you and your guests. Dinner on the table includes finger foods on the go like pretzels, waffles, finger biscuits topped with bacon bits, nut & dried fruit platters, fresh fruit bits and mixed fruit punches to quench everyone’s thirst.   Include some magic and trick shows to liven up the party.  Dress as up as clown and other wacky characters to set the mood and you’re on for some fun and wacky evening.</li>
+                            <li><span class="font-weight-700 text-purple">BBQ Grill Party.</span>  Who doesn’t like to eat some sumptuous and freshly grilled barbecues?   Create a party grilling those magically marinated wonder recipes of your local chef.  Set up some grills for guests to enjoy doing their own meals grilling everything served on the table.  Prepare a table filled with foods to grill such as different marinated meat, corn cobs on stick, fruits and vegetables.  Put some corndogs, cubes of cheeses, marshmallows and hotdogs to go with their grilling.  Light wines, soda and fruit punch goes best with grilled meals.  And oh, a lot of drinking water is likewise best for easy digestion. Come with your best casual outdoor attire and enjoy the grill with your guests.</li>
+                            <li><span class="font-weight-700 text-purple">Snow Cone Party.</span>  Perfect during summer, snow cones will be a hit for every guest for dinner.   Set a long table to serve as food bar and put different shapes of waffles, biscuits, cookies and bread bites.  Put at least 3 sets of snow cone flavor syrups on each side of the food bar.  Ideal snow cone flavors are strawberry, orange, choco, vanilla, watermelon, corn and pineapple.  Arrange snow cones, table napkins and hand towels to be easily accessible to guests to wipew out excess syrups or drippings.    Let your local chef do some wonders creating flavors your guests will like.   It’s a fun fun summer dinner party to bust the summer heat. The snow cone party idea is a great way to test the culinary skills if you are to hire a chef for a dinner party since the idea is so limited.</li>
+                            <li><span class="font-weight-700 text-purple">Retro Dinner Party.</span>  If you’re thinking about some era or genre-themed party, your local chef might suggest retro party ideas.  Be it in the 60s. 70s, 80s or whatever period or era you like, it can be a fun dinner party dressing up in vintage culture clothes and eating out popular meal ideas from that period.  Adding up nostalgia and mood will be the props and things you will find in the party to help you relive the glorious era such as jukebox machines for the 60s and 70s party, a phonograph machine for the vaudeville era of the 50s.  Even the caveman and dinosaur prehistoric can be made memorable with some brilliant ideas your local chef can come up with.</li>
+                            <li><span class="font-weight-700 text-purple">Tacky Tourist Potluck Party.</span>  Originally a casual family filled fun party for everyone.  Tacky tourist party lets you dress up in the culture of some people from other countries like Mexican Aztec, a Spanish matador, a Japanese in kimono, An eskimo, etc.  Aside from the test of culinary arts on the dinner meals your personal local chef can prepare, it will be a nice and welcome idea to request your guests to bring their special family dinner over with a food delight based on their theme to be shared with everyone.  Foods like tacos & quesadilla from Mexico, paella from Spain, sushi from Japan and grilled caribou steaks by the Eskimos.  The party will be fun over talks about family matters and updates avoiding topics like politics or issues that will spell conflict and heated arguments.  Stay within family matters and the dinner experience will be a cherished one.</li>
+                        </ol>
+                        
+                        <p>Whatever ideas shared with the others becomes excellent and magnificent.  Parties are done as a way to get everyone or be with people whom you value and treasured.  The theme, food and background are just ways to set the mood and inspire us all.  Thus the idea to hire a chef for a dinner party who will be there to help you set it up while you enjoy the culture is the best part of it all.</p>
+                     
 
                     </div>
                 </div>
@@ -593,8 +576,43 @@
                     <div class="hosting-textture">
 
 
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">10 Exciting Ways To Enjoy Life With Your Activity Buddy</h5>
+                        <p> There comes a time in life for everybody where you just don’t have a friend to confide in.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Night club buddy</h5>
+                        <p>Maybe you’ve just moved to a new city and you don’t know anyone yet. Maybe your work keeps you too busy to make lasting friendships. Or maybe you’re at a point in your life where you’d just like to enjoy some youthful company to make your days brighter and go by faster.</p>
+
+                        <p>In any case, it is something everyone experiences - and something we as a society are experiencing more and more.</p>
+
+                        <p>Today, there are more singles and elderly who are looking for non-committed friendly relationships and are able to pay for assistance (when travelling or doing other activities) because they prefer to enjoy life with good company.</p>
+
+                        <p>>Life is always better in good company - and if you don’t have any, how do you find some?</p>
+
+                        <p>“Hiring” a friend sure does seem like a strange concept. But think about it this way: our companions are people who would be doing these things anyway. They are volunteers, travel guides,...true hospitality pros that enjoy their work, and above all, friendly people.</p>
+
+                        <p>In truth, you aren’t paying them to be your friend. You’re only paying for their time - <span class="italic">they’d be your friend anyway.</span></p>
+
+                        <p>Is there an activity that you love to do, but would like to share it with someone else? Below are just some of the activities our companions do - use them as inspiration to try something new.</p>
+
+                        <p>That doesn’t mean that your first meeting with your companion will be one of these events, though it can be. But usually, you’ll meet in a more neutral setting - perhaps a cup of coffee - to get to know each other a bit. That way, you’ll already see if you click and will have a rapport going into these events, which is sure to make them fun.</p>
+
+                        <p>And companions, take note: if you enjoy any of these activities, make sure you add them to your profiles so that people who are looking for them can find you.</p>
+
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cinema buddy</h5>
+                        <p>Have you ever been afraid to go watch a movie alone? Well, you’re not the only one. Beyond that, watching a quality movie with someone who is a movie buff himself can enhance the experience further. I mean, who doesn’t like a good after-movie debate?</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cooking buddy</h5>
+                        <p>Are you an aspiring culinary master chef? Even if you’re just burning pans, you know they joys that can be had in the kitchen. Making a delicious meal by yourself is a ton of fun - now imagine if there’d be two of you! Our companions know how to cook and they will be able to give you tips that will bring out the flavour in your dishes - and in your life.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Dining out buddy</h5>
+                        <p>Alternatively, leave the cooking for another day and go dine in a fancy restaurant. There’s just something about food that invites titillating conversation. After all, drinking good wine with good food in good company is one of life's most civilized pleasures.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Dinner party buddy</h5>
+                        <p>Dinner parties are great - but not so much if you’re forced to play the third wheel. An even number of guests makes the whole event much more fun. Whether you’re throwing one of your own or going somewhere else, a companion can help: with preparation and conversation alike.</p>
+                        <!--new-->
+
+
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Night club buddy</h5>
                         <p>Young or just young at heart? Find a perfect partner in crime and hit up the downtown for a night of fun, fun, fun! Night clubs are the best way to start new friendships and meet people full of life. And it’s never too late to get your party on - believe me, you’ll rock the club. Your perfect wingman or wingwoman awaits.</p>
 
                         <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Office events buddy</h5>
@@ -613,7 +631,7 @@
                         <p>Sick of being the only single person at yet another wedding (we’re just kidding...)? Appear cool to your friends and finally please your parents by bringing along someone they would approve of...or, go against their wishes and introduce them to a tattooed, pierced in-law they will hate you for. Your choice! But seriously, we know that being alone at a wedding can be a bad experience. A buddy to bring along makes a world of difference - you can finally enjoy yourself.</p>
 
                         <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Come and see</h5>
-                        <p>Life is so much better when it is shared with others. While meeting someone new can be scary - you don’t know if you’ll like them, if they’ll like you - the “risk” is well worth taking, as it can be a start of a wonderful new adventure.</p>
+                        <p>Life is so much better when it is shared with others. While meeting someone new can be scary - you don’t know if you’ll like them, if they’ll like you - the “risk” is well worth taking, as it can be a start of a wonderful new adventure. </p>
                         <p class="margin-top-10">we’ll sure you’ll see someone you’ll like.</p>
 
                     </div>

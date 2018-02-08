@@ -610,7 +610,20 @@ footer a:hover {
 .pricing.membership-plans .list-style-5.custom-list li:before {
     color: #fff;
 }
-
+.section-seperator {
+    background: #e4e4e4;
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    box-shadow: 0 0 1px #f1f1f1;
+}
+.list-style-3 li.margin-0 {
+    margin: 0;
+}
+ul.list-style-3.margin-15px-tb {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 /*Contact us*/
 .contact-us .big-textarea {
     overflow: hidden;
@@ -1477,6 +1490,7 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     line-height: 32px;
 }
 .hosting-textture p{margin:0;}
+.hosting-textture p a {color: purple;}
 .italic{font-style: italic;}
 ul.hosting-list {
     list-style: none;
@@ -1484,7 +1498,9 @@ ul.hosting-list {
     margin-bottom: 35px;
     padding: 0;
 }
-
+.hosting-textture .list-style-3 li:before {
+    background-color: purple;
+}
 ul.hosting-list li:before {
     content: '';
     background: #636363;
@@ -1496,7 +1512,12 @@ ul.hosting-list li:before {
     margin-right: 28px;
     top: -3px;
 }
-
+.line-height-medium{line-height: 24px;}
+.list-style-custom {
+    list-style: none;
+    /*margin: 0;*/
+    padding: 0;
+}
 ul.hosting-list li {
     margin-bottom: 7px;
 }
@@ -1721,6 +1742,12 @@ header.sticky nav.header-light .logo .logo-dark {
 .profile-image .slim .slim-file-hopper {
     background-image: url(../img/pp1.jpg);
     background-size: contain;
+}
+
+
+.subheading {
+    border-left: 2px solid #f1f1f1;
+    padding-left: 20px;
 }
 @media(max-width:1199px) and (min-width:992px) {
     .homestay-articles .portfolio-grid.work-4col li {

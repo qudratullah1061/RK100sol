@@ -517,7 +517,7 @@
 <section class="wow fadeIn hosting">
     <div class="container">
         <p class="title-bar bg-purple text-white font-weight-600 text-center">
-            <i class="fa fa-circle"></i> Hosting <i class="fa fa-circle"></i>
+            <i class="fa fa-circle"></i> Tourism <i class="fa fa-circle"></i>
         </p>
 
         <div class="hosting-boxes">
@@ -540,12 +540,40 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Shopping in a Strange City </h5>
-                        <p>Often we find ourselves dreaming about traveling. Traveling is about the culture, the beauty, the sightseeing – experiences that change us completely. Along with that we often forget to mention a staple of most travels, traveling is also about the shopping!</p>
-                        <p>While in the past excessive shopping earned us the unforgivable title ‘shopaholic’, we can now redeem ourselves. Now there is a retail career for us shopaholics; we can earn a living as a personal shopper. </p>
-                        <p><span class="text-dark-gray font-weight-600 italic">To find a personal shopper</span> is easy when you’re acquainted with larger retail chains: it becomes trickier as you go smaller. It’s even trickier when you are in an unknown city. This is where you can find a personal shopper of your dreams, a shopping companion who helps seek out the smaller boutique stores. These are the hole in the wall shops that we often overlook because we are overwhelmed by the cities themselves. Here’s where a local can help find something distinctive. Every time the client looks at the unique item, they will remember their travels fondly and they will also think of you.</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">While in the past, there was no track record required,</span> nowadays personal shoppers need sales experience to be a part of the larger chains. They require a proven track record of sales. Sales of recurring items exhibit skill. While we appreciate this talent, we at Konsorts also believe in fueling dreams and giving people new beginnings. </p>
-                        <p><span class="text-dark-gray font-weight-600 italic">As a novice, you might be competing with other</span> personal shoppers who have experience while you have a blank slate. This can be daunting but remember that your soft skills matter more. A client doesn’t need a lengthy resume, he needs an amicable shopping companion who can help him find what he’s looking for and not get bored of mall runs. </p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom"> Hire a local and explore the city on foot </h5>
+
+                        <p>When travelling on your own without the help of a travel agency, the itinerary of the trip is up to you.</p>
+                        <p>However, that sometimes means that there’s so much to see, but you don’t really know what is a “must see” and what is an “eh, maybe”. You don’t know where the best places to eat are, so you resort to McDonalds once again. And in the end, you’ve seen all the sights, but you still feel like you haven’t touched the city at all.</p>
+                        <p>That is where a local tour guide can come in and help. We’ll cover how to find a local tour guide later, but know that the locals make the best travel guides due to their intimate knowledge of the city and its culture.</p>
+                        <p>Whether you’re looking for a walking tour, a museum exhibition or a food & drinks tasting, a local tour guide can be the person who can bring a dash of local culture into your activities.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Why hire a local tour guide </h5>
+                        <p>A local tour guide has many benefits over a professional tour guide who is not a native to the city.</p>
+                        <p>Someone who grew up in a city and has not only learned about its culture, but embraced it as his own has infinitely more insight into it than outsiders.</p>
+                        <p>A local tour guide could be a student who loves talking about his and the city’s history. It could be a retired historian with a wealth of knowledge and a passion for sharing it. It could be a local artist or a foodie.</p>
+                        <p>In any case, they’re likely doing it because they are passionate about it and that’s exactly what makes the whole experience so much better.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Benefits of hiring a local tour guide </h5>
+                        <p>Generally, there’s not much about history you can’t learn by browsing Wikipedia. You can also learn about any city by using Google. So what makes local guides so special?</p>
+                        <p>Instead of just giving you a history lesson, local guides can also give you the gist of the latest events in the city and provide sometimes a much needed cultural background.</p>
+                        <div class="subheading">
+                            <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">- They bring that “little bit extra”</h5>
+                            <p>I’ve never had a bad experience with either a professional or a local tour guide, but the tours that were led by locals have always been my favorite ones. Why? Because there’s just that special “something” that you get when a local is genuinely enthusiastic about showing you his city, and most of all, making you feel like a part of it.</p>
+
+                            <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">- They know all the secret spots only locals know about</h5>
+                            <p>A local knows the city, inside and out. While a professional tour guide might take you to the famous restaurants on the main street, a local will take you into a family restaurant away from the masses to have the best lunch you’ve ever had. They will show you the hidden spots off the beaten path. He or she might even introduce you to his friends!</p>
+
+                            <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">- They are usually cheaper</h5>
+                            <p>Last but not the least, local tour guides are usually cheaper. In fact, many run on pay-as-you-wish basis. One of the most successful tours I know of runs their operation like this, and because the experience they deliver is absolutely outstanding, they make a good living. Plus, you get to support the local community!</p>
+                        </div>
+
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">How to find a local tour guide </h5>
+                        <p>Finding a local tour guide can be more difficult than booking one who works with an agency, but with the Internet, it’s simple and straightforward.</p>
+                        <p>The best way to hire a local tour guide is to find one online before you go on the trip.</p>
+                        <p>On Konsorts, you can find local tour guides who have been vetted using our strict process.</p>
+                        <p>While they do get paid to do it, they are doing it for the passion and the pleasure of inviting a stranger to experience your culture, not for the money.</p>
+
+                        <!--<p><span class="text-dark-gray font-weight-600 italic"> </span>  </p>-->
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -564,11 +592,65 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">How to select a travel companion for an unforgettable trip </h5>
+                        <p>You’ve decided that you want to take your next trip in the company of a travel companion. </p>
+                        <p>But now comes the question: how do you find the perfect travel buddy who will make your foray into the world that much easier and more enjoyable?</p>
 
-                        <p><span class="text-dark-gray font-weight-600 italic">The best part is that a personal shopper</span> need not just be limited to retail! Clients could need shopping companions for different kinds of odd jobs. In fact while in a strange city, a shopping companion can come in handy for the elderly, even for those looking to do grocery at affordable rates. This is where clients would love to find a personal shopper who knows their way around the city. </p>
-                        <p><span class="text-dark-gray font-weight-600 italic">So how do our clients find a personal shopper</span> on Konsorts? Well that in itself is the first step of the shopping experience. They click on the profile and there they have a list of people that fit the bill. </p>
-                        <p><span class="text-dark-gray font-weight-600 italic">To be a personal shopper there are many skills</span> our clients consider. As a shopping companion it is not just necessary for one to have relevant experience, in fact more than that it is your sociability and charm that will win you the job. We at Konsorts pride ourselves in not only providing business services but also new found relationships that turn into long lasting bonds. Both of you already have shopping in common, and now you can find other commonalities too!</p>
-                        <p><span class="text-dark-gray font-weight-600 italic">You need the client to find a personal shopper</span> within you that they can rely on and be comfortable with.  Let’s face it, they’re in a strange city with a stranger sharing their sizes, interests and styles, lots of boundaries have already been crossed. You need to make the client believe that they’re in good hands. Their trust will win you even more jobs. </p>
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Who is a travel companion?</h5>
+                        <p>First, we have to understand what a travel companion for hire does and what they don’t.</p>
+                        <p class="font-weight-700 line-height-medium margin-10px-top margin-10px-bottom">A travel companion is a person who goes on a trip with you to provide company and any additional support you may need.</p>
+                        <p>In that sense, it seems that a travel companion is very similar to a personal tour guide.</p>
+                        <p>That is true that they fill the same role, however, a personal tour guide will have traveled to the destination many times before, and that may not be the case for your travel companion.</p>
+                        <p>Expectation should not be high in that regard: he is there to explore your destination of choice with you, not guide you around like a professional who’s been there many times.</p>
+                        <p>A personal tour guide also may not be equipped to help you with security or assistance due to a physical disability, while you can make sure that you travel companion will be. A travel companion for seniors will be able to take care of their special needs.</p>
+                        <p>So, how do you make sure they will be the right one for you?</p>
+                        <p>Accordingly to what we mentioned above, you should choose your travel partner according to those criteria: </p>
+                        <ol class="list-style-1 line-height-medium margin-10px-top margin-10px-bottom">
+                            <li class="font-weight-700">Will he or she be pleasant to be around</li>
+                            <li class="font-weight-700">Can they help you with any assistance you may need</li>
+                        </ol>
+                        <p>And if they happen to have any special skills, like knowing the local language or having previous experience as tour guides, that much better!</p>
+
+
+
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">What to look for in a travel companion</h5>
+                        <p>If you don’t know where to start, here are a couple of areas that are most important when choosing a travel companion:</p>
+                        <div class="subheading">
+                            <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Common interests</h5>
+                            <p>If you have something you both like, it will be much easier and faster to establish the all-important first connection. Later, when you get to know each other more, you can start sharing other parts of your personality and interests that you might not have in common, but at first, we tend to bond over a common ground.</p>
+                            <p>Maybe you both enjoy fishing, a certain sport, or you both a have a passion for languages. You will be able to see many of these on the profiles of various companions, so you can already start to make a selection here.</p>
+
+
+                            <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Matching personality</h5>
+                            <p>When you meet in real life for the first time, it will become apparent whether you click or if you don’t. It is best to choose someone with a personality that is close to yours, as that will make a long trip (where you will have to spend a lot of time with each other) much more enjoyable.</p>
+                            <p>For example, if you enjoy order and have to plan everything in advance to feel comfortable, make sure that your partner isn’t a free spirit who likes to wing it and go by feel. Ask about this either online or when you first meet, but make sure you’re on the same page before travelling together.</p>
+
+                            <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Flexible people only</h5>
+                            <p>You won’t have to worry about this much with the <a href="https://www.konsorts.com/misc/about">people on Konsorts</a>, as all of the people we have here are flexible (or they wouldn’t be doing this), but you want someone who is able to adjust and accommodate your needs. Makes the trip that much more enjoyable!</p>
+
+                            <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Have an honest conversation</h5>
+                            <p>The basis of any good relationship between two travelers is honesty. Talk openly about what you want and don’t want, and don’t hide any important details. In the end, it is better to know everything beforehand and have less unexpected surprises which can leave a sour taste on the memory of your voyage.</p>
+                            <p>And now, we come to...</p>
+                        </div>
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">The first meeting</h5>
+                        <p>Before you embark on a journey with a new travel companion, it is best to <span class="font-weight-700">meet them over lunch or coffee</span> to see if the two of you click.</p>
+                        <p>If you’re worried about the <a href="https://www.konsorts.com/misc/secure_community">safety</a>, don’t be: every individual on this website has been verified with our thorough background check. For us, your safety comes first.</p>
+                        <p>This is a great opportunity to get to know each other and to see if you have any common interests, if your personalities mesh well together and all in all, if they’re the kind of person you could imagine yourself spending a few days with.</p>
+                        <p>An honest conversation is very important at this point: be honest about what you like and don’t like, and do tell what you expect from the trip. If everything is out on the table beforehand, the trip will be much more enjoyable!</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">“Test drive” your travel companion</h5>
+                        <p>If you’re already sure you will click well with you travel partner, you can skip this step, but you may choose to first take a shorter trip together.</p>
+                        <p>This can be an overnight or a weekend getaway, where you will get a much better look into the dynamic between yourself and your companion. If you still get along well at this point, the chance of any new problems arising on a longer trip is practically zero.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">How should you pay your travel companion</h5>
+                        <p>No one likes to discuss payment, so it is best to get it out of the way as soon as possible, so that you can enjoy your travel without trifle details.</p>
+                        <p>The best time to talk about it would be at the end of your first meeting. Remember, they expect you to bring it up, so there’s no need to be shy about it. Like with everything else, being honest and straightforward is the surest way to a deal that suits you both.</p>
+                        <p>Covering cost for your travel companion plus contract cost should be negotiated. You may negotiate to pay for his travel expenses plus a daily fee, which is a common arrangement, but it is entirely up to you.</p>
+
+                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Your travel companion - here</h5>
+                        <p>Who you select for your travel companion will have a big impact on your travels, so make sure you find the right one before taking the plunge.</p>
+                        <p>All the effort will be worth it in the end when you travel to an exotic destination with a person who you enjoy spending time with.</p>
+
                     </div>
                 </div>
             </div>

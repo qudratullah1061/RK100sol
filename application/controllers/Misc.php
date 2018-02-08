@@ -285,7 +285,10 @@ class Misc extends CI_Controller {
     function social_occasion() {
         $this->load->view('frontend/misc/SO2');
     }
-    function coaching() {
+//    function coaching() {
+//        $this->load->view('frontend/misc/T2');
+//    }
+    function fashion() {
         $this->load->view('frontend/misc/T2');
     }
     function hosting() {

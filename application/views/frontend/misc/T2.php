@@ -517,7 +517,7 @@
 <section class="wow fadeIn hosting">
     <div class="container">
         <p class="title-bar bg-purple text-white font-weight-600 text-center">
-            <i class="fa fa-circle"></i> Hosting <i class="fa fa-circle"></i>
+            <i class="fa fa-circle"></i> fashion <i class="fa fa-circle"></i>
         </p>
 
         <div class="hosting-boxes">
@@ -539,43 +539,37 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">How to select a travel companion for an unforgettable trip</h5>
-                        <p>You’ve decided that you want to take your next trip in the company of a travel companion. </p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">A modern man’s guide to dressing well with a busy schedule</h5>
+                        <p>Are you instantly repulsed by the blinding lights and the deafening pop music the very moment you step your foot into any clothes store?</p>
+                        <p>Or are you too busy to spend hours of your time to hopefully find the right look and the right fit, only to go home empty handed in the end?</p>
+                        <p>Well, a personal shopper / fashion consultant is the perfect solution for both.</p>
 
-                        <p>But now comes the question: how do you find the perfect travel buddy who will make your foray into the world that much easier and more enjoyable?</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Who is a travel companion?</h5>
-                        <p>First, we have to understand what a travel companion for hire does and what they don’t.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Who is a personal shopper?</h5>
+                        <p>A personal shopper is just that: a person who gets paid to buy things. While that may sound like a dream job to some, there are a lot of people (like you) who would rather spend their money instead of their time.</p>
+                        <p>In the context we are talking about - men’s fashion - a personal shopper will also be your personal fashion consultant.</p>
+                        <p>He - or she - will know how to take your measurements and recommend the best pieces that will fit your physique. Also, if you don’t have a sense of fashion and if you haven’t yet developed your personal style, he will be able to help you find something that will be suited to your personality.</p>
 
-                        <p class="font-weight-700 margin-10px-top margin-10px-bottom">A travel companion is a person who goes on a trip with you to provide company and any additional support you may need.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">How does it work?</h5>
 
-                        <p>In that sense, it seems that a travel companion is very similar to a personal tour guide.</p>
+                        <p>Usually, once your personal stylist has figured out your measurements, they will go on the hunt for the Red Octob...em, the perfect clothes for you, your taste and your budget.</p>
+                        <p>Yes, budget is an important consideration. Personal stylists aren’t for the super rich anymore, and you shouldn’t worry that your new friend will try to force you on more expensive pieces to earn a bigger commision.</p>
+                        <p>Once they’ve selected what they think would look best on you, they may send you pictures, arrange a before or after hours tryout, or if you trust them enough, just buy it and bring to straight to your home to try. After all, until you remove the tags you are usually able to return every item.</p>
+                        <p>If you have time to do so, you can also go shopping with your shopper slash consultant. This is the best way for them to get a feel of what looks good on you and what doesn’t. However, this way of doing it is very time consuming and to do it properly, you will have to time budget at least a few hours, if not almost the whole day.</p>
+                        <p>While your shopper will certainly take your wishes into account, you should remember that they are also your fashion consultant and that they may recommend clothing you wouldn’t pick normally pick yourself.</p>
+                        <p>Be open-minded towards trying those new things, as they can expand your style and make you more attractive. You aren’t obligated to buy anything after all, and if they do have a better eye for fashion than you, they will recommend pieces that would look great on you.</p>
+                        <p>When you’ve tried everything and decided what to keep you simply give the rest to your shopper and they will take it back to the store. In the process, you will improve your style, and the shopper will get to know you better, so that in the future, the two of you will work even better together.</p>
 
-                        <p>That is true that they fill the same role, however, a personal tour guide will have traveled to the destination many times before, and that may not be the case for your travel companion.</p>
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">How to find a personal shopper / fashion consultant?</h5>
+                        <p>While some stores may have their own personal shoppers, they are usually tied to that store and work on commission, which means that it’s in their best interest to get you to buy the most expensive pieces.</p>
+                        <p>If you’d like to look great but still eat through the month, looking for one online is a better option.</p>
+                        <p>At Konsorts, you can find personal shoppers and fashion consultants that have been vetted by our secure process and that would love to help you stand out in a crowd - or blend in with style, whatever you wish.</p>
+                        <p>So take a look and find the best personal shopper for you!</p>
 
-                        <p>Expectation should not be high in that regard: he is there to explore your destination of choice with you, not guide you around like a professional who’s been there many times.</p>
-
-                        <p>A personal tour guide also may not be equipped to help you with security or assistance due to a physical disability, while you can make sure that you travel companion will be. A travel companion for seniors will be able to take care of their special needs.</p>
-
-                        <p>So, how do you make sure they will be the right one for you?</p>
-
-                        <p>Accordingly to what we mentioned above, you should choose your travel partner according to those criteria: </p>
-                        <ul class="margin-20px-tb">
-                            <li class="font-weight-700 margin-0">Will he or she be pleasant to be around</li>
-                            <li class="font-weight-700">Can they help you with any assistance you may need</li>
-                        </ul>
-                        <p>And if they happen to have any special skills, like knowing the local language or having previous experience as tour guides, that much better!</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">What to look for in a travel companion</h5>
-                        <p>If you don’t know where to start, here are a couple of areas that are most important when choosing a travel companion:</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Common interests</h5>
-                        <p>If you have something you both like, it will be much easier and faster to establish the all-important first connection. Later, when you get to know each other more, you can start sharing other parts of your personality and interests that you might not have in common, but at first, we tend to bond over a common ground.</p>
-                        <p class="margin-10px-top">Maybe you both enjoy fishing, a certain sport, or you both a have a passion for languages. You will be able to see many of these on the profiles of various companions, so you can already start to make a selection here.</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Matching personality</h5>
-                        <p>When you meet in real life for the first time, it will become apparent whether you click or if you don’t. It is best to choose someone with a personality that is close to yours, as that will make a long trip (where you will have to spend a lot of time with each other) much more enjoyable.</p>
-                        <p class="margin-10px-top">For example, if you enjoy order and have to plan everything in advance to feel comfortable, make sure that your partner isn’t a free spirit who likes to wing it and go by feel. Ask about this either online or when you first meet, but make sure you’re on the same page before travelling together.</p>
+                        <!--                        <ul class="margin-20px-tb">
+                                                    <li class="font-weight-700 margin-0">Will he or she be pleasant to be around</li>
+                                                    <li class="font-weight-700">Can they help you with any assistance you may need</li>
+                                                </ul>-->
 
 
                     </div>
@@ -596,42 +590,16 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Flexible people only</h5>
-                        <p>You won’t have to worry about this much with the <a href="https://www.konsorts.com/misc/about">people on Konsorts</a>, as all of the people we have here are flexible (or they wouldn’t be doing this), but you want someone who is able to adjust and accommodate your needs. Makes the trip that much more enjoyable!</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Have an honest conversation</h5>
-                        <p>The basis of any good relationship between two travelers is honesty. Talk openly about what you want and don’t want, and don’t hide any important details. In the end, it is better to know everything beforehand and have less unexpected surprises which can leave a sour taste on the memory of your voyage.</p>
-                        <p class="margin-10px-top">And now, we come to...</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">The first meeting</h5>
-
-                        <p>Before you embark on a journey with a new travel companion, it is best to <span class="">meet them over lunch or coffee</span> to see if the two of you click.</p>
-
-                        <p class="margin-10px-top"> If you’re worried about the <a href="https://www.konsorts.com/misc/secure_community">safety</a>, don’t be: every individual on this website has been verified with our thorough background check. For us, your safety comes first.</p>
-
-                        <p class="margin-10px-top">This is a great opportunity to get to know each other and to see if you have any common interests, if your personalities mesh well together and all in all, if they’re the kind of person you could imagine yourself spending a few days with.</p>
-
-                        <p class="margin-10px-top">An honest conversation is very important at this point: be honest about what you like and don’t like, and do tell what you expect from the trip. If everything is out on the table beforehand, the trip will be much more enjoyable!</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">“Test drive” your travel companion</h5>
-                        <p>If you’re already sure you will click well with you travel partner, you can skip this step, but you may choose to first take a shorter trip together.</p>
-                        <p class="margin-10px-top">This can be an overnight or a weekend getaway, where you will get a much better look into the dynamic between yourself and your companion. If you still get along well at this point, the chance of any new problems arising on a longer trip is practically zero.</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">How should you pay your travel companion</h5>
-
-                        <p> No one likes to discuss payment, so it is best to get it out of the way as soon as possible, so that you can enjoy your travel without trifle details.</p>
-
-                        <p class="margin-10px-top">The best time to talk about it would be at the end of your first meeting. Remember, they expect you to bring it up, so there’s no need to be shy about it. Like with everything else, being honest and straightforward is the surest way to a deal that suits you both.</p>
-
-                        <p class="margin-10px-top">Covering cost for your travel companion plus contract cost should be negotiated. You may negotiate to pay for his travel expenses plus a daily fee, which is a common arrangement, but it is entirely up to you.</p>
-
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Your travel companion - here</h5>
-
-                        <p> Who you select for your travel companion will have a big impact on your travels, so make sure you find the right one before taking the plunge.</p>
-
-                        <p class="margin-10px-top">All the effort will be worth it in the end when you travel to an exotic destination with a person who you enjoy spending time with.</p>
-
+                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Shopping in a Strange City</h5>
+                        <p>Often we find ourselves dreaming about traveling. Traveling is about the culture, the beauty, the sightseeing – experiences that change us completely. Along with that we often forget to mention a staple of most travels, traveling is also about the shopping!</p>
+                        <p>While in the past excessive shopping earned us the unforgivable title ‘shopaholic’, we can now redeem ourselves. Now there is a retail career for us shopaholics; we can earn a living as a personal shopper. </p>
+                        <p>To find a personal shopper is easy when you’re acquainted with larger retail chains: it becomes trickier as you go smaller. It’s even trickier when you are in an unknown city. This is where you can find a personal shopper of your dreams, a shopping companion who helps seek out the smaller boutique stores. These are the hole in the wall shops that we often overlook because we are overwhelmed by the cities themselves. Here’s where a local can help find something distinctive. Every time the client looks at the unique item, they will remember their travels fondly and they will also think of you.</p>
+                        <p>While in the past, there was no track record required, nowadays personal shoppers need sales experience to be a part of the larger chains. They require a proven track record of sales. Sales of recurring items exhibit skill. While we appreciate this talent, we at Konsorts also believe in fueling dreams and giving people new beginnings. </p>
+                        <p>As a novice, you might be competing with other personal shoppers who have experience while you have a blank slate. This can be daunting but remember that your soft skills matter more. A client doesn’t need a lengthy resume, he needs an amicable shopping companion who can help him find what he’s looking for and not get bored of mall runs. </p>
+                        <p>The best part is that a personal shopper need not just be limited to retail! Clients could need shopping companions for different kinds of odd jobs. In fact while in a strange city, a shopping companion can come in handy for the elderly, even for those looking to do grocery at affordable rates. This is where clients would love to find a personal shopper who knows their way around the city. </p>
+                        <p>So how do our clients find a personal shopper on Konsorts? Well that in itself is the first step of the shopping experience. They click on the profile and there they have a list of people that fit the bill. </p>
+                        <p>To be a personal shopper there are many skills our clients consider. As a shopping companion it is not just necessary for one to have relevant experience, in fact more than that it is your sociability and charm that will win you the job. We at Konsorts pride ourselves in not only providing business services but also new found relationships that turn into long lasting bonds. Both of you already have shopping in common, and now you can find other commonalities too!</p>
+                        <p>You need the client to find a personal shopper within you that they can rely on and be comfortable with.  Let’s face it, they’re in a strange city with a stranger sharing their sizes, interests and styles, lots of boundaries have already been crossed. You need to make the client believe that they’re in good hands. Their trust will win you even more jobs. </p>
                     </div>
                 </div>
             </div>
