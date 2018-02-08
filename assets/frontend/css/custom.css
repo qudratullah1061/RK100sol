@@ -289,10 +289,12 @@ section{padding: 60px 0;}
 .btn-with-seperater i {margin-top: 1px;}
 .btn-with-seperater span:before {border-left: 1.5px solid;margin-left: 12px;padding-left: 12px;line-height: 21px;content: '';position: relative;top: 2px;}
 .btn-with-seperater i {margin-top: 1px;}
-.search-box .btn {max-width: 240px;margin-top: 30px;height: 46px;}
+.search-box .btn {
+    /*max-width: 240px;*/
+    margin-top: 30px;height: 46px;}
 .search-box .col-1 {width: calc(100% - 240px);float: left;padding-right: 16px}
 .search-box .col-2 {float: left;width: 240px;}
-
+.search-box ul.multiselect-container.dropdown-menu{max-width: 100%; width:100%;}
 /* gold members */
 
 .cat-members .grid-item figure { border: 2px solid #942192;}
@@ -1729,12 +1731,17 @@ header.sticky nav.header-light .logo .logo-dark {
 .search-box input[type="checkbox"] {
     width: auto;
     height: auto !important;
- 
+
 }
 .search-box ul.multiselect-container.dropdown-menu li:not(.multiselect-item) label {
     left: 15px;
 }
-
+.search-box button.multiselect.dropdown-toggle.mt-multiselect.btn.btn-default:focus,
+.search-box button.multiselect.dropdown-toggle.mt-multiselect.btn.btn-default:hover
+{
+    background-color: transparent;
+    border-color: purple;
+}
 .id-proof .slim .slim-file-hopper {
     background-image: url(../img/IDp.jpg);
     background-size: contain;
