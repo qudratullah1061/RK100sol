@@ -382,6 +382,42 @@
                                     </ul>
                                 </li>
                             <?php } ?>
+                            <?php if (isAdminHasAccess("promos")) { ?>   
+                                <li class="nav-item <?php ActivateParentLink('promos'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-tasks"></i>
+                                        <span class="title">Promos</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item <?php ActivateCurrentLink('promos', 'view_promos'); ?>">
+                                            <a href="<?php echo base_url('admin/promos/view_promos'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Promos</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+                            <?php if (isAdminHasAccess("newsletters")) { ?>   
+                                <li class="nav-item <?php ActivateParentLink('newsletters'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-tasks"></i>
+                                        <span class="title">Newsletters</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item <?php ActivateCurrentLink('newsletters', 'view_newsletters'); ?>">
+                                            <a href="<?php echo base_url('admin/newsletters/view_newsletters'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Newsletters</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
                         </ul>
                         <!-- END SIDEBAR MENU -->
                         <!-- END SIDEBAR MENU -->

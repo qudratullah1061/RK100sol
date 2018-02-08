@@ -29,6 +29,7 @@
                         <thead>
                             <tr role="row" class="heading">
                                 <th width="30%"> Promo Title </th>
+                                <th width="30%"> Type </th>
                                 <th width="11%"> Created On </th>
                                 <th width="11%"> Updated On </th>
                                 <th width="11%"> Created By </th>
@@ -38,6 +39,13 @@
                             <tr role="row" class="filter">
                                 <td>
                                     <input type="text" class="form-control form-filter input-sm" placeholder="Promo Title" name="promo_title"> 
+                                </td>
+                                <td>
+                                    <select class="form-control form-filter input-sm" placeholder="Type" name="promo_subscription_discount">
+                                        <option value="">All</option>
+                                        <option value="1">Discount</option>
+                                        <option value="0">Subscription</option>
+                                    </select>
                                 </td>
                                 <td>
                                     <div class="input-group date date-picker-createdon margin-bottom-5" data-date-format="yyyy-mm-dd">

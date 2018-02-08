@@ -349,10 +349,10 @@
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-7 col-xs-12 text-right text-small xs-text-center">
-                                <form class="form-inline">
+                                <form class="form-inline" id="form-add-newsletter">
                                     <div class="form-group">
                                         <label for="email">Newsletter:</label>
-                                        <input type="email" class="form-control placeholder-83" id="newsletter_email" placeholder="Email">
+                                        <input type="email" name="newsletter_email" class="form-control placeholder-83" id="newsletter_email" placeholder="Email">
                                     </div>
                                     <button type="submit" class="btn btn-deep-purple btn-small">Submit</button>
                                 </form>
@@ -466,6 +466,7 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
         <!--Modal scripts end-->
         <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/common_functions.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/newsletters.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
                 GlobalPlugins.initToasterPlugin();

@@ -13,8 +13,6 @@ class Promos extends Admin_Controller {
 
     function modal_promo() {
         $this->is_ajax();
-//        $this->selected_tab = 'blogs';
-//        $this->selected_child_tab = 'view_tags';
         $promo_id = $this->input->post('promo_id');
         $promo_data = $this->Promos_Model->get_promo($promo_id);
         $data['promo_data'] = $promo_data;
@@ -70,8 +68,8 @@ class Promos extends Admin_Controller {
     }
 
     function view_promos() {
-//        $this->selected_tab = 'blogs';
-//        $this->selected_child_tab = 'view_tags';
+        $this->selected_tab = 'promos';
+        $this->selected_child_tab = 'view_promos';
         $this->load->view('admin/promos/view_promos');
     }
 
@@ -89,6 +87,9 @@ class Promos extends Admin_Controller {
         $cond = '';
         if ($this->input->post('promo_title')) {
             $cond .= ($cond != '' ? ' AND ' : '') . " promos.promo_title LIKE '%" . $this->input->post('promo_title') . "%'";
+        }
+        if ($this->input->post('promo_subscription_discount') != '') {
+            $cond .= ($cond != '' ? ' AND ' : '') . (" promos.promo_subscription_discount = " . $this->input->post('promo_subscription_discount'));
         }
         if ($this->input->post('created_on')) {
             $cond .= ($cond != '' ? ' AND ' : '') . " promos.created_on LIKE  '%" . $this->input->post('created_on') . "%'";
@@ -115,6 +116,11 @@ class Promos extends Admin_Controller {
         $count = $admins['total'];
         if ($count > 0) {
             foreach ($admins['records'] as $result) {
+                if($result['promo_subscription_discount'] == '0'){
+                    $result['promo_subscription_discount'] = 'Subscription';
+                }else{
+                    $result['promo_subscription_discount'] = 'Discount';
+                }
                 $active_html = '<div class="md-checkbox-inline">
                                     <div class="md-checkbox">
                                         <input type="checkbox" disabled="disabled" id="checkbox' . $result['promo_id'] . '" ' . ($result['is_active'] ? "checked='checked'" : "") . ' class="md-check">
@@ -127,6 +133,7 @@ class Promos extends Admin_Controller {
                                 </div>';
                 $records["data"][] = array(
                     $result['promo_title'],
+                    $result['promo_subscription_discount'],
                     $result['created_on'],
                     $result['updated_on'],
                     $result['admin_name'],

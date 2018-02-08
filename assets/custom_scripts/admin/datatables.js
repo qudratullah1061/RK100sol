@@ -550,6 +550,79 @@ var DatatablesObj = function () {
         grid.getDataTable().ajax.reload();
         grid.clearAjaxParams();
     };
+    var InitNewslettersDataTable = function (tableId) {
+
+        var grid = new Datatable();
+
+        grid.init({
+            src: $("#" + tableId),
+            onSuccess: function (grid, response) {
+                // grid:        grid object
+                // response:    json object of server side ajax response
+                // execute some code after table records loaded
+                $(".date-picker-createdon").datepicker();
+            },
+            onError: function (grid) {
+                // execute some code on network or other general error  
+            },
+            onDataLoad: function (grid) {
+                // execute some code on ajax data load
+            },
+            loadingMessage: 'Loading...',
+            dataTable: {
+                "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+                "lengthMenu": [
+                    [10, 20, 50, 100, 150, -1],
+                    [10, 20, 50, 100, 150, "All"] // change per page values here
+                ],
+                "pageLength": 10, // default record count per page
+                "ajax": {
+                    "url": base_url + "admin/newsletters/get_newsletters", // ajax source
+                },
+                "order": [
+                    [0, "asc"]
+                ], // set first column as a default sort by asc
+                "aoColumnDefs": [
+                    {'sName': 'Email', 'bSortable': true, 'aTargets': [0]},
+                    {'sName': 'CreatedOn', 'bSortable': true, 'aTargets': [1]},
+                    {'sName': 'Actions', 'bSortable': false, 'aTargets': [2]},
+                ]
+            }
+        });
+
+        // handle group actionsubmit button click
+        grid.getTableWrapper().on('click', '.table-group-action-submit', function (e) {
+            e.preventDefault();
+            var action = $(".table-group-action-input", grid.getTableWrapper());
+            if (action.val() != "" && grid.getSelectedRowsCount() > 0) {
+                grid.setAjaxParam("customActionType", "group_action");
+                grid.setAjaxParam("customActionName", action.val());
+                grid.setAjaxParam("id", grid.getSelectedRows());
+                grid.getDataTable().ajax.reload();
+                grid.clearAjaxParams();
+            } else if (action.val() == "") {
+                App.alert({
+                    type: 'danger',
+                    icon: 'warning',
+                    message: 'Please select an action',
+                    container: grid.getTableWrapper(),
+                    place: 'prepend'
+                });
+            } else if (grid.getSelectedRowsCount() === 0) {
+                App.alert({
+                    type: 'danger',
+                    icon: 'warning',
+                    message: 'No record selected',
+                    container: grid.getTableWrapper(),
+                    place: 'prepend'
+                });
+            }
+        });
+
+        grid.setAjaxParam("customActionType", "group_action");
+        grid.getDataTable().ajax.reload();
+        grid.clearAjaxParams();
+    };
     
     var InitBlogsDatatable = function (tableId) {
 
@@ -651,6 +724,9 @@ var DatatablesObj = function () {
         },
         InitPromosTable: function (tableId) {
             InitPromosDatatable(tableId);
+        },
+        InitNewslettersTable: function (tableId) {
+            InitNewslettersDataTable(tableId);
         },
         InitBlogsTable: function (tableId) {
             InitBlogsDatatable(tableId);

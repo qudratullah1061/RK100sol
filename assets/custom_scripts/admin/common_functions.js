@@ -131,6 +131,8 @@ var CommonFunctions = function () {
                                         $('#datatable_adminusers').DataTable().ajax.reload();
                                     } else if (table == 'tb_categories') {
                                         $('#datatable_categories').DataTable().ajax.reload();
+                                    } else if (table == 'tb_newsletters') {
+                                        $('#datatable_newsletters').DataTable().ajax.reload();
                                     } else if (table == 'tb_sub_categories') {
                                         $('#datatable_sub_categories').DataTable().ajax.reload();
                                     } else if (table == 'tb_blogs') {

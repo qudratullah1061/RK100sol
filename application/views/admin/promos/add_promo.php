@@ -18,7 +18,7 @@
                     <label>Promo Code</label>
                 </div>
                 <div class="form-group form-md-line-input form-md-floating-label">
-                    <input type="radio" name="promo_subscription_discount" value="0" <?php echo (isset($promo_data->promo_subscription_discount) && $promo_data->promo_subscription_discount == '0') ? "checked" : ""; ?> /> Subscription
+                    <input type="radio" <?php echo (!isset($promo_data) && $promo_data == '')?"checked":''; ?> name="promo_subscription_discount" value="0" <?php echo (isset($promo_data->promo_subscription_discount) && $promo_data->promo_subscription_discount == '0') ? "checked" : ""; ?> /> Subscription
                     <input type="radio" name="promo_subscription_discount" value="1" <?php echo (isset($promo_data->promo_subscription_discount) && $promo_data->promo_subscription_discount == '1') ? "checked" : ""; ?> /> Discount
                     <!--<label>Promos Subscription Discount</label>-->
                 </div>
