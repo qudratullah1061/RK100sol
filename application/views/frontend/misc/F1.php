@@ -9,12 +9,11 @@
                         <div class="slider-text-middle">
                             <div class="col-lg-12 text-left">
                                 <h4 class="text-white alt-font font-weight-700 open-sans xs-width-100">
-                                    Experience more with those <br>
-                                    who call it HOME
+                                    Community of independent <br>service providers!
                                 </h4>
                                 <p class="open-sans text-white">Great value homestays in over 160 countries</p>
-                                <a href='#' class='btn btn-purple-white-border open-sans'> Find a Host </a>
-                                <a href='#' class='btn btn-purple-white-border open-sans'> Become a Host </a>
+                                <a href='<?php echo base_url('/auth/register')?>' class='btn btn-purple-white-border open-sans'> Find a Host </a>
+                                <a href='<?php echo base_url('/auth/register')?>' class='btn btn-purple-white-border open-sans'> Become a Host </a>
 
                             </div>
                         </div>

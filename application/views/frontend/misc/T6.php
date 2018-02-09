@@ -13,8 +13,8 @@
                                     who call it HOME
                                 </h4>
                                 <p class="open-sans text-white">Great value homestays in over 160 countries</p>
-                                <a href='#' class='btn btn-purple-white-border open-sans'> Find a Host </a>
-                                <a href='#' class='btn btn-purple-white-border open-sans'> Become a Host </a>
+                                <a href='<?php echo base_url('/auth/register')?>' class='btn btn-purple-white-border open-sans'> Find a Host </a>
+                                <a href='<?php echo base_url('/auth/register')?>' class='btn btn-purple-white-border open-sans'> Become a Host </a>
 
                             </div>
                         </div>
