@@ -116,9 +116,9 @@ class Companions extends Admin_Controller {
             }
             $this->form_validation->set_rules('phone_number', 'Phone Number', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('gender', 'Gender', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('years', 'Year', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('months', 'Month', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('days', 'Day', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('years', 'Year', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('months', 'Month', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('days', 'Day', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('location', 'Location', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('zipcode', 'Zip Code', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('country', 'Country', 'required|trim|strip_tags|xss_clean');
@@ -139,10 +139,6 @@ class Companions extends Admin_Controller {
                 }
                 $data['phone_number'] = $this->input->post('phone_number');
                 $data['gender'] = $this->input->post('gender');
-                $year = $this->input->post('years');
-                $month = $this->input->post('months');
-                $day = $this->input->post('days');
-                $data['date_of_birth'] = $year.'-'.$month.'-'.$day;
                 $data['location'] = $this->input->post('location');
                 $data['zipcode'] = $this->input->post('zipcode');
                 $data['country'] = $geoCodesData['country_long'];
@@ -168,6 +164,7 @@ class Companions extends Admin_Controller {
                     $data['gmail'] = $this->input->post('gmail');
                     $data['pinterest'] = $this->input->post('pinterest');
                     $data['skype'] = $this->input->post('skype');
+                    $data['date_of_birth'] = $this->input->post('date_of_birth');
                 }
 
                 $result = false;
@@ -204,6 +201,10 @@ class Companions extends Admin_Controller {
                     $data['member_type'] = 2;
                     // for admin only.
                     $data['is_email_verified'] = 1;
+                    $year = $this->input->post('years');
+                    $month = $this->input->post('months');
+                    $day = $this->input->post('days');
+                    $data['date_of_birth'] = $year . '-' . $month . '-' . $day;
                     $data['subscription_date'] = date('Y-m-d H:i:s');
                     $data['end_subscription_date'] = date('Y-m-d H:i:s', strtotime("+1 month"));
                     // for admin only ends here.
@@ -252,7 +253,6 @@ class Companions extends Admin_Controller {
 //                        $is_profile_image = 0;
 //                    }
 //                }
-
                 // upload id proofs and profile images function.
                 $this->upload_images_member($edit_id);
 

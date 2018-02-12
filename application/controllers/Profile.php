@@ -209,9 +209,9 @@ class Profile extends CI_Controller {
             }
             $this->form_validation->set_rules('phone_number', 'Phone Number', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('gender', 'Gender', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('years', 'Year', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('months', 'Month', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('days', 'Day', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('years', 'Year', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('months', 'Month', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('days', 'Day', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('location', 'Location', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('zipcode', 'Zip Code', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
@@ -232,10 +232,6 @@ class Profile extends CI_Controller {
                 }
                 $data['phone_number'] = $this->input->post('phone_number');
                 $data['gender'] = $this->input->post('gender');
-                $year = $this->input->post('years');
-                $month = $this->input->post('months');
-                $day = $this->input->post('days');
-                $data['date_of_birth'] = $year . '-' . $month . '-' . $day;
                 $data['location'] = $this->input->post('location');
                 $data['zipcode'] = $this->input->post('zipcode');
                 $data['country'] = $geoCodesData['country_long'];
@@ -251,6 +247,7 @@ class Profile extends CI_Controller {
                     // unset created on
                     unset($data['created_on']);
                     unset($data['created_by']);
+                    $data['date_of_birth'] = $this->input->post('date_of_birth');
                     // receive social links
                     $data['facebook'] = $this->input->post('facebook');
                     $data['twitter'] = $this->input->post('twitter');
@@ -268,6 +265,10 @@ class Profile extends CI_Controller {
                 } else {
                     $macros_data = array();
                     $data['member_type'] = 2;
+                    $year = $this->input->post('years');
+                    $month = $this->input->post('months');
+                    $day = $this->input->post('days');
+                    $data['date_of_birth'] = $year . '-' . $month . '-' . $day;
                     $data['plan_type'] = $this->input->post('plan_type');
                     $data['membership_type'] = 'Companion';
                     $data['subscription_date'] = date('Y-m-d H:i:s');
@@ -301,7 +302,7 @@ class Profile extends CI_Controller {
                     $this->AddUpdateMemberCategories($categories, $edit_id);
                 }
                 if ($result) {
-                    $this->_response(false, "Register Successfully.Please verify your email first!");
+                    $this->_response(false, "Changes saved successfully!");
                 }
             }
         } else {
