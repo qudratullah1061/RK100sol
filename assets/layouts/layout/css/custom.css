@@ -97,7 +97,7 @@ div#certification_table_wrapper{
 .tabbable-line > .nav-tabs > li.active {border-bottom: 4px solid #800080 !important;position: relative;}
 /*border issue end*/
 
-.newsletter_email-error{
+#newsletter_email-error{
 	text-align: left;
     margin-left: 31%;
 }
