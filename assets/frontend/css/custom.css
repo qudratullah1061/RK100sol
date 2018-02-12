@@ -2028,7 +2028,4 @@ header.sticky nav.header-light .logo .logo-dark {
 .search-box .dropdown-menu>.active>a, .search-box .dropdown-menu>.active>a:focus, .search-box .dropdown-menu>.active>a:hover{
     background-color: #fff !important;
 }
-#newsletter_email-error{
-	text-align: left;
-    margin-left: 25%;
-}
+#newsletter_email-error{ text-align: left; margin-left: 25%; }
