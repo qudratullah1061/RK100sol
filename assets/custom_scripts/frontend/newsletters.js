@@ -49,14 +49,13 @@ var Newsletters = function () {
                 error1.show();
             },
             errorPlacement: function (error, element) {
-                swal("Error!", "This field is required!", "error");
-//                if (element.is(':checkbox')) {
-//                    error.insertAfter(element.closest(".md-checkbox-list, .md-checkbox-inline, .checkbox-list, .checkbox-inline"));
-//                } else if (element.is(':radio')) {
-//                    error.insertAfter(element.closest(".md-radio-list, .md-radio-inline, .radio-list,.radio-inline"));
-//                } else {
-//                    error.insertAfter(element); // for other inputs, just perform default behavior
-//                }
+                if (element.is(':checkbox')) {
+                    error.insertAfter(element.closest(".md-checkbox-list, .md-checkbox-inline, .checkbox-list, .checkbox-inline"));
+                } else if (element.is(':radio')) {
+                    error.insertAfter(element.closest(".md-radio-list, .md-radio-inline, .radio-list,.radio-inline"));
+                } else {
+                    error.insertAfter(element); // for other inputs, just perform default behavior
+                }
             },
             highlight: function (element) { // hightlight error inputs
                 $(element)
