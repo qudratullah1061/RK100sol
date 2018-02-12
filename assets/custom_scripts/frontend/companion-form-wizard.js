@@ -97,10 +97,10 @@ var FormWizard = function () {
                     required: true,
                     equalTo: "#password"
                 },
-                'id_proofs[]': {
+                "profile_images[]": {
                     required: true,
                 },
-                'profile_images[]': {
+                'id_proofs[]': {
                     required: true,
                 },
                 phone_number: {
@@ -221,12 +221,10 @@ var FormWizard = function () {
                 }
             },
             highlight: function (element) { // hightlight error inputs
-                $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                $(element).closest('.form-group').addClass('has-error'); // set error class to the control group
             },
             unhighlight: function (element) { // revert the change done by hightlight
-                $(element)
-                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                $(element).closest('.form-group').removeClass('has-error'); // set error class to the control group
             },
             success: function (label) {
                 label.closest('.form-group').removeClass('has-error'); // set success class to the control group
@@ -243,24 +241,24 @@ var FormWizard = function () {
         //main function to initiate the module
         init: function () {
             $("input[name='date_of_birth']").datepicker({ changeMonth: true, changeYear: true, showButtonPanel: true,dateFormat:"yy-mm-dd"});
-            $("#dd-country").select2({
-                placeholder: "Select",
-                allowClear: true,
-                width: '100%',
-                theme: "bootstrap"
-            });
-            $("#dd-state").select2({
-                placeholder: "Select",
-                allowClear: true,
-                width: '100%',
-                theme: "bootstrap"
-            });
-            $("#dd-city").select2({
-                placeholder: "Select",
-                allowClear: true,
-                width: '100%',
-                theme: "bootstrap"
-            });
+//            $("#dd-country").select2({
+//                placeholder: "Select",
+//                allowClear: true,
+//                width: '100%',
+//                theme: "bootstrap"
+//            });
+//            $("#dd-state").select2({
+//                placeholder: "Select",
+//                allowClear: true,
+//                width: '100%',
+//                theme: "bootstrap"
+//            });
+//            $("#dd-city").select2({
+//                placeholder: "Select",
+//                allowClear: true,
+//                width: '100%',
+//                theme: "bootstrap"
+//            });
             if (!jQuery().bootstrapWizard) {
                 return;
             }
@@ -302,8 +300,6 @@ var FormWizard = function () {
                 'nextSelector': '.button-next',
                 'previousSelector': '.button-previous',
                 onTabClick: function (tab, navigation, index, clickedIndex) {
-                    return false;
-
                     success.hide();
                     error.hide();
                     if (form.valid() == false) {
@@ -315,7 +311,12 @@ var FormWizard = function () {
                 onNext: function (tab, navigation, index) {
                     success.hide();
                     error.hide();
-
+                    if(index==1 && $("input[name='id_proofs[]']").val()==""){
+                        swal("Error!", "Please upload at least one id proof image.", "error");
+                        return false;
+                    }else{
+                        $("#id_proofs-error").remove();
+                    }
                     if (form.valid() == false) {
                         return false;
                     }
