@@ -400,6 +400,24 @@
                                     </ul>
                                 </li>
                             <?php } ?>
+                            <?php if (isAdminHasAccess("faqs")) { ?>   
+                                <li class="nav-item <?php ActivateParentLink('faqs'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-tasks"></i>
+                                        <span class="title">Faqs</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item <?php ActivateCurrentLink('faqs', 'view_faqs'); ?>">
+                                            <a href="<?php echo base_url('admin/faqs/view_faqs'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Faqs</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
                             <?php if (isAdminHasAccess("newsletters")) { ?>   
                                 <li class="nav-item <?php ActivateParentLink('newsletters'); ?>">
                                     <a href="javascript:;" class="nav-link nav-toggle">
