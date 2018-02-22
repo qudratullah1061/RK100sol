@@ -339,12 +339,12 @@
                                 <div class="social-icon-style-8 display-inline-block vertical-align-middle">
                                     <ul  class="small-icon no-margin-bottom">
                                         <li> <span> Follow Us:</span> </li>
-                                        <li class="enabled"><a href="<?php echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['facebook_link'] : ""; ?>"><i class="fa fa-facebook-square"></i></a></li>
+                                        <li class="enabled"><a href="<?php echo isset($admin_info['facebook_link']) ? $admin_info['facebook_link'] : ""; ?>"><i class="fa fa-facebook-square"></i></a></li>
                                         <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";               ?>"><i class="fa fa-youtube-square"></i></a></li>-->
-                                        <li><a href="<?php echo isset($admin_info[0]['linkedin_link']) ? $admin_info[0]['linkedin_link'] : ""; ?>"><i class="fa fa-linkedin-square"></i></a></li>
+                                        <li><a href="<?php echo isset($admin_info['linkedin_link']) ? $admin_info['linkedin_link'] : ""; ?>"><i class="fa fa-linkedin-square"></i></a></li>
                                         <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";               ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
-                                        <li class="enabled"><a href="<?php echo isset($admin_info[0]['twitter_link']) ? $admin_info[0]['twitter_link'] : ""; ?>"><i class="fa fa-twitter-square"></i></a></li>
-                                        <li><a href="<?php echo isset($admin_info[0]['instagram_link']) ? $admin_info[0]['instagram_link'] : ""; ?>"><i class="fa fa-instagram"></i></a></li>
+                                        <li class="enabled"><a href="<?php echo isset($admin_info['twitter_link']) ? $admin_info['twitter_link'] : ""; ?>"><i class="fa fa-twitter-square"></i></a></li>
+                                        <li><a href="<?php echo isset($admin_info['instagram_link']) ? $admin_info['instagram_link'] : ""; ?>"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
