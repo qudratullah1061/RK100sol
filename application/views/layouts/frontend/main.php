@@ -132,9 +132,9 @@
                                     <li class="<?php echo ActivateLink('about'); ?>">
                                         <a href="<?php echo base_url('misc/about'); ?>">About</a>
                                     </li>
-                                    <li class="<?php echo ActivateLink('services'); ?>">
+<!--                                    <li class="<?php // echo ActivateLink('services'); ?>">
                                         <a href="javascript:void(0);">Our Services</a>
-                                    </li>
+                                    </li>-->
                                     <li class="<?php echo ActivateLink('blog'); ?>">
                                         <a href="<?php echo base_url('blogs'); ?>" title="Blog">Blog</a>
                                     </li>
