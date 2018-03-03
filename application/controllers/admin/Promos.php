@@ -43,6 +43,8 @@ class Promos extends Admin_Controller {
                 $data['promo_code'] = $this->input->post('promo_code');
                 $data['promo_subscription_discount'] = $this->input->post('promo_subscription_discount');
                 $data['promo_sub_dis_value'] = $this->input->post('promo_sub_dis_value');
+                $data['start_date'] = $this->input->post('start_date');
+                $data['end_date'] = $this->input->post('end_date');
                 $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");
                 $data['updated_by'] = $data['created_by'] = $this->session->userdata('admin_id');

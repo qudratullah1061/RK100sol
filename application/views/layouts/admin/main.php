@@ -64,6 +64,8 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/layouts/layout/css/custom.css" rel="stylesheet" type="text/css" />
+<!--        <link href="<?php // echo base_url(); ?>assets/pages/css/summernote.css" rel="stylesheet">-->
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="<?php echo base_url('assets/favicon.png'); ?>" /> 
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -1082,6 +1084,7 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/form-dropzone.js" type="text/javascript"></script>
         <!--profile js-->
+        <script src="<?php echo base_url(); ?>assets/pages/scripts/summernote.js"></script>
         <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/common_functions.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {

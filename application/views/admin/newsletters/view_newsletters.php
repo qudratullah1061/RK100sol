@@ -14,6 +14,8 @@
 <!-- BEGIN PAGE TITLE-->
 <h3 class="page-title">Newsletters Listing</h3>
 <!-- END PAGE TITLE-->
+    <span> </span>
+    <a class="purple text-right" data-title="Add Newsletters" href="<?php echo base_url().'admin/newsletters/send_newsletters'; ?>"><i class="fa fa-plus-circle"></i>Send Newsletters</a>
 <!-- BEGIN Datatable-->
 <div class="row">
     <div class="col-md-12">

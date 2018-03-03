@@ -56,4 +56,9 @@ class Newsletters_model extends Abstract_model {
         return $this->save($data);
     }
     
+    public function get_all_newsletters() {
+        $this->table_name = "tb_newsletters";
+        return $this->getAll();
+    }
+    
 }

@@ -26,13 +26,13 @@ date_default_timezone_set('Canada/Central');
   |
  */
 $http = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://';
-$config['base_url'] = $http . $_SERVER['HTTP_HOST'] . "/";
-$config['root_path'] = $_SERVER['DOCUMENT_ROOT'] . "/";
+$config['base_url'] = $http . $_SERVER['HTTP_HOST'] . "/projects/RK100sol/";
+$config['root_path'] = $_SERVER['DOCUMENT_ROOT'] . "/projects/RK100sol/";
 $config['admin_email'] = "admin@konsorts.com";
 if ($_SERVER['HTTP_HOST'] == 'www.konsorts.com' || $_SERVER['HTTP_HOST'] == 'konsorts.com') {
     define("ENVO", "LIVE");
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
 } else if ($_SERVER['HTTP_HOST'] == '100solutionz.net' || $_SERVER['HTTP_HOST'] == 'www.100solutionz.net') {
     define("ENVO", "DEV");
     ini_set('display_errors', 1);

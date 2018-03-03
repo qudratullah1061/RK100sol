@@ -91,5 +91,42 @@ class Newsletters extends Admin_Controller {
         echo json_encode($records);
         exit();
     }
+    
+    function send_newsletters() {
+        $this->selected_tab = 'newsletters';
+        $this->selected_child_tab = 'view_newsletters';
+        $data['newsletters'] = $this->Newsletters_Model->get_all_newsletters();
+        $this->load->view('admin/newsletters/send_newsletters', $data);
+    }
+    function send_mail() {
+        $this->isAjax();
+        $this->selected_tab = 'newsletters';
+        $this->selected_child_tab = 'view_newsletters';
+        $this->form_validation->set_rules('newsletter_email[]', 'Email', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $records["error"] = true;
+            $records["description"] = "Please select atleast one email!";
+            echo json_encode($records);
+            die();
+        } else {
+            $newsletter_email = $this->input->post('newsletter_email');
+            $newsletter_email[] = 'sufyan.cs10@gmail.com';
+            $newsletter_text = $this->input->post('write_newsletter');
+            $subject = 'Newsletter';
+            foreach($newsletter_email as $mail){
+                $resultOfEmail = sendEmail($mail, $subject, $newsletter_text);
+            }
+            if(!$resultOfEmail){
+                $records["error"] = true;
+                $records["description"] = "Newsletter cannot be sent at the moment! Please check your internet connection";
+                echo json_encode($records);
+                die();
+            }
+            $records["error"] = false;
+            $records["description"] = "Newsletter has been sent successfully!";
+            echo json_encode($records);
+            die();
+        }
+    }
 
 }

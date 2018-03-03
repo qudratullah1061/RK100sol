@@ -1,33 +1,37 @@
-var Promos = function () {
+var Newsletters = function () {
 
-    var handlePromoSubmit = function (formId) {
+    var handleNewsletterSubmit = function (formId) {
         $.ajax({
             type: "POST",
-            url: base_url + "admin/promos/add_update_promo",
+            url: base_url + "admin/newsletters/send_mail",
             datatype: 'json',
             data: new FormData($("#" + formId)[0]),
             processData: false,
             contentType: false,
             beforeSend: function ()
             {
-                App.blockUI({target: '.modal', animate: true});
+                App.blockUI();
             },
             complete: function () {
-                App.unblockUI('.modal');
+                App.unblockUI();
             },
             success: function (data) {
                 if (!data.error) {
-                    toastr["success"](data.description, "Success!");
-                    $('#datatable_promos').DataTable().ajax.reload();
-                    $("#static-modal-popup-small").modal('hide');
+                    swal({
+                        title: "Success",
+                        text: data.description,
+                        type: "success"
+                    }, function () {
+                        window.location.href = base_url + "admin/newsletters/send_newsletters";
+                    });
                 } else {
-                    toastr["error"](data.description, "Error!");
+                    swal("Error!", data.description, "error");
                 }
             }
         });
-    }
-
-    var handleValidationAddPromo = function (formId) {
+    };
+    
+    var handleValidationSendNewsletter = function (formId) {
         // for more info visit the official plugin documentation: 
         // http://docs.jquery.com/Plugins/Validation
         var form1 = $('#' + formId);
@@ -42,17 +46,13 @@ var Promos = function () {
             messages: {
             },
             rules: {
-                promo_title: {
-                    required: true
-                },
-                promo_code: {
+                newsletter_email: {
                     required: true
                 },
             },
             invalidHandler: function (event, validator) { //display error alert on form submit              
                 success1.hide();
                 error1.show();
-                App.scrollTo(error1, -200);
             },
             errorPlacement: function (error, element) {
                 if (element.is(':checkbox')) {
@@ -75,38 +75,18 @@ var Promos = function () {
                 label.closest('.form-group').removeClass('has-error'); // set success class to the control group
             },
             submitHandler: function (form) {
-                handlePromoSubmit(formId);
-            }
-        });
-    };
-
-    var show_modal_promo = function (edit_id) {
-        $.ajax({
-            type: "POST",
-            url: base_url + "admin/promos/modal_promo",
-            datatype: 'json',
-            data: {promo_id: edit_id},
-            beforeSend: function ()
-            {
-                App.blockUI({target: 'body', animate: true});
-            },
-            complete: function () {
-                App.unblockUI('body');
-            },
-            success: function (data) {
-                if (data.key) {
-                    $("#static-modal-popup-small").html(data.value);
-                    $("#static-modal-popup-small").modal('show');
-                    App.initMaterialDesign();
-                    handleValidationAddPromo("form-add-promo");
-                }
+                handleNewsletterSubmit(formId);
             }
         });
     };
 
     return{
-        modal_add_promo: function (edit_id) {
-            show_modal_promo(edit_id);
+        handleNewsletter: function () {
+            handleValidationSendNewsletter("newsletters-data");
         }
-    }
+    };
 }();
+
+$(document).ready(function(){
+   Newsletters.handleNewsletter();
+});

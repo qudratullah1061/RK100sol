@@ -26,6 +26,14 @@
                     <input type="text" value="<?php echo isset($promo_data->promo_sub_dis_value) ? $promo_data->promo_sub_dis_value : ""; ?>" name="promo_sub_dis_value" class="form-control">
                     <label>Value</label>
                 </div>
+                <div class="form-group form-md-line-input form-md-floating-label">
+                    <input type="text" value="<?php echo isset($promo_data->start_date) ? $promo_data->start_date : ""; ?>" data-date-format="yyyy-mm-dd" name="start_date" class="form-control promo_dates">
+                    <label>Start Date</label>
+                </div>
+                <div class="form-group form-md-line-input form-md-floating-label">
+                    <input type="text" value="<?php echo isset($promo_data->end_date) ? $promo_data->end_date : ""; ?>" data-date-format="yyyy-mm-dd" name="end_date" class="form-control promo_dates">
+                    <label>End Date</label>
+                </div>
                 <div class="md-checkbox-inline">
                     <div class="md-checkbox">
                         <input type="checkbox" <?php echo (isset($promo_data->is_active) && $promo_data->is_active) ? "checked='checked'" : ""; ?> name="is_active" id="checkbox" class="md-check">
@@ -45,3 +53,8 @@
         <input type="submit" name="submit" value="Save Changes" class="btn green">
     </div>
 </form>
+<script>
+$(document).ready(function() {
+    $('.promo_dates').datepicker();
+});
+</script>

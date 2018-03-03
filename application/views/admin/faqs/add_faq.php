@@ -13,7 +13,7 @@
                     <span class="help-block">Don't use special characters</span>
                 </div>
                 <div class="form-group form-md-line-input form-md-floating-label">
-                    <textarea type="text" name="faq_answer" class="form-control"><?php echo isset($faq_data->faq_answer) ? $faq_data->faq_answer : ""; ?></textarea>
+                    <textarea type="text" name="faq_answer" class="form-control summernote"><?php echo isset($faq_data->faq_answer) ? $faq_data->faq_answer : ""; ?></textarea>
                     <label>Faq Answer</label>
                 </div>
                 <div class="md-checkbox-inline">
@@ -35,3 +35,8 @@
         <input type="submit" name="submit" value="Save Changes" class="btn green">
     </div>
 </form>
+<script>
+$(document).ready(function() {
+    $('.summernote').summernote();
+});
+</script>
