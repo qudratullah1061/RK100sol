@@ -40,10 +40,12 @@ $unique_id = time();
                         </div>
                         <!-- END SIDEBAR USER TITLE -->
                         <!-- SIDEBAR BUTTONS -->
-                        <!--<div class="profile-userbuttons">
-                            <button type="button" class="btn btn-circle green btn-sm">Send Email</button>
-                            <button type="button" class="btn btn-circle red btn-sm">Send Message</button>
-                        </div>-->
+                        <div class="profile-userbuttons">
+                            <a class="btn btn-circle green btn-sm" href="mailto:<?php echo $this->config->item('admin_email'); ?>">
+                                Send Email
+                            </a>
+                            <!--<button type="button" class="btn btn-circle red btn-sm">Send Message</button>-->
+                        </div>
                         <!-- END SIDEBAR BUTTONS -->
                         <!-- SIDEBAR MENU -->
                         <div class="profile-usermenu">
@@ -55,12 +57,12 @@ $unique_id = time();
                     <!-- PORTLET MAIN -->
                     <div class="portlet light ">
                         <!-- STAT -->
-                        <div class="row list-separated profile-stat">
+<!--                        <div class="row list-separated profile-stat">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="uppercase profile-stat-title"> 37 </div>
                                 <div class="uppercase profile-stat-text"> Connected Members </div>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- END STAT -->
                         <div class="text-center">
                             <h4 class="profile-desc-title">About <?php echo ucfirst($member_info['username']); ?></h4>
@@ -153,7 +155,7 @@ $unique_id = time();
                                                 </div>
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-6">
-                                                    <label class="control-label">Gender<span class="required">*</span></label>
+                                                    <label class="control-label">Gender<span class="required"></span></label>
                                                     <select class="form-control" name="gender">
                                                         <option></option>
                                                         <option value="Male" <?php echo $member_info['gender'] == "Male" ? "selected='selected'" : ""; ?>>Male</option>
@@ -163,8 +165,8 @@ $unique_id = time();
 
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label class="control-label">Date of birth<span class="required">*</span></label>
-                                                    <input class="form-control date-picker" size="16" type="text" data-date-format="yyyy-mm-dd" value="<?php echo $member_info['date_of_birth']; ?>" name="date_of_birth" />
+                                                    <label class="control-label">Date of birth<span class="required"></span></label>
+                                                    <input class="form-control date-picker" size="16" type="text" data-date-format="yyyy-mm-dd" value="<?php echo ($member_info['date_of_birth'] != '0000-00-00' ? $member_info['date_of_birth'] : ''); ?>" name="date_of_birth" />
                                                 </div>
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-6">

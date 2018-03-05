@@ -620,11 +620,13 @@
                                 <!--<div class="grid-sizer"></div>-->
                                 <!-- start portfolio item -->
 
-
-                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
+                                <?php echo $this->load->view('frontend/blogs/related_blog_articles', array('cat_id' => $cat_id),true); ?>
+                                <!-- end portfolio item -->
+                                <!-- start portfolio item -->
+<!--                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
                                     <figure>
                                         <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-1.jpg') ?>" alt=""/>
+                                            <img src="<?php // echo base_url('assets/frontend/img/art-1.jpg') ?>" alt=""/>
                                             <div class="portfolio-icon">
                                                 <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
                                             </div>
@@ -639,13 +641,13 @@
                                             </div>
                                         </figcaption>
                                     </figure>
-                                </div>
+                                </div>-->
                                 <!-- end portfolio item -->
                                 <!-- start portfolio item -->
-                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
+<!--                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
                                     <figure>
                                         <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-2.jpg') ?>" alt=""/>
+                                            <img src="<?php // echo base_url('assets/frontend/img/art-2.jpg') ?>" alt=""/>
                                             <div class="portfolio-icon">
                                                 <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
                                             </div>
@@ -660,13 +662,13 @@
                                             </div>
                                         </figcaption>
                                     </figure>
-                                </div>
+                                </div>-->
                                 <!-- end portfolio item -->
                                 <!-- start portfolio item -->
-                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
+<!--                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
                                     <figure>
                                         <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-3.jpg') ?>" alt=""/>
+                                            <img src="<?php // echo base_url('assets/frontend/img/art-3.jpg') ?>" alt=""/>
                                             <div class="portfolio-icon">
                                                 <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
                                             </div>
@@ -681,13 +683,13 @@
                                             </div>
                                         </figcaption>
                                     </figure>
-                                </div>
+                                </div>-->
                                 <!-- end portfolio item -->
                                 <!-- start portfolio item -->
-                                <div class=" swiper-slide  wow zoomIn last-paragraph-no-margin">
+<!--                                <div class=" swiper-slide  wow zoomIn last-paragraph-no-margin">
                                     <figure>
                                         <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-4.jpg') ?>" alt=""/>
+                                            <img src="<?php // echo base_url('assets/frontend/img/art-4.jpg') ?>" alt=""/>
                                             <div class="portfolio-icon">
                                                 <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
                                             </div>
@@ -703,178 +705,8 @@
                                         </figcaption>
                                     </figure>
                                     </li>
-                                    <!-- end portfolio item -->
-                                </div>
-
-                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
-                                    <figure>
-                                        <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-1.jpg') ?>" alt=""/>
-                                            <div class="portfolio-icon">
-                                                <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <figcaption class="">
-                                            <div class="portfolio-hover-main text-left">
-                                                <div class="portfolio-hover-box vertical-align-middle">
-                                                    <div class="portfolio-hover-content position-relative">
-                                                        <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <!-- end portfolio item -->
-                                <!-- start portfolio item -->
-                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
-                                    <figure>
-                                        <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-2.jpg') ?>" alt=""/>
-                                            <div class="portfolio-icon">
-                                                <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <figcaption class="">
-                                            <div class="portfolio-hover-main text-left">
-                                                <div class="portfolio-hover-box vertical-align-middle">
-                                                    <div class="portfolio-hover-content position-relative">
-                                                        <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <!-- end portfolio item -->
-                                <!-- start portfolio item -->
-                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
-                                    <figure>
-                                        <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-3.jpg') ?>" alt=""/>
-                                            <div class="portfolio-icon">
-                                                <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <figcaption class="">
-                                            <div class="portfolio-hover-main text-left">
-                                                <div class="portfolio-hover-box vertical-align-middle">
-                                                    <div class="portfolio-hover-content position-relative">
-                                                        <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <!-- end portfolio item -->
-                                <!-- start portfolio item -->
-                                <div class=" swiper-slide  wow zoomIn last-paragraph-no-margin">
-                                    <figure>
-                                        <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-4.jpg') ?>" alt=""/>
-                                            <div class="portfolio-icon">
-                                                <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <figcaption class="">
-                                            <div class="portfolio-hover-main text-left">
-                                                <div class="portfolio-hover-box vertical-align-middle">
-                                                    <div class="portfolio-hover-content position-relative">
-                                                        <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                    </li>
-                                    <!-- end portfolio item -->
-                                </div>
-
-                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
-                                    <figure>
-                                        <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-1.jpg') ?>" alt=""/>
-                                            <div class="portfolio-icon">
-                                                <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <figcaption class="">
-                                            <div class="portfolio-hover-main text-left">
-                                                <div class="portfolio-hover-box vertical-align-middle">
-                                                    <div class="portfolio-hover-content position-relative">
-                                                        <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <!-- end portfolio item -->
-                                <!-- start portfolio item -->
-                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
-                                    <figure>
-                                        <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-2.jpg') ?>" alt=""/>
-                                            <div class="portfolio-icon">
-                                                <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <figcaption class="">
-                                            <div class="portfolio-hover-main text-left">
-                                                <div class="portfolio-hover-box vertical-align-middle">
-                                                    <div class="portfolio-hover-content position-relative">
-                                                        <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <!-- end portfolio item -->
-                                <!-- start portfolio item -->
-                                <div class=" swiper-slide wow zoomIn last-paragraph-no-margin">
-                                    <figure>
-                                        <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-3.jpg') ?>" alt=""/>
-                                            <div class="portfolio-icon">
-                                                <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <figcaption class="">
-                                            <div class="portfolio-hover-main text-left">
-                                                <div class="portfolio-hover-box vertical-align-middle">
-                                                    <div class="portfolio-hover-content position-relative">
-                                                        <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <!-- end portfolio item -->
-                                <!-- start portfolio item -->
-                                <div class=" swiper-slide  wow zoomIn last-paragraph-no-margin">
-                                    <figure>
-                                        <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                            <img src="<?php echo base_url('assets/frontend/img/art-4.jpg') ?>" alt=""/>
-                                            <div class="portfolio-icon">
-                                                <a href="single-project-page-01.html"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <figcaption class="">
-                                            <div class="portfolio-hover-main text-left">
-                                                <div class="portfolio-hover-box vertical-align-middle">
-                                                    <div class="portfolio-hover-content position-relative">
-                                                        <p class="text-white text-samll">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elitet dolore magna aliqua.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                    </li>
-                                    <!-- end portfolio item -->
-                                </div>
+                                     end portfolio item 
+                                </div>-->
 
                             </div>
                             <!-- start slider pagination -->

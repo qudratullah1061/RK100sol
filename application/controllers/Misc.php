@@ -12,6 +12,7 @@ class Misc extends CI_Controller {
         $this->layout = 'frontend/main';
         $this->load->model('admin/misc_model', 'Misc_Model');
         $this->load->model('admin/members_model', 'Members_Model');
+        $this->load->model('admin/blogs_model', 'Blogs_Model');
     }
 
     // general json error
@@ -273,26 +274,50 @@ class Misc extends CI_Controller {
     function homestay() {
         $this->load->view('frontend/misc/homestay');
     }
-    function event_planning() {
-        $this->load->view('frontend/misc/EP1');
+    function event_planning($cat_id=NULL) {
+        $data = array();
+        if($cat_id != NULL){
+            $data['cat_id'] = $cat_id;
+        }
+        $this->load->view('frontend/misc/EP1', $data);
     }
-    function fitness() {
-        $this->load->view('frontend/misc/F1');
+    function fitness($cat_id=NULL) {
+        $data = array();
+        if($cat_id != NULL){
+            $data['cat_id'] = $cat_id;
+        }
+        $this->load->view('frontend/misc/F1', $data);
     }
-    function tourism() {
-        $this->load->view('frontend/misc/FA3');
+    function tourism($cat_id=NULL) {
+        $data = array();
+        if($cat_id != NULL){
+            $data['cat_id'] = $cat_id;
+        }
+        $this->load->view('frontend/misc/FA3', $data);
     }
-    function social_occasion() {
-        $this->load->view('frontend/misc/SO2');
+    function social_occasion($cat_id=NULL) {
+        $data = array();
+        if($cat_id != NULL){
+            $data['cat_id'] = $cat_id;
+        }
+        $this->load->view('frontend/misc/SO2', $data);
     }
 //    function coaching() {
 //        $this->load->view('frontend/misc/T2');
 //    }
-    function fashion() {
-        $this->load->view('frontend/misc/T2');
+    function fashion($cat_id=NULL) {
+        $data = array();
+        if($cat_id != NULL){
+            $data['cat_id'] = $cat_id;
+        }
+        $this->load->view('frontend/misc/T2', $data);
     }
-    function hosting() {
-        $this->load->view('frontend/misc/T6');
+    function hosting($cat_id=NULL) {
+        $data = array();
+        if($cat_id != NULL){
+            $data['cat_id'] = $cat_id;
+        }
+        $this->load->view('frontend/misc/T6', $data);
     }
 
     //    Misc pages ends here

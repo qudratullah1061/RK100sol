@@ -71,9 +71,9 @@ var GuestMembers = function () {
                 gender: {
                     required: true,
                 },
-                date_of_birth: {
-                    required: true,
-                },
+//                date_of_birth: {
+//                    required: true,
+//                },
                 country: {
                     required: true,
                 },
@@ -113,12 +113,12 @@ var GuestMembers = function () {
                 phone_number: {
                     required: true,
                 },
-                gender: {
-                    required: true,
-                },
-                date_of_birth: {
-                    required: true,
-                },
+//                gender: {
+//                    required: true,
+//                },
+//                date_of_birth: {
+//                    required: true,
+//                },
                 country: {
                     required: true,
                 },

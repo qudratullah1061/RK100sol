@@ -60,8 +60,8 @@ class Guests extends Admin_Controller {
                 $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|trim|strip_tags|xss_clean|matches[password]');
             }
             $this->form_validation->set_rules('phone_number', 'Phone Number', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('gender', 'Gender', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('date_of_birth', 'Date Of Birth', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('gender', 'Gender', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('date_of_birth', 'Date Of Birth', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('country', 'Country', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('city', 'City', 'required|trim|strip_tags|xss_clean');

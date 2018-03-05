@@ -157,9 +157,9 @@ var FormWizard = function () {
                 phone_number: {
                     required: true,
                 },
-                date_of_birth: {
-                    required: true,
-                },
+//                date_of_birth: {
+//                    required: true,
+//                },
                 location: {
                     required: true,
                 },

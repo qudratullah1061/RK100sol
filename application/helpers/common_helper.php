@@ -536,3 +536,28 @@ function sendEmail($to, $subject, $message, $reply_to = "") {
 //    }
 //    return true;
 }
+
+function GetBlogDescription($blog_id) {
+    global $CI;
+    $blog_data = $CI->db->get_where('tb_blog_descriptions', array('blog_id' => $blog_id))->result_array();
+    if(!empty($blog_data)){
+        return $blog_data[0]['blog_description'];
+    }
+    return FALSE;
+}
+
+function limit_text($text, $limit) {
+    if (str_word_count($text, 0) > $limit) {
+        $words = str_word_count($text, 2);
+        $pos = array_keys($words);
+        $text = substr($text, 0, $pos[$limit]) . '...';
+    }
+    return $text;
+}
+
+function GetBlogContent($cat_id) {
+    global $CI;
+    $CI->load->model('admin/blogs_model', 'Blogs_Model');
+    $blogs = $CI->Blogs_Model->get_all_blogs_as_per_category($cat_id);
+    return $blogs;
+}
