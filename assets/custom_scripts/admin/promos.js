@@ -19,7 +19,7 @@ var Promos = function () {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
                     $('#datatable_promos').DataTable().ajax.reload();
-                    $("#static-modal-popup-small").modal('hide');
+                    $("#static-modal-popup-medium").modal('hide');
                 } else {
                     toastr["error"](data.description, "Error!");
                 }
@@ -95,8 +95,8 @@ var Promos = function () {
             },
             success: function (data) {
                 if (data.key) {
-                    $("#static-modal-popup-small").html(data.value);
-                    $("#static-modal-popup-small").modal('show');
+                    $("#static-modal-popup-medium").html(data.value);
+                    $("#static-modal-popup-medium").modal('show');
                     App.initMaterialDesign();
                     handleValidationAddPromo("form-add-promo");
                 }

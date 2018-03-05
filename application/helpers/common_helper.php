@@ -80,6 +80,25 @@ function RedirectAdminToAppropriatePage() {
     redirect(base_url('admin/admin_dashboard'));
 }
 
+function validatePromoCode($promo_code) {
+    // check promo code exist.
+    global $CI;
+    $promo_code_info = $CI->db->get_where('tb_promos', array('promo_code' => $promo_code))->result_array();
+    if (count($promo_code_info) > 0) {
+        // check is active and promo code is valid for end date
+        $start_date = $promo_code_info[0]['start_date'];
+        $end_date = $promo_code_info[0]['end_date'];
+        $current_date = date("Y-m-d");
+        $is_active = $promo_code_info[0]['is_active'];
+        $promo_subscription_discount = $promo_code_info[0]['promo_subscription_discount'];
+        $promo_subscription_discount_value = $promo_code_info[0]['promo_sub_dis_value'];
+        if ($promo_subscription_discount == 0 && $end_date >= $current_date && $start_date <= $current_date && $is_active) {
+            return array("promo_type" => "sub", "value" => $promo_subscription_discount_value);
+        }
+    }
+    return false;
+}
+
 function getGeoCodes($address = "") {
     // Google HQ
     if ($address != "") {
@@ -217,7 +236,7 @@ function GetCountriesOption($selected_value = "") {
     $data_info = $CI->db->get('tb_countries')->result_array();
     if ($data_info) {
         foreach ($data_info as $info) {
-            $options.="<option value='" . $info['country_id'] . "' " . ($info['country_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['country_name']) . "</option>";
+            $options .= "<option value='" . $info['country_id'] . "' " . ($info['country_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['country_name']) . "</option>";
         }
     }
     return $options;
@@ -233,7 +252,7 @@ function GetStatesOption($country_id = 0, $selected_value = "") {
         $data_info = $CI->db->get('tb_states')->result_array();
         if ($data_info) {
             foreach ($data_info as $info) {
-                $options.="<option value='" . $info['state_id'] . "' " . ($info['state_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['state_name']) . "</option>";
+                $options .= "<option value='" . $info['state_id'] . "' " . ($info['state_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['state_name']) . "</option>";
             }
         }
     }
@@ -250,7 +269,7 @@ function GetCityOptions($state_id = 0, $selected_value = "") {
         $data_info = $CI->db->get('tb_cities')->result_array();
         if ($data_info) {
             foreach ($data_info as $info) {
-                $options.="<option value='" . $info['city_id'] . "' " . ($info['city_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['city_name']) . "</option>";
+                $options .= "<option value='" . $info['city_id'] . "' " . ($info['city_id'] == $selected_value ? 'selected=\"selected\"' : '') . ">" . ($info['city_name']) . "</option>";
             }
         }
     }
@@ -286,7 +305,7 @@ function delete_image_from_directory($images_info_array) {
     }
 }
 
-function upload_base_64_image($image_info,$file_path) {
+function upload_base_64_image($image_info, $file_path) {
     global $CI;
     if ($image_info) {
         $image = isset($image_info->output->image) ? $image_info->output->image : "";
@@ -420,6 +439,7 @@ function get_notifications($is_admin = 1, $member_id, $is_read = '') {
     $notifications = $CI->Notification_Model->get_all_notifications($is_admin, 'AND tb_notification_users.receiver_id = ' . $member_id . ' ' . $where . '');
     return $notifications;
 }
+
 function get_sub_comments($blog_id, $parent_id) {
     global $CI;
     $CI->load->model('admin/blogs_model', 'Blogs_Model');

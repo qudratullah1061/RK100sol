@@ -7,14 +7,13 @@
         <div class="portlet-body form">
             <div class="form-body">
                 <input type="hidden" name="faq_id" value="<?php echo isset($faq_data->faq_id) ? $faq_data->faq_id : ""; ?>">
-                <div class="form-group form-md-line-input form-md-floating-label">
-                    <input type="text" value="<?php echo isset($faq_data->faq_question) ? $faq_data->faq_question : ""; ?>" name="faq_question" class="form-control">
+                <div class="form-group">
                     <label>Faq Question</label>
-                    <span class="help-block">Don't use special characters</span>
+                    <input type="text" value="<?php echo isset($faq_data->faq_question) ? $faq_data->faq_question : ""; ?>" name="faq_question" class="form-control">
                 </div>
-                <div class="form-group form-md-line-input form-md-floating-label">
-                    <textarea type="text" name="faq_answer" class="form-control summernote"><?php echo isset($faq_data->faq_answer) ? $faq_data->faq_answer : ""; ?></textarea>
+                <div class="form-group">
                     <label>Faq Answer</label>
+                    <textarea rows="10" type="text" name="faq_answer" class="form-control summernote"><?php echo isset($faq_data->faq_answer) ? $faq_data->faq_answer : ""; ?></textarea>
                 </div>
                 <div class="md-checkbox-inline">
                     <div class="md-checkbox">
@@ -37,6 +36,6 @@
 </form>
 <script>
 $(document).ready(function() {
-    $('.summernote').summernote();
+    $('.summernote').summernote({height: 300});
 });
 </script>

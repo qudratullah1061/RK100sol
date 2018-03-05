@@ -26,8 +26,8 @@ class Faqs extends Admin_Controller {
         if ($this->input->post()) {
             $data = array();
             $edit_id = $this->input->post('faq_id');
-            $this->form_validation->set_rules('faq_question', 'Faq Question', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('faq_answer', 'Faq Answer', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('faq_question', 'Faq Question', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('faq_answer', 'Faq Answer', 'required|trim|xss_clean');
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());

@@ -14,8 +14,7 @@
 <!-- BEGIN PAGE TITLE-->
 <h3 class="page-title">Newsletters Listing</h3>
 <!-- END PAGE TITLE-->
-    <span> </span>
-    <a class="purple text-right" data-title="Add Newsletters" href="<?php echo base_url().'admin/newsletters/send_newsletters'; ?>"><i class="fa fa-plus-circle"></i>Send Newsletters</a>
+<span> </span>
 <!-- BEGIN Datatable-->
 <div class="row">
     <div class="col-md-12">
@@ -24,7 +23,8 @@
             <div class="portlet-body">
                 <div class="table-container">
                     <!--<div class="table-actions-wrapper">-->
-                        <span> </span>
+                    <span> </span>
+                    <a class="purple text-right" data-title="Add Newsletters" href="<?php echo base_url() . 'admin/newsletters/send_newsletters'; ?>"><i class="fa fa-plus-circle"></i> Send Newsletters</a>
                     <!--</div>-->
                     <table class="table table-striped table-bordered table-hover text-center" id="datatable_newsletters">
                         <thead>

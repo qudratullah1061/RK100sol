@@ -258,6 +258,14 @@ class Profile extends CI_Controller {
                     $data['pinterest'] = $this->input->post('pinterest');
                     $data['skype'] = $this->input->post('skype');
                 }
+                // check promo code is valid and entered.
+                $promo_code = $this->input->post('promo_code');
+                $promo_code_info = false;
+                if ($promo_code != "") {
+                    // validate promo code.
+                    $promo_code_info = validatePromoCode($promo_code);
+                }
+                // end here.
                 $result = false;
                 if ($edit_id > 0) {
                     $this->Members_Model->update_member($edit_id, $data); //use for future
@@ -273,6 +281,9 @@ class Profile extends CI_Controller {
                     $data['membership_type'] = 'Companion';
                     $data['subscription_date'] = date('Y-m-d H:i:s');
                     $data['end_subscription_date'] = date('Y-m-d H:i:s', strtotime("+1 month"));
+                    if ($promo_code_info && $promo_code_info['promo_type'] == "sub") {
+                        $data['end_subscription_date'] = date('Y-m-d', strtotime($data['end_subscription_date'] . ' +' . $promo_code_info['value'] . ' days'));
+                    }
                     $data['email_verification_code'] = md5(time());
                     $edit_id = $result = $this->Members_Model->add_member($data);
                     // update unique id
@@ -288,7 +299,7 @@ class Profile extends CI_Controller {
                     $macros_data['$$$CONFIRM_REGISTRATION$$$'] = (base_url('misc/verify_email/' . $edit_id . '/' . $member_email_v_code));
                     $email_template_info = get_email_template('member_signup', $macros_data);
                     if ($email_template_info) {
-                        sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
+                        //sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
                     }
                     $result = true;
                 }

@@ -64,8 +64,7 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/layouts/layout/css/custom.css" rel="stylesheet" type="text/css" />
-<!--        <link href="<?php // echo base_url(); ?>assets/pages/css/summernote.css" rel="stylesheet">-->
-        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-summernote/summernote.css" rel="stylesheet">
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="<?php echo base_url('assets/favicon.png'); ?>" /> 
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -321,7 +320,7 @@
                             <?php if (isAdminHasAccess("blogs")) { ?>
                                 <li class="nav-item <?php ActivateParentLink('blogs'); ?>">
                                     <a href="javascript:;" class="nav-link nav-toggle">
-                                        <i class="fa fa-newspaper-o"></i>
+                                        <i class="fa fa-tasks"></i>
                                         <span class="title"> Blogs </span>
                                         <span class="selected"></span>
                                         <span class="arrow open"></span>
@@ -351,7 +350,7 @@
                             <?php if (isAdminHasAccess("misc")) { ?>
                                 <li class="nav-item <?php ActivateParentLink('contactus'); ?>">
                                     <a href="javascript:;" class="nav-link nav-toggle">
-                                        <i class="fa fa-tasks"></i>
+                                        <i class="fa fa-link"></i>
                                         <span class="title">Contact Us</span>
                                         <span class="selected"></span>
                                         <span class="arrow open"></span>
@@ -387,7 +386,7 @@
                             <?php if (isAdminHasAccess("promos")) { ?>   
                                 <li class="nav-item <?php ActivateParentLink('promos'); ?>">
                                     <a href="javascript:;" class="nav-link nav-toggle">
-                                        <i class="fa fa-tasks"></i>
+                                        <i class="fa fa-code"></i>
                                         <span class="title">Promos</span>
                                         <span class="selected"></span>
                                         <span class="arrow open"></span>
@@ -405,7 +404,7 @@
                             <?php if (isAdminHasAccess("faqs")) { ?>   
                                 <li class="nav-item <?php ActivateParentLink('faqs'); ?>">
                                     <a href="javascript:;" class="nav-link nav-toggle">
-                                        <i class="fa fa-tasks"></i>
+                                        <i class="fa fa-question"></i>
                                         <span class="title">Faqs</span>
                                         <span class="selected"></span>
                                         <span class="arrow open"></span>
@@ -423,7 +422,7 @@
                             <?php if (isAdminHasAccess("newsletters")) { ?>   
                                 <li class="nav-item <?php ActivateParentLink('newsletters'); ?>">
                                     <a href="javascript:;" class="nav-link nav-toggle">
-                                        <i class="fa fa-tasks"></i>
+                                        <i class="fa fa-envelope"></i>
                                         <span class="title">Newsletters</span>
                                         <span class="selected"></span>
                                         <span class="arrow open"></span>

@@ -56,7 +56,25 @@
                                 </div>
                                 <div class="tab-pane active" id="tab1">
                                     <h3 class="block text-center">Login Details</h3>
-
+                                    <div class="form-group form-md-line-input">
+                                        <label class="control-label col-md-3">Promo Code <span class="required">*</span></label>
+                                        <div class="col-md-6">
+                                            <div class="portlet mt-element-ribbon light portlet-fit bordered">
+                                                <div class="ribbon ribbon-right ribbon-clip ribbon-shadow ribbon-border-dash-hor ribbon-color-success uppercase">
+                                                    <div class="ribbon-sub ribbon-clip ribbon-right"></div> Promo Code.
+                                                </div>
+                                                <div class="portlet-title">
+                                                    <div class="caption">
+                                                        <i class="fa fa-tag font-green"></i>
+                                                        <span class="caption-subject font-green bold uppercase">Do you have promo code? Enter it here.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="portlet-body"> 
+                                                    <input type="text" name="promo_code" placeholder="Promo Code"> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group form-md-line-input">
                                         <label class="control-label col-md-3">Username <span class="required">*</span></label>
                                         <div class="col-md-6">
