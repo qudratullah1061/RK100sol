@@ -35,7 +35,7 @@ $unique_id = time();
                         <!-- END SIDEBAR USER TITLE -->
                         <!-- SIDEBAR BUTTONS -->
                          <div class="profile-userbuttons">
-                             <a class="btn btn-circle green btn-sm" href="mailto:<?php echo $this->config->item('admin_email'); ?>">
+                             <a class="btn btn-circle green btn-sm" href="mailto:<?php echo $member_info['email']; ?>">
                                 Send Email
                             </a>
                              <!--<button type="button" class="btn btn-circle red btn-sm">Send Message</button>-->

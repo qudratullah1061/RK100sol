@@ -507,12 +507,14 @@ var DatatablesObj = function () {
                     [0, "asc"]
                 ], // set first column as a default sort by asc
                 "aoColumnDefs": [
-                    {'sName': 'Promos Title', 'bSortable': true, 'aTargets': [0]},
-                    {'sName': 'CreatedOn', 'bSortable': true, 'aTargets': [1]},
-                    {'sName': 'UpdatedOn', 'bSortable': true, 'aTargets': [2]},
-                    {'sName': 'CreatedBy', 'bSortable': true, 'aTargets': [3]},
-                    {'sName': 'Status', 'bSortable': true, 'aTargets': [4]},
-                    {'sName': 'Actions', 'bSortable': false, 'aTargets': [5]},
+                    {'sName': 'Promo Title', 'bSortable': true, 'aTargets': [0]},
+                    {'sName': 'Type', 'bSortable': true, 'aTargets': [1]},
+                    {'sName': 'Start Date', 'bSortable': true, 'aTargets': [2]},
+                    {'sName': 'End Date', 'bSortable': true, 'aTargets': [3]},
+                    {'sName': 'Promo Code', 'bSortable': true, 'aTargets': [4]},
+                    {'sName': 'Used Promo Code', 'bSortable': true, 'aTargets': [5]},
+                    {'sName': 'Status', 'bSortable': true, 'aTargets': [6]},
+                    {'sName': 'Actions', 'bSortable': false, 'aTargets': [7]},
                 ]
             }
         });

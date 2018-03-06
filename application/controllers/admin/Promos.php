@@ -94,20 +94,20 @@ class Promos extends Admin_Controller {
         if ($this->input->post('promo_subscription_discount') != '') {
             $cond .= ($cond != '' ? ' AND ' : '') . (" promos.promo_subscription_discount = " . $this->input->post('promo_subscription_discount'));
         }
-        if ($this->input->post('created_on')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " promos.created_on LIKE  '%" . $this->input->post('created_on') . "%'";
+        if ($this->input->post('start_date')) {
+            $cond .= ($cond != '' ? ' AND ' : '') . " promos.start_date LIKE  '%" . $this->input->post('start_date') . "%'";
         }
-        if ($this->input->post('updated_on')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " promos.updated_on LIKE  '%" . $this->input->post('updated_on') . "%'";
+        if ($this->input->post('end_date')) {
+            $cond .= ($cond != '' ? ' AND ' : '') . " promos.end_date LIKE  '%" . $this->input->post('end_date') . "%'";
         }
-        if ($this->input->post('created_by')) {
-            $cond .= ($cond != '' ? ' AND ' : '') . " admins.username LIKE  '%" . $this->input->post('created_by') . "%'";
+        if ($this->input->post('promo_code')) {
+            $cond .= ($cond != '' ? ' AND ' : '') . " promos.promo_code LIKE  '%" . $this->input->post('promo_code') . "%'";
         }
         if ($this->input->post('is_active') != "") {
             $cond .= ($cond != '' ? ' AND ' : '') . (" promos.is_active = " . $this->input->post('is_active'));
         }
 
-        $colmnsArry = array('`promos`.`promo_title`', '`promos`.`created_on`', '`promos`.`updated_on`', '`promos`.`created_by`', '`promos`.`updated_by`', '`promos`.`is_active`');
+        $colmnsArry = array('`promos`.`promo_title`', '`promos`.`start_date`', '`promos`.`end_date`', '`promos`.`promo_code`', '`promos`.`is_active`');
         if ($this->input->post('order')) {
             $order = $this->input->post('order');
             if (isset($order[0]['column'])) {
@@ -119,6 +119,7 @@ class Promos extends Admin_Controller {
         $count = $admins['total'];
         if ($count > 0) {
             foreach ($admins['records'] as $result) {
+                $used_promo_code = CountPromoCode($result['promo_code']);
                 if ($result['promo_subscription_discount'] == '0') {
                     $result['promo_subscription_discount'] = 'Subscription';
                 } else {
@@ -137,9 +138,10 @@ class Promos extends Admin_Controller {
                 $records["data"][] = array(
                     $result['promo_title'],
                     $result['promo_subscription_discount'],
-                    $result['created_on'],
-                    $result['updated_on'],
-                    $result['admin_name'],
+                    $result['start_date'],
+                    $result['end_date'],
+                    $result['promo_code'],
+                    $used_promo_code,
                     $active_html,
                     '<a class="btn btn-xs default btn-editable" onclick="Promos.modal_add_promo(' . $result['promo_id'] . ')">Edit</a> <a class="btn btn-xs default btn-editable" onclick="CommonFunctions.Delete(' . $result["promo_id"] . ' , \'tb_promos\' , \'promo_id\' , \'Promo will be permanently deleted without further warning. Do you really want to delete this Promo?\');">Delete</i></a> '
                 );
