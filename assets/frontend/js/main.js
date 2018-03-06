@@ -397,7 +397,7 @@ $(document).ready(function () {
     var swiperFull = new Swiper('.swiper-full-screen', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
-        loop: true,
+//        loop: true,
         autoplay: false,
         slidesPerView: 1,
         keyboardControl: true,
@@ -408,7 +408,7 @@ $(document).ready(function () {
     var swiperPag = new Swiper('.swipper-pagination', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
-        loop: true,
+//        loop: true,
         autoplay: false,
         slidesPerView: 4,
         slidesPerGroup: 4,

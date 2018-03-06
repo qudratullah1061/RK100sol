@@ -9,6 +9,7 @@ class Promos extends Admin_Controller {
         parent::__construct();
         $this->layout = 'admin/main';
         $this->load->model('admin/promos_model', 'Promos_Model');
+        $this->load->model('admin/members_model', 'Members_Model');
     }
 
     function modal_promo() {
@@ -33,7 +34,7 @@ class Promos extends Admin_Controller {
             $data = array();
             $edit_id = $this->input->post('promo_id');
             $this->form_validation->set_rules('promo_title', 'Promo Title', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('promo_code', 'Promo Code', 'required|trim|strip_tags|xss_clean'.$is_unique);
+            $this->form_validation->set_rules('promo_code', 'Promo Code', 'required|trim|strip_tags|xss_clean' . $is_unique);
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
@@ -118,9 +119,9 @@ class Promos extends Admin_Controller {
         $count = $admins['total'];
         if ($count > 0) {
             foreach ($admins['records'] as $result) {
-                if($result['promo_subscription_discount'] == '0'){
+                if ($result['promo_subscription_discount'] == '0') {
                     $result['promo_subscription_discount'] = 'Subscription';
-                }else{
+                } else {
                     $result['promo_subscription_discount'] = 'Discount';
                 }
                 $active_html = '<div class="md-checkbox-inline">
@@ -150,6 +151,32 @@ class Promos extends Admin_Controller {
         $records["query"] = $admins['query'];
         echo json_encode($records);
         exit();
+    }
+
+    function submit_promos() {
+        $promo_code = $this->input->post('promo_code');
+        $member_id = $this->input->post('member_id');
+        $promo_code_info = false;
+        if ($promo_code != "") {
+            // validate promo code.
+            $promo_code_info = validatePromoCode($promo_code);
+            if ($promo_code_info) {
+                // check whether user already used that promo code or not.
+                $is_used = IsPromoCodeAlreadyUsed($promo_code, $member_id);
+                if ($is_used) {
+                    $this->_response(false, "You have already used this promo code.");
+                } else {
+                    // update promo according to type.
+                    if ($promo_code_info['promo_type'] == "sub" && $promo_code_info['value'] > 0) {
+                        // add days
+                        $member_info = $this->Members_Model->get_member_by_id($member_id);
+                        $subscription_date = $member_info['subscription_date'];
+                        $data['end_subscription_date'] = date('Y-m-d', strtotime($member_info['end_subscription_date'] . ' +' . $promo_code_info['value'] . ' days'));
+                        $this->Members_Model->update_member($member_id, $data);
+                    }
+                }
+            }
+        }
     }
 
 }

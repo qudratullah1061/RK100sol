@@ -51,7 +51,7 @@ class Misc extends CI_Controller {
         }
         $this->_response(true, "Problem while deleting record.");
     }
-    
+
     function DeleteChilds() {
         $this->isAjax();
         $unique_id = $this->input->post('unique_id');
@@ -274,47 +274,49 @@ class Misc extends CI_Controller {
     function homestay() {
         $this->load->view('frontend/misc/homestay');
     }
-    function event_planning($cat_id=NULL) {
+
+    function event_planning($cat_id = NULL) {
         $data = array();
-        if($cat_id != NULL){
+        if ($cat_id != NULL) {
             $data['cat_id'] = $cat_id;
         }
         $this->load->view('frontend/misc/EP1', $data);
     }
-    function fitness($cat_id=NULL) {
+
+    function fitness($cat_id = 0) {
         $data = array();
-        if($cat_id != NULL){
-            $data['cat_id'] = $cat_id;
-        }
+        $data['cat_id'] = $cat_id;
         $this->load->view('frontend/misc/F1', $data);
     }
-    function tourism($cat_id=NULL) {
+
+    function tourism($cat_id = NULL) {
         $data = array();
-        if($cat_id != NULL){
+        if ($cat_id != NULL) {
             $data['cat_id'] = $cat_id;
         }
         $this->load->view('frontend/misc/FA3', $data);
     }
-    function social_occasion($cat_id=NULL) {
+
+    function social_occasion($cat_id = NULL) {
         $data = array();
-        if($cat_id != NULL){
+        if ($cat_id != NULL) {
             $data['cat_id'] = $cat_id;
         }
         $this->load->view('frontend/misc/SO2', $data);
     }
+
 //    function coaching() {
 //        $this->load->view('frontend/misc/T2');
 //    }
-    function fashion($cat_id=NULL) {
+    function fashion($cat_id = 0) {
         $data = array();
-        if($cat_id != NULL){
-            $data['cat_id'] = $cat_id;
-        }
+        $data['cat_id'] = $cat_id;
         $this->load->view('frontend/misc/T2', $data);
     }
-    function hosting($cat_id=NULL) {
+
+    function hosting($cat_id = NULL) {
         $data = array();
-        if($cat_id != NULL){
+        if ($cat_id != NULL) {
             $data['cat_id'] = $cat_id;
         }
         $this->load->view('frontend/misc/T6', $data);

@@ -48,7 +48,7 @@ $unique_id = time();
                 <!-- END SIDEBAR USER TITLE -->
                 <!-- SIDEBAR BUTTONS -->
                 <div class="profile-userbuttons">
-                    <a class="btn btn-circle green btn-sm" href="mailto:<?php echo $this->config->item('admin_email'); ?>">
+                    <a class="btn btn-circle green btn-sm" href="mailto:<?php echo $member_info['email']; ?>">
                         Send Email
                     </a>
                     <button type="button" class="btn btn-circle red btn-sm">Send Message</button>
@@ -91,12 +91,12 @@ $unique_id = time();
             <!-- PORTLET MAIN -->
             <div class="portlet light ">
                 <!-- STAT -->
-<!--                <div class="row list-separated profile-stat">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="uppercase profile-stat-title"> 37 </div>
-                        <div class="uppercase profile-stat-text"> Connected Members </div>
-                    </div>
-                </div>-->
+                <!--                <div class="row list-separated profile-stat">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="uppercase profile-stat-title"> 37 </div>
+                                        <div class="uppercase profile-stat-text"> Connected Members </div>
+                                    </div>
+                                </div>-->
                 <!-- END STAT -->
                 <div class="text-center">
                     <h4 class="profile-desc-title">About <?php echo ucfirst($member_info['username']); ?></h4>
@@ -140,6 +140,9 @@ $unique_id = time();
                                 </li>
                                 <li onclick="CommonFunctions.changeHash('#tab_1_8')">
                                     <a href="#tab_1_8" data-toggle="tab">Certification</a>
+                                </li>
+                                <li onclick="CommonFunctions.changeHash('#tab_1_9')">
+                                    <a href="#tab_1_9" data-toggle="tab">Promos</a>
                                 </li>
                                 <!--<li onclick="CommonFunctions.changeHash('#tab_1_9')">
                                     <a href="#tab_1_9" data-toggle="tab">Privacy Settings</a>
@@ -549,6 +552,8 @@ $unique_id = time();
                                     </div>
                                 </div>
                                 <!--Languages tabs ends here-->
+
+                                <!--Education tab starts from here-->
                                 <div class="tab-pane" id="tab_1_6">
                                     <div id="">
                                         <div class="table-actions-wrapper margin-bottom-20">
@@ -603,8 +608,9 @@ $unique_id = time();
                                     <!-- Profile images ends-->
                                     <!-- Id proof images start-->
                                 </div>
+                                <!--Education tab ends from here-->
 
-
+                                <!--Experience tab starts from here-->
                                 <div class="tab-pane" id="tab_1_7">
                                     <div>
                                         <div class="table-actions-wrapper margin-bottom-20">
@@ -619,9 +625,6 @@ $unique_id = time();
                                                     <th>Position</th>
                                                     <th>Start Date</th>
                                                     <th>End Date</th>
-
-
-
                                                     <th>Pub Status</th>
                                                     <th>Actions</th>
                                                 </tr>
@@ -659,6 +662,9 @@ $unique_id = time();
                                     <!-- Profile images ends-->
                                     <!-- Id proof images start-->
                                 </div>   
+                                <!--Experience tab ends here-->
+
+                                <!--Images tab starts from here-->
                                 <div class="tab-pane" id="tab_1_8">
                                     <div id="" class="table-responsive">
                                         <div class="table-actions-wrapper margin-bottom-20">
@@ -712,8 +718,35 @@ $unique_id = time();
                                     <!-- Profile images ends-->
                                     <!-- Id proof images start-->
                                 </div>
-                                <!-- PRIVACY SETTINGS TAB -->
+                                <!--Experience tab ends here-->
+
+                                <!-- Promo code TAB starts from here -->
                                 <div class="tab-pane" id="tab_1_9">
+                                    <input type="hidden" name="member_id" id="promo_member_id" value="<?php echo $member_info['member_id']; ?>">
+                                    <div class="portlet mt-element-ribbon light portlet-fit bordered">
+                                        <div class="ribbon ribbon-right ribbon-clip ribbon-shadow ribbon-border-dash-hor ribbon-color-success uppercase">
+                                            <div class="ribbon-sub ribbon-clip ribbon-right"></div> Promo Code.
+                                        </div>
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-tag font-green"></i>
+                                                <span class="caption-subject font-green bold uppercase">Do you have promo code? Enter it here.</span>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body"> 
+                                            <input type="text" name="promo_code" id="promo_code" class="form-control" placeholder="Promo Code"> 
+                                        </div>
+                                    </div>
+
+                                    <!--end profile-settings-->
+                                    <div class="margin-top-10">
+                                        <a href="javascript:;" class="btn red" onclick="CommonFunctions.SubmitPromoCode()"> Submit </a>
+                                    </div>
+                                </div>
+                                <!-- Promo code TAB ends here-->
+
+                                <!-- Privacy TAB starts from here -->
+                                <div class="tab-pane" id="tab_1_10">
                                     <form action="#">
                                         <table class="table table-light table-hover">
 <!--                                            <tr>

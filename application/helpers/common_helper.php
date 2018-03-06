@@ -99,6 +99,16 @@ function validatePromoCode($promo_code) {
     return false;
 }
 
+function IsPromoCodeAlreadyUsed($promo_code, $member_id) {
+    // check promo code exist.
+    global $CI;
+    $promo_code_info = $CI->db->get_where('tb_promos_used_by_members', array('promo_code' => $promo_code, "member_id" => $member_id))->result_array();
+    if (count($promo_code_info) > 0) {
+        return true;
+    }
+    return false;
+}
+
 function getGeoCodes($address = "") {
     // Google HQ
     if ($address != "") {
@@ -540,7 +550,7 @@ function sendEmail($to, $subject, $message, $reply_to = "") {
 function GetBlogDescription($blog_id) {
     global $CI;
     $blog_data = $CI->db->get_where('tb_blog_descriptions', array('blog_id' => $blog_id))->result_array();
-    if(!empty($blog_data)){
+    if (!empty($blog_data)) {
         return $blog_data[0]['blog_description'];
     }
     return FALSE;
@@ -559,5 +569,8 @@ function GetBlogContent($cat_id) {
     global $CI;
     $CI->load->model('admin/blogs_model', 'Blogs_Model');
     $blogs = $CI->Blogs_Model->get_all_blogs_as_per_category($cat_id);
+//    echo "<pre>";
+//    print_r($blogs);
+//    exit;
     return $blogs;
 }

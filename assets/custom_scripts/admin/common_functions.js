@@ -230,6 +230,39 @@ var CommonFunctions = function () {
             }
         });
     };
+    
+    var HandleSubmitPromoCode = function(){
+        var member_id = $("#promo_member_id").val();
+        var promo_code = $("#promo_code").val();
+        if(promo_code==""){
+            swal("Error!", "Please enter promo code to proceede.", "error");
+            return false;
+        }
+        $.ajax({
+            url: base_url + "admin/promos/submit_promo/",
+            dataType: 'json',
+            method: 'post',
+            cache: false,
+            data: {member_id: member_id, promo_code: promo_code},
+            beforeSend: function () {
+                App.blockUI({target: 'body', animate: true});
+            },
+            complete: function () {
+                App.unblockUI('body');
+            },
+            success: function (data) {
+                if (!data.error) {
+                    
+                } else {
+                    // exception message here.
+                    swal("Error!", data.description, "warning");
+                }
+            },
+            error: function (xhr, desc, err) {
+                toastr["error"](xhr.statusText, "Error.");
+            }
+        });
+    };
 
     return {
         Delete: function (unique_id, table, column, msg) {
@@ -258,6 +291,9 @@ var CommonFunctions = function () {
         },
         UpdateSubscriptionModal: function (member_id, end_subscription_date) {
             ShowSubscriptionModal(member_id, end_subscription_date);
+        },
+        SubmitPromoCode:function(){
+            HandleSubmitPromoCode();
         }
     };
 
