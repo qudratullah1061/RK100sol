@@ -312,6 +312,41 @@ var CommonFunctions = function () {
             }
         });
     };
+    
+    var HandleSubmitPromoCode = function () {
+        var member_id = $("#promo_member_id").val();
+        var promo_code = $("#promo_code").val();
+        if (promo_code == "") {
+            swal("Error!", "Please enter promo code to proceede.", "error");
+            return false;
+        }
+        $.ajax({
+            url: base_url + "member/submit_promo/",
+            dataType: 'json',
+            method: 'post',
+            cache: false,
+            data: {member_id: member_id, promo_code: promo_code},
+            beforeSend: function () {
+                App.blockUI({target: 'body', animate: true});
+            },
+            complete: function () {
+                App.unblockUI('body');
+            },
+            success: function (data) {
+                if (!data.error) {
+                    swal({title: "Success", text: data.description, type: "success"}, function () {
+                        window.location.reload();
+                    });
+                } else {
+                    // exception message here.
+                    swal("Error!", data.description, "error");
+                }
+            },
+            error: function (xhr, desc, err) {
+                toastr["error"](xhr.statusText, "Error.");
+            }
+        });
+    };
 
     return {
         Delete: function (unique_id, table, column, msg) {
@@ -343,6 +378,9 @@ var CommonFunctions = function () {
                     location.hash = hashId;
                 }
             }, 200);
+        },
+        SubmitPromoCode: function () {
+            HandleSubmitPromoCode();
         }
     };
 

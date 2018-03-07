@@ -230,11 +230,11 @@ var CommonFunctions = function () {
             }
         });
     };
-    
-    var HandleSubmitPromoCode = function(){
+
+    var HandleSubmitPromoCode = function () {
         var member_id = $("#promo_member_id").val();
         var promo_code = $("#promo_code").val();
-        if(promo_code==""){
+        if (promo_code == "") {
             swal("Error!", "Please enter promo code to proceede.", "error");
             return false;
         }
@@ -252,10 +252,12 @@ var CommonFunctions = function () {
             },
             success: function (data) {
                 if (!data.error) {
-                    
+                    swal({title: "Success", text: data.description, type: "success"}, function () {
+                        window.location.reload();
+                    });
                 } else {
                     // exception message here.
-                    swal("Error!", data.description, "warning");
+                    swal("Error!", data.description, "error");
                 }
             },
             error: function (xhr, desc, err) {
@@ -292,7 +294,7 @@ var CommonFunctions = function () {
         UpdateSubscriptionModal: function (member_id, end_subscription_date) {
             ShowSubscriptionModal(member_id, end_subscription_date);
         },
-        SubmitPromoCode:function(){
+        SubmitPromoCode: function () {
             HandleSubmitPromoCode();
         }
     };

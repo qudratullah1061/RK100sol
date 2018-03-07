@@ -173,7 +173,7 @@ class Companions extends Admin_Controller {
                     if ($member_info['status'] != $data['status']) {
                         //status changed of user.
                         $member_email = $member_info['email'];
-                        $member_email_v_code = $data['email_verification_code'];
+                        $member_email_v_code = $member_info['email_verification_code'];
                         $macros_data['$$$FIRST_NAME$$$'] = $data['first_name'];
                         if ($data['status'] == "active") {
                             // account activated

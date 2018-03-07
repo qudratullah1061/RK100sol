@@ -57,12 +57,12 @@ $unique_id = time();
                     <!-- PORTLET MAIN -->
                     <div class="portlet light ">
                         <!-- STAT -->
-<!--                        <div class="row list-separated profile-stat">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="uppercase profile-stat-title"> 37 </div>
-                                <div class="uppercase profile-stat-text"> Connected Members </div>
-                            </div>
-                        </div>-->
+                        <!--                        <div class="row list-separated profile-stat">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="uppercase profile-stat-title"> 37 </div>
+                                                        <div class="uppercase profile-stat-text"> Connected Members </div>
+                                                    </div>
+                                                </div>-->
                         <!-- END STAT -->
                         <div class="text-center">
                             <h4 class="profile-desc-title">About <?php echo ucfirst($member_info['username']); ?></h4>
@@ -109,6 +109,9 @@ $unique_id = time();
                                         </li>
                                         <li onclick="CommonFunctions.changeHash('#tab_1_9')">
                                             <a href="#tab_1_9" data-toggle="tab">Privacy</a>
+                                        </li>
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_10')">
+                                            <a href="#tab_1_10" data-toggle="tab">Promos</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -333,7 +336,7 @@ $unique_id = time();
                                                                 </div>
                                                             </div>
                                                             <div class="cbp-l-grid-projects-title uppercase text-center uppercase pic-caption-img text-center pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
-                                                            <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";                ?></div>-->
+                                                            <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";                      ?></div>-->
                                                         </div>
                                                         <?php
                                                     }
@@ -423,7 +426,7 @@ $unique_id = time();
                                                                 <td><?php echo $portfolio['state_name']; ?></td>
                                                                 <td><?php echo $portfolio['city_name']; ?></td>
                                                                 <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
-                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));                ?></td>-->
+                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));                      ?></td>-->
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">
@@ -694,6 +697,31 @@ $unique_id = time();
                                             </form>
                                         </div>
                                         <!-- END PRIVACY SETTINGS TAB -->
+
+                                        <!-- Promo code TAB starts from here -->
+                                        <div class="tab-pane" id="tab_1_10">
+                                            <input type="hidden" name="member_id" id="promo_member_id" value="<?php echo $member_info['member_id']; ?>">
+                                            <div class="portlet mt-element-ribbon light portlet-fit bordered">
+                                                <div class="ribbon ribbon-right ribbon-clip ribbon-shadow ribbon-border-dash-hor ribbon-color-success uppercase">
+                                                    <div class="ribbon-sub ribbon-clip ribbon-right"></div> Promo Code.
+                                                </div>
+                                                <div class="portlet-title">
+                                                    <div class="caption">
+                                                        <i class="fa fa-tag font-green"></i>
+                                                        <span class="caption-subject font-green bold uppercase">Do you have promo code? Enter it here.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="portlet-body"> 
+                                                    <input type="text" name="promo_code" id="promo_code" class="form-control" placeholder="Promo Code"> 
+                                                </div>
+                                            </div>
+
+                                            <!--end profile-settings-->
+                                            <div class="margin-top-10">
+                                                <a href="javascript:;" class="btn red" onclick="CommonFunctions.SubmitPromoCode()"> Submit </a>
+                                            </div>
+                                        </div>
+                                        <!-- Promo code TAB ends here-->
                                     </div>
                                 </div>
                             </div>
@@ -722,15 +750,15 @@ $unique_id = time();
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.kickstart.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
 <script>
-                                                                $(document).ready(function () {
-                                                                    FormWizard.handleCompanionValidation("update_companion_member");
-                                                                    FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
-                                                                    PrivacyMembers.initUpdatePrivacyValidation("update_privacy_member");
-                                                                    $("#portfolio_table").DataTable({"scrollX": false});
-                                                                    $("#language_table").DataTable({"scrollX": false});
-                                                                    $("#experience_table").DataTable({"scrollX": false});
-                                                                    $("#education_table").DataTable({"scrollX": false});
-                                                                    $("#certification_table").DataTable({"scrollX": false});
-                                                                    $("#location").geocomplete();
-                                                                });
+                                                    $(document).ready(function () {
+                                                        FormWizard.handleCompanionValidation("update_companion_member");
+                                                        FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
+                                                        PrivacyMembers.initUpdatePrivacyValidation("update_privacy_member");
+                                                        $("#portfolio_table").DataTable({"scrollX": false});
+                                                        $("#language_table").DataTable({"scrollX": false});
+                                                        $("#experience_table").DataTable({"scrollX": false});
+                                                        $("#education_table").DataTable({"scrollX": false});
+                                                        $("#certification_table").DataTable({"scrollX": false});
+                                                        $("#location").geocomplete();
+                                                    });
 </script>

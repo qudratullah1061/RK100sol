@@ -153,7 +153,7 @@ class Promos extends Admin_Controller {
         exit();
     }
 
-    function submit_promos() {
+    function submit_promo() {
         $promo_code = $this->input->post('promo_code');
         $member_id = $this->input->post('member_id');
         $promo_code_info = false;
@@ -164,7 +164,7 @@ class Promos extends Admin_Controller {
                 // check whether user already used that promo code or not.
                 $is_used = IsPromoCodeAlreadyUsed($promo_code, $member_id);
                 if ($is_used) {
-                    $this->_response(false, "You have already used this promo code.");
+                    $this->_response(true, "You have already used this promo code.");
                 } else {
                     // update promo according to type.
                     if ($promo_code_info['promo_type'] == "sub" && $promo_code_info['value'] > 0) {
@@ -173,10 +173,17 @@ class Promos extends Admin_Controller {
                         $subscription_date = $member_info['subscription_date'];
                         $data['end_subscription_date'] = date('Y-m-d', strtotime($member_info['end_subscription_date'] . ' +' . $promo_code_info['value'] . ' days'));
                         $this->Members_Model->update_member($member_id, $data);
+                        // insert record in database for used promo as well.
+                        $promo_used_record_data = array("promo_code" => $promo_code, "member_id" => $member_id, "created_on" => date("Y-m-d H:i:s"), "created_by" => $member_id);
+                        $this->Members_Model->add_promo_used_record($promo_used_record_data);
+                        $this->_response(false, "Promo code applied successfully.");
                     }
+                    $this->_response(true, "Promo code is not valid.");
                 }
             }
+            $this->_response(true, "Promo code is not valid.");
         }
+        $this->_response(true, "Please enter promo code.");
     }
 
 }

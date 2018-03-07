@@ -326,4 +326,9 @@ class Members_model extends Abstract_model {
         return $this->db->query($sql)->result('array');
     }
 
+    public function add_promo_used_record($data) {
+        $this->table_name = "tb_promos_used_by_members";
+        return $this->save($data);
+    }
+    
 }

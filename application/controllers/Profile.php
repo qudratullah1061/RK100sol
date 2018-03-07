@@ -281,11 +281,19 @@ class Profile extends CI_Controller {
                     $data['membership_type'] = 'Companion';
                     $data['subscription_date'] = date('Y-m-d H:i:s');
                     $data['end_subscription_date'] = date('Y-m-d H:i:s', strtotime("+1 month"));
+                    $insert_promo_record = false;
                     if ($promo_code_info && $promo_code_info['promo_type'] == "sub") {
                         $data['end_subscription_date'] = date('Y-m-d', strtotime($data['end_subscription_date'] . ' +' . $promo_code_info['value'] . ' days'));
+                        $insert_promo_record = true;
                     }
                     $data['email_verification_code'] = md5(time());
                     $edit_id = $result = $this->Members_Model->add_member($data);
+                    // insert record in database for used promo as well.
+                    if ($insert_promo_record) {
+                        $promo_used_record_data = array("promo_code" => $promo_code, "member_id" => $edit_id, "created_on" => date("Y-m-d H:i:s"), "created_by" => $edit_id);
+                        $this->Members_Model->add_promo_used_record($promo_used_record_data);
+                    }
+
                     // update unique id
                     $unique_id_update_data['member_unique_code'] = "C-" . date("Ymd") . $edit_id;
                     $this->Members_Model->update_member($edit_id, $unique_id_update_data);
