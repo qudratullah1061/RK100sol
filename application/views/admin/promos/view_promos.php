@@ -30,9 +30,10 @@
                             <tr role="row" class="heading">
                                 <th width="30%"> Promo Title </th>
                                 <th width="30%"> Type </th>
-                                <th width="11%"> Created On </th>
-                                <th width="11%"> Updated On </th>
-                                <th width="11%"> Created By </th>
+                                <th width="11%"> Start Date </th>
+                                <th width="11%"> End Date </th>
+                                <th width="11%"> Promo Code </th>
+                                <th width="11%"> Used Promo Code </th>
                                 <th width="11%"> Status </th>
                                 <th width="15%"> Actions </th>
                             </tr>
@@ -49,7 +50,7 @@
                                 </td>
                                 <td>
                                     <div class="input-group date date-picker-createdon margin-bottom-5" data-date-format="yyyy-mm-dd">
-                                        <input type="text" class="form-control form-filter input-sm" readonly name="created_on" placeholder="Date">
+                                        <input type="text" class="form-control form-filter input-sm" readonly name="start_date" placeholder="Date">
                                         <span class="input-group-btn">
                                             <button class="btn btn-sm default" type="button">
                                                 <i class="fa fa-calendar"></i>
@@ -59,7 +60,7 @@
                                 </td>
                                 <td>
                                     <div class="input-group date date-picker-updatedon margin-bottom-5" data-date-format="yyyy-mm-dd">
-                                        <input type="text" class="form-control form-filter input-sm" readonly name="updated_on" placeholder="Date">
+                                        <input type="text" class="form-control form-filter input-sm" readonly name="end_date" placeholder="Date">
                                         <span class="input-group-btn">
                                             <button class="btn btn-sm default" type="button">
                                                 <i class="fa fa-calendar"></i>
@@ -68,7 +69,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control form-filter input-sm" placeholder="Name" name="created_by"> 
+                                    <input type="text" class="form-control form-filter input-sm" placeholder="Promo Code" name="promo_code"> 
+                                </td>
+                                <td>
+                                    <!--<input type="text" class="form-control form-filter input-sm" placeholder="Used Promo Code" name="promo_code">--> 
                                 </td>
                                 <td>
                                     <select class="form-control form-filter input-sm" placeholder="Select Status" name="is_active">

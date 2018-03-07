@@ -569,8 +569,12 @@ function GetBlogContent($cat_id) {
     global $CI;
     $CI->load->model('admin/blogs_model', 'Blogs_Model');
     $blogs = $CI->Blogs_Model->get_all_blogs_as_per_category($cat_id);
-//    echo "<pre>";
-//    print_r($blogs);
-//    exit;
     return $blogs;
+}
+
+function CountPromoCode($promo_code) {
+    global $CI;
+    $CI->load->model('admin/Promos_model', 'Promos_model');
+    $promos = $CI->Promos_model->get_all_used_promo_code($promo_code);
+    return $promos->promo_code;
 }

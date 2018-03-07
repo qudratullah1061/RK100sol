@@ -662,7 +662,7 @@
                                 <!--<div class="grid-sizer"></div>-->
                                 <!-- start portfolio item -->
                                 
-                                <?php echo "here"; exit; // $this->load->view('frontend/blogs/related_blog_articles', array('cat_id' => $cat_id)); ?>
+                                <?php $this->load->view('frontend/blogs/related_blog_articles', array('cat_id' => $cat_id)); ?>
                                 <!-- end portfolio item -->
                             </div>
                             <!-- start slider pagination -->

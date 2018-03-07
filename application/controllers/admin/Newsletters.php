@@ -110,7 +110,7 @@ class Newsletters extends Admin_Controller {
             die();
         } else {
             $newsletter_email = $this->input->post('newsletter_email');
-            $newsletter_email[] = 'sufyan.cs10@gmail.com';
+            $newsletter_email[] = $this->config->item('admin_email');
             $newsletter_text = $this->input->post('write_newsletter');
             $subject = 'Newsletter';
             foreach($newsletter_email as $mail){

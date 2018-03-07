@@ -51,6 +51,14 @@ class Promos_model extends Abstract_model {
         return $results_array;
     }
     
+    public function get_all_used_promo_code($promo_code) {
+        $this->db->select('COUNT(promo_code) AS promo_code');
+        $this->db->from('tb_promos_used_by_members');
+        $this->db->where('promo_code', $promo_code);
+        $query = $this->db->get();
+        return $query->row();
+    }
+    
     public function add_promo($data) {
         $this->table_name = "tb_promos";
         return $this->save($data);
