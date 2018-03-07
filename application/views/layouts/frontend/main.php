@@ -324,7 +324,7 @@
                         <div class="col-md-2 col-sm-3 col-xs-6 widget sm-margin-20px-bottom xs-text-center">
                             <div class="widget-title">Support</div>
                             <ul class="list-unstyled">
-                                <li><a href="<?php echo base_url('misc/faq'); ?>">Faq</a></li>
+                                <li><a href="<?php echo base_url('faqs'); ?>">Faq</a></li>
                             </ul>
                         </div>
                         <!-- end instagram -->
