@@ -1,3 +1,5 @@
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDVw_YgvMUxH6KawXzlwM9meU3HAUnbsLQ&libraries=places&language=en"></script>
+<script src="<?php echo base_url(); ?>assets/geocode/jquery.geocomplete.js" type="text/javascript"></script>
 <?php
 $unique_id = time();
 ?>
@@ -78,7 +80,7 @@ $unique_id = time();
                     <div class="ribbon-sub ribbon-clip"></div><?php echo $member_info['status']; ?></div>
                 <p class="ribbon-content"><?php echo $msg; ?></p>
             </div>
-            
+
             <div class="mt-element-ribbon bg-color-white">
                 <div class="ribbon ribbon-border-hor ribbon-clip <?php echo "ribbon-color-danger"; ?> uppercase">
                     <div class="ribbon-sub ribbon-clip"></div>
@@ -91,12 +93,12 @@ $unique_id = time();
             <!-- PORTLET MAIN -->
             <div class="portlet light ">
                 <!-- STAT -->
-<!--                <div class="row list-separated profile-stat">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="uppercase profile-stat-title"> 37 </div>
-                        <div class="uppercase profile-stat-text"> Connected Members </div>
-                    </div>
-                </div>-->
+                <!--                <div class="row list-separated profile-stat">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="uppercase profile-stat-title"> 37 </div>
+                                        <div class="uppercase profile-stat-text"> Connected Members </div>
+                                    </div>
+                                </div>-->
                 <!-- END STAT -->
                 <div class="text-center">
                     <h4 class="profile-desc-title">About <?php echo ucfirst($member_info['username']); ?></h4>
@@ -195,24 +197,28 @@ $unique_id = time();
                                             <label class="control-label">Date of birth<span class="required"></span></label>
                                             <input class="form-control date-picker" size="16" type="text" data-date-format="yyyy-mm-dd" value="<?php echo ($member_info['date_of_birth'] != '0000-00-00' ? $member_info['date_of_birth'] : ''); ?>" name="date_of_birth" />
                                         </div>
+                                        <!--                                        <div class="form-group col-md-6">
+                                                                                    <label class="control-label">Country<span class="required">*</span></label>
+                                                                                    <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
+                                        <?php // echo isset($country_options) ? $country_options : ""; ?>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="clearfix"></div>
+                                                                                <div class="form-group col-md-6">
+                                                                                    <label class="control-label">State<span class="required">*</span></label>
+                                                                                    <select class="form-control edited" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
+                                        <?php // echo isset($state_options) ? $state_options : ""; ?>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="form-group col-md-6">
+                                                                                    <label class="control-label">City<span class="required">*</span></label>
+                                                                                    <select class="form-control" id="dd-city" name="city">
+                                        <?php // echo isset($city_options) ? $city_options : ""; ?>
+                                                                                    </select>
+                                                                                </div>-->
                                         <div class="form-group col-md-6">
-                                            <label class="control-label">Country<span class="required">*</span></label>
-                                            <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
-                                                <?php echo isset($country_options) ? $country_options : ""; ?>
-                                            </select>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="form-group col-md-6">
-                                            <label class="control-label">State<span class="required">*</span></label>
-                                            <select class="form-control edited" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
-                                                <?php echo isset($state_options) ? $state_options : ""; ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="control-label">City<span class="required">*</span></label>
-                                            <select class="form-control" id="dd-city" name="city">
-                                                <?php echo isset($city_options) ? $city_options : ""; ?>
-                                            </select>
+                                            <label class="control-label">Location<span class="required">*</span></label>
+                                            <input type="text" name="location" id="location" value="<?php echo $member_info['location']; ?>" class="location form-control">
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-12">
@@ -423,15 +429,15 @@ $unique_id = time();
                                                                                     <td>
                                                                                         <div class="mt-radio-inline">
                                                                                             <label class="mt-radio">
-                                                                                                <input type="radio" name="status" <?php // echo $member_info['status'] == "active" ? "checked" : "";                 ?> value="active" /> Active
+                                                                                                <input type="radio" name="status" <?php // echo $member_info['status'] == "active" ? "checked" : "";                  ?> value="active" /> Active
                                                                                                 <span></span>
                                                                                             </label>
                                                                                             <label class="mt-radio">
-                                                                                                <input type="radio" name="status" checked="checked" value="pending" <?php // echo $member_info['status'] == "pending" ? "checked" : "";                 ?>/> Pending
+                                                                                                <input type="radio" name="status" checked="checked" value="pending" <?php // echo $member_info['status'] == "pending" ? "checked" : "";                  ?>/> Pending
                                                                                                 <span></span>
                                                                                             </label>
                                                                                             <label class="mt-radio">
-                                                                                                <input type="radio" name="status" value="suspended" <?php // echo $member_info['status'] == "suspended" ? "checked" : "";                 ?>/> Suspended
+                                                                                                <input type="radio" name="status" value="suspended" <?php // echo $member_info['status'] == "suspended" ? "checked" : "";                  ?>/> Suspended
                                                                                                 <span></span>
                                                                                             </label>
                                                                                         </div>
@@ -441,7 +447,7 @@ $unique_id = time();
                                                                             end profile-settings
                                                                             <div class="margin-top-10 text-right">
                                                                                 <a href="javascript:;" class="btn green"> Save Changes </a>
-                                                                                <a href="<?php // echo base_url('admin/guests');                 ?>" class="btn default"> Cancel </a>
+                                                                                <a href="<?php // echo base_url('admin/guests');                  ?>" class="btn default"> Cancel </a>
                                                                             </div>
                                                                         </form>-->
                                 </div>
@@ -469,9 +475,12 @@ $unique_id = time();
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/languages.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.kickstart.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
     $(document).ready(function () {
         $("#language_table").DataTable();
+        $("#location").geocomplete();
     });
 </script>

@@ -89,6 +89,9 @@ $unique_id = time();
                                         <li onclick="CommonFunctions.changeHash('#tab_1_4')">
                                             <a href="#tab_1_4" data-toggle="tab">Privacy Settings</a>
                                         </li>
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_5')">
+                                            <a href="#tab_1_10" data-toggle="tab">Promos</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="portlet-body">

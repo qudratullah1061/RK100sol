@@ -237,10 +237,12 @@ class Members_model extends Abstract_model {
     }
 
     public function add_member($data) {
+        $this->table_name = "tb_members";
         return $this->save($data);
     }
 
     public function update_member($edit_id, $data) {
+        $this->table_name = "tb_members";
         $this->updateBy('member_id', $edit_id, $data);
     }
 

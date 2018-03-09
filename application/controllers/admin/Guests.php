@@ -62,9 +62,10 @@ class Guests extends Admin_Controller {
             $this->form_validation->set_rules('phone_number', 'Phone Number', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('gender', 'Gender', 'required|trim|strip_tags|xss_clean');
 //            $this->form_validation->set_rules('date_of_birth', 'Date Of Birth', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('country', 'Country', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
-            $this->form_validation->set_rules('city', 'City', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('country', 'Country', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
+//            $this->form_validation->set_rules('city', 'City', 'required|trim|strip_tags|xss_clean');
+            $this->form_validation->set_rules('location', 'Location', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('address', 'Address', 'required|trim|strip_tags|xss_clean');
 
             if ($this->form_validation->run() == FALSE) {
@@ -81,9 +82,12 @@ class Guests extends Admin_Controller {
                 $data['phone_number'] = $this->input->post('phone_number');
                 $data['gender'] = $this->input->post('gender');
                 $data['date_of_birth'] = $this->input->post('date_of_birth');
-                $data['country'] = $this->input->post('country');
-                $data['state'] = $this->input->post('state');
-                $data['city'] = $this->input->post('city');
+                $geoCodesData = getGeoCodes($this->input->post('location'));
+                $data['country'] = $geoCodesData['country_long'];
+                $data['state'] = $geoCodesData['state_long'];
+                $data['city'] = $geoCodesData['city_long'];
+                $data['latitude'] = $geoCodesData['latitude'];
+                $data['longitude'] = $geoCodesData['longitude'];
                 $data['address'] = $this->input->post('address');
                 $data['about_me'] = $this->input->post('about_me');
                 $data['membership_type'] = 'Guest';

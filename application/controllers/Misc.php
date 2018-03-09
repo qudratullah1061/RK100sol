@@ -170,6 +170,10 @@ class Misc extends CI_Controller {
         $this->isAjax();
         $data_received = $this->input->post('data');
         $member_id = $this->input->post('member_id');
+        // get member info
+        $member_info = $this->Members_Model->get_member_by_id($member_id);
+
+        $subscription_date = $member_info['end_subscription_date'] != "0000-00-00 00:00:00" ? $member_info['end_subscription_date'] : date('Y-m-d H:i:s');
 
         $payment_details['member_id'] = $member_id;
         $payment_details['payment_raw_data'] = json_encode($data_received);
@@ -197,15 +201,13 @@ class Misc extends CI_Controller {
                 'email_verification_code' => md5(time()),
                 'current_plan_id' => $plan_info[0]['plan_id'],
                 'subscription_date' => date("Y-m-d H:i:s"),
-                'end_subscription_date' => date('Y-m-d H:i:s', strtotime("+" . $plan_info[0]['plan_duration']))//date("Y-m-d H:i:s", strtotime("+" . $plan_info[0]['plan_duration'], strtotime('2014-05-22 10:35:10'))),
+                'end_subscription_date' => date('Y-m-d H:i:s', strtotime($subscription_date . " +" . $plan_info[0]['plan_duration'])), //date("Y-m-d H:i:s", strtotime("+" . $plan_info[0]['plan_duration'], strtotime('2014-05-22 10:35:10'))),
             );
 
             $this->Members_Model->update_member($member_id, $update_data);
-            // get member info
-            $member_info = $this->Members_Model->get_member_by_id($member_id);
             $member_email = $member_info['email'];
             $member_email_v_code = $update_data['email_verification_code'];
-            sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $member_id . '/' . $member_email_v_code) . "'>Clicking here.</a>");
+            //sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $member_id . '/' . $member_email_v_code) . "'>Clicking here.</a>");
         }
         echo json_encode(array(
             'error' => false,
