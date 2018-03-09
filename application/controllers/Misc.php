@@ -207,7 +207,7 @@ class Misc extends CI_Controller {
             $this->Members_Model->update_member($member_id, $update_data);
             $member_email = $member_info['email'];
             $member_email_v_code = $update_data['email_verification_code'];
-            //sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $member_id . '/' . $member_email_v_code) . "'>Clicking here.</a>");
+            sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $member_id . '/' . $member_email_v_code) . "'>Clicking here.</a>");
         }
         echo json_encode(array(
             'error' => false,
