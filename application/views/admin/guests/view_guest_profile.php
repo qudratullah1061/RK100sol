@@ -9,6 +9,8 @@ $unique_id = time();
 <link href="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/css/cubeportfolio.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url(); ?>assets/pages/css/portfolio.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.min.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/styles/styles.css" rel="stylesheet">
 <!-- BEGIN PAGE HEADER-->
 <!-- BEGIN PAGE BAR -->
 <div class="page-bar">
@@ -86,7 +88,7 @@ $unique_id = time();
                     <div class="ribbon-sub ribbon-clip"></div>
                     <?php echo $member_info['end_subscription_date']; ?>
                 </div>
-                <p class="ribbon-content">Account was created on <?php echo $member_info['subscription_date']; ?> and will expire on <?php echo $member_info['end_subscription_date']; ?>. Click <a style="color:purple; font-weight: bold;" href="javascript:UpdateSubscription.UpdateSubscriptionModal(<?php echo $member_info['member_id']; ?>,'<?php echo $member_info['end_subscription_date']; ?>')">here</a> if you want to update subscription date for current member.</p>
+                <p class="ribbon-content">Account was created on <span class="bold italic" style="color:green;"><?php echo $member_info['subscription_date']; ?></span> and will expire on <span class="bold italic" style="color:red;"><?php echo $member_info['end_subscription_date']; ?></span>. Click <a style="color:purple; font-weight: bold;" href="javascript:UpdateSubscription.UpdateSubscriptionModal(<?php echo $member_info['member_id']; ?>,'<?php echo $member_info['end_subscription_date']; ?>')">here</a> if you want to update subscription date for current member.</p>
             </div>
 
             <!-- END PORTLET MAIN -->
@@ -292,13 +294,17 @@ $unique_id = time();
                                 <div class="tab-pane" id="tab_1_2">
                                     <!-- Profile images start-->
                                     <div>
-                                        <form action="<?php echo base_url('admin/misc/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                        <form class="form-horizontal text-center" action="<?php echo base_url('admin/companions/upload_images_member'); ?>" method="post">
                                             <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
-                                            <input type="hidden" name="file_upload_unique_id" value="<?php echo $unique_id; ?>">
-                                            <input type="hidden" name="image_type" value="profile">
-                                            <input type="hidden" name="image_dir" value="uploads/member_images/profile/">
-                                            <h3 class="sbold">Click to upload</h3>
-                                            <p> Upload Guest Member Profile Images </p>
+                                            <input type="hidden" name="member_type" value="guest">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="col-md-12">
+                                                    <div class="frame middle-elem profile-image">
+                                                        <input type="file" id="profile_images" name='profile_images[]' />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="submit" name="submit" class="btn green" value="Submit">
                                         </form>
 
                                         <div id="load_member_profile_images" class="cbp margin-top-20">
@@ -334,12 +340,17 @@ $unique_id = time();
 
                                     <!-- Id proof images start-->
                                     <div class="margin-top-20">
-                                        <form action="<?php echo base_url('admin/guests/upload_images_member'); ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                        <form class="form-horizontal text-center" action="<?php echo base_url('admin/companions/upload_images_member'); ?>" method="post">
                                             <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
-                                            <input type="hidden" name="image_type" value="id_proof">
-                                            <input type="hidden" name="image_dir" value="uploads/member_images/id_proofs/">
-                                            <h3 class="sbold">Click to upload</h3>
-                                            <p>Upload Guest Member Id Proofs</p>
+                                            <input type="hidden" name="member_type" value="guest">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="col-md-12">
+                                                    <div class="frame middle-elem id-proof">
+                                                        <input type="file" id="id_proofs" name='id_proofs[]' />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="submit" class="btn green" name="submit" value="Submit">
                                         </form>
 
                                         <div id="load_member_id_proofs" class="cbp margin-top-20">
@@ -429,15 +440,15 @@ $unique_id = time();
                                                                                     <td>
                                                                                         <div class="mt-radio-inline">
                                                                                             <label class="mt-radio">
-                                                                                                <input type="radio" name="status" <?php // echo $member_info['status'] == "active" ? "checked" : "";                  ?> value="active" /> Active
+                                                                                                <input type="radio" name="status" <?php // echo $member_info['status'] == "active" ? "checked" : "";                        ?> value="active" /> Active
                                                                                                 <span></span>
                                                                                             </label>
                                                                                             <label class="mt-radio">
-                                                                                                <input type="radio" name="status" checked="checked" value="pending" <?php // echo $member_info['status'] == "pending" ? "checked" : "";                  ?>/> Pending
+                                                                                                <input type="radio" name="status" checked="checked" value="pending" <?php // echo $member_info['status'] == "pending" ? "checked" : "";                        ?>/> Pending
                                                                                                 <span></span>
                                                                                             </label>
                                                                                             <label class="mt-radio">
-                                                                                                <input type="radio" name="status" value="suspended" <?php // echo $member_info['status'] == "suspended" ? "checked" : "";                  ?>/> Suspended
+                                                                                                <input type="radio" name="status" value="suspended" <?php // echo $member_info['status'] == "suspended" ? "checked" : "";                        ?>/> Suspended
                                                                                                 <span></span>
                                                                                             </label>
                                                                                         </div>
@@ -447,7 +458,7 @@ $unique_id = time();
                                                                             end profile-settings
                                                                             <div class="margin-top-10 text-right">
                                                                                 <a href="javascript:;" class="btn green"> Save Changes </a>
-                                                                                <a href="<?php // echo base_url('admin/guests');                  ?>" class="btn default"> Cancel </a>
+                                                                                <a href="<?php // echo base_url('admin/guests');                        ?>" class="btn default"> Cancel </a>
                                                                             </div>
                                                                         </form>-->
                                 </div>

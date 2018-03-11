@@ -39,6 +39,7 @@ class Companions extends Admin_Controller {
     public function upload_images_member($member_id_param = "") {
         // profile image upload
         $member_id = $this->input->post('member_id') ? $this->input->post('member_id') : $member_id_param;
+        $member_type = $this->input->post('member_type');
         if ($member_id) {
             $image_info = isset($_POST['profile_images'][0]) ? json_decode($_POST['profile_images'][0]) : "";
             if ($image_info) {
@@ -72,9 +73,12 @@ class Companions extends Admin_Controller {
                 }
             }
         }
+        if (!$member_id_param && $member_type=="guest") {
+            redirect(base_url('admin/guests/get_guest_profile/' . $member_id."#tab_1_2"));
+        }
         // front end user call.
-        if (!$member_id_param) {
-            redirect(base_url('admin/companions/get_companion_profile/' . $member_id));
+        if (!$member_id_param && $member_type=="companion") {
+            redirect(base_url('admin/companions/get_companion_profile/' . $member_id."#tab_1_3"));
         }
     }
 

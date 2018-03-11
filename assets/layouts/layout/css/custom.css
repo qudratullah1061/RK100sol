@@ -96,3 +96,12 @@ div#certification_table_wrapper{
 .tabbable-line > .nav-tabs > li.open, .tabbable-line > .nav-tabs > li:hover {background: none;border-bottom: 4px solid rgba(128, 0, 128, 0.49) !important;}
 .tabbable-line > .nav-tabs > li.active {border-bottom: 4px solid #800080 !important;position: relative;}
 /*border issue end*/
+
+.id-proof .slim .slim-file-hopper {
+    background-image: url(../../../frontend/img/IDp.jpg);
+    background-size: contain;
+}
+.profile-image .slim .slim-file-hopper {
+    background-image: url(../../../frontend/img/pp1.jpg);
+    background-size: contain;
+}

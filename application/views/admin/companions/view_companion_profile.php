@@ -363,11 +363,12 @@ $unique_id = time();
                                     <div class="note note-info">
                                         <p>Upload Profile Images Here.</p>
                                     </div>
-                                    <form class="form-horizontal text-center" action="<?php echo base_url('profile/upload_images_member'); ?>" method="post">
+                                    <form class="form-horizontal text-center" action="<?php echo base_url('admin/companions/upload_images_member'); ?>" method="post">
                                         <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
+                                        <input type="hidden" name="member_type" value="companion">
                                         <div class="form-group form-md-line-input">
                                             <div class="col-md-12">
-                                                <div class="frame middle-elem">
+                                                <div class="frame middle-elem profile-image">
                                                     <input type="file" id="profile_images" name='profile_images[]' />
                                                 </div>
                                             </div>
@@ -414,9 +415,10 @@ $unique_id = time();
                                         </div>
                                         <form class="form-horizontal text-center" action="<?php echo base_url('admin/companions/upload_images_member'); ?>" method="post">
                                             <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
+                                            <input type="hidden" name="member_type" value="companion">
                                             <div class="form-group form-md-line-input">
                                                 <div class="col-md-12">
-                                                    <div class="frame middle-elem">
+                                                    <div class="frame middle-elem id-proof">
                                                         <input type="file" id="id_proofs" name='id_proofs[]' />
                                                     </div>
                                                 </div>
