@@ -50,7 +50,7 @@ class Guests extends Admin_Controller {
         if ($this->input->post()) {
             $data = array();
             $is_update_call = $edit_id = $this->input->post('member_id') > 0 ? $this->input->post('member_id') : 0;
-            $unique_id = $this->input->post('file_upload_unique_id');
+//            $unique_id = $this->input->post('file_upload_unique_id');
             $this->form_validation->set_rules('first_name', 'First Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('username', 'Username', 'required|trim|strip_tags|xss_clean|callback_chk_member_username_exist[' . $edit_id . ']');
@@ -81,7 +81,11 @@ class Guests extends Admin_Controller {
                 }
                 $data['phone_number'] = $this->input->post('phone_number');
                 $data['gender'] = $this->input->post('gender');
-                $data['date_of_birth'] = $this->input->post('date_of_birth');
+                $year = $this->input->post('years');
+                $month = $this->input->post('months');
+                $day = $this->input->post('days');
+                $data['date_of_birth'] = $year . '-' . $month . '-' . $day;
+                $data['location'] = $this->input->post('location');
                 $geoCodesData = getGeoCodes($this->input->post('location'));
                 $data['country'] = $geoCodesData['country_long'];
                 $data['state'] = $geoCodesData['state_long'];
@@ -89,6 +93,7 @@ class Guests extends Admin_Controller {
                 $data['latitude'] = $geoCodesData['latitude'];
                 $data['longitude'] = $geoCodesData['longitude'];
                 $data['address'] = $this->input->post('address');
+                $data['zipcode'] = $this->input->post('zipcode');
                 $data['about_me'] = $this->input->post('about_me');
                 $data['membership_type'] = 'Guest';
                 $data['other_interest'] = $this->input->post('other_interest');
@@ -108,6 +113,15 @@ class Guests extends Admin_Controller {
                     $data['pinterest'] = $this->input->post('pinterest');
                     $data['skype'] = $this->input->post('skype');
                 }
+                
+                // check promo code is valid and entered.
+                $promo_code = $this->input->post('promo_code');
+                $promo_code_info = false;
+                if ($promo_code != "") {
+                    // validate promo code.
+                    $promo_code_info = validatePromoCode($promo_code);
+                }
+                // end here.
 
                 $result = false;
                 if ($edit_id > 0) {
@@ -115,66 +129,122 @@ class Guests extends Admin_Controller {
                     $this->Members_Model->update_member($edit_id, $data);
                     $result = true;
                 } else {
+                    $insert_promo_record = false;
+                    if ($promo_code_info && $promo_code_info['promo_type'] == "sub") {
+                        $data['subscription_date'] = date("Y-m-d H:i:s");
+                        $data['end_subscription_date'] = date('Y-m-d', strtotime(date("Y-m-d H:i:s") . ' +' . $promo_code_info['value'] . ' days'));
+                        $insert_promo_record = true;
+                    }
                     $data['member_type'] = 1;
                     $data['subscription_date'] = date('Y-m-d H:i:s');
                     $data['end_subscription_date'] = date('Y-m-d H:i:s', strtotime("+1 month"));
                     $edit_id = $result = $this->Members_Model->add_member($data);
+                    // insert record in database for used promo as well.
+                    if ($insert_promo_record) {
+                        $promo_used_record_data = array("promo_code" => $promo_code, "member_id" => $edit_id, "created_on" => date("Y-m-d H:i:s"), "created_by" => $edit_id);
+                        $this->Members_Model->add_promo_used_record($promo_used_record_data);
+                    }
                     // update unique id
                     $unique_id_update_data['member_unique_code'] = "G-" . date("Ymd") . $edit_id;
                     $this->Members_Model->update_member($edit_id, $unique_id_update_data);
                     $result = true;
                 }
+                
+                $this->upload_images_member($edit_id);
+                
                 // upload id proof images , add call
-                if (isset($_FILES['id_proofs']['name']) && $_FILES['id_proofs']['name'] != "" && $edit_id > 0) {
-                    $id_proofs = reArrayFiles($_FILES['id_proofs']);
-                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/id_proofs/';
-                    foreach ($id_proofs as $id_proof) {
-                        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-                        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-                        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-                        $file_name = basename($id_proof['name']);
-                        $u_file_name = time() . $file_name;
-                        $f_file_path = $f_upload_dir . '/' . $u_file_name;
-                        move_uploaded_file($id_proof['tmp_name'], $f_file_path);
-                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
-                        // insert in database as well.
-                        $image_data = array('member_id' => $edit_id, 'image_type' => 'id_proof', 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
-                        $this->db->insert('tb_member_images', $image_data);
-                    }
-                }
+//                if (isset($_FILES['id_proofs']['name']) && $_FILES['id_proofs']['name'] != "" && $edit_id > 0) {
+//                    $id_proofs = reArrayFiles($_FILES['id_proofs']);
+//                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/id_proofs/';
+//                    foreach ($id_proofs as $id_proof) {
+//                        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+//                        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+//                        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//                        $file_name = basename($id_proof['name']);
+//                        $u_file_name = time() . $file_name;
+//                        $f_file_path = $f_upload_dir . '/' . $u_file_name;
+//                        move_uploaded_file($id_proof['tmp_name'], $f_file_path);
+//                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
+//                        // insert in database as well.
+//                        $image_data = array('member_id' => $edit_id, 'image_type' => 'id_proof', 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+//                        $this->db->insert('tb_member_images', $image_data);
+//                    }
+//                }
                 // add member call
-                if (!$is_update_call) {
-                    // move temp images to tb_member_images after creating thumbnails
-                    $profile_images = $this->Members_Model->getTempImages($unique_id, 'profile');
-                    if ($profile_images) {
-                        $current_time = time();
-                        $is_profile_image = 1;
-                        foreach ($profile_images as $image) {
-                            $u_file_name = $current_time . $image['image'];
-                            $image_old_path = $this->config->item('root_path') . $image['image_path'] . $image['image'];
-                            $file_path = $this->config->item('root_path') . "uploads/member_images/profile/";
-                            $image_new_path = $file_path . $u_file_name;
-                            if (file_exists($image_old_path)) {
-                                rename($image_old_path, $image_new_path);
-                                $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-                                $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-                                $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-                                $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-                                CreateThumbnail($image_new_path, $file_path, $thumb_options, TRUE);
-                                // insert in database as well.
-                                $image_data = array('member_id' => $edit_id, 'image_type' => 'profile', 'is_profile_image' => $is_profile_image, 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $file_path));
-                                $this->db->insert('tb_member_images', $image_data);
-                                $is_profile_image = 0;
-                            }
-                        }
-                    }
-                }
+//                if (!$is_update_call) {
+//                    // move temp images to tb_member_images after creating thumbnails
+//                    $profile_images = $this->Members_Model->getTempImages($unique_id, 'profile');
+//                    if ($profile_images) {
+//                        $current_time = time();
+//                        $is_profile_image = 1;
+//                        foreach ($profile_images as $image) {
+//                            $u_file_name = $current_time . $image['image'];
+//                            $image_old_path = $this->config->item('root_path') . $image['image_path'] . $image['image'];
+//                            $file_path = $this->config->item('root_path') . "uploads/member_images/profile/";
+//                            $image_new_path = $file_path . $u_file_name;
+//                            if (file_exists($image_old_path)) {
+//                                rename($image_old_path, $image_new_path);
+//                                $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+//                                $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+//                                $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//                                $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+//                                CreateThumbnail($image_new_path, $file_path, $thumb_options, TRUE);
+//                                // insert in database as well.
+//                                $image_data = array('member_id' => $edit_id, 'image_type' => 'profile', 'is_profile_image' => $is_profile_image, 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $file_path));
+//                                $this->db->insert('tb_member_images', $image_data);
+//                                $is_profile_image = 0;
+//                            }
+//                        }
+//                    }
+//                }
                 if ($result) {
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
         } else {
             redirect(base_url('admin/admin_auth'));
+        }
+    }
+    
+    public function upload_images_member($member_id_param = "") {
+        // profile image upload
+        $member_id = $this->input->post('member_id') ? $this->input->post('member_id') : $member_id_param;
+        $member_type = $this->input->post('member_type');
+        if ($member_id) {
+            $image_info = isset($_POST['profile_images'][0]) ? json_decode($_POST['profile_images'][0]) : "";
+            if ($image_info) {
+                $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/profile/';
+                $uploaded_file_info = upload_base_64_image($image_info, $f_upload_dir);
+                if (isset($uploaded_file_info['image_full_path']) && $uploaded_file_info['image_full_path'] != "") {
+                    $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                    $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                    $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//                        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+                    CreateThumbnail($uploaded_file_info['image_full_path'], $f_upload_dir, $thumb_options);
+                    // insert in database as well.
+                    $image_data = array('member_id' => $member_id, 'image_type' => 'profile', 'is_profile_image' => 1, 'image' => $uploaded_file_info['image_name'], 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+                    $this->db->insert('tb_member_images', $image_data);
+                }
+            }
+            // id prof image upload
+            $image_info = isset($_POST['id_proofs'][0]) ? json_decode($_POST['id_proofs'][0]) : "";
+            if ($image_info) {
+                $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/id_proofs/';
+                $uploaded_file_info = upload_base_64_image($image_info, $f_upload_dir);
+                if (isset($uploaded_file_info['image_full_path']) && $uploaded_file_info['image_full_path'] != "") {
+                    $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
+                    $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
+                    $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
+//                        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
+                    CreateThumbnail($uploaded_file_info['image_full_path'], $f_upload_dir, $thumb_options);
+                    // insert in database as well.
+                    $image_data = array('member_id' => $member_id, 'image_type' => 'id_proof', 'image' => $uploaded_file_info['image_name'], 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
+                    $this->db->insert('tb_member_images', $image_data);
+                }
+            }
+        }
+        if (!$member_id_param && $member_type=="guest") {
+            redirect(base_url('admin/guests/get_guest_profile/' . $member_id."#tab_1_3"));
         }
     }
 

@@ -125,10 +125,10 @@ $unique_id = time();
                                     <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
                                 </li>
                                 <li onclick="CommonFunctions.changeHash('#tab_1_2')">
-                                    <a href="#tab_1_2" onclick="load_member_profile_images();load_member_id_proofs();" data-toggle="tab">Images</a>
+                                    <a href="#tab_1_2" data-toggle="tab">Languages</a>
                                 </li>
                                 <li onclick="CommonFunctions.changeHash('#tab_1_3')">
-                                    <a href="#tab_1_3" data-toggle="tab">Languages</a>
+                                    <a href="#tab_1_3" onclick="load_member_profile_images();load_member_id_proofs();" data-toggle="tab">Images</a>
                                 </li>
                                 <li onclick="CommonFunctions.changeHash('#tab_1_4')">
                                     <a href="#tab_1_4" data-toggle="tab">Privacy Settings</a>
@@ -290,102 +290,9 @@ $unique_id = time();
 
                                 </div>
                                 <!-- END PERSONAL INFO TAB -->
-                                <!-- IMAGES SETTINGS TAB -->
-                                <div class="tab-pane" id="tab_1_2">
-                                    <!-- Profile images start-->
-                                    <div>
-                                        <form class="form-horizontal text-center" action="<?php echo base_url('admin/companions/upload_images_member'); ?>" method="post">
-                                            <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
-                                            <input type="hidden" name="member_type" value="guest">
-                                            <div class="form-group form-md-line-input">
-                                                <div class="col-md-12">
-                                                    <div class="frame middle-elem profile-image">
-                                                        <input type="file" id="profile_images" name='profile_images[]' />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <input type="submit" name="submit" class="btn green" value="Submit">
-                                        </form>
-
-                                        <div id="load_member_profile_images" class="cbp margin-top-20">
-                                            <?php
-                                            if ($member_profile_pics && count($member_profile_pics) > 0) {
-                                                $counter = 1;
-                                                foreach ($member_profile_pics as $image_info) {
-                                                    ?>
-                                                    <div class="cbp-item graphic" id='pic-<?php echo $image_info['image_id']; ?>'>
-                                                        <div class="cbp-caption">
-                                                            <div class="cbp-caption-defaultWrap">
-                                                                <img src="<?php echo base_url() . $image_info['image_path'] . 'large_' . $image_info['image']; ?>" alt=""> 
-                                                            </div>
-                                                            <div class="cbp-caption-activeWrap">
-                                                                <div class="cbp-l-caption-alignCenter">
-                                                                    <div class="cbp-l-caption-body">                                                                        
-                                                                        <a href="javascript:CommonFunctions.Delete('<?php echo $image_info['image_id']; ?>', 'tb_member_images', 'image_id', 'Are you sure you want to delete this image?')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Delete</a>
-                                                                        <a href="javascript:CommonFunctions.MakeProfileImage('<?php echo $image_info['image_id']; ?>', '<?php echo $image_info['member_id']; ?>')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Make profile</a>
-                                                                        <a href="<?php echo base_url() . $image_info['image_path'] . $image_info['image']; ?>" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Konsorts.com">view larger</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center pic-caption-img pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
-                                                    </div>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                        </div>
-                                    </div>
-                                    <!-- Profile images ends-->
-
-                                    <!-- Id proof images start-->
-                                    <div class="margin-top-20">
-                                        <form class="form-horizontal text-center" action="<?php echo base_url('admin/companions/upload_images_member'); ?>" method="post">
-                                            <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
-                                            <input type="hidden" name="member_type" value="guest">
-                                            <div class="form-group form-md-line-input">
-                                                <div class="col-md-12">
-                                                    <div class="frame middle-elem id-proof">
-                                                        <input type="file" id="id_proofs" name='id_proofs[]' />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <input type="submit" class="btn green" name="submit" value="Submit">
-                                        </form>
-
-                                        <div id="load_member_id_proofs" class="cbp margin-top-20">
-                                            <?php
-                                            if ($member_id_proofs && count($member_id_proofs) > 0) {
-                                                $counter = 1;
-                                                foreach ($member_id_proofs as $image_info) {
-                                                    ?>
-                                                    <div class="cbp-item graphic" id='pic-<?php echo $image_info['image_id']; ?>'>
-                                                        <div class="cbp-caption">
-                                                            <div class="cbp-caption-defaultWrap">
-                                                                <img src="<?php echo base_url() . $image_info['image_path'] . 'large_' . $image_info['image']; ?>" alt=""> 
-                                                            </div>
-                                                            <div class="cbp-caption-activeWrap">
-                                                                <div class="cbp-l-caption-alignCenter">
-                                                                    <div class="cbp-l-caption-body">                                                                        
-                                                                        <a href="javascript:CommonFunctions.Delete('<?php echo $image_info['image_id']; ?>', 'tb_member_images', 'image_id', 'Are you sure you want to delete this id proof?')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Delete</a>
-                                                                        <a href="<?php echo base_url() . $image_info['image_path'] . $image_info['image']; ?>" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Konsorts.com">view larger</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center">Id proof <?php echo $counter++; ?></div>
-                                                    </div>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                        </div>
-                                    </div>
-                                    <!-- Id proof images ends-->
-                                </div>
-                                <!-- END IMAGES SETTINGS TAB -->
+                                
                                 <!--Languages tab starts from here-->
-                                <div class="tab-pane" id="tab_1_3">
+                                <div class="tab-pane" id="tab_1_2">
                                     <div id="" class="table-responsive">
                                         <div class="table-actions-wrapper margin-bottom-20">
                                             <span> </span>
@@ -431,6 +338,102 @@ $unique_id = time();
                                     </div>
                                 </div>
                                 <!--Languages tabs ends here-->
+                                
+                                <!-- IMAGES SETTINGS TAB -->
+                                <div class="tab-pane" id="tab_1_3">
+                                    <!-- Profile images start-->
+                                    <div>
+                                        <form class="form-horizontal text-center" action="<?php echo base_url('admin/guests/upload_images_member'); ?>" method="post">
+                                            <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
+                                            <input type="hidden" name="member_type" value="guest">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="col-md-12">
+                                                    <div class="frame middle-elem profile-image">
+                                                        <input type="file" id="profile_images" name='profile_images[]' />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="submit" name="submit" class="btn green" value="Submit">
+                                        </form>
+
+                                        <div id="load_member_profile_images" class="cbp margin-top-20">
+                                            <?php
+                                            if ($member_profile_pics && count($member_profile_pics) > 0) {
+                                                $counter = 1;
+                                                foreach ($member_profile_pics as $image_info) {
+                                                    ?>
+                                                    <div class="cbp-item graphic" id='pic-<?php echo $image_info['image_id']; ?>'>
+                                                        <div class="cbp-caption">
+                                                            <div class="cbp-caption-defaultWrap">
+                                                                <img src="<?php echo base_url() . $image_info['image_path'] . 'large_' . $image_info['image']; ?>" alt=""> 
+                                                            </div>
+                                                            <div class="cbp-caption-activeWrap">
+                                                                <div class="cbp-l-caption-alignCenter">
+                                                                    <div class="cbp-l-caption-body">                                                                        
+                                                                        <a href="javascript:CommonFunctions.Delete('<?php echo $image_info['image_id']; ?>', 'tb_member_images', 'image_id', 'Are you sure you want to delete this image?')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Delete</a>
+                                                                        <a href="javascript:CommonFunctions.MakeProfileImage('<?php echo $image_info['image_id']; ?>', '<?php echo $image_info['member_id']; ?>')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Make profile</a>
+                                                                        <a href="<?php echo base_url() . $image_info['image_path'] . $image_info['image']; ?>" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Konsorts.com">view larger</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center pic-caption-img pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
+                                                    </div>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <!-- Profile images ends-->
+
+                                    <!-- Id proof images start-->
+                                    <div class="margin-top-20">
+                                        <form class="form-horizontal text-center" action="<?php echo base_url('admin/guests/upload_images_member'); ?>" method="post">
+                                            <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
+                                            <input type="hidden" name="member_type" value="guest">
+                                            <div class="form-group form-md-line-input">
+                                                <div class="col-md-12">
+                                                    <div class="frame middle-elem id-proof">
+                                                        <input type="file" id="id_proofs" name='id_proofs[]' />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="submit" class="btn green" name="submit" value="Submit">
+                                        </form>
+
+                                        <div id="load_member_id_proofs" class="cbp margin-top-20">
+                                            <?php
+                                            if ($member_id_proofs && count($member_id_proofs) > 0) {
+                                                $counter = 1;
+                                                foreach ($member_id_proofs as $image_info) {
+                                                    ?>
+                                                    <div class="cbp-item graphic" id='pic-<?php echo $image_info['image_id']; ?>'>
+                                                        <div class="cbp-caption">
+                                                            <div class="cbp-caption-defaultWrap">
+                                                                <img src="<?php echo base_url() . $image_info['image_path'] . 'large_' . $image_info['image']; ?>" alt=""> 
+                                                            </div>
+                                                            <div class="cbp-caption-activeWrap">
+                                                                <div class="cbp-l-caption-alignCenter">
+                                                                    <div class="cbp-l-caption-body">                                                                        
+                                                                        <a href="javascript:CommonFunctions.Delete('<?php echo $image_info['image_id']; ?>', 'tb_member_images', 'image_id', 'Are you sure you want to delete this id proof?')" class="cbp-l-caption-buttonLeft btn red uppercase" rel="nofollow">Delete</a>
+                                                                        <a href="<?php echo base_url() . $image_info['image_path'] . $image_info['image']; ?>" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Konsorts.com">view larger</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center">Id proof <?php echo $counter++; ?></div>
+                                                    </div>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <!-- Id proof images ends-->
+                                </div>
+                                <!-- END IMAGES SETTINGS TAB -->
+                                
                                 <!-- PRIVACY SETTINGS TAB -->
                                 <div class="tab-pane" id="tab_1_4">
                                     <!--                                    <form id="privacy_form">

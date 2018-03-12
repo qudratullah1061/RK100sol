@@ -73,9 +73,6 @@ class Companions extends Admin_Controller {
                 }
             }
         }
-        if (!$member_id_param && $member_type=="guest") {
-            redirect(base_url('admin/guests/get_guest_profile/' . $member_id."#tab_1_2"));
-        }
         // front end user call.
         if (!$member_id_param && $member_type=="companion") {
             redirect(base_url('admin/companions/get_companion_profile/' . $member_id."#tab_1_3"));

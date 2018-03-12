@@ -105,3 +105,7 @@ div#certification_table_wrapper{
     background-image: url(../../../frontend/img/pp1.jpg);
     background-size: contain;
 }
+.slim-error{
+    z-index:10;
+    color:pink;
+}

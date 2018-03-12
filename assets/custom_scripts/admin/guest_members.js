@@ -65,22 +65,13 @@ var GuestMembers = function () {
                 'id_proofs[]': {
                     required: true,
                 },
+                'profile_images[]': {
+                    required: true,
+                },
                 phone_number: {
                     required: true,
                 },
-//                gender: {
-//                    required: true,
-//                },
-//                date_of_birth: {
-//                    required: true,
-//                },
-                country: {
-                    required: true,
-                },
-                state: {
-                    required: true,
-                },
-                city: {
+                location: {
                     required: true,
                 },
                 address: {
@@ -110,19 +101,7 @@ var GuestMembers = function () {
                 phone_number: {
                     required: true,
                 },
-//                gender: {
-//                    required: true,
-//                },
-//                date_of_birth: {
-//                    required: true,
-//                },
-                country: {
-                    required: true,
-                },
-                state: {
-                    required: true,
-                },
-                city: {
+                location: {
                     required: true,
                 },
                 address: {

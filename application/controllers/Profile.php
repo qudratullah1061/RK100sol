@@ -33,7 +33,7 @@ class Profile extends CI_Controller {
             if ($edit_id > 0 && !$this->session->userdata('member_id')) {
                 redirect(base_url('auth/login'));
             }
-            $unique_id = $this->input->post('file_upload_unique_id');
+//            $unique_id = $this->input->post('file_upload_unique_id');
             $this->form_validation->set_rules('first_name', 'First Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('username', 'Username', 'required|trim|strip_tags|xss_clean|callback_chk_member_username_exist[' . $edit_id . ']');
