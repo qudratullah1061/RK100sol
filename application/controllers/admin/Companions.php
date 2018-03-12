@@ -158,6 +158,7 @@ class Companions extends Admin_Controller {
                     unset($data['created_by']);
                     // receive social links
                     $data['facebook'] = $this->input->post('facebook');
+                    $data['current_plan_id'] = $this->input->post('current_plan_id');
                     $data['twitter'] = $this->input->post('twitter');
                     $data['linkedin'] = $this->input->post('linkedin');
                     $data['instagram'] = $this->input->post('instagram');
@@ -360,6 +361,7 @@ class Companions extends Admin_Controller {
             $data['degrees'] = $this->Members_Model->get_member_degrees($member_id);
             $data['experiences'] = $this->Members_Model->get_member_experiences($member_id);
             $data['certifications'] = $this->Members_Model->get_member_certification($member_id);
+            $data['plans'] = $this->Members_Model->getPlans(2);
             $this->load->view('admin/companions/view_companion_profile', $data);
         } else {
             redirect(base_url('admin/companions'));

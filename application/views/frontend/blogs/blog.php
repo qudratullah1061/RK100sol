@@ -5,7 +5,21 @@
 <!-- end page title section -->
 <!-- start post content section -->
 <section class="wow fadeIn">
-    <div class="container"> 
+    <div class="container">
+        <div class="display-inline-block width-100 margin-45px-bottom xs-margin-25px-bottom">
+            <form action="<?php echo base_url('blogs/search_keyword'); ?>" method="post">
+                <div class="position-relative">
+                    <select name="search_by_category">
+                        <option value="">Please Select a Category!</option>
+                        <?php foreach ($categories as $category) { ?>
+                            <option value="<?php echo $category['category_id']; ?>" <?php echo (isset($category_id) && $category_id == $category['category_id'] ? 'selected' : ''); ?>><?php echo $category['category_name']; ?></option>
+                        <?php } ?>
+                    </select>
+                    <input type="text" value="<?php echo (isset($keyword) ? $keyword : ''); ?>" name="keyword" class="bg-transparent text-small no-margin border-color-extra-light-gray medium-input pull-left" placeholder="Enter your keywords...">
+                    <button type="submit" class="bg-transparent  btn position-absolute right-0"><i class="fa fa-search no-margin-left"></i></button>
+                </div>  
+            </form>
+        </div>
         <div class="row equalize xs-equalize-auto">
             <!-- start post item -->
             <?php

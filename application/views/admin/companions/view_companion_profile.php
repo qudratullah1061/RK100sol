@@ -246,6 +246,23 @@ $unique_id = time();
                                             <input class="form-control" name="other_interest" value="<?php echo $member_info['other_interest']; ?>" placeholder="Other Interest"/>
                                         </div>
                                         <div class="clearfix"></div>
+                                        <div class="form-group col-md-6">
+                                            <label>Select Membership Plan</label>
+                                            <select class="form-control" name="current_plan_id">
+                                                <option value="">Select Membership Plan</option>
+                                                <?php
+                                                foreach ($plans as $plan) {
+                                                    if($member_info['current_plan_id'] == $plan['plan_id']){
+                                                        $selected_plan_id = 'selected';
+                                                    }else{
+                                                        $selected_plan_id = '';
+                                                    }
+                                                    echo "<option data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_id'] . "' ".$selected_plan_id.">" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="clearfix"></div>
                                         <div class="form-group col-md-12">
                                             <label class="control-label">About</label>
                                             <textarea class="form-control" rows="3" name="about_me" placeholder="About Me"><?php echo $member_info['about_me']; ?></textarea>

@@ -15,8 +15,8 @@
                                     Contract a Service Member
                                 </h4>
                                 <p class="open-sans text-white">Community of independent service providers.</p>
-                                <a href='<?php echo base_url('auth/register'); ?>' class='btn btn-purple-white-border open-sans'> I want to HIRE </a>
-                                <a href='<?php echo base_url('auth/register'); ?>' class='btn btn-purple-white-border open-sans'> I want to WORK </a>
+                                <a href='<?php echo base_url('auth/register'); ?>' class='btn btn-purple-white-border open-sans'> Hire Services </a>
+                                <a href='<?php echo base_url('auth/register'); ?>' class='btn btn-purple-white-border open-sans'> Offer Services </a>
 
                             </div>
                         </div>

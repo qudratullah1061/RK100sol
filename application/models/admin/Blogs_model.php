@@ -234,13 +234,14 @@ class Blogs_model extends Abstract_model {
         return $query->result();
     }
     
-    function search_by_keyword($keyword, $category_id) {
+    function search_by_keyword($category_id, $keyword=NULL) {
         $this->db->select('tb_blogs.*');
-        $this->db->from('tb_blog_descriptions AS tbd');
-        $this->db->join('tb_blogs', 'tb_blogs.blog_id=tbd.blog_id');
-        $this->db->join('tb_blog_categories', 'tb_blog_categories.blog_id=tb_blogs.blog_id');
-        $this->db->or_like('blog_title',$keyword);
-        $this->db->or_like('tbd.blog_description',$keyword);
+        $this->db->from('tb_blogs');
+        $this->db->join('tb_blog_descriptions', 'tb_blog_descriptions.blog_id=tb_blogs.blog_id', 'left');
+        $this->db->join('tb_blog_categories', 'tb_blog_categories.blog_id=tb_blogs.blog_id', 'left');
+        if($keyword != NULL){
+            $this->db->where("(blog_title LIKE '%".$keyword."%' OR tb_blog_descriptions.blog_description LIKE '%".$keyword."%' )");
+        }
         $this->db->where('tb_blogs.is_active', 1);
         if($category_id != ''){
             $this->db->where('tb_blog_categories.category_id', $category_id);

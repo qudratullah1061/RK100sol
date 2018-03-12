@@ -63,9 +63,10 @@ class Blogs extends CI_Controller {
     }
     
     function search_keyword() {
-        $category_id = $this->input->post('search_by_category');
-        $keyword = $this->input->post('keyword');
-        $data['blogs'] = $this->Blogs_Model->search_by_keyword($keyword, $category_id);
+        $data['categories'] = GetAllCategories();
+        $data['category_id'] = $category_id = $this->input->post('search_by_category');
+        $data['keyword'] = $keyword = $this->input->post('keyword');
+        $data['blogs'] = $this->Blogs_Model->search_by_keyword($category_id, $keyword);
         $this->selected_tab = 'blog';
         $this->load->view('frontend/blogs/blog', $data);
     }
