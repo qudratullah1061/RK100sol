@@ -14,6 +14,7 @@ class Blogs extends CI_Controller {
     }
 
     function index() {
+        $data['categories'] = GetAllCategories();
         $data['blogs'] = $blogs = $this->Blogs_Model->get_all_active_blogs();
         $this->selected_tab = 'blog';
         $this->load->view('frontend/blogs/blog', $data);
