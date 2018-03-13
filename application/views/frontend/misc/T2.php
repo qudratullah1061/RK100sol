@@ -12,8 +12,8 @@
                                     Community of independent <br>service providers!
                                 </h4>
                                 <p class="open-sans text-white">Great value homestays in over 160 countries</p>
-                                <a href='<?php echo base_url('/auth/register') ?>' class='btn btn-purple-white-border open-sans'> Find a Host </a>
-                                <a href='<?php echo base_url('/auth/register') ?>' class='btn btn-purple-white-border open-sans'> Become a Host </a>
+                                <a href='<?php echo base_url('/auth/register') ?>' class='btn btn-purple-white-border open-sans'> Hire Services </a>
+                                <a href='<?php echo base_url('/auth/register') ?>' class='btn btn-purple-white-border open-sans'> Offer Services </a>
 
                             </div>
                         </div>
@@ -26,7 +26,7 @@
 <section class="wow fadeIn gold-members hide">
     <div class="container">
         <p class="title-bar bg-purple text-white font-weight-600 text-center margin-35px-top">
-            <i class="fa fa-star"></i> Find A Host
+            <i class="fa fa-star"></i> Hire Services
             <i class="fa fa-star"></i>
         </p>
 
