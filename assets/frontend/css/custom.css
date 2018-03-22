@@ -1762,6 +1762,46 @@ header.sticky nav.header-light .logo .logo-dark {
     border-left: 2px solid #f1f1f1;
     padding-left: 20px;
 }
+.translater-wrapper {
+    background: purple;
+    width: auto;
+    display: inline-block;
+    border-radius: 2px;
+    position: fixed;
+    top: 135px;
+    right: -141px;
+    padding: 2px;
+    transition: all 0.3s ease-in;
+    width: 176px;
+}
+.translater-wrapper.active {
+    right: 0;
+    transition: all 0.3s ease-in;
+}
+.translater-wrapper .translater-icon {
+    float: left;
+    padding: 3px 7px 3px 5px;
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+.translater-wrapper .fa-angle-double-right {
+    display: none;
+}
+.translater-wrapper.active .fa-google-plus-square {
+    display: none;
+}
+.translater-wrapper.active .fa-angle-double-right {
+    display: block;
+    margin-top: 5px;
+}
+a.goog-te-menu-value {
+    font-size: 12px;
+    color: purple;
+}
+a.goog-te-menu-value span {
+    color: purple !important;
+}
 @media(max-width:1199px) and (min-width:992px) {
     .homestay-articles .portfolio-grid.work-4col li {
         width: 25%;

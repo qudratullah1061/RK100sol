@@ -72,7 +72,7 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
         <!--sweet alert ends-->
         <!-- BEGIN datepicker-->
-        <!--<link href="<?php // echo base_url();                                  ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="<?php // echo base_url();                                     ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
         <!--datepicker ends-->
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -132,7 +132,7 @@
                                     <li class="<?php echo ActivateLink('about'); ?>">
                                         <a href="<?php echo base_url('misc/about'); ?>">About</a>
                                     </li>
-<!--                                    <li class="<?php // echo ActivateLink('services');                    ?>">
+<!--                                    <li class="<?php // echo ActivateLink('services');                       ?>">
                                         <a href="javascript:void(0);">Our Services</a>
                                     </li>-->
                                     <li class="<?php echo ActivateLink('blog'); ?>">
@@ -285,8 +285,13 @@
         <footer class="footer-standard bg-light-gray"> 
             <div class="footer-widget-area ">
                 <div class="container">
-                    <div id="google_translate_element"></div>
-
+                    <div class="translater-wrapper">
+                        <div class="translater-icon">
+                            <i class="fa fa-google-plus-square"></i>
+                            <i class="fa fa-angle-double-right"></i>
+                        </div>
+                        <div id="google_translate_element"></div>
+                    </div>
                     <script type="text/javascript">
             function googleTranslateElementInit() {
                 new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
@@ -347,9 +352,9 @@
                                     <ul  class="small-icon no-margin-bottom">
                                         <li> <span> Follow Us:</span> </li>
                                         <li class="enabled"><a href="<?php echo isset($admin_info['facebook_link']) ? $admin_info['facebook_link'] : ""; ?>"><i class="fa fa-facebook-square"></i></a></li>
-                                        <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                  ?>"><i class="fa fa-youtube-square"></i></a></li>-->
+                                        <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                     ?>"><i class="fa fa-youtube-square"></i></a></li>-->
                                         <li><a href="<?php echo isset($admin_info['linkedin_link']) ? $admin_info['linkedin_link'] : ""; ?>"><i class="fa fa-linkedin-square"></i></a></li>
-                                        <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                  ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
+                                        <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                     ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
                                         <li class="enabled"><a href="<?php echo isset($admin_info['twitter_link']) ? $admin_info['twitter_link'] : ""; ?>"><i class="fa fa-twitter-square"></i></a></li>
                                         <li><a href="<?php echo isset($admin_info['instagram_link']) ? $admin_info['instagram_link'] : ""; ?>"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
@@ -448,7 +453,7 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
         <!--Form Validation end-->
         <!--datepicker start-->
-        <!--<script src="<?php // echo base_url();                                  ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
+        <!--<script src="<?php // echo base_url();                                     ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
         <!--datepicker ends-->
         <!--select2 start-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
@@ -478,6 +483,21 @@
             $(document).ready(function () {
                 GlobalPlugins.initToasterPlugin();
             });
+            $('.translater-icon').on('click', function () {
+                $(this).parent('div').toggleClass('active');
+            });
+            $(document).mouseup(function (e)
+            {
+                var container = $(".translater-wrapper");
+
+                // if the target of the click isn't the container nor a descendant of the container
+                if (!container.is(e.target) && container.has(e.target).length === 0)
+                {
+                    container.removeClass('active');
+                }
+            });
+
+
 //            $(function () {
 //                $('.scroller').slimScroll({
 //                    height: '150px'
