@@ -72,7 +72,7 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
         <!--sweet alert ends-->
         <!-- BEGIN datepicker-->
-        <!--<link href="<?php // echo base_url();                        ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="<?php // echo base_url();                                  ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
         <!--datepicker ends-->
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -132,7 +132,7 @@
                                     <li class="<?php echo ActivateLink('about'); ?>">
                                         <a href="<?php echo base_url('misc/about'); ?>">About</a>
                                     </li>
-<!--                                    <li class="<?php // echo ActivateLink('services');          ?>">
+<!--                                    <li class="<?php // echo ActivateLink('services');                    ?>">
                                         <a href="javascript:void(0);">Our Services</a>
                                     </li>-->
                                     <li class="<?php echo ActivateLink('blog'); ?>">
@@ -160,17 +160,6 @@
                                         <?php
                                     }
                                     ?>
-<!--                                    <li>
-                                        <a>
-                                        <div id="google_translate_element"></div>
-                                        </a>
-                                        <script type="text/javascript">
-                                        function googleTranslateElementInit() {
-                                            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-                                        }
-                                        </script>
-                                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                                    </li>-->
                                 </ul>
                             </div>
                         </div>
@@ -289,7 +278,6 @@
                 </div>
             </nav>
             <!-- end navigation -->
-
         </header>
         <!-- end header -->
         {_yield}
@@ -297,6 +285,14 @@
         <footer class="footer-standard bg-light-gray"> 
             <div class="footer-widget-area ">
                 <div class="container">
+                    <div id="google_translate_element"></div>
+
+                    <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            }
+                    </script>
+                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     <div class="row equalize xs-equalize-auto footer-top">
                         <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
                             <a href="index.html" class="margin-15px-bottom display-inline-block"><img class="footer-logo" src="<?php echo base_url('assets/frontend/'); ?>img/logo.png" alt="Konsorts"></a>
@@ -351,9 +347,9 @@
                                     <ul  class="small-icon no-margin-bottom">
                                         <li> <span> Follow Us:</span> </li>
                                         <li class="enabled"><a href="<?php echo isset($admin_info['facebook_link']) ? $admin_info['facebook_link'] : ""; ?>"><i class="fa fa-facebook-square"></i></a></li>
-                                        <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                        ?>"><i class="fa fa-youtube-square"></i></a></li>-->
+                                        <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                  ?>"><i class="fa fa-youtube-square"></i></a></li>-->
                                         <li><a href="<?php echo isset($admin_info['linkedin_link']) ? $admin_info['linkedin_link'] : ""; ?>"><i class="fa fa-linkedin-square"></i></a></li>
-                                        <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                        ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
+                                        <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                  ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
                                         <li class="enabled"><a href="<?php echo isset($admin_info['twitter_link']) ? $admin_info['twitter_link'] : ""; ?>"><i class="fa fa-twitter-square"></i></a></li>
                                         <li><a href="<?php echo isset($admin_info['instagram_link']) ? $admin_info['instagram_link'] : ""; ?>"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
@@ -452,7 +448,7 @@
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
         <!--Form Validation end-->
         <!--datepicker start-->
-        <!--<script src="<?php // echo base_url();                        ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
+        <!--<script src="<?php // echo base_url();                                  ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
         <!--datepicker ends-->
         <!--select2 start-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
