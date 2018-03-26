@@ -56,6 +56,9 @@ var FormWizard = function () {
                 success: function (data) {
                     if (!data.error) {
                         toastr["success"](data.description, "Success!");
+                        setTimeout(function () {
+                            window.location.reload()
+                        }, 1000);
                     } else {
                         toastr["error"](data.description, "Error!");
                     }
