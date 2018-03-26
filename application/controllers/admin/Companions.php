@@ -277,7 +277,8 @@ class Companions extends Admin_Controller {
         $this->isAjax();
         $member_id = $this->input->post('member_id');
         $categories = $this->input->post('categories');
-        $this->AddUpdateMemberCategories($categories, $member_id);
+//        $this->AddUpdateMemberCategories($categories, $member_id);
+        $this->Members_Model->AddUpdateMemberCategoryRates($categories, $member_id);
         $this->_response(false, "Changes saved successfully!");
     }
 
@@ -356,6 +357,13 @@ class Companions extends Admin_Controller {
             $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
             $data['categories'] = GetAllCategories();
             $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
+            $sub_cat_rates = array();
+            if ($data['selected_categories']) {
+                foreach ($data['selected_categories'] as $val) {
+                    $sub_cat_rates[] = $val['sub_category_id'];
+                }
+            }
+            $data['sub_category_rates'] = $this->Members_Model->get_sub_cat_rates($member_id, $sub_cat_rates);
             $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id);
             $data['language_data'] = $this->Members_Model->get_member_languages($member_id);
             $data['degrees'] = $this->Members_Model->get_member_degrees($member_id);
@@ -638,6 +646,32 @@ class Companions extends Admin_Controller {
             }
         } else {
             redirect(base_url('admin/companions/get_companion_profile'));
+        }
+    }
+    
+    function SaveRates() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $data = array();
+            $data['tb_member_category_id'] = $this->input->post('tb_member_category_id');
+            $data['rate'] = $this->input->post('rate');
+            $data['description'] = $this->input->post('description');
+            $data['is_active'] = $this->input->post('is_active');
+            $result = $this->Members_Model->update_rates('tb_member_category_id', $data['tb_member_category_id'], $data);
+            if ($result) {
+                $this->_response(false, "Changes saved successfully!");
+            }
+        }
+    }
+
+    function DeleteRates() {
+        $this->isAjax();
+        if ($this->input->post()) {
+            $tb_member_category_id = $this->input->post('tb_member_category_id');
+            $result = $this->Members_Model->deleteRates($tb_member_category_id);
+            if ($result) {
+                $this->_response(false, "Changes saved successfully!");
+            }
         }
     }
 

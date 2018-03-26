@@ -56,6 +56,9 @@ var FormWizard = function () {
                 success: function (data) {
                     if (!data.error) {
                         toastr["success"](data.description, "Success!");
+                        setTimeout(function () {
+                            window.location.reload()
+                        }, 1000);
                     } else {
                         toastr["error"](data.description, "Error!");
                     }
@@ -240,7 +243,7 @@ var FormWizard = function () {
     return {
         //main function to initiate the module
         init: function () {
-            $("input[name='date_of_birth']").datepicker({ changeMonth: true, changeYear: true, showButtonPanel: true,dateFormat:"yy-mm-dd"});
+            $("input[name='date_of_birth']").datepicker({changeMonth: true, changeYear: true, showButtonPanel: true, dateFormat: "yy-mm-dd"});
 //            $("#dd-country").select2({
 //                placeholder: "Select",
 //                allowClear: true,
@@ -311,10 +314,10 @@ var FormWizard = function () {
                 onNext: function (tab, navigation, index) {
                     success.hide();
                     error.hide();
-                    if(index==1 && $("input[name='id_proofs[]']").val()==""){
+                    if (index == 1 && $("input[name='id_proofs[]']").val() == "") {
                         swal("Error!", "Please upload at least one id proof image.", "error");
                         return false;
-                    }else{
+                    } else {
                         $("#id_proofs-error").remove();
                     }
                     if (form.valid() == false) {

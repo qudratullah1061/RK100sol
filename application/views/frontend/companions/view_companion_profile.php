@@ -242,6 +242,37 @@
 
                                         <!-- Availabilities SETTINGS TAB -->
                                         <div class="tab-pane" id="tab_1_2">
+                                            <table class="table table-striped table-hover table-bordered" cellspacing="0" width="100%" id="categories_rate_tbl">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="display: none;"></th>
+                                                        <th> Sub Category Name </th>
+                                                        <th> Rate </th>
+                                                        <th> Description </th>
+                                                        <th> Is Active </th>
+                                                        <th> Edit </th>
+                                                        <th> Delete </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach ($sub_category_rates as $rate) { ?>
+                                                        <tr>
+                                                            <td style="display: none;"><?php echo $rate['tb_member_category_id']; ?></td>
+                                                            <td> <?php echo getSubCategoryNameById($rate['sub_category_id']); ?> </td>
+                                                            <td> <?php echo $rate['rate']; ?> </td>
+                                                            <td> <?php echo $rate['description']; ?> </td>
+                                                            <td class="center"> <?php echo $rate['is_active']; ?> </td>
+                                                            <td>
+                                                                <a class="edit" href="javascript:void(0);"> Edit </a>
+                                                            </td>
+                                                            <td>
+                                                                <a class="delete" href="javascript:;"> Delete </a>
+                                                            </td>
+                                                        </tr>
+                                                    <?php }
+                                                    ?>
+                                                </tbody>
+                                            </table>
                                             <!-- Profile images start-->
                                             <form role="form" action="<?php echo base_url('companions/update_companion_categories'); ?>" id="form_update_member_categories" >
                                                 <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">
@@ -334,7 +365,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="cbp-l-grid-projects-title uppercase text-center uppercase pic-caption-img text-center pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>Image <?php echo $counter++; ?></div>
-                                                            <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";                      ?></div>-->
+                                                            <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";                        ?></div>-->
                                                         </div>
                                                         <?php
                                                     }
@@ -425,7 +456,7 @@
                                                                 <td><?php echo $portfolio['state_name']; ?></td>
                                                                 <td><?php echo $portfolio['city_name']; ?></td>
                                                                 <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
-                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));                      ?></td>-->
+                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));                        ?></td>-->
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">

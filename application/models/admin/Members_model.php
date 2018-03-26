@@ -314,10 +314,10 @@ class Members_model extends Abstract_model {
             $sql .= " AND (`city` = '" . $geo_codes["city_long"] . "' OR `city` = '" . $geo_codes["city_short"] . "') ";
         }
         if ((isset($geo_codes['state_long']) && $geo_codes['state_long']) || (isset($geo_codes['state_short']) && $geo_codes['state_short'])) {
-            $sql.= " AND (`state` = '" . $geo_codes["state_short"] . "' OR `state` = '" . $geo_codes["state_short"] . "') ";
+            $sql .= " AND (`state` = '" . $geo_codes["state_short"] . "' OR `state` = '" . $geo_codes["state_short"] . "') ";
         }
         if ($nearby_members_id != '') {
-            $sql.= ' AND tb_members.member_id IN (' . $nearby_members_id . ')';
+            $sql .= ' AND tb_members.member_id IN (' . $nearby_members_id . ')';
         }
         $sql .= ' GROUP BY tb_members.member_id ORDER BY tb_member_images.is_profile_image DESC';
         return $this->db->query($sql)->result('array');
@@ -332,5 +332,58 @@ class Members_model extends Abstract_model {
         $this->table_name = "tb_promos_used_by_members";
         return $this->save($data);
     }
+
+    public function get_sub_cat_rates($member_id, $sub_cat_ids) {
+        $this->db->select('*');
+        $this->db->from('tb_member_categories');
+        $this->db->where('member_id', $member_id);
+        $this->db->where_in('sub_category_id', $sub_cat_ids);
+        return $this->db->get()->result_array();
+    }
+
+    public function update_rates($column, $row_id, $data) {
+        $this->table_name = "tb_member_categories";
+        return $this->updateBy($column, $row_id, $data);
+    }
+
+    function AddUpdateMemberCategoryRates($member_categories, $member_id, $added_by = 0) {
+        $pre_populated_array = array();
+        if ($member_id) {
+            // delete previous member ids
+            if ($this->session->userdata('admin_id')) {
+                $added_by = $this->session->userdata('admin_id');
+            }
+            $pre_populated = array();
+            foreach ($member_categories as $category) {
+                $pre_populated[$category] = array();
+                $category_array = explode("::", $category);
+                $category_id = isset($category_array[0]) ? $category_array[0] : 0;
+                $sub_category_id = isset($category_array[1]) ? $category_array[1] : 0;
+                $pre_populated_array = $this->db->get_where('tb_member_categories', array('member_id' => $member_id, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id))->result_array();
+
+                $pre_populated[$category]['rate'] = isset($pre_populated_array[0]['rate']) ? $pre_populated_array[0]['rate'] : 0;
+                $pre_populated[$category]['description'] = isset($pre_populated_array[0]['description']) ? $pre_populated_array[0]['description'] : "";
+                $pre_populated[$category]['is_active'] = isset($pre_populated_array[0]['is_active']) ? $pre_populated_array[0]['is_active'] : 0;
+            }
+            $this->table_name = 'tb_member_categories';
+            $this->db->where('member_id', $member_id);
+            $this->db->delete($this->table_name);
+            if ($member_categories) {
+                foreach ($member_categories as $category) {
+                    $category_array = explode("::", $category);
+                    $category_id = isset($category_array[0]) ? $category_array[0] : 0;
+                    $sub_category_id = isset($category_array[1]) ? $category_array[1] : 0;
+                    $data = array('member_id' => $member_id, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id, 'created_on' => date("Y-m-d H:i:s"), 'created_by' => $added_by, 'rate' => $pre_populated[$category]['rate'], 'description' => $pre_populated[$category]['description'], 'is_active' => $pre_populated[$category]['is_active']);
+                    $this->save($data);
+                }
+            }
+        }
+    }
     
+    public function deleteRates($id) {
+        $this->table_name = 'tb_member_categories';
+        $this->db->where('tb_member_category_id', $id);
+        return $this->db->delete($this->table_name);
+    }
+
 }

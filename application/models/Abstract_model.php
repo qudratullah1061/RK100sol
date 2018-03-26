@@ -82,7 +82,7 @@ class Abstract_model extends CI_Model {
 
     public function updateBy($column, $row_id, $data) {
         $this->db->where($column, $row_id);
-        $this->db->update($this->table_name, $data);
+        return $this->db->update($this->table_name, $data);
     }
 
     public function updateByWhere($data, $where) {

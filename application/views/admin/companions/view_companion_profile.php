@@ -323,6 +323,37 @@ $unique_id = time();
 
                                 <!-- Availabilities SETTINGS TAB -->
                                 <div class="tab-pane" id="tab_1_2">
+                                    <table class="table table-striped table-hover table-bordered" cellspacing="0" width="100%" id="categories_rate_tbl">
+                                        <thead>
+                                            <tr>
+                                                <th style="display: none;"></th>
+                                                <th> Sub Category Name </th>
+                                                <th> Rate </th>
+                                                <th> Description </th>
+                                                <th> Is Active </th>
+                                                <th> Edit </th>
+                                                <th> Delete </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($sub_category_rates as $rate) { ?>
+                                                <tr>
+                                                    <td style="display: none;"><?php echo $rate['tb_member_category_id']; ?></td>
+                                                    <td> <?php echo getSubCategoryNameById($rate['sub_category_id']); ?> </td>
+                                                    <td> <?php echo $rate['rate']; ?> </td>
+                                                    <td> <?php echo $rate['description']; ?> </td>
+                                                    <td class="center"> <?php echo $rate['is_active']; ?> </td>
+                                                    <td>
+                                                        <a class="edit" href="javascript:void(0);"> Edit </a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="delete" href="javascript:;"> Delete </a>
+                                                    </td>
+                                                </tr>
+                                            <?php }
+                                            ?>
+                                        </tbody>
+                                    </table>
                                     <!-- Profile images start-->
                                     <form role="form" action="<?php echo base_url('admin/companions/update_companion_categories'); ?>" id="form_update_member_categories" >
                                         <input type="hidden" name="member_id" value="<?php echo $member_info['member_id']; ?>">

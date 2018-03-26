@@ -1219,6 +1219,12 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     margin:2px !important;
     width: inherit;
 }
+#categories_rate_tbl_wrapper input, #categories_rate_tbl_wrapper textarea, #categories_rate_tbl_wrapper select{
+    font-size: 14px;
+    padding: 0; 
+    margin:2px !important;
+    width: inherit;
+}
 #certification_table_wrapper input, #certification_table_wrapper textarea, #certification_table_wrapper select{
     font-size: 14px;
     padding: 0; 
