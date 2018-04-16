@@ -344,10 +344,10 @@ $unique_id = time();
                                                     <td> <?php echo $rate['description']; ?> </td>
                                                     <td class="center"> <?php echo $rate['is_active']; ?> </td>
                                                     <td>
-                                                        <a class="edit" href="javascript:void(0);"> Edit </a>
+                                                        <a class="edit" href="javascript:void(0);"> <i class="fa fa-pencil-square-o" style="font-size: 15px;"></i> </a>
                                                     </td>
                                                     <td>
-                                                        <a class="delete" href="javascript:;"> Delete </a>
+                                                        <a class="delete" href="javascript:;"> <i class="fa fa-trash-o" style="font-size: 15px;"></i> </a>
                                                     </td>
                                                 </tr>
                                             <?php }

@@ -1085,7 +1085,7 @@
         <!--profile js-->
         <script src="<?php echo base_url(); ?>assets/pages/scripts/summernote.js"></script>
         <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/common_functions.js" type="text/javascript"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets/pages/'); ?>scripts/admin/table-datatables-editable.js"></script>
         <script>
             $(document).ready(function () {
                 GlobalPlugins.initToasterPlugin();

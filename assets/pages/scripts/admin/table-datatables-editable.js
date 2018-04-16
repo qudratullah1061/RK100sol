@@ -128,7 +128,7 @@ var TableDatatablesEditable = function () {
             console.log(sData);
             $.ajax({
 
-                url : base_url+'companions/DeleteRates',
+                url : base_url+'admin/companions/DeleteRates',
                 type : 'POST',
                 data : {
                     tb_member_category_id : sData[0]
@@ -176,7 +176,7 @@ var TableDatatablesEditable = function () {
                 var sData = oTable.fnGetData(nRow);
                 $.ajax({
 
-                    url : base_url+'companions/SaveRates',
+                    url : base_url+'admin/companions/SaveRates',
                     type : 'POST',
                     data : {
                         tb_member_category_id : sData[0],
