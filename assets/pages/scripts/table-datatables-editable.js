@@ -20,8 +20,9 @@ var TableDatatablesEditable = function () {
             jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
             jqTds[2].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[2] + '">';
             jqTds[3].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[3] + '">';
-            jqTds[4].innerHTML = '<a class="edit" href="">Save</a>';
-            jqTds[5].innerHTML = '<a class="cancel" href="">Cancel</a>';
+            jqTds[4].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[4] + '">';
+            jqTds[5].innerHTML = '<a class="edit" href="">Save</a>';
+            jqTds[6].innerHTML = '<a class="cancel" href="">Cancel</a>';
         }
 
         function saveRow(oTable, nRow) {
@@ -30,8 +31,9 @@ var TableDatatablesEditable = function () {
             oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
             oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
             oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
-            oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 5, false);
+            oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
+            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 5, false);
+            oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 6, false);
             oTable.fnDraw();
         }
 
@@ -41,11 +43,12 @@ var TableDatatablesEditable = function () {
             oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
             oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
             oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
+            oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
+            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 5, false);
             oTable.fnDraw();
         }
 
-        var table = $('#sample_editable_1');
+        var table = $('#categories_rate_tbl');
 
         var oTable = table.dataTable({
 
@@ -82,12 +85,12 @@ var TableDatatablesEditable = function () {
             ] // set first column as a default sort by asc
         });
 
-        var tableWrapper = $("#sample_editable_1_wrapper");
+        var tableWrapper = $("#categories_rate_tbl_wrapper");
 
         var nEditing = null;
         var nNew = false;
 
-        $('#sample_editable_1_new').click(function (e) {
+        $('#categories_rate_tbl_new').click(function (e) {
             e.preventDefault();
 
             if (nNew && nEditing) {
@@ -119,10 +122,26 @@ var TableDatatablesEditable = function () {
             if (confirm("Are you sure to delete this row ?") == false) {
                 return;
             }
-
             var nRow = $(this).parents('tr')[0];
+            var sData = oTable.fnGetData(nRow);
+            console.log(sData);
+            $.ajax({
+
+                url : base_url+'companions/DeleteRates',
+                type : 'POST',
+                data : {
+                    tb_member_category_id : sData[0]
+                },
+                dataType:'json',
+                success : function(data) {              
+                    if (!data.error) {
+                        toastr["success"](data.description, "Success!");
+                    } else {
+                        toastr["error"](data.description, "Error!");
+                    }
+                }
+            });
             oTable.fnDeleteRow(nRow);
-            alert("Deleted! Do not forget to do some ajax to sync with backend :)");
         });
 
         table.on('click', '.cancel', function (e) {
@@ -152,8 +171,28 @@ var TableDatatablesEditable = function () {
             } else if (nEditing == nRow && this.innerHTML == "Save") {
                 /* Editing this row and want to save it */
                 saveRow(oTable, nEditing);
-                nEditing = null;
-                alert("Updated! Do not forget to do some ajax to sync with backend :)");
+//                nEditing = null;
+                var sData = oTable.fnGetData(nRow);
+                $.ajax({
+
+                    url : base_url+'companions/SaveRates',
+                    type : 'POST',
+                    data : {
+                        tb_member_category_id : sData[0],
+                        rate : sData[2],
+                        description : sData[3],
+                        is_active : sData[4]
+                    },
+                    dataType:'json',
+                    success : function(data) {
+                        if (!data.error) {
+                            toastr["success"](data.description, "Success!");
+                        } else {
+                            toastr["error"](data.description, "Error!");
+                        }
+                    }
+                });
+                
             } else {
                 /* No edit in progress - let's start one */
                 editRow(oTable, nRow);

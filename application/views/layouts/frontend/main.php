@@ -448,6 +448,7 @@
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/jquery.rateyo.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/login.js"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/frontend/'); ?>js/main.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.js"></script>
         <!--Q included files start-->
         <!--Form Validation start-->
         <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>

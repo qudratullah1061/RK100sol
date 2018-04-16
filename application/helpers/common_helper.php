@@ -578,3 +578,12 @@ function CountPromoCode($promo_code) {
     $promos = $CI->Promos_model->get_all_used_promo_code($promo_code);
     return $promos->promo_code;
 }
+
+function getSubCategoryNameById($sub_category_id = 0) {
+    global $CI;
+    $data_info = $CI->db->get_where('tb_sub_categories', array('sub_category_id' => $sub_category_id))->result_array();
+    if ($data_info) {
+        return $data_info[0]['sub_category_name'];
+    }
+    return "";
+}
