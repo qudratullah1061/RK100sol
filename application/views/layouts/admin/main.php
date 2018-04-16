@@ -265,8 +265,8 @@
                                                 <span class="title">Add Service Member</span>
                                             </a>
                                         </li>
-    <!--                                    <li class="nav-item <?php // ActivateCurrentLink('companion', 'add');                                    ?>">
-                                            <a href="<?php // echo base_url('admin/companions/add_companion');                                    ?>" class="nav-link ">
+    <!--                                    <li class="nav-item <?php // ActivateCurrentLink('companion', 'add');                                       ?>">
+                                            <a href="<?php // echo base_url('admin/companions/add_companion');                                       ?>" class="nav-link ">
                                                 <i class="fa fa-plus"></i>
                                                 <span class="title">Members Activities</span>
                                                 <span class="badge badge-success">1</span>
@@ -437,6 +437,26 @@
                                     </ul>
                                 </li>
                             <?php } ?>
+
+                            <?php if (isAdminHasAccess("chat")) { ?>   
+                                <li class="nav-item <?php ActivateParentLink('view_chat_list'); ?>">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-chain"></i>
+                                        <span class="title">Chat</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item <?php ActivateCurrentLink('chat', 'view_chat_list'); ?>">
+                                            <a href="<?php echo base_url('admin/chat/view_chat_list'); ?>" class="nav-link ">
+                                                <!--<i class="fa fa-eye"></i>-->
+                                                <span class="title">View Members</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+
                         </ul>
                         <!-- END SIDEBAR MENU -->
                         <!-- END SIDEBAR MENU -->

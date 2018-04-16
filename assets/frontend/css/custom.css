@@ -2076,3 +2076,13 @@ a.goog-te-menu-value span {
     z-index:10 !important;
     color:pink;
 }
+.active_chat, .active_chat:hover{
+    background: lightgray !important;
+    border-radius: 15px !important;
+}
+.mt-comment{
+    cursor:pointer;
+}
+.chat-form .btn-cont .arrow{
+    border-right: 8px solid #808 !important;
+}

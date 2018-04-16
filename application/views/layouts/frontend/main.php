@@ -156,6 +156,7 @@
                                     <?php } else { ?>
                                         <li class="show-xs"><a href="<?php echo base_url('member/profile'); ?>"> Profile</a></li>
                                         <li class="show-xs"><a href="<?php echo base_url(($this->session->userdata['member_info']['member_type'] == 1 ? 'guests/get_guest_profile' : 'companions/get_companion_profile')); ?>"> Settings</a></li>
+                                        <li class="show-xs"><a href="<?php echo base_url('chat/view_chat_list');?>"> Chat</a></li>
                                         <li class="show-xs"><a href="<?php echo base_url('auth/logout'); ?>"> Log out</a></li>
                                         <?php
                                     }
