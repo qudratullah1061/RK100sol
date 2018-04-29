@@ -256,7 +256,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-1.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-1.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -264,7 +264,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Jessie </span>
-                                                    <p class="">Branding and Identity</p>
+                                                    <p class="">United States, Hulbert</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -281,7 +281,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-2.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-2.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -306,7 +306,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-3.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-3.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -331,7 +331,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-4.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-4.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -356,7 +356,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-5.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-5.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -381,7 +381,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-6.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-6.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -406,7 +406,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-7.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-1.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -414,7 +414,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Jessie </span>
-                                                    <p class="">Branding and Identity</p>
+                                                    <p class="">United States, Kunkie</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -431,7 +431,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-2.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-2.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -439,7 +439,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Stephanie Rouse </span>
-                                                    <p class="">Canada, Nottingham</p>
+                                                    <p class="">United States, Mishicot</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -456,7 +456,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-9.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-3.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -464,7 +464,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Michael Nunez </span>
-                                                    <p class="">United States, Caseyville</p>
+                                                    <p class="">England, Ruthin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -481,7 +481,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-10.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-4.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -489,7 +489,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Robert Cruz </span>
-                                                    <p class="">Belgium, Malimont</p>
+                                                    <p class="">England, Kimbolton</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -506,7 +506,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-11.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-5.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -514,7 +514,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Michelle </span>
-                                                    <p class="">Argentina, Crespo</p>
+                                                    <p class="">United States, Elderon</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -531,7 +531,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-12.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-6.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -539,7 +539,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Jordan Guzman </span>
-                                                    <p class="">Costa Rica, Brasil</p>
+                                                    <p class="">Canada, Clinton</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -556,7 +556,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-13.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-1.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -564,7 +564,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Jessie </span>
-                                                    <p class="">Branding and Identity</p>
+                                                    <p class="">Austria, Rannach</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -581,7 +581,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-14.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-2.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -589,7 +589,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Stephanie Rouse </span>
-                                                    <p class="">Canada, Nottingham</p>
+                                                    <p class="">Australia, Toronto</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -606,7 +606,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-15.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-3.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -614,7 +614,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Michael Nunez </span>
-                                                    <p class="">United States, Caseyville</p>
+                                                    <p class="">United States, Jackson</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -631,7 +631,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-16.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-4.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -639,7 +639,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Robert Cruz </span>
-                                                    <p class="">Belgium, Malimont</p>
+                                                    <p class="">United States, Nashville</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -656,7 +656,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-17.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-5.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -664,7 +664,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Michelle </span>
-                                                    <p class="">Argentina, Crespo</p>
+                                                    <p class="">Australia, Carpina</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -681,7 +681,7 @@
                                 <figure>
                                     <div class="portfolio-img  position-relative text-center overflow-hidden">
                                         <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/'); ?>img/gold-18.jpg" alt="" />
+                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-6.jpg" alt="" />
                                         </a>
                                     </div>
                                     <figcaption class="">
@@ -689,7 +689,7 @@
                                             <div class="portfolio-hover-box vertical-align-middle">
                                                 <div class="portfolio-hover-content position-relative">
                                                     <span class="line-height-normal font-weight-600 display-block lato">Jordan Guzman </span>
-                                                    <p class="">Costa Rica, Brasil</p>
+                                                    <p class="">Belgium, Thieulain</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -700,16 +700,12 @@
                     </li>
                     <!-- end portfolio item -->
                 </ul>
-
             </div>
         </div>
-
-
         <p class="title-bar bg-purple text-white font-weight-600 text-center">
             <i class="fa fa-star"></i> GOLD MEMBERS
             <i class="fa fa-star"></i>
         </p>
-
     </div>
 </section>
 <section class="wow fadeIn bright-career no-padding">

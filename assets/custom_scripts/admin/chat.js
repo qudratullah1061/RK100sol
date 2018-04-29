@@ -163,6 +163,15 @@ var Chat = function () {
         });
     }
 
+    var addMessage = function (current_chat_id) {
+        var users = current_chat_id.split('-');
+        var user1 = users[0];
+        var user2 = users[1];
+        var msg = $(".msg-box").val();
+        var currentChatRef = firebase.database().ref('conversations/' + current_chat_id);
+        currentChatRef.push().set({'sender_id': user1, 'receiver_id': user2, 'is_read': 0, 'message': msg, 'date_sent': (new Date()).toString()});
+    }
+
     return {
         init: function () {
             initFirebase();
@@ -176,7 +185,7 @@ var Chat = function () {
             updateChatMessagesAsRead(chat_id);
         },
         sendChatMessage: function () {
-
+            addMessage(current_chat_id);
         }
     };
 }();
