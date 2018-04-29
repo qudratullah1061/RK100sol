@@ -854,6 +854,7 @@ $unique_id = time();
 <script src="<?php echo base_url('assets/custom_scripts/admin/experience.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.kickstart.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/pages/'); ?>scripts/admin/table-datatables-editable.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
                                                         $(document).ready(function () {

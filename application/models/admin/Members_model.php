@@ -363,7 +363,7 @@ class Members_model extends Abstract_model {
 
                 $pre_populated[$category]['rate'] = isset($pre_populated_array[0]['rate']) ? $pre_populated_array[0]['rate'] : 0;
                 $pre_populated[$category]['description'] = isset($pre_populated_array[0]['description']) ? $pre_populated_array[0]['description'] : "";
-                $pre_populated[$category]['is_active'] = isset($pre_populated_array[0]['is_active']) ? $pre_populated_array[0]['is_active'] : 0;
+                $pre_populated[$category]['is_active'] = isset($pre_populated_array[0]['is_active']) ? $pre_populated_array[0]['is_active'] : "Inactive";
             }
             $this->table_name = 'tb_member_categories';
             $this->db->where('member_id', $member_id);
