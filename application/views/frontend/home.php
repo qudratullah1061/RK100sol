@@ -18,6 +18,7 @@
                                 <a href='<?php echo base_url('auth/register'); ?>' class='btn btn-purple-white-border open-sans'>Hire Services</a>
                                 <a href='<?php echo base_url('auth/register'); ?>' class='btn btn-purple-white-border open-sans'>Offer Services</a>
                                 <a href='<?php echo base_url('profile/companion_signup/silver'); ?>' class='btn btn-purple-white-border open-sans'>Promo Code Registration</a>
+                                
                             </div>
                         </div>
                     </div>
