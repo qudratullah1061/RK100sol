@@ -779,6 +779,7 @@
 <script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.kickstart.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.js"></script>
 <script>
                                                     $(document).ready(function () {
                                                         FormWizard.handleCompanionValidation("update_companion_member");
