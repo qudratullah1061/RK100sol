@@ -17,8 +17,7 @@
                                 <p class="open-sans text-white">Community of independent service providers.</p>
                                 <a href='<?php echo base_url('auth/register'); ?>' class='btn btn-purple-white-border open-sans'>Hire Services</a>
                                 <a href='<?php echo base_url('auth/register'); ?>' class='btn btn-purple-white-border open-sans'>Offer Services</a>
-                                <a href='<?php echo base_url('profile/companion_signup/silver'); ?>' class='btn btn-purple-white-border open-sans'>Promo Code Registration</a>
-                                
+                                <a href='<?php echo base_url('profile/companion_signup/silver'); ?>' class='btn btn-purple-white-border open-sans margin-small-screen'>Promo Code Registration</a>
                             </div>
                         </div>
                     </div>
@@ -237,7 +236,7 @@
         <!-- end feature box item -->
     </div>
 </section>
-<section class="wow fadeIn gold-members">
+<!--<section class="wow fadeIn gold-members">
     <div class="container">
         <p class="title-bar bg-purple text-white font-weight-600 text-center">
             <i class="fa fa-star"></i> GOLD MEMBERS
@@ -250,7 +249,7 @@
                 <ul class="portfolio-grid work-6col gutter-large hover-option6 lightbox-portfolio">
                     <li class="grid-sizer"></li>
 
-                    <!-- start portfolio item -->
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -274,8 +273,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -299,8 +298,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -324,8 +323,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -349,8 +348,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -374,8 +373,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -399,8 +398,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -424,8 +423,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -449,8 +448,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -474,8 +473,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -499,8 +498,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -524,8 +523,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -549,8 +548,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -574,8 +573,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -599,8 +598,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -624,8 +623,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -649,8 +648,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -674,8 +673,8 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
-                    <!-- start portfolio item -->
+                     end portfolio item 
+                     start portfolio item 
                     <li class="grid-item wow fadeInUp last-paragraph-no-margin">
                         <div class="feature-box gold-box">
                             <div class="content">
@@ -699,7 +698,7 @@
                             </div>
                         </div>
                     </li>
-                    <!-- end portfolio item -->
+                     end portfolio item 
                 </ul>
             </div>
         </div>
@@ -708,7 +707,7 @@
             <i class="fa fa-star"></i>
         </p>
     </div>
-</section>
+</section>-->
 <section class="wow fadeIn bright-career no-padding">
     <div class="container">
         <div class='career-box'>
