@@ -314,7 +314,13 @@
         </div>
     </div>
 </section>
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7510668835582498",
+    enable_page_level_ads: true
+  });
+</script>
 <script>
     $(document).on('click', '#child_comments', function () {
         var idAttr = $(this).attr('data-comment-id');
