@@ -274,6 +274,25 @@ class Members_model extends Abstract_model {
         $this->db->where('tb_member_categories.member_id', $member_id);
         return $this->db->get()->result_array();
     }
+    
+    public function ajaxSubCategories($member_id, $limit = false, $start = false) {
+        $this->db->select('tb_sub_categories.sub_category_name,tb_sub_categories.sub_category_id');
+        $this->db->from('tb_sub_categories');
+        $this->db->join('tb_member_categories', 'tb_member_categories.sub_category_id = tb_sub_categories.sub_category_id');
+        $this->db->where('tb_member_categories.member_id', $member_id);
+        if($limit){
+            $this->db->limit($limit);
+        }
+        if($start){
+            $this->db->limit($limit, $start);
+        }
+        $query = $this->db->get();
+        $output = '';
+        foreach ($query->result() as $row) {
+            $output .= '<li>'.$row->sub_category_name.'</li>';
+        }
+        return $output;
+    }
 
     function AddUpdateMemberCategories($member_categories, $member_id, $added_by = 0) {
         if ($member_id) {

@@ -120,12 +120,21 @@
                     </div>
 
                     <div class="profile-skills">
+                        <!--                        <ul>
+                                                    <li><h6>My Skills</h6></li>
+                        <?php // foreach ($selected_sub_categories as $sub_category) { ?>
+                                                        <li><?php // echo $sub_category['sub_category_name'];  ?></li>
+                        <?php // } ?>
+                                                </ul>-->
                         <ul>
-                            <li><h6>My Skills</h6></li>
-                            <?php foreach ($selected_sub_categories as $sub_category) { ?>
-                                <li><?php echo $sub_category['sub_category_name']; ?></li>
-                            <?php } ?>
+                            <li><h6>My Skills</h6><span style="float: right; font-size: 16px; font-weight: bold; margin-top: 5px;"><a href="javascript:Certifications.modal_skill_detail(<?php echo $member_id; ?>)">Details</a></span></li>
+                            <?php // foreach ($selected_sub_categories as $sub_category) { ?>
+                                <!--<li><?php // echo $sub_category['sub_category_name'];  ?></li>-->
+                            <?php // } ?>
+                            <?php // echo $pagination; ?>
                         </ul>
+                        <div id="skills_data"></div>
+                        <div id="pagination_link"></div>
                     </div>
                 </div>
             </div>
@@ -286,6 +295,32 @@
                 "startColor": "#942192", //RED
                 "endColor": "#942192"  //GREEN
             }
+        });
+    });
+
+    $(document).ready(function () {
+        function load_skills_data(page) {
+            $.ajax({
+                url: "<?php echo base_url() . 'member/ajaxData/'; ?>" + page,
+                method: 'GET',
+                dataType: 'json',
+                success: function (data)
+                {
+                    $('#skills_data').html(data.skills_data);
+                    $('#pagination_link').html(data.pagination_link);
+                }
+            });
+        }
+
+        load_skills_data(1);
+
+        $(document).on('click', '.pagination li a', function (event) {
+            event.preventDefault();
+            var page = $(this).data("ci-pagination-page");
+            if (!page) {
+                page = 1;
+            }
+            load_skills_data(page);
         });
     });
 </script>

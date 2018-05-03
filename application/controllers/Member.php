@@ -16,6 +16,7 @@ class Member extends FrontEnd_Controller {
         $this->layout = 'frontend/main';
         $this->load->model('admin/members_model', 'Members_Model');
         $this->load->model('admin/notification_model', 'Notification_Model');
+        $this->load->library('pagination');
     }
 
     function profile($member_id = '') {
@@ -24,7 +25,7 @@ class Member extends FrontEnd_Controller {
         } else {
             $member_id = $this->session->userdata('member_id');
         }
-
+        $data['member_id'] = $this->session->userdata('member_id');
         $member_info = $this->Members_Model->get_member_by_id($member_id);
         // not in used yet.
         //$data['member_profile_pics'] = $this->Members_Model->get_member_images_by_type(array('image_type' => 'profile', 'member_id' => $member_id));
@@ -58,12 +59,65 @@ class Member extends FrontEnd_Controller {
         }
     }
     
+    function ajaxData() {
+        $member_id = $this->session->userdata('member_id');
+        $selected_sub_categories = $this->Members_Model->get_selected_sub_categories($member_id);
+        $totalRec = count($selected_sub_categories);
+        $config = array();
+        $config['base_url']    = '#';
+        $config['total_rows']  = $totalRec;
+        $config['per_page']    = 2;
+        $config['uri_segment'] = 3;
+        $config['uri_page_numbers'] = TRUE;
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = '&gt;';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['num_links'] = 1;
+        $this->pagination->initialize($config);
+        $page = $this->uri->segment(3);
+        $start = ($page - 1) * $config['per_page'];
+        $output = array(
+            'pagination_link' => $this->pagination->create_links(),
+            'skills_data'   => $this->Members_Model->ajaxSubCategories($member_id, $config['per_page'], $start)
+        );
+        echo json_encode($output);
+        die();
+    }
+    
     function modal_language() {
         $this->isAjax();
         $language_id = $this->input->post('language_id');
         $language_data = $this->Members_Model->get_language($language_id);
         $data['language_data'] = $language_data;
         $html = $this->load->view('frontend/member/add_language', $data, TRUE);
+        echo json_encode(array('key' => true, 'value' => $html));
+        die();
+    }
+    
+    function show_skill_detail() {
+        $this->isAjax();
+        $member_id = $this->input->post('member_id');$data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
+        $sub_cat_rates = array();
+        if ($data['selected_categories']) {
+            foreach ($data['selected_categories'] as $val) {
+                $sub_cat_rates[] = $val['sub_category_id'];
+            }
+        }
+        $data['sub_category_rates'] = $this->Members_Model->get_sub_cat_rates($member_id, $sub_cat_rates);
+        $html = $this->load->view('frontend/member/skill_detail', $data, TRUE);
         echo json_encode(array('key' => true, 'value' => $html));
         die();
     }
