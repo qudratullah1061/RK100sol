@@ -303,7 +303,7 @@
                             });
 
                             var size_li = $(".pagination-skills li").size();
-                            if (size_li == 0) {
+                            if (size_li <= 6) {
                                 $(".prev").hide();
                                 $(".next").hide();
                             }
