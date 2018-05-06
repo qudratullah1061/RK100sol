@@ -267,29 +267,32 @@ class Members_model extends Abstract_model {
         return $this->db->get()->result_array();
     }
 
-    public function get_selected_sub_categories($member_id) {
+    public function get_selected_sub_categories($member_id,$where_active="") {
         $this->db->select('tb_sub_categories.sub_category_name,tb_sub_categories.sub_category_id');
         $this->db->from('tb_sub_categories');
         $this->db->join('tb_member_categories', 'tb_member_categories.sub_category_id = tb_sub_categories.sub_category_id');
+        if($where_active){
+            $this->db->where($where_active);
+        }
         $this->db->where('tb_member_categories.member_id', $member_id);
         return $this->db->get()->result_array();
     }
-    
+
     public function ajaxSubCategories($member_id, $limit = false, $start = false) {
         $this->db->select('tb_sub_categories.sub_category_name,tb_sub_categories.sub_category_id');
         $this->db->from('tb_sub_categories');
         $this->db->join('tb_member_categories', 'tb_member_categories.sub_category_id = tb_sub_categories.sub_category_id');
         $this->db->where('tb_member_categories.member_id', $member_id);
-        if($limit){
+        if ($limit) {
             $this->db->limit($limit);
         }
-        if($start){
+        if ($start) {
             $this->db->limit($limit, $start);
         }
         $query = $this->db->get();
         $output = '';
         foreach ($query->result() as $row) {
-            $output .= '<li>'.$row->sub_category_name.'</li>';
+            $output .= '<li>' . $row->sub_category_name . '</li>';
         }
         return $output;
     }
@@ -352,12 +355,18 @@ class Members_model extends Abstract_model {
         return $this->save($data);
     }
 
-    public function get_sub_cat_rates($member_id, $sub_cat_ids) {
-        $this->db->select('*');
-        $this->db->from('tb_member_categories');
-        $this->db->where('member_id', $member_id);
-        $this->db->where_in('sub_category_id', $sub_cat_ids);
-        return $this->db->get()->result_array();
+    public function get_sub_cat_rates($member_id, $sub_cat_ids, $where_array = "") {
+        if ($sub_cat_ids) {
+            $this->db->select('*');
+            $this->db->from('tb_member_categories');
+            $this->db->where('member_id', $member_id);
+            if($where_array){
+                $this->db->where($where_array);
+            }
+            $this->db->where_in('sub_category_id', $sub_cat_ids);
+            return $this->db->get()->result_array();
+        }
+        return array();
     }
 
     public function update_rates($column, $row_id, $data) {
@@ -373,16 +382,18 @@ class Members_model extends Abstract_model {
                 $added_by = $this->session->userdata('admin_id');
             }
             $pre_populated = array();
-            foreach ($member_categories as $category) {
-                $pre_populated[$category] = array();
-                $category_array = explode("::", $category);
-                $category_id = isset($category_array[0]) ? $category_array[0] : 0;
-                $sub_category_id = isset($category_array[1]) ? $category_array[1] : 0;
-                $pre_populated_array = $this->db->get_where('tb_member_categories', array('member_id' => $member_id, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id))->result_array();
+            if ($member_categories) {
+                foreach ($member_categories as $category) {
+                    $pre_populated[$category] = array();
+                    $category_array = explode("::", $category);
+                    $category_id = isset($category_array[0]) ? $category_array[0] : 0;
+                    $sub_category_id = isset($category_array[1]) ? $category_array[1] : 0;
+                    $pre_populated_array = $this->db->get_where('tb_member_categories', array('member_id' => $member_id, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id))->result_array();
 
-                $pre_populated[$category]['rate'] = isset($pre_populated_array[0]['rate']) ? $pre_populated_array[0]['rate'] : 0;
-                $pre_populated[$category]['description'] = isset($pre_populated_array[0]['description']) ? $pre_populated_array[0]['description'] : "";
-                $pre_populated[$category]['is_active'] = isset($pre_populated_array[0]['is_active']) ? $pre_populated_array[0]['is_active'] : "Inactive";
+                    $pre_populated[$category]['rate'] = isset($pre_populated_array[0]['rate']) ? $pre_populated_array[0]['rate'] : 0;
+                    $pre_populated[$category]['description'] = isset($pre_populated_array[0]['description']) ? $pre_populated_array[0]['description'] : "";
+                    $pre_populated[$category]['is_active'] = isset($pre_populated_array[0]['is_active']) ? $pre_populated_array[0]['is_active'] : "Inactive";
+                }
             }
             $this->table_name = 'tb_member_categories';
             $this->db->where('member_id', $member_id);
@@ -398,7 +409,7 @@ class Members_model extends Abstract_model {
             }
         }
     }
-    
+
     public function deleteRates($id) {
         $this->table_name = 'tb_member_categories';
         $this->db->where('tb_member_category_id', $id);

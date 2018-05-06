@@ -153,11 +153,8 @@ var Certifications = function () {
             },
             success: function (data) {
                 if (data.key) {
-                    $("#static-modal-popup").html(data.value);
-                    $("#static-modal-popup").modal('show');
-                    $(".cbp-popup-close").click(function(){
-                        $("#static-modal-popup").modal('hide');
-                    });
+                    $("#static-modal-popup-medium").html(data.value);
+                    $("#static-modal-popup-medium").modal('show');
                 }
             }
         });

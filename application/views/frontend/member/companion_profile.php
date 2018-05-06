@@ -122,20 +122,23 @@
                     <div class="profile-skills">
                         <!--                        <ul>
                                                     <li><h6>My Skills</h6></li>
-                        <?php // foreach ($selected_sub_categories as $sub_category) { ?>
-                                                        <li><?php // echo $sub_category['sub_category_name'];  ?></li>
-                        <?php // } ?>
+                        
                                                 </ul>-->
-                        <ul>
-                            <li><h6>My Skills</h6><span style="float: right; font-size: 16px; font-weight: bold; margin-top: 5px;"><a href="javascript:Certifications.modal_skill_detail(<?php echo $member_id; ?>)">Details</a></span></li>
-                            <?php // foreach ($selected_sub_categories as $sub_category) { ?>
-                                <!--<li><?php // echo $sub_category['sub_category_name'];  ?></li>-->
-                            <?php // } ?>
-                            <?php // echo $pagination; ?>
+                        <ul class="pagination-skills">
+                            <li>
+                                <h6>My Skills</h6>
+                                <h6 style="float:right; cursor: pointer;" onclick="Certifications.modal_skill_detail(<?php echo $member_id; ?>)">Details</h6>
+                            </li>
+                            <?php foreach ($selected_sub_categories as $sub_category) { ?>
+                                <li><?php echo $sub_category['sub_category_name']; ?></li>
+                            <?php } ?>
                         </ul>
-                        <div id="skills_data"></div>
-                        <div id="pagination_link"></div>
                     </div>
+                    <div style="text-align:center;">
+                        <button class="btn green prev" onclick="hideShowSkills('p')"><span><</span></button>
+                        <button class="btn green next" onclick="hideShowSkills('n')"><span>></span></button>
+                    </div>
+                    <!--<div id="pagination_link"></div>-->
                 </div>
             </div>
             <div class="col-md-9 col-sm-8">
@@ -285,42 +288,61 @@
 <script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/certification.js'); ?>" type="text/javascript"></script>
 <script>
-    $(function () {
-        $(".profile_reviews").rateYo({
-            rating: 0,
-            spacing: "3px",
-            starWidth: "15px",
-            readOnly: true,
-            multiColor: {
-                "startColor": "#942192", //RED
-                "endColor": "#942192"  //GREEN
-            }
-        });
-    });
+                            $(function () {
+                                $(".profile_reviews").rateYo({
+                                    rating: 0,
+                                    spacing: "3px",
+                                    starWidth: "15px",
+                                    readOnly: true,
+                                    multiColor: {
+                                        "startColor": "#942192", //RED
+                                        "endColor": "#942192"  //GREEN
+                                    }
+                                });
+                                hideShowSkills('e');
+                            });
 
-    $(document).ready(function () {
-        function load_skills_data(page) {
-            $.ajax({
-                url: "<?php echo base_url() . 'member/ajaxData/'; ?>" + page,
-                method: 'GET',
-                dataType: 'json',
-                success: function (data)
-                {
-                    $('#skills_data').html(data.skills_data);
-                    $('#pagination_link').html(data.pagination_link);
-                }
-            });
-        }
+                            var size_li = $(".pagination-skills li").size();
+                            if (size_li == 0) {
+                                $(".prev").hide();
+                                $(".next").hide();
+                            }
+                            var showItems = 5;
+                            var current_counter = 5;
+                            function hideShowSkills(btnClick) {
 
-        load_skills_data(1);
+                                if (btnClick == 'e') {
+                                    $('.pagination-skills li:lt(' + showItems + ')').show();
+                                    $('.pagination-skills li:gt(' + showItems + ')').hide();
+                                    $(".prev").hide();
+                                }
 
-        $(document).on('click', '.pagination li a', function (event) {
-            event.preventDefault();
-            var page = $(this).data("ci-pagination-page");
-            if (!page) {
-                page = 1;
-            }
-            load_skills_data(page);
-        });
-    });
+                                if (btnClick == 'n') {
+                                    if (current_counter <= size_li) {
+                                        $('.pagination-skills li:lt(' + (current_counter + 6) + ')').show();
+                                        $('.pagination-skills li:lt(' + (current_counter + 1) + ')').hide();
+                                        current_counter += 5;
+                                    }
+                                    if (current_counter >= size_li) {
+                                        // hide next button.
+                                        $(".next").hide();
+                                    }
+                                    $(".prev").show();
+//                                    $('#myList li:lt(' + x + ')').show();
+                                }
+                                if (btnClick == 'p') {
+                                    if (current_counter > 0) {
+                                        $('.pagination-skills li:gt(' + (current_counter - 10) + ')').show();
+                                        $('.pagination-skills li:gt(' + (current_counter - 5) + ')').hide();
+//                                        $('.pagination-skills li:lt(' + (current_counter - 10) + ')').hide();
+                                        current_counter -= 5;
+                                    }
+                                    if (current_counter <= 5) {
+                                        // hide next button.
+                                        $(".prev").hide();
+                                    }
+                                    $(".next").show();
+                                }
+                                $('.pagination-skills li').first().show();
+                            }
 </script>

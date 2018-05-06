@@ -39,13 +39,12 @@ class Member extends FrontEnd_Controller {
             //$data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
             // echo '<pre>';
             // print_r($data['portfolios']);exit;
-            
             //$data['notifications']  = $this->Notification_Model->get_all_notifications(1,'AND tb_notification_users.receiver_id = '.$member_id.'');
-           
+
             $data['data_languages'] = $this->Members_Model->get_member_languages($member_id, "AND `tb_member_languages`.is_active = 1");
             if ($member_info['member_type'] == 2) {
                 $data['selected_categories'] = $this->Members_Model->get_selected_categories($member_id);
-                $data['selected_sub_categories'] = $this->Members_Model->get_selected_sub_categories($member_id);
+                $data['selected_sub_categories'] = $this->Members_Model->get_selected_sub_categories($member_id, array("tb_member_categories.is_active" => "active"));
                 $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id, "AND `tb_member_portfolios`.is_active = 1");
                 $data['degrees'] = $this->Members_Model->get_member_degrees($member_id, "AND `tb_member_degrees`.pub_status = 1 AND `tb_member_degrees`.approval_status = 'Approved'");
                 $data['experiences'] = $this->Members_Model->get_member_experiences($member_id, "AND `tb_member_experience`.pub_status = 1 AND `tb_member_experience`.approval_status = 'Approved'");
@@ -58,45 +57,45 @@ class Member extends FrontEnd_Controller {
             redirect(base_url());
         }
     }
-    
-    function ajaxData() {
-        $member_id = $this->session->userdata('member_id');
-        $selected_sub_categories = $this->Members_Model->get_selected_sub_categories($member_id);
-        $totalRec = count($selected_sub_categories);
-        $config = array();
-        $config['base_url']    = '#';
-        $config['total_rows']  = $totalRec;
-        $config['per_page']    = 2;
-        $config['uri_segment'] = 3;
-        $config['uri_page_numbers'] = TRUE;
-        $config['full_tag_open'] = '<ul class="pagination">';
-        $config['full_tag_close'] = '</ul>';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-        $config['next_link'] = '&gt;';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['prev_link'] = '&lt;';
-        $config['prev_tag_open'] = '<li>';
-        $config['prev_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="active"><a href="#">';
-        $config['cur_tag_close'] = '</a></li>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['num_links'] = 1;
-        $this->pagination->initialize($config);
-        $page = $this->uri->segment(3);
-        $start = ($page - 1) * $config['per_page'];
-        $output = array(
-            'pagination_link' => $this->pagination->create_links(),
-            'skills_data'   => $this->Members_Model->ajaxSubCategories($member_id, $config['per_page'], $start)
-        );
-        echo json_encode($output);
-        die();
-    }
-    
+
+//    function ajaxData() {
+//        $member_id = $this->session->userdata('member_id');
+//        $selected_sub_categories = $this->Members_Model->get_selected_sub_categories($member_id);
+//        $totalRec = count($selected_sub_categories);
+//        $config = array();
+//        $config['base_url']    = '#';
+//        $config['total_rows']  = $totalRec;
+//        $config['per_page']    = 2;
+//        $config['uri_segment'] = 3;
+//        $config['uri_page_numbers'] = TRUE;
+//        $config['full_tag_open'] = '<ul class="pagination">';
+//        $config['full_tag_close'] = '</ul>';
+//        $config['first_tag_open'] = '<li>';
+//        $config['first_tag_close'] = '</li>';
+//        $config['last_tag_open'] = '<li>';
+//        $config['last_tag_close'] = '</li>';
+//        $config['next_link'] = '&gt;';
+//        $config['next_tag_open'] = '<li>';
+//        $config['next_tag_close'] = '</li>';
+//        $config['prev_link'] = '&lt;';
+//        $config['prev_tag_open'] = '<li>';
+//        $config['prev_tag_close'] = '</li>';
+//        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+//        $config['cur_tag_close'] = '</a></li>';
+//        $config['num_tag_open'] = '<li>';
+//        $config['num_tag_close'] = '</li>';
+//        $config['num_links'] = 1;
+//        $this->pagination->initialize($config);
+//        $page = $this->uri->segment(3);
+//        $start = ($page - 1) * $config['per_page'];
+//        $output = array(
+//            'pagination_link' => $this->pagination->create_links(),
+//            'skills_data'   => $this->Members_Model->ajaxSubCategories($member_id, $config['per_page'], $start)
+//        );
+//        echo json_encode($output);
+//        die();
+//    }
+
     function modal_language() {
         $this->isAjax();
         $language_id = $this->input->post('language_id');
@@ -106,18 +105,19 @@ class Member extends FrontEnd_Controller {
         echo json_encode(array('key' => true, 'value' => $html));
         die();
     }
-    
+
     function show_skill_detail() {
         $this->isAjax();
-        $member_id = $this->input->post('member_id');$data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
+        $member_id = $this->input->post('member_id');
+        $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
         $sub_cat_rates = array();
         if ($data['selected_categories']) {
             foreach ($data['selected_categories'] as $val) {
                 $sub_cat_rates[] = $val['sub_category_id'];
             }
         }
-        $data['sub_category_rates'] = $this->Members_Model->get_sub_cat_rates($member_id, $sub_cat_rates);
-        $html = $this->load->view('frontend/member/skill_detail', $data, TRUE);
+        $data['sub_category_rates'] = $this->Members_Model->get_sub_cat_rates($member_id, $sub_cat_rates, array("is_active" => "active"));
+        $html = $this->load->view('frontend/companions/skill_detail', $data, TRUE);
         echo json_encode(array('key' => true, 'value' => $html));
         die();
     }
@@ -156,7 +156,7 @@ class Member extends FrontEnd_Controller {
             redirect(base_url('companions/get_companion_profile'));
         }
     }
-    
+
     function submit_promo() {
         $promo_code = $this->input->post('promo_code');
         $member_id = $this->input->post('member_id');

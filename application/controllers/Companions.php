@@ -66,13 +66,13 @@ class Companions extends FrontEnd_Controller {
             $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
             $data['categories'] = GetAllCategories();
             $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
-            $sub_cat_rates = array();
+            $sub_cat_ids = array();
             if ($data['selected_categories']) {
                 foreach ($data['selected_categories'] as $val) {
-                    $sub_cat_rates[] = $val['sub_category_id'];
+                    $sub_cat_ids[] = $val['sub_category_id'];
                 }
             }
-            $data['sub_category_rates'] = $this->Members_Model->get_sub_cat_rates($member_id, $sub_cat_rates);
+            $data['sub_category_rates'] = $this->Members_Model->get_sub_cat_rates($member_id, $sub_cat_ids);
             $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id);
             $data['language_data'] = $this->Members_Model->get_member_languages($member_id);
             $data['degrees'] = $this->Members_Model->get_member_degrees($member_id);
