@@ -214,7 +214,8 @@ class Profile extends CI_Controller {
     }
 
     public function thankyou() {
-        $this->load->view('frontend/companions/thankyou');
+        $data['registration_completed'] = true;
+        $this->load->view('frontend/companions/thankyou', $data);
     }
 
     public function add_companion_user() {
@@ -455,11 +456,11 @@ class Profile extends CI_Controller {
                 }
             }
         }
-        if (!$member_id_param && $member_type=="guest") {
-            redirect(base_url('guests/get_guest_profile/' . $member_id."#tab_1_3"));
+        if (!$member_id_param && $member_type == "guest") {
+            redirect(base_url('guests/get_guest_profile/' . $member_id . "#tab_1_3"));
         }
         // front end user call.
-        if (!$member_id_param && $member_type=="companion") {
+        if (!$member_id_param && $member_type == "companion") {
             redirect(base_url('companions/get_companion_profile#tab_1_3'));
         }
     }
