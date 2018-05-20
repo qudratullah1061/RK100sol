@@ -1,8 +1,8 @@
 <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDVw_YgvMUxH6KawXzlwM9meU3HAUnbsLQ&libraries=places&language=en"></script>
 <script src="<?php echo base_url(); ?>assets/geocode/jquery.geocomplete.js" type="text/javascript"></script>
 <link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.min.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/styles/styles.css" rel="stylesheet"
-      <div class="portlet light bordered" id="form_wizard_1">
+<link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/styles/styles.css" rel="stylesheet">
+<div class="portlet light bordered" id="form_wizard_1">
     <div class="portlet-title">
         <div class="caption">
             <i class=" icon-user purple"></i>
@@ -199,42 +199,6 @@
                                     <label></label>
                                 </div>
                             </div>
-
-                            <!--                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                            <label class="control-label col-md-3">Country<span class="required">*</span></label>
-                                                            <div class="col-md-6">
-                                                                <select class="form-control" name="country" id="dd-country" onchange="CommonFunctions.LoadStates(this.value);">
-                            <?php // echo isset($country_options) ? $country_options : ""; ?>
-                                                                </select>
-                                                                <label></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                            <label class="control-label col-md-3">State<span class="required">*</span></label>
-                                                            <div class="col-md-6">
-                                                                <select class="form-control" id="dd-state" onchange="CommonFunctions.LoadCities(this.value);" name="state">
-                                                                    <option value="">Select State</option>
-                                                                </select>
-                                                                <label></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group form-md-line-input form-md-floating-label">
-                                                            <label class="control-label col-md-3">City<span class="required">*</span></label>
-                                                            <div class="col-md-6">
-                                                                <select class="form-control" id="dd-city" name="city">
-                                                                    <option value="">Select City</option>
-                                                                </select>
-                                                                <label></label>
-                                                            </div>
-                                                        </div>-->
-                            <!--                            <div class="form-group form-md-line-input">
-                                                            <label class="control-label col-md-3"> Address <span class="required"> * </span> </label>
-                                                            <div class="col-md-6">
-                                                                <input type="text" class="form-control" name="address"  placeholder="">
-                                                                <label></label>
-                                                            </div>
-                                                        </div>-->
-
                         </div>
                         <div class="tab-pane" id="tab3">
                             <h3 class="block text-center">Further Details</h3>

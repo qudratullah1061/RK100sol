@@ -23,7 +23,7 @@
                                                 <div class="mt-comment-body">
                                                     <div class="mt-comment-info">
                                                         <span class="mt-comment-author"><?php echo $notification['username']; ?></span>
-                                                        <span class="mt-comment-date"><?php echo date('j F, g:i a', strtotime($notification['created_on'])); ?></span>
+                                                        <span class="mt-comment-date"><?php echo date('j-F-Y g:i a', strtotime($notification['updated_on'])); ?></span>
                                                     </div>
                                                     <div class="mt-comment-text"> <?php echo $notification['notification_message']; ?> </div>
                                                     <div class="mt-comment-details">

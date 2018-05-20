@@ -234,7 +234,7 @@ if (isset($registration_completed) && $registration_completed) {
                                                 <?php foreach ($notifications as $notification) { ?>
                                                     <li>
                                                         <a href="<?php echo base_url('notifications/view_notifications/' . $notification['notification_user_id']); ?>">
-                                                            <span class="time"><?php echo time_elapsed_string($notification['created_on']); ?></span>
+                                                            <span class="time"><?php echo time_elapsed_string($notification['updated_on']); ?></span>
                                                             <span class="details">
                                                                 <span class="label label-sm label-icon label-success">
                                                                     <i class="fa fa-plus"></i>
