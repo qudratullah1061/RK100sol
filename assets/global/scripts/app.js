@@ -661,18 +661,17 @@ var App = function () {
             }
 
             $(el).each(function () {
-                if ($(this).attr("data-initialized")) {
+                if ($(this).attr("data-initialized") && $(this).attr("data-initialized") == 1) {
                     return; // exit
                 }
-
                 var height;
-
+                var start_position;
                 if ($(this).attr("data-height")) {
                     height = $(this).attr("data-height");
                 } else {
                     height = $(this).css('height');
                 }
-
+                start_position = typeof $(this).attr("start-at") != "undefined" ? $(this).attr("start-at") : "top";
                 $(this).slimScroll({
                     allowPageScroll: true, // allow page scroll when the element scroll is ended
                     size: '7px',
@@ -683,6 +682,7 @@ var App = function () {
                     height: height,
                     alwaysVisible: ($(this).attr("data-always-visible") == "1" ? true : false),
                     railVisible: ($(this).attr("data-rail-visible") == "1" ? true : false),
+                    start: start_position,
                     disableFadeOut: true
                 });
 
@@ -975,7 +975,7 @@ var App = function () {
 
             return sizes[size] ? sizes[size] : 0;
         },
-        
+
         initMaterialDesign: function () {
             handleMaterialDesign();
         },

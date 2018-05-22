@@ -1,4 +1,5 @@
 var current_chat_id;
+var usersInfo = {};
 var Templates = function () {
     var appendTemplateOneToOne = function (messages) {
         var message = "";
@@ -11,12 +12,12 @@ var Templates = function () {
             message = '<div class="item">' +
                     '<div class="item-head">' +
                     '<div class="item-details">' +
-                    '<img class="item-pic rounded" src="' + base_url + '/assets/pages/media/users/avatar4.jpg">' +
+                    '<img class="item-pic rounded" src="' + base_url + usersInfo[messages[key].sender_id] + '">' +
                     '<a href="" class="item-name primary-link">Nick Larson</a>' +
                     '<span class="item-label">3 hrs ago</span>' +
                     '</div>' +
                     '<span class="item-status">' +
-                    '<span class="badge badge-empty badge-success"></span> Open</span>' +
+                    '<span class="badge badge-empty badge-success"></span> Sent</span>' +
                     '</div>' +
                     '<div class="item-body">' + messages[key].message + '</div>' +
                     '</div>';
@@ -28,21 +29,31 @@ var Templates = function () {
         unread > 0 ? $(".member-" + user2).html(unread) : $(".member-" + user2).hide();
     };
 
+    var getLocalDateTime = function (dateTimeSent) {
+        var r = new Date(dateTimeSent);
+        var h = r.getHours();
+        var m = r.getMinutes();
+        var s = r.getSeconds();
+        var _time = (h > 12) ? (h - 12 + ':' + m + ':' + s + ' PM') : (h + ':' + m + ':' + s + ' AM');
+        return (r.getFullYear() + "-" + (r.getMonth() + 1) + "-" + r.getDate() + " " + _time);
+    }
+
     var appendSingleMessage = function (message_obj) {
         var message = "";
         var unread = 0;
         var users = current_chat_id.split('-');
         var user1 = users[0];
         var user2 = users[1];
+        //console.log(message_obj.sender_id);
         message = '<div class="item">' +
                 '<div class="item-head">' +
                 '<div class="item-details">' +
-                '<img class="item-pic rounded" src="' + base_url + '/assets/pages/media/users/avatar4.jpg">' +
-                '<a href="" class="item-name primary-link">Nick Larson</a>' +
-                '<span class="item-label">3 hrs ago</span>' +
+                '<img class="item-pic rounded" src="' + base_url + usersInfo[message_obj.sender_id].image_path + usersInfo[message_obj.sender_id].image + '">' +
+                '<a href="" class="item-name primary-link">' + usersInfo[message_obj.sender_id].first_name + ' ' + usersInfo[message_obj.sender_id].last_name + '</a>' +
+                '<span class="item-label">' + getLocalDateTime(message_obj.date_sent) + '</span>' +
                 '</div>' +
                 '<span class="item-status">' +
-                '<span class="badge badge-empty badge-success"></span> Open</span>' +
+                '<span class="badge badge-empty badge-success"></span> Sent</span>' +
                 '</div>' +
                 '<div class="item-body">' + message_obj.message + '</div>' +
                 '</div>';
@@ -143,6 +154,10 @@ var Chat = function () {
         conversationRef.child(chat_id).on('child_changed', function (snapshot) {
             console.log('update call nested');
         });
+        var container = $(".scroll-custom");
+        container.slimScroll({
+            scrollTo: container[0].scrollHeight
+        });
     };
 
     var updateChatMessagesAsRead = function (chat_id) {
@@ -164,25 +179,78 @@ var Chat = function () {
     }
 
     var addMessage = function (current_chat_id) {
-        var users = current_chat_id.split('-');
-        var user1 = users[0];
-        var user2 = users[1];
-        var msg = $(".msg-box").val();
-        var currentChatRef = firebase.database().ref('conversations/' + current_chat_id);
-        currentChatRef.push().set({'sender_id': user1, 'receiver_id': user2, 'is_read': 0, 'message': msg, 'date_sent': (new Date()).toString()});
+        if (typeof current_chat_id != "undefined") {
+            var users = current_chat_id.split('-');
+            var user1 = users[0];
+            var user2 = users[1];
+            var msg = $(".msg-box").val();
+            var currentChatRef = firebase.database().ref('conversations/' + current_chat_id);
+            currentChatRef.push().set({'sender_id': user1, 'receiver_id': user2, 'is_read': 0, 'message': msg, 'date_sent': (new Date()).toString()});
+            $(".msg-box").val("");
+            var container = $(".scroll-custom");
+            container.slimScroll({
+                scrollTo: container[0].scrollHeight
+            });
+        } else {
+            toastr["info"]("Please select chat to send message.", "Info");
+        }
+    }
+
+    var initMessageInput = function () {
+        $(".msg-box").keypress(function (event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                addMessage(current_chat_id);
+            }
+        });
+    }
+
+
+    var populateUserInfo = function (chat_id) {
+        if (typeof chat_id != "undefined") {
+            var users = chat_id.split('-');
+            var user1 = users[0];
+            var user2 = users[1];
+            $.ajax({
+                type: "POST",
+                url: base_url + "admin/chat/getUserInfoForChat",
+                datatype: 'json',
+                data: {chat_id: chat_id},
+                beforeSend: function ()
+                {
+                    App.blockUI({target: 'body', animate: true});
+                },
+                complete: function () {
+                    App.unblockUI('body');
+                },
+                success: function (data) {
+                    if (!data.error) {
+                        user1Info = data[user1];
+                        user2Info = data[user2];
+                        usersInfo[user1] = user1Info;
+                        usersInfo[user2] = user2Info;
+                        getChatMessages(chat_id);
+                        updateChatMessagesAsRead(chat_id);
+                    } else {
+                        toastr["error"](data.description, "Error!");
+                    }
+                }
+            });
+        }
     }
 
     return {
         init: function () {
             initFirebase();
             initMessageCounters();
+            initMessageInput();
         },
         getChatMessages: function (chat_id) {
             $(".mt-comment").removeClass('active_chat');
             $(".mt-comment-" + chat_id).addClass('active_chat');
             conversationRef.child(chat_id).off();
-            getChatMessages(chat_id);
-            updateChatMessagesAsRead(chat_id);
+            // get user info here.
+            populateUserInfo(chat_id);
         },
         sendChatMessage: function () {
             addMessage(current_chat_id);

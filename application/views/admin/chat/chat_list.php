@@ -48,7 +48,7 @@
                                 foreach ($guest_members as $guest) {
                                     ?>
                                     <!--// repeat this node-->
-                                    <div class="mt-comment mt-comment-0-<?php echo $guest['member_id']; ?>" onclick="Chat.getChatMessages('0-<?php echo $guest['member_id']; ?>')">
+                                    <div class="mt-comment mt-comment-1a-<?php echo $guest['member_id']; ?>" onclick="Chat.getChatMessages('1a-<?php echo $guest['member_id']; ?>')">
                                         <div class="mt-comment-img">
                                             <img src="<?php echo file_exists($this->config->item('root_path') . $guest['image_path'] . "small_" . $guest['image']) ? base_url($guest['image_path'] . "small_" . $guest['image']) : base_url('uploads/member_images/profile/profile.png'); ?>" /> 
                                         </div>
@@ -76,7 +76,7 @@
                                 foreach ($companion_members as $companion) {
                                     ?>
                                     <!--// repeat this node-->
-                                    <div class="mt-comment mt-comment-0-<?php echo $companion['member_id']; ?>" onclick="Chat.getChatMessages('0-<?php echo $companion['member_id']; ?>')">
+                                    <div class="mt-comment mt-comment-1a-<?php echo $companion['member_id']; ?>" onclick="Chat.getChatMessages('1a-<?php echo $companion['member_id']; ?>')">
                                         <div class="mt-comment-img">
                                             <img alt="no image" src="<?php echo file_exists($this->config->item('root_path') . $companion['image_path'] . "small_" . $companion['image']) ? base_url($companion['image_path'] . "small_" . $companion['image']) : base_url('uploads/member_images/profile/profile.png'); ?>" /> </div>
                                         <div class="mt-comment-body">
@@ -107,7 +107,7 @@
                 <div class="caption caption-md">
                     <i class="icon-bar-chart font-dark hide"></i>
                     <span class="caption-subject font-green-steel bold uppercase">User Conversation</span>
-                    <span class="caption-helper">45 pending</span>
+                    <!--<span class="caption-helper">45 pending</span>-->
                 </div>
                 <!--                <div class="inputs">
                                     <div class="portlet-input input-inline input-small ">
@@ -119,11 +119,9 @@
                                 </div>-->
             </div>
             <div class="portlet-body">
-                <div class="scroller" style="height: 390px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+                <div class="scroller scroll-custom" start-at="bottom" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 338px;">
                     <div class="general-item-list">
-                        <!--repeat this block to repeat messages-->
-
-                        <!--end repeat this block to repeat messages-->
+                        <!--Repeat items here-->
                     </div>
                 </div>
                 <div class="chat-form">

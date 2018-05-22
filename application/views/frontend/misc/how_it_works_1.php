@@ -68,7 +68,7 @@
 
 
 
-<!--        <h6 class="text-extra-dark-gray text-medium alt-font font-weight-500 margin-15px-top margin-10px-bottom text-purple">Companion services</h6>
+        <h6 class="text-extra-dark-gray text-medium alt-font font-weight-500 margin-15px-top margin-10px-bottom text-purple">Companion services</h6>
 
         <p>If you are a small time business interested in international entrepreneurship and want to make money online, Konsort’s is a great avenue to get recognized. With a growing member base, your exposure as a business increases twofold. </p>
 
@@ -80,7 +80,7 @@
 
         <p>So while we find the ‘right personal fitness trainer’ or find an event organizer with ‘a perfect five star rating’, we find ways to engage and form meaningful relationships.</p>
 
-        <p>Whether you are a small time business looking to go global through international entrepreneurship, a personal fitness trainer looking to break out among the big guys or simply someone who wants to watch a movie and doesn’t want to go alone, we are here to find you the perfect solution. </p>-->
+        <p>Whether you are a small time business looking to go global through international entrepreneurship, a personal fitness trainer looking to break out among the big guys or simply someone who wants to watch a movie and doesn’t want to go alone, we are here to find you the perfect solution. </p>
 
     </div>
 </section>

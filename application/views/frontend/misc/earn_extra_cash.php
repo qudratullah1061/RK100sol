@@ -8,7 +8,7 @@
                     <!--<span class="display-block text-white opacity6 width-45 sm-width-100 center-col alt-font margin-10px-bottom">Frequently asked questions</span>-->
                     <!-- end sub title -->
                     <!-- start page title -->
-                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom large-heading">How Konsorts works?</h1>
+                    <h1 class="alt-font text-white font-weight-500 no-margin-bottom large-heading">Earn Extra Cash?</h1>
 
 
 
