@@ -16,8 +16,12 @@
 </section>
 <section class="faq wow fadeIn">
     <div class="container">
-        <p>Whether you are a personal fitness trainer, an event organizer or someone who needs other services in their lives, Konsorts is an ideal pit stop for all your needs.</p>
-        <p>So what makes us different? Among the burgeoning websites that cater specifically to traveling, specific services or services that are unique and difficult to find, Konsorts is the only platform that looks out for all.</p>
+        <p>
+            Whether you are a personal fitness trainer, an event organizer or require other services, Konsorts is an ideal pit stop for all your needs.
+        </p>
+        <p>
+            So what makes us different? Among the burgeoning websites that cater specifically to traveling, specific services or services that are unique and difficult to find, Konsorts is the only platform that looks out for all.
+        </p>
 
         <h6 class="text-extra-dark-gray text-medium alt-font font-weight-500 margin-15px-top margin-10px-bottom text-purple">We cater to:</h6>
         <ul class="list-style-5 custom-list-5 padding-20px-left">
@@ -29,25 +33,27 @@
 
         <h6 class="text-extra-dark-gray text-medium alt-font font-weight-500 margin-15px-top margin-10px-bottom text-purple">Guest member:</h6>
 
-        <p>A guest member pays $ 29.99 CAN annually to get access to all service member profiles. These services can then cater to the member’s requirements. Whether there is a dinner party to attend or an event organizer needed to plan it or an unknown city you want to get around – there is a person ready to guide you through any and every decision. </p>
-        <p>We care about our users and ensure 100% anonymity to the growing base of members on our page. </p>
+        <p>
+            A guest member pays $ 29.99 CAN annually to get access to all service member profiles. These services can then cater to the member’s requirements. Whether there are repairs in your condo needs, you require an event organizer for a special occasion or an unknown city you want to get around – there is a person ready to guide you through any and every decision.
+        </p>
+        <p>We care about our users and ensure 100% anonymity to the growing base of members on our page.</p>
 
         <h6 class="text-extra-dark-gray text-medium alt-font font-weight-500 margin-15px-top margin-10px-bottom text-purple">Service members:</h6>
 
         <p>
-            This is a location independent way for you to gain experience and earn some money or expand your client base. Whether you are certified (in which case upload your diploma/certifications on your profile) or not (in which case let your talent shine through!), everyone has an equal opportunity to earn extra cash through their skill. 
+            This is a great way for you to gain experience and earn money or expand your client base. Whether you are certified (in which case upload your diploma/certifications on your profile) or not perhaps you have a passion that you wish to share (in which case let your talent shine through!), everyone has an equal opportunity to earn extra cash through their skill. 
         </p>
 
         <p>
-            Not only are we service providers, but we also want to promote international entrepreneurship. The world is becoming smaller and it is an opportunity that we want to tap into. No matter what your skill is, consider this an unbiased platform where you will be chosen on the basis of merit.
+            Not only are we service providers, but we also promote international entrepreneurship. The world is becoming smaller and it is an opportunity that we want to tap into. No matter what your skill is, consider this an unbiased platform where you will be chosen on the basis of merit.
         </p>
 
         <p>
-            Konsorts also offers free of charge daily updates to let members know about your availability. We accommodate our gold members 100% and provide a travel option when a member travels between cities.
+            Konsorts also offers daily update tool, to let members know about your availability. We accommodate our gold members 100% and provide a travel option, up to 5 cities, when a service member travels.
         </p>
 
         <p>
-            If you are a small time business interested in international entrepreneurship and want to make money online, Konsort’s is a great avenue to get recognized. With a growing member base, your exposure as a business increases twofold. 
+            If you are a small time business interested in international entrepreneurship and want to make money online, Konsort’s is a great avenue to get recognized. With a growing member base, your exposure as a business increases twofold.
         </p>
 
         <p>
@@ -63,7 +69,7 @@
         </p>
 
         <p>
-            Whether you are a small time business looking to go global through international entrepreneurship, a personal fitness trainer looking to break out among the big guys or simply someone who wants to explore the best shopping and doesn’t want to go alone, we are here to find you the perfect solution. 
+            Whether you are a small time business looking to go global through international entrepreneurship, a personal fitness trainer looking to break out among the big guys or simply someone who wants to explore the best shopping and doesn’t want to go alone, we are here to find you the perfect solution.
         </p>
 
 
