@@ -745,7 +745,7 @@
                     <figcaption class="padding-30px-all bg-purple last-paragraph-no-margin">
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle text-left">
-                                <p class="text-white">Whether you are a personal fitness trainer, an event organizer or someone who needs other services in their lives, Konsorts is an ideal pit stop for all your needs. So what makes us different? Among the burgeoning websites that cater specifically to traveling, specific services or services that are unique and difficult to find, Konsorts is the only...</p>
+                                <p class="text-white">Whether you are a personal fitness trainer, an event organizer or require other services, Konsorts is an ideal pit stop for all your needs. So what makes us different? Among the burgeoning websites that cater specifically to traveling, specific services or services that are unique and difficult to find, Konsorts is the only platform...</p>
                                 <a href="<?php echo base_url('misc/how_it_works'); ?>" class="text-white font-weight-700">Read More</a>
                             </div>
                         </div>
