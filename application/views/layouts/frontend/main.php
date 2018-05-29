@@ -2,13 +2,38 @@
 <html class="no-js" lang="en">
     <head>
         <!-- title -->
-        <title>Konsorts – Community for professionals</title>
+        <?php
+        echo $this->selected_tab; //exit;
+        if ($this->selected_tab == "home" || $this->selected_tab == "") {
+            echo '<title>Konsorts – Community for professionals</title>';
+            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
+        } 
+        elseif ($this->selected_tab == "about") {
+            echo '<title>Konsorts – Community for professionals</title>';
+            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
+        }
+        elseif ($this->selected_tab == "login") {
+            echo '<title>Konsorts – Community for professionals</title>';
+            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
+        }
+        elseif ($this->selected_tab == "blog") {
+            echo '<title>Konsorts – Community for professionals</title>';
+            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
+        }
+        elseif ($this->selected_tab == "contact") {
+            echo '<title>Konsorts – Community for professionals</title>';
+            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
+        }
+        elseif ($this->selected_tab == "register") {
+            echo '<title>Konsorts – Community for professionals</title>';
+            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
+        }
+        ?>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
         <!--meta link code start from here-->
         <!--<meta name="description" content="Welcome to konsorts.com and we wish you a very pleasant experience! konsorts.com is to provide quality tour guides, personal trainers plus many other services as well as companions who wish to represent themselves without the use of an agent, to work in a well needed industry that offers platonic services and provide unique security that all members deserve. We encourage individuals who wish to enrich the lives of others, through ethical and quality services world wide. Members on konsorts.com are from all walks of life to assist guest members for international travel, as a dinner companion, gym motivation or simply tour guiding for the day. We pride ourselves on creating a safer world by screening both the guest and the companion, we have a verification system in place to protect the well being of all members. Each member must show proof of their identity to join. This process alleviates people who have bad intentions from joining this community. We hope through konsorts.com that friendships develop and who knows, true love.">-->
-        <meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">
         <meta property="og:title" content="Konsorts is a community of individuals offering services world wide.">
         <meta property="og:url" content="<?php echo base_url(); ?>">
         <meta property="og:type"   content="website" /> 
@@ -73,7 +98,7 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
         <!--sweet alert ends-->
         <!-- BEGIN datepicker-->
-        <!--<link href="<?php // echo base_url();                                                                           ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="<?php // echo base_url();                                                                                           ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
         <!--datepicker ends-->
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -172,7 +197,7 @@ if (isset($registration_completed) && $registration_completed) {
                                 <li class="<?php echo ActivateLink('about'); ?>">
                                     <a href="<?php echo base_url('misc/about'); ?>">About</a>
                                 </li>
-<!--                                    <li class="<?php // echo ActivateLink('services');                                                             ?>">
+<!--                                    <li class="<?php // echo ActivateLink('services');                                                                             ?>">
                                     <a href="javascript:void(0);">Our Services</a>
                                 </li>-->
                                 <li class="<?php echo ActivateLink('blog'); ?>">
@@ -393,9 +418,9 @@ if (isset($registration_completed) && $registration_completed) {
                                 <ul  class="small-icon no-margin-bottom">
                                     <li> <span> Follow Us:</span> </li>
                                     <li class="enabled"><a href="<?php echo isset($admin_info['facebook_link']) ? $admin_info['facebook_link'] : ""; ?>"><i class="fa fa-facebook-square"></i></a></li>
-                                    <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                                                           ?>"><i class="fa fa-youtube-square"></i></a></li>-->
+                                    <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                                                                           ?>"><i class="fa fa-youtube-square"></i></a></li>-->
                                     <li><a href="<?php echo isset($admin_info['linkedin_link']) ? $admin_info['linkedin_link'] : ""; ?>"><i class="fa fa-linkedin-square"></i></a></li>
-                                    <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                                                           ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
+                                    <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                                                                           ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
                                     <li class="enabled"><a href="<?php echo isset($admin_info['twitter_link']) ? $admin_info['twitter_link'] : ""; ?>"><i class="fa fa-twitter-square"></i></a></li>
                                     <li><a href="<?php echo isset($admin_info['instagram_link']) ? $admin_info['instagram_link'] : ""; ?>"><i class="fa fa-instagram"></i></a></li>
                                 </ul>
@@ -494,7 +519,7 @@ if (isset($registration_completed) && $registration_completed) {
     <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
     <!--Form Validation end-->
     <!--datepicker start-->
-    <!--<script src="<?php // echo base_url();                                                                           ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
+    <!--<script src="<?php // echo base_url();                                                                                           ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
     <!--datepicker ends-->
     <!--select2 start-->
     <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>

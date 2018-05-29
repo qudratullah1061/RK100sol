@@ -1503,6 +1503,9 @@ li.grid-item.wow.zoomIn.last-paragraph-no-margin.no-portfoli-found {
     margin-top: 30px;
     line-height: 32px;
 }
+.hosting-textture h1,h2 {
+    font-size: 14px !important;
+}
 .hosting-textture p{margin:0;}
 .hosting-textture p a {color: purple;}
 .italic{font-style: italic;}

@@ -23,6 +23,7 @@
         </div>
     </div>
 </section>
+
 <section class="wow fadeIn gold-members hide">
     <div class="container">
         <p class="title-bar bg-purple text-white font-weight-600 text-center margin-35px-top">
@@ -538,7 +539,7 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Unique Party Ideas From A Local Chef</h5>
+                        <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Unique Party Ideas From A Local Chef</h1>
                         <p>The mention to hire a personal chef might sure sounds like a luxury, but if you really think about the benefits, it all makes sense and hiring one can really save you money, effort and time when entertaining. If you have a busy lifestyle, an in home chef could be your savior.   Aside from the convenience of having a personal local chef, they will organized before, during and after the party.   All you have to do is join your guests or enjoy watching.</p>
                         <p>But setting aside the stereotype of thinking about luxury and having to hire a chef for a dinner party especially if it’s a local chef, more people are realizing and finding out the true value of hiring a personal chef.  If you wanted a unique experience and you’re looking for a great way to enjoy an evening with friends, hiring a personal chef who knows how to prepare meals of different culture is the next big thing to do.  But more about that glamorous idea of having to hire a personal chef for your events and parties, a local chef can help you prep party themes for a special someone.  One great idea was to hire a chef for a dinner party.  Below are 7 unique party ideas from a local chef’s kitchen fancies.  Enjoy dinner with these 7 fantastic party galore!</p>
 
@@ -575,7 +576,7 @@
                     <div class="hosting-textture">
 
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">10 Exciting Ways To Enjoy Life With Your Activity Buddy</h5>
+                        <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">10 Exciting Ways To Enjoy Life With Your Activity Buddy</h1>
                         <p> There comes a time in life for everybody where you just don’t have a friend to confide in.</p>
 
                         <p>Maybe you’ve just moved to a new city and you don’t know anyone yet. Maybe your work keeps you too busy to make lasting friendships. Or maybe you’re at a point in your life where you’d just like to enjoy some youthful company to make your days brighter and go by faster.</p>
@@ -597,39 +598,39 @@
                         <p>And companions, take note: if you enjoy any of these activities, make sure you add them to your profiles so that people who are looking for them can find you.</p>
 
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cinema buddy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cinema buddy</h2>
                         <p>Have you ever been afraid to go watch a movie alone? Well, you’re not the only one. Beyond that, watching a quality movie with someone who is a movie buff himself can enhance the experience further. I mean, who doesn’t like a good after-movie debate?</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cooking buddy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cooking buddy</h2>
                         <p>Are you an aspiring culinary master chef? Even if you’re just burning pans, you know they joys that can be had in the kitchen. Making a delicious meal by yourself is a ton of fun - now imagine if there’d be two of you! Our companions know how to cook and they will be able to give you tips that will bring out the flavour in your dishes - and in your life.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Dining out buddy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Dining out buddy</h2>
                         <p>Alternatively, leave the cooking for another day and go dine in a fancy restaurant. There’s just something about food that invites titillating conversation. After all, drinking good wine with good food in good company is one of life's most civilized pleasures.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Dinner party buddy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Dinner party buddy</h2>
                         <p>Dinner parties are great - but not so much if you’re forced to play the third wheel. An even number of guests makes the whole event much more fun. Whether you’re throwing one of your own or going somewhere else, a companion can help: with preparation and conversation alike.</p>
                         <!--new-->
 
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Night club buddy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Night club buddy</h2>
                         <p>Young or just young at heart? Find a perfect partner in crime and hit up the downtown for a night of fun, fun, fun! Night clubs are the best way to start new friendships and meet people full of life. And it’s never too late to get your party on - believe me, you’ll rock the club. Your perfect wingman or wingwoman awaits.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Office events buddy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Office events buddy</h2>
                         <p>Office parties can be hit or miss - but if you bring your own company along, you’re guaranteed a good time. And when your coworkers see you having fun, they’ll want a piece of it too, making it easier to make friends at work. When a small party gathers around yourself, you boss is also sure to notice that you’re the centre of attention.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Sporting events buddy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Sporting events buddy</h2>
                         <p>A fan of sports, but none of your friends are? Find someone equally passionate among our companions. Many are fans of various sports and we’re sure you’ll find one who you can go to games with and cheer together for your favorite team or athlete.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Theatre buddy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Theatre buddy</h2>
                         <p>Prefer the fine arts? If you’re looking for a companion to see a play with, look no further. If you’d like someone who can discuss the intricacies of dramatic structure or the performances of individual actors, or just enjoy the play with, you will find someone who will suit your taste.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Travel buddy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Travel buddy</h2>
                         <p>Traveling is one of the best ways to get to know yourself, not just the world. But a lot of people don’t have anyone go with. Travelling alone can not only be much less fun, it can also be dangerous. A travel buddy takes those worries away and makes your worldly travels that much more fun. As a buddy, you can exchange your time and company for the cost of travel - an arrangement both of you will like.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Wedding buddy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Wedding buddy</h2>
                         <p>Sick of being the only single person at yet another wedding (we’re just kidding...)? Appear cool to your friends and finally please your parents by bringing along someone they would approve of...or, go against their wishes and introduce them to a tattooed, pierced in-law they will hate you for. Your choice! But seriously, we know that being alone at a wedding can be a bad experience. A buddy to bring along makes a world of difference - you can finally enjoy yourself.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Come and see</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Come and see</h2>
                         <p>Life is so much better when it is shared with others. While meeting someone new can be scary - you don’t know if you’ll like them, if they’ll like you - the “risk” is well worth taking, as it can be a start of a wonderful new adventure. </p>
                         <p class="margin-top-10">we’ll sure you’ll see someone you’ll like.</p>
 

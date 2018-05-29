@@ -24,6 +24,7 @@
         </div>
     </div>
 </section>
+
 <section class="wow fadeIn gold-members hide">
     <div class="container">
         <p class="title-bar bg-purple text-white font-weight-600 text-center margin-35px-top">
@@ -539,7 +540,7 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Be A Host Family & Cherish The Awesome Experience </h5>
+                        <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Be A Host Family & Cherish The Awesome Experience </h1>
                         <p class="margin-bottom-10px">Family homes are now the tourism competitors of hotels and other travel accommodations!</p>
                         <p class="margin-bottom-10px">There are millions of travelers around the world.  All of them are seeking that place to stay while on journey.  Although away from home, they always consider to stay in a place as perfect and close like the home they have wanted to live in though they were just travelers and passers-by in a place.  Some place that could make them feel home as if they were in their very own home.  Homestays are the ideal and perfect form of living in for travel bugs in terms of that homey atmosphere better than any other form of travel accommodations.
                             <br>  Over the decade, the way to travel different destinations has been revolutionized when travelers were introduced to the Homestay type of short term room rental accommodation.  It was so popular that backpack traveling became a viral sensational accommodation idea to most travelers who loved the very homey freedom experience.</p>
@@ -580,13 +581,13 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">How To Launch A Profitable Homestay Hosting Business And Earn Extra Money</h5>
+                        <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">How To Launch A Profitable Homestay Hosting Business And Earn Extra Money</h1>
                         <p>Do you have an extra room or two in your house or apartment? Then you are perfectly eligible to start your own homestay hosting business, which is a great way to earn extra money.</p>
                         <p>Really, that is the only prerequisite, as anyone can start this simple business that can make you money while you make friends all over the world. Sounds interesting? Are you ready to become a host for travellers? Here’s how you can do it.</p>
 
 
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">The How</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">The How</h2>
                         <p>Running a successful homestay is like running any other successful business.</p>
                         <p>It can be broken down into small, manageable steps that act as guideline you can follow to set it up correctly.</p>
                         <p>You have to follow a few guidelines to ensure you will present your home and yourself in a positive light to potential guests.</p>
@@ -599,24 +600,24 @@
                         </ul>
                         <p>Let’s take a look at each.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Step One: Preparing your homestay</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Step One: Preparing your homestay</h2>
                         <p>When you are preparing your homestay, it is a good time to first think about the kind of people you want to host.</p>
                         <p>Would you rather host young hippies or classy older couples? Both demographics have different needs, and pleasing everyone at the same time isn’t possible.</p>
                         <p>Take a look at what you’re working with (your house, apartment, rooms) and think about who would most like to stay here. If you figure this out now, you’ll have an easier time figuring out how to present yourself in the right way to the right guests.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Furnishing your homestay</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Furnishing your homestay</h2>
                         <p>While many homestays decide to go for a certain theme and pick furniture to go along with it, it isn’t a necessity.</p>
                         <p>If you have the resources to refurbish a room in a certain style, or do a few tweaks to improve what you already have, do go ahead! It certainly is a selling point and can attract more customers.</p>
                         <p>However, many homestay owners focus on things like this and forget about the very basics.</p>
                         <p>There are a few guidelines that can take a mediocre place and turn it into a great experience for your guests.</p>
                         <ol class="list-style-1 padding-15px-left margin-0">
                             <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cleanliness</h5>
+                                <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Cleanliness</h2>
                                 <p>If your rooms are impeccably clean, most your guests won’t even notice. But you can be sure that they will notice every bit of dirt and dust (and might mention it in a review).</p>
                                 <p>So make sure that the floor is hoovered, that the shelves are dusted and that the bins are empty - especially when they first arrive. You can’t improve a bad first impression. </p>
                             </li>
                             <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Amenities</h5>
+                                <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Amenities</h2>
 
                                 <p>Will you include a breakfast for your guests? Do you have a hot tub installed? Will you also host pets?</p>
                                 <p>Make a list of amenities (we’ll need it later when writing the listing).</p>
@@ -625,7 +626,7 @@
 
                             </li>
                             <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Decoration</h5>
+                                <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Decoration</h2>
                                 <p>You don’t need to go overboard with decorations - a small piece of art can go a long way to liven up a room.</p>
                                 <p>Pick something that goes with the existing style of your place, something that will appeal to your target demographic.</p>
                             </li>
@@ -636,13 +637,13 @@
 
 
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Step Two: Marketing your homestay</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Step Two: Marketing your homestay</h2>
                         <p>This is where you choice of demographic comes into play.</p>
                         <p>You know what kind of guests you want to host and you can gear your profile towards them, which will make them more likely to stay with you.</p>
                         <p>(If you don’t yet have a picked demographic or you would just like a nice mix of people to come stay with you, feel free to have a more general profile - but still follow the basics!)</p>
                         <ol class="list-style-1 padding-15px-left margin-0">
                             <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Take excellent photos</h5>
+                                <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Take excellent photos</h2>
                                 <p>Taking great photos is a skill you definitely need to present your home in the best possible way.</p>
                                 <p>Luckily you might not even need to hire a photographer or buy a professional camera. Most modern smartphones have cameras that can do a great job at taking photos.</p>
                                 <p>A good photo is more about the photographer than it is about the camera.</p>
@@ -657,7 +658,7 @@
                                 <p>If you know how to use Photoshop, you can touch the photos up on your own, or just use an app like Instagram to add a bit of flair to the photos - but beware, don’t go overboard! An over-the-top filter might come across as if you’re trying to hide something. Go for bright, lively photos.</p>
                             </li>
                             <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Write a compelling description</h5>
+                                <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Write a compelling description</h2>
 
                                 <p>This is where you take out the list of amenities you’ve written before and showcase your homestay in the best way possible.</p>
                                 <p>Make sure to include all the details about your place: the amenities, the services you offer (airport pickup, doing laundry, cooking meals, spending time with the guests,...). </p>
@@ -669,7 +670,7 @@
 
                             </li>
                             <li>
-                                <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Decide on the price</h5>
+                                <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Decide on the price</h2>
                                 <p>The price you decide to set for your homestay is entirely in your hands, but it also has to be appropriate.</p>
                                 <p>The more you can offer, the more you can ask for - any additional things that you can provide increase your value, and therefore your price.</p>
                                 <p>In order to not price yourself out, take a look at how much others are charging, and in doubt, go a bit lower - you can always increase your prices later. </p>
@@ -679,7 +680,7 @@
 
                         <div class="section-seperator"></div>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Step Three: Making your guests happy</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Step Three: Making your guests happy</h2>
 
                         <p>Ultimately, the homestay experience is all about being welcome like a family member visiting from out of town.</p>
                         <p>What kind of things would you do for a member of your family? How would you treat them? </p>
@@ -689,7 +690,7 @@
                         <p>Of course, this doesn’t mean that certain things like basic house rules (which you set) go out the window, but different personalities mash together in various ways.</p>
                         <p>I always like to imagine it like seeing a relative who came out of town and you haven’t seen for years. At first, it might be a bit awkward, the conversation might not flow, but as long as you stay pleasant, they will open up.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Homestay made profitable</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Homestay made profitable</h2>
                         <p>There you have it: how to start a successful homestay business and earn extra money.</p>
                         <p>If you follow these tips, you will have the best chance of attracting many guests and becoming a sought-after host for travellers.</p>
 

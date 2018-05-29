@@ -53,4 +53,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Home';
 $route['404_override'] = 'Home/not_found';
 $route['admin'] = 'admin/admin_auth';
+$route['fitness/(:num)'] = 'misc/fitness/$1';
+$route['tourism/(:num)'] = 'misc/tourism/$1';
+$route['social_occasion/(:num)'] = 'misc/social_occasion/$1';
+$route['fashion/(:num)'] = 'misc/fashion/$1';
+$route['hosting/(:num)'] = 'misc/hosting/$1';
+$route['event_planning/(:num)'] = 'misc/event_planning/$1';
+
 $route['translate_uri_dashes'] = FALSE;

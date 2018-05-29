@@ -23,6 +23,7 @@
         </div>
     </div>
 </section>
+
 <section class="wow fadeIn gold-members hide">
     <div class="container">
         <p class="title-bar bg-purple text-white font-weight-600 text-center margin-35px-top">
@@ -539,7 +540,7 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">What to expect as an event planner </h5>
+                        <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">What to expect as an event planner </h1>
 
 
                         <p class="margin-10px-bottom">Gone are the days where you have to be tied down to event planning companies or even an event organizer to have a customer base. Today you can hire an event planner without having to go through the hassle of approaching many. </p>
@@ -573,12 +574,12 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Making an event memorable - how to select the perfect photographer</h5>
+                        <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Making an event memorable - how to select the perfect photographer</h1>
                         <p class="margin-10px-bottom">In our lives, we all have those few once-in-a-lifetime events - a wedding, a baby shower, a really good party - that we want to remember forever.</p>
                         <p class="margin-10px-bottom">But since those events are so big, they seem to move past us in a flash. We often don’t even get the time to truly take them in as we’re swept off our feet by the current of the day.</p>
                         <p class="margin-10px-bottom">Having a trusted photographer to capture those moments can give you pictures you will cherish for years after.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">How to pick an event photographer</h5>
+                        <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">How to pick an event photographer</h2>
                         <p class="margin-10px-bottom">Every photographer will have a portfolio of photos.</p>
                         <p class="margin-10px-bottom">You need to tick two boxes: </p>
 
@@ -592,7 +593,7 @@
                         <p>At a wedding or another event, the photographer needs to be quick on his feet, as there are no second chances to capture the crucial moments. You can take a picture of a flower a hundred times, but you’ll only kiss the bride once - so you want them to capture it perfectly.</p>
                         <p>If a photographer has a portfolio of work that you like and they have done events like yours, they are very likely to produce photos you’ll like and be happy to dig out of the drawer every few months.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Where to find the perfect photographer</h5>
+                        <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Where to find the perfect photographer</h2>
                         <p class="margin-10px-bottom">So how can I find a photographer near me, you ask?</p>
                         <p class="margin-10px-bottom">The best way to find them is to look at their portfolios online. Here at Konsorts we have photographers for every kind of event: you can see their profiles and portfolios here.</p>
                         <p class="margin-10px-bottom">I know what you’re thinking: why should I hire an amateur photographer to capture one of the most important events in my life?</p>

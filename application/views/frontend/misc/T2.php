@@ -23,6 +23,7 @@
         </div>
     </div>
 </section>
+
 <section class="wow fadeIn gold-members hide">
     <div class="container">
         <p class="title-bar bg-purple text-white font-weight-600 text-center margin-35px-top">
@@ -538,18 +539,18 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">A modern man’s guide to dressing well with a busy schedule</h5>
+                        <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">A modern man’s guide to dressing well with a busy schedule</h1>
                         <p>Are you instantly repulsed by the blinding lights and the deafening pop music the very moment you step your foot into any clothes store?</p>
                         <p>Or are you too busy to spend hours of your time to hopefully find the right look and the right fit, only to go home empty handed in the end?</p>
                         <p>Well, a personal shopper / fashion consultant is the perfect solution for both.</p>
 
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Who is a personal shopper?</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Who is a personal shopper?</h2>
                         <p>A personal shopper is just that: a person who gets paid to buy things. While that may sound like a dream job to some, there are a lot of people (like you) who would rather spend their money instead of their time.</p>
                         <p>In the context we are talking about - men’s fashion - a personal shopper will also be your personal fashion consultant.</p>
                         <p>He - or she - will know how to take your measurements and recommend the best pieces that will fit your physique. Also, if you don’t have a sense of fashion and if you haven’t yet developed your personal style, he will be able to help you find something that will be suited to your personality.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">How does it work?</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">How does it work?</h2>
 
                         <p>Usually, once your personal stylist has figured out your measurements, they will go on the hunt for the Red Octob...em, the perfect clothes for you, your taste and your budget.</p>
                         <p>Yes, budget is an important consideration. Personal stylists aren’t for the super rich anymore, and you shouldn’t worry that your new friend will try to force you on more expensive pieces to earn a bigger commision.</p>
@@ -559,7 +560,7 @@
                         <p>Be open-minded towards trying those new things, as they can expand your style and make you more attractive. You aren’t obligated to buy anything after all, and if they do have a better eye for fashion than you, they will recommend pieces that would look great on you.</p>
                         <p>When you’ve tried everything and decided what to keep you simply give the rest to your shopper and they will take it back to the store. In the process, you will improve your style, and the shopper will get to know you better, so that in the future, the two of you will work even better together.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">How to find a personal shopper / fashion consultant?</h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">How to find a personal shopper / fashion consultant?</h2>
                         <p>While some stores may have their own personal shoppers, they are usually tied to that store and work on commission, which means that it’s in their best interest to get you to buy the most expensive pieces.</p>
                         <p>If you’d like to look great but still eat through the month, looking for one online is a better option.</p>
                         <p>At Konsorts, you can find personal shoppers and fashion consultants that have been vetted by our secure process and that would love to help you stand out in a crowd - or blend in with style, whatever you wish.</p>
@@ -589,7 +590,7 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <div class="hosting-textture">
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Shopping in a Strange City</h5>
+                        <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Shopping in a Strange City</h1>
                         <p>Often we find ourselves dreaming about traveling. Traveling is about the culture, the beauty, the sightseeing – experiences that change us completely. Along with that we often forget to mention a staple of most travels, traveling is also about the shopping!</p>
                         <p>While in the past excessive shopping earned us the unforgivable title ‘shopaholic’, we can now redeem ourselves. Now there is a retail career for us shopaholics; we can earn a living as a personal shopper. </p>
                         <p>To find a personal shopper is easy when you’re acquainted with larger retail chains: it becomes trickier as you go smaller. It’s even trickier when you are in an unknown city. This is where you can find a personal shopper of your dreams, a shopping companion who helps seek out the smaller boutique stores. These are the hole in the wall shops that we often overlook because we are overwhelmed by the cities themselves. Here’s where a local can help find something distinctive. Every time the client looks at the unique item, they will remember their travels fondly and they will also think of you.</p>
