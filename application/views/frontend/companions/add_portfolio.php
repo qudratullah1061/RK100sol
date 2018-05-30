@@ -37,7 +37,7 @@
                 </div>
                 <?php if (isset($portfolio_data->portfolio_id)) { ?>
                     <div class="form-group ">
-                        <img src="<?php echo base_url($portfolio_data->portfolio_image_path . 'medium_' . $portfolio_data->portfolio_image); ?>" class="image-thumbnail">
+                        <img src="<?php echo base_url($portfolio_data->portfolio_image_path . 'medium_' . $portfolio_data->portfolio_image); ?>" class="image-thumbnail" alt="Portolio Image">
                     </div>
                 <?php } ?>
                 <div class="form-group">

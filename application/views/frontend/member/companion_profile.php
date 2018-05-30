@@ -9,7 +9,7 @@
                             <?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
                         </span>
                         <div class="profile-media">
-                            <img src="<?php echo $member_info['image'] != '' ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>" alt="">
+                            <img src="<?php echo $member_info['image'] != '' ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>" alt="Profile Image">
                         </div>
                         <div class="profile-info">
                             <p><?php echo CheckPermission($member_info['privacy_info'], 'first_name_privacy') ? $member_info['first_name'] : ""; ?> <?php echo CheckPermission($member_info['privacy_info'], 'last_name_privacy') ? (strlen($member_info['last_name']) > 0 ? $member_info['last_name'][0] : "") : ""; ?>.</p>
@@ -166,7 +166,7 @@
                                                 <li class="grid-item wow zoomIn last-paragraph-no-margin" <?php echo ($count_sec == 0.0 ? '' : 'data-wow-delay="' . $count_sec . 's"'); ?>>
                                                     <figure>
                                                         <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                                            <img src="<?php echo base_url($portfolio['portfolio_image_path'] . $portfolio['portfolio_image']); ?>" alt=""/>
+                                                            <img src="<?php echo base_url($portfolio['portfolio_image_path'] . $portfolio['portfolio_image']); ?>" alt="Profile Image"/>
                                                             <div class="portfolio-icon text-white text-left">
                                                                 <p><?php echo $portfolio['portfolio_title']; ?></p>
                                                                 <p><?php echo $portfolio['city_name']; ?>, <?php echo $portfolio['country_name']; ?></p>

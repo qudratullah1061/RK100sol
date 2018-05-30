@@ -25,7 +25,7 @@
                     <div class="portlet light profile-sidebar-portlet ">
                         <!-- SIDEBAR USERPIC -->
                         <div class="profile-userpic">
-                            <img src="<?php echo base_url($member_info['image_path'] . '/medium_' . $member_info['image']); ?>" class="img-responsive" alt=""> 
+                            <img src="<?php echo base_url($member_info['image_path'] . '/medium_' . $member_info['image']); ?>" class="img-responsive" alt="Guest Member Image"> 
                         </div>
                         <!-- END SIDEBAR USERPIC -->
                         <!-- SIDEBAR USER TITLE -->
@@ -330,7 +330,7 @@
                                                             <div class="cbp-item graphic" id='pic-<?php echo $image_info['image_id']; ?>'>
                                                                 <div class="cbp-caption">
                                                                     <div class="cbp-caption-defaultWrap">
-                                                                        <img src="<?php echo base_url() . $image_info['image_path'] . 'large_' . $image_info['image']; ?>" alt=""> 
+                                                                        <img src="<?php echo base_url() . $image_info['image_path'] . 'large_' . $image_info['image']; ?>" alt="Member Profile Image"> 
                                                                     </div>
                                                                     <div class="cbp-caption-activeWrap">
                                                                         <div class="cbp-l-caption-alignCenter">
@@ -385,7 +385,7 @@
                                                             <div class="cbp-item graphic" id='pic-<?php echo $image_info['image_id']; ?>'>
                                                                 <div class="cbp-caption">
                                                                     <div class="cbp-caption-defaultWrap">
-                                                                        <img src="<?php echo base_url() . $image_info['image_path'] . 'large_' . $image_info['image']; ?>" alt=""> 
+                                                                        <img src="<?php echo base_url() . $image_info['image_path'] . 'large_' . $image_info['image']; ?>" alt="Member Id Proof"> 
                                                                     </div>
                                                                     <div class="cbp-caption-activeWrap">
                                                                         <div class="cbp-l-caption-alignCenter">

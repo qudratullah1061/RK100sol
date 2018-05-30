@@ -42,7 +42,7 @@ class Blogs_model extends Abstract_model {
         $results_array['total'] = $count[0]['total'];
         return $results_array;
     }
-    
+
     public function getBlogsLists($condition = '', $offset = -1, $limit = 10, $order_by = '') {
         $sql = "SELECT blogs.* , admins.username as admin_name FROM tb_blogs as blogs LEFT JOIN tb_admin_users as admins ON (blogs.created_by = admins.admin_id)";
         $sql_count = "SELECT count(blogs.blog_id) as total, blogs.* , admins.username as admin_name FROM tb_blogs as blogs LEFT JOIN tb_admin_users as admins ON (blogs.created_by = admins.admin_id)";
@@ -76,17 +76,17 @@ class Blogs_model extends Abstract_model {
             return isset($result[0]) ? $result[0] : array();
         }
     }
-    
+
     public function add_tag($data) {
         $this->table_name = "tb_tags";
         return $this->save($data);
     }
-    
+
     public function update_tag($column, $row_id, $data) {
         $this->table_name = "tb_tags";
         return $this->updateBy($column, $row_id, $data);
     }
-    
+
     //Working by Sufyan
     public function get_blog($blog_id) {
         $this->table_name = 'tb_blogs';
@@ -95,17 +95,26 @@ class Blogs_model extends Abstract_model {
             return isset($result[0]) ? $result[0] : array();
         }
     }
-    
+
+    public function get_blog_by_slug($blog_slug) {
+        $this->table_name = 'tb_blogs';
+        $result = $this->getBy('blog_slug', $blog_slug);
+        if ($result) {
+            return isset($result[0]) ? $result[0] : array();
+        }
+        return array();
+    }
+
     public function add_blog($data) {
         $this->table_name = "tb_blogs";
         return $this->save($data);
     }
-    
+
     public function update_blog($column, $row_id, $data) {
         $this->table_name = "tb_blogs";
         return $this->updateBy($column, $row_id, $data);
     }
-    
+
     public function update_comment($blog_comment_id, $comment) {
         $this->table_name = "tb_blog_comments";
         $column = 'blog_comment_id';
@@ -113,27 +122,27 @@ class Blogs_model extends Abstract_model {
         $data = array('comment' => $comment);
         return $this->updateBy($column, $row_id, $data);
     }
-    
+
     public function add_blog_des($data) {
         $this->table_name = "tb_blog_descriptions";
         return $this->save($data);
     }
-    
+
     public function update_blog_des($column, $row_id, $data) {
         $this->table_name = "tb_blog_descriptions";
         return $this->updateBy($column, $row_id, $data);
     }
-    
+
     public function get_all_tags() {
         $this->table_name = "tb_tags";
         return $this->getAll("is_active", 1);
     }
-    
+
     public function get_all_active_blogs() {
         $this->table_name = "tb_blogs";
         return $this->getAll("is_active", 1);
     }
-    
+
     function AddUpdateBlogCategories($blog_categories, $blog_id, $added_by = 0) {
         if ($blog_id) {
             // delete previous member ids
@@ -154,7 +163,7 @@ class Blogs_model extends Abstract_model {
             }
         }
     }
-    
+
     function add_tags($tags, $blog_id, $added_by = 0) {
         if ($this->session->userdata('admin_id')) {
             $added_by = $this->session->userdata('admin_id');
@@ -162,15 +171,15 @@ class Blogs_model extends Abstract_model {
         $this->table_name = 'tb_blog_tags';
         $this->db->where('blog_id', $blog_id);
         $this->db->delete($this->table_name);
-        if($tags){
+        if ($tags) {
             foreach ($tags as $tag_id) {
                 $data = array('blog_id' => $blog_id, 'tag_id' => $tag_id, 'created_on' => date("Y-m-d H:i:s"), 'created_by' => $added_by);
                 $this->save($data);
             }
         }
     }
-    
-    function deleteByWhereInArray($table , $where){
+
+    function deleteByWhereInArray($table, $where) {
         $this->table_name = $table;
         $this->deleteByWhereIN($where);
     }
@@ -184,40 +193,41 @@ class Blogs_model extends Abstract_model {
 //        echo $this->db->last_query();exit();
         return $query->result_array();
     }
-    
+
     function get_all_blogs_as_per_category($category_id) {
         $this->db->select('tb_blogs.*');
         $this->db->from('tb_blog_categories AS tbc');
         $this->db->join('tb_blogs', 'tb_blogs.blog_id=tbc.blog_id');
         $this->db->where('tbc.category_id', $category_id);
         $this->db->where('tb_blogs.is_active', 1);
-        $this->db->group_by('tb_blogs.blog_id'); 
+        $this->db->group_by('tb_blogs.blog_id');
         $query = $this->db->get();
         return $query->result();
     }
+
     function get_all_selected_tags($blog_id) {
         $this->db->select('COUNT(tbt.tag_id) AS count_tags, tbt.*, tb_tags.*');
         $this->db->from('tb_blog_tags AS tbt');
         $this->db->join('tb_tags', 'tb_tags.tag_id=tbt.tag_id');
         $this->db->where('tbt.blog_id', $blog_id);
         $this->db->where('tb_tags.is_active', 1);
-        $this->db->group_by('tbt.tag_id'); 
+        $this->db->group_by('tbt.tag_id');
         $query = $this->db->get();
         return $query->result_array();
     }
-    
+
     function get_all_blogs_as_per_tag($tag_id) {
         $this->db->select('tb_blogs.*');
         $this->db->from('tb_blog_tags AS tbt');
         $this->db->join('tb_blogs', 'tb_blogs.blog_id=tbt.blog_id');
         $this->db->where('tbt.tag_id', $tag_id);
         $this->db->where('tb_blogs.is_active', 1);
-        $this->db->group_by('tb_blogs.blog_id'); 
+        $this->db->group_by('tb_blogs.blog_id');
         $query = $this->db->get();
         return $query->result();
     }
-    
-    function get_selected_comments($blog_id, $parent_id=NULL) {
+
+    function get_selected_comments($blog_id, $parent_id = NULL) {
         $this->db->select('tb_blog_anonymous_user.*, tbc.*, tbc.created_on AS tbc_created_on, tb_members.username, tb_admin_users.username AS admin_username');
         $this->db->from('tb_blog_comments AS tbc');
         $this->db->join('tb_blogs', 'tb_blogs.blog_id=tbc.blog_id');
@@ -225,7 +235,7 @@ class Blogs_model extends Abstract_model {
         $this->db->join('tb_members', 'tb_members.member_id=tbc.user_id', 'left');
         $this->db->join('tb_admin_users', 'tb_admin_users.admin_id=tbc.user_id', 'left');
         $this->db->where('tbc.blog_id', $blog_id);
-        if($parent_id != NULL){
+        if ($parent_id != NULL) {
             $this->db->where('tbc.parent_id', $parent_id);
         }
         $this->db->where('tb_blogs.is_active', 1);
@@ -233,32 +243,32 @@ class Blogs_model extends Abstract_model {
 //        echo $this->db->last_query();exit();
         return $query->result();
     }
-    
-    function search_by_keyword($category_id, $keyword=NULL) {
+
+    function search_by_keyword($category_id, $keyword = NULL) {
         $this->db->select('tb_blogs.*');
         $this->db->from('tb_blogs');
         $this->db->join('tb_blog_descriptions', 'tb_blog_descriptions.blog_id=tb_blogs.blog_id', 'left');
         $this->db->join('tb_blog_categories', 'tb_blog_categories.blog_id=tb_blogs.blog_id', 'left');
-        if($keyword != NULL){
-            $this->db->where("(blog_title LIKE '%".$keyword."%' OR tb_blog_descriptions.blog_description LIKE '%".$keyword."%' )");
+        if ($keyword != NULL) {
+            $this->db->where("(blog_title LIKE '%" . $keyword . "%' OR tb_blog_descriptions.blog_description LIKE '%" . $keyword . "%' )");
         }
         $this->db->where('tb_blogs.is_active', 1);
-        if($category_id != ''){
+        if ($category_id != '') {
             $this->db->where('tb_blog_categories.category_id', $category_id);
         }
-        $this->db->group_by('tb_blogs.blog_id'); 
+        $this->db->group_by('tb_blogs.blog_id');
         $query = $this->db->get();
         return $query->result();
     }
-    
+
     public function add_comment($data) {
         $this->table_name = "tb_blog_comments";
         return $this->save($data);
     }
-    
+
     public function add_anonymous_user_data($data) {
         $this->table_name = "tb_blog_anonymous_user";
         return $this->save($data);
     }
-    
+
 }

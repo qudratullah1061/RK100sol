@@ -19,7 +19,7 @@
                                             ?>
                                             <div class="mt-comment">
                                                 <div class="mt-comment-img">
-                                                    <img src="<?php echo base_url($notification['image_path'] . "/" . $notification['image']); ?>" /> </div>
+                                                    <img src="<?php echo base_url($notification['image_path'] . "/" . $notification['image']); ?>" alt="Comment Image" /> </div>
                                                 <div class="mt-comment-body">
                                                     <div class="mt-comment-info">
                                                         <span class="mt-comment-author"><?php echo $notification['username']; ?></span>

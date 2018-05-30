@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="error-template">
-                <img style="margin-top:100px;" src="<?php echo base_url('assets/404-Error.jpg'); ?>">
+                <img style="margin-top:100px;" src="<?php echo base_url('assets/404-Error.jpg'); ?>" alt="404 Image">
             </div>
         </div>
     </div>

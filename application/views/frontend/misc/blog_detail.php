@@ -1,6 +1,6 @@
 <!-- start page title section -->
 <section class="wow fadeIn blog-banner" >
-    <img src="<?php echo base_url('assets/frontend/img/k-Blog-Cover.png') ?>" >
+    <img src="<?php echo base_url('assets/frontend/img/k-Blog-Cover.png') ?>" alt="Blog Main Image">
 </section>
 <!-- end page title section -->
 <!-- start post content section -->
@@ -36,7 +36,7 @@
         <div class="row">
             <main class="col-md-9 col-sm-12 col-xs-12 right-sidebar sm-margin-60px-bottom xs-margin-40px-bottom no-padding-left sm-no-padding-right">
                 <div class="col-md-12 col-sm-12 col-xs-12 blog-details-text last-paragraph-no-margin">
-                    <img src="http://placehold.it/900x631" alt="" class="width-100 margin-15px-bottom">
+                    <img src="http://placehold.it/900x631" alt="Blog Detail Image" class="width-100 margin-15px-bottom">
                     <div class="col-sm-12 col-xs-12 no-padding text-right sm-text-center margin-25px-bottom">
 
                         <div class="social-icon-style-6 text-right">
@@ -60,7 +60,7 @@
                         <p>Reading is not only informed by what’s going on with us at that moment, but also governed by how our eyes and brains work to process information. What you see and what you’re experiencing as you read these words is quite different.</p>
                         <footer>Jason Maria</footer>
                     </blockquote>
-                    <img src="http://placehold.it/900x600" alt="" class="width-100 margin-45px-bottom">
+                    <img src="http://placehold.it/900x600" alt="Blog Detail Image" class="width-100 margin-45px-bottom">
                     <!-- dropcaps -->
                     <p><span class="first-letter first-letter-block bg-extra-dark-gray text-white">M</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries. Simply dummy text of the printing and typesetting industry. It has survived not only five centuries. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     <!-- end dropcaps -->

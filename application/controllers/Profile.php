@@ -20,6 +20,7 @@ class Profile extends CI_Controller {
     #region guests
 
     function guest_signup() {
+        $this->selected_tab = "guest_signup";
         $data['country_options'] = GetCountriesOption();
         $this->load->view('frontend/guests/signup', $data);
     }
@@ -203,6 +204,7 @@ class Profile extends CI_Controller {
     #region companions
 
     public function companion_signup($plan_type) {
+        $this->selected_tab = $plan_type;
         if ($plan_type == 'silver' || $plan_type == 'gold') {
             $data['country_options'] = GetCountriesOption();
             $data['categories'] = GetAllCategories();

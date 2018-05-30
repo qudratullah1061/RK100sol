@@ -29,7 +29,7 @@
                                     <!--// repeat this node-->
                                     <div class="mt-comment mt-comment-0-<?php echo $this->session->userdata('member_info')['member_id']; ?>" onclick="Chat.getChatMessages('0-<?php echo $this->session->userdata('member_info')['member_id']; ?>')">
                                         <div class="mt-comment-img">
-                                            <img src="<?php echo base_url('uploads/member_images/profile/profile.png'); ?>" /> 
+                                            <img src="<?php echo base_url('uploads/member_images/profile/profile.png'); ?>" alt="Member Profile Image" /> 
                                         </div>
                                         <div class="mt-comment-body">
                                             <div class="mt-comment-info">

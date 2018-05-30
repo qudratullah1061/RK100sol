@@ -2,13 +2,12 @@
 <html class="no-js" lang="en">
     <head>
         <!-- title -->
-        <title>Konsorts – Title here</title>
+        <title>Konsorts - Welcome to Konsorts Log In</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
         <!--meta link code start from here-->
-        <!--<meta name="description" content="Welcome to konsorts.com and we wish you a very pleasant experience! konsorts.com is to provide quality tour guides, personal trainers plus many other services as well as companions who wish to represent themselves without the use of an agent, to work in a well needed industry that offers platonic services and provide unique security that all members deserve. We encourage individuals who wish to enrich the lives of others, through ethical and quality services world wide. Members on konsorts.com are from all walks of life to assist guest members for international travel, as a dinner companion, gym motivation or simply tour guiding for the day. We pride ourselves on creating a safer world by screening both the guest and the companion, we have a verification system in place to protect the well being of all members. Each member must show proof of their identity to join. This process alleviates people who have bad intentions from joining this community. We hope through konsorts.com that friendships develop and who knows, true love.">-->
-        <meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">
+        <meta name="description" content="Difficulties logging on to your profile?  We will do our best to solve the issue.  You are very special to our community and are always welcome!">
         <meta property="og:title" content="Konsorts is a community of individuals offering services world wide.">
         <meta property="og:url" content="<?php echo base_url(); ?>">
         <meta property="og:type"   content="website" /> 

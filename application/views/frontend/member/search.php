@@ -104,7 +104,7 @@
                                         <figure>
                                             <div class="portfolio-img  position-relative text-center overflow-hidden">
                                                 <a href="#">
-                                                    <img src="<?php echo base_url($members_list_row['image_path']) . $members_list_row['image']; ?>" alt="" />
+                                                    <img src="<?php echo base_url($members_list_row['image_path']) . $members_list_row['image']; ?>" alt="Profile Image" />
                                                 </a>
                                             </div>
                                             <figcaption class="">

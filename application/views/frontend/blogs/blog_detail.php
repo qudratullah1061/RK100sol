@@ -1,7 +1,7 @@
 <?php // echo '<pre>'; print_r($blog_data);exit();                                        ?>
 <!-- start page title section -->
 <section class="wow fadeIn blog-banner" >
-    <img src="<?php echo base_url('assets/frontend/img/k-Blog-Cover.png') ?>" >
+    <img src="<?php echo base_url('assets/frontend/img/k-Blog-Cover.png') ?>" alt="Blog Cover Image">
 </section>
 <!-- end page title section -->
 <!-- start post content section -->
@@ -41,7 +41,7 @@
                         ?>
                         <div class="col-md-12 col-sm-12 col-xs-12 blog-details-text last-paragraph-no-margin">
                             <?php if ($blog_desc['blog_description_image'] != "") { ?>
-                                <img src="<?php echo base_url($blog_desc['blog_description_image_path'] . 'large_' . $blog_desc['blog_description_image']) ?>" alt="" class="width-100 margin-15px-bottom">
+                                <img src="<?php echo base_url($blog_desc['blog_description_image_path'] . 'large_' . $blog_desc['blog_description_image']) ?>" alt="Blog Description Image" class="width-100 margin-15px-bottom">
                             <?php } ?>
                             <!--                    <div class="col-sm-12 col-xs-12 no-padding text-right sm-text-center margin-25px-bottom">
                             
@@ -69,7 +69,7 @@
                             <!--<p><span class="first-letter first-letter-block bg-extra-dark-gray text-white">M</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries. Simply dummy text of the printing and typesetting industry. It has survived not only five centuries. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>-->
                             <!-- end dropcaps -->
                             <?php if ($blog_desc['blog_feature_image'] != "") { ?>
-                                <figure class="wp-caption alignleft"><img alt="" src="<?php echo base_url($blog_desc['blog_feature_image_path'] . 'medium_' . $blog_desc['blog_feature_image']) ?>"></figure>
+                                <figure class="wp-caption alignleft"><img alt="Blog Feature Image" src="<?php echo base_url($blog_desc['blog_feature_image_path'] . 'medium_' . $blog_desc['blog_feature_image']) ?>"></figure>
                             <?php } ?>
                             <p><?php echo $blog_desc['blog_feature_description']; ?></p>
                         </div>
@@ -102,7 +102,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12 margin-30px-top">
                     <div class="display-table width-100 border-all border-color-extra-light-gray padding-50px-all sm-padding-30px-all xs-padding-20px-all">
                         <div class="display-table-cell width-130px text-center vertical-align-top xs-margin-15px-bottom xs-width-100 xs-display-block xs-text-center">
-                            <img src="<?php echo base_url($blog->author_image_path . 'medium_' . $blog->author_image); ?>" class="img-circle width-100px" alt="" />
+                            <img src="<?php echo base_url($blog->author_image_path . 'medium_' . $blog->author_image); ?>" class="img-circle width-100px" alt="Author Image" />
                         </div>
                         <div class="padding-40px-left display-table-cell vertical-align-top last-paragraph-no-margin xs-no-padding-left xs-display-block xs-text-center">
                             <a href="#" class="text-extra-dark-gray text-uppercase alt-font font-weight-500 margin-10px-bottom display-inline-block text-small"><?php echo $blog->blog_author; ?></a>
@@ -129,7 +129,7 @@
                                 <li>
                                     <div class="display-table width-100">
                                         <div class="display-table-cell width-100px xs-width-50px text-center vertical-align-top xs-display-block xs-margin-10px-bottom">
-                                            <img src="http://placehold.it/149x149" class="img-circle width-85 xs-width-100" alt="" />
+                                            <img src="http://placehold.it/149x149" class="img-circle width-85 xs-width-100" alt="Blog Comment Image" />
                                         </div>
                                         <div class="padding-40px-left display-table-cell vertical-align-top last-paragraph-no-margin xs-no-padding-left xs-display-block">
                                             <a href="javascript:void(0)" class="text-extra-dark-gray text-uppercase alt-font font-weight-500 text-small"><?php
@@ -173,7 +173,7 @@
                                         <li>
                                             <div class="display-table width-100">
                                                 <div class="display-table-cell width-100px xs-width-50px text-center vertical-align-top xs-display-block xs-margin-10px-bottom">
-                                                    <img src="http://placehold.it/149x149" class="img-circle width-85 xs-width-100" alt="" />
+                                                    <img src="http://placehold.it/149x149" class="img-circle width-85 xs-width-100" alt="Blog Sub Comment Image" />
                                                 </div>
                                                 <div class="padding-40px-left display-table-cell vertical-align-top last-paragraph-no-margin xs-no-padding-left xs-display-block">
                                                     <a href="javascript:void(0)" class="text-extra-dark-gray text-uppercase alt-font font-weight-500 text-small"><?php
@@ -258,7 +258,7 @@
                 </div>
                 <div class="margin-45px-bottom xs-margin-25px-bottom">
                     <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase text-small font-weight-500 aside-title"><span>About Me</span></div>
-                    <a href="#"><img src="<?php echo base_url($blog->author_image_path . 'large_' . $blog->author_image); ?>" alt="" class="margin-25px-bottom"/></a>
+                    <a href="#"><img src="<?php echo base_url($blog->author_image_path . 'large_' . $blog->author_image); ?>" alt="Author Image" class="margin-25px-bottom"/></a>
                     <p><?php echo $blog->blog_author_about; ?></p>
                     <a class="btn btn-very-small btn-dark-gray text-uppercase" href="javascript:void(0)">About <?php echo $blog->blog_author; ?></a>
                 </div>

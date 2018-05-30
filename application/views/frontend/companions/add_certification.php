@@ -35,7 +35,7 @@
                 
                 <?php if (isset($certification_data->member_certification_id)) { ?>
                     <div class="form-group form-md-line-input form-md-floating-label">
-                        <img src="<?php echo base_url($certification_data->certification_image_path . 'medium_' . $certification_data->certification_image); ?>" class="image-thumbnail">
+                        <img src="<?php echo base_url($certification_data->certification_image_path . 'medium_' . $certification_data->certification_image); ?>" class="image-thumbnail" alt="Member Certificate Image">
 
                     </div>
                 <?php } ?>

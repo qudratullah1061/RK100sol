@@ -293,8 +293,11 @@ class Blogs extends Admin_Controller {
             } else {
                 $data = array();
                 $data['blog_title'] = $this->input->post('blog_title');
+                $data['blog_slug'] = generateSlug($data['blog_title']);
                 $data['blog_author'] = $this->input->post('blog_author');
                 $data['blog_author_about'] = $this->input->post('blog_author_about');
+                $data['seo_title'] = $this->input->post('seo_title');
+                $data['seo_description'] = $this->input->post('seo_description');
                 $data['blog_date'] = $this->input->post('blog_date');
                 $data['is_active'] = $this->input->post('is_active') == null ? 0 : 1;
                 $data['updated_on'] = $data['created_on'] = date("Y-m-d h:i:s");

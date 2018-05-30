@@ -1,39 +1,81 @@
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
-        <!-- title -->
         <?php
-        //echo $this->selected_tab; //exit;
-        if ($this->selected_tab == "home" || $this->selected_tab == "") {
-            echo '<title>Konsorts – Community for professionals</title>';
-            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
-        } 
-        elseif ($this->selected_tab == "about") {
-            echo '<title>Konsorts – Community for professionals</title>';
-            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
+        $title = "Konsorts - International Service Community";
+        $description = "Konsorts is an international community of service providers.  We are a platform offering advertising space, support and security to members world wide.";
+//      categories start
+        if ($this->selected_tab == "fitness") {
+            $title = 'Konsorts - Fitness for a better life!';
+            $description = 'Compare various personal fitness trainers in your area, search for a personal fitness trainer online.  Being a personal trainer allows you to free advertising.';
+        } elseif ($this->selected_tab == "tourism") {
+            $title = 'Konsorts - Tourism enriches your life!';
+            $description = 'We promote experienced personal tour guides. Find the best tour guides or for travel assistance, we suggest a travel companion for hire for your next travel.';
+        } elseif ($this->selected_tab == "social") {
+            $title = 'Konsorts - Good company is enriching!';
+            $description = 'We offer a variety of categories for social occasions, hire a chef.  Visiting?  Hire a dining companion or movie companion to get a local inside scoop!';
+        } elseif ($this->selected_tab == "fashion") {
+            $title = 'Konsorts - Look good, feel great!';
+            $description = 'Why not hire a personal shopper or hire a shopping buddy?  A fashion consultant is well worth the money and saves time, especially when in a new city.';
+        } elseif ($this->selected_tab == "hosting") {
+            $title = 'Konsorts - Hosting is a hot travel trend';
+            $description = 'Try a homestay host family on your next travel?   It is worth the security and most economical with a paid host family that host international guests.';
+        } elseif ($this->selected_tab == "event") {
+            $title = 'Konsorts - Peace of mind!';
+            $description = 'Hire an event planner for a special day.  Event planners offer suggestions like best people to hire for wedding photography and much more.';
         }
-        elseif ($this->selected_tab == "login") {
-            echo '<title>Konsorts – Community for professionals</title>';
-            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
-        }
+//        end
         elseif ($this->selected_tab == "blog") {
-            echo '<title>Konsorts – Community for professionals</title>';
-            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
-        }
-        elseif ($this->selected_tab == "contact") {
-            echo '<title>Konsorts – Community for professionals</title>';
-            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
-        }
-        elseif ($this->selected_tab == "register") {
-            echo '<title>Konsorts – Community for professionals</title>';
-            echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
+            $title = 'Konsorts - We Think Big!';
+            $description = 'Our goal is to utilize our blog page as a tool to educate members and the general public about maximizing potential in the service industry.';
+        } elseif ($this->selected_tab == "blog_detail") {
+            $title = '' . $this->seo_title . '';
+            $description = '' . $this->seo_description . '';
+        } elseif ($this->selected_tab == "how_it_works") {
+            $title = 'Konsorts -  Keeping it simple!';
+            $description = 'Offer a service,  create a profile like you would a free classified Ad .  A guest members contacts you.   Perhaps a contract, your are in Business!';
+        } elseif ($this->selected_tab == "earn_extra_cash") {
+            $title = 'Konsorts -  Make Extra Money!';
+            $description = 'A great forum for students, retired and those looking to earn extra cash.  Your passion may be a money machine.  Offer your services now.';
+        } elseif ($this->selected_tab == "secure_community") {
+            $title = 'Konsorts - Members need to be real!';
+            $description = 'In order for a secure a safe community to thrive, every member must provide proof of identity by uploading photo identification.';
+        } elseif ($this->selected_tab == "about") {
+            $title = 'Konsorts -  Community that thinks big!';
+            $description = 'Konsorts is continually expanding ideas to help others succeed.  Helping people grow through business is our Business!';
+        } elseif ($this->selected_tab == "faq") {
+            $title = 'Konsorts - Guest members are important!';
+            $description = 'Every guest should be treated like royalty.  We hope to answer all questions related to services to better serve our guest members.';
+        } elseif ($this->selected_tab == "terms") {
+            $title = 'Konsorts - Rules ensure fairness!';
+            $description = 'Our terms ensure normal behavior of members that ensure consistency.  We pride ourselves on being the best service platform on the internet.';
+        } elseif ($this->selected_tab == "contact") {
+            $title = 'Konsorts – We are ready to serve!';
+            $description = 'Our office staff is always available to serve you and answer any questions you may have.  Kindly, contact us, if your service is not listed.';
+        } elseif ($this->selected_tab == "login") {
+            $title = 'Konsorts - Welcome to Konsorts Log In';
+            $description = 'Difficulties logging on to your profile?  We will do our best to solve the issue.  You are very special to our community and are always welcome!';
+        } elseif ($this->selected_tab == "register") {
+            $title = 'Konsorts - Welcome to Konsorts!';
+            $description = 'We pride ourselves on providing business support to our service members helping others become better service leaders in the industry.';
+        } elseif ($this->selected_tab == "guest_signup") {
+            $title = 'Konsorts - Guest Member Mission';
+            $description = 'We believe that when you contract a service, you deserve to be treated just like a royal family member.  Excellent service is important!';
+        } elseif ($this->selected_tab == "silver") {
+            $title = 'Konsorts - Silver Service Members';
+            $description = 'Thank You for choosing Konsorts to promote your business.  Our team supports you as you build new clientele, on a local or international level.';
+        } elseif ($this->selected_tab == "gold") {
+            $title = 'Konsorts - Gold Service Members';
+            $description = 'Thank You for choosing Konsorts to promote your business.  Gold members are featured on our home page and on our special pages.';
         }
         ?>
+        <!-- title -->
+        <title><?php echo $title; ?></title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <meta name="description" content="<?php echo $description; ?>">
         <!--meta link code start from here-->
-        <!--<meta name="description" content="Welcome to konsorts.com and we wish you a very pleasant experience! konsorts.com is to provide quality tour guides, personal trainers plus many other services as well as companions who wish to represent themselves without the use of an agent, to work in a well needed industry that offers platonic services and provide unique security that all members deserve. We encourage individuals who wish to enrich the lives of others, through ethical and quality services world wide. Members on konsorts.com are from all walks of life to assist guest members for international travel, as a dinner companion, gym motivation or simply tour guiding for the day. We pride ourselves on creating a safer world by screening both the guest and the companion, we have a verification system in place to protect the well being of all members. Each member must show proof of their identity to join. This process alleviates people who have bad intentions from joining this community. We hope through konsorts.com that friendships develop and who knows, true love.">-->
         <meta property="og:title" content="Konsorts is a community of individuals offering services world wide.">
         <meta property="og:url" content="<?php echo base_url(); ?>">
         <meta property="og:type"   content="website" /> 
@@ -98,7 +140,7 @@
         <link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
         <!--sweet alert ends-->
         <!-- BEGIN datepicker-->
-        <!--<link href="<?php // echo base_url();                                                                                           ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="<?php // echo base_url();                                                                                                                   ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
         <!--datepicker ends-->
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -197,7 +239,7 @@ if (isset($registration_completed) && $registration_completed) {
                                 <li class="<?php echo ActivateLink('about'); ?>">
                                     <a href="<?php echo base_url('misc/about'); ?>">About</a>
                                 </li>
-<!--                                    <li class="<?php // echo ActivateLink('services');                                                                             ?>">
+<!--                                    <li class="<?php // echo ActivateLink('services');                                                                                                     ?>">
                                     <a href="javascript:void(0);">Our Services</a>
                                 </li>-->
                                 <li class="<?php echo ActivateLink('blog'); ?>">
@@ -418,9 +460,9 @@ if (isset($registration_completed) && $registration_completed) {
                                 <ul  class="small-icon no-margin-bottom">
                                     <li> <span> Follow Us:</span> </li>
                                     <li class="enabled"><a href="<?php echo isset($admin_info['facebook_link']) ? $admin_info['facebook_link'] : ""; ?>"><i class="fa fa-facebook-square"></i></a></li>
-                                    <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                                                                           ?>"><i class="fa fa-youtube-square"></i></a></li>-->
+                                    <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                                                                                                   ?>"><i class="fa fa-youtube-square"></i></a></li>-->
                                     <li><a href="<?php echo isset($admin_info['linkedin_link']) ? $admin_info['linkedin_link'] : ""; ?>"><i class="fa fa-linkedin-square"></i></a></li>
-                                    <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                                                                           ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
+                                    <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                                                                                                   ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
                                     <li class="enabled"><a href="<?php echo isset($admin_info['twitter_link']) ? $admin_info['twitter_link'] : ""; ?>"><i class="fa fa-twitter-square"></i></a></li>
                                     <li><a href="<?php echo isset($admin_info['instagram_link']) ? $admin_info['instagram_link'] : ""; ?>"><i class="fa fa-instagram"></i></a></li>
                                 </ul>
@@ -519,7 +561,7 @@ if (isset($registration_completed) && $registration_completed) {
     <script src="<?php echo base_url(); ?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
     <!--Form Validation end-->
     <!--datepicker start-->
-    <!--<script src="<?php // echo base_url();                                                                                           ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
+    <!--<script src="<?php // echo base_url();                                                                                                                   ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
     <!--datepicker ends-->
     <!--select2 start-->
     <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>

@@ -40,6 +40,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-md-2 control-label">SEO Title</label>
+                        <div class="col-md-10">
+                            <input name="seo_title" type="text" value="<?php echo isset($blog_data->seo_title) ? $blog_data->seo_title : ""; ?>" placeholder="SEO Title" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">SEO Description</label>
+                        <div class="col-md-10">
+                            <textarea name="seo_description" class="form-control" rows="3" placeholder="Seo Description"><?php echo isset($blog_data->seo_description) ? $blog_data->seo_description : ""; ?></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-md-2 control-label">Date</label>
                         <div class="col-md-10">
                             <input name="blog_date" value="<?php echo isset($blog_data->blog_date) ? $blog_data->blog_date : ""; ?>" data-date-format="yyyy-mm-dd" type="text" readonly="" class="form-control date-picker" />

@@ -242,18 +242,22 @@ class Misc extends CI_Controller {
     }
 
     function terms() {
+        $this->selected_tab = "terms";
         $this->load->view('frontend/misc/terms');
     }
 
     function how_it_works() {
+        $this->selected_tab = "how_it_works";
         $this->load->view('frontend/misc/how_it_works');
     }
 
     function earn_extra_cash() {
+        $this->selected_tab = "earn_extra_cash";
         $this->load->view('frontend/misc/earn_extra_cash');
     }
 
     function secure_community() {
+        $this->selected_tab = "secure_community";
         $this->load->view('frontend/misc/secure_community');
     }
 
@@ -278,31 +282,45 @@ class Misc extends CI_Controller {
     }
 
     function event_planning($cat_id = NULL) {
+        $this->selected_tab = "event";
         $data = array();
         if ($cat_id != NULL) {
             $data['cat_id'] = $cat_id;
+        } else {
+            redirect(base_url());
         }
         $this->load->view('frontend/misc/EP1', $data);
     }
 
     function fitness($cat_id = 0) {
+        $this->selected_tab = "fitness";
         $data = array();
-        $data['cat_id'] = $cat_id;
+        if ($cat_id != NULL) {
+            $data['cat_id'] = $cat_id;
+        } else {
+            redirect(base_url());
+        }
         $this->load->view('frontend/misc/F1', $data);
     }
 
     function tourism($cat_id = NULL) {
+        $this->selected_tab = "tourism";
         $data = array();
         if ($cat_id != NULL) {
             $data['cat_id'] = $cat_id;
+        } else {
+            redirect(base_url());
         }
         $this->load->view('frontend/misc/FA3', $data);
     }
 
     function social_occasion($cat_id = NULL) {
+        $this->selected_tab = "social";
         $data = array();
         if ($cat_id != NULL) {
             $data['cat_id'] = $cat_id;
+        } else {
+            redirect(base_url());
         }
         $this->load->view('frontend/misc/SO2', $data);
     }
@@ -311,15 +329,23 @@ class Misc extends CI_Controller {
 //        $this->load->view('frontend/misc/T2');
 //    }
     function fashion($cat_id = 0) {
+        $this->selected_tab = "fashion";
         $data = array();
-        $data['cat_id'] = $cat_id;
+        if ($cat_id != NULL) {
+            $data['cat_id'] = $cat_id;
+        } else {
+            redirect(base_url());
+        }
         $this->load->view('frontend/misc/T2', $data);
     }
 
     function hosting($cat_id = NULL) {
+        $this->selected_tab = "hosting";
         $data = array();
         if ($cat_id != NULL) {
             $data['cat_id'] = $cat_id;
+        } else {
+            redirect(base_url());
         }
         $this->load->view('frontend/misc/T6', $data);
     }

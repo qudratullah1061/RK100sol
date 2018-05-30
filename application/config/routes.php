@@ -59,5 +59,6 @@ $route['social_occasion/(:num)'] = 'misc/social_occasion/$1';
 $route['fashion/(:num)'] = 'misc/fashion/$1';
 $route['hosting/(:num)'] = 'misc/hosting/$1';
 $route['event_planning/(:num)'] = 'misc/event_planning/$1';
+$route['blogs/(:any)'] = 'blogs/blog_detail/$1';
 
 $route['translate_uri_dashes'] = FALSE;

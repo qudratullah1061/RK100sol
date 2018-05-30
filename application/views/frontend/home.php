@@ -94,7 +94,7 @@
                         <li class="grid-item wow zoomIn last-paragraph-no-margin" data-wow-delay="0.2s">
                             <figure>
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-1.jpg" alt="" />
+                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-1.jpg" alt="Fitness" />
                                     <div class="portfolio-icon">
                                         <a href="<?php echo base_url('fitness/1'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
@@ -118,7 +118,7 @@
                         <li class="grid-item wow zoomIn last-paragraph-no-margin">
                             <figure>
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-2.jpg" alt="" />
+                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-2.jpg" alt="Tourism" />
                                     <div class="portfolio-icon">
                                         <a href="<?php echo base_url('tourism/2'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
@@ -141,7 +141,7 @@
                         <li class="grid-item wow zoomIn last-paragraph-no-margin" data-wow-delay="0.2s">
                             <figure>
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-3.jpg" alt="" />
+                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-3.jpg" alt="Social Occassion" />
                                     <div class="portfolio-icon">
                                         <a href="<?php echo base_url('social_occasion/3'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
@@ -164,7 +164,7 @@
                         <li class="grid-item wow zoomIn last-paragraph-no-margin">
                             <figure>
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-4.jpg" alt="" />
+                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-4.jpg" alt="Fashion" />
                                     <div class="portfolio-icon">
                                         <a href="<?php echo base_url('fashion/6'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
@@ -187,7 +187,7 @@
                         <li class="grid-item wow zoomIn last-paragraph-no-margin" data-wow-delay="0.2s">
                             <figure>
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-5.jpg" alt="" />
+                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-5.jpg" alt="Hosting" />
                                     <div class="portfolio-icon">
                                         <a href="<?php echo base_url('hosting/7'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
@@ -210,7 +210,7 @@
                         <li class="grid-item wow zoomIn last-paragraph-no-margin">
                             <figure>
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-6.jpg" alt="" />
+                                    <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-6.jpg" alt="Event Planning" />
                                     <div class="portfolio-icon">
                                         <a href="<?php echo base_url('event_planning/5'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
@@ -927,7 +927,7 @@
         <div class="row margin-60px-tb">
 
             <div class="col-md-5 col-md-push-7  col-sm-6 col-sm-push-6 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s" >
-                <img src="<?php echo base_url('assets/frontend/'); ?>img/guide-1.jpg" alt="">
+                <img src="<?php echo base_url('assets/frontend/'); ?>img/guide-1.jpg" alt="Tour Guide">
             </div>
             <div class="col-md-7 col-md-pull-5 col-sm-6 col-sm-pull-6 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s" data-wow-delay="0s">
                 <h4>Find your perfect fitness buddy</h4>
@@ -949,7 +949,7 @@
         <div class="row padding-60px-tb">
 
             <div class="col-md-5 col-sm-6 guide-media wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s">
-                <img src="<?php echo base_url('assets/frontend/'); ?>img/guide-2.jpg" alt="">
+                <img src="<?php echo base_url('assets/frontend/'); ?>img/guide-2.jpg" alt="Tour Guide">
             </div>
 
             <div class="col-md-7 col-sm-6 guide-text right-box roboto-cond wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
