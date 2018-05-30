@@ -3,7 +3,7 @@
     <head>
         <!-- title -->
         <?php
-        echo $this->selected_tab; //exit;
+        //echo $this->selected_tab; //exit;
         if ($this->selected_tab == "home" || $this->selected_tab == "") {
             echo '<title>Konsorts – Community for professionals</title>';
             echo '<meta name="description" content="Konsorts is a community of individuals offering services world wide. Welcome to konsorts.com and we wish you a very pleasant experience!">';
