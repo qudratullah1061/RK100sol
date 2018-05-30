@@ -2063,9 +2063,9 @@ a.goog-te-menu-value span {
     }
     header .logo .logo-dark.default, header .logo .logo-light.default {
         height: auto;
-        width: 100%;
+        /*width: 100%;*/
         position: relative;
-        top: -20px;
+        top: -3px;
     }
 }
 @media(max-width:375px){
