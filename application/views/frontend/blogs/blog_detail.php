@@ -50,11 +50,11 @@
                                                         <ul class="extra-small-icon">
                                                             <li><a class="likes-count" href="#" target="_blank"><i class="fa fa-heart text-deep-pink"></i><span class="text-small">300</span></a></li>
                                                             <li class="margin-10"><span class="text-dark-gray text-medium">Share Article &nbsp;&nbsp; </span></li>
-                                                            <li><a class="facebook" href="http://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                                            <li><a class="twitter" href="http://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                            <li><a class="pinterest" href="http://dribbble.com" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
-                                                            <li><a class="pinterest" href="http://dribbble.com" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                                            <li><a class="google" href="http://google.com" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                                            <li><a class="facebook" href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                                            <li><a class="twitter" href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                                            <li><a class="pinterest" href="https://dribbble.com" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
+                                                            <li><a class="pinterest" href="https://dribbble.com" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                                            <li><a class="google" href="https://google.com" target="_blank"><i class="fa fa-google-plus"></i></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>-->
@@ -64,7 +64,7 @@
                                                     <p>Reading is not only informed by what’s going on with us at that moment, but also governed by how our eyes and brains work to process information. What you see and what you’re experiencing as you read these words is quite different.</p>
                                                     <footer>Jason Maria</footer>
                                                 </blockquote>-->
-                                                <!--<img src="http://placehold.it/900x600" alt="" class="width-100 margin-45px-bottom">-->
+                                                <!--<img src="https://placehold.it/900x600" alt="" class="width-100 margin-45px-bottom">-->
                             <!-- dropcaps -->
                             <!--<p><span class="first-letter first-letter-block bg-extra-dark-gray text-white">M</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries. Simply dummy text of the printing and typesetting industry. It has survived not only five centuries. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>-->
                             <!-- end dropcaps -->
@@ -92,10 +92,10 @@
                                     <div class="social-icon-style-6">
                                         <ul class="extra-small-icon">
                                             <li><a class="likes-count" href="#" target="_blank"><i class="fa fa-heart text-deep-pink"></i><span class="text-small">300</span></a></li>
-                                            <li><a class="facebook" href="http://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a class="twitter" href="http://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a class="google" href="http://google.com" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                            <li><a class="pinterest" href="http://dribbble.com" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
+                                            <li><a class="facebook" href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a class="twitter" href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a class="google" href="https://google.com" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                            <li><a class="pinterest" href="https://dribbble.com" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>-->
@@ -129,7 +129,7 @@
                                 <li>
                                     <div class="display-table width-100">
                                         <div class="display-table-cell width-100px xs-width-50px text-center vertical-align-top xs-display-block xs-margin-10px-bottom">
-                                            <img src="http://placehold.it/149x149" class="img-circle width-85 xs-width-100" alt="Blog Comment Image" />
+                                            <img src="https://placehold.it/149x149" class="img-circle width-85 xs-width-100" alt="Blog Comment Image" />
                                         </div>
                                         <div class="padding-40px-left display-table-cell vertical-align-top last-paragraph-no-margin xs-no-padding-left xs-display-block">
                                             <a href="javascript:void(0)" class="text-extra-dark-gray text-uppercase alt-font font-weight-500 text-small"><?php
@@ -173,7 +173,7 @@
                                         <li>
                                             <div class="display-table width-100">
                                                 <div class="display-table-cell width-100px xs-width-50px text-center vertical-align-top xs-display-block xs-margin-10px-bottom">
-                                                    <img src="http://placehold.it/149x149" class="img-circle width-85 xs-width-100" alt="Blog Sub Comment Image" />
+                                                    <img src="https://placehold.it/149x149" class="img-circle width-85 xs-width-100" alt="Blog Sub Comment Image" />
                                                 </div>
                                                 <div class="padding-40px-left display-table-cell vertical-align-top last-paragraph-no-margin xs-no-padding-left xs-display-block">
                                                     <a href="javascript:void(0)" class="text-extra-dark-gray text-uppercase alt-font font-weight-500 text-small"><?php
@@ -266,11 +266,11 @@
                                     <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-500 text-small aside-title"><span>Follow Us</span></div>
                                     <div class="social-icon-style-1 text-center">
                                         <ul class="extra-small-icon">
-                                            <li><a class="facebook" href="http://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a class="twitter" href="http://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a class="google" href="http://google.com" target="_blank"><i class="fa fa-google"></i></a></li>
-                                            <li><a class="dribbble" href="http://dribbble.com" target="_blank"><i class="fa fa-dribbble"></i></a></li>
-                                            <li><a class="linkedin" href="http://linkedin.com" target="_blank"><i class="fa fa-linkedin "></i></a></li>
+                                            <li><a class="facebook" href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a class="twitter" href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a class="google" href="https://google.com" target="_blank"><i class="fa fa-google"></i></a></li>
+                                            <li><a class="dribbble" href="https://dribbble.com" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                                            <li><a class="linkedin" href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin "></i></a></li>
                                         </ul>
                                     </div>
                                 </div>-->
