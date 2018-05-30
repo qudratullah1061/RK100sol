@@ -8,7 +8,7 @@ if (isset($blogs)) {
                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                     <img src="<?php echo base_url($blog->blog_image_path . 'medium_' . $blog->blog_image); ?>" alt="Blog Image"/>
                     <div class="portfolio-icon">
-                        <a href="<?php echo base_url('blogs/blog_detail/' . $blog->blog_id); ?>"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                        <a href="<?php echo base_url('blogs/' . $blog->blog_slug); ?>"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <figcaption class="">

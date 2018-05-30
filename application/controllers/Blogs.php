@@ -119,7 +119,9 @@ class Blogs extends CI_Controller {
         }
 
         //Render Back to Blog Details Page
-        redirect(base_url('blogs/blog_detail/' . $blog_id));
+        $blog_info = $this->Blogs_Model->get_blog($blog_id);
+        $blog_slug = isset($blog_info->blog_slug) ? $blog_info->blog_slug : "";
+        redirect(base_url('blogs/' . $blog_slug));
 
 //        }
     }
