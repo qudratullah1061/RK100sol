@@ -21,6 +21,7 @@ class Home extends CI_Controller {
     }
 
     function index() {
+        echo sanitize('Bienvenido Cartagena a Colombia!'); exit;
         $this->selected_tab = 'home';
         $categories_data = $this->Misc_Model->get_all_categories();
         $data['categories_data'] = $categories_data;
