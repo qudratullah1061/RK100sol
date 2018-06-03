@@ -12,14 +12,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="//placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">Recognizing the need is the primary condition for design.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="" class="border-radius-100" alt="Author Image">
+                                    <img src="https://placehold.it/149x149" alt="" class="border-radius-100" alt="Author Image">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Jay Benjamin</a>&nbsp;&nbsp;|&nbsp;&nbsp;13 May 2017</span>
                                 </div>
                             </div>
@@ -31,14 +31,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">Good design is obvious. Great design is transparent.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="" class="border-radius-100" alt="Author Image">
+                                    <img src="https://placehold.it/149x149" alt="" class="border-radius-100" alt="Author Image">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Herman Miller</a>&nbsp;&nbsp;|&nbsp;&nbsp;29 April 2017</span>
                                 </div>
                             </div>
@@ -50,14 +50,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">Design is not just what it looks like and feels like.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="" class="border-radius-100" alt="Blog Author Image">
+                                    <img src="https://placehold.it/149x149" alt="" class="border-radius-100" alt="Blog Author Image">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Hugh Macleod</a>&nbsp;&nbsp;|&nbsp;&nbsp;18 April 2017</span>
                                 </div>
                             </div>
@@ -69,14 +69,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">Everything is designed. Few things are designed well.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
+                                    <img src="https://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Willie Clark</a>&nbsp;&nbsp;|&nbsp;&nbsp;31 March 2017</span>
                                 </div>
                             </div>
@@ -88,14 +88,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">I like the body. I like to design everything to do with the body.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
+                                    <img src="https://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Jay Benjamin</a>&nbsp;&nbsp;|&nbsp;&nbsp;13 May 2017</span>
                                 </div>
                             </div>
@@ -107,14 +107,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">Styles come and go. Design is a language, not a style.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
+                                    <img src="https://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Herman Miller</a>&nbsp;&nbsp;|&nbsp;&nbsp;29 April 2017</span>
                                 </div>
                             </div>
@@ -126,14 +126,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">Recognizing the need is the primary condition for design.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
+                                    <img src="https://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Hugh Macleod</a>&nbsp;&nbsp;|&nbsp;&nbsp;18 April 2017</span>
                                 </div>
                             </div>
@@ -145,14 +145,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">Get in over your head as often and as joyfully as possible.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
+                                    <img src="https://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Willie Clark</a>&nbsp;&nbsp;|&nbsp;&nbsp;31 March 2017</span>
                                 </div>
                             </div>
@@ -164,14 +164,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">A designer is only as good as the star who wears her clothes.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
+                                    <img src="https://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">John Doe</a>&nbsp;&nbsp;|&nbsp;&nbsp;09 March 2017</span>
                                 </div>
                             </div>
@@ -183,14 +183,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">French design hardly exists, except as artificial modernism.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
+                                    <img src="https://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Isaac Tobin</a>&nbsp;&nbsp;|&nbsp;&nbsp;20 February 2017</span>
                                 </div>
                             </div>
@@ -202,14 +202,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">In my opinion, no single design is apt to be optimal for everyone.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
+                                    <img src="https://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Jason Bourne</a>&nbsp;&nbsp;|&nbsp;&nbsp;14 January 2017</span>
                                 </div>
                             </div>
@@ -221,14 +221,14 @@
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>">
-                                    <img src="http://placehold.it/750x500" alt="Blog Detail Image">
+                                    <img src="https://placehold.it/750x500" alt="Blog Detail Image">
                                 </a>
                             </div>
                             <div class="post-details">
                                 <a href="<?php echo base_url('misc/blog_detail'); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100">The urge for good design is the same as the urge to go on living.</a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
-                                    <img src="http://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
+                                    <img src="https://placehold.it/149x149" alt="Blog Author Image" class="border-radius-100">
                                     <span class="text-medium-gray text-uppercase text-extra-small padding-15px-left display-inline-block">by <a href="home-blog-grid.html" class="text-medium-gray">Hugh Bourne</a>&nbsp;&nbsp;|&nbsp;&nbsp;22 December 2016</span>
                                 </div>
                             </div>

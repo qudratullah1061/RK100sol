@@ -284,69 +284,42 @@ class Misc extends CI_Controller {
     function event_planning($cat_id = NULL) {
         $this->selected_tab = "event";
         $data = array();
-        if ($cat_id != NULL) {
-            $data['cat_id'] = $cat_id;
-        } else {
-            redirect(base_url());
-        }
+        $data['cat_id'] = 5;
         $this->load->view('frontend/misc/EP1', $data);
     }
 
-    function fitness($cat_id = 0) {
+    function fitness() {
         $this->selected_tab = "fitness";
         $data = array();
-        if ($cat_id != NULL) {
-            $data['cat_id'] = $cat_id;
-        } else {
-            redirect(base_url());
-        }
+        $data['cat_id'] = 1;
         $this->load->view('frontend/misc/F1', $data);
     }
 
     function tourism($cat_id = NULL) {
         $this->selected_tab = "tourism";
         $data = array();
-        if ($cat_id != NULL) {
-            $data['cat_id'] = $cat_id;
-        } else {
-            redirect(base_url());
-        }
+        $data['cat_id'] = 2;
         $this->load->view('frontend/misc/FA3', $data);
     }
 
     function social_occasion($cat_id = NULL) {
         $this->selected_tab = "social";
         $data = array();
-        if ($cat_id != NULL) {
-            $data['cat_id'] = $cat_id;
-        } else {
-            redirect(base_url());
-        }
+        $data['cat_id'] = 3;
         $this->load->view('frontend/misc/SO2', $data);
     }
 
-//    function coaching() {
-//        $this->load->view('frontend/misc/T2');
-//    }
     function fashion($cat_id = 0) {
         $this->selected_tab = "fashion";
         $data = array();
-        if ($cat_id != NULL) {
-            $data['cat_id'] = $cat_id;
-        } else {
-            redirect(base_url());
-        }
+        $data['cat_id'] = 6;
         $this->load->view('frontend/misc/T2', $data);
     }
 
     function hosting($cat_id = NULL) {
         $this->selected_tab = "hosting";
         $data = array();
-        if ($cat_id != NULL) {
-            $data['cat_id'] = $cat_id;
-        } else {
-            redirect(base_url());
-        }
+        $data['cat_id'] = 7;
         $this->load->view('frontend/misc/T6', $data);
     }
 

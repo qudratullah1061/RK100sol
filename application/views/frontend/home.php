@@ -96,7 +96,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-1.jpg" alt="Fitness" />
                                     <div class="portfolio-icon">
-                                        <a href="<?php echo base_url('fitness/1'); ?>">
+                                        <a href="<?php echo base_url('fitness'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -106,7 +106,7 @@
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
                                                 <!--<span class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Fitness</span>-->
-                                                <a href="<?php echo base_url('fitness/1'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Fitness</a>
+                                                <a href="<?php echo base_url('fitness'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Fitness</a>
                                             </div>
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-2.jpg" alt="Tourism" />
                                     <div class="portfolio-icon">
-                                        <a href="<?php echo base_url('tourism/2'); ?>">
+                                        <a href="<?php echo base_url('tourism'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -129,7 +129,7 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <a href="<?php echo base_url('tourism/2'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Tourism</a>
+                                                <a href="<?php echo base_url('tourism'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Tourism</a>
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +143,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-3.jpg" alt="Social Occassion" />
                                     <div class="portfolio-icon">
-                                        <a href="<?php echo base_url('social_occasion/3'); ?>">
+                                        <a href="<?php echo base_url('social-occasion'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -152,7 +152,7 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <a href="<?php echo base_url('social_occasion/3'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">SOCIAL OCCASION</a>
+                                                <a href="<?php echo base_url('social-occasion'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">SOCIAL OCCASION</a>
                                             </div>
                                         </div>
                                     </div>
@@ -166,7 +166,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-4.jpg" alt="Fashion" />
                                     <div class="portfolio-icon">
-                                        <a href="<?php echo base_url('fashion/6'); ?>">
+                                        <a href="<?php echo base_url('fashion'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -175,7 +175,7 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <a href="<?php echo base_url('fashion/6'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Fashion</a>
+                                                <a href="<?php echo base_url('fashion'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Fashion</a>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +189,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-5.jpg" alt="Hosting" />
                                     <div class="portfolio-icon">
-                                        <a href="<?php echo base_url('hosting/7'); ?>">
+                                        <a href="<?php echo base_url('hosting'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -198,7 +198,7 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <a href="<?php echo base_url('hosting/7'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Hosting</a>
+                                                <a href="<?php echo base_url('hosting'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">Hosting</a>
                                             </div>
                                         </div>
                                     </div>
@@ -212,7 +212,7 @@
                                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                                     <img src="<?php echo base_url('assets/frontend/'); ?>img/cat-6.jpg" alt="Event Planning" />
                                     <div class="portfolio-icon">
-                                        <a href="<?php echo base_url('event_planning/5'); ?>">
+                                        <a href="<?php echo base_url('event-planning'); ?>">
                                             <i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i>
                                         </a>
                                     </div>
@@ -221,7 +221,7 @@
                                     <div class="portfolio-hover-main text-center">
                                         <div class="portfolio-hover-box vertical-align-middle">
                                             <div class="portfolio-hover-content position-relative">
-                                                <a href="<?php echo base_url('event_planning/5'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">EVENT PLANNING</a>
+                                                <a href="<?php echo base_url('event-planning'); ?>" class="line-height-normal font-weight-600 text-normal alt-font text-purple text-uppercase display-block">EVENT PLANNING</a>
                                             </div>
                                         </div>
                                     </div>
