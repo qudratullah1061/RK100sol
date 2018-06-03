@@ -1,6 +1,18 @@
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics START -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118719859-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-118719859-1');
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics END -->
         <!-- title -->
         <title>Konsorts - Welcome to Konsorts Log In</title>
         <meta charset="utf-8">
