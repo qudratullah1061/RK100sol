@@ -417,13 +417,13 @@ section.pricing .title-bar {margin-top: 0;margin-bottom: 45px;}
     opacity: 0;
     transition: all 0.2s ease;
 }
-.guide-text h4 {
+.guide-text h1 {
     font-size: 32px;
     font-weight: bold;
     color: #942192;
     margin-bottom: 14px;
 }
-.guide-text h5 {
+.guide-text h2 {
     color: #363636;
     font-weight: bold;
     font-size: 20px;
@@ -1891,8 +1891,8 @@ a.goog-te-menu-value span {
 
     .guide-text.left-box {padding-right: 15px;}
     .guide-text.right-box {padding-left: 15px;}
-    .guide-text h4 {font-size: 24px;}
-    .guide-text h5 {font-size: 16px;}
+    .guide-text h1 {font-size: 24px;}
+    .guide-text h2 {font-size: 16px;}
     .guide-text p, .guide-text ul li {font-size: 14px;}
     section.guide .container>div:last-child {padding-top: 0;}
     footer .padding-70px-left {padding-left: 15px;}
@@ -2017,7 +2017,7 @@ a.goog-te-menu-value span {
     .career-box h3{font-size: 24px;}
     .pricing-lists {padding-right: 10px;}
     .bright-career .container {padding: 0;}
-    .guide-text h4 {font-size: 20px;}
+    .guide-text h1 {font-size: 20px;}
     .footer-mid .form-inline .form-control {margin-right: 2px;}
     .footer-mid .btn.btn-deep-purple {top: -2px;}
     .footer-logo {max-height: 45px;}

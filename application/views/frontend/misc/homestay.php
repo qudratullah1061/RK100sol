@@ -551,12 +551,12 @@
                     <div class="hosting-textture">
                         <p class="margin-0"> Living in a family environment can help make the travel experience of wandering nomads feel at home and give them that sense of security in an unfamiliar and new place.  It can help combat their feeling of homesickness and being alone. It also gives the guests and hosts alike the chance to gain that kind of exciting sibling and family relative bonding moments they may have never had the chance to have since they each came from a different race or country. Hosting foreign travelers is a perfect way to promote fun and warm accommodation to help them feel secure and at home from the hassles of travel.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Homestay hosting as an ideal hospitality business. </h5>
+                        <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Homestay hosting as an ideal hospitality business. </h2>
 
                         <p>Homestay hosting is one of the most popular forms of hospitality and travel lodging alternatives to host travelers wandering from places to places. Many families are very much interested in the homestay accommodation business as host families for travelers wandering for places to stay.  In fact, more are welcoming foreign guests into their homes as a way to win international friends and let them earn extra income as paid host family through room rentals of the spare rooms in the house.</p>
                         <p  class="margin-0">Does the idea about being a homestay host family sound great to you? If so, the following benefits will make it very clear that a homestay paid host family is a rewarding choice.</p>
 
-                        <h5 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Benefits of Homestay Hosting:</h5>
+                        <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Benefits of Homestay Hosting:</h2>
 
                         <p><span class="text-dark-gray font-weight-600 italic">You can make a dream come true. </span> There are many travelers around the world who are on a budget and are looking for a host family for a travel accommodation that can get them through their journey and realize their travel goals and missions.  It’s amazing to know that there are countless people all over the world who are excited to connect, help and be visited by someone even if it’s just one short stay or prolonged accommodation.  Friendship and the feeling of belongingness are exalting and inspiring that can help you realize your goals. </p>
                         <p><span class="text-dark-gray font-weight-600 italic">It can help you widen your horizon. </span> If you are used living in a common place it can somehow affect our perspective of the rest of the world.  Fact is, understanding a different nation and culture can be a challenge.  But still, it is best to have a broader perspective to help you better understand the diversity of the world. Your homestay guest can help you see the world from their own place of perspective and other diversities from his journeys.  By asking some questions to your guests, you’ll gain a better understanding of the world around you.</p>
@@ -593,15 +593,12 @@
                     </div>
                     <div class="hosting-textture">
 
-                        <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom"> What do guests expect from their homestay experience? </h5>
+                        <h2 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom"> What do guests expect from their homestay experience? </h2>
 
 
                         <p class="margin-0"> Homestays offers an alternative and affordable place to stay to a wandering traveler. But the warmth of a home welcome was the foremost reason why travelers prefer homestay living than checking in a hotel. Your guests preferred to stay with a paid host family rather than in a hotel because they want to experience living in home environment. Apart from its practical reasons, and the homey atmosphere, your travelling guest would be delighted to: </p>
 
                         <ul class="hosting-list">
-
-
-
                             <li>Meet local people.  Your guests would surely be delighted to not only meet you and your family but would likewise be delighted meeting the local people and possibly get the chance to experience to get to live with them too. In order to get that full discovery experience. It’s another way on how to adapt to the place and not just to visit it.</li>
                             <li>Economical.  There is quite a big difference in terms of monetary value between homestay and hotel accommodation.  Budgetwise, you can always come into terms with your host families to consider a bargain.</li>
                             <li>Value for money.  Needless to say, a home accommodation is somewhat incomparable to start with.  But the added bonding and experiences while staying with a family often cannot come near any monetary exchange.</li>

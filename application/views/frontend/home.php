@@ -930,14 +930,14 @@
                 <img src="<?php echo base_url('assets/frontend/'); ?>img/guide-1.jpg" alt="Tour Guide">
             </div>
             <div class="col-md-7 col-md-pull-5 col-sm-6 col-sm-pull-6 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s" data-wow-delay="0s">
-                <h4>Find your perfect fitness buddy</h4>
+                <h1>Find your perfect fitness buddy</h1>
                 <p>Do you wish you could find a buddy to keep you company during your favorite activities? Or are you an active fitness enthusiasts who would like to make some extra money doing what you love?</p>
 
 
-                <h5>1. I’m looking for a fitness partner</h5>
+                <h2>1. I’m looking for a fitness partner</h2>
                 <p>If you’re looking for someone to do your favorite activity with, you can search for buddies who are offering the service you’re interested in.</p>
                 <p>You become a guest member and gain access to our worldwide database, full of interesting new people to meet. When one of them piques your interest, you can message them and start a chat!</p>
-                <h5>2. I want to be a fitness partner</h5>
+                <h2>2. I want to be a fitness partner</h2>
                 <p>If you’re looking to make extra money, sign up to be a buddy and become a part of our community!</p>
 
                 <p>You’ll be able to earn a supplementary income doing something you’d be doing anyway - and you’ll be able to make new friends at the same time.</p>
@@ -953,12 +953,12 @@
             </div>
 
             <div class="col-md-7 col-sm-6 guide-text right-box roboto-cond wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
-                <h4>The Rewards of Hosting a Traveling Nomad</h4>
+                <h1>The Rewards of Hosting a Traveling Nomad</h1>
                 <p>Living in a family environment can help make the travel experience of wandering nomads feel at home and give them that sense of security in an unfamiliar and new place. </p>
-                <h5>1. Homestay hosting as an ideal hospitality business. </h5>
+                <h2>1. Homestay hosting as an ideal hospitality business. </h2>
                 <p>Homestay hosting is one of the most popular forms of hospitality and travel lodging alternatives to host travelers wandering from places to places.</p>
 
-                <h5>2. Benefits of Homestay Hosting:</h5>
+                <h2>2. Benefits of Homestay Hosting:</h2>
 
                 <ul class="list-style-1">
                     <li>You can make a dream come true.</li>
@@ -973,12 +973,12 @@
         </div>
         <!--        <div class="row margin-60px-tb">
                     <div class="col-md-7 guide-text left-box roboto-cond wow bounceInLeft" data-wow-offset="200" data-wow-duration="2s">
-                        <h4>Coaching (Article 3)</h4>
+                        <h1>Coaching (Article 3)</h1>
         
-                        <h5>1. Post your project</h5>
+                        <h2>1. Post your project</h2>
                         <p>It's always free to post your project. Invite our freelancers to submit bids, or browse relevant freelancers and make an offer. You'll have replies to your job within minutes!</p>
         
-                        <h5>2. Choose the perfect freelancer</h5>
+                        <h2>2. Choose the perfect freelancer</h2>
         
                         <ul class="list-style-1">
                             <li>Browse freelancer profiles</li>
@@ -987,7 +987,7 @@
                             <li>Award your project and your freelancer goes to work</li>
                         </ul>
         
-                        <h5>3. Pay when you are satisfied!</h5>
+                        <h2>3. Pay when you are satisfied!</h2>
                         <p>Pay safely using our Milestone Payment system - release payments according to a schedule of goals you set, or pay only upon completion. You are in control, so you get to make the decisions.</p>
                         <a href="#" class="btn btn-deep-purple btn-small">See More</a>
                     </div>
