@@ -12,8 +12,8 @@
                                      Community of independent <br>service providers!
                                 </h4>
                                 <p class="open-sans text-white">Great value homestays in over 160 countries</p>
-                                <a href='<?php echo base_url('/auth/register')?>' class='btn btn-purple-white-border open-sans'> Hire Services </a>
-                                <a href='<?php echo base_url('/auth/register')?>' class='btn btn-purple-white-border open-sans'> Offer Services </a>
+                                <a href='<?php echo base_url('register')?>' class='btn btn-purple-white-border open-sans'> Hire Services </a>
+                                <a href='<?php echo base_url('register')?>' class='btn btn-purple-white-border open-sans'> Offer Services </a>
 
                             </div>
                         </div>
@@ -628,7 +628,7 @@
                             <p>For example, if you enjoy order and have to plan everything in advance to feel comfortable, make sure that your partner isn’t a free spirit who likes to wing it and go by feel. Ask about this either online or when you first meet, but make sure you’re on the same page before travelling together.</p>
 
                             <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Flexible people only</h2>
-                            <p>You won’t have to worry about this much with the <a href="https://www.konsorts.com/misc/about">people on Konsorts</a>, as all of the people we have here are flexible (or they wouldn’t be doing this), but you want someone who is able to adjust and accommodate your needs. Makes the trip that much more enjoyable!</p>
+                            <p>You won’t have to worry about this much with the <a href="<?php echo base_url(); ?>about">people on Konsorts</a>, as all of the people we have here are flexible (or they wouldn’t be doing this), but you want someone who is able to adjust and accommodate your needs. Makes the trip that much more enjoyable!</p>
 
                             <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Have an honest conversation</h2>
                             <p>The basis of any good relationship between two travelers is honesty. Talk openly about what you want and don’t want, and don’t hide any important details. In the end, it is better to know everything beforehand and have less unexpected surprises which can leave a sour taste on the memory of your voyage.</p>
@@ -636,7 +636,7 @@
                         </div>
                         <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">The first meeting</h2>
                         <p>Before you embark on a journey with a new travel companion, it is best to <span class="font-weight-700">meet them over lunch or coffee</span> to see if the two of you click.</p>
-                        <p>If you’re worried about the <a href="https://www.konsorts.com/misc/secure_community">safety</a>, don’t be: every individual on this website has been verified with our thorough background check. For us, your safety comes first.</p>
+                        <p>If you’re worried about the <a href="<?php echo base_url(); ?>secure-community">safety</a>, don’t be: every individual on this website has been verified with our thorough background check. For us, your safety comes first.</p>
                         <p>This is a great opportunity to get to know each other and to see if you have any common interests, if your personalities mesh well together and all in all, if they’re the kind of person you could imagine yourself spending a few days with.</p>
                         <p>An honest conversation is very important at this point: be honest about what you like and don’t like, and do tell what you expect from the trip. If everything is out on the table beforehand, the trip will be much more enjoyable!</p>
 

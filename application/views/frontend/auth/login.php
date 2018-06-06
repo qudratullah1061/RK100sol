@@ -10,7 +10,7 @@
                                 <a href="#" class="active" id="login-form-link"> <i class="fa fa-sign-in"></i> Login</a>
                             </div>
                             <div class="col-xs-6">
-                                <a href="<?php echo base_url('auth/register'); ?>" id=""> <i class="fa fa-plus-circle"></i> Register</a>
+                                <a href="<?php echo base_url('register'); ?>" id=""> <i class="fa fa-plus-circle"></i> Register</a>
                             </div>
                         </div>
                         <!--<hr>-->

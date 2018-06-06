@@ -30,11 +30,11 @@
 
                                         <div class="form-group row">
                                             <div class="col-md-4"><input type="submit" name="reset-submit" id="reset-submit" class="btn btn-default" value="Reset"></div>
-                                            <div class="col-md-8 text-right"><a href="<?php echo base_url('auth/login'); ?>" class="forgot-password">Login</a></div>
+                                            <div class="col-md-8 text-right"><a href="<?php echo base_url('login'); ?>" class="forgot-password">Login</a></div>
                                         </div>
                                         <?php
                                     } else {
-                                        echo "<div class='col-md-8 text-right'><a href='<?php echo base_url(\"auth/login\"); ?>' class='btn btn-success'>Login</a></div>";
+                                        echo "<div class='col-md-8 text-right'><a href='<?php echo base_url(\"login\"); ?>' class='btn btn-success'>Login</a></div>";
                                     }
                                     ?>
                                 </form>

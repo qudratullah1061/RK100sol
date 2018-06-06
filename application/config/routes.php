@@ -60,5 +60,14 @@ $route['fashion'] = 'misc/fashion';
 $route['hosting'] = 'misc/hosting';
 $route['event-planning'] = 'misc/event_planning';
 $route['blogs/(:any)'] = 'blogs/blog_detail/$1';
-
+$route['about'] = 'misc/about';
+$route['contact'] = 'misc/contact';
+$route['login'] = 'auth/login';
+$route['register'] = 'auth/register';
+$route['how-it-works'] = 'misc/how_it_works';
+$route['earn-extra-cash'] = 'misc/earn_extra_cash';
+$route['secure-community'] = 'misc/secure_community';
+$route['find-perfect-buddy'] = 'misc/find_perfect_buddy';
+$route['rewards-hosting-traveling'] = 'misc/rewards_hosting_traveling';
+$route['terms'] = 'misc/terms';
 $route['translate_uri_dashes'] = FALSE;

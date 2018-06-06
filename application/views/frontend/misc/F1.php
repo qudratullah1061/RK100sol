@@ -12,8 +12,8 @@
                                     Community of independent <br>service providers!
                                 </h4>
                                 <p class="open-sans text-white">Great value homestays in over 160 countries</p>
-                                <a href='<?php echo base_url('/auth/register')?>' class='btn btn-purple-white-border open-sans'> Hire Services </a>
-                                <a href='<?php echo base_url('/auth/register')?>' class='btn btn-purple-white-border open-sans'> Offer Services </a>
+                                <a href='<?php echo base_url('register')?>' class='btn btn-purple-white-border open-sans'> Hire Services </a>
+                                <a href='<?php echo base_url('register')?>' class='btn btn-purple-white-border open-sans'> Offer Services </a>
 
                             </div>
                         </div>
@@ -595,7 +595,7 @@
                     <div class="hosting-textture">
                         <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">What to expect from a personal training session</h1>
                         <p>While you can certainly do well on your own, there is no comparison to what you can achieve under the watchful eye of a personal gym trainer.</p>
-                        <p>Increased motivation, faster, safer progress and a fun time are just some of the reasons <a href="https://www.konsorts.com/misc/fitness">why you need to train with a personal trainer.</a></p>
+                        <p>Increased motivation, faster, safer progress and a fun time are just some of the reasons <a href="<?php echo base_url(); ?>fitness">why you need to train with a personal trainer.</a></p>
                         <p>The effects a personal trainer has on motivation, discipline and attitude to exercise are <a href="http://www.jssm.org/vol2/n1/2/v2n1-2pdf.pdf">well documented</a>.</p>
                         <p>If you’re not sure what to expect from a personal training session, we’ll give you a quick rundown of what is likely to happen, so that you will walk into that gym prepared.</p>
                         <p>By the way, it’s OK if you feel intimidated! In fact, it’s completely natural to be afraid of new and scary things. However, don’t let that stop you - and dive in below.</p>
@@ -638,8 +638,8 @@
                         <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Find a personal trainer here...or become one!</h2>
 
                         <p>Your first personal training session will leave you with a solid plan of attack and with a ton of motivation to use on the days when you just don’t feel like it.</p>
-                        <p>If you are looking to hire someone to help you get started on your fitness journey, <a href="https://www.konsorts.com/auth/register">click here and find a personal gym trainer</a> to your taste. </p>
-                        <p>Being a personal trainer isn’t easy, but if you think you have what it takes to be a fitness trainer, <a href="https://www.konsorts.com/auth/register">join Konsorts and earn extra money</a> making your dream job a reality.</p>
+                        <p>If you are looking to hire someone to help you get started on your fitness journey, <a href="<?php echo base_url(); ?>register">click here and find a personal gym trainer</a> to your taste. </p>
+                        <p>Being a personal trainer isn’t easy, but if you think you have what it takes to be a fitness trainer, <a href="<?php echo base_url(); ?>register">join Konsorts and earn extra money</a> making your dream job a reality.</p>
 
                     </div>
                 </div>

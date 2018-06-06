@@ -25,7 +25,7 @@
 
                                     <div class="form-group row">
                                         <div class="col-md-4"><input type="submit" name="forgot-submit" id="forgot-submit" class="btn btn-default" value="Send Email"></div>
-                                        <div class="col-md-8 text-right"><a href="<?php echo base_url('auth/login'); ?>" class="forgot-password">Login</a></div>
+                                        <div class="col-md-8 text-right"><a href="<?php echo base_url('login'); ?>" class="forgot-password">Login</a></div>
                                     </div>
                                 </form>
                             </div>

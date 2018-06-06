@@ -12,8 +12,8 @@
                                      Community of independent <br>service providers!
                                 </h4>
                                 <p class="open-sans text-white">Great value homestays in over 160 countries</p>
-                                <a href='<?php echo base_url('/auth/register')?>' class='btn btn-purple-white-border open-sans'> Hire Services </a>
-                                <a href='<?php echo base_url('/auth/register')?>' class='btn btn-purple-white-border open-sans'> Offer Services </a>
+                                <a href='<?php echo base_url('register')?>' class='btn btn-purple-white-border open-sans'> Hire Services </a>
+                                <a href='<?php echo base_url('register')?>' class='btn btn-purple-white-border open-sans'> Offer Services </a>
 
                             </div>
                         </div>

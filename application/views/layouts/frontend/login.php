@@ -172,7 +172,7 @@
                                     <a href="<?php echo base_url('home'); ?>">Home</a>
                                 </li>
                                 <li class="<?php echo ActivateLink('about'); ?>">
-                                    <a href="<?php echo base_url('misc/about'); ?>">About</a>
+                                    <a href="<?php echo base_url('about'); ?>">About</a>
                                 </li>
                                 <li class="<?php echo ActivateLink('services'); ?>">
                                     <a href="javascript:void(0);">Our Services</a>
@@ -181,17 +181,17 @@
                                     <a href="javascript:void(0);" title="Blog">Blog</a>
                                 </li>
                                 <li class="<?php echo ActivateLink('contact'); ?>">
-                                    <a href="<?php echo base_url('misc/contact'); ?>">Contact Us</a>
+                                    <a href="<?php echo base_url('contact'); ?>">Contact Us</a>
                                 </li>
 
                                 <li class="dropdown megamenu-fw <?php echo ActivateLink('login'); ?>">
-                                    <a href="<?php echo base_url('auth/login'); ?>">Log in</a>
+                                    <a href="<?php echo base_url('login'); ?>">Log in</a>
                                     <!--<i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>-->
                                     <!-- start sub menu -->
                                 </li>
                                 <li class="<?php echo ActivateLink('signup'); ?>">
                                     <div class="signup-link">
-                                        <a href="<?php echo base_url('auth/register'); ?>" class="btn btn-small btn-deep-purple lato font-weight-700"> SIGN UP </a>
+                                        <a href="<?php echo base_url('register'); ?>" class="btn btn-small btn-deep-purple lato font-weight-700"> SIGN UP </a>
                                     </div>
 
                                 </li>
@@ -245,10 +245,10 @@
                         <div class="widget-title">Konsorts</div>
                         <ul class="list-unstyled">
                             <li><a href="<?php echo base_url('home'); ?>">Home</a></li>
-                            <li><a href="<?php echo base_url('misc/about'); ?>">About</a></li>
+                            <li><a href="<?php echo base_url('about'); ?>">About</a></li>
                             <li><a href="">Our Services</a></li>
                             <li><a href="">Blog</a></li>
-                            <li><a href="<?php echo base_url('misc/contact'); ?>">Contact Us</a></li>
+                            <li><a href="<?php echo base_url('contact'); ?>">Contact Us</a></li>
                         </ul>
                     </div>
                     <!-- end additional links -->
@@ -256,7 +256,7 @@
                     <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
                         <div class="widget-title">About</div>
                         <ul class="list-unstyled">
-                            <li><a href="<?php echo base_url('misc/about'); ?>">About us</a></li>
+                            <li><a href="<?php echo base_url('about'); ?>">About us</a></li>
                             <li><a href="">How it Works</a></li>
                             <li><a href="">Security</a></li>
                         </ul>
@@ -267,7 +267,7 @@
                         <div class="widget-title">Terms</div>
                         <ul class="list-unstyled">
                             <li><a href="">Privacy Policy</a></li>
-                            <li><a href="<?php echo base_url('misc/terms'); ?>">Terms and Conditions</a></li>
+                            <li><a href="<?php echo base_url('terms'); ?>">Terms and Conditions</a></li>
                             <li><a href="">Copyright Policy</a></li>
                             <li><a href="">Code of Conduct</a></li>
                         </ul>
@@ -276,7 +276,7 @@
                         <div class="widget-title">Support</div>
                         <ul class="list-unstyled">
                             <li><a href="<?php echo base_url('misc/faq'); ?>">Faq</a></li>
-                            <li><a href="<?php echo base_url('misc/terms'); ?>">Terms and Conditions</a></li>
+                            <li><a href="<?php echo base_url('terms'); ?>">Terms and Conditions</a></li>
                             <li><a href="javascript:void(0);">Copyright Policy</a></li>
                             <li><a href="javascript:void(0);">Code of Conduct</a></li>
                         </ul>
@@ -315,7 +315,7 @@
                 </div>
 
                 <div class="copyright  footer-btm">
-                    <p>Please read carefully our <a href="<?php echo base_url('misc/terms'); ?>">Terms and Conditions</a>. </p>
+                    <p>Please read carefully our <a href="<?php echo base_url('terms'); ?>">Terms and Conditions</a>. </p>
                     <p>Copyright © 2016 - 2017 konsorts.com | All rights reserved.</p>
                 </div>
             </div>

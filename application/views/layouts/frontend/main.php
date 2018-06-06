@@ -249,7 +249,7 @@ if (isset($registration_completed) && $registration_completed) {
                                     <a href="<?php echo base_url(); ?>">Home</a>
                                 </li>
                                 <li class="<?php echo ActivateLink('about'); ?>">
-                                    <a href="<?php echo base_url('misc/about'); ?>">About</a>
+                                    <a href="<?php echo base_url('about'); ?>">About</a>
                                 </li>
 <!--                                    <li class="<?php // echo ActivateLink('services');                                                                                                          ?>">
                                     <a href="javascript:void(0);">Our Services</a>
@@ -258,17 +258,17 @@ if (isset($registration_completed) && $registration_completed) {
                                     <a href="<?php echo base_url('blogs'); ?>" title="Blog">Blog</a>
                                 </li>
                                 <li class="<?php echo ActivateLink('contact'); ?>">
-                                    <a href="<?php echo base_url('misc/contact'); ?>">Contact Us</a>
+                                    <a href="<?php echo base_url('contact'); ?>">Contact Us</a>
                                 </li>
                                 <?php if (!isset($this->session->userdata['member_id'])) { ?>
                                     <li class="dropdown megamenu-fw <?php echo ActivateLink('login'); ?>">
-                                        <a href="<?php echo base_url('auth/login'); ?>">Log in</a>
+                                        <a href="<?php echo base_url('login'); ?>">Log in</a>
                                         <!--<i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>-->
                                         <!-- start sub menu -->
                                     </li>
                                     <li class="<?php echo ActivateLink('signup'); ?>">
                                         <div class="signup-link">
-                                            <a href="<?php echo base_url('auth/register'); ?>" class="btn btn-small btn-deep-purple lato font-weight-700"> SIGN UP </a>
+                                            <a href="<?php echo base_url('register'); ?>" class="btn btn-small btn-deep-purple lato font-weight-700"> SIGN UP </a>
                                         </div>
 
                                     </li>
@@ -422,17 +422,17 @@ if (isset($registration_completed) && $registration_completed) {
                     <div class="col-md-3 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
                         <a href="index.html" class="margin-15px-bottom display-inline-block"><img class="footer-logo" src="<?php echo base_url('assets/frontend/'); ?>img/logo.png" alt="Konsorts"></a>
                         <p class=" margin-0">Konsorts is a community of individuals offering personal services world wide, like: Personal trainers, tour guides, international hosts, personal shoppers and many other platonic services.</p>
-                        <a href="<?php echo base_url('misc/about'); ?>" class="text-purple font-weight-400 more-details">More Details</a>
+                        <a href="<?php echo base_url('about'); ?>" class="text-purple font-weight-400 more-details">More Details</a>
                     </div>
                     <!-- start additional links -->
                     <div class="col-md-2 col-sm-3 col-xs-6 min-height-140 widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
                         <div class="widget-title">Konsorts</div>
                         <ul class="list-unstyled">
                             <li><a href="<?php echo base_url('home'); ?>">Home</a></li>
-                            <li><a href="<?php echo base_url('misc/about'); ?>">About</a></li>
+                            <li><a href="<?php echo base_url('about'); ?>">About</a></li>
                             <!--<li><a href="">Our Services</a></li>-->
-                            <li><a href="<?php echo base_url('misc/blog'); ?>">Blog</a></li>
-                            <li><a href="<?php echo base_url('misc/contact'); ?>">Contact Us</a></li>
+                            <li><a href="<?php echo base_url('blogs'); ?>">Blogs</a></li>
+                            <li><a href="<?php echo base_url('contact'); ?>">Contact Us</a></li>
                         </ul>
                     </div>
                     <!-- end additional links -->
@@ -440,9 +440,9 @@ if (isset($registration_completed) && $registration_completed) {
                     <div class="col-md-2 col-sm-3 col-xs-6 min-height-140  widget sm-margin-20px-bottom xs-text-center padding-70px-left sm-padding-left-0">
                         <div class="widget-title">About</div>
                         <ul class="list-unstyled">
-                            <li><a href="<?php echo base_url('misc/about'); ?>">About us</a></li>
-                            <li><a href="<?php echo base_url('misc/how_it_works'); ?>">How it Works</a></li>
-                            <li><a href="<?php echo base_url('misc/secure_community') ?>">Security</a></li>
+                            <li><a href="<?php echo base_url('about'); ?>">About us</a></li>
+                            <li><a href="<?php echo base_url('how-it-works'); ?>">How it Works</a></li>
+                            <li><a href="<?php echo base_url('secure-community') ?>">Security</a></li>
                         </ul>
                     </div>
                     <!-- end contact information -->
@@ -450,7 +450,7 @@ if (isset($registration_completed) && $registration_completed) {
                     <div class="col-md-3 col-sm-3 col-xs-6  widget sm-margin-20px-bottom xs-text-center  padding-70px-left sm-padding-left-0">
                         <div class="widget-title">Terms</div>
                         <ul class="list-unstyled">
-                            <li><a href="<?php echo base_url('misc/terms'); ?>">Terms and Conditions</a></li>
+                            <li><a href="<?php echo base_url('terms'); ?>">Terms and Conditions</a></li>
                         </ul>
                     </div>
                     <div class="col-md-2 col-sm-3 col-xs-6 widget sm-margin-20px-bottom xs-text-center">
@@ -493,7 +493,7 @@ if (isset($registration_completed) && $registration_completed) {
                     </div>
                 </div>
                 <div class="copyright  footer-btm">
-                    <p>Please read carefully our <a href="<?php echo base_url('misc/terms'); ?>">Terms and Conditions</a>. </p>
+                    <p>Please read carefully our <a href="<?php echo base_url('terms'); ?>">Terms and Conditions</a>. </p>
                     <p>Copyright © 2016 - 2017 konsorts.com | All rights reserved.</p>
                 </div>
             </div>

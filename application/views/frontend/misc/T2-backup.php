@@ -598,7 +598,7 @@
                     <div class="hosting-textture">
 
                         <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">Flexible people only</h5>
-                        <p>You won’t have to worry about this much with the <a href="https://www.konsorts.com/misc/about">people on Konsorts</a>, as all of the people we have here are flexible (or they wouldn’t be doing this), but you want someone who is able to adjust and accommodate your needs. Makes the trip that much more enjoyable!</p>
+                        <p>You won’t have to worry about this much with the <a href="<?php echo base_url(); ?>about">people on Konsorts</a>, as all of the people we have here are flexible (or they wouldn’t be doing this), but you want someone who is able to adjust and accommodate your needs. Makes the trip that much more enjoyable!</p>
 
                         <h5 class="text-purple font-weight-700 text-normal line-height-normal margin-10px-top margin-10px-bottom">Have an honest conversation</h5>
                         <p>The basis of any good relationship between two travelers is honesty. Talk openly about what you want and don’t want, and don’t hide any important details. In the end, it is better to know everything beforehand and have less unexpected surprises which can leave a sour taste on the memory of your voyage.</p>
@@ -608,7 +608,7 @@
 
                         <p>Before you embark on a journey with a new travel companion, it is best to <span class="">meet them over lunch or coffee</span> to see if the two of you click.</p>
 
-                        <p class="margin-10px-top"> If you’re worried about the <a href="https://www.konsorts.com/misc/secure_community">safety</a>, don’t be: every individual on this website has been verified with our thorough background check. For us, your safety comes first.</p>
+                        <p class="margin-10px-top"> If you’re worried about the <a href="<?php echo base_url(); ?>secure-community">safety</a>, don’t be: every individual on this website has been verified with our thorough background check. For us, your safety comes first.</p>
 
                         <p class="margin-10px-top">This is a great opportunity to get to know each other and to see if you have any common interests, if your personalities mesh well together and all in all, if they’re the kind of person you could imagine yourself spending a few days with.</p>
 

@@ -242,7 +242,7 @@
                                                                 <label for="checkbox33">
                                                                     <span></span>
                                                                     <span class="check"></span>
-                                                                    <span class="box"></span> I agree with the <a class="blue" href="<?php echo base_url('misc/terms'); ?>">terms and conditions</a> for Registration</label>
+                                                                    <span class="box"></span> I agree with the <a class="blue" href="<?php echo base_url('terms'); ?>">terms and conditions</a> for Registration</label>
                                                             </div>
                                                         </div>
                                                         <br>

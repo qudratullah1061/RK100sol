@@ -269,14 +269,6 @@ class Misc extends CI_Controller {
         $this->load->view('frontend/misc/rewards_hosting_traveling');
     }
 
-    function blog() {
-        $this->load->view('frontend/misc/blog');
-    }
-
-    function blog_detail() {
-        $this->load->view('frontend/misc/blog_detail');
-    }
-
     function homestay() {
         $this->load->view('frontend/misc/homestay');
     }
@@ -381,7 +373,7 @@ class Misc extends CI_Controller {
                 }
             }
         } else {
-            redirect(base_url('misc/contact'));
+            redirect(base_url('contact'));
         }
     }
 

@@ -18,7 +18,7 @@ var FormWizard = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-//                    var redirect_path = 'auth/login';
+//                    var redirect_path = 'login';
                     var redirect_path = 'profile/thankyou';
                     if ('add_companion_member' == formId) {
                         setTimeout(function () {

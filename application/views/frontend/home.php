@@ -15,8 +15,8 @@
                                     Contract a Service Member
                                 </h4>
                                 <p class="open-sans text-white">Community of independent service providers.</p>
-                                <a href='<?php echo base_url('auth/register'); ?>' class='btn btn-purple-white-border open-sans'>Hire Services</a>
-                                <a href='<?php echo base_url('auth/register'); ?>' class='btn btn-purple-white-border open-sans'>Offer Services</a>
+                                <a href='<?php echo base_url('register'); ?>' class='btn btn-purple-white-border open-sans'>Hire Services</a>
+                                <a href='<?php echo base_url('register'); ?>' class='btn btn-purple-white-border open-sans'>Offer Services</a>
                                 <a href='<?php echo base_url('profile/companion_signup/silver'); ?>' class='btn btn-purple-white-border open-sans margin-small-screen'>Promo Code Registration</a>
                             </div>
                         </div>
@@ -746,7 +746,7 @@
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle text-left">
                                 <p class="text-white">Whether you are a personal fitness trainer, an event organizer or require other services, Konsorts is an ideal pit stop for all your needs. So what makes us different? Among the burgeoning websites that cater specifically to traveling, specific services or services that are unique and difficult to find, Konsorts is the only platform...</p>
-                                <a href="<?php echo base_url('misc/how_it_works'); ?>" class="text-white font-weight-700">Read More</a>
+                                <a href="<?php echo base_url('how-it-works'); ?>" class="text-white font-weight-700">Read More</a>
                             </div>
                         </div>
                     </figcaption>
@@ -765,7 +765,7 @@
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle text-left">
                                 <p class="text-white">Unlike many other earning websites, Konsorts helps you make money online without needing any prior experience in most cases. You get the opportunity to earn extra money on top of your daily wages. This is especially useful for people who are looking to break out of their daily grind and change career paths. Instead of dropping...</p>
-                                <a href="<?php echo base_url('misc/earn_extra_cash') ?>" class="text-white font-weight-700">Read More</a>
+                                <a href="<?php echo base_url('earn-extra-cash') ?>" class="text-white font-weight-700">Read More</a>
                             </div>
                         </div>
                     </figcaption>
@@ -784,7 +784,7 @@
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle text-left">
                                 <p class="text-white">What if we told you that you could be a part of a market place that fulfills your every need? You could hire a chef, find travel companions, even walking partners within minutes? With Konsorts, we are shaping the way people do business. Gone are the days where it took hours of research and referrals to find what you were looking for...</p>
-                                <a href="<?php echo base_url('misc/secure_community') ?>" class="text-white font-weight-700">Read More</a>
+                                <a href="<?php echo base_url('secure-community') ?>" class="text-white font-weight-700">Read More</a>
                             </div>
                         </div>
                     </figcaption>
@@ -942,7 +942,7 @@
 
                 <p>You’ll be able to earn a supplementary income doing something you’d be doing anyway - and you’ll be able to make new friends at the same time.</p>
 
-                <a href="<?php echo base_url('misc/find_perfect_buddy'); ?>" class="btn btn-deep-purple btn-small">See More</a>
+                <a href="<?php echo base_url('find-perfect-buddy'); ?>" class="btn btn-deep-purple btn-small">See More</a>
             </div>
         </div>
         <!--second guide-->
@@ -967,7 +967,7 @@
                     <li>The chance to family guests from other parts of the world.</li>
                 </ul>
 
-                <a href="<?php echo base_url('misc/rewards_hosting_traveling'); ?>" class="btn btn-deep-purple btn-small">See More</a>
+                <a href="<?php echo base_url('rewards-hosting-traveling'); ?>" class="btn btn-deep-purple btn-small">See More</a>
             </div>
 
         </div>

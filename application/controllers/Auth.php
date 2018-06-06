@@ -50,14 +50,14 @@ class Auth extends CI_Controller {
                 }
             }
         } else {
-            redirect(base_url('auth/login'));
+            redirect(base_url('login'));
         }
     }
 
     public function logout() {
 //        $this->session->unset_userdata(array('admin_id'=> '', 'admin_name'=> '', 'admin_email'    => '', 'admin_username' => ''));
         $this->session->sess_destroy();
-        redirect(base_url('auth/login'));
+        redirect(base_url('login'));
     }
 
     function forgot_password() {

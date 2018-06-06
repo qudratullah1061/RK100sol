@@ -28,7 +28,7 @@ class FrontEnd_Controller extends CI_Controller {
     //Authenticate function
     private function authenticate() {
         if (!$this->session->userdata('member_id')) {
-            redirect(base_url('auth/login'));
+            redirect(base_url('login'));
         }
         $this->setMemberInfo();
     }

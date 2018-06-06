@@ -32,7 +32,7 @@ class Profile extends CI_Controller {
             $is_update_call = $edit_id = $this->input->post('member_id') > 0 ? $this->input->post('member_id') : 0;
             // redirect user if someone directly calls this method without login.
             if ($edit_id > 0 && !$this->session->userdata('member_id')) {
-                redirect(base_url('auth/login'));
+                redirect(base_url('login'));
             }
 //            $unique_id = $this->input->post('file_upload_unique_id');
             $this->form_validation->set_rules('first_name', 'First Name', 'required|trim|strip_tags|xss_clean');
@@ -211,7 +211,7 @@ class Profile extends CI_Controller {
             $data['plan_type'] = $plan_type;
             $this->load->view('frontend/companions/signup', $data);
         } else {
-            redirect(base_url('auth/register'));
+            redirect(base_url('register'));
         }
     }
 
@@ -227,7 +227,7 @@ class Profile extends CI_Controller {
             $edit_id = $this->input->post('member_id') > 0 ? $this->input->post('member_id') : 0;
             // redirect user if someone directly calls this method without login.
             if ($edit_id > 0 && !$this->session->userdata('member_id')) {
-                redirect(base_url('auth/login'));
+                redirect(base_url('login'));
             }
             $this->form_validation->set_rules('first_name', 'First Name', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|trim|strip_tags|xss_clean');
@@ -355,7 +355,7 @@ class Profile extends CI_Controller {
                 }
             }
         } else {
-            redirect(base_url('auth/register'));
+            redirect(base_url('register'));
         }
     }
 
