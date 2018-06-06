@@ -6,8 +6,437 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+
 <url>
-  <loc>http://konsorts.com/</loc>
-  <lastmod>2017-07-22T13:23:02+00:00</lastmod>
+  <loc>https://www.konsorts.com/</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
+<url>
+  <loc>https://www.konsorts.com/home</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/about</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/contact</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/login</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/register</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/profile/companion_signup/silver</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/fitness</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/tourism</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/social-occasion</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/fashion</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/hosting</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/event-planning</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/how-it-works</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/earn-extra-cash</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/secure-community</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/profile/guest_signup</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/profile/companion_signup/gold</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/find-perfect-buddy</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/rewards-hosting-traveling</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/index.html</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/terms</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/faqs</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/client-retention-pays-great-rewards</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/home-blog-grid.html</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/bienvenido-cartagena-a-colombia</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/cocadas-de-arequipe-dulce-de-leche</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/everything-is-better-with-good-company</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/finding-a-travel-guide-and-a-fun-travel-buddy</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/international-hosting-is-a-mutual-win</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/the-hermosa-santa-marta-beach</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/can-traveling-for-leisure-alter-your-perception</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/hot-service-trends-of-2018</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/best-cities-to-shop-in-2018</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/how-to-price-yourself-against-your-competitors</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/auth/forgot_password</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/single-project-page-01.html</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/admin/admin_auth</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/profile/index.html</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/1</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/2</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/3</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/5</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/6</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/7</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/8</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/9</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/10</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/11</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/12</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/13</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/3</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/4</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/5</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/20</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/8</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/13</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/14</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/15</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/16</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/9</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/22</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/23</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/24</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/25</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/26</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/27</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/28</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/29</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/30</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/31</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/32</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/33</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/34</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/36</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/37</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/38</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/auth/index.html</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/admin/dashboard</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/home-blog-grid.html</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_categories/index.html</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/home-blog-grid.html</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/blogs/blogs_as_per_tags/index.html</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://www.konsorts.com/admin/index.html</loc>
+  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
 </urlset>
