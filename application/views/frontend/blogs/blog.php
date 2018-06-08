@@ -37,12 +37,12 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin-80px-bottom sm-margin-50px-bottom xs-margin-30px-bottom wow fadeInUp">
                         <div class="blog-post blog-post-style2">
                             <div class="blog-post-images overflow-hidden margin-25px-bottom xs-margin-15px-bottom">
-                                <a href="<?php echo base_url('blogs/' . $blog->blog_slug); ?>">
+                                <a href="<?php echo base_url('blog/' . $blog->blog_slug); ?>">
                                     <img src="<?php echo base_url($blog->blog_image_path . 'medium_' . $blog->blog_image) ?>" alt="Blog Image">
                                 </a>
                             </div>
                             <div class="post-details">
-                                <a href="<?php echo base_url('blogs/' . $blog->blog_slug); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100"><?php echo $blog->blog_title; ?></a>
+                                <a href="<?php echo base_url('blog/' . $blog->blog_slug); ?>" class="post-title text-medium text-extra-dark-gray width-90 display-block md-width-100"><?php echo $blog->blog_title; ?></a>
                                 <div class="separator-line-horrizontal-full bg-medium-light-gray margin-20px-tb xs-margin-15px-tb"></div>
                                 <div class="author">
                                     <img src="<?php echo base_url($blog->author_image_path . 'small_' . $blog->author_image); ?>" alt="Author Image" class="border-radius-100">

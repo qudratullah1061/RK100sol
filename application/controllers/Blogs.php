@@ -10,6 +10,7 @@ class Blogs extends CI_Controller {
     public $seo_description = '';
 
     public function __construct() {
+//        echo "asdf"; exit;
         parent::__construct();
         $this->layout = 'frontend/main';
         $this->load->model('admin/blogs_model', 'Blogs_Model');
@@ -73,7 +74,11 @@ class Blogs extends CI_Controller {
         $data['categories'] = GetAllCategories();
         $data['category_id'] = $category_id = $this->input->post('search_by_category');
         $data['keyword'] = $keyword = $this->input->post('keyword');
-        $data['blogs'] = $this->Blogs_Model->search_by_keyword($category_id, $keyword);
+        if ($category_id || $keyword) {
+            $data['blogs'] = $this->Blogs_Model->search_by_keyword($category_id, $keyword);
+        } else {
+            $data['blogs'] = $this->Blogs_Model->get_all_active_blogs();
+        }
         $this->selected_tab = 'blog';
         $this->load->view('frontend/blogs/blog', $data);
     }
@@ -121,7 +126,7 @@ class Blogs extends CI_Controller {
         //Render Back to Blog Details Page
         $blog_info = $this->Blogs_Model->get_blog($blog_id);
         $blog_slug = isset($blog_info->blog_slug) ? $blog_info->blog_slug : "";
-        redirect(base_url('blogs/' . $blog_slug));
+        redirect(base_url('blog/' . $blog_slug));
 
 //        }
     }

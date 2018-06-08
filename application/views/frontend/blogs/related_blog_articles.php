@@ -8,14 +8,14 @@ if (isset($blogs)) {
                 <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
                     <img src="<?php echo base_url($blog->blog_image_path . 'medium_' . $blog->blog_image); ?>" alt="Blog Image"/>
                     <div class="portfolio-icon">
-                        <a href="<?php echo base_url('blogs/' . $blog->blog_slug); ?>"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
+                        <a href="<?php echo base_url('blog/' . $blog->blog_slug); ?>"><i class="fa fa-link text-extra-dark-gray" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <figcaption class="">
                     <div class="portfolio-hover-main text-left">
                         <div class="portfolio-hover-box vertical-align-middle">
                             <div class="portfolio-hover-content position-relative">
-                                <a href="<?php echo base_url('blogs/' . $blog->blog_slug); ?>">
+                                <a href="<?php echo base_url('blog/' . $blog->blog_slug); ?>">
                                     <p class="text-white text-samll"><?php echo $blog->blog_title; //echo limit_text(GetBlogDescription($blog->blog_id), 20); ?></p>
                                 </a>
                             </div>

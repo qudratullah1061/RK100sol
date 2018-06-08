@@ -228,45 +228,81 @@ class Misc extends CI_Controller {
 
 //    Misc pages start here
     function about() {
-        $this->selected_tab = 'about';
-        $this->load->view('frontend/misc/about');
+        if ($this->uri->segment(1) == "about") {
+            $this->selected_tab = 'about';
+            $this->load->view('frontend/misc/about');
+        }else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function contact() {
-        $this->selected_tab = 'contact';
-        $this->load->view('frontend/misc/contact_us');
+        if ($this->uri->segment(1) == "contact") {
+            $this->selected_tab = 'contact';
+            $this->load->view('frontend/misc/contact_us');
+        }else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function faq() {
-        $this->load->view('frontend/misc/faq');
+        if ($this->uri->segment(1) == "faq") {
+            $this->load->view('frontend/misc/faq');
+        }else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function terms() {
-        $this->selected_tab = "terms";
-        $this->load->view('frontend/misc/terms');
+        if ($this->uri->segment(1) == "terms") {
+            $this->selected_tab = "terms";
+            $this->load->view('frontend/misc/terms');
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function how_it_works() {
-        $this->selected_tab = "how_it_works";
-        $this->load->view('frontend/misc/how_it_works');
+        if ($this->uri->segment(1) == "how-it-works") {
+            $this->selected_tab = "how_it_works";
+            $this->load->view('frontend/misc/how_it_works');
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function earn_extra_cash() {
-        $this->selected_tab = "earn_extra_cash";
-        $this->load->view('frontend/misc/earn_extra_cash');
+        if ($this->uri->segment(1) == "earn-extra-cash") {
+            $this->selected_tab = "earn_extra_cash";
+            $this->load->view('frontend/misc/earn_extra_cash');
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function secure_community() {
-        $this->selected_tab = "secure_community";
-        $this->load->view('frontend/misc/secure_community');
+        if ($this->uri->segment(1) == "secure-community") {
+            $this->selected_tab = "secure_community";
+            $this->load->view('frontend/misc/secure_community');
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function find_perfect_buddy() {
-        $this->load->view('frontend/misc/find_perfect_buddy');
+        if ($this->uri->segment(1) == "find-perfect-buddy") {
+            $this->load->view('frontend/misc/find_perfect_buddy');
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function rewards_hosting_traveling() {
-        $this->load->view('frontend/misc/rewards_hosting_traveling');
+        if ($this->uri->segment(1) == "rewards-hosting-traveling") {
+            $this->load->view('frontend/misc/rewards_hosting_traveling');
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function homestay() {
@@ -274,45 +310,69 @@ class Misc extends CI_Controller {
     }
 
     function event_planning($cat_id = NULL) {
-        $this->selected_tab = "event";
-        $data = array();
-        $data['cat_id'] = 5;
-        $this->load->view('frontend/misc/EP1', $data);
+        if ($this->uri->segment(1) == "event-planning") {
+            $this->selected_tab = "event";
+            $data = array();
+            $data['cat_id'] = 5;
+            $this->load->view('frontend/misc/EP1', $data);
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function fitness() {
-        $this->selected_tab = "fitness";
-        $data = array();
-        $data['cat_id'] = 1;
-        $this->load->view('frontend/misc/F1', $data);
+        if ($this->uri->segment(1) == "fitness") {
+            $this->selected_tab = "fitness";
+            $data = array();
+            $data['cat_id'] = 1;
+            $this->load->view('frontend/misc/F1', $data);
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function tourism($cat_id = NULL) {
-        $this->selected_tab = "tourism";
-        $data = array();
-        $data['cat_id'] = 2;
-        $this->load->view('frontend/misc/FA3', $data);
+        if ($this->uri->segment(1) == "tourism") {
+            $this->selected_tab = "tourism";
+            $data = array();
+            $data['cat_id'] = 2;
+            $this->load->view('frontend/misc/FA3', $data);
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function social_occasion($cat_id = NULL) {
-        $this->selected_tab = "social";
-        $data = array();
-        $data['cat_id'] = 3;
-        $this->load->view('frontend/misc/SO2', $data);
+        if ($this->uri->segment(1) == "social-occasion") {
+            $this->selected_tab = "social";
+            $data = array();
+            $data['cat_id'] = 3;
+            $this->load->view('frontend/misc/SO2', $data);
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function fashion($cat_id = 0) {
-        $this->selected_tab = "fashion";
-        $data = array();
-        $data['cat_id'] = 6;
-        $this->load->view('frontend/misc/T2', $data);
+        if ($this->uri->segment(1) == "fashion") {
+            $this->selected_tab = "fashion";
+            $data = array();
+            $data['cat_id'] = 6;
+            $this->load->view('frontend/misc/T2', $data);
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     function hosting($cat_id = NULL) {
-        $this->selected_tab = "hosting";
-        $data = array();
-        $data['cat_id'] = 7;
-        $this->load->view('frontend/misc/T6', $data);
+        if ($this->uri->segment(1) == "hosting") {
+            $this->selected_tab = "hosting";
+            $data = array();
+            $data['cat_id'] = 7;
+            $this->load->view('frontend/misc/T6', $data);
+        } else {
+            $this->load->view('frontend/page404');
+        }
     }
 
     //    Misc pages ends here

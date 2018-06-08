@@ -275,7 +275,7 @@
                     <div class="col-md-2 col-sm-6 col-xs-12 widget sm-margin-20px-bottom xs-text-center">
                         <div class="widget-title">Support</div>
                         <ul class="list-unstyled">
-                            <li><a href="<?php echo base_url('misc/faq'); ?>">Faq</a></li>
+                            <li><a href="<?php echo base_url('faq'); ?>">Faq</a></li>
                             <li><a href="<?php echo base_url('terms'); ?>">Terms and Conditions</a></li>
                             <li><a href="javascript:void(0);">Copyright Policy</a></li>
                             <li><a href="javascript:void(0);">Code of Conduct</a></li>
