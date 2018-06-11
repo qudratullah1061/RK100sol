@@ -13,11 +13,6 @@
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.konsorts.com/home</loc>
-  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://www.konsorts.com/about</loc>
   <lastmod>2018-06-06T14:51:58+00:00</lastmod>
   <priority>0.80</priority>
@@ -139,11 +134,6 @@
 </url>
 <url>
   <loc>https://www.konsorts.com/blog/everything-is-better-with-good-company</loc>
-  <lastmod>2018-06-06T14:51:58+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.konsorts.com/blogs/</loc>
   <lastmod>2018-06-06T14:51:58+00:00</lastmod>
   <priority>0.64</priority>
 </url>
