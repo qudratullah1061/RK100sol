@@ -45,7 +45,7 @@
         </p>
 
         <p>
-            Not only are we service providers, but we also promote international entrepreneurship. The world is becoming smaller and it is an opportunity that we want to tap into. No matter what your skill is, consider this an unbiased platform where you will be chosen on the basis of merit.
+            Not only are we service providers, but we also promote <b><a>international entrepreneurship</a></b>. The world is becoming smaller and it is an opportunity that we want to tap into. No matter what your skill is, consider this an unbiased platform where you will be chosen on the basis of merit.
         </p>
 
         <p>

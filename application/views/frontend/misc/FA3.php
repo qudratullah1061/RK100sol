@@ -546,7 +546,7 @@
 
                         <p>When travelling on your own without the help of a travel agency, the itinerary of the trip is up to you.</p>
                         <p>However, that sometimes means that there’s so much to see, but you don’t really know what is a “must see” and what is an “eh, maybe”. You don’t know where the best places to eat are, so you resort to McDonalds once again. And in the end, you’ve seen all the sights, but you still feel like you haven’t touched the city at all.</p>
-                        <p>That is where a local tour guide can come in and help. We’ll cover how to find a local tour guide later, but know that the locals make the best travel guides due to their intimate knowledge of the city and its culture.</p>
+                        <p>That is where a <b><a>local tour guide</a></b> can come in and help. We’ll cover <b><a>how to find a local tour guide</a></b> later, but know that the locals make the <b><a>best travel guides</a></b> due to their intimate knowledge of the city and its culture.</p>
                         <p>Whether you’re looking for a walking tour, a museum exhibition or a food & drinks tasting, a local tour guide can be the person who can bring a dash of local culture into your activities.</p>
 
                         <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Why hire a local tour guide </h2>
@@ -599,9 +599,9 @@
                         <p>But now comes the question: how do you find the perfect travel buddy who will make your foray into the world that much easier and more enjoyable?</p>
 
                         <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Who is a travel companion?</h2>
-                        <p>First, we have to understand what a travel companion for hire does and what they don’t.</p>
+                        <p>First, we have to understand what a <b><a>travel companion for hire</a></b> does and what they don’t.</p>
                         <p class="font-weight-700 line-height-medium margin-10px-top margin-10px-bottom">A travel companion is a person who goes on a trip with you to provide company and any additional support you may need.</p>
-                        <p>In that sense, it seems that a travel companion is very similar to a personal tour guide.</p>
+                        <p>In that sense, it seems that a travel companion is very similar to a <b><a>personal tour guide</a></b>.</p>
                         <p>That is true that they fill the same role, however, a personal tour guide will have traveled to the destination many times before, and that may not be the case for your travel companion.</p>
                         <p>Expectation should not be high in that regard: he is there to explore your destination of choice with you, not guide you around like a professional who’s been there many times.</p>
                         <p>A personal tour guide also may not be equipped to help you with security or assistance due to a physical disability, while you can make sure that you travel companion will be. A travel companion for seniors will be able to take care of their special needs.</p>

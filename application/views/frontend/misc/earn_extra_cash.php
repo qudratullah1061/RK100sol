@@ -22,7 +22,7 @@
 </section>
 <section class="faq wow fadeIn">
     <div class="container">
-        <p>Unlike many other earning websites, Konsorts helps you make money online without needing any prior experience in most cases. You get the opportunity to earn extra money on top of your daily wages. </p>
+        <p>Unlike many other <b><a>earning websites</a></b>, Konsorts helps you <b><a>make money online</a></b> without needing any prior experience in most cases. You get the opportunity to <b><a>earn extra money</a></b> on top of your daily wages. </p>
         <p>This is especially useful for people who are looking to break out of their daily grind and change career paths. Instead of dropping everything at the drop of a hat to pursue a path that you have no knowledge about (which can be daunting), you get the chance to dip your toes and see what it’s like to pursue a different direction. </p>
         <p>What can be scary is the range of things you can do. You can be a historian who is a part time local travel guide or you can be a student looking to earn extra money by accompanying someone to a movie – Konsorts has an opportunity for everybody. And it doesn’t stop there. </p>
         <p>You don’t even have to limit yourself to one or the other. You could be a local travel guide and a gym buddy AND an event planner all in one. Not only is it an easy way to make money online, it is also a way to enhance your skill set. Many people want to find time to do things they enjoy but more often than not they lack the motivation to do it. Very few have the ability to do things we enjoy, just because. The benefit of earning extra money can be a great motivating factor – whether we acknowledge it or not. </p>

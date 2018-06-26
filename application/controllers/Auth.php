@@ -15,13 +15,21 @@ class Auth extends CI_Controller {
     }
 
     function login() {
-        $this->selected_tab = 'login';
-        $this->load->view('frontend/auth/login');
+        if ($this->uri->segment(1) == "login") {
+            $this->selected_tab = 'login';
+            $this->load->view('frontend/auth/login');
+        } else {
+            redirect(base_url("login"));
+        }
     }
 
     function register() {
-        $this->selected_tab = 'register';
-        $this->load->view('frontend/auth/membership_plans');
+        if ($this->uri->segment(1) == "register") {
+            $this->selected_tab = 'register';
+            $this->load->view('frontend/auth/membership_plans');
+        } else {
+            redirect(base_url("register"));
+        }
     }
 
     function verifyLogin() {

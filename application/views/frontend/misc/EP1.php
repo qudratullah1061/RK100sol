@@ -543,7 +543,7 @@
                         <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">What to expect as an event planner </h1>
 
 
-                        <p class="margin-10px-bottom">Gone are the days where you have to be tied down to event planning companies or even an event organizer to have a customer base. Today you can hire an event planner without having to go through the hassle of approaching many. </p>
+                        <p class="margin-10px-bottom">Gone are the days where you have to be tied down to <b><a>event planning companies</a></b> or even an <b><a>event organizer</a></b> to have a customer base. Today you can <b><a>hire an event planner</a></b> without having to go through the hassle of approaching many. </p>
                         <p class="margin-10px-bottom">There are a few traits that you need to possess in order to succeed and if you possess those traits you can kick start your career through Konsorts and be the proud owner of a thriving home based event planner business. </p>
                         <p class="margin-10px-bottom">The devil and an event planner’s success lie in the details. In order to keep up with the demands of clients, an event planner needs to plan ahead and consider every possible outcome – and in cases where things go wrong, there better be a plan B, C maybe even a D. How well prepared you are will give you your edge with the client. After all, why else would they hire an event planner? </p>
                         <p class="margin-10px-bottom">A client needs to trust his event planner completely. While working at event planning companies, you may not have had the privilege to make decisions yourself. But herein lies your advantage, at Konsorts you fly solo. By being your own boss you can cut through the hierarchy and plan the event exactly as you envision it – a vision that aligns with your clients, of course. </p>
@@ -589,14 +589,14 @@
                         </ul>
 
                         <p>The reason for what you need to like his work is fairly simple: you’re going to be looking at it for a long time! Most photographers also develop a distinct style and only the very best would be able to change it on demand. So, pick someone whose work you like the most.</p>
-                        <p>The second point is also very important. The skills you need as a nature photography are very different from those you need if you want to take excellent portraits. And wedding photography - and other events - especially needs a lot of experience.</p>
+                        <p>The second point is also very important. The skills you need as a nature photography are very different from those you need if you want to take excellent portraits. And <b><a>wedding photography</a></b> - and other events - especially needs a lot of experience.</p>
                         <p>At a wedding or another event, the photographer needs to be quick on his feet, as there are no second chances to capture the crucial moments. You can take a picture of a flower a hundred times, but you’ll only kiss the bride once - so you want them to capture it perfectly.</p>
                         <p>If a photographer has a portfolio of work that you like and they have done events like yours, they are very likely to produce photos you’ll like and be happy to dig out of the drawer every few months.</p>
 
                         <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">Where to find the perfect photographer</h2>
-                        <p class="margin-10px-bottom">So how can I find a photographer near me, you ask?</p>
+                        <p class="margin-10px-bottom">So how can I find a <b><a>photographer near me</a></b>, you ask?</p>
                         <p class="margin-10px-bottom">The best way to find them is to look at their portfolios online. Here at Konsorts we have photographers for every kind of event: you can see their profiles and portfolios here.</p>
-                        <p class="margin-10px-bottom">I know what you’re thinking: why should I hire an amateur photographer to capture one of the most important events in my life?</p>
+                        <p class="margin-10px-bottom">I know what you’re thinking: why should I hire an <b><a>amateur photographer</a></b> to capture one of the most important events in my life?</p>
                         <p class="margin-10px-bottom">Remember, every professional photographer was once an amateur. </p>
                         <p class="margin-10px-bottom">People who take up photography take it up for themselves and for their passion for capturing the world in a still image.</p>
                         <p class="margin-10px-bottom">Often someone newer can do a better job because they still have that passion; photography hasn’t yet turned into a job for them.</p>

@@ -542,10 +542,10 @@
                     <div class="hosting-textture">
                         <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">9 Reasons That Make A Personal Fitness Trainer Essential For Your Health & Wellbeing</h1>
 
-                        <p>There was a time in the past that the popularity of personal fitness trainers for hire were said to be only for the super-rich.  But through time, more and more people are finding value on the role and service given by a personal fitness trainer as essential for one’s health and wellbeing.  Their popularity has been proven to be not just for the buff or for drawing attention with a spandex-sporting crowd.  But more and more their role was something one can get results and health values.   Here are 9 reasons that make a personal fitness trainer essential for your health & wellbeing.</p>
+                        <p>There was a time in the past that the popularity of <b><a>personal fitness trainers for hire</a></b> were said to be only for the super-rich.  But through time, more and more people are finding value on the role and service given by a personal fitness trainer as essential for one’s health and wellbeing.  Their popularity has been proven to be not just for the buff or for drawing attention with a spandex-sporting crowd.  But more and more their role was something one can get results and health values.   Here are 9 reasons that make a personal fitness trainer essential for your health & wellbeing.</p>
 
                         <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">1) Program vs Workout.</h2>
-                        <p>Sure, anyone can get you to do exercises and make you limp and sweat, but it takes an efficient plan to build a program that aim to develop fitness routines that fits your strength, conditioning, and body mobility as you get results safely. If you find a personal trainer, it is an instinct for them to know what they need you to accomplish in every session you will accomplish.</p>
+                        <p>Sure, anyone can get you to do exercises and make you limp and sweat, but it takes an efficient plan to build a program that aim to develop fitness routines that fits your strength, conditioning, and body mobility as you get results safely. If you <b><a>find a personal trainer</a></b>, it is an instinct for them to know what they need you to accomplish in every session you will accomplish.</p>
 
                         <h2 class="text-purple font-weight-700 text-normal margin-5px-top margin-5px-bottom">2) Full Assessment of Your Capabilities</h2>
                         <p>Before engaging you to a fitness program, an ideal personal trainer will thoroughly analyze your physical condition and abilities before designing you a program.  They need to do this routine in order for you to reveal your fitness capabilities. Checks like postural assessment will show your weak limbs and other problem areas and highlight them in the program addressing issues and using appropriate exercises suited for your condition.</p>
@@ -594,7 +594,7 @@
                     </div>
                     <div class="hosting-textture">
                         <h1 class="text-purple font-weight-700 text-normal line-height-normal margin-5px-top margin-10px-bottom">What to expect from a personal training session</h1>
-                        <p>While you can certainly do well on your own, there is no comparison to what you can achieve under the watchful eye of a personal gym trainer.</p>
+                        <p>While you can certainly do well on your own, there is no comparison to what you can achieve under the watchful eye of a <b><a>personal gym trainer</a></b>.</p>
                         <p>Increased motivation, faster, safer progress and a fun time are just some of the reasons <a href="<?php echo base_url(); ?>fitness">why you need to train with a personal trainer.</a></p>
                         <p>The effects a personal trainer has on motivation, discipline and attitude to exercise are <a href="http://www.jssm.org/vol2/n1/2/v2n1-2pdf.pdf">well documented</a>.</p>
                         <p>If you’re not sure what to expect from a personal training session, we’ll give you a quick rundown of what is likely to happen, so that you will walk into that gym prepared.</p>
@@ -639,7 +639,7 @@
 
                         <p>Your first personal training session will leave you with a solid plan of attack and with a ton of motivation to use on the days when you just don’t feel like it.</p>
                         <p>If you are looking to hire someone to help you get started on your fitness journey, <a href="<?php echo base_url(); ?>register">click here and find a personal gym trainer</a> to your taste. </p>
-                        <p>Being a personal trainer isn’t easy, but if you think you have what it takes to be a fitness trainer, <a href="<?php echo base_url(); ?>register">join Konsorts and earn extra money</a> making your dream job a reality.</p>
+                        <p><b><a>Being a personal trainer</a></b> isn’t easy, but if you think you have what it takes to be a fitness trainer, <a href="<?php echo base_url(); ?>register">join Konsorts and earn extra money</a> making your dream job a reality.</p>
 
                     </div>
                 </div>

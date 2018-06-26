@@ -232,7 +232,7 @@ class Misc extends CI_Controller {
             $this->selected_tab = 'about';
             $this->load->view('frontend/misc/about');
         }else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('about'));
         }
     }
 
@@ -241,7 +241,7 @@ class Misc extends CI_Controller {
             $this->selected_tab = 'contact';
             $this->load->view('frontend/misc/contact_us');
         }else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('contact'));
         }
     }
 
@@ -249,7 +249,7 @@ class Misc extends CI_Controller {
         if ($this->uri->segment(1) == "faq") {
             $this->load->view('frontend/misc/faq');
         }else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('faq'));
         }
     }
 
@@ -258,7 +258,7 @@ class Misc extends CI_Controller {
             $this->selected_tab = "terms";
             $this->load->view('frontend/misc/terms');
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('terms'));
         }
     }
 
@@ -267,7 +267,7 @@ class Misc extends CI_Controller {
             $this->selected_tab = "how_it_works";
             $this->load->view('frontend/misc/how_it_works');
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('how-it-works'));
         }
     }
 
@@ -276,7 +276,7 @@ class Misc extends CI_Controller {
             $this->selected_tab = "earn_extra_cash";
             $this->load->view('frontend/misc/earn_extra_cash');
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('earn-extra-cash'));
         }
     }
 
@@ -285,7 +285,7 @@ class Misc extends CI_Controller {
             $this->selected_tab = "secure_community";
             $this->load->view('frontend/misc/secure_community');
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('secure-community'));
         }
     }
 
@@ -301,7 +301,7 @@ class Misc extends CI_Controller {
         if ($this->uri->segment(1) == "rewards-hosting-traveling") {
             $this->load->view('frontend/misc/rewards_hosting_traveling');
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('find-perfect-buddy'));
         }
     }
 
@@ -316,7 +316,7 @@ class Misc extends CI_Controller {
             $data['cat_id'] = 5;
             $this->load->view('frontend/misc/EP1', $data);
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('event-planning'));
         }
     }
 
@@ -327,7 +327,7 @@ class Misc extends CI_Controller {
             $data['cat_id'] = 1;
             $this->load->view('frontend/misc/F1', $data);
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('fitness'));
         }
     }
 
@@ -338,7 +338,7 @@ class Misc extends CI_Controller {
             $data['cat_id'] = 2;
             $this->load->view('frontend/misc/FA3', $data);
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('tourism'));
         }
     }
 
@@ -349,7 +349,7 @@ class Misc extends CI_Controller {
             $data['cat_id'] = 3;
             $this->load->view('frontend/misc/SO2', $data);
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('social-occasion'));
         }
     }
 
@@ -360,7 +360,7 @@ class Misc extends CI_Controller {
             $data['cat_id'] = 6;
             $this->load->view('frontend/misc/T2', $data);
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('fashion'));
         }
     }
 
@@ -371,7 +371,7 @@ class Misc extends CI_Controller {
             $data['cat_id'] = 7;
             $this->load->view('frontend/misc/T6', $data);
         } else {
-            $this->load->view('frontend/page404');
+            redirect(base_url('hosting'));
         }
     }
 
