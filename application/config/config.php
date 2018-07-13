@@ -40,7 +40,6 @@ if ($_SERVER['HTTP_HOST'] == 'www.konsorts.com' || $_SERVER['HTTP_HOST'] == 'kon
     error_reporting(E_ALL);
 } else if ($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == 'local.konsorts.com' || $_SERVER['HTTP_HOST'] == 'localhost.konsorts.com') {
     define("ENVO", "LOCAL");
-    $config['base_url'] = $http . $_SERVER['HTTP_HOST'] . "/konsorts-git";
 } else {
     define("ENVO", "LIVE");
 }
