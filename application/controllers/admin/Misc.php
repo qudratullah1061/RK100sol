@@ -3,9 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Misc extends Admin_Controller {
+class Misc extends Admin_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->layout = 'admin/main';
         $this->load->model('admin/misc_model', 'Misc_Model');
@@ -19,7 +21,8 @@ class Misc extends Admin_Controller {
 //        $this->load->view('admin/guests/add_guest', $data);
 //    }
 
-    function modal_category() {
+    function modal_category()
+    {
         $this->is_ajax();
         $this->selected_tab = 'misc';
         $this->selected_child_tab = 'view_categories';
@@ -31,7 +34,8 @@ class Misc extends Admin_Controller {
         die();
     }
 
-    function add_update_category() {
+    function add_update_category()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -67,20 +71,23 @@ class Misc extends Admin_Controller {
         }
     }
 
-    function view_categories() {
+    function view_categories()
+    {
         $this->selected_tab = 'misc';
         $this->selected_child_tab = 'view_categories';
         $this->load->view('admin/misc/view_categories');
     }
 
-    function contact_us_form() {
+    function contact_us_form()
+    {
         $this->selected_tab = 'contactus';
         $this->selected_child_tab = 'contact_us_form';
         $data['contact_us_form'] = $this->Misc_Model->get_contact_forms();
         $this->load->view('admin/misc/contact_us_form', $data);
     }
 
-    function get_categories() {
+    function get_categories()
+    {
         $records = array();
         $records["data"] = array();
         $sEcho = intval($this->input->post('draw'));
@@ -148,14 +155,16 @@ class Misc extends Admin_Controller {
         exit();
     }
 
-    function view_sub_categories($category_id = 0) {
+    function view_sub_categories($category_id = 0)
+    {
         $this->selected_tab = 'misc';
         $this->selected_child_tab = 'view_categories';
         $data['category_id'] = $category_id;
         $this->load->view('admin/misc/view_sub_categories', $data);
     }
 
-    function get_sub_categories($category_id = 0) {
+    function get_sub_categories($category_id = 0)
+    {
         $records = array();
         $records["data"] = array();
         $sEcho = intval($this->input->post('draw'));
@@ -223,7 +232,8 @@ class Misc extends Admin_Controller {
         exit();
     }
 
-    function modal_sub_category() {
+    function modal_sub_category()
+    {
         $this->is_ajax();
         $this->selected_tab = 'misc';
         $this->selected_child_tab = 'view_categories';
@@ -237,7 +247,8 @@ class Misc extends Admin_Controller {
         die();
     }
 
-    function add_update_sub_category() {
+    function add_update_sub_category()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -275,7 +286,8 @@ class Misc extends Admin_Controller {
         }
     }
 
-    function DeleteRecord() {
+    function DeleteRecord()
+    {
         $this->isAjax();
         $unique_id = $this->input->post('unique_id');
         $table = $this->input->post('table');
@@ -295,7 +307,21 @@ class Misc extends Admin_Controller {
         $this->_response(true, "Problem while deleting record.");
     }
 
-    public function upload_images_member() {
+    function MarkAsRead()
+    {
+        $this->isAjax();
+        $unique_id = $this->input->post('unique_id');
+        $table = $this->input->post('table');
+        $column = $this->input->post('column');
+        $result = $this->Misc_Model->UpdateNotification($unique_id, $table, $column);
+        if ($result) {
+            $this->_response(false, "Record marked as read!");
+        }
+        $this->_response(true, "Problem while marking record as read.");
+    }
+
+    public function upload_images_member()
+    {
         $member_id = $this->input->post('member_id');
         $file_upload_unique_id = $this->input->post('file_upload_unique_id');
         $image_type = $this->input->post('image_type');
@@ -318,7 +344,8 @@ class Misc extends Admin_Controller {
         $this->_response(true, 'File uploaded successfully!');
     }
 
-    function MarkAsProfileImage() {
+    function MarkAsProfileImage()
+    {
         $this->isAjax();
         $unique_id = $this->input->post('image_id');
         $member_id = $this->input->post('member_id');
@@ -327,7 +354,8 @@ class Misc extends Admin_Controller {
         $this->_response(false, "Profile pic updated successfully!");
     }
 
-    function delete_dropzone_temp_file() {
+    function delete_dropzone_temp_file()
+    {
         $unique_id = $this->input->get_post('unique_id');
         $file_name = $unique_id . $this->input->get_post('file_name');
         $where_clause = array('unique_id' => $unique_id, 'image' => $file_name);
@@ -350,11 +378,13 @@ class Misc extends Admin_Controller {
         $this->_response(true, "Problem while deleting record.");
     }
 
-    function get_countries() {
+    function get_countries()
+    {
         return GetCountriesOption($selected_country_id);
     }
 
-    function get_states() {
+    function get_states()
+    {
         $country_id = $this->input->post('country_id');
         $selected_state_id = $this->input->post('state_id');
         $state_options = GetStatesOption($country_id, $selected_state_id);
@@ -362,7 +392,8 @@ class Misc extends Admin_Controller {
         die();
     }
 
-    function get_cities() {
+    function get_cities()
+    {
         $state_id = $this->input->post('state_id');
         $selected_city_id = $this->input->post('city_id');
         $city_options = GetCityOptions($state_id, $selected_city_id);
@@ -370,7 +401,8 @@ class Misc extends Admin_Controller {
         die();
     }
 
-    function modal_language() {
+    function modal_language()
+    {
         $this->isAjax();
         $language_id = $this->input->post('language_id');
         $member_id = $this->input->post('member_id');
@@ -382,7 +414,8 @@ class Misc extends Admin_Controller {
         die();
     }
 
-    function modal_contact() {
+    function modal_contact()
+    {
         $this->isAjax();
         $contact_id = $this->input->post('contact_form_id');
 
@@ -394,7 +427,8 @@ class Misc extends Admin_Controller {
         die();
     }
 
-    function modal_contact_reply() {
+    function modal_contact_reply()
+    {
         $this->isAjax();
         $contact_id = $this->input->post('contact_form_id');
 
@@ -406,7 +440,8 @@ class Misc extends Admin_Controller {
         die();
     }
 
-    function save_contactus_form() {
+    function save_contactus_form()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -422,7 +457,8 @@ class Misc extends Admin_Controller {
         }
     }
 
-    function save_contactus_form_reply() {
+    function save_contactus_form_reply()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -445,7 +481,8 @@ class Misc extends Admin_Controller {
         }
     }
 
-    function add_update_language() {
+    function add_update_language()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -480,7 +517,8 @@ class Misc extends Admin_Controller {
         }
     }
 
-    function modal_subscription_date() {
+    function modal_subscription_date()
+    {
         $this->isAjax();
         $member_id = $this->input->post('member_id');
         $member_info = $this->Members_Model->get_member_by_id($member_id);
@@ -493,7 +531,8 @@ class Misc extends Admin_Controller {
         die();
     }
 
-    function update_member_subscription() {
+    function update_member_subscription()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();

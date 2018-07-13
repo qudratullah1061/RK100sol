@@ -32,7 +32,10 @@ var CommonFunctions = function () {
 
     DeleteDropzoneFile = function (unique_id, file_name) {
         App.blockUI({target: '.dropzone-file-area', animate: true});
-        var jqxhr = $.getJSON(base_url + "admin/misc/delete_dropzone_temp_file", data = {unique_id: unique_id, file_name: file_name}, function (response) {
+        var jqxhr = $.getJSON(base_url + "admin/misc/delete_dropzone_temp_file", data = {
+            unique_id: unique_id,
+            file_name: file_name
+        }, function (response) {
             //console.log("success", response);
             if (data.error) {
                 swal("Error!", data.description, "error");
@@ -53,121 +56,166 @@ var CommonFunctions = function () {
 
     function MarkAsProfileImage(image_id, member_id) {
         swal({
-            title: "Confirmation!",
-            text: "Do you really want to chane profile pic for this user?",
-            type: "warning",
-            closeOnConfirm: false,
-            showCancelButton: true,
-            confirmButtonClass: "btn-info",
-            confirmButtonText: "Yes, make profile pic!",
-        },
-                function () {
-                    $.ajax({
-                        url: base_url + "admin/Misc/MarkAsProfileImage/",
-                        dataType: 'json',
-                        method: 'post',
-                        cache: false,
-                        data: {image_id: image_id, member_id: member_id},
-                        beforeSend: function () {
-                            App.blockUI({target: 'body', animate: true});
-                        },
-                        complete: function () {
-                            App.unblockUI('body');
-                        },
-                        success: function (data) {
-                            if (!data.error) {
-                                swal({
-                                    title: "Success",
-                                    text: data.description,
-                                    type: "success",
-                                }, function () {
-                                    $(".pic-caption-" + image_id).css("color", "#474747");
-                                    $(".pic-caption-" + image_id).css("color", "green");
-                                });
-                            } else {
-                                // exception message here.
-                                swal("Error!", data.description, "error");
-                            }
-                        },
-                        error: function (xhr, desc, err) {
-                            toastr["error"](xhr.statusText, "Error.");
+                title: "Confirmation!",
+                text: "Do you really want to chane profile pic for this user?",
+                type: "warning",
+                closeOnConfirm: false,
+                showCancelButton: true,
+                confirmButtonClass: "btn-info",
+                confirmButtonText: "Yes, make profile pic!",
+            },
+            function () {
+                $.ajax({
+                    url: base_url + "admin/Misc/MarkAsProfileImage/",
+                    dataType: 'json',
+                    method: 'post',
+                    cache: false,
+                    data: {image_id: image_id, member_id: member_id},
+                    beforeSend: function () {
+                        App.blockUI({target: 'body', animate: true});
+                    },
+                    complete: function () {
+                        App.unblockUI('body');
+                    },
+                    success: function (data) {
+                        if (!data.error) {
+                            swal({
+                                title: "Success",
+                                text: data.description,
+                                type: "success",
+                            }, function () {
+                                $(".pic-caption-" + image_id).css("color", "#474747");
+                                $(".pic-caption-" + image_id).css("color", "green");
+                            });
+                        } else {
+                            // exception message here.
+                            swal("Error!", data.description, "error");
                         }
-                    });
+                    },
+                    error: function (xhr, desc, err) {
+                        toastr["error"](xhr.statusText, "Error.");
+                    }
                 });
+            });
     }
 
     var Delete = function (unique_id, table, column, msg) {
 
         swal({
-            title: "Are you sure?",
-            text: "Warning! " + msg,
-            type: "warning",
-            closeOnConfirm: false,
-            showCancelButton: true,
-            confirmButtonClass: "btn-danger",
-            confirmButtonText: "Yes, delete it!",
-        },
-                function () {
-                    $.ajax({
-                        url: base_url + "admin/Misc/DeleteRecord/",
-                        dataType: 'json',
-                        method: 'post',
-                        cache: false,
-                        data: {unique_id: unique_id, table: table, column: column},
-                        beforeSend: function () {
-                            App.blockUI({target: 'body', animate: true});
-                        },
-                        complete: function () {
-                            App.unblockUI('body');
-                        },
-                        success: function (data) {
-                            if (!data.error) {
-                                swal({
-                                    title: "Deleted",
-                                    text: data.description,
-                                    type: "success",
-                                }, function () {
-                                    if (table == 'tb_admin_users') {
-                                        $('#datatable_adminusers').DataTable().ajax.reload();
-                                    } else if (table == 'tb_categories') {
-                                        $('#datatable_categories').DataTable().ajax.reload();
-                                    } else if (table == 'tb_newsletters') {
-                                        $('#datatable_newsletters').DataTable().ajax.reload();
-                                    } else if (table == 'tb_sub_categories') {
-                                        $('#datatable_sub_categories').DataTable().ajax.reload();
-                                    } else if (table == 'tb_blogs') {
-                                        $('#datatable_blogs').DataTable().ajax.reload();
-                                    } else if (table == 'tb_members') {
-                                        if ($('#datatable_guests').length > 0)
-                                            $('#datatable_guests').DataTable().ajax.reload();
-                                        else if ($('#datatable_companions').length > 0)
-                                            $('#datatable_companions').DataTable().ajax.reload();
-                                    } else if (table == 'tb_member_images') {
-                                        $("#pic-" + unique_id).remove();
-                                        $('#load_member_profile_images').cubeportfolio('destroy');
-                                        $('#load_member_id_proofs').cubeportfolio('destroy');
-                                        is_init_profile_images = false;
-                                        load_member_profile_images();
-                                        is_init_id_proof_images = false;
-                                        load_member_id_proofs();
-                                    } else if (table == 'tb_tags') {
-                                        $('#datatable_tags').DataTable().ajax.reload();
-                                    } else if (table == 'tb_member_portfolios' || table == 'tb_member_languages') {
-                                        window.location.reload();
-                                    } else if (table == 'tb_contact_form' || table == 'tb_member_portfolios' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications' || table == 'tb_notification_users') {
-                                        window.location.reload();
-                                    }
-                                });
-                            } else {
-                                // exception message here.
-                                swal("Error!", data.description, "error");
-                            }
-                        },
-                        error: function (xhr, desc, err) {
-                            toastr["error"](xhr.statusText, "Error.");
+                title: "Are you sure?",
+                text: "Warning! " + msg,
+                type: "warning",
+                closeOnConfirm: false,
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, delete it!",
+            },
+            function () {
+                $.ajax({
+                    url: base_url + "admin/Misc/DeleteRecord/",
+                    dataType: 'json',
+                    method: 'post',
+                    cache: false,
+                    data: {unique_id: unique_id, table: table, column: column},
+                    beforeSend: function () {
+                        App.blockUI({target: 'body', animate: true});
+                    },
+                    complete: function () {
+                        App.unblockUI('body');
+                    },
+                    success: function (data) {
+                        if (!data.error) {
+                            swal({
+                                title: "Deleted",
+                                text: data.description,
+                                type: "success",
+                            }, function () {
+                                if (table == 'tb_admin_users') {
+                                    $('#datatable_adminusers').DataTable().ajax.reload();
+                                } else if (table == 'tb_categories') {
+                                    $('#datatable_categories').DataTable().ajax.reload();
+                                } else if (table == 'tb_newsletters') {
+                                    $('#datatable_newsletters').DataTable().ajax.reload();
+                                } else if (table == 'tb_sub_categories') {
+                                    $('#datatable_sub_categories').DataTable().ajax.reload();
+                                } else if (table == 'tb_blogs') {
+                                    $('#datatable_blogs').DataTable().ajax.reload();
+                                } else if (table == 'tb_members') {
+                                    if ($('#datatable_guests').length > 0)
+                                        $('#datatable_guests').DataTable().ajax.reload();
+                                    else if ($('#datatable_companions').length > 0)
+                                        $('#datatable_companions').DataTable().ajax.reload();
+                                } else if (table == 'tb_member_images') {
+                                    $("#pic-" + unique_id).remove();
+                                    $('#load_member_profile_images').cubeportfolio('destroy');
+                                    $('#load_member_id_proofs').cubeportfolio('destroy');
+                                    is_init_profile_images = false;
+                                    load_member_profile_images();
+                                    is_init_id_proof_images = false;
+                                    load_member_id_proofs();
+                                } else if (table == 'tb_tags') {
+                                    $('#datatable_tags').DataTable().ajax.reload();
+                                } else if (table == 'tb_member_portfolios' || table == 'tb_member_languages') {
+                                    window.location.reload();
+                                } else if (table == 'tb_contact_form' || table == 'tb_member_portfolios' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications' || table == 'tb_notification_users' || table == 'tb_profile_notify') {
+                                    window.location.reload();
+                                }
+                            });
+                        } else {
+                            // exception message here.
+                            swal("Error!", data.description, "error");
                         }
-                    });
+                    },
+                    error: function (xhr, desc, err) {
+                        toastr["error"](xhr.statusText, "Error.");
+                    }
                 });
+            });
+    };
+
+    var MarkRead = function (unique_id, table, column, msg) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Warning! " + msg,
+                type: "warning",
+                closeOnConfirm: false,
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, mark it as read!",
+            },
+            function () {
+                $.ajax({
+                    url: base_url + "admin/Misc/MarkAsRead/",
+                    dataType: 'json',
+                    method: 'post',
+                    cache: false,
+                    data: {unique_id: unique_id, table: table, column: column},
+                    beforeSend: function () {
+                        App.blockUI({target: 'body', animate: true});
+                    },
+                    complete: function () {
+                        App.unblockUI('body');
+                    },
+                    success: function (data) {
+                        if (!data.error) {
+                            swal({
+                                title: "Read",
+                                text: data.description,
+                                type: "success",
+                            }, function () {
+                                window.location.reload();
+                            });
+                        } else {
+                            // exception message here.
+                            swal("Error!", data.description, "error");
+                        }
+                    },
+                    error: function (xhr, desc, err) {
+                        toastr["error"](xhr.statusText, "Error.");
+                    }
+                });
+            });
     };
 
     var GetStateOptions = function (country_id, state_id, dropdown_class) {
@@ -267,6 +315,9 @@ var CommonFunctions = function () {
     };
 
     return {
+        MarkRead: function (unique_id, table, column, msg) {
+            MarkRead(unique_id, table, column, msg);
+        },
         Delete: function (unique_id, table, column, msg) {
             Delete(unique_id, table, column, msg);
         },

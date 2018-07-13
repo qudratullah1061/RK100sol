@@ -118,6 +118,6 @@ $db['dev'] = array_merge($general, array(
 $db['local'] = array_merge($general, array(
     'hostname' => 'localhost',
     'username' => 'root',
-    'password' => '',
+    'password' => 'xtroviz',
     'database' => 'konsorts',
         ));

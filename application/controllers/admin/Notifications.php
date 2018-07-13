@@ -19,6 +19,12 @@ class Notifications extends Admin_Controller {
         
         $this->load->view('admin/notifications/view_notifications',$data);
     }
+
+    function view_users_notifications() {
+        $this->selected_tab = 'notifications';
+        $data['notifications'] = $this->Notification_model->get_all_users_notifications();
+        $this->load->view('admin/notifications/view_users_notifications',$data);
+    }
     
     function modal_notification() {
         $this->isAjax();

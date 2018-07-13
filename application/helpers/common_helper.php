@@ -3,14 +3,16 @@
 $CI = &get_instance();
 
 //admin navigation
-function ActivateCurrentLink($main_tab, $child_tab) {
+function ActivateCurrentLink($main_tab, $child_tab)
+{
     global $CI;
     if ($CI->selected_tab == $main_tab && $CI->selected_child_tab == $child_tab) {
         echo " active open ";
     }
 }
 
-function ActivateParentLink($main_tab) {
+function ActivateParentLink($main_tab)
+{
     global $CI;
     if ($CI->selected_tab == $main_tab) {
         echo " active open ";
@@ -19,7 +21,8 @@ function ActivateParentLink($main_tab) {
 
 //admin navigation ends
 //frontend navigation
-function ActivateLink($main_tab) {
+function ActivateLink($main_tab)
+{
     global $CI;
     if ($CI->selected_tab == $main_tab) {
         echo " active open ";
@@ -28,7 +31,8 @@ function ActivateLink($main_tab) {
 
 //frontend navigation
 // frontend permission check
-function CheckPermission($permission_data, $privacy_name) {
+function CheckPermission($permission_data, $privacy_name)
+{
     if ($permission_data) {
         foreach ($permission_data as $data) {
             if ($data['privacy_name'] == $privacy_name) {
@@ -40,11 +44,13 @@ function CheckPermission($permission_data, $privacy_name) {
 
 // frontend permission check ended here.
 
-function isAjax() {
+function isAjax()
+{
     header('Content-Type: application/json');
 }
 
-function GetAdminInfoWithId($UserId) {
+function GetAdminInfoWithId($UserId)
+{
     global $CI;
     $user_info = $CI->db->get_where('tb_admin_users', array('admin_id' => $UserId))->result_array();
     if ($user_info) {
@@ -52,13 +58,15 @@ function GetAdminInfoWithId($UserId) {
     }
 }
 
-function GetAdminRolesPermissionWithId($UserId) {
+function GetAdminRolesPermissionWithId($UserId)
+{
     global $CI;
     $sql = "SELECT roles.*, userInRoles.* FROM `tb_admin_user_roles` roles LEFT JOIN tb_admin_user_in_roles userInRoles ON (admin_user_role_id = role_id AND userInRoles.admin_user_id = $UserId)";
     return $CI->db->query($sql)->result_array();
 }
 
-function isAdminHasAccess($class, $method = "") {
+function isAdminHasAccess($class, $method = "")
+{
     $CI = &get_instance();
     $admin_id = $CI->session->userdata('admin_id');
     $roles_info = $CI->db->get_where('tb_admin_user_in_roles', array('admin_user_id' => $admin_id))->result_array();
@@ -70,7 +78,8 @@ function isAdminHasAccess($class, $method = "") {
     return false;
 }
 
-function RedirectAdminToAppropriatePage() {
+function RedirectAdminToAppropriatePage()
+{
     $CI = &get_instance();
     $admin_id = $CI->session->userdata('admin_id');
     $roles_info = $CI->db->get_where('tb_admin_user_in_roles', array('admin_user_id' => $admin_id))->result_array();
@@ -80,7 +89,8 @@ function RedirectAdminToAppropriatePage() {
     redirect(base_url('admin/admin_dashboard'));
 }
 
-function validatePromoCode($promo_code) {
+function validatePromoCode($promo_code)
+{
     // check promo code exist.
     global $CI;
     $promo_code_info = $CI->db->get_where('tb_promos', array('promo_code' => $promo_code))->result_array();
@@ -99,7 +109,8 @@ function validatePromoCode($promo_code) {
     return false;
 }
 
-function IsPromoCodeAlreadyUsed($promo_code, $member_id) {
+function IsPromoCodeAlreadyUsed($promo_code, $member_id)
+{
     // check promo code exist.
     global $CI;
     $promo_code_info = $CI->db->get_where('tb_promos_used_by_members', array('promo_code' => $promo_code, "member_id" => $member_id))->result_array();
@@ -109,7 +120,8 @@ function IsPromoCodeAlreadyUsed($promo_code, $member_id) {
     return false;
 }
 
-function getGeoCodes($address = "") {
+function getGeoCodes($address = "")
+{
     // Google HQ
     if ($address != "") {
         $prepAddr = str_replace(' ', '+', $address);
@@ -159,7 +171,8 @@ function getGeoCodes($address = "") {
     }
 }
 
-function is_member_username_exist($username, $exclude_id) {
+function is_member_username_exist($username, $exclude_id)
+{
     global $CI;
     $exclude_id = $exclude_id > 0 ? $exclude_id : -1;
     $CI->db->select('member_id');
@@ -170,7 +183,8 @@ function is_member_username_exist($username, $exclude_id) {
     return false;
 }
 
-function replace_macros($template_message = "", $macros_data = array()) {
+function replace_macros($template_message = "", $macros_data = array())
+{
     $template_message = str_replace('$$$BASE_URL$$$', base_url(), $template_message);
     $template_message = str_replace('$$$FIRST_NAME$$$', (isset($macros_data['$$$FIRST_NAME$$$']) ? $macros_data['$$$FIRST_NAME$$$'] : ""), $template_message);
     $template_message = str_replace('$$$TITLE$$$', (isset($macros_data['$$$TITLE$$$']) ? $macros_data['$$$TITLE$$$'] : ""), $template_message);
@@ -183,7 +197,8 @@ function replace_macros($template_message = "", $macros_data = array()) {
     return $template_message;
 }
 
-function get_email_template($template_name, $macros_data) {
+function get_email_template($template_name, $macros_data)
+{
     if ($template_name) {
         global $CI;
         $template_info = $CI->db->get_where('tb_email_templates', array('template_name' => $template_name))->result_array();
@@ -198,7 +213,8 @@ function get_email_template($template_name, $macros_data) {
     }
 }
 
-function is_member_email_exist($email, $exclude_id) {
+function is_member_email_exist($email, $exclude_id)
+{
     global $CI;
     $exclude_id = $exclude_id > 0 ? $exclude_id : -1;
     $CI->db->select('member_id');
@@ -209,7 +225,8 @@ function is_member_email_exist($email, $exclude_id) {
     return false;
 }
 
-function reArrayFiles(&$file_post) {
+function reArrayFiles(&$file_post)
+{
     $file_ary = array();
     $file_count = count($file_post['name']);
     $file_keys = array_keys($file_post);
@@ -221,17 +238,20 @@ function reArrayFiles(&$file_post) {
     return $file_ary;
 }
 
-function GetAllCategories() {
+function GetAllCategories()
+{
     global $CI;
     return $CI->db->get_where('tb_categories', array('is_active' => 1))->result_array();
 }
 
-function getSubCategoriesByCategoryId($categoryId) {
+function getSubCategoriesByCategoryId($categoryId)
+{
     global $CI;
     return $CI->db->get_where('tb_sub_categories', array('is_active' => 1, 'category_id' => $categoryId))->result_array();
 }
 
-function getCategoryNameById($categoryId = 0) {
+function getCategoryNameById($categoryId = 0)
+{
     global $CI;
     $data_info = $CI->db->get_where('tb_categories', array('category_id' => $categoryId))->result_array();
     if ($data_info) {
@@ -240,7 +260,8 @@ function getCategoryNameById($categoryId = 0) {
     return "";
 }
 
-function GetCountriesOption($selected_value = "") {
+function GetCountriesOption($selected_value = "")
+{
     global $CI;
     $options = "<option></option>";
     $data_info = $CI->db->get('tb_countries')->result_array();
@@ -252,7 +273,8 @@ function GetCountriesOption($selected_value = "") {
     return $options;
 }
 
-function GetStatesOption($country_id = 0, $selected_value = "") {
+function GetStatesOption($country_id = 0, $selected_value = "")
+{
     global $CI;
     $options = "<option value=''></option>";
     if ($country_id) {
@@ -269,7 +291,8 @@ function GetStatesOption($country_id = 0, $selected_value = "") {
     return $options;
 }
 
-function GetCityOptions($state_id = 0, $selected_value = "") {
+function GetCityOptions($state_id = 0, $selected_value = "")
+{
     global $CI;
     $options = "<option></option>";
     if ($state_id) {
@@ -287,7 +310,8 @@ function GetCityOptions($state_id = 0, $selected_value = "") {
 }
 
 // receives multidimensional array
-function delete_image_from_directory($images_info_array) {
+function delete_image_from_directory($images_info_array)
+{
     global $CI;
     if ($images_info_array) {
         foreach ($images_info_array as $image) {
@@ -315,7 +339,8 @@ function delete_image_from_directory($images_info_array) {
     }
 }
 
-function upload_base_64_image($image_info, $file_path) {
+function upload_base_64_image($image_info, $file_path)
+{
     global $CI;
     if ($image_info) {
         $image = isset($image_info->output->image) ? $image_info->output->image : "";
@@ -335,7 +360,8 @@ function upload_base_64_image($image_info, $file_path) {
     }
 }
 
-function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thump_options = array(), $watermark = FALSE, $unique_idetifier = "") {
+function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thump_options = array(), $watermark = FALSE, $unique_idetifier = "")
+{
     global $CI;
     $config['upload_path'] = $CI->config->item('root_path') . $upload_path;
     $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -358,7 +384,8 @@ function UploadImage($file_field_name, $upload_path, $create_thumb = false, $thu
     }
 }
 
-function watermarkImage($source, $water_mark_image_name = "Transparent-K-250.png") {
+function watermarkImage($source, $water_mark_image_name = "Transparent-K-250.png")
+{
     global $CI;
     $CI->load->library('image_lib');
     $config['image_library'] = 'gd2';
@@ -374,7 +401,8 @@ function watermarkImage($source, $water_mark_image_name = "Transparent-K-250.png
     $CI->image_lib->clear();
 }
 
-function CreateThumbnail($source, $destination, $thump_options, $water_mark = false) {
+function CreateThumbnail($source, $destination, $thump_options, $water_mark = false)
+{
     global $CI;
     $CI->load->library('image_lib');
     $config['image_library'] = 'gd2';
@@ -417,7 +445,8 @@ function CreateThumbnail($source, $destination, $thump_options, $water_mark = fa
 //    }
 }
 
-function upload_temp_image($files, $unique_id, $image_type) {
+function upload_temp_image($files, $unique_id, $image_type)
+{
     global $CI;
     try {
         if ($files) {
@@ -437,7 +466,8 @@ function upload_temp_image($files, $unique_id, $image_type) {
     }
 }
 
-function get_notifications($is_admin = 1, $member_id, $is_read = '') {
+function get_notifications($is_admin = 1, $member_id, $is_read = '')
+{
     global $CI;
     $where = '';
 
@@ -450,14 +480,16 @@ function get_notifications($is_admin = 1, $member_id, $is_read = '') {
     return $notifications;
 }
 
-function get_sub_comments($blog_id, $parent_id) {
+function get_sub_comments($blog_id, $parent_id)
+{
     global $CI;
     $CI->load->model('admin/blogs_model', 'Blogs_Model');
     $sub_comments = $CI->Blogs_Model->get_selected_comments($blog_id, $parent_id);
     return $sub_comments;
 }
 
-function delete_file_from_directory($file_path) {
+function delete_file_from_directory($file_path)
+{
     global $CI;
     $complete_path = $CI->config->item('root_path') . $file_path;
     if (file_exists($complete_path)) {
@@ -465,7 +497,8 @@ function delete_file_from_directory($file_path) {
     }
 }
 
-function time_elapsed_string($datetime, $full = false) {
+function time_elapsed_string($datetime, $full = false)
+{
     $now = new DateTime;
     $ago = new DateTime($datetime);
     $diff = $now->diff($ago);
@@ -495,7 +528,8 @@ function time_elapsed_string($datetime, $full = false) {
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
 
-function sendEmail($to, $subject, $message, $reply_to = "") {
+function sendEmail($to, $subject, $message, $reply_to = "")
+{
 //    if ($reply_to != "") {
 //        $header = "From:admin@konsorts.com \r\n Reply-to: $reply_to";
 //    } else {
@@ -510,44 +544,10 @@ function sendEmail($to, $subject, $message, $reply_to = "") {
         echo "Message could not be sent...";
         exit;
     }
-//    
-//    global $CI;
-//    require APPPATH . 'libraries/phpmailer_master/PHPMailerAutoload.php';
-////    require $root_path . 'vendor/phpmailer/phpmailer/src/Exception.php';
-////    require $root_path . 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-////    require $root_path . 'vendor/phpmailer/phpmailer/src/SMTP.php';
-////    require_once APPPATH . "/libraries/PhpMailer/class.phpmailer.php";
-////PHPMailer Object
-//    $mail = new PHPMailer();
-//    //$mail->SMTPDebug = 3;
-////Set PHPMailer to use SMTP.
-//    $mail->isSMTP();
-////Set SMTP host name                      
-//    $mail->Host = "smtp.gmail.com";
-////Set this to true if SMTP host requires authentication to send email
-//    $mail->SMTPAuth = true;
-////Provide username and password
-//    $mail->Username = "itcomradetest@gmail.com";
-//    $mail->Password = "itcomrade.us@123";
-////If SMTP requires TLS encryption then set it
-//    $mail->SMTPSecure = "tls";
-////Set TCP port to connect to
-//    $mail->Port = 587; //465;
-//    $mail->From = "itcomradetest@gmail.com";
-//    $mail->FromName = "Full Name";
-//    $mail->addAddress($to); //addAddress($to, "Recepient Name");
-//    $mail->isHTML(true);
-//    $mail->Subject = $subject;
-//    $mail->Body = $message;
-////    $mail->AltBody = "This is the plain text version of the email content";
-//    if (!$mail->send()) {
-//        echo "Mailer Error: " . $mail->ErrorInfo;
-//        exit;
-//    }
-//    return true;
 }
 
-function GetBlogDescription($blog_id) {
+function GetBlogDescription($blog_id)
+{
     global $CI;
     $blog_data = $CI->db->get_where('tb_blog_descriptions', array('blog_id' => $blog_id))->result_array();
     if (!empty($blog_data)) {
@@ -556,7 +556,8 @@ function GetBlogDescription($blog_id) {
     return FALSE;
 }
 
-function limit_text($text, $limit) {
+function limit_text($text, $limit)
+{
     if (str_word_count($text, 0) > $limit) {
         $words = str_word_count($text, 2);
         $pos = array_keys($words);
@@ -565,21 +566,24 @@ function limit_text($text, $limit) {
     return $text;
 }
 
-function GetBlogContent($cat_id) {
+function GetBlogContent($cat_id)
+{
     global $CI;
     $CI->load->model('admin/blogs_model', 'Blogs_Model');
     $blogs = $CI->Blogs_Model->get_all_blogs_as_per_category($cat_id);
     return $blogs;
 }
 
-function CountPromoCode($promo_code) {
+function CountPromoCode($promo_code)
+{
     global $CI;
     $CI->load->model('admin/Promos_model', 'Promos_model');
     $promos = $CI->Promos_model->get_all_used_promo_code($promo_code);
     return $promos->promo_code;
 }
 
-function getSubCategoryNameById($sub_category_id = 0) {
+function getSubCategoryNameById($sub_category_id = 0)
+{
     global $CI;
     $data_info = $CI->db->get_where('tb_sub_categories', array('sub_category_id' => $sub_category_id))->result_array();
     if ($data_info) {
@@ -587,31 +591,33 @@ function getSubCategoryNameById($sub_category_id = 0) {
     }
     return "";
 }
+
 //taken from wordpress
-function utf8_uri_encode( $utf8_string, $length = 0 ) {
+function utf8_uri_encode($utf8_string, $length = 0)
+{
     $unicode = '';
     $values = array();
     $num_octets = 1;
     $unicode_length = 0;
 
-    $string_length = strlen( $utf8_string );
-    for ($i = 0; $i < $string_length; $i++ ) {
+    $string_length = strlen($utf8_string);
+    for ($i = 0; $i < $string_length; $i++) {
 
-        $value = ord( $utf8_string[ $i ] );
+        $value = ord($utf8_string[$i]);
 
-        if ( $value < 128 ) {
-            if ( $length && ( $unicode_length >= $length ) )
+        if ($value < 128) {
+            if ($length && ($unicode_length >= $length))
                 break;
             $unicode .= chr($value);
             $unicode_length++;
         } else {
-            if ( count( $values ) == 0 ) $num_octets = ( $value < 224 ) ? 2 : 3;
+            if (count($values) == 0) $num_octets = ($value < 224) ? 2 : 3;
 
             $values[] = $value;
 
-            if ( $length && ( $unicode_length + ($num_octets * 3) ) > $length )
+            if ($length && ($unicode_length + ($num_octets * 3)) > $length)
                 break;
-            if ( count( $values ) == $num_octets ) {
+            if (count($values) == $num_octets) {
                 if ($num_octets == 3) {
                     $unicode .= '%' . dechex($values[0]) . '%' . dechex($values[1]) . '%' . dechex($values[2]);
                     $unicode_length += 9;
@@ -630,18 +636,19 @@ function utf8_uri_encode( $utf8_string, $length = 0 ) {
 }
 
 //taken from wordpress
-function seems_utf8($str) {
+function seems_utf8($str)
+{
     $length = strlen($str);
-    for ($i=0; $i < $length; $i++) {
+    for ($i = 0; $i < $length; $i++) {
         $c = ord($str[$i]);
         if ($c < 0x80) $n = 0; # 0bbbbbbb
-        elseif (($c & 0xE0) == 0xC0) $n=1; # 110bbbbb
-        elseif (($c & 0xF0) == 0xE0) $n=2; # 1110bbbb
-        elseif (($c & 0xF8) == 0xF0) $n=3; # 11110bbb
-        elseif (($c & 0xFC) == 0xF8) $n=4; # 111110bb
-        elseif (($c & 0xFE) == 0xFC) $n=5; # 1111110b
+        elseif (($c & 0xE0) == 0xC0) $n = 1; # 110bbbbb
+        elseif (($c & 0xF0) == 0xE0) $n = 2; # 1110bbbb
+        elseif (($c & 0xF8) == 0xF0) $n = 3; # 11110bbb
+        elseif (($c & 0xFC) == 0xF8) $n = 4; # 111110bb
+        elseif (($c & 0xFE) == 0xFC) $n = 5; # 1111110b
         else return false; # Does not match any model
-        for ($j=0; $j<$n; $j++) { # n bytes matching 10bbbbbb follow ?
+        for ($j = 0; $j < $n; $j++) { # n bytes matching 10bbbbbb follow ?
             if ((++$i == $length) || ((ord($str[$i]) & 0xC0) != 0x80))
                 return false;
         }
@@ -650,7 +657,8 @@ function seems_utf8($str) {
 }
 
 //function sanitize_title_with_dashes taken from wordpress
-function generateSlug($title) {
+function generateSlug($title)
+{
     $title = strip_tags($title);
     // Preserve escaped octets.
     $title = preg_replace('|%([a-fA-F0-9][a-fA-F0-9])|', '---$1---', $title);
@@ -675,4 +683,36 @@ function generateSlug($title) {
     $title = trim($title, '-');
 
     return $title;
+}
+
+if (!function_exists('push_notification')) {
+    function push_notification($data)
+    {
+        $CI = &get_instance();
+        $CI->db->insert('tb_profile_notify', $data);
+    }
+}
+
+if (!function_exists('get_username')) {
+    function get_username($ID)
+    {
+        $CI = &get_instance();
+        return $CI->db->where('member_id', $ID)->get('tb_members')->row()->username;
+    }
+}
+
+if (!function_exists('get_user_type')) {
+    function get_user_type($ID)
+    {
+        $CI = &get_instance();
+        return $CI->db->where('member_id', $ID)->get('tb_members')->row()->member_type;
+    }
+}
+
+if (!function_exists('get_user_notifications')) {
+    function get_user_notifications()
+    {
+        $CI = &get_instance();
+        return $CI->db->where('is_read', 0)->order_by('created_at', 'desc')->get('tb_profile_notify')->result_array();
+    }
 }

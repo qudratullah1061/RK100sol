@@ -3,9 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Companions extends FrontEnd_Controller {
+class Companions extends FrontEnd_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         if ($this->session->userdata('member_type') == 1) {
             redirect(base_url('guests/get_guest_profile'));
@@ -15,45 +17,19 @@ class Companions extends FrontEnd_Controller {
         $this->load->model('admin/misc_model', 'Misc_Model');
     }
 
-    //Main dashboard index function
-//    public function upload_images() {
-//        $unique_id = $this->input->post('file_upload_unique_id');
-//        $image_type = $this->input->post('image_type');
-//        $result = $this->upload_temp_image($_FILES, $unique_id, $image_type);
-//        if ($result == 'success') {
-//            $this->_response(true, 'File uploaded successfully!');
-//        }
-//    }
-//    function chk_member_username_exist($email, $exclude_id) {
-//        $result = is_member_username_exist($email, $exclude_id);
-//        if ($result) {
-//            $this->form_validation->set_message('chk_member_username_exist', 'The %s already exist. Please choose other username!');
-//            return false;
-//        }
-//        return true;
-//    }
-//    function chk_member_email_exist($email, $exclude_id) {
-//        $result = is_member_email_exist($email, $exclude_id);
-//        if ($result) {
-//            $this->form_validation->set_message('chk_member_email_exist', 'The %s already exist. Please choose other email!');
-//            return false;
-//        }
-//        return true;
-//    }
-
-    function update_member_categories() {
+    function update_member_categories()
+    {
         $this->isAjax();
         $member_id = $this->input->post('member_id');
         $categories = $this->input->post('categories');
-//        $this->Members_Model->AddUpdateMemberCategories($categories, $member_id);
         $this->Members_Model->AddUpdateMemberCategoryRates($categories, $member_id);
+        $message = get_username($member_id) . ' has modified categories from their profile settings.';
+        push_notification(array('member_id' => $member_id, 'user_type' => 2, 'section_name' => 'categories', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
         $this->_response(false, "Changes saved successfully!");
     }
 
-    public function get_companion_profile() {
-//        if (!$user_id || ($user_id == 1 && $this->admin_info['admin_id'] != 1)) {
-//            redirect(base_url('admin/dashboard'));
-//        }
+    public function get_companion_profile()
+    {
         $member_id = $this->session->userdata('member_id');
         $member_info = $this->Members_Model->get_member_by_id($member_id);
         $data['member_profile_pics'] = $this->Members_Model->get_member_images_by_type(array('image_type' => 'profile', 'member_id' => $member_id));
@@ -84,7 +60,8 @@ class Companions extends FrontEnd_Controller {
         }
     }
 
-    function modal_portfolio() {
+    function modal_portfolio()
+    {
         $this->isAjax();
         $portfolio_id = $this->input->post('portfolio_id');
         $portfolio_data = $this->Misc_Model->get_portfolio($portfolio_id);
@@ -97,7 +74,8 @@ class Companions extends FrontEnd_Controller {
         die();
     }
 
-    function add_update_portfolio() {
+    function add_update_portfolio()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -128,7 +106,6 @@ class Companions extends FrontEnd_Controller {
                 }
                 $result = false;
                 if (isset($_FILES['portfolio_image']['name']) && $_FILES['portfolio_image']['name'] != "") {
-                    //$id_proofs = reArrayFiles($_FILES['id_proofs']);
                     $portfolio_images = $_FILES['portfolio_image'];
                     $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/portfolio/';
                     $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
@@ -151,6 +128,8 @@ class Companions extends FrontEnd_Controller {
                     $result = $this->Misc_Model->add_portfolio($data);
                 }
                 if ($result) {
+                    $message = get_username($data['member_id']) . ' has modified portfolio from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'portfolio', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
@@ -159,7 +138,8 @@ class Companions extends FrontEnd_Controller {
         }
     }
 
-    function modal_degree() {
+    function modal_degree()
+    {
         $this->isAjax();
         $member_degree_id = $this->input->post('member_degree_id');
         $degree_data = $this->Members_Model->get_degree($member_degree_id);
@@ -169,7 +149,8 @@ class Companions extends FrontEnd_Controller {
         die();
     }
 
-    function add_update_degree() {
+    function add_update_degree()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -205,6 +186,8 @@ class Companions extends FrontEnd_Controller {
                     $result = $this->Members_Model->add_degree($data);
                 }
                 if ($result) {
+                    $message = get_username($data['member_id']) . ' has modified education from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'education', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
@@ -213,7 +196,8 @@ class Companions extends FrontEnd_Controller {
         }
     }
 
-    function modal_experience() {
+    function modal_experience()
+    {
         $this->isAjax();
         $member_experience_id = $this->input->post('member_experience_id');
         $experience_data = $this->Members_Model->get_experience($member_experience_id);
@@ -223,7 +207,8 @@ class Companions extends FrontEnd_Controller {
         die();
     }
 
-    function add_update_experience() {
+    function add_update_experience()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -259,6 +244,8 @@ class Companions extends FrontEnd_Controller {
                     $result = $this->Members_Model->add_experience($data);
                 }
                 if ($result) {
+                    $message = get_username($data['member_id']) . ' has modified experience from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'experience', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
@@ -267,7 +254,8 @@ class Companions extends FrontEnd_Controller {
         }
     }
 
-    function modal_certification() {
+    function modal_certification()
+    {
         $this->isAjax();
         $member_certification_id = $this->input->post('member_certification_id');
         $certification_data = $this->Members_Model->get_certification($member_certification_id);
@@ -277,7 +265,8 @@ class Companions extends FrontEnd_Controller {
         die();
     }
 
-    function show_certification() {
+    function show_certification()
+    {
         $this->isAjax();
         $member_certification_id = $this->input->post('member_certification_id');
         $certification_data = $this->Members_Model->get_certification($member_certification_id);
@@ -287,14 +276,14 @@ class Companions extends FrontEnd_Controller {
         die();
     }
 
-    function add_update_certification() {
+    function add_update_certification()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
             $edit_id = $this->input->post('member_certification_id');
             $this->form_validation->set_rules('title', 'Title', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('description', 'Position', 'required|trim|strip_tags|xss_clean');
-
 
 
             if ($this->form_validation->run() == FALSE) {
@@ -318,7 +307,6 @@ class Companions extends FrontEnd_Controller {
                 }
                 $result = false;
                 if (isset($_FILES['certification_image']['name']) && $_FILES['certification_image']['name'] != "") {
-                    //$id_proofs = reArrayFiles($_FILES['id_proofs']);
                     $certification_images = $_FILES['certification_image'];
                     $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/certification/';
                     $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
@@ -341,6 +329,8 @@ class Companions extends FrontEnd_Controller {
                     $result = $this->Members_Model->add_certification($data);
                 }
                 if ($result) {
+                    $message = get_username($data['member_id']) . ' has modified certificate from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'certificate', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
@@ -349,7 +339,8 @@ class Companions extends FrontEnd_Controller {
         }
     }
 
-    function SaveRates() {
+    function SaveRates()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -359,12 +350,15 @@ class Companions extends FrontEnd_Controller {
             $data['is_active'] = $this->input->post('is_active');
             $result = $this->Members_Model->update_rates('tb_member_category_id', $data['tb_member_category_id'], $data);
             if ($result) {
+                $message = get_username($data['member_id']) . ' has modified categories from their profile settings.';
+                push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'categor', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
                 $this->_response(false, "Changes saved successfully!");
             }
         }
     }
 
-    function DeleteRates() {
+    function DeleteRates()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $tb_member_category_id = $this->input->post('tb_member_category_id');

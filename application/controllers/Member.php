@@ -9,9 +9,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Member extends FrontEnd_Controller {
+class Member extends FrontEnd_Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
         $this->layout = 'frontend/main';
         $this->load->model('admin/members_model', 'Members_Model');
@@ -19,7 +21,8 @@ class Member extends FrontEnd_Controller {
         $this->load->library('pagination');
     }
 
-    function profile($member_id = '') {
+    function profile($member_id = '')
+    {
         if ($member_id != '') {
             $member_id = base64_decode($member_id);
         } else {
@@ -96,7 +99,8 @@ class Member extends FrontEnd_Controller {
 //        die();
 //    }
 
-    function modal_language() {
+    function modal_language()
+    {
         $this->isAjax();
         $language_id = $this->input->post('language_id');
         $language_data = $this->Members_Model->get_language($language_id);
@@ -106,7 +110,8 @@ class Member extends FrontEnd_Controller {
         die();
     }
 
-    function show_skill_detail() {
+    function show_skill_detail()
+    {
         $this->isAjax();
         $member_id = $this->input->post('member_id');
         $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
@@ -122,7 +127,8 @@ class Member extends FrontEnd_Controller {
         die();
     }
 
-    function add_update_language() {
+    function add_update_language()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -144,10 +150,14 @@ class Member extends FrontEnd_Controller {
                     unset($data['created_on']);
                 }
                 if ($edit_id > 0) {
-                    $this->Members_Model->update_language('language_id', $edit_id, $data);
+                    $result = $this->Members_Model->update_language('language_id', $edit_id, $data);
+                    $message = get_username($data['member_id']) . ' has modified language from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => get_user_type($data['member_id']), 'section_name' => 'language', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
                     $this->_response(false, "Changes saved successfully!");
                 } else {
                     $result = $this->Members_Model->add_language($data);
+                    $message = get_username($data['member_id']) . ' has modified language from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => get_user_type($data['member_id']), 'section_name' => 'language', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
                     $this->_response(false, "Language added successfully!");
                 }
                 $this->_response(true, "Error while updating data!");
@@ -157,7 +167,8 @@ class Member extends FrontEnd_Controller {
         }
     }
 
-    function submit_promo() {
+    function submit_promo()
+    {
         $promo_code = $this->input->post('promo_code');
         $member_id = $this->input->post('member_id');
         $promo_code_info = false;

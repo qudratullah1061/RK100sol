@@ -3,7 +3,8 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Profile extends CI_Controller {
+class Profile extends CI_Controller
+{
 
     public $selected_tab = '';
     private $error_msgs = array(
@@ -11,7 +12,8 @@ class Profile extends CI_Controller {
         '2' => "Your subscription has been ended. Please renew your subscription before login to your account.",
     );
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->layout = 'frontend/main';
         $this->load->model('admin/members_model', 'Members_Model');
@@ -19,13 +21,15 @@ class Profile extends CI_Controller {
 
     #region guests
 
-    function guest_signup() {
+    function guest_signup()
+    {
         $this->selected_tab = "guest_signup";
         $data['country_options'] = GetCountriesOption();
         $this->load->view('frontend/guests/signup', $data);
     }
 
-    public function add_guest_user() {
+    public function add_guest_user()
+    {
         isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -129,51 +133,9 @@ class Profile extends CI_Controller {
                 // upload id proof images , add call
                 // profile image and id proof upload
                 $this->upload_images_member($edit_id);
-//                if (isset($_FILES['id_proofs']['name']) && $_FILES['id_proofs']['name'] != "" && $edit_id > 0) {
-//                    $id_proofs = reArrayFiles($_FILES['id_proofs']);
-//                    $f_upload_dir = $this->config->item('root_path') . 'uploads/member_images/id_proofs/';
-//                    foreach ($id_proofs as $id_proof) {
-//                        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-//                        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-//                        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-//                        $file_name = basename($id_proof['name']);
-//                        $u_file_name = time() . $file_name;
-//                        $f_file_path = $f_upload_dir . '/' . $u_file_name;
-//                        move_uploaded_file($id_proof['tmp_name'], $f_file_path);
-//                        CreateThumbnail($f_file_path, $f_upload_dir, $thumb_options);
-//                        // insert in database as well.
-//                        $image_data = array('member_id' => $edit_id, 'image_type' => 'id_proof', 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
-//                        $this->db->insert('tb_member_images', $image_data);
-//                    }
-//                }
-//                // add member call
-//                if (!$is_update_call) {
-//                    // move temp images to tb_member_images after creating thumbnails
-//                    $profile_images = $this->Members_Model->getTempImages($unique_id, 'profile');
-//                    if ($profile_images) {
-//                        $current_time = time();
-//                        $is_profile_image = 1;
-//                        foreach ($profile_images as $image) {
-//                            $u_file_name = $current_time . $image['image'];
-//                            $image_old_path = $this->config->item('root_path') . $image['image_path'] . $image['image'];
-//                            $file_path = $this->config->item('root_path') . "uploads/member_images/profile/";
-//                            $image_new_path = $file_path . $u_file_name;
-//                            if (file_exists($image_old_path)) {
-//                                rename($image_old_path, $image_new_path);
-//                                $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-//                                $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-//                                $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-//                                $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-//                                CreateThumbnail($image_new_path, $file_path, $thumb_options, TRUE);
-//                                // insert in database as well.
-//                                $image_data = array('member_id' => $edit_id, 'image_type' => 'profile', 'is_profile_image' => $is_profile_image, 'image' => $u_file_name, 'image_path' => str_replace($this->config->item('root_path'), "", $file_path));
-//                                $this->db->insert('tb_member_images', $image_data);
-//                                $is_profile_image = 0;
-//                            }
-//                        }
-//                    }
-//                }
                 if ($result) {
+                    $message = get_username($edit_id) . ' has modified personal info from their profile settings.';
+                    push_notification(array('member_id' => $edit_id, 'user_type' => 1, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
                     $this->_response(false, "Changes saved successfully!", $edit_id);
                 }
             }
@@ -182,7 +144,8 @@ class Profile extends CI_Controller {
         }
     }
 
-    function guest_payment($member_id, $msg_id = 0) {
+    function guest_payment($member_id, $msg_id = 0)
+    {
         // check user exist in db
         if ($member_id) {
             $result = $this->Members_Model->get_member_by_id($member_id);
@@ -203,7 +166,8 @@ class Profile extends CI_Controller {
     #region guests ends.
     #region companions
 
-    public function companion_signup($plan_type) {
+    public function companion_signup($plan_type)
+    {
         $this->selected_tab = $plan_type;
         if ($plan_type == 'silver' || $plan_type == 'gold') {
             $data['country_options'] = GetCountriesOption();
@@ -215,12 +179,14 @@ class Profile extends CI_Controller {
         }
     }
 
-    public function thankyou() {
+    public function thankyou()
+    {
         $data['registration_completed'] = true;
         $this->load->view('frontend/companions/thankyou', $data);
     }
 
-    public function add_companion_user() {
+    public function add_companion_user()
+    {
         isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -238,15 +204,7 @@ class Profile extends CI_Controller {
                 $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|trim|strip_tags|xss_clean|matches[password]');
             }
             $this->form_validation->set_rules('phone_number', 'Phone Number', 'required|trim|strip_tags|xss_clean');
-//            $this->form_validation->set_rules('gender', 'Gender', 'required|trim|strip_tags|xss_clean');
-//            $this->form_validation->set_rules('years', 'Year', 'required|trim|strip_tags|xss_clean');
-//            $this->form_validation->set_rules('months', 'Month', 'required|trim|strip_tags|xss_clean');
-//            $this->form_validation->set_rules('days', 'Day', 'required|trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('location', 'Location', 'required|trim|strip_tags|xss_clean');
-//            $this->form_validation->set_rules('zipcode', 'Zip Code', 'required|trim|strip_tags|xss_clean');
-//            $this->form_validation->set_rules('state', 'State', 'required|trim|strip_tags|xss_clean');
-//            $this->form_validation->set_rules('city', 'City', 'required|trim|strip_tags|xss_clean');
-//            $this->form_validation->set_rules('address', 'Address', 'required|trim|strip_tags|xss_clean');
 
             if ($this->form_validation->run() == FALSE) {
                 $this->_response(true, validation_errors());
@@ -351,6 +309,8 @@ class Profile extends CI_Controller {
                     $this->AddUpdateMemberCategories($categories, $edit_id);
                 }
                 if ($result) {
+                    $message = get_username($edit_id) . ' has modified personal info from their profile settings.';
+                    push_notification(array('member_id' => $edit_id, 'user_type' => 2, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
@@ -359,14 +319,16 @@ class Profile extends CI_Controller {
         }
     }
 
-    function AddUpdateMemberCategories($member_categories, $member_id) {
+    function AddUpdateMemberCategories($member_categories, $member_id)
+    {
         $this->Members_Model->AddUpdateMemberCategories($member_categories, $member_id);
     }
 
     #region companions
     #general functions for companions + guests start
 
-    public function upload_images() {
+    public function upload_images()
+    {
         $unique_id = $this->input->post('file_upload_unique_id');
         $image_type = $this->input->post('image_type');
         $result = upload_temp_image($_FILES, $unique_id, $image_type);
@@ -375,7 +337,8 @@ class Profile extends CI_Controller {
         }
     }
 
-    function chk_member_username_exist($email, $exclude_id) {
+    function chk_member_username_exist($email, $exclude_id)
+    {
         $result = is_member_username_exist($email, $exclude_id);
         if ($result) {
             $this->form_validation->set_message('chk_member_username_exist', 'The %s already exist. Please choose other username!');
@@ -384,7 +347,8 @@ class Profile extends CI_Controller {
         return true;
     }
 
-    function chk_member_email_exist($email, $exclude_id) {
+    function chk_member_email_exist($email, $exclude_id)
+    {
         $result = is_member_email_exist($email, $exclude_id);
         if ($result) {
             $this->form_validation->set_message('chk_member_email_exist', 'The %s already exist. Please choose other email!');
@@ -393,35 +357,14 @@ class Profile extends CI_Controller {
         return true;
     }
 
-    function watermarkImage() {
+    function watermarkImage()
+    {
         watermarkImage($this->config->item('root_path') . 'assets/watermark_img/gallery2.jpg');
         exit;
     }
 
-//    public function upload_images_member() {
-//        $member_id = $this->input->post('member_id');
-//        $file_upload_unique_id = $this->input->post('file_upload_unique_id');
-//        $image_type = $this->input->post('image_type');
-//        $image_dir = $this->input->post('image_dir');
-//        $watermark = $image_type == 'profile' ? TRUE : FALSE;
-//        $thumb_options[0] = array('width' => 50, 'height' => 50, 'prefix' => 'small_');
-//        $thumb_options[1] = array('width' => 150, 'height' => 150, 'prefix' => 'medium_');
-//        $thumb_options[2] = array('width' => 400, 'height' => 400, 'prefix' => 'large_');
-//        $thumb_options[3] = array('width' => 700, 'height' => 700, 'prefix' => 'Xlarge_');
-//        $result = UploadImage('file', $image_dir, TRUE, $thumb_options, $watermark, $file_upload_unique_id);
-//        if (isset($result['error'])) {
-//            $this->_response(true, $result['error']);
-//        }
-//        // new image paths
-//        $image = $result['upload_data']['file_name'];
-//        $image_path = $result['upload_data']['file_path'];
-//
-//        $image_data = array('member_id' => $member_id, 'image_type' => $image_type, 'is_profile_image' => 0, 'image' => $image, 'image_path' => $image_dir);
-//        $this->db->insert('tb_member_images', $image_data);
-//        $this->_response(true, 'File uploaded successfully!');
-//    }
-
-    public function upload_images_member($member_id_param = "") {
+    public function upload_images_member($member_id_param = "")
+    {
         // profile image upload
         $member_id = $this->input->post('member_id') ? $this->input->post('member_id') : $member_id_param;
         $member_type = $this->input->post('member_type');
@@ -457,6 +400,9 @@ class Profile extends CI_Controller {
                     $this->db->insert('tb_member_images', $image_data);
                 }
             }
+            $message = get_username($member_id) . ' has modified images from their profile settings.';
+            $mType = $member_type == 'guest' ? 1 : 2;
+            push_notification(array('member_id' => $member_id, 'user_type' => $mType, 'section_name' => 'images', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
         }
         if (!$member_id_param && $member_type == "guest") {
             redirect(base_url('guests/get_guest_profile/' . $member_id . "#tab_1_3"));
@@ -467,7 +413,8 @@ class Profile extends CI_Controller {
         }
     }
 
-    public function _response($is_error = true, $description = '', $status = '') {
+    public function _response($is_error = true, $description = '', $status = '')
+    {
         $this->output->set_status_header(200);
         $this->output->set_content_type('application/json');
         $this->output->set_header('Content-type: application/json');
