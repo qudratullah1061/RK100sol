@@ -690,6 +690,7 @@ if (!function_exists('push_notification')) {
     {
         $CI = &get_instance();
         $CI->db->insert('tb_profile_notify', $data);
+        sendEmail('admin@konsorts.com', 'New Push Notification - Modification in User\'s Profile', $data['message']);
     }
 }
 
