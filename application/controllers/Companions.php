@@ -23,8 +23,8 @@ class Companions extends FrontEnd_Controller
         $member_id = $this->input->post('member_id');
         $categories = $this->input->post('categories');
         $this->Members_Model->AddUpdateMemberCategoryRates($categories, $member_id);
-        $message = get_username($member_id) . ' has modified categories from their profile settings.';
-        push_notification(array('member_id' => $member_id, 'user_type' => 2, 'section_name' => 'categories', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
+        $message = get_username($member_id) . ' has updated categories from their profile settings.';
+        push_notification(array('member_id' => $member_id, 'user_type' => 2, 'section_name' => 'categories', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), 'updated');
         $this->_response(false, "Changes saved successfully!");
     }
 
@@ -123,13 +123,15 @@ class Companions extends FrontEnd_Controller
 
                 if ($edit_id > 0) {
                     $this->Misc_Model->update_portfolio('portfolio_id', $edit_id, $data);
+                    $action = 'updated';
                     $result = true;
                 } else {
                     $result = $this->Misc_Model->add_portfolio($data);
+                    $action = 'added';
                 }
                 if ($result) {
-                    $message = get_username($data['member_id']) . ' has modified portfolio from their profile settings.';
-                    push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'portfolio', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
+                    $message = get_username($data['member_id']) . ' has ' . $action . ' portfolio from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'portfolio', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
@@ -239,13 +241,15 @@ class Companions extends FrontEnd_Controller
 
                 if ($edit_id > 0) {
                     $this->Members_Model->update_experience('member_experience_id', $edit_id, $data);
+                    $action = 'updated';
                     $result = true;
                 } else {
                     $result = $this->Members_Model->add_experience($data);
+                    $action = 'added';
                 }
                 if ($result) {
-                    $message = get_username($data['member_id']) . ' has modified experience from their profile settings.';
-                    push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'experience', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
+                    $message = get_username($data['member_id']) . ' has ' . $action . ' experience from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'experience', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
@@ -324,13 +328,15 @@ class Companions extends FrontEnd_Controller
 
                 if ($edit_id > 0) {
                     $this->Members_Model->update_certification('member_certification_id', $edit_id, $data);
+                    $action = 'updated';
                     $result = true;
                 } else {
                     $result = $this->Members_Model->add_certification($data);
+                    $action = 'added';
                 }
                 if ($result) {
-                    $message = get_username($data['member_id']) . ' has modified certificate from their profile settings.';
-                    push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'certificate', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
+                    $message = get_username($data['member_id']) . ' has ' . $action . ' certificate from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'certificate', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
@@ -350,8 +356,8 @@ class Companions extends FrontEnd_Controller
             $data['is_active'] = $this->input->post('is_active');
             $result = $this->Members_Model->update_rates('tb_member_category_id', $data['tb_member_category_id'], $data);
             if ($result) {
-                $message = get_username($data['member_id']) . ' has modified categories from their profile settings.';
-                push_notification(array('member_id' => $data['member_id'], 'user_type' => 2, 'section_name' => 'categor', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
+                $message = get_username($this->input->post('member_id')) . ' has updated sub category from their profile settings.';
+                push_notification(array('member_id' => $this->input->post('member_id'), 'user_type' => 2, 'section_name' => 'sub categories', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), 'updated');
                 $this->_response(false, "Changes saved successfully!");
             }
         }
@@ -364,6 +370,8 @@ class Companions extends FrontEnd_Controller
             $tb_member_category_id = $this->input->post('tb_member_category_id');
             $result = $this->Members_Model->deleteRates($tb_member_category_id);
             if ($result) {
+                $message = get_username($this->input->post('member_id')) . ' has deleted sub category from their profile settings.';
+                push_notification(array('member_id' => $this->input->post('member_id'), 'user_type' => 2, 'section_name' => 'sub categories', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), 'deleted');
                 $this->_response(false, "Changes saved successfully!");
             }
         }

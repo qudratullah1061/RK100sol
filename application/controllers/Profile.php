@@ -109,6 +109,7 @@ class Profile extends CI_Controller
                 $result = false;
                 if ($edit_id > 0) {
                     $this->Members_Model->update_member($edit_id, $data);
+                    $action = 'updated';
                     $result = true;
                 } else {
                     $insert_promo_record = false;
@@ -119,6 +120,7 @@ class Profile extends CI_Controller
                     }
                     $data['member_type'] = 1;
                     $edit_id = $result = $this->Members_Model->add_member($data);
+                    $action = 'added';
                     // insert record in database for used promo as well.
                     if ($insert_promo_record) {
                         $promo_used_record_data = array("promo_code" => $promo_code, "member_id" => $edit_id, "created_on" => date("Y-m-d H:i:s"), "created_by" => $edit_id);
@@ -134,8 +136,8 @@ class Profile extends CI_Controller
                 // profile image and id proof upload
                 $this->upload_images_member($edit_id);
                 if ($result) {
-                    $message = get_username($edit_id) . ' has modified personal info from their profile settings.';
-                    push_notification(array('member_id' => $edit_id, 'user_type' => 1, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
+                    $message = get_username($edit_id) . ' has ' . $action . ' personal info from their profile settings.';
+                    push_notification(array('member_id' => $edit_id, 'user_type' => 1, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
                     $this->_response(false, "Changes saved successfully!", $edit_id);
                 }
             }
@@ -257,6 +259,7 @@ class Profile extends CI_Controller
                 $result = false;
                 if ($edit_id > 0) {
                     $this->Members_Model->update_member($edit_id, $data); //use for future
+                    $action = 'updated';
                     $result = true;
                 } else {
                     $macros_data = array();
@@ -276,6 +279,7 @@ class Profile extends CI_Controller
                     }
                     $data['email_verification_code'] = md5(time());
                     $edit_id = $result = $this->Members_Model->add_member($data);
+                    $action = 'added';
                     // insert record in database for used promo as well.
                     if ($insert_promo_record) {
                         $promo_used_record_data = array("promo_code" => $promo_code, "member_id" => $edit_id, "created_on" => date("Y-m-d H:i:s"), "created_by" => $edit_id);
@@ -309,8 +313,8 @@ class Profile extends CI_Controller
                     $this->AddUpdateMemberCategories($categories, $edit_id);
                 }
                 if ($result) {
-                    $message = get_username($edit_id) . ' has modified personal info from their profile settings.';
-                    push_notification(array('member_id' => $edit_id, 'user_type' => 2, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
+                    $message = get_username($edit_id) . ' has ' . $action . ' personal info from their profile settings.';
+                    push_notification(array('member_id' => $edit_id, 'user_type' => 2, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
                     $this->_response(false, "Changes saved successfully!");
                 }
             }
@@ -381,7 +385,7 @@ class Profile extends CI_Controller
                     CreateThumbnail($uploaded_file_info['image_full_path'], $f_upload_dir, $thumb_options);
                     // insert in database as well.
                     $image_data = array('member_id' => $member_id, 'image_type' => 'profile', 'is_profile_image' => 1, 'image' => $uploaded_file_info['image_name'], 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
-                    $this->db->insert('tb_member_images', $image_data);
+                    $inserted = $this->db->insert('tb_member_images', $image_data);
                 }
             }
             // id prof image upload
@@ -397,12 +401,14 @@ class Profile extends CI_Controller
                     CreateThumbnail($uploaded_file_info['image_full_path'], $f_upload_dir, $thumb_options);
                     // insert in database as well.
                     $image_data = array('member_id' => $member_id, 'image_type' => 'id_proof', 'image' => $uploaded_file_info['image_name'], 'image_path' => str_replace($this->config->item('root_path'), "", $f_upload_dir));
-                    $this->db->insert('tb_member_images', $image_data);
+                    $inserted = $this->db->insert('tb_member_images', $image_data);
                 }
             }
-            $message = get_username($member_id) . ' has modified images from their profile settings.';
-            $mType = $member_type == 'guest' ? 1 : 2;
-            push_notification(array('member_id' => $member_id, 'user_type' => $mType, 'section_name' => 'images', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
+            if (isset($inserted)) {
+                $message = get_username($member_id) . ' has uploaded new image.';
+                $mType = $member_type == 'guest' ? 1 : 2;
+                push_notification(array('member_id' => $member_id, 'user_type' => $mType, 'section_name' => 'images', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), 'added');
+            }
         }
         if (!$member_id_param && $member_type == "guest") {
             redirect(base_url('guests/get_guest_profile/' . $member_id . "#tab_1_3"));

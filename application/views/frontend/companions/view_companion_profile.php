@@ -847,6 +847,8 @@
                                         <div class="tab-pane" id="tab_1_9">
                                             <form role="form" id="update_privacy_member">
                                                 <table class="table table-light table-hover">
+                                                    <input type="hidden" name="member_id"
+                                                           value="<?php echo $member_info['member_id']; ?>">
                                                     <?php
                                                     if (isset($member_info['privacy_info']) && count($member_info['privacy_info']) > 0) {
                                                         foreach ($member_info['privacy_info'] as $privacy) {

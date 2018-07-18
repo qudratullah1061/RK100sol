@@ -131,7 +131,8 @@ var TableDatatablesEditable = function () {
                 url : base_url+'companions/DeleteRates',
                 type : 'POST',
                 data : {
-                    tb_member_category_id : sData[0]
+                    tb_member_category_id : sData[0],
+                    member_id : $('input[name="member_id"]').val()
                 },
                 dataType:'json',
                 success : function(data) {              
@@ -182,7 +183,8 @@ var TableDatatablesEditable = function () {
                         tb_member_category_id : sData[0],
                         rate : sData[2],
                         description : sData[3],
-                        is_active : sData[4]
+                        is_active : sData[4],
+                        member_id: $('input[name="member_id"]').val()
                     },
                     dataType:'json',
                     success : function(data) {

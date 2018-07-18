@@ -686,11 +686,11 @@ function generateSlug($title)
 }
 
 if (!function_exists('push_notification')) {
-    function push_notification($data)
+    function push_notification($data, $action)
     {
         $CI = &get_instance();
         $CI->db->insert('tb_profile_notify', $data);
-        sendEmail('admin@konsorts.com', 'New Push Notification - Modification in User\'s Profile', $data['message']);
+        sendEmail('admin@konsorts.com', 'New Push Notification - ' . ucfirst($action) . ' ' . $data['section_name'], $data['message']);
     }
 }
 

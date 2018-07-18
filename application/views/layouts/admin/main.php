@@ -133,12 +133,12 @@
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                            data-close-others="true">
                             <i class="icon-bell"></i>
-                            <span class="badge badge-default"> <?php echo count($notifications) ?> </span>
+                            <?php echo count($notifications) > 0 ? '<span class="badge badge-default">' . count($notifications) . '</span>' : '' ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="external">
                                 <h3>
-                                    <span class="bold"><?php echo count($notifications) ?> pending</span> notifications
+                                    <span class="bold"><?php echo count($notifications) > 0 ? count($notifications) . ' pending notifications' : 'No new notification' ?> </span>
                                 </h3>
                                 <a href="<?= site_url('admin/notifications/view_users_notifications') ?>">view all</a>
                             </li>
@@ -146,9 +146,15 @@
                                 <ul class="dropdown-menu-list scroller" style="height: 250px;"
                                     data-handle-color="#637283">
                                     <?php
-                                    foreach ($notifications as $notification) { ?>
+                                    foreach ($notifications as $notification) {
+                                        if ($notification['user_type'] == 1) {
+                                            $tab = '#guestsNotifications';
+                                        } else {
+                                            $tab = '#companionsNotifications';
+                                        }
+                                        ?>
                                         <li>
-                                            <a href="javascript:;">
+                                            <a href="<?= site_url('admin/notifications/view_users_notifications?id=comment' . $notification['notify_id']) . $tab  ?>">
                                                 <span class="time"><?php echo time_elapsed_string($notification['created_at']); ?></span>
                                                 <span class="details">
                                                         <span class="label label-sm label-icon label-success">
@@ -156,7 +162,7 @@
                                                     </span>
                                             </a>
                                         </li>
-                                    <?php
+                                        <?php
                                     }
                                     ?>
                                 </ul>

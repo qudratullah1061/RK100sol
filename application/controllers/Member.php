@@ -30,19 +30,8 @@ class Member extends FrontEnd_Controller
         }
         $data['member_id'] = $this->session->userdata('member_id');
         $member_info = $this->Members_Model->get_member_by_id($member_id);
-        // not in used yet.
-        //$data['member_profile_pics'] = $this->Members_Model->get_member_images_by_type(array('image_type' => 'profile', 'member_id' => $member_id));
-        //$data['member_id_proofs'] = $this->Members_Model->get_member_images_by_type(array('image_type' => 'id_proof', 'member_id' => $member_id));
         if ($member_info) {
             $data['member_info'] = $member_info;
-            // not in used yet.
-            //$data['member_images'] = $member_info;
-            //$data['country_options'] = GetCountriesOption($member_info['country']);
-            //$data['state_options'] = GetStatesOption($member_info['country'], $member_info['state']);
-            //$data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);
-            // echo '<pre>';
-            // print_r($data['portfolios']);exit;
-            //$data['notifications']  = $this->Notification_Model->get_all_notifications(1,'AND tb_notification_users.receiver_id = '.$member_id.'');
 
             $data['data_languages'] = $this->Members_Model->get_member_languages($member_id, "AND `tb_member_languages`.is_active = 1");
             if ($member_info['member_type'] == 2) {
@@ -60,44 +49,6 @@ class Member extends FrontEnd_Controller
             redirect(base_url());
         }
     }
-
-//    function ajaxData() {
-//        $member_id = $this->session->userdata('member_id');
-//        $selected_sub_categories = $this->Members_Model->get_selected_sub_categories($member_id);
-//        $totalRec = count($selected_sub_categories);
-//        $config = array();
-//        $config['base_url']    = '#';
-//        $config['total_rows']  = $totalRec;
-//        $config['per_page']    = 2;
-//        $config['uri_segment'] = 3;
-//        $config['uri_page_numbers'] = TRUE;
-//        $config['full_tag_open'] = '<ul class="pagination">';
-//        $config['full_tag_close'] = '</ul>';
-//        $config['first_tag_open'] = '<li>';
-//        $config['first_tag_close'] = '</li>';
-//        $config['last_tag_open'] = '<li>';
-//        $config['last_tag_close'] = '</li>';
-//        $config['next_link'] = '&gt;';
-//        $config['next_tag_open'] = '<li>';
-//        $config['next_tag_close'] = '</li>';
-//        $config['prev_link'] = '&lt;';
-//        $config['prev_tag_open'] = '<li>';
-//        $config['prev_tag_close'] = '</li>';
-//        $config['cur_tag_open'] = '<li class="active"><a href="#">';
-//        $config['cur_tag_close'] = '</a></li>';
-//        $config['num_tag_open'] = '<li>';
-//        $config['num_tag_close'] = '</li>';
-//        $config['num_links'] = 1;
-//        $this->pagination->initialize($config);
-//        $page = $this->uri->segment(3);
-//        $start = ($page - 1) * $config['per_page'];
-//        $output = array(
-//            'pagination_link' => $this->pagination->create_links(),
-//            'skills_data'   => $this->Members_Model->ajaxSubCategories($member_id, $config['per_page'], $start)
-//        );
-//        echo json_encode($output);
-//        die();
-//    }
 
     function modal_language()
     {
@@ -151,13 +102,13 @@ class Member extends FrontEnd_Controller
                 }
                 if ($edit_id > 0) {
                     $result = $this->Members_Model->update_language('language_id', $edit_id, $data);
-                    $message = get_username($data['member_id']) . ' has modified language from their profile settings.';
-                    push_notification(array('member_id' => $data['member_id'], 'user_type' => get_user_type($data['member_id']), 'section_name' => 'language', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
+                    $message = get_username($data['member_id']) . ' has update language from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => get_user_type($data['member_id']), 'section_name' => 'language', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), 'updated');
                     $this->_response(false, "Changes saved successfully!");
                 } else {
                     $result = $this->Members_Model->add_language($data);
-                    $message = get_username($data['member_id']) . ' has modified language from their profile settings.';
-                    push_notification(array('member_id' => $data['member_id'], 'user_type' => get_user_type($data['member_id']), 'section_name' => 'language', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")));
+                    $message = get_username($data['member_id']) . ' has added new language from their profile settings.';
+                    push_notification(array('member_id' => $data['member_id'], 'user_type' => get_user_type($data['member_id']), 'section_name' => 'language', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), 'added');
                     $this->_response(false, "Language added successfully!");
                 }
                 $this->_response(true, "Error while updating data!");

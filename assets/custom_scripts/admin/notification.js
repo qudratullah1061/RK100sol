@@ -8,8 +8,7 @@ var Notifications = function () {
             data: new FormData($("#" + formId)[0]),
             processData: false,
             contentType: false,
-            beforeSend: function ()
-            {
+            beforeSend: function () {
                 App.blockUI({target: '.modal', animate: true});
             },
             complete: function () {
@@ -41,8 +40,7 @@ var Notifications = function () {
             errorClass: 'help-block help-block-error', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
             ignore: "", // validate all fields including form hidden input
-            messages: {
-            },
+            messages: {},
             rules: {
                 notification_title: {
                     required: true
@@ -70,11 +68,11 @@ var Notifications = function () {
             },
             highlight: function (element) { // hightlight error inputs
                 $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
             },
             unhighlight: function (element) { // revert the change done by hightlight
                 $(element)
-                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                    .closest('.form-group').removeClass('has-error'); // set error class to the control group
             },
             success: function (label) {
                 label.closest('.form-group').removeClass('has-error'); // set success class to the control group
@@ -84,15 +82,14 @@ var Notifications = function () {
             }
         });
     };
-    var show_modal_notification = function (edit_id,is_view) {
-        
+    var show_modal_notification = function (edit_id, is_view) {
+
         $.ajax({
             type: "POST",
             url: base_url + "admin/notifications/modal_notification",
             datatype: 'json',
-            data: {notification_id: edit_id, is_view : is_view },
-            beforeSend: function ()
-            {
+            data: {notification_id: edit_id, is_view: is_view},
+            beforeSend: function () {
                 App.blockUI({target: 'body', animate: true});
             },
             complete: function () {
@@ -109,9 +106,22 @@ var Notifications = function () {
         });
     };
 
-    return{
-        modal_add_notification: function (edit_id,is_view) {
-            show_modal_notification(edit_id,is_view);
+    var navigate_to_notification = function (tabId, notifID) {
+        evt.preventDefault();
+        $tabs.find('a[href=#' + notifID + ']').trigger('click');
+        //alert(attr('name'));
+//alert( $('#'+whereTo+' a').offset().top );
+        $('html, body').animate({
+            scrollTop: $('#' + notifID + ' a').offset().top
+        });
+    };
+
+    return {
+        modal_add_notification: function (edit_id, is_view) {
+            show_modal_notification(edit_id, is_view);
+        },
+        navigate_to_notification: function (tabId, notifID) {
+            navigate_to_notification(tabId, notifID);
         },
     }
 }();

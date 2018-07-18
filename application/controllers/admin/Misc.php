@@ -14,13 +14,6 @@ class Misc extends Admin_Controller
         $this->load->model('admin/members_model', 'Members_Model');
     }
 
-//    public function add_guest() {
-//        $this->selected_tab = 'guest';
-//        $this->selected_child_tab = 'add';
-//        $data = array();
-//        $this->load->view('admin/guests/add_guest', $data);
-//    }
-
     function modal_category()
     {
         $this->is_ajax();
