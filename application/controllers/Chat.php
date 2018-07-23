@@ -12,8 +12,6 @@ class Chat extends FrontEnd_Controller {
     }
 
     function view_chat_list() {
-//        $data['guest_members'] = $this->Chat_Model->getMembers(" WHERE tb_members.member_type = 1 ");
-//        $data['companion_members'] = $this->Chat_Model->getMembers(" WHERE tb_members.member_type = 2 ");
         $this->load->view('frontend/chat/chat_list');
     }
 

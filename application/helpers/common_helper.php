@@ -690,7 +690,10 @@ if (!function_exists('push_notification')) {
     {
         $CI = &get_instance();
         $CI->db->insert('tb_profile_notify', $data);
-        sendEmail('admin@konsorts.com', 'New Push Notification - ' . ucfirst($action) . ' ' . $data['section_name'], $data['message']);
+        $email_data['$$$TITLE$$$'] = ucfirst($action) . ' ' . $data['section_name'];
+        $email_data['$$$MESSAGE$$$'] = $data['message'];
+        $email = get_email_template('notification_to_admin', $email_data);
+        sendEmail('humabinteirfan@gmail.com', $email['template_subject'] . ' - ' . ucfirst($action) . ' ' . $data['section_name'], $email['template_body']);
     }
 }
 
