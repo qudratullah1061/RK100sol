@@ -28,7 +28,7 @@ date_default_timezone_set('Canada/Central');
 $http = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://';
 $config['base_url'] = $http . $_SERVER['HTTP_HOST'] . "/";
 $config['root_path'] = $_SERVER['DOCUMENT_ROOT'] . "/";
-$config['admin_email'] = "qudratullah1061@gmail.com";
+$config['admin_email'] = "admin@konsorts.com";
 if ($_SERVER['HTTP_HOST'] == 'www.konsorts.com' || $_SERVER['HTTP_HOST'] == 'konsorts.com') {
     define("ENVO", "LIVE");
     ini_set('display_errors', 0);
