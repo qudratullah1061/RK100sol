@@ -62,7 +62,7 @@
                                                     <div class="form-body">
                                                         <div class="row">
 
-                                                            <div class="form-group form-md-line-input">
+<!--                                                            <div class="form-group form-md-line-input">
                                                                 <div class="portlet mt-element-ribbon light portlet-fit bordered">
                                                                     <div class="ribbon ribbon-right ribbon-clip ribbon-shadow ribbon-border-dash-hor ribbon-color-success uppercase">
                                                                         <div class="ribbon-sub ribbon-clip ribbon-right"></div> Promo Code.
@@ -78,7 +78,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                            </div>
+                                                            </div>-->
 
 
 
