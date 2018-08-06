@@ -38,6 +38,7 @@
     </div>
 </section>
 <script>
+    
     $(".payment_options").change(function () {
         var price = $(this).val();
         var currency = $(this).find(':selected').data('currency');
@@ -51,6 +52,7 @@
                 sandbox: 'Adf_99ThxemIWJTyAN5YW3uJAUodR-tNgehq7BIKjTT631_LUZD8nl0DtJ5psvZ4S8GmQHDLZpnyaj2j',
                 production: 'ASrI31ib95JJ_anCBtLqLeG4ufIx_AUn1lfOZbEfBdkVkpEwnqcaB8FG5zGz__L_E2dqo__YZ8inB_xf'
             },
+            
             // Show the buyer a 'Pay Now' button in the checkout flow
             commit: true,
             // payment() is called when the button is clicked
