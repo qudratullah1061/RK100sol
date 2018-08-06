@@ -65,7 +65,7 @@
                         <div class="mt-comments">
                             <?php foreach ($notifications as $notification) {
                                 if ($notification['user_type'] == 2) { ?>
-                                    <div class="mt-comment <?= (strpos($_GET['id'], $notification['notify_id'])) ? 'highlight-noti' : '' ?>"
+                                    <div class="mt-comment <?= isset($_GET['id']) ? ((strpos($_GET['id'], $notification['notify_id'])) ? 'highlight-noti' : '') : ""; ?>"
                                          id="comment<?php echo $notification['notify_id']; ?>">
                                         <div class="mt-comment-body">
                                             <div class="mt-comment-info">
