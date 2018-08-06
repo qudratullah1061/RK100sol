@@ -119,7 +119,7 @@ class Guests extends Admin_Controller {
                 $promo_code_info = false;
                 if ($promo_code != "") {
                     // validate promo code.
-                    $promo_code_info = validatePromoCode($promo_code);
+                    $promo_code_info = validatePromoCode($promo_code,1);
                 }
                 // end here.
 
@@ -286,6 +286,9 @@ class Guests extends Admin_Controller {
         if ($this->input->post('email')) {
             $cond .= ($cond != '' ? ' AND ' : '') . " `tb_members`.email LIKE  '%" . $this->input->post('email') . "%'";
         }
+        if ($this->input->post('status')) {
+            $cond .= ($cond != '' ? ' AND ' : '') . " `tb_members`.status LIKE  '%" . $this->input->post('status') . "%'";
+        }
         if ($this->input->post('updated_on')) {
             $cond .= ($cond != '' ? ' AND ' : '') . " `tb_members`.updated_on LIKE  '%" . $this->input->post('updated_on') . "%'";
         }
@@ -308,6 +311,7 @@ class Guests extends Admin_Controller {
                     $result['first_name'],
                     $result['last_name'],
                     $result['email'],
+                    $result['status'],
                     $result['updated_on'],
                     '<a class="btn btn-xs default btn-editable" href="' . (base_url('admin/guests/get_guest_profile/' . $result['member_id'])) . '">Edit</a> <a href="javascript:CommonFunctions.Delete(' . $result['member_id'] . ', \'tb_members\' , \'member_id\' , \'Guest Member and all data associated with this member will be permanently deleted without further warning. Do you really want to delete this member?\')" class="btn btn-xs default btn-editable">Delete</a>'
                 );

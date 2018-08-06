@@ -16,12 +16,13 @@ class Notifications extends Admin_Controller {
         $this->selected_tab = 'notifications';
         $this->selected_child_tab = 'view_notifications';
         $data['notifications'] = $this->Notification_model->get_all_notifications();
-        
+
         $this->load->view('admin/notifications/view_notifications',$data);
     }
 
     function view_users_notifications() {
         $this->selected_tab = 'notifications';
+        $this->selected_child_tab = 'view_users_notifications';
         $data['notifications'] = $this->Notification_model->get_all_users_notifications();
         $this->load->view('admin/notifications/view_users_notifications',$data);
     }

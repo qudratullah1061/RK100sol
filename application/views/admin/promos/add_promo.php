@@ -23,6 +23,11 @@
                     <!--<label>Promos Subscription Discount</label>-->
                 </div>
                 <div class="form-group form-md-line-input form-md-floating-label">
+                    <input type="radio" <?php echo (!isset($promo_data) && $promo_data == '')?"checked":''; ?> name="promo_valid_for" value="1" <?php echo (isset($promo_data->promo_valid_for) && $promo_data->promo_valid_for == '1') ? "checked" : ""; ?> /> Guest
+                    <input type="radio" name="promo_valid_for" value="2" <?php echo (isset($promo_data->promo_valid_for) && $promo_data->promo_valid_for == '2') ? "checked" : ""; ?> /> Companion
+                    <!--<label>Promos Subscription Discount</label>-->
+                </div>
+                <div class="form-group form-md-line-input form-md-floating-label">
                     <input type="text" value="<?php echo isset($promo_data->promo_sub_dis_value) ? $promo_data->promo_sub_dis_value : ""; ?>" name="promo_sub_dis_value" class="form-control">
                     <label>Value</label>
                 </div>

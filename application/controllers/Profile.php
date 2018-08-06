@@ -25,6 +25,7 @@ class Profile extends CI_Controller
     {
         $this->selected_tab = "guest_signup";
         $data['country_options'] = GetCountriesOption();
+        $data['promo_code'] = GetPromoCodesByUserType(1);
         $this->load->view('frontend/guests/signup', $data);
     }
 
@@ -102,7 +103,7 @@ class Profile extends CI_Controller
                 $promo_code_info = false;
                 if ($promo_code != "") {
                     // validate promo code.
-                    $promo_code_info = validatePromoCode($promo_code);
+                    $promo_code_info = validatePromoCode($promo_code,1);
                 }
                 // end here.
 
@@ -175,6 +176,7 @@ class Profile extends CI_Controller
             $data['country_options'] = GetCountriesOption();
             $data['categories'] = GetAllCategories();
             $data['plan_type'] = $plan_type;
+            $data['promo_code'] = GetPromoCodesByUserType(2);
             $this->load->view('frontend/companions/signup', $data);
         } else {
             redirect(base_url('register'));
@@ -253,7 +255,7 @@ class Profile extends CI_Controller
                 $promo_code_info = false;
                 if ($promo_code != "") {
                     // validate promo code.
-                    $promo_code_info = validatePromoCode($promo_code);
+                    $promo_code_info = validatePromoCode($promo_code,2);
                 }
                 // end here.
                 $result = false;

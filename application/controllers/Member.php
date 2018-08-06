@@ -125,7 +125,7 @@ class Member extends FrontEnd_Controller
         $promo_code_info = false;
         if ($promo_code != "") {
             // validate promo code.
-            $promo_code_info = validatePromoCode($promo_code);
+            $promo_code_info = validatePromoCode($promo_code,2);
             if ($promo_code_info) {
                 // check whether user already used that promo code or not.
                 $is_used = IsPromoCodeAlreadyUsed($promo_code, $member_id);

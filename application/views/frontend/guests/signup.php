@@ -3,7 +3,7 @@
 <link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.min.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/styles/styles.css" rel="stylesheet">
 <!--profile page css-->
-<link href="<?php echo base_url(); ?>assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url(); ?>assets/pages/css/profile.min.css" rel="stylesheet" type="text/css"/>
 <section class="signup-full-cover-image">
     <div class="container">
         <div class="portlet box blue">
@@ -23,20 +23,24 @@
                                     <!-- SIDEBAR USERPIC -->
                                     <div>
                                         <div class="form-group form-md-line-input">
-                                            <label class="control-label col-md-12"> Profile Image <span class="required">*</span></label>
+                                            <label class="control-label col-md-12"> Profile Image <span
+                                                        class="required">*</span></label>
                                             <div class="col-md-12">
                                                 <div class="frame profile-image">
-                                                    <input type="file" id="profile_images" required="required" name="profile_images[]" multiple="multiple" />
+                                                    <input type="file" id="profile_images" required="required"
+                                                           name="profile_images[]" multiple="multiple"/>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div >
+                                    <div>
                                         <div class="form-group form-md-line-input">
-                                            <label class="control-label col-md-12" style="margin-top: 50px;"> ID Proof <span class="required">*</span></label>
+                                            <label class="control-label col-md-12" style="margin-top: 50px;"> ID Proof
+                                                <span class="required">*</span></label>
                                             <div class="col-md-12">
                                                 <div class="frame id-proof">
-                                                    <input type="file" id="id_proofs" required="required" name="id_proofs[]" multiple="multiple">
+                                                    <input type="file" id="id_proofs" required="required"
+                                                           name="id_proofs[]" multiple="multiple">
                                                 </div>
                                             </div>
                                         </div>
@@ -57,71 +61,89 @@
                                         <div class="portlet light ">
                                             <div class="portlet-body">
                                                 <div class="portlet-body form">
-                                                        <!--<input type="hidden" name="file_upload_unique_id" value="<?php // echo $unique_id;                                       ?>">-->
+                                                    <!--<input type="hidden" name="file_upload_unique_id" value="<?php // echo $unique_id;                                       ?>">-->
                                                     <!--<h3 class="block ">Guest Details</h3>-->
                                                     <div class="form-body">
                                                         <div class="row">
 
-<!--                                                            <div class="form-group form-md-line-input">
-                                                                <div class="portlet mt-element-ribbon light portlet-fit bordered">
-                                                                    <div class="ribbon ribbon-right ribbon-clip ribbon-shadow ribbon-border-dash-hor ribbon-color-success uppercase">
-                                                                        <div class="ribbon-sub ribbon-clip ribbon-right"></div> Promo Code.
-                                                                    </div>
-                                                                    <div class="portlet-title">
-                                                                        <div class="caption">
-                                                                            <i class="fa fa-tag font-green"></i>
-                                                                            <span class="caption-subject font-green bold uppercase">Do you have promo code? Enter it here.</span>
+                                                            <?php
+                                                            if (isset($promo_code) && $promo_code > 0) {
+                                                                ?>
+
+                                                                <div class="form-group form-md-line-input">
+                                                                    <div class="portlet mt-element-ribbon light portlet-fit bordered">
+                                                                        <div class="ribbon ribbon-right ribbon-clip ribbon-shadow ribbon-border-dash-hor ribbon-color-success uppercase">
+                                                                            <div class="ribbon-sub ribbon-clip ribbon-right"></div>
+                                                                            Promo Code.
+                                                                        </div>
+                                                                        <div class="portlet-title">
+                                                                            <div class="caption">
+                                                                                <i class="fa fa-tag font-green"></i>
+                                                                                <span class="caption-subject font-green bold uppercase">Do you have promo code? Enter it here.</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="portlet-body">
+                                                                            <input type="text" name="promo_code"
+                                                                                   placeholder="Promo Code">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="portlet-body"> 
-                                                                        <input type="text" name="promo_code" placeholder="Promo Code"> 
-                                                                    </div>
+
                                                                 </div>
-
-                                                            </div>-->
-
-
+                                                            <?php }
+                                                            ?>
 
 
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="text" class="form-control"  placeholder="" name="first_name">
-                                                                    <label>First Name <span class="required">*</span></label>
+                                                                    <input type="text" class="form-control"
+                                                                           placeholder="" name="first_name">
+                                                                    <label>First Name <span
+                                                                                class="required">*</span></label>
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="text" class="form-control"  placeholder="" name="last_name">
-                                                                    <label>Last Name<span class="required">*</span></label>
+                                                                    <input type="text" class="form-control"
+                                                                           placeholder="" name="last_name">
+                                                                    <label>Last Name<span
+                                                                                class="required">*</span></label>
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="text" class="form-control"  placeholder="" name="username">
-                                                                    <label>Username<span class="required">*</span></label>
+                                                                    <input type="text" class="form-control"
+                                                                           placeholder="" name="username">
+                                                                    <label>Username<span
+                                                                                class="required">*</span></label>
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="email" class="form-control"  placeholder="" name="email">
+                                                                    <input type="email" class="form-control"
+                                                                           placeholder="" name="email">
                                                                     <label>Email Address<span class="required">*</span></label>
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="password" class="form-control" id="password" placeholder="" name="password">
-                                                                    <label>Password<span class="required">*</span></label>
+                                                                    <input type="password" class="form-control"
+                                                                           id="password" placeholder="" name="password">
+                                                                    <label>Password<span
+                                                                                class="required">*</span></label>
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password">
-                                                                    <label>Confirm Password<span class="required">*</span></label>
+                                                                    <input type="password" class="form-control"
+                                                                           id="confirm_password"
+                                                                           name="confirm_password">
+                                                                    <label>Confirm Password<span
+                                                                                class="required">*</span></label>
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
@@ -134,8 +156,10 @@
                                                                                                                         </div>-->
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="text" class="form-control"  placeholder="" name="phone_number">
-                                                                    <label>Phone Number<span class="required">*</span></label>
+                                                                    <input type="text" class="form-control"
+                                                                           placeholder="" name="phone_number">
+                                                                    <label>Phone Number<span
+                                                                                class="required">*</span></label>
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
@@ -153,15 +177,19 @@
 
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="text" name="location" id="location" placeholder="" class="location form-control">
-                                                                    <label>Location <span class="required">*</span></label>
+                                                                    <input type="text" name="location" id="location"
+                                                                           placeholder="" class="location form-control">
+                                                                    <label>Location <span
+                                                                                class="required">*</span></label>
                                                                 </div>
                                                             </div>
-                                                            
+
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="text" class="form-control"  placeholder="" name="address">
-                                                                    <label>Address<span class="required">*</span></label>
+                                                                    <input type="text" class="form-control"
+                                                                           placeholder="" name="address">
+                                                                    <label>Address<span
+                                                                                class="required">*</span></label>
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
@@ -211,24 +239,27 @@
                                                                     <label>DOB Day</label>
                                                                 </div>
                                                             </div>
-                                                            
+
                                                             <div class="col-md-3">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="text" name="zipcode" id="zipcode" placeholder="" class="form-control">
+                                                                    <input type="text" name="zipcode" id="zipcode"
+                                                                           placeholder="" class="form-control">
                                                                     <label>Zip Code</label>
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="text" class="form-control"  placeholder="" name="about_me">
+                                                                    <input type="text" class="form-control"
+                                                                           placeholder="" name="about_me">
                                                                     <label>About me</label>
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                                                    <input type="text" class="form-control"  placeholder="" name="other_interest">
+                                                                    <input type="text" class="form-control"
+                                                                           placeholder="" name="other_interest">
                                                                     <label>Other interest</label>
                                                                     <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
@@ -238,15 +269,20 @@
                                                         <!--<br>-->
                                                         <div class="md-checkbox-inline">
                                                             <div class="md-checkbox">
-                                                                <input type="checkbox" id="checkbox33" name="terms" value="1" class="md-check">
+                                                                <input type="checkbox" id="checkbox33" name="terms"
+                                                                       value="1" class="md-check">
                                                                 <label for="checkbox33">
                                                                     <span></span>
                                                                     <span class="check"></span>
-                                                                    <span class="box"></span> I agree with the <a class="blue" href="<?php echo base_url('terms'); ?>">terms and conditions</a> for Registration</label>
+                                                                    <span class="box"></span> I agree with the <a
+                                                                            class="blue"
+                                                                            href="<?php echo base_url('terms'); ?>">terms
+                                                                        and conditions</a> for Registration</label>
                                                             </div>
                                                         </div>
                                                         <br>
-                                                        <a href="<?php echo base_url('admin/guests'); ?>" class="btn default">Cancel</a>
+                                                        <a href="<?php echo base_url('admin/guests'); ?>"
+                                                           class="btn default">Cancel</a>
                                                         <button type="submit" class="btn green">Register</button>
                                                     </div>
 
