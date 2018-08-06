@@ -121,8 +121,9 @@ var DatatablesObj = function () {
                     {'sName': 'FirstName', 'bSortable': true, 'aTargets': [2]},
                     {'sName': 'LastName', 'bSortable': true, 'aTargets': [3]},
                     {'sName': 'Email', 'bSortable': true, 'aTargets': [4]},
-                    {'sName': 'UpdatedOn', 'bSortable': true, 'aTargets': [5]},
-                    {'sName': 'Actions', 'bSortable': false, 'aTargets': [6]},
+                    {'sName': 'Status', 'bSortable': true, 'aTargets': [5]},
+                    {'sName': 'UpdatedOn', 'bSortable': true, 'aTargets': [6]},
+                    {'sName': 'Actions', 'bSortable': false, 'aTargets': [7]},
                 ]
             }
         });
@@ -199,8 +200,9 @@ var DatatablesObj = function () {
                     {'sName': 'FirstName', 'bSortable': true, 'aTargets': [2]},
                     {'sName': 'LastName', 'bSortable': true, 'aTargets': [3]},
                     {'sName': 'Email', 'bSortable': true, 'aTargets': [4]},
-                    {'sName': 'UpdatedOn', 'bSortable': true, 'aTargets': [5]},
-                    {'sName': 'Actions', 'bSortable': false, 'aTargets': [6]},
+                    {'sName': 'Status', 'bSortable': true, 'aTargets': [5]},
+                    {'sName': 'UpdatedOn', 'bSortable': true, 'aTargets': [6]},
+                    {'sName': 'Actions', 'bSortable': false, 'aTargets': [7]},
                 ]
             }
         });

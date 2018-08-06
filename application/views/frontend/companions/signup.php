@@ -18,7 +18,8 @@
                     <div class="form-wizard">
                         <div class="form-body">
                             <input type="hidden" name='call_type' value="add">
-                            <input type="hidden" name='plan_type' value="<?php echo isset($plan_type) ? $plan_type : ""; ?>">
+                            <input type="hidden" name='plan_type'
+                                   value="<?php echo isset($plan_type) ? $plan_type : ""; ?>">
                             <ul class="nav nav-pills nav-justified steps">
                                 <li>
                                     <a href="#tab1" data-toggle="tab" class="step active">
@@ -45,45 +46,56 @@
                                 </li>
                             </ul>
                             <div id="bar" class="progress progress-striped" role="progressbar">
-                                <div class="progress-bar progress-bar-success"> </div>
+                                <div class="progress-bar progress-bar-success"></div>
                             </div>
                             <div class="tab-content">
                                 <div class="alert alert-danger display-none">
-                                    <button class="close" data-dismiss="alert"></button> Please enter valid data in below fields. 
+                                    <button class="close" data-dismiss="alert"></button>
+                                    Please enter valid data in below fields.
                                 </div>
                                 <div class="alert alert-success display-none">
-                                    <button class="close" data-dismiss="alert"></button> All data validated successfully! 
+                                    <button class="close" data-dismiss="alert"></button>
+                                    All data validated successfully!
                                 </div>
                                 <div class="tab-pane active" id="tab1">
                                     <h3 class="block text-center">Login Details</h3>
-                                    <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3">Promo Code <span class="required">*</span></label>
-                                        <div class="col-md-6">
-                                            <div class="portlet mt-element-ribbon light portlet-fit bordered">
-                                                <div class="ribbon ribbon-right ribbon-clip ribbon-shadow ribbon-border-dash-hor ribbon-color-success uppercase">
-                                                    <div class="ribbon-sub ribbon-clip ribbon-right"></div> Promo Code.
-                                                </div>
-                                                <div class="portlet-title">
-                                                    <div class="caption">
-                                                        <i class="fa fa-tag font-green"></i>
-                                                        <span class="caption-subject font-green bold uppercase">Do you have promo code? Enter it here.</span>
+                                    <?php
+                                    if (isset($promo_code) && $promo_code > 0) {
+                                        ?>
+                                        <div class="form-group form-md-line-input">
+                                            <label class="control-label col-md-3">Promo Code <span
+                                                        class="required">*</span></label>
+                                            <div class="col-md-6">
+                                                <div class="portlet mt-element-ribbon light portlet-fit bordered">
+                                                    <div class="ribbon ribbon-right ribbon-clip ribbon-shadow ribbon-border-dash-hor ribbon-color-success uppercase">
+                                                        <div class="ribbon-sub ribbon-clip ribbon-right"></div>
+                                                        Promo Code.
                                                     </div>
-                                                </div>
-                                                <div class="portlet-body"> 
-                                                    <input type="text" name="promo_code" placeholder="Promo Code"> 
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="fa fa-tag font-green"></i>
+                                                            <span class="caption-subject font-green bold uppercase">Do you have promo code? Enter it here.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body">
+                                                        <input type="text" name="promo_code" placeholder="Promo Code">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <?php
+                                    } ?>
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3">Username <span class="required">*</span></label>
+                                        <label class="control-label col-md-3">Username <span
+                                                    class="required">*</span></label>
                                         <div class="col-md-6">
                                             <input type="text" class="form-control form-md-line-input" name="username">
                                             <label></label>
                                         </div>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> Email <span class="required"> * </span> </label>
+                                        <label class="control-label col-md-3"> Email <span class="required"> * </span>
+                                        </label>
                                         <div class="col-md-6">
                                             <input type="email" name="email" id="email" class="form-control">
                                             <label></label>
@@ -91,32 +103,39 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3">Confirm Email <span class="required"> * </span> </label>
+                                        <label class="control-label col-md-3">Confirm Email <span
+                                                    class="required"> * </span> </label>
                                         <div class="col-md-6">
-                                            <input type="email" name="confirm_email" id="confirm_email" class="form-control">
+                                            <input type="email" name="confirm_email" id="confirm_email"
+                                                   class="form-control">
                                             <label></label>
                                         </div>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3">Password<span class="required"> * </span> </label>
+                                        <label class="control-label col-md-3">Password<span class="required"> * </span>
+                                        </label>
                                         <div class="col-md-6">
                                             <input type="password" name="password" id="password" class="form-control">
                                             <label></label>
                                         </div>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3">Confirm Password<span class="required"> * </span> </label>
+                                        <label class="control-label col-md-3">Confirm Password<span
+                                                    class="required"> * </span> </label>
                                         <div class="col-md-6">
-                                            <input type="password" name="confirm_password" id="confirm_password" class="form-control">
+                                            <input type="password" name="confirm_password" id="confirm_password"
+                                                   class="form-control">
                                             <label></label>
                                         </div>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> Profile Image <span class="required">*</span></label>
+                                        <label class="control-label col-md-3"> Profile Image <span
+                                                    class="required">*</span></label>
                                         <div class="col-md-6">
                                             <div class="frame profile-image">
-                                                <input type="file" id="profile_images" required="required" name="profile_images[]" multiple="multiple" />
+                                                <input type="file" id="profile_images" required="required"
+                                                       name="profile_images[]" multiple="multiple"/>
                                             </div>
                                         </div>
                                     </div>
@@ -125,7 +144,8 @@
                                         <label class="control-label col-md-3"> ID Proof <span class="required">*</span></label>
                                         <div class="col-md-6">
                                             <div class="frame id-proof">
-                                                <input type="file" id="id_proofs" required="required" name="id_proofs[]" multiple="multiple">
+                                                <input type="file" id="id_proofs" required="required" name="id_proofs[]"
+                                                       multiple="multiple">
                                             </div>
                                         </div>
                                     </div>
@@ -133,29 +153,33 @@
                                 <div class="tab-pane" id="tab2">
                                     <h3 class="block text-center">Personal Details</h3>
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> First Name <span class="required"> * </span> </label>
+                                        <label class="control-label col-md-3"> First Name <span
+                                                    class="required"> * </span> </label>
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" name="first_name">
                                             <label></label>
                                         </div>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> Last Name <span class="required"> * </span> </label>
+                                        <label class="control-label col-md-3"> Last Name <span
+                                                    class="required"> * </span> </label>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control"  name="last_name">
+                                            <input type="text" class="form-control" name="last_name">
                                             <label></label>
                                         </div>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> Telephone <span class="required"> * </span> </label>
+                                        <label class="control-label col-md-3"> Telephone <span
+                                                    class="required"> * </span> </label>
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" name="phone_number">
                                             <label></label>
                                         </div>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> Date of Birth <span class="required"> * </span> </label>
+                                        <label class="control-label col-md-3"> Date of Birth <span
+                                                    class="required"> * </span> </label>
                                         <div class="col-md-6">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -192,7 +216,7 @@
                                                         <?php } ?>
                                                     </select>
                                                 </div>
-                                            <!--<input type="text" class="form-control" data-date-format="yyyy-mm-dd" name="date_of_birth">-->
+                                                <!--<input type="text" class="form-control" data-date-format="yyyy-mm-dd" name="date_of_birth">-->
                                                 <label></label>
                                             </div>
                                         </div>
@@ -211,16 +235,19 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3">Location <span class="required">*</span></label>
+                                        <label class="control-label col-md-3">Location <span
+                                                    class="required">*</span></label>
                                         <div class="col-md-6">
-                                            <input type="text" name="location" id="location" class="location form-control form-md-line-input">
+                                            <input type="text" name="location" id="location"
+                                                   class="location form-control form-md-line-input">
                                             <label></label>
                                         </div>
                                     </div>
                                     <div class="form-group form-md-line-input">
                                         <label class="control-label col-md-3">Zip Code</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="zipcode" id="zipcode" class="form-control form-md-line-input">
+                                            <input type="text" name="zipcode" id="zipcode"
+                                                   class="form-control form-md-line-input">
                                             <label></label>
                                         </div>
                                     </div>
@@ -272,11 +299,15 @@
                                                                 ?>
                                                                 <div class="col-md-6">
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" name='categories[]' value="<?php echo $category['category_id'] . "::" . $sub_cat['sub_category_id']; ?>" id="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>" class="md-check">
+                                                                        <input type="checkbox" name='categories[]'
+                                                                               value="<?php echo $category['category_id'] . "::" . $sub_cat['sub_category_id']; ?>"
+                                                                               id="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>"
+                                                                               class="md-check">
                                                                         <label for="checkbox<?php echo $category['category_id'] . $sub_cat['sub_category_id']; ?>">
                                                                             <span></span>
                                                                             <span class="check"></span>
-                                                                            <span class="box"></span> <?php echo $sub_cat['sub_category_name']; ?></label>
+                                                                            <span class="box"></span> <?php echo $sub_cat['sub_category_name']; ?>
+                                                                        </label>
                                                                     </div>
                                                                 </div>
                                                                 <?php
@@ -292,18 +323,20 @@
                                     ?>
 
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> About Me <span class="required"> * </span> </label>
+                                        <label class="control-label col-md-3"> About Me <span
+                                                    class="required"> * </span> </label>
                                         <div class="col-md-6">
-                                            <textarea  class="form-control" name="about_me" placeholder=""></textarea>
+                                            <textarea class="form-control" name="about_me" placeholder=""></textarea>
                                             <label for="form_control_1"></label>
                                             <!--<span class="help-block">Some help goes here...</span>-->
                                         </div>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <label class="control-label col-md-3"> Other Specific Interest  </label>
+                                        <label class="control-label col-md-3"> Other Specific Interest </label>
                                         <div class="col-md-6">
-                                            <input type="text" name='other_interest' class="form-control"  placeholder="">
+                                            <input type="text" name='other_interest' class="form-control"
+                                                   placeholder="">
                                             <label for="form_control_1"></label>
                                             <!--<span class="help-block">Some help goes here...</span>-->
                                         </div>
@@ -334,8 +367,10 @@
         </div>
     </div>
 </section>
-<script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"
+        type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js"
+        type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.kickstart.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
 <script>
@@ -345,6 +380,6 @@
 //                                                        details: ".geo-details",
 //                                                        detailsAttribute: "data-geo"
 //                                                    }
-                );
+        );
     });
 </script>

@@ -33,6 +33,7 @@
                                 <th width="10%"> First Name </th>
                                 <th width="10%"> Last Name </th>
                                 <th width="20%"> Email </th>
+                                <th width="10%"> Status </th>
                                 <th width="15%"> Updated On </th>
                                 <th width="20%"> Actions </th>
                             </tr>
@@ -49,6 +50,14 @@
                                 </td>
                                 <td>
                                     <input type="text" class="form-control form-filter input-sm" placeholder="Email" name="email"> 
+                                </td>
+                                <td>
+                                    <select name="status" class="form-control form-filter input-sm">
+                                        <option value="">Status</option>
+                                        <option value="active">Active</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="suspended">Suspended</option>
+                                    </select>
                                 </td>
                                 <td>
                                     <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">

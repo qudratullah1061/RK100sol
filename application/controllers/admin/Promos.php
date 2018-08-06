@@ -3,16 +3,19 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Promos extends Admin_Controller {
+class Promos extends Admin_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->layout = 'admin/main';
         $this->load->model('admin/promos_model', 'Promos_Model');
         $this->load->model('admin/members_model', 'Members_Model');
     }
 
-    function modal_promo() {
+    function modal_promo()
+    {
         $this->is_ajax();
         $promo_id = $this->input->post('promo_id');
         $promo_data = $this->Promos_Model->get_promo($promo_id);
@@ -22,7 +25,8 @@ class Promos extends Admin_Controller {
         die();
     }
 
-    function add_update_promo() {
+    function add_update_promo()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $cur_promo_code = $this->input->post('current_promo_code');
@@ -43,6 +47,7 @@ class Promos extends Admin_Controller {
                 $data['promo_title'] = $this->input->post('promo_title');
                 $data['promo_code'] = $this->input->post('promo_code');
                 $data['promo_subscription_discount'] = $this->input->post('promo_subscription_discount');
+                $data['promo_valid_for'] = $this->input->post('promo_valid_for');
                 $data['promo_sub_dis_value'] = $this->input->post('promo_sub_dis_value');
                 $data['start_date'] = $this->input->post('start_date');
                 $data['end_date'] = $this->input->post('end_date');
@@ -70,13 +75,15 @@ class Promos extends Admin_Controller {
         }
     }
 
-    function view_promos() {
+    function view_promos()
+    {
         $this->selected_tab = 'promos';
         $this->selected_child_tab = 'view_promos';
         $this->load->view('admin/promos/view_promos');
     }
 
-    function get_promos() {
+    function get_promos()
+    {
         $records = array();
         $records["data"] = array();
         $sEcho = intval($this->input->post('draw'));
@@ -93,6 +100,9 @@ class Promos extends Admin_Controller {
         }
         if ($this->input->post('promo_subscription_discount') != '') {
             $cond .= ($cond != '' ? ' AND ' : '') . (" promos.promo_subscription_discount = " . $this->input->post('promo_subscription_discount'));
+        }
+        if ($this->input->post('promo_valid_for') != '') {
+            $cond .= ($cond != '' ? ' AND ' : '') . (" promos.promo_valid_for = " . $this->input->post('promo_valid_for'));
         }
         if ($this->input->post('start_date')) {
             $cond .= ($cond != '' ? ' AND ' : '') . " promos.start_date LIKE  '%" . $this->input->post('start_date') . "%'";
@@ -125,6 +135,12 @@ class Promos extends Admin_Controller {
                 } else {
                     $result['promo_subscription_discount'] = 'Discount';
                 }
+
+                if ($result['promo_valid_for'] == '1') {
+                    $result['promo_valid_for'] = 'Guest';
+                } else {
+                    $result['promo_valid_for'] = 'Companion';
+                }
                 $active_html = '<div class="md-checkbox-inline">
                                     <div class="md-checkbox">
                                         <input type="checkbox" disabled="disabled" id="checkbox' . $result['promo_id'] . '" ' . ($result['is_active'] ? "checked='checked'" : "") . ' class="md-check">
@@ -138,6 +154,7 @@ class Promos extends Admin_Controller {
                 $records["data"][] = array(
                     $result['promo_title'],
                     $result['promo_subscription_discount'],
+                    $result['promo_valid_for'],
                     $result['start_date'],
                     $result['end_date'],
                     $result['promo_code'],
@@ -155,13 +172,14 @@ class Promos extends Admin_Controller {
         exit();
     }
 
-    function submit_promo() {
+    function submit_promo()
+    {
         $promo_code = $this->input->post('promo_code');
         $member_id = $this->input->post('member_id');
         $promo_code_info = false;
         if ($promo_code != "") {
             // validate promo code.
-            $promo_code_info = validatePromoCode($promo_code);
+            $promo_code_info = validatePromoCode($promo_code,2);
             if ($promo_code_info) {
                 // check whether user already used that promo code or not.
                 $is_used = IsPromoCodeAlreadyUsed($promo_code, $member_id);

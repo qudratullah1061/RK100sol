@@ -89,7 +89,7 @@ function RedirectAdminToAppropriatePage()
     redirect(base_url('admin/admin_dashboard'));
 }
 
-function validatePromoCode($promo_code)
+function validatePromoCode($promo_code, $userType)
 {
     // check promo code exist.
     global $CI;
@@ -97,12 +97,13 @@ function validatePromoCode($promo_code)
     if (count($promo_code_info) > 0) {
         // check is active and promo code is valid for end date
         $start_date = $promo_code_info[0]['start_date'];
+        $promo_valid_for = $promo_code_info[0]['promo_valid_for'];
         $end_date = $promo_code_info[0]['end_date'];
         $current_date = date("Y-m-d");
         $is_active = $promo_code_info[0]['is_active'];
         $promo_subscription_discount = $promo_code_info[0]['promo_subscription_discount'];
         $promo_subscription_discount_value = $promo_code_info[0]['promo_sub_dis_value'];
-        if ($promo_subscription_discount == 0 && $end_date >= $current_date && $start_date <= $current_date && $is_active) {
+        if ($promo_subscription_discount == 0 && $end_date >= $current_date && $start_date <= $current_date && $is_active && $promo_valid_for == $userType) {
             return array("promo_type" => "sub", "value" => $promo_subscription_discount_value);
         }
     }
@@ -271,6 +272,12 @@ function GetCountriesOption($selected_value = "")
         }
     }
     return $options;
+}
+
+function GetPromoCodesByUserType($userType)
+{
+    global $CI;
+    return $CI->db->select('COUNT(promo_id) as total')->where('promo_valid_for', $userType)->where('is_active', 1)->where('end_date >= "' . date('Y-m-d') . '"')->get('tb_promos')->row()->total;
 }
 
 function GetStatesOption($country_id = 0, $selected_value = "")

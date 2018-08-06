@@ -424,6 +424,13 @@
                                         <span class="title">View Admin Notifications</span>
                                     </a>
                                 </li>
+                                <li class="nav-item <?php ActivateCurrentLink('notifications', 'view_users_notifications'); ?>">
+                                    <a href="<?php echo base_url('admin/notifications/view_users_notifications'); ?>"
+                                       class="nav-link ">
+                                        <!--<i class="fa fa-eye"></i>-->
+                                        <span class="title">View Other Notifications</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     <?php } ?>
