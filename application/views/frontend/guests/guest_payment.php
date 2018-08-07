@@ -18,6 +18,7 @@
                         <?php } ?>
                         <div class="form-group">
                             <input type="hidden" name="member_id" id="member_id" value="<?php echo $member_id; ?>">
+                            <input type="hidden" name="get_type" id="get_type" value="<?php echo $type; ?>">
                             <label>Select Membership Plan<span class="required">*</span></label>
                             <select class="form-control payment_options" name="payment_amount">
                                 <option value="">Select Membership Plan</option>
@@ -69,12 +70,20 @@
                     }
                 });
             },
+            onCancel: function(data, actions) {
+                swal("Error!", "You have canceled the payment procedure, please pay your subscription charges in order to activate your account.", "warning");
+            },
+
+            onError: function(err) {
+                swal("Error!", "Unable to connect with paypal, please try again.", "warning");
+            },
             // onAuthorize() is called when the buyer approves the payment
             onAuthorize: function (data, actions) {
 
                 return actions.payment.get().then(function (data) {
                     var member_id = $("#member_id").val();
-                    CommonFunctions.ExecutePayment(data, member_id);
+                    var type = $("#get_type").val();
+                    CommonFunctions.ExecutePayment(data, member_id,type);
                     // Make a call to the REST api to execute the payment
 //                    return actions.payment.execute().then(function (e) {
 //                        

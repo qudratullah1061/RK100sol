@@ -185,6 +185,7 @@ class Misc extends CI_Controller
         $this->isAjax();
         $data_received = $this->input->post('data');
         $member_id = $this->input->post('member_id');
+        $get_type = $this->input->post('type');
         // get member info
         $member_info = $this->Members_Model->get_member_by_id($member_id);
 
@@ -208,21 +209,31 @@ class Misc extends CI_Controller
         $record_id = $this->Misc_Model->saveRecord('tb_member_payment_details', $payment_details);
         // update member subscription dates
         // get plan number of days.
-        $plan_info = $this->Misc_Model->getMemberPlanByPrice(array('plan_price' => $payment_details['payment_amount'], 'plan_type' => 1, 'is_active' => 1));
+        $plan_info = $this->Misc_Model->getMemberPlanByPrice(array('plan_price' => $payment_details['payment_amount'], 'plan_type' => get_user_type($member_id), 'is_active' => 1));
 
         if ($plan_info) {
             //update member info. add days to subscription days.
-            $update_data = array(
-                'email_verification_code' => md5(time()),
-                'current_plan_id' => $plan_info[0]['plan_id'],
-                'subscription_date' => date("Y-m-d H:i:s"),
-                'end_subscription_date' => date('Y-m-d H:i:s', strtotime($subscription_date . " +" . $plan_info[0]['plan_duration'])), //date("Y-m-d H:i:s", strtotime("+" . $plan_info[0]['plan_duration'], strtotime('2014-05-22 10:35:10'))),
-            );
+            $macros_data['$$$FIRST_NAME$$$'] = $member_info['first_name'];
+            if ($get_type == 2) {
+                $update_data = array(
+                    'current_plan_id' => $plan_info[0]['plan_id'],
+                    'end_subscription_date' => date('Y-m-d H:i:s', strtotime($subscription_date . " +" . $plan_info[0]['plan_duration'])),
+                );
+                $email_template_info = get_email_template('subscription_renew', $macros_data);
+                sendEmail($member_info['email'], $email_template_info['template_subject'], $email_template_info['template_body']);
+            } else {
+                $update_data = array(
+                    'email_verification_code' => md5(time()),
+                    'current_plan_id' => $plan_info[0]['plan_id'],
+                    'subscription_date' => date("Y-m-d H:i:s"),
+                    'end_subscription_date' => date('Y-m-d H:i:s', strtotime($subscription_date . " +" . $plan_info[0]['plan_duration'])),
+                );
+                $macros_data['$$$CONFIRM_REGISTRATION$$$'] = base_url('misc/verify_email/' . $member_id . '/' . $update_data['email_verification_code']);
+                $email_template_info = get_email_template('member_signup', $macros_data);
+                sendEmail($member_info['email'], $email_template_info['template_subject'], $email_template_info['template_body']);
+            }
 
             $this->Members_Model->update_member($member_id, $update_data);
-            $member_email = $member_info['email'];
-            $member_email_v_code = $update_data['email_verification_code'];
-            sendEmail($member_email, "Signup Successfull", "Registration completed. Please verify email by <a href='" . base_url('misc/verify_email/' . $member_id . '/' . $member_email_v_code) . "'>Clicking here.</a>");
         }
         echo json_encode(array(
             'error' => false,
@@ -230,7 +241,6 @@ class Misc extends CI_Controller
             'code' => ''
         ));
         exit;
-        //$this->_response(false, "Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com");
     }
 
     // check this function. Doing nothing.

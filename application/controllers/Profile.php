@@ -103,7 +103,7 @@ class Profile extends CI_Controller
                 $promo_code_info = false;
                 if ($promo_code != "") {
                     // validate promo code.
-                    $promo_code_info = validatePromoCode($promo_code,1);
+                    $promo_code_info = validatePromoCode($promo_code, 1);
                 }
                 // end here.
 
@@ -154,11 +154,13 @@ class Profile extends CI_Controller
             $result = $this->Members_Model->get_member_by_id($member_id);
             if ($result) {
                 // get guest member plans
-                $data['plans'] = $this->Members_Model->getPlans(1);
+                $type = get_user_type($member_id);
+                $data['plans'] = $this->Members_Model->getPlans($type);
                 $data['member_id'] = $member_id;
                 if ($msg_id > 0) {
                     $data['error_msg'] = isset($this->error_msgs[$msg_id]) ? $this->error_msgs[$msg_id] : "";
                 }
+                $data['type'] = $msg_id;
                 $this->load->view('frontend/guests/guest_payment', $data);
             } else {
                 redirect(base_url());
@@ -255,7 +257,7 @@ class Profile extends CI_Controller
                 $promo_code_info = false;
                 if ($promo_code != "") {
                     // validate promo code.
-                    $promo_code_info = validatePromoCode($promo_code,2);
+                    $promo_code_info = validatePromoCode($promo_code, 2);
                 }
                 // end here.
                 $result = false;
