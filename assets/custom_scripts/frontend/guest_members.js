@@ -8,8 +8,7 @@ var GuestMembers = function () {
             data: new FormData($("#" + formId)[0]),
             processData: false,
             contentType: false,
-            beforeSend: function ()
-            {
+            beforeSend: function () {
                 App.blockUI({target: '#' + formId, animate: true});
             },
             complete: function () {
@@ -18,7 +17,11 @@ var GuestMembers = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    var redirect_path = 'profile/guest_payment/' + data.code;
+                    if (data.code == 'skip') {
+                        var redirect_path = 'profile/thankyou';
+                    } else {
+                        var redirect_path = 'member/payment/' + data.code;
+                    }
                     if ('add_guest_member' == formId) {
                         setTimeout(function () {
                             window.location.href = base_url + redirect_path;
@@ -96,8 +99,7 @@ var GuestMembers = function () {
                     required: true,
                     email: true
                 },
-                password: {
-                },
+                password: {},
                 confirm_password: {
                     equalTo: "#password"
                 },
@@ -163,11 +165,11 @@ var GuestMembers = function () {
             },
             highlight: function (element) { // hightlight error inputs
                 $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                    .closest('.form-group').addClass('has-error'); // set error class to the control group
             },
             unhighlight: function (element) { // revert the change done by hightlight
                 $(element)
-                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                    .closest('.form-group').removeClass('has-error'); // set error class to the control group
             },
             success: function (label) {
                 label.closest('.form-group').removeClass('has-error'); // set success class to the control group
@@ -183,7 +185,12 @@ var GuestMembers = function () {
             if ($(".dateofbirht").val() != "") {
                 $(".dateofbirht").datepicker();
             } else {
-                $(".dateofbirht").datepicker({ changeMonth: true, changeYear: true, showButtonPanel: true,dateFormat:"yy-mm-dd"});
+                $(".dateofbirht").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    showButtonPanel: true,
+                    dateFormat: "yy-mm-dd"
+                });
             }
             $("#dd-country").select2({
                 placeholder: "Select",

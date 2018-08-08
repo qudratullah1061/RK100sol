@@ -428,7 +428,7 @@
                                     <a href="<?php echo base_url('admin/notifications/view_users_notifications'); ?>"
                                        class="nav-link ">
                                         <!--<i class="fa fa-eye"></i>-->
-                                        <span class="title">View Other Notifications</span>
+                                        <span class="title">View User Notifications</span>
                                     </a>
                                 </li>
                             </ul>

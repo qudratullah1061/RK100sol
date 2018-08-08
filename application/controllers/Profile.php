@@ -114,10 +114,14 @@ class Profile extends CI_Controller
                     $result = true;
                 } else {
                     $insert_promo_record = false;
+                    $do_payment = false;
                     if ($promo_code_info && $promo_code_info['promo_type'] == "sub") {
                         $data['subscription_date'] = date("Y-m-d H:i:s");
                         $data['end_subscription_date'] = date('Y-m-d', strtotime(date("Y-m-d H:i:s") . ' +' . $promo_code_info['value'] . ' days'));
                         $insert_promo_record = true;
+                    } elseif ($promo_code_info && $promo_code_info['promo_type'] == 'discount') {
+                        $insert_promo_record = true;
+                        $do_payment = true;
                     }
                     $data['member_type'] = 1;
                     $edit_id = $result = $this->Members_Model->add_member($data);
@@ -136,35 +140,31 @@ class Profile extends CI_Controller
                 // upload id proof images , add call
                 // profile image and id proof upload
                 $this->upload_images_member($edit_id);
+                if($action == 'added' && $do_payment == false){
+                    $data['email_verification_code'] = md5(time());
+                    $member_email = $data['email'];
+                    $member_email_v_code = $data['email_verification_code'];
+                    $macros_data['$$$FIRST_NAME$$$'] = $data['first_name'];
+                    $macros_data['$$$LAST_NAME$$$'] = $data['last_name'];
+                    $macros_data['$$$EMAIL$$'] = $data['email'];
+                    $macros_data['$$$CONFIRM_REGISTRATION$$$'] = (base_url('misc/verify_email/' . $edit_id . '/' . $member_email_v_code));
+                    $email_template_info = get_email_template('member_signup', $macros_data);
+                    if ($email_template_info) {
+                        sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
+                    }
+                }
                 if ($result) {
                     $message = get_username($edit_id) . ' has ' . $action . ' personal info from their profile settings.';
                     push_notification(array('member_id' => $edit_id, 'user_type' => 1, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
-                    $this->_response(false, "Changes saved successfully!", $edit_id);
+                    if ($do_payment == false) {
+                        $this->_response(false, "Changes saved successfully!", 'skip');
+                    } else {
+                        $this->_response(false, "Changes saved successfully!", $edit_id);
+                    }
                 }
             }
         } else {
             redirect(base_url('home'));
-        }
-    }
-
-    function guest_payment($member_id, $msg_id = 0)
-    {
-        // check user exist in db
-        if ($member_id) {
-            $result = $this->Members_Model->get_member_by_id($member_id);
-            if ($result) {
-                // get guest member plans
-                $type = get_user_type($member_id);
-                $data['plans'] = $this->Members_Model->getPlans($type);
-                $data['member_id'] = $member_id;
-                if ($msg_id > 0) {
-                    $data['error_msg'] = isset($this->error_msgs[$msg_id]) ? $this->error_msgs[$msg_id] : "";
-                }
-                $data['type'] = $msg_id;
-                $this->load->view('frontend/guests/guest_payment', $data);
-            } else {
-                redirect(base_url());
-            }
         }
     }
 
@@ -295,6 +295,7 @@ class Profile extends CI_Controller
                     $this->Members_Model->update_member($edit_id, $unique_id_update_data);
 
                     $member_info = $this->Members_Model->get_member_by_id($edit_id);
+                    $data['email_verification_code'] = md5(time());
                     $member_email = $member_info['email'];
                     $member_email_v_code = $data['email_verification_code'];
                     $macros_data['$$$FIRST_NAME$$$'] = $data['first_name'];

@@ -4,7 +4,7 @@
         <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-user"></i>Guest Member Payment
+                    <i class="fa fa-user"></i>Member Subscription Plans & Payment
                 </div>
             </div>
             <div class="portlet-body">
@@ -39,7 +39,7 @@
     </div>
 </section>
 <script>
-    
+
     $(".payment_options").change(function () {
         var price = $(this).val();
         var currency = $(this).find(':selected').data('currency');
@@ -47,14 +47,14 @@
 //        console.log(currency);
         paypal.Button.render({
             env: 'production', // sandbox | production
-			
+
             // PayPal Client IDs - replace with your own
             // Create a PayPal app: https://developer.paypal.com/developer/applications/create
             client: {
                 sandbox: 'Adf_99ThxemIWJTyAN5YW3uJAUodR-tNgehq7BIKjTT631_LUZD8nl0DtJ5psvZ4S8GmQHDLZpnyaj2j',
                 production: 'ASrI31ib95JJ_anCBtLqLeG4ufIx_AUn1lfOZbEfBdkVkpEwnqcaB8FG5zGz__L_E2dqo__YZ8inB_xf'
             },
-            
+
             // Show the buyer a 'Pay Now' button in the checkout flow
             commit: true,
             // payment() is called when the button is clicked
@@ -70,11 +70,11 @@
                     }
                 });
             },
-            onCancel: function(data, actions) {
+            onCancel: function (data, actions) {
                 swal("Error!", "You have canceled the payment procedure, please pay your subscription charges in order to activate your account.", "warning");
             },
 
-            onError: function(err) {
+            onError: function (err) {
                 swal("Error!", "Unable to connect with paypal, please try again.", "warning");
             },
             // onAuthorize() is called when the buyer approves the payment
@@ -83,7 +83,7 @@
                 return actions.payment.get().then(function (data) {
                     var member_id = $("#member_id").val();
                     var type = $("#get_type").val();
-                    CommonFunctions.ExecutePayment(data, member_id,type);
+                    CommonFunctions.ExecutePayment(data, member_id, type);
                     // Make a call to the REST api to execute the payment
 //                    return actions.payment.execute().then(function (e) {
 //                        

@@ -481,6 +481,19 @@ class Misc extends CI_Controller
         }
     }
 
+    function validate_promo_code()
+    {
+        $this->isAjax();
+        $code = $this->input->post('code');
+        $user_type = $this->input->post('userType');
+        // if image table delete file from folder as well.
+        $check = validatePromoCode($code, $user_type);
+        if (!$check) {
+            $this->_response(true, "Invalid promo code.");
+        }
+        $this->_response(false, "");
+    }
+
     // remove it later.
     function sendTestMail()
     {
