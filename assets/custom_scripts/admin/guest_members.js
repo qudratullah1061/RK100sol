@@ -172,6 +172,7 @@ var GuestMembers = function () {
 
     var handlePromoCodeValidation = function () {
         $('input[name="promo_code"]').focusout(function () {
+            alert();
             var promoCode = $('input[name="promo_code"]').val();
             if (promoCode != "") {
                 $.ajax({
