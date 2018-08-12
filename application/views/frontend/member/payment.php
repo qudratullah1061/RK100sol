@@ -46,7 +46,7 @@
 //        console.log(price);
 //        console.log(currency);
         paypal.Button.render({
-            env: 'production', // sandbox | production
+            env: 'sandbox', // sandbox | production
 
             // PayPal Client IDs - replace with your own
             // Create a PayPal app: https://developer.paypal.com/developer/applications/create
