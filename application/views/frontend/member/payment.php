@@ -85,6 +85,7 @@
             },
 
             onError: function (err) {
+                console.log(err);
                 swal("Error!", "Unable to connect with paypal, please try again.", "warning");
             },
             // onAuthorize() is called when the buyer approves the payment
