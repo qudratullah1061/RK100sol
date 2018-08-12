@@ -85,8 +85,7 @@
             },
 
             onError: function (err) {
-                console.log(err);
-                swal("Error!", "Unable to connect with paypal, please try again.", "warning");
+                swal("Error!", "Please select membership plan to pay with paypal.", "warning");
             },
             // onAuthorize() is called when the buyer approves the payment
             onAuthorize: function (data, actions) {
