@@ -3,8 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Profile extends CI_Controller
-{
+class Profile extends CI_Controller {
 
     public $selected_tab = '';
     private $error_msgs = array(
@@ -12,8 +11,7 @@ class Profile extends CI_Controller
         '2' => "Your subscription has been ended. Please renew your subscription before login to your account.",
     );
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->layout = 'frontend/main';
         $this->load->model('admin/members_model', 'Members_Model');
@@ -21,16 +19,14 @@ class Profile extends CI_Controller
 
     #region guests
 
-    function guest_signup()
-    {
+    function guest_signup() {
         $this->selected_tab = "guest_signup";
         $data['country_options'] = GetCountriesOption();
         $data['promo_code'] = GetPromoCodesByUserType(1);
         $this->load->view('frontend/guests/signup', $data);
     }
 
-    public function add_guest_user()
-    {
+    public function add_guest_user() {
         isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -141,7 +137,7 @@ class Profile extends CI_Controller
                 // upload id proof images , add call
                 // profile image and id proof upload
                 $this->upload_images_member($edit_id);
-                if($action == 'added' && $do_payment == false){
+                if ($action == 'added' && $do_payment == false) {
                     $member_email = $data['email'];
                     $member_email_v_code = $data['email_verification_code'];
                     $macros_data['$$$FIRST_NAME$$$'] = $data['first_name'];
@@ -171,8 +167,7 @@ class Profile extends CI_Controller
     #region guests ends.
     #region companions
 
-    public function companion_signup($plan_type)
-    {
+    public function companion_signup($plan_type) {
         $this->selected_tab = $plan_type;
         if ($plan_type == 'silver' || $plan_type == 'gold') {
             $data['country_options'] = GetCountriesOption();
@@ -185,14 +180,12 @@ class Profile extends CI_Controller
         }
     }
 
-    public function thankyou()
-    {
+    public function thankyou() {
         $data['registration_completed'] = true;
         $this->load->view('frontend/companions/thankyou', $data);
     }
 
-    public function add_companion_user()
-    {
+    public function add_companion_user() {
         isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -327,16 +320,14 @@ class Profile extends CI_Controller
         }
     }
 
-    function AddUpdateMemberCategories($member_categories, $member_id)
-    {
+    function AddUpdateMemberCategories($member_categories, $member_id) {
         $this->Members_Model->AddUpdateMemberCategories($member_categories, $member_id);
     }
 
     #region companions
     #general functions for companions + guests start
 
-    public function upload_images()
-    {
+    public function upload_images() {
         $unique_id = $this->input->post('file_upload_unique_id');
         $image_type = $this->input->post('image_type');
         $result = upload_temp_image($_FILES, $unique_id, $image_type);
@@ -345,8 +336,7 @@ class Profile extends CI_Controller
         }
     }
 
-    function chk_member_username_exist($email, $exclude_id)
-    {
+    function chk_member_username_exist($email, $exclude_id) {
         $result = is_member_username_exist($email, $exclude_id);
         if ($result) {
             $this->form_validation->set_message('chk_member_username_exist', 'The %s already exist. Please choose other username!');
@@ -355,8 +345,7 @@ class Profile extends CI_Controller
         return true;
     }
 
-    function chk_member_email_exist($email, $exclude_id)
-    {
+    function chk_member_email_exist($email, $exclude_id) {
         $result = is_member_email_exist($email, $exclude_id);
         if ($result) {
             $this->form_validation->set_message('chk_member_email_exist', 'The %s already exist. Please choose other email!');
@@ -365,14 +354,12 @@ class Profile extends CI_Controller
         return true;
     }
 
-    function watermarkImage()
-    {
+    function watermarkImage() {
         watermarkImage($this->config->item('root_path') . 'assets/watermark_img/gallery2.jpg');
         exit;
     }
 
-    public function upload_images_member($member_id_param = "")
-    {
+    public function upload_images_member($member_id_param = "") {
         // profile image upload
         $member_id = $this->input->post('member_id') ? $this->input->post('member_id') : $member_id_param;
         $member_type = $this->input->post('member_type');
@@ -423,8 +410,7 @@ class Profile extends CI_Controller
         }
     }
 
-    public function _response($is_error = true, $description = '', $status = '')
-    {
+    public function _response($is_error = true, $description = '', $status = '') {
         $this->output->set_status_header(200);
         $this->output->set_content_type('application/json');
         $this->output->set_header('Content-type: application/json');
@@ -436,5 +422,24 @@ class Profile extends CI_Controller
         die();
     }
 
+    function payment($member_id, $msg_id = 0) {
+        // check user exist in db
+        if ($member_id) {
+            $result = $this->Members_Model->get_member_by_id($member_id);
+            if ($result) {
+                // get guest member plans
+                $type = get_user_type($member_id);
+                $data['plans'] = $this->Members_Model->getPlans($type);
+                $data['member_id'] = $member_id;
+                if ($msg_id > 0) {
+                    $data['error_msg'] = isset($this->error_msgs[$msg_id]) ? $this->error_msgs[$msg_id] : "";
+                }
+                $data['type'] = $msg_id;
+                $this->load->view('frontend/member/payment', $data);
+            } else {
+                redirect(base_url());
+            }
+        }
+    }
     #general functions for companions + guests ends.
 }

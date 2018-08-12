@@ -20,7 +20,7 @@ var GuestMembers = function () {
                     if (data.code == 'skip') {
                         var redirect_path = 'profile/thankyou';
                     } else {
-                        var redirect_path = 'member/payment/' + data.code;
+                        var redirect_path = 'profile/payment/' + data.code;
                     }
                     if ('add_guest_member' == formId) {
                         setTimeout(function () {

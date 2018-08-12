@@ -152,24 +152,4 @@ class Member extends FrontEnd_Controller
         $this->_response(true, "Please enter promo code.");
     }
 
-    function payment($member_id, $msg_id = 0)
-    {
-        // check user exist in db
-        if ($member_id) {
-            $result = $this->Members_Model->get_member_by_id($member_id);
-            if ($result) {
-                // get guest member plans
-                $type = get_user_type($member_id);
-                $data['plans'] = $this->Members_Model->getPlans($type);
-                $data['member_id'] = $member_id;
-                if ($msg_id > 0) {
-                    $data['error_msg'] = isset($this->error_msgs[$msg_id]) ? $this->error_msgs[$msg_id] : "";
-                }
-                $data['type'] = $msg_id;
-                $this->load->view('frontend/member/payment', $data);
-            } else {
-                redirect(base_url());
-            }
-        }
-    }
 }
