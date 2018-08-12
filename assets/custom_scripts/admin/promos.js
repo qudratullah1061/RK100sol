@@ -18,7 +18,7 @@ var Promos = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    $('#datatable_promos').DataTable().ajax.reload();
+                    $('#datatable_promos').DataTable().ajax.reload(null, false);
                     $("#static-modal-popup-medium").modal('hide');
                 } else {
                     toastr["error"](data.description, "Error!");

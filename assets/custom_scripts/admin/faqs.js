@@ -18,7 +18,7 @@ var Faqs = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    $('#datatable_faqs').DataTable().ajax.reload();
+                    $('#datatable_faqs').DataTable().ajax.reload(null, false);
                     $("#static-modal-popup-medium").modal('hide');
                 } else {
                     toastr["error"](data.description, "Error!");

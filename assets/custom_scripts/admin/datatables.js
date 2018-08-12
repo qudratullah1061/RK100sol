@@ -318,7 +318,7 @@ var DatatablesObj = function () {
         grid.getDataTable().ajax.reload();
         grid.clearAjaxParams();
     };
-    
+
     var InitSubCategoriesDatatable = function (tableId, category_id) {
 
         var grid = new Datatable();
@@ -396,7 +396,7 @@ var DatatablesObj = function () {
         grid.getDataTable().ajax.reload();
         grid.clearAjaxParams();
     };
-    
+
     var InitTagsDatatable = function (tableId) {
 
         var grid = new Datatable();
@@ -474,11 +474,9 @@ var DatatablesObj = function () {
         grid.getDataTable().ajax.reload();
         grid.clearAjaxParams();
     };
-    
+
     var InitPromosDatatable = function (tableId) {
-
         var grid = new Datatable();
-
         grid.init({
             src: $("#" + tableId),
             onSuccess: function (grid, response) {
@@ -495,6 +493,7 @@ var DatatablesObj = function () {
                 // execute some code on ajax data load
             },
             loadingMessage: 'Loading...',
+            resetPaging: false,
             dataTable: {
                 "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
                 "lengthMenu": [
@@ -554,7 +553,7 @@ var DatatablesObj = function () {
         grid.getDataTable().ajax.reload();
         grid.clearAjaxParams();
     };
-    
+
     var InitFaqsDatatable = function (tableId) {
 
         var grid = new Datatable();
@@ -632,7 +631,7 @@ var DatatablesObj = function () {
         grid.getDataTable().ajax.reload();
         grid.clearAjaxParams();
     };
-    
+
     var InitNewslettersDataTable = function (tableId) {
 
         var grid = new Datatable();
@@ -706,7 +705,7 @@ var DatatablesObj = function () {
         grid.getDataTable().ajax.reload();
         grid.clearAjaxParams();
     };
-    
+
     var InitBlogsDatatable = function (tableId) {
 
         var grid = new Datatable();

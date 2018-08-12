@@ -131,20 +131,20 @@ var CommonFunctions = function () {
                                 type: "success",
                             }, function () {
                                 if (table == 'tb_admin_users') {
-                                    $('#datatable_adminusers').DataTable().ajax.reload();
+                                    $('#datatable_adminusers').DataTable().ajax.reload(null, false);
                                 } else if (table == 'tb_categories') {
-                                    $('#datatable_categories').DataTable().ajax.reload();
+                                    $('#datatable_categories').DataTable().ajax.reload(null, false);
                                 } else if (table == 'tb_newsletters') {
-                                    $('#datatable_newsletters').DataTable().ajax.reload();
+                                    $('#datatable_newsletters').DataTable().ajax.reload(null, false);
                                 } else if (table == 'tb_sub_categories') {
-                                    $('#datatable_sub_categories').DataTable().ajax.reload();
+                                    $('#datatable_sub_categories').DataTable().ajax.reload(null, false);
                                 } else if (table == 'tb_blogs') {
-                                    $('#datatable_blogs').DataTable().ajax.reload();
+                                    $('#datatable_blogs').DataTable().ajax.reload(null, false);
                                 } else if (table == 'tb_members') {
                                     if ($('#datatable_guests').length > 0)
-                                        $('#datatable_guests').DataTable().ajax.reload();
+                                        $('#datatable_guests').DataTable().ajax.reload(null, false);
                                     else if ($('#datatable_companions').length > 0)
-                                        $('#datatable_companions').DataTable().ajax.reload();
+                                        $('#datatable_companions').DataTable().ajax.reload(null, false);
                                 } else if (table == 'tb_member_images') {
                                     $("#pic-" + unique_id).remove();
                                     $('#load_member_profile_images').cubeportfolio('destroy');
@@ -154,7 +154,7 @@ var CommonFunctions = function () {
                                     is_init_id_proof_images = false;
                                     load_member_id_proofs();
                                 } else if (table == 'tb_tags') {
-                                    $('#datatable_tags').DataTable().ajax.reload();
+                                    $('#datatable_tags').DataTable().ajax.reload(null, false);
                                 } else if (table == 'tb_member_portfolios' || table == 'tb_member_languages') {
                                     window.location.reload();
                                 } else if (table == 'tb_contact_form' || table == 'tb_member_portfolios' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications' || table == 'tb_notification_users') {

@@ -44,7 +44,7 @@ var AdminUsers = function () {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
                     if (formId == 'form-add-admin') {
-                        $('#datatable_adminusers').DataTable().ajax.reload();
+                        $('#datatable_adminusers').DataTable().ajax.reload(null, false);
                         $("#static-modal-popup-medium").modal('hide');
                     } else if (formId == 'form-update-admin') {
                         setTimeout(function () {

@@ -18,7 +18,7 @@ var Categories = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    $('#datatable_categories').DataTable().ajax.reload();
+                    $('#datatable_categories').DataTable().ajax.reload(null, false);
                     $("#static-modal-popup-small").modal('hide');
                 } else {
                     toastr["error"](data.description, "Error!");

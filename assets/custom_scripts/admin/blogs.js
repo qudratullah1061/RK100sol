@@ -18,7 +18,7 @@ var Blogs = function () {
             success: function (data) {
                 if (!data.error) {
                     toastr["success"](data.description, "Success!");
-                    $('#datatable_tags').DataTable().ajax.reload();
+                    $('#datatable_tags').DataTable().ajax.reload(null, false);
                     $("#static-modal-popup-small").modal('hide');
                 } else {
                     toastr["error"](data.description, "Error!");
