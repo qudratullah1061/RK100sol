@@ -124,6 +124,7 @@ class Profile extends CI_Controller
                         $do_payment = true;
                     }
                     $data['member_type'] = 1;
+                    $data['email_verification_code'] = md5(time());
                     $edit_id = $result = $this->Members_Model->add_member($data);
                     $action = 'added';
                     // insert record in database for used promo as well.
@@ -134,7 +135,6 @@ class Profile extends CI_Controller
 
                     // update unique id
                     $unique_id_update_data['member_unique_code'] = "G-" . date("Ymd") . $edit_id;
-                    $data['email_verification_code'] = md5(time());
                     $this->Members_Model->update_member($edit_id, $unique_id_update_data);
                     $result = true;
                 }
@@ -292,7 +292,6 @@ class Profile extends CI_Controller
 
                     // update unique id
                     $unique_id_update_data['member_unique_code'] = "C-" . date("Ymd") . $edit_id;
-                    $data['email_verification_code'] = md5(time());
                     $this->Members_Model->update_member($edit_id, $unique_id_update_data);
 
                     $member_info = $this->Members_Model->get_member_by_id($edit_id);
