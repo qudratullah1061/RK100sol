@@ -319,7 +319,7 @@ class Guests extends Admin_Controller {
                 $result['email'],
                 $status,
                 $result['updated_on'],
-                '<a class="btn btn-xs default btn-editable" href="' . (base_url('admin/guests/get_guest_profile/' . $result['member_id'])) . '">Edit</a> <a href="javascript:CommonFunctions.Delete(' . $result['member_id'] . ', \'tb_members\' , \'member_id\' , \'Guest Member and all data associated with this member will be permanently deleted without further warning. Do you really want to delete this member?\')" class="btn btn-xs default btn-editable">Delete</a>'
+                '<a class="btn btn-xs default btn-editable" href="' . (base_url('admin/guests/get_guest_profile/' . $result['member_id'])) . '">View</a> <a href="javascript:CommonFunctions.Delete(' . $result['member_id'] . ', \'tb_members\' , \'member_id\' , \'Guest Member and all data associated with this member will be permanently deleted without further warning. Do you really want to delete this member?\')" class="btn btn-xs default btn-editable">Delete</a>'
                 );
             }
         }
