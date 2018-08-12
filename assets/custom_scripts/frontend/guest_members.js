@@ -180,6 +180,33 @@ var GuestMembers = function () {
         });
 
     };
+    
+    var handlePromoCodeValidation = function () {
+        alert();
+        $('input[name="promo_code"]').focusout(function () {
+            alert();
+            var promoCode = $('input[name="promo_code"]').val();
+            if (promoCode != "") {
+                $.ajax({
+                    type: "POST",
+                    url: base_url + "misc/validate_promo_code",
+                    datatype: 'json',
+                    data: {code: promoCode, userType: 1},
+                    success: function (data) {
+                        if (data.error == 1) {
+                            $('#promoError').text(data.description);
+                            $('#promoError').show();
+                        } else {
+                            $('#promoError').hide();
+                        }
+                    }
+                });
+            } else {
+                $('#promoError').hide();
+            }
+        });
+    };
+    
     return {
         initAddUpdateGuestValidation: function (formId) {
             if ($(".dateofbirht").val() != "") {
@@ -210,6 +237,7 @@ var GuestMembers = function () {
                 width: 'auto',
                 theme: "bootstrap"
             });
+            handlePromoCodeValidation();
             handleValidationAddUpdateGuestMember(formId);
         }
     };
