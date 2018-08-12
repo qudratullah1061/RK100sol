@@ -24,7 +24,7 @@
                                     <div>
                                         <div class="form-group form-md-line-input">
                                             <label class="control-label col-md-12"> Profile Image <span
-                                                        class="required">*</span></label>
+                                                    class="required">*</span></label>
                                             <div class="col-md-12">
                                                 <div class="frame profile-image">
                                                     <input type="file" id="profile_images" required="required"
@@ -61,7 +61,7 @@
                                         <div class="portlet light ">
                                             <div class="portlet-body">
                                                 <div class="portlet-body form">
-                                                    <!--<input type="hidden" name="file_upload_unique_id" value="<?php // echo $unique_id;                                       ?>">-->
+                                                    <!--<input type="hidden" name="file_upload_unique_id" value="<?php // echo $unique_id;                                          ?>">-->
                                                     <!--<h3 class="block ">Guest Details</h3>-->
                                                     <div class="form-body">
                                                         <div class="row">
@@ -99,8 +99,8 @@
                                                                     <input type="text" class="form-control"
                                                                            placeholder="" name="first_name">
                                                                     <label>First Name <span
-                                                                                class="required">*</span></label>
-                                                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                                                            class="required">*</span></label>
+                                                                <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -108,8 +108,8 @@
                                                                     <input type="text" class="form-control"
                                                                            placeholder="" name="last_name">
                                                                     <label>Last Name<span
-                                                                                class="required">*</span></label>
-                                                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                                                            class="required">*</span></label>
+                                                                <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -117,8 +117,8 @@
                                                                     <input type="text" class="form-control"
                                                                            placeholder="" name="username">
                                                                     <label>Username<span
-                                                                                class="required">*</span></label>
-                                                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                                                            class="required">*</span></label>
+                                                                <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -134,8 +134,8 @@
                                                                     <input type="password" class="form-control"
                                                                            id="password" placeholder="" name="password">
                                                                     <label>Password<span
-                                                                                class="required">*</span></label>
-                                                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                                                            class="required">*</span></label>
+                                                                <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -144,8 +144,8 @@
                                                                            id="confirm_password"
                                                                            name="confirm_password">
                                                                     <label>Confirm Password<span
-                                                                                class="required">*</span></label>
-                                                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                                                            class="required">*</span></label>
+                                                                <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
 
@@ -160,8 +160,8 @@
                                                                     <input type="text" class="form-control"
                                                                            placeholder="" name="phone_number">
                                                                     <label>Phone Number<span
-                                                                                class="required">*</span></label>
-                                                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                                                            class="required">*</span></label>
+                                                                <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -181,7 +181,7 @@
                                                                     <input type="text" name="location" id="location"
                                                                            placeholder="" class="location form-control">
                                                                     <label>Location <span
-                                                                                class="required">*</span></label>
+                                                                            class="required">*</span></label>
                                                                 </div>
                                                             </div>
 
@@ -190,8 +190,8 @@
                                                                     <input type="text" class="form-control"
                                                                            placeholder="" name="address">
                                                                     <label>Address<span
-                                                                                class="required">*</span></label>
-                                                                    <!--<span class="help-block">Some help goes here...</span>-->
+                                                                            class="required">*</span></label>
+                                                                <!--<span class="help-block">Some help goes here...</span>-->
                                                                 </div>
                                                             </div>
 
@@ -276,8 +276,8 @@
                                                                     <span></span>
                                                                     <span class="check"></span>
                                                                     <span class="box"></span> I agree with the <a
-                                                                            class="blue"
-                                                                            href="<?php echo base_url('terms'); ?>">terms
+                                                                        class="blue"
+                                                                        href="<?php echo base_url('terms'); ?>">terms
                                                                         and conditions</a> for Registration</label>
                                                             </div>
                                                         </div>
@@ -307,23 +307,6 @@
 <script>
     $(document).ready(function () {
         GuestMembers.initAddUpdateGuestValidation("add_guest_member");
-        $('input[name="promo_code"]').focusout(function () {
-            var promoCode = $('input[name="promo_code"]').val();
-            $.ajax({
-                type: "POST",
-                url: base_url + "misc/validate_promo_code",
-                datatype: 'json',
-                data: {code: promoCode, userType: 1},
-                success: function (data) {
-                    if (data.error == 1) {
-                        $('#promoError').text(data.description);
-                        $('#promoError').show();
-                    }else{
-                        $('#promoError').hide();
-                    }
-                }
-            })
-        });
         $("#location").geocomplete();
     });
 </script>
