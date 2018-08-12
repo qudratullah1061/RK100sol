@@ -53,7 +53,7 @@
                                 </td>
                                 <td>
                                     <select name="status" class="form-control form-filter input-sm">
-                                        <option value="">Status</option>
+                                        <option value="">All</option>
                                         <option value="active">Active</option>
                                         <option value="pending">Pending</option>
                                         <option value="suspended">Suspended</option>
