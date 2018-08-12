@@ -1717,7 +1717,7 @@ header.sticky nav.header-light .logo .logo-dark {
 }
 .alert button.close {
     text-indent: 1px;
-    position: absolute;
+    /*position: absolute;*/
     right: 30px;
     font-size: 28px;
     cursor: pointer;
