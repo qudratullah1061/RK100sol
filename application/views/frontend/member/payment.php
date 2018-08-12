@@ -39,12 +39,22 @@
     </div>
 </section>
 <script>
-
+    var price;
+    var currency;
+    var initPaypalChk = false;
     $(".payment_options").change(function () {
-        var price = $(this).val();
-        var currency = $(this).find(':selected').data('currency');
+        price = $(this).val();
+        currency = $(this).find(':selected').data('currency');
+        if (!initPaypalChk) {
+            initPaypal();
+            initPaypalChk = true;
+        }
 //        console.log(price);
 //        console.log(currency);
+
+    });
+
+    function initPaypal() {
         paypal.Button.render({
             env: 'production', // sandbox | production
 
@@ -92,5 +102,6 @@
             }
 
         }, '#paypal-button-container');
-    });
+    }
+
 </script>
