@@ -134,6 +134,7 @@ class Profile extends CI_Controller
 
                     // update unique id
                     $unique_id_update_data['member_unique_code'] = "G-" . date("Ymd") . $edit_id;
+                    $data['email_verification_code'] = md5(time());
                     $this->Members_Model->update_member($edit_id, $unique_id_update_data);
                     $result = true;
                 }
@@ -141,7 +142,6 @@ class Profile extends CI_Controller
                 // profile image and id proof upload
                 $this->upload_images_member($edit_id);
                 if($action == 'added' && $do_payment == false){
-                    $data['email_verification_code'] = md5(time());
                     $member_email = $data['email'];
                     $member_email_v_code = $data['email_verification_code'];
                     $macros_data['$$$FIRST_NAME$$$'] = $data['first_name'];
@@ -292,10 +292,10 @@ class Profile extends CI_Controller
 
                     // update unique id
                     $unique_id_update_data['member_unique_code'] = "C-" . date("Ymd") . $edit_id;
+                    $data['email_verification_code'] = md5(time());
                     $this->Members_Model->update_member($edit_id, $unique_id_update_data);
 
                     $member_info = $this->Members_Model->get_member_by_id($edit_id);
-                    $data['email_verification_code'] = md5(time());
                     $member_email = $member_info['email'];
                     $member_email_v_code = $data['email_verification_code'];
                     $macros_data['$$$FIRST_NAME$$$'] = $data['first_name'];
