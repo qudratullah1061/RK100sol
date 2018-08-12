@@ -74,8 +74,8 @@ class Companions extends Admin_Controller {
             }
         }
         // front end user call.
-        if (!$member_id_param && $member_type=="companion") {
-            redirect(base_url('admin/companions/get_companion_profile/' . $member_id."#tab_1_3"));
+        if (!$member_id_param && $member_type == "companion") {
+            redirect(base_url('admin/companions/get_companion_profile/' . $member_id . "#tab_1_3"));
         }
     }
 
@@ -324,13 +324,19 @@ class Companions extends Admin_Controller {
         $count = $companion_members['total'];
         if ($count > 0) {
             foreach ($companion_members['records'] as $result) {
+                $status = '<span class="label label-sm label-warning">' . ucfirst($result['status']) . '</span>';
+                if ($result['status'] == 'active') {
+                    $status = '<span class="label label-sm label-success">' . ucfirst($result['status']) . '</span>';
+                } elseif ($result['status'] == 'suspended') {
+                    $status = '<span class="label label-sm label-danger">' . ucfirst($result['status']) . '</span>';
+                }
                 $records["data"][] = array(
                     '<img alt="Profile Image" class="img-circle" src="' . base_url($result['image_path'] . 'small_' . $result['image']) . '">',
                     $result['username'],
                     $result['first_name'],
                     $result['last_name'],
                     $result['email'],
-                    $result['status'],
+                    $status,
                     $result['updated_on'],
                     '<a class="btn btn-xs default btn-editable" href="' . (base_url('admin/companions/get_companion_profile/' . $result['member_id'])) . '">Edit</a> <a href="javascript:CommonFunctions.Delete(' . $result['member_id'] . ', \'tb_members\' , \'member_id\' , \'Companion Member and all data associated with this member will be permanently deleted without further warning. Do you really want to delete this member?\')" class="btn btn-xs default btn-editable">Delete</a> '
                 );
@@ -652,7 +658,7 @@ class Companions extends Admin_Controller {
             redirect(base_url('admin/companions/get_companion_profile'));
         }
     }
-    
+
     function SaveRates() {
         $this->isAjax();
         if ($this->input->post()) {

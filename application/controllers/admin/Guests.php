@@ -113,13 +113,13 @@ class Guests extends Admin_Controller {
                     $data['pinterest'] = $this->input->post('pinterest');
                     $data['skype'] = $this->input->post('skype');
                 }
-                
+
                 // check promo code is valid and entered.
                 $promo_code = $this->input->post('promo_code');
                 $promo_code_info = false;
                 if ($promo_code != "") {
                     // validate promo code.
-                    $promo_code_info = validatePromoCode($promo_code,1);
+                    $promo_code_info = validatePromoCode($promo_code, 1);
                 }
                 // end here.
 
@@ -149,9 +149,9 @@ class Guests extends Admin_Controller {
                     $this->Members_Model->update_member($edit_id, $unique_id_update_data);
                     $result = true;
                 }
-                
+
                 $this->upload_images_member($edit_id);
-                
+
                 // upload id proof images , add call
 //                if (isset($_FILES['id_proofs']['name']) && $_FILES['id_proofs']['name'] != "" && $edit_id > 0) {
 //                    $id_proofs = reArrayFiles($_FILES['id_proofs']);
@@ -205,7 +205,7 @@ class Guests extends Admin_Controller {
             redirect(base_url('admin/admin_auth'));
         }
     }
-    
+
     public function upload_images_member($member_id_param = "") {
         // profile image upload
         $member_id = $this->input->post('member_id') ? $this->input->post('member_id') : $member_id_param;
@@ -243,8 +243,8 @@ class Guests extends Admin_Controller {
                 }
             }
         }
-        if (!$member_id_param && $member_type=="guest") {
-            redirect(base_url('admin/guests/get_guest_profile/' . $member_id."#tab_1_3"));
+        if (!$member_id_param && $member_type == "guest") {
+            redirect(base_url('admin/guests/get_guest_profile/' . $member_id . "#tab_1_3"));
         }
     }
 
@@ -305,15 +305,21 @@ class Guests extends Admin_Controller {
         $count = $guest_members['total'];
         if ($count > 0) {
             foreach ($guest_members['records'] as $result) {
+                $status = '<span class="label label-sm label-warning">' . ucfirst($result['status']) . '</span>';
+                if ($result['status'] == 'active') {
+                    $status = '<span class="label label-sm label-success">' . ucfirst($result['status']) . '</span>';
+                } elseif ($result['status'] == 'suspended') {
+                    $status = '<span class="label label-sm label-danger">' . ucfirst($result['status']) . '</span>';
+                }
                 $records["data"][] = array(
-                    '<img alt="Profile Image" class="img-circle" src="' . base_url($result['image_path'] . 'small_' . $result['image']) . '">',
-                    $result['username'],
-                    $result['first_name'],
-                    $result['last_name'],
-                    $result['email'],
-                    $result['status'],
-                    $result['updated_on'],
-                    '<a class="btn btn-xs default btn-editable" href="' . (base_url('admin/guests/get_guest_profile/' . $result['member_id'])) . '">Edit</a> <a href="javascript:CommonFunctions.Delete(' . $result['member_id'] . ', \'tb_members\' , \'member_id\' , \'Guest Member and all data associated with this member will be permanently deleted without further warning. Do you really want to delete this member?\')" class="btn btn-xs default btn-editable">Delete</a>'
+                '<img alt="Profile Image" class="img-circle" src="' . base_url($result['image_path'] . 'small_' . $result['image']) . '">',
+                $result['username'],
+                $result['first_name'],
+                $result['last_name'],
+                $result['email'],
+                $status,
+                $result['updated_on'],
+                '<a class="btn btn-xs default btn-editable" href="' . (base_url('admin/guests/get_guest_profile/' . $result['member_id'])) . '">Edit</a> <a href="javascript:CommonFunctions.Delete(' . $result['member_id'] . ', \'tb_members\' , \'member_id\' , \'Guest Member and all data associated with this member will be permanently deleted without further warning. Do you really want to delete this member?\')" class="btn btn-xs default btn-editable">Delete</a>'
                 );
             }
         }
