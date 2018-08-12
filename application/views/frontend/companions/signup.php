@@ -369,36 +369,12 @@
         </div>
     </div>
 </section>
-<script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"
-        type="text/javascript"></script>
-<script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js"
-        type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.kickstart.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
 <script>
     $(function () {
-        $('input[name="promo_code"]').focusout(function () {
-            var promoCode = $('input[name="promo_code"]').val();
-            $.ajax({
-                type: "POST",
-                url: base_url + "misc/validate_promo_code",
-                datatype: 'json',
-                data: {code: promoCode, userType: 1},
-                success: function (data) {
-                    if (data.error == 1) {
-                        $('#promoError').text(data.description);
-                        $('#promoError').show();
-                    } else {
-                        $('#promoError').hide();
-                    }
-                }
-            })
-        });
-        $("#location").geocomplete(
-//                                                            {
-//                                                        details: ".geo-details",
-//                                                        detailsAttribute: "data-geo"
-//                                                    }
-        );
+        $("#location").geocomplete();
     });
 </script>
