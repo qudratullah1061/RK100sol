@@ -199,15 +199,15 @@ class Members_model extends Abstract_model
             // check is email verified by member. Otherwise show message to user to verify email first before login.
             if ($this->member_info[0]['subscription_date'] == "0000-00-00 00:00:00") {
                 if ($this->member_info[0]['member_type'] == 1) {
-                    redirect(base_url('member/payment/' . $this->member_info[0]['member_id'] . "/1"));
+                    redirect(base_url('profile/payment/' . $this->member_info[0]['member_id'] . "/1"));
                 } elseif ($this->member_info[0]['member_type'] == 2) {
                     return array('error' => 1, 'member_info' => $this->member_info[0], 'error_message' => "Your subscription date is not valid. Please contact with admin regarding this issue. Thanks.");
                 }
             } elseif (strtotime($this->member_info[0]['end_subscription_date']) <= time()) {
                 if ($this->member_info[0]['member_type'] == 1) {
-                    redirect(base_url('member/payment/' . $this->member_info[0]['member_id'] . "/2"));
+                    redirect(base_url('profile/payment/' . $this->member_info[0]['member_id'] . "/2"));
                 } elseif ($this->member_info[0]['member_type'] == 2) {
-                    $url = '<b></a><a href="' . base_url('member/payment/' . $this->member_info[0]['member_id'] . '/2') . '"> click here</a></b>';
+                    $url = '<b></a><a href="' . base_url('profile/payment/' . $this->member_info[0]['member_id'] . '/2') . '"> click here</a></b>';
                     return array('error' => 1, 'member_info' => $this->member_info[0], 'error_message' => "Your subscription has been expired. Please " . $url . " to renew your subscription to use konsorts.com or contact at admin@konsorts.com.");
                 }
             } elseif ($this->member_info[0]['is_email_verified'] == 0) {
