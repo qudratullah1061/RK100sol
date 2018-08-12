@@ -114,14 +114,14 @@ class Profile extends CI_Controller
                     $result = true;
                 } else {
                     $insert_promo_record = false;
-                    $do_payment = false;
+                    $do_payment = true;
                     if ($promo_code_info && $promo_code_info['promo_type'] == "sub") {
                         $data['subscription_date'] = date("Y-m-d H:i:s");
                         $data['end_subscription_date'] = date('Y-m-d', strtotime(date("Y-m-d H:i:s") . ' +' . $promo_code_info['value'] . ' days'));
                         $insert_promo_record = true;
+                        $do_payment = false;
                     } elseif ($promo_code_info && $promo_code_info['promo_type'] == 'discount') {
                         $insert_promo_record = true;
-                        $do_payment = true;
                     }
                     $data['member_type'] = 1;
                     $data['email_verification_code'] = md5(time());
