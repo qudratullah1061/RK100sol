@@ -494,6 +494,19 @@ class Misc extends CI_Controller
         $this->_response(false, "");
     }
 
+    function updateOnlineStatus()
+    {
+        $this->isAjax();
+        $userId = $this->input->post('userId');
+        $is_online = $this->input->post('is_online');
+        $result = $this->Misc_Model->update_is_online('member_id', $userId, array('is_online' => $is_online));
+        // if image table delete file from folder as well.
+        if (!$result) {
+            $this->_response(true, "Unable to update status.");
+        }
+        $this->_response(false, "Status updated!");
+    }
+
     // remove it later.
     function sendTestMail()
     {

@@ -1,19 +1,28 @@
-<link href="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/css/cubeportfolio.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/css/cubeportfolio.css" rel="stylesheet"
+      type="text/css"/>
 <section class="profle">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-4">
                 <div class="profile-left wow fadeInUp">
                     <div class="profile-personal">
-                        <span class="status <?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"><!-- + Note: remove class online if user is offline + -->
-                            <?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
+                        <a href="javascript:;" onclick="CommonFunctions.changeMode(this)"
+                           data-mode="<?php echo $member_info['is_online'] ?>"
+                           data-member-id="<?php echo $member_info['member_id']; ?>">
+                            <span id="changeMode"
+                                  class="status <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"><!-- + Note: remove class online if user is offline + -->
+                                <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
                         </span>
+                        </a>
                         <div class="profile-media">
-                            <img src="<?php echo $member_info['image'] != '' ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>" alt="Profile Image">
+                            <img src="<?php echo $member_info['image'] != '' ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>"
+                                 alt="Profile Image">
                         </div>
                         <div class="profile-info">
-                            <p><?php echo CheckPermission($member_info['privacy_info'], 'first_name_privacy') ? $member_info['first_name'] : ""; ?> <?php echo CheckPermission($member_info['privacy_info'], 'last_name_privacy') ? (strlen($member_info['last_name']) > 0 ? $member_info['last_name'][0] : "") : ""; ?>.</p>
-                            <span> <i class="fa fa-map-marker"></i> <?php echo $member_info['country_name']; ?>, <?php echo $member_info['city_name']; ?> </span>
+                            <p><?php echo CheckPermission($member_info['privacy_info'], 'first_name_privacy') ? $member_info['first_name'] : ""; ?> <?php echo CheckPermission($member_info['privacy_info'], 'last_name_privacy') ? (strlen($member_info['last_name']) > 0 ? $member_info['last_name'][0] : "") : ""; ?>
+                                .</p>
+                            <span> <i class="fa fa-map-marker"></i> <?php echo $member_info['country_name']; ?>
+                                , <?php echo $member_info['city_name']; ?> </span>
                         </div>
                         <div class="profile-rating">
                             <span class="profile-points">0</span>
@@ -52,7 +61,8 @@
                             <?php } ?>
                             <li>
                                 <p>Availability: </p>
-                                <span class="<?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"> <i class="fa fa-check-circle"></i><?php echo ($member_info['is_online'] == 1 ? 'Available' : 'Un Available'); ?></span>
+                                <span class="<?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"> <i
+                                            class="fa fa-check-circle"></i><?php echo($member_info['is_online'] == 1 ? 'Available' : 'Un Available'); ?></span>
                             </li>
                             <li>
                                 <p>Travel Option:</p>
@@ -85,14 +95,38 @@
                     <div class="profile-social">
                         <h6>Social Media:</h6>
                         <ul>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? $member_info['facebook'] : "javascript:;"; ?>"><i class="fa fa-facebook-square"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? $member_info['youtube'] : "javascript:;"; ?>"><i class="fa fa-youtube-square"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? $member_info['linkedin'] : "javascript:;"; ?>"><i class="fa fa-linkedin-square"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? $member_info['google'] : "javascript:;"; ?>"><i class="fa fa-google-plus-square"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? $member_info['twitter'] : "javascript:;"; ?>"><i class="fa fa-twitter-square"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? $member_info['instagram'] : "javascript:;"; ?>"><i class="fa fa-instagram"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? $member_info['skype'] : "javascript:;"; ?>"><i class="fa fa-skype"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i class="fa fa-pinterest-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? $member_info['facebook'] : "javascript:;"; ?>"><i
+                                            class="fa fa-facebook-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? $member_info['youtube'] : "javascript:;"; ?>"><i
+                                            class="fa fa-youtube-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? $member_info['linkedin'] : "javascript:;"; ?>"><i
+                                            class="fa fa-linkedin-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? $member_info['google'] : "javascript:;"; ?>"><i
+                                            class="fa fa-google-plus-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? $member_info['twitter'] : "javascript:;"; ?>"><i
+                                            class="fa fa-twitter-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? $member_info['instagram'] : "javascript:;"; ?>"><i
+                                            class="fa fa-instagram"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? $member_info['skype'] : "javascript:;"; ?>"><i
+                                            class="fa fa-skype"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i
+                                            class="fa fa-pinterest-square"></i></a></li>
                         </ul>
                     </div>
 
@@ -103,11 +137,12 @@
                             foreach ($certifications as $value) {
                                 ?>
                                 <div class="certification-odd">
-                                    <a class="" href="javascript:Certifications.modal_show_certification(<?php echo $value['member_certification_id']; ?>)">
+                                    <a class=""
+                                       href="javascript:Certifications.modal_show_certification(<?php echo $value['member_certification_id']; ?>)">
                                         <p><?php echo $value['title']; ?></p>
-                                        <span><?php echo strlen($value['issued_by']) > 30 ? substr($value['issued_by'], 0, 30) . "..." : $value['issued_by']; ?></span>                        
+                                        <span><?php echo strlen($value['issued_by']) > 30 ? substr($value['issued_by'], 0, 30) . "..." : $value['issued_by']; ?></span>
                                     </a>
-                                </div>    
+                                </div>
                                 <?php
                             }
                         } else {
@@ -127,7 +162,8 @@
                         <ul class="pagination-skills">
                             <li>
                                 <h6>My Skills</h6>
-                                <h6 style="float:right; cursor: pointer;" onclick="Certifications.modal_skill_detail(<?php echo $member_id; ?>)">Details</h6>
+                                <h6 style="float:right; cursor: pointer;"
+                                    onclick="Certifications.modal_skill_detail(<?php echo $member_id; ?>)">Details</h6>
                             </li>
                             <?php foreach ($selected_sub_categories as $sub_category) { ?>
                                 <li><?php echo $sub_category['sub_category_name']; ?></li>
@@ -163,13 +199,15 @@
 
                                                 <li class="grid-sizer"></li>
                                                 <!-- start portfolio item -->
-                                                <li class="grid-item wow zoomIn last-paragraph-no-margin" <?php echo ($count_sec == 0.0 ? '' : 'data-wow-delay="' . $count_sec . 's"'); ?>>
+                                                <li class="grid-item wow zoomIn last-paragraph-no-margin" <?php echo($count_sec == 0.0 ? '' : 'data-wow-delay="' . $count_sec . 's"'); ?>>
                                                     <figure>
                                                         <div class="portfolio-img bg-purple position-relative text-center overflow-hidden">
-                                                            <img src="<?php echo base_url($portfolio['portfolio_image_path'] . $portfolio['portfolio_image']); ?>" alt="Profile Image"/>
+                                                            <img src="<?php echo base_url($portfolio['portfolio_image_path'] . $portfolio['portfolio_image']); ?>"
+                                                                 alt="Profile Image"/>
                                                             <div class="portfolio-icon text-white text-left">
                                                                 <p><?php echo $portfolio['portfolio_title']; ?></p>
-                                                                <p><?php echo $portfolio['city_name']; ?>, <?php echo $portfolio['country_name']; ?></p>
+                                                                <p><?php echo $portfolio['city_name']; ?>
+                                                                    , <?php echo $portfolio['country_name']; ?></p>
                                                                 <span class="seperator bg-light-gray"></span>
                                                                 <h6><?php echo $portfolio['portfolio_type']; ?></h6>
                                                             </div>
@@ -192,7 +230,8 @@
                         ?>
                         <div class="profile-reviews profile-educatoin  wow fadeInUp">
                             <h5>Portfolio:</h5>
-                            <p data-wow-delay='0.02s' class='no-item'>No portfolio item added yet. Please go to settings and than add portfolio items in your profile.</p>
+                            <p data-wow-delay='0.02s' class='no-item'>No portfolio item added yet. Please go to settings
+                                and than add portfolio items in your profile.</p>
                         </div>
                         <?php
                     }
@@ -245,7 +284,9 @@
                                     <li>
                                         <p class="title"><?php echo $value['title']; ?></p>
                                         <p><?php echo $value['degree_name']; ?></p>
-                                        <p class="date"> <i class="fa fa-calendar"></i> <?php echo $value['start_date']; ?> - <?php echo $value['end_date']; ?></p>
+                                        <p class="date"><i
+                                                    class="fa fa-calendar"></i> <?php echo $value['start_date']; ?>
+                                            - <?php echo $value['end_date']; ?></p>
                                     </li>
                                     <?php
                                 }
@@ -267,7 +308,9 @@
                                     <li>
                                         <p class="title"><?php echo $value['title']; ?></p>
                                         <p><?php echo $value['position']; ?></p>
-                                        <p class="date"> <i class="fa fa-calendar"></i> <?php echo $value['start_date']; ?> - <?php echo $value['end_date']; ?></p>
+                                        <p class="date"><i
+                                                    class="fa fa-calendar"></i> <?php echo $value['start_date']; ?>
+                                            - <?php echo $value['end_date']; ?></p>
                                     </li>
                                     <?php
                                 }
@@ -285,64 +328,67 @@
         </div>
     </div>
 </section>
-<script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js" type="text/javascript"></script>
-<script src="<?php echo base_url('assets/custom_scripts/frontend/certification.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js"
+        type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom_scripts/frontend/certification.js'); ?>"
+        type="text/javascript"></script>
 <script>
-                            $(function () {
-                                $(".profile_reviews").rateYo({
-                                    rating: 0,
-                                    spacing: "3px",
-                                    starWidth: "15px",
-                                    readOnly: true,
-                                    multiColor: {
-                                        "startColor": "#942192", //RED
-                                        "endColor": "#942192"  //GREEN
-                                    }
-                                });
-                                hideShowSkills('e');
-                            });
+    $(function () {
+        $(".profile_reviews").rateYo({
+            rating: 0,
+            spacing: "3px",
+            starWidth: "15px",
+            readOnly: true,
+            multiColor: {
+                "startColor": "#942192", //RED
+                "endColor": "#942192"  //GREEN
+            }
+        });
+        hideShowSkills('e');
+    });
 
-                            var size_li = $(".pagination-skills li").size();
-                            if (size_li <= 6) {
-                                $(".prev").hide();
-                                $(".next").hide();
-                            }
-                            var showItems = 5;
-                            var current_counter = 5;
-                            function hideShowSkills(btnClick) {
+    var size_li = $(".pagination-skills li").size();
+    if (size_li <= 6) {
+        $(".prev").hide();
+        $(".next").hide();
+    }
+    var showItems = 5;
+    var current_counter = 5;
 
-                                if (btnClick == 'e') {
-                                    $('.pagination-skills li:lt(' + showItems + ')').show();
-                                    $('.pagination-skills li:gt(' + showItems + ')').hide();
-                                    $(".prev").hide();
-                                }
+    function hideShowSkills(btnClick) {
 
-                                if (btnClick == 'n') {
-                                    if (current_counter <= size_li) {
-                                        $('.pagination-skills li:lt(' + (current_counter + 6) + ')').show();
-                                        $('.pagination-skills li:lt(' + (current_counter + 1) + ')').hide();
-                                        current_counter += 5;
-                                    }
-                                    if (current_counter >= size_li) {
-                                        // hide next button.
-                                        $(".next").hide();
-                                    }
-                                    $(".prev").show();
+        if (btnClick == 'e') {
+            $('.pagination-skills li:lt(' + showItems + ')').show();
+            $('.pagination-skills li:gt(' + showItems + ')').hide();
+            $(".prev").hide();
+        }
+
+        if (btnClick == 'n') {
+            if (current_counter <= size_li) {
+                $('.pagination-skills li:lt(' + (current_counter + 6) + ')').show();
+                $('.pagination-skills li:lt(' + (current_counter + 1) + ')').hide();
+                current_counter += 5;
+            }
+            if (current_counter >= size_li) {
+                // hide next button.
+                $(".next").hide();
+            }
+            $(".prev").show();
 //                                    $('#myList li:lt(' + x + ')').show();
-                                }
-                                if (btnClick == 'p') {
-                                    if (current_counter > 0) {
-                                        $('.pagination-skills li:gt(' + (current_counter - 10) + ')').show();
-                                        $('.pagination-skills li:gt(' + (current_counter - 5) + ')').hide();
+        }
+        if (btnClick == 'p') {
+            if (current_counter > 0) {
+                $('.pagination-skills li:gt(' + (current_counter - 10) + ')').show();
+                $('.pagination-skills li:gt(' + (current_counter - 5) + ')').hide();
 //                                        $('.pagination-skills li:lt(' + (current_counter - 10) + ')').hide();
-                                        current_counter -= 5;
-                                    }
-                                    if (current_counter <= 5) {
-                                        // hide next button.
-                                        $(".prev").hide();
-                                    }
-                                    $(".next").show();
-                                }
-                                $('.pagination-skills li').first().show();
-                            }
+                current_counter -= 5;
+            }
+            if (current_counter <= 5) {
+                // hide next button.
+                $(".prev").hide();
+            }
+            $(".next").show();
+        }
+        $('.pagination-skills li').first().show();
+    }
 </script>

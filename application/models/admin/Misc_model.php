@@ -214,6 +214,12 @@ class Misc_model extends Abstract_model
         return $this->updateBy($column, $row_id, $data);
     }
 
+    public function update_is_online($column, $row_id, $data)
+    {
+        $this->table_name = "tb_members";
+        return $this->updateBy($column, $row_id, $data);
+    }
+
     function get_all_categories()
     {
         $this->table_name = "tb_categories";
