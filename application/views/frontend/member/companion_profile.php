@@ -80,6 +80,27 @@
                         </ul>
                         <div class="clearfix"></div>
                     </div>
+                    <div class="profile-misc">
+                        <h6>Subscription:</h6>
+                        <ul>
+                            <li>
+                                <p>Purchased On:</p>
+                                <span><?php echo date("d-M,Y", strtotime($member_info['subscription_date'])); ?></span>
+                            </li>
+                            <li>
+                                <p>Expires On:</p>
+                                <span><?php echo date("d-M,Y", strtotime($member_info['end_subscription_date'])); ?></span>
+                            </li>
+                            <li>
+                                <p>Plan:</p>
+                                <span><?php echo GetSubscriptionPlanName($member_info['current_plan_id'])?></span>
+                            </li>
+                            <li>
+                                <p></p>
+                                <span><a class="btn btn-default" href="<?php echo base_url('companions/get_companion_profile#tab_1_11') ?>">Renew</a></span>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="profile-language">
                         <h6>Language:</h6>
                         <?php

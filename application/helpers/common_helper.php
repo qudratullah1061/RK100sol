@@ -123,6 +123,25 @@ function IsPromoCodeAlreadyUsed($promo_code, $member_id)
     return false;
 }
 
+function IsPromoCodeApplied($member_id)
+{
+    // check promo code exist.
+    global $CI;
+    $promo_code_info = $CI->db->get_where('tb_promos_used_by_members', array('created_on' => date('Y-m-d'), "member_id" => $member_id))->result_array();
+    if (count($promo_code_info) > 0) {
+        return $promo_code_info;
+    }
+//    return false;
+}
+
+function GetSubscriptionPlanName($plan_id)
+{
+    // check promo code exist.
+    global $CI;
+    $plan_info = $CI->db->get_where('tb_member_plans', array("plan_id" => $plan_id))->row_array();
+    return ($plan_info['plan_name']) ? $plan_info['plan_name'] : 'Free Trail';
+}
+
 function getGeoCodes($address = "")
 {
     // Google HQ

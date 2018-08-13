@@ -301,7 +301,11 @@ var CommonFunctions = function () {
                             closeOnConfirm: true
                         },
                         function () {
-                            window.location.href = base_url;
+                            if (type == 3) {
+                                window.location.reload();
+                            } else {
+                                window.location.href = base_url;
+                            }
                         });
                 } else {
                     // exception message here.

@@ -117,6 +117,9 @@
                                         <li onclick="CommonFunctions.changeHash('#tab_1_10')">
                                             <a href="#tab_1_10" data-toggle="tab">Promos</a>
                                         </li>
+                                        <li onclick="CommonFunctions.changeHash('#tab_1_11')">
+                                            <a href="#tab_1_11" data-toggle="tab">Subscription</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="portlet-body">
@@ -918,6 +921,35 @@
                                             </div>
                                         </div>
                                         <!-- Promo code TAB ends here-->
+
+                                        <!-- Subscription TAB starts from here -->
+                                        <div class="tab-pane" id="tab_1_11">
+                                            <?php if (isset($error_msg) && trim($error_msg) != "") { ?>
+                                                <div class="alert alert-danger">
+                                                    <button type="button" class="close" data-dismiss="alert"
+                                                            aria-hidden="true">×
+                                                    </button>
+                                                    <span><?php echo $error_msg; ?></span>
+                                                </div>
+                                            <?php } ?>
+                                            <div class="form-group">
+                                                <input type="hidden" name="member_id" id="member_id"
+                                                       value="<?php echo $member_info['member_id']; ?>">
+                                                <label>Select Membership Plan<span class="required">*</span></label>
+                                                <select class="form-control payment_options" name="payment_amount">
+                                                    <option value="">Select Membership Plan</option>
+                                                    <?php
+                                                    foreach ($plans as $plan) {
+                                                        echo "<option data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="text-center">
+                                                <div id="paypal-button-container"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Subscription TAB ends here-->
                                     </div>
                                 </div>
                             </div>
@@ -952,6 +984,7 @@
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
 <script type="text/javascript"
         src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.js"></script>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
     $(document).ready(function () {
         FormWizard.handleCompanionValidation("update_companion_member");
@@ -964,4 +997,61 @@
         $("#certification_table").DataTable({"scrollX": false});
         $("#location").geocomplete();
     });
+    var price;
+    var currency;
+    var initPaypalChk = false;
+    $(".payment_options").change(function () {
+        price = $(this).val();
+        currency = $(this).find(':selected').data('currency');
+        if (!initPaypalChk) {
+            initPaypal();
+            initPaypalChk = true;
+        }
+    });
+
+    function initPaypal() {
+        paypal.Button.render({
+            env: 'production', // sandbox | production
+
+            // PayPal Client IDs - replace with your own
+            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+            client: {
+                sandbox: 'Adf_99ThxemIWJTyAN5YW3uJAUodR-tNgehq7BIKjTT631_LUZD8nl0DtJ5psvZ4S8GmQHDLZpnyaj2j',
+                production: 'ASrI31ib95JJ_anCBtLqLeG4ufIx_AUn1lfOZbEfBdkVkpEwnqcaB8FG5zGz__L_E2dqo__YZ8inB_xf'
+            },
+
+            // Show the buyer a 'Pay Now' button in the checkout flow
+            commit: true,
+            // payment() is called when the button is clicked
+            payment: function (data, actions) {
+                // Make a call to the REST api to create the payment
+                return actions.payment.create({
+                    payment: {
+                        transactions: [
+                            {
+                                amount: {total: price, currency: currency}
+                            }
+                        ]
+                    }
+                });
+            },
+            onCancel: function (data, actions) {
+                swal("Error!", "You have canceled the payment procedure, please pay your subscription charges in order to activate your account.", "warning");
+            },
+
+            onError: function (err) {
+                swal("Error!", "Please select membership plan to pay with paypal.", "warning");
+            },
+            // onAuthorize() is called when the buyer approves the payment
+            onAuthorize: function (data, actions) {
+
+                return actions.payment.get().then(function (data) {
+                    var member_id = $("#member_id").val();
+                    CommonFunctions.ExecutePayment(data, member_id, 3);
+                    // Make a call to the REST api to execute the payment
+                });
+            }
+
+        }, '#paypal-button-container');
+    }
 </script>
