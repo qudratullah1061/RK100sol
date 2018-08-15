@@ -249,6 +249,7 @@ var FormWizard = function () {
                     url: base_url + "misc/validate_promo_code",
                     datatype: 'json',
                     data: {code: promoCode, userType: 2},
+                    
                     success: function (data) {
                         if (data.error == 1) {
                             $('#promoError').text(data.description);
