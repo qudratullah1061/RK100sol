@@ -48,6 +48,8 @@ class Companions extends FrontEnd_Controller
                     $sub_cat_ids[] = $val['sub_category_id'];
                 }
             }
+            $data['type'] = get_user_type($member_id);
+            $data['plans'] = $this->Members_Model->getPlans($data['type']);
             $data['sub_category_rates'] = $this->Members_Model->get_sub_cat_rates($member_id, $sub_cat_ids);
             $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id);
             $data['language_data'] = $this->Members_Model->get_member_languages($member_id);

@@ -212,13 +212,15 @@ class Misc extends CI_Controller
         $plan_info = $this->Misc_Model->getMemberPlanByPrice(array('plan_price' => $payment_details['payment_amount'], 'plan_type' => get_user_type($member_id), 'is_active' => 1));
 
         if ($plan_info) {
+            $description = "Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com";
             //update member info. add days to subscription days.
             $macros_data['$$$FIRST_NAME$$$'] = $member_info['first_name'];
-            if ($get_type == 2) {
+            if ($get_type == 3) {
                 $update_data = array(
                     'current_plan_id' => $plan_info[0]['plan_id'],
                     'end_subscription_date' => date('Y-m-d H:i:s', strtotime($subscription_date . " +" . $plan_info[0]['plan_duration'])),
                 );
+                $description = "Payment processed successfully! You've successfully renewed your subscription, also the confirmation email is sent!";
                 $email_template_info = get_email_template('subscription_renew', $macros_data);
                 sendEmail($member_info['email'], $email_template_info['template_subject'], $email_template_info['template_body']);
             } else {
@@ -237,7 +239,7 @@ class Misc extends CI_Controller
         }
         echo json_encode(array(
             'error' => false,
-            'description' => 'Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com',
+            'description' => $description,
             'code' => ''
         ));
         exit;
@@ -492,6 +494,19 @@ class Misc extends CI_Controller
             $this->_response(true, "Invalid promo code.");
         }
         $this->_response(false, "");
+    }
+
+    function updateOnlineStatus()
+    {
+        $this->isAjax();
+        $userId = $this->input->post('userId');
+        $is_online = $this->input->post('is_online');
+        $result = $this->Misc_Model->update_is_online('member_id', $userId, array('is_online' => $is_online));
+        // if image table delete file from folder as well.
+        if (!$result) {
+            $this->_response(true, "Unable to update status.");
+        }
+        $this->_response(false, "Status updated!");
     }
 
     // remove it later.

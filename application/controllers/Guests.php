@@ -9,9 +9,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Guests extends FrontEnd_Controller {
+class Guests extends FrontEnd_Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
         if ($this->session->userdata('member_type') == 2) {
             redirect(base_url('companions/get_companion_profile'));
@@ -20,7 +22,8 @@ class Guests extends FrontEnd_Controller {
         $this->load->model('admin/members_model', 'Members_Model');
     }
 
-    public function get_guest_profile() {
+    public function get_guest_profile()
+    {
 //        if (!$user_id || ($user_id == 1 && $this->admin_info['admin_id'] != 1)) {
 //            redirect(base_url('admin/dashboard'));
 //        }
@@ -31,6 +34,8 @@ class Guests extends FrontEnd_Controller {
         if ($member_info) {
             $data['member_info'] = $member_info;
             $data['member_images'] = $member_info;
+            $data['type'] = get_user_type($member_id);
+            $data['plans'] = $this->Members_Model->getPlans($data['type']);
             $data['country_options'] = GetCountriesOption($member_info['country']);
             $data['state_options'] = GetStatesOption($member_info['country'], $member_info['state']);
             $data['city_options'] = GetCityOptions($member_info['state'], $member_info['city']);

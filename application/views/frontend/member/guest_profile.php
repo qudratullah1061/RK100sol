@@ -4,15 +4,23 @@
             <div class="col-md-3 col-sm-4">
                 <div class="profile-left wow fadeInUp">
                     <div class="profile-personal">
-                        <span class="status <?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"><!-- + Note: remove class online if user is offline + -->
-                            <?php echo ($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
+                        <a href="javascript:;" onclick="CommonFunctions.changeMode(this)"
+                           data-mode="<?php echo $member_info['is_online'] ?>"
+                           data-member-id="<?php echo $member_info['member_id']; ?>">
+                            <span id="changeMode"
+                                  class="status <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"><!-- + Note: remove class online if user is offline + -->
+                                <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
                         </span>
+                        </a>
                         <div class="profile-media">
-                            <img src="<?php echo $member_info['image'] != '' ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>" alt="Profile Image">
+                            <img src="<?php echo $member_info['image'] != '' ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>"
+                                 alt="Profile Image">
                         </div>
                         <div class="profile-info">
-                            <p><?php echo CheckPermission($member_info['privacy_info'], 'first_name_privacy') ? $member_info['first_name'] : ""; ?> <?php echo CheckPermission($member_info['privacy_info'], 'last_name_privacy') ? (strlen($member_info['last_name']) > 0 ? $member_info['last_name'][0] : "") : ""; ?>.</p>
-                            <span> <i class="fa fa-map-marker"></i> <?php echo $member_info['country_name']; ?>, <?php echo $member_info['city_name']; ?> </span>
+                            <p><?php echo CheckPermission($member_info['privacy_info'], 'first_name_privacy') ? $member_info['first_name'] : ""; ?> <?php echo CheckPermission($member_info['privacy_info'], 'last_name_privacy') ? (strlen($member_info['last_name']) > 0 ? $member_info['last_name'][0] : "") : ""; ?>
+                                .</p>
+                            <span> <i class="fa fa-map-marker"></i> <?php echo $member_info['country_name']; ?>
+                                , <?php echo $member_info['city_name']; ?> </span>
                         </div>
                         <div class="profile-rating">
                             <span class="profile-points">0</span>
@@ -62,17 +70,62 @@
                         }
                         ?>
                     </div>
+                    <div class="profile-misc">
+                        <h6>Subscription:</h6>
+                        <ul>
+                            <li>
+                                <p>Purchased On:</p>
+                                <span><?php echo date("d-M,Y", strtotime($member_info['subscription_date'])); ?></span>
+                            </li>
+                            <li>
+                                <p>Expires On:</p>
+                                <span><?php echo date("d-M,Y", strtotime($member_info['end_subscription_date'])); ?></span>
+                            </li>
+                            <li>
+                                <p>Plan:</p>
+                                <span><?php echo GetSubscriptionPlanName($member_info['current_plan_id'])?></span>
+                            </li>
+                            <li>
+                                <p></p>
+                                <span><a class="btn btn-default" href="<?php echo base_url('guests/get_guest_profile#tab_1_6') ?>">Renew</a></span>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="profile-social">
                         <h6>Social Media:</h6>
                         <ul>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? $member_info['facebook'] : "javascript:;"; ?>"><i class="fa fa-facebook-square"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? $member_info['youtube'] : "javascript:;"; ?>"><i class="fa fa-youtube-square"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? $member_info['linkedin'] : "javascript:;"; ?>"><i class="fa fa-linkedin-square"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? $member_info['google'] : "javascript:;"; ?>"><i class="fa fa-google-plus-square"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? $member_info['twitter'] : "javascript:;"; ?>"><i class="fa fa-twitter-square"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? $member_info['instagram'] : "javascript:;"; ?>"><i class="fa fa-instagram"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? $member_info['skype'] : "javascript:;"; ?>"><i class="fa fa-skype"></i></a></li>
-                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>"><a target="_blank" href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i class="fa fa-pinterest-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? $member_info['facebook'] : "javascript:;"; ?>"><i
+                                            class="fa fa-facebook-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? $member_info['youtube'] : "javascript:;"; ?>"><i
+                                            class="fa fa-youtube-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? $member_info['linkedin'] : "javascript:;"; ?>"><i
+                                            class="fa fa-linkedin-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? $member_info['google'] : "javascript:;"; ?>"><i
+                                            class="fa fa-google-plus-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? $member_info['twitter'] : "javascript:;"; ?>"><i
+                                            class="fa fa-twitter-square"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? $member_info['instagram'] : "javascript:;"; ?>"><i
+                                            class="fa fa-instagram"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? $member_info['skype'] : "javascript:;"; ?>"><i
+                                            class="fa fa-skype"></i></a></li>
+                            <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>">
+                                <a target="_blank"
+                                   href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i
+                                            class="fa fa-pinterest-square"></i></a></li>
                         </ul>
                     </div>
                 </div>
