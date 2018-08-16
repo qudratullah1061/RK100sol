@@ -240,35 +240,35 @@ var FormWizard = function () {
         });
     }
     
-    var handlePromoCodeValidation = function () {
-        $('input[name="promo_code"]').focusout(function () {
-            var promoCode = $('input[name="promo_code"]').val();
-            if (promoCode != "") {
-                $.ajax({
-                    type: "POST",
-                    url: base_url + "misc/validate_promo_code",
-                    datatype: 'json',
-                    data: {code: promoCode, userType: 2},
-                    
-                    success: function (data) {
-                        if (data.error == 1) {
-                            $('#promoError').text(data.description);
-                            $('#promoError').show();
-                        } else {
-                            $('#promoError').hide();
-                        }
-                    }
-                });
-            } else {
-                $('#promoError').hide();
-            }
-        });
-    };
+//    var handlePromoCodeValidation = function () {
+//        $('input[name="promo_code"]').focusout(function () {
+//            var promoCode = $('input[name="promo_code"]').val();
+//            if (promoCode != "") {
+//                $.ajax({
+//                    type: "POST",
+//                    url: base_url + "misc/validate_promo_code",
+//                    datatype: 'json',
+//                    data: {code: promoCode, userType: 2},
+//                    
+//                    success: function (data) {
+//                        if (data.error == 1) {
+//                            $('#promoError').text(data.description);
+//                            $('#promoError').show();
+//                        } else {
+//                            $('#promoError').hide();
+//                        }
+//                    }
+//                });
+//            } else {
+//                $('#promoError').hide();
+//            }
+//        });
+//    };
 
     return {
         //main function to initiate the module
         init: function () {
-            handlePromoCodeValidation();
+            //handlePromoCodeValidation();
             $("input[name='date_of_birth']").datepicker({changeMonth: true, changeYear: true, showButtonPanel: true, dateFormat: "yy-mm-dd"});
             if (!jQuery().bootstrapWizard) {
                 return;
