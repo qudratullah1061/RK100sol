@@ -127,11 +127,10 @@ function IsPromoCodeApplied($member_id)
 {
     // check promo code exist.
     global $CI;
-    $promo_code_info = $CI->db->get_where('tb_promos_used_by_members', array('created_on' => date('Y-m-d'), "member_id" => $member_id))->result_array();
+    $promo_code_info = $CI->db->where("member_id", $member_id)->like('created_on', date('Y-m-d'))->get('tb_promos_used_by_members')->result_array();
     if (count($promo_code_info) > 0) {
-        return $promo_code_info;
+        return $promo_code_info[0];
     }
-//    return false;
 }
 
 function GetSubscriptionPlanName($plan_id)
@@ -523,6 +522,13 @@ function delete_file_from_directory($file_path)
     if (file_exists($complete_path)) {
         unlink($complete_path);
     }
+}
+
+function expire($expiration_date)
+{
+    $date = strtotime($expiration_date);
+    $days_left = ceil(($date - time()) / (60 * 60 * 24));
+    return $days_left . ' days left';
 }
 
 function time_elapsed_string($datetime, $full = false)

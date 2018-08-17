@@ -15,6 +15,12 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 <span><?php echo $error_msg; ?></span>
                             </div>
+                        <?php }
+                        if (isset($discount_value) && $discount_value != "") { ?>
+                            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span>You've used discount promo code that is why you will save <?= number_format($discount_value,2) ." (".$plans[0]['plan_currency'].")"?> on subscription plans. </span>
+                            </div>
                         <?php } ?>
                         <div class="form-group">
                             <input type="hidden" name="member_id" id="member_id" value="<?php echo $member_id; ?>">
@@ -24,7 +30,11 @@
                                 <option value="">Select Membership Plan</option>
                                 <?php
                                 foreach ($plans as $plan) {
-                                    echo "<option data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
+                                    if (isset($discount_value) && $discount_value != '') {
+                                        echo "<option data-promo-used='1' data-currency='" . $plan['plan_currency'] . "' value='" . ($plan['plan_price'] - $discount_value) . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ") - You saved ".number_format($discount_value,2)." (" . $plan['plan_currency'] . ")" . "</option>";
+                                    } else {
+                                        echo "<option data-promo-used='0' data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
+                                    }
                                 }
                                 ?>
                             </select>
@@ -39,18 +49,16 @@
     </div>
 </section>
 <script>
-    var price;
-    var currency;
+    var price, currency, promo_used;
     var initPaypalChk = false;
     $(".payment_options").change(function () {
         price = $(this).val();
         currency = $(this).find(':selected').data('currency');
+        promo_used = $(this).find(':selected').data('promo-used');
         if (!initPaypalChk) {
             initPaypal();
             initPaypalChk = true;
         }
-//        console.log(price);
-//        console.log(currency);
 
     });
 
@@ -74,18 +82,22 @@
                     payment: {
                         transactions: [
                             {
-                                amount: {total: price, currency: currency}
+                                amount: {
+                                    total: price, currency: currency
+                                }
                             }
                         ]
                     }
                 });
             },
+
             onCancel: function (data, actions) {
                 swal("Error!", "You have canceled the payment procedure, please pay your subscription charges in order to activate your account.", "warning");
             },
 
             onError: function (err) {
                 swal("Error!", "Please select membership plan to pay with paypal.", "warning");
+                console.log(err);
             },
             // onAuthorize() is called when the buyer approves the payment
             onAuthorize: function (data, actions) {
@@ -93,7 +105,7 @@
                 return actions.payment.get().then(function (data) {
                     var member_id = $("#member_id").val();
                     var type = $("#get_type").val();
-                    CommonFunctions.ExecutePayment(data, member_id, type);
+                    CommonFunctions.ExecutePayment(data, member_id, type,promo_used);
                     // Make a call to the REST api to execute the payment
 //                    return actions.payment.execute().then(function (e) {
 //                        

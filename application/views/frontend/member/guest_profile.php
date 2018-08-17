@@ -82,6 +82,10 @@
                                 <span><?php echo date("d-M,Y", strtotime($member_info['end_subscription_date'])); ?></span>
                             </li>
                             <li>
+                                <p>Remaining Days:</p>
+                                <span><?php echo expire(date("Y-m-d", strtotime($member_info['end_subscription_date']))); ?></span>
+                            </li>
+                            <li>
                                 <p>Plan:</p>
                                 <span><?php echo GetSubscriptionPlanName($member_info['current_plan_id'])?></span>
                             </li>

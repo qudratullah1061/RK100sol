@@ -186,6 +186,7 @@ class Misc extends CI_Controller
         $data_received = $this->input->post('data');
         $member_id = $this->input->post('member_id');
         $get_type = $this->input->post('type');
+        $promo_used = $this->input->post('promo_used');
         // get member info
         $member_info = $this->Members_Model->get_member_by_id($member_id);
 
@@ -209,20 +210,24 @@ class Misc extends CI_Controller
         $record_id = $this->Misc_Model->saveRecord('tb_member_payment_details', $payment_details);
         // update member subscription dates
         // get plan number of days.
-        $plan_info = $this->Misc_Model->getMemberPlanByPrice(array('plan_price' => $payment_details['payment_amount'], 'plan_type' => get_user_type($member_id), 'is_active' => 1));
-
+        if ($promo_used == 1) {
+            $code = IsPromoCodeApplied($member_id);
+            if (isset($code)) {
+                $check = validatePromoCode($code['promo_code'], get_user_type($member_id));
+                if (isset($check) && $check['promo_type'] == 'discount') {
+                    $discount_value = $check['value'];
+                }
+            }
+        }
+        $plan_info = $this->Misc_Model->getMemberPlanByPrice(array('plan_price' => ($payment_details['payment_amount'] + $discount_value), 'plan_type' => get_user_type($member_id), 'is_active' => 1));
         if ($plan_info) {
-            $description = "Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com";
             //update member info. add days to subscription days.
             $macros_data['$$$FIRST_NAME$$$'] = $member_info['first_name'];
-            if ($get_type == 3) {
+            if ($get_type == 3 || $member_info['is_email_verified'] == 1) {
                 $update_data = array(
                     'current_plan_id' => $plan_info[0]['plan_id'],
                     'end_subscription_date' => date('Y-m-d H:i:s', strtotime($subscription_date . " +" . $plan_info[0]['plan_duration'])),
                 );
-                $description = "Payment processed successfully! You've successfully renewed your subscription, also the confirmation email is sent!";
-                $email_template_info = get_email_template('subscription_renew', $macros_data);
-                sendEmail($member_info['email'], $email_template_info['template_subject'], $email_template_info['template_body']);
             } else {
                 $update_data = array(
                     'email_verification_code' => md5(time()),
@@ -230,6 +235,14 @@ class Misc extends CI_Controller
                     'subscription_date' => date("Y-m-d H:i:s"),
                     'end_subscription_date' => date('Y-m-d H:i:s', strtotime($subscription_date . " +" . $plan_info[0]['plan_duration'])),
                 );
+            }
+
+            if ($member_info['is_email_verified'] == 1) {
+                $description = "Payment processed successfully! You've successfully renewed your subscription, also the confirmation email is sent!";
+                $email_template_info = get_email_template('subscription_renew', $macros_data);
+                sendEmail($member_info['email'], $email_template_info['template_subject'], $email_template_info['template_body']);
+            } elseif ($member_info['is_email_verified'] == 0) {
+                $description = "Payment processed successfully! Email sent to your account please verify email address to login to konsorts.com";
                 $macros_data['$$$CONFIRM_REGISTRATION$$$'] = base_url('misc/verify_email/' . $member_id . '/' . $update_data['email_verification_code']);
                 $email_template_info = get_email_template('member_signup', $macros_data);
                 sendEmail($member_info['email'], $email_template_info['template_subject'], $email_template_info['template_body']);
