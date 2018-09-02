@@ -160,7 +160,7 @@ class Misc_model extends Abstract_model
 
     function UpdateNotification($row_id, $table, $column)
     {
-        $data = array('is_read'=> 1);
+        $data = array('is_read' => 1);
         $this->table_name = $table;
         return $this->updateBy($column, $row_id, $data);
     }
@@ -205,6 +205,13 @@ class Misc_model extends Abstract_model
     {
         $this->table_name = 'tb_contact_form';
         $result = $this->getBy('contact_form_id', $contact_id);
+        return isset($result[0]) ? $result[0] : array();
+    }
+
+    public function check_if_request_sent($userID, $memberID)
+    {
+        $this->table_name = 'tb_member_connections';
+        $result = $this->getBy('user_id', $userID, 'connection_id', $memberID);
         return isset($result[0]) ? $result[0] : array();
     }
 

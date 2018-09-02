@@ -57,6 +57,32 @@ class Misc extends CI_Controller
         $this->_response(true, "Problem while deleting record.");
     }
 
+    function AcceptRequest()
+    {
+        $this->isAjax();
+        $unique_id = $this->input->post('unique_id');
+        $table = $this->input->post('table');
+        $column = $this->input->post('column');
+        $result = $this->db->where($column, $unique_id)->update($table, array('status' => 1, 'updated_at' => 'Y-m-d h:i:s'));
+        if ($result) {
+            $this->_response(false, "Connection accepted successfully!");
+        }
+        $this->_response(true, "Problem while accepting connection request.");
+    }
+
+    function RejectRequest()
+    {
+        $this->isAjax();
+        $unique_id = $this->input->post('unique_id');
+        $table = $this->input->post('table');
+        $column = $this->input->post('column');
+        $result = $this->db->where($column, $unique_id)->update($table, array('status' => 2, 'updated_at' => 'Y-m-d h:i:s'));
+        if ($result) {
+            $this->_response(false, "Connection rejected successfully!");
+        }
+        $this->_response(true, "Problem while rejecting connection request.");
+    }
+
     function DeleteChilds()
     {
         $this->isAjax();
@@ -520,6 +546,34 @@ class Misc extends CI_Controller
             $this->_response(true, "Unable to update status.");
         }
         $this->_response(false, "Status updated!");
+    }
+
+    function sendRequest()
+    {
+        $this->isAjax();
+        $userId = $this->input->post('userID');
+        $memberID = $this->input->post('memberID');
+        $check_if_sent = $this->Misc_Model->check_if_request_sent($userId, $memberID);
+        if (isset($check_if_sent) && count($check_if_sent) > 0) {
+            if ($check_if_sent->status == 0) {
+                $this->_response(false, "Connection request already sent!");
+            } elseif ($check_if_sent->status == 1) {
+                $this->_response(false, "You are already connected with this user!");
+            } elseif ($check_if_sent->status == 2) {
+                $this->_response(false, "Sorry, this user has rejected your request!");
+            }
+        } else {
+            $data['user_id'] = $userId;
+            $data['connection_id'] = $memberID;
+            $data['status'] = 0;
+            $data['created_at'] = date('Y-m-d h:i:s');
+            $result = $this->Misc_Model->saveRecord('tb_member_connections', $data);
+        }
+
+        if (!$result) {
+            $this->_response(true, "Unable to send connection request!");
+        }
+        $this->_response(false, "Connection request sent successfully!");
     }
 
     // remove it later.

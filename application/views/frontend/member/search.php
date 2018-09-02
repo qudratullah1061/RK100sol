@@ -1,8 +1,10 @@
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url(); ?>assets/global/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css"
+      rel="stylesheet" type="text/css"/>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- banner -->
-<section class="wow fadeIn no-padding home-banner  xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo base_url('assets/frontend/'); ?>img/home-banner.jpg');">
+<section class="wow fadeIn no-padding home-banner  xs-background-image-center" data-stellar-background-ratio="0.5"
+         style="background-image:url('<?php echo base_url('assets/frontend/'); ?>img/home-banner.jpg');">
     <!-- <div class="opacity-extra-medium bg-black"></div> -->
     <div class="container home-panner-height xs-padding-15px-lr">
         <div class="row height-100">
@@ -15,8 +17,10 @@
                                     Contract a Service Member
                                 </h4>
                                 <p class="open-sans text-white">Community of independent service providers.</p>
-                                <a href='<?php echo base_url('register'); ?>' class='btn btn-purple-white-border open-sans'> Hire Services </a>
-                                <a href='<?php echo base_url('register'); ?>' class='btn btn-purple-white-border open-sans'> Offer Services </a>
+                                <a href='<?php echo base_url('register'); ?>'
+                                   class='btn btn-purple-white-border open-sans'> Hire Services </a>
+                                <a href='<?php echo base_url('register'); ?>'
+                                   class='btn btn-purple-white-border open-sans'> Offer Services </a>
 
                             </div>
                         </div>
@@ -35,29 +39,39 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <label for="search">Search By: State, Zip/Postal Code, Country</label>
-                                <input type="text" name="location" id="location" class="placeholder-lightgray" placeholder="Example: Chittagong, 4000, Bangladesh" value="<?php echo isset($_GET['location']) ? $_GET['location'] : ""; ?>">
+                                <input type="text" name="location" id="location" class="placeholder-lightgray"
+                                       placeholder="Example: Chittagong, 4000, Bangladesh"
+                                       value="<?php echo isset($_GET['location']) ? $_GET['location'] : ""; ?>">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <label for="radius">Radius Range</label>
-                                <input type="text" name="radius" id="radius" class="placeholder-lightgray" placeholder="Enter Kilometers Radius E.G: 100" value="<?php echo isset($_GET['radius']) ? $_GET['radius'] : ""; ?>">
+                                <input type="text" name="radius" id="radius" class="placeholder-lightgray"
+                                       placeholder="Enter Kilometers Radius E.G: 100"
+                                       value="<?php echo isset($_GET['radius']) ? $_GET['radius'] : ""; ?>">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="form-group">
                                 <label for="radius">Available For:</label>
                                 <div class="portlet-body">
-                                    <select name="category_available[]" id="category_available" class="mt-multiselect btn btn-default" multiple="multiple" data-clickable-groups="true" data-collapse-groups="true" data-width="100%" data-action-onchange="true">
+                                    <select name="category_available[]" id="category_available"
+                                            class="mt-multiselect btn btn-default" multiple="multiple"
+                                            data-clickable-groups="true" data-collapse-groups="true" data-width="100%"
+                                            data-action-onchange="true">
                                         <!--<option value="">Available For:</option>-->
                                         <?php foreach ($categories_data as $catDataRow) { ?>
-                                            <optgroup label="<?php echo $catDataRow->category_name; ?>" <?php echo in_array($catDataRow->category_id, $selected_cat_ids) ? "selected='selected'" : ""; ?> class="<?php echo 'group-' . $catDataRow->category_id; ?>">
+                                            <optgroup
+                                                    label="<?php echo $catDataRow->category_name; ?>" <?php echo in_array($catDataRow->category_id, $selected_cat_ids) ? "selected='selected'" : ""; ?>
+                                                    class="<?php echo 'group-' . $catDataRow->category_id; ?>">
                                                 <?php
                                                 $sub_categories = getSubCategoriesByCategoryId($catDataRow->category_id);
                                                 if ($sub_categories && count($sub_categories) > 0) {
                                                     foreach ($sub_categories as $sub_cat) {
                                                         ?>
-                                                        <option <?php echo in_array($sub_cat['sub_category_id'], $selected_sub_cat_ids) ? "selected='selected'" : ""; ?> value="<?php echo $catDataRow->category_id; ?>:<?php echo $sub_cat['sub_category_id']; ?>"><?php echo $sub_cat['sub_category_name']; ?></option>
+                                                        <option <?php echo in_array($sub_cat['sub_category_id'], $selected_sub_cat_ids) ? "selected='selected'" : ""; ?>
+                                                                value="<?php echo $catDataRow->category_id; ?>:<?php echo $sub_cat['sub_category_id']; ?>"><?php echo $sub_cat['sub_category_name']; ?></option>
                                                         <?php
                                                     }
                                                 }
@@ -72,7 +86,8 @@
                     </div>
                 </div>
                 <div class="col-2 text-right">
-                    <button id="project-contact-us-button" type="submit" class="btn btn-deep-purple font-weight-600 width-100 margin-25px-top btn-with-seperater">
+                    <button id="project-contact-us-button" type="submit"
+                            class="btn btn-deep-purple font-weight-600 width-100 margin-25px-top btn-with-seperater">
                         <i class='fa fa-search'></i>
                         <span>SEARCH A MEMBER</span>
                     </button>
@@ -103,9 +118,14 @@
                                     <div class="content">
                                         <figure>
                                             <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                                <a href="#">
-                                                    <img src="<?php echo base_url($members_list_row['image_path']) . $members_list_row['image']; ?>" alt="Profile Image" />
-                                                </a>
+                                                <?php if ($this->session->userdata('member_type') == 1) { ?>
+                                                    <a href="<?php echo site_url('member/profile/' . base64_encode($members_list_row['member_id'])) ?>">
+                                                    <?php } else { ?>
+                                                    <a href="javascript:;">
+                                                        <?php } ?>
+                                                        <img src="<?php echo base_url($members_list_row['image_path']) . $members_list_row['image']; ?>"
+                                                             alt="Profile Image"/>
+                                                    </a>
                                             </div>
                                             <figcaption class="">
                                                 <div class="portfolio-hover-main text-center">
@@ -156,8 +176,10 @@
         </p>
     </div>
 </section>
-<script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js" type="text/javascript"></script>
-<script src="<?php echo base_url(); ?>assets/pages/scripts/components-bootstrap-multiselect.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/pages/scripts/components-bootstrap-multiselect.js"
+        type="text/javascript"></script>
 <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDVw_YgvMUxH6KawXzlwM9meU3HAUnbsLQ&libraries=places&language=en"></script>
 <script src="<?php echo base_url(); ?>assets/geocode/jquery.geocomplete.js" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/searchmember.js'); ?>" type="text/javascript"></script>

@@ -65,6 +65,17 @@ function GetAdminRolesPermissionWithId($UserId)
     return $CI->db->query($sql)->result_array();
 }
 
+function GetConnectionsForUser($UserId, $type)
+{
+    global $CI;
+    if ($type == 1) {
+        $sql = "SELECT tb_member_connections.*, tb_members.first_name,tb_members.last_name FROM `tb_member_connections` LEFT JOIN `tb_members` ON tb_members.member_id = tb_member_connections.connection_id WHERE tb_member_connections.user_id = $UserId ORDER BY tb_member_connections.status ASC LIMIT 5";
+    } else {
+        $sql = "SELECT tb_member_connections.*, tb_members.first_name,tb_members.last_name FROM `tb_member_connections` LEFT JOIN `tb_members` ON tb_members.member_id = tb_member_connections.user_id WHERE tb_member_connections.connection_id = $UserId ORDER BY tb_member_connections.status ASC LIMIT 5";
+    }
+    return $CI->db->query($sql)->result_array();
+}
+
 function isAdminHasAccess($class, $method = "")
 {
     $CI = &get_instance();
@@ -108,6 +119,16 @@ function validatePromoCode($promo_code, $userType)
         } elseif ($promo_subscription_discount == 1 && $end_date >= $current_date && $start_date <= $current_date && $is_active && $promo_valid_for == $userType) {
             return array("promo_type" => "discount", "value" => $promo_subscription_discount_value);
         }
+    }
+    return false;
+}
+
+function check_if_connected($userID, $memberID)
+{
+    global $CI;
+    $connection_detail = $CI->db->get_where('tb_member_connections', array('user_id' => $userID, 'connection_id' => $memberID))->result_array();
+    if (count($connection_detail) > 0) {
+        return $connection_detail[0];
     }
     return false;
 }
