@@ -28,7 +28,7 @@ class Member extends FrontEnd_Controller
                 $member_id = base64_decode($member_id);
             } elseif ($this->session->userdata('member_type') == 2) {
                 $member_id = base64_decode($member_id);
-                $data['connected'] = check_if_connected($this->session->userdata('member_id'), $member_id);
+                $data['connected'] = check_if_connected($member_id, $this->session->userdata('member_id'));
                 if ($data['connected']['status'] != 1) {
                     redirect(base_url());
                 }
@@ -52,7 +52,7 @@ class Member extends FrontEnd_Controller
                 $data['certifications'] = $this->Members_Model->get_member_certification($member_id, "AND `tb_member_certifications`.pub_status = 1 AND `tb_member_certifications`.approval_status = 'Approved'");
                 $this->load->view('frontend/member/companion_profile', $data);
             } elseif ($member_info['member_type'] == 1) {
-                $data['connected'] = check_if_connected($member_id, $this->session->userdata('member_id'));
+                $data['connected'] = check_if_connected($this->session->userdata('member_id'), $member_id);
                 $this->load->view('frontend/member/guest_profile', $data);
             }
         } else {
@@ -165,9 +165,9 @@ class Member extends FrontEnd_Controller
     function connections()
     {
         $memberID = $this->session->userdata('member_id');
-        if($this->session->userdata('member_type') == 1){
+        if ($this->session->userdata('member_type') == 1) {
             $sql = "SELECT tb_member_connections.*, tb_members.first_name,tb_members.last_name FROM  `tb_members` LEFT JOIN `tb_member_connections` ON tb_members.member_id = tb_member_connections.connection_id WHERE tb_member_connections.user_id = $memberID";
-        }else{
+        } else {
             $sql = "SELECT tb_member_connections.*, tb_members.first_name,tb_members.last_name FROM  `tb_members` LEFT JOIN `tb_member_connections` ON tb_members.member_id = tb_member_connections.user_id WHERE tb_member_connections.connection_id = $memberID";
         }
         $data['connections'] = $this->db->query($sql)->result_array();

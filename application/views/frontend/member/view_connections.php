@@ -41,6 +41,14 @@
                                                                     <a href="javascript:CommonFunctions.AcceptRequest('<?php echo $connection['id']; ?>', 'tb_member_connections', 'id', 'Are you sure you want to accept this connection request?')">Accept</a>
                                                                 </li>
                                                             <?php }
+                                                            if ($connection['status'] == 1) {
+                                                                $userId = ($this->session->userdata('member_type') == 1) ? $connection['connection_id'] : $connection['user_id'];
+                                                                ?>
+                                                                <li>
+                                                                    <a href="<?php echo site_url('member/profile/' . base64_encode($userId)) ?>"
+                                                                       target="_blank">View</a>
+                                                                </li>
+                                                            <?php }
                                                             if ($connection['status'] != 2) {
                                                                 ?>
                                                                 <li>
