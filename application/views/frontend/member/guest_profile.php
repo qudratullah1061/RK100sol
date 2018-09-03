@@ -33,6 +33,12 @@
                         <br>
                         <div class="text-center">
                             <a href="#" class="btn btn-deep-purple">Message</a>
+                            <?php
+                            if ($this->session->userdata('member_id') != $member_info['member_id'] && $connected['status'] == 1) {
+                                ?>
+                                <a href="javascript:;" class="btn btn-deep-pink btn-disable" id="connectionBtn">Connected</a>
+                                <?php
+                            } ?>
                         </div>
                     </div>
                     <div class="profile-misc">
@@ -87,11 +93,12 @@
                             </li>
                             <li>
                                 <p>Plan:</p>
-                                <span><?php echo GetSubscriptionPlanName($member_info['current_plan_id'])?></span>
+                                <span><?php echo GetSubscriptionPlanName($member_info['current_plan_id']) ?></span>
                             </li>
                             <li>
                                 <p></p>
-                                <span><a class="btn btn-default" href="<?php echo base_url('guests/get_guest_profile#tab_1_6') ?>">Renew</a></span>
+                                <span><a class="btn btn-default"
+                                         href="<?php echo base_url('guests/get_guest_profile#tab_1_6') ?>">Renew</a></span>
                             </li>
                         </ul>
                     </div>

@@ -157,6 +157,96 @@ var CommonFunctions = function () {
             });
     };
 
+    var AcceptRequest = function (unique_id, table, column, msg) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Warning! " + msg,
+                type: "warning",
+                closeOnConfirm: false,
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, Accept it!",
+            },
+            function () {
+                $.ajax({
+                    url: base_url + "misc/AcceptRequest/",
+                    dataType: 'json',
+                    method: 'post',
+                    cache: false,
+                    data: {unique_id: unique_id, table: table, column: column},
+                    beforeSend: function () {
+                        App.blockUI({target: 'body', animate: true});
+                    },
+                    complete: function () {
+                        App.unblockUI('body');
+                    },
+                    success: function (data) {
+                        if (!data.error) {
+                            swal({
+                                title: "Accepted",
+                                text: data.description,
+                                type: "success",
+                            }, function () {
+                                window.location.reload();
+                            });
+                        } else {
+                            // exception message here.
+                            swal("Error!", data.description, "error");
+                        }
+                    },
+                    error: function (xhr, desc, err) {
+                        toastr["error"](xhr.statusText, "Error.");
+                    }
+                });
+            });
+    };
+
+    var RejectRequest = function (unique_id, table, column, msg) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Warning! " + msg,
+                type: "warning",
+                closeOnConfirm: false,
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, Reject it!",
+            },
+            function () {
+                $.ajax({
+                    url: base_url + "misc/RejectRequest/",
+                    dataType: 'json',
+                    method: 'post',
+                    cache: false,
+                    data: {unique_id: unique_id, table: table, column: column},
+                    beforeSend: function () {
+                        App.blockUI({target: 'body', animate: true});
+                    },
+                    complete: function () {
+                        App.unblockUI('body');
+                    },
+                    success: function (data) {
+                        if (!data.error) {
+                            swal({
+                                title: "Rejected",
+                                text: data.description,
+                                type: "success",
+                            }, function () {
+                                window.location.reload();
+                            });
+                        } else {
+                            // exception message here.
+                            swal("Error!", data.description, "error");
+                        }
+                    },
+                    error: function (xhr, desc, err) {
+                        toastr["error"](xhr.statusText, "Error.");
+                    }
+                });
+            });
+    };
+
     var Delete_Childs = function (unique_id, table, column, msg) {
 
         swal({
@@ -276,7 +366,7 @@ var CommonFunctions = function () {
         });
     };
 
-    var UpdatePaymentInfoInDB = function (data, member_id, type,promo_used) {
+    var UpdatePaymentInfoInDB = function (data, member_id, type, promo_used) {
         $.ajax({
             url: base_url + "misc/UpdatePaymentInfoInDB/",
             dataType: 'json',
@@ -386,7 +476,43 @@ var CommonFunctions = function () {
         });
     };
 
+    var show_connect_request = function (member_id, user_id) {
+        App.blockUI({target: 'body', animate: true});
+        App.unblockUI('body');
+        $('#sendRequest').attr('data-memberID', member_id);
+        $('#sendRequest').attr('data-userID', user_id);
+        $("#static-modal-popup-connect").modal('show');
+    };
+
+    var send_request = function (obj) {
+        $.ajax({
+            url: base_url + "misc/sendRequest/",
+            dataType: 'json',
+            method: 'post',
+            cache: false,
+            data: {userID: $('#sendRequest').attr('data-userid'), memberID: $('#sendRequest').attr('data-memberid')},
+            success: function (data) {
+                if (!data.error) {
+                    toastr["success"](data.description, "Request Sent Successfully!");
+                    $('#connectionBtn').addClass('btn-disable');
+                    $('#static-modal-popup-connect').hide();
+                } else {
+                    toastr["error"](data.description, "Error.");
+                }
+            },
+            error: function (xhr, desc, err) {
+                toastr["error"](xhr.statusText, "Error.");
+            }
+        });
+    };
+
     return {
+        RejectRequest: function (unique_id, table, column, msg) {
+            RejectRequest(unique_id, table, column, msg);
+        },
+        AcceptRequest: function (unique_id, table, column, msg) {
+            AcceptRequest(unique_id, table, column, msg);
+        },
         Delete: function (unique_id, table, column, msg) {
             Delete(unique_id, table, column, msg);
         },
@@ -422,6 +548,12 @@ var CommonFunctions = function () {
         },
         changeMode: function (obj) {
             HandleOnlineStatus(obj);
+        },
+        modal_connect_request: function (member_id, user_id) {
+            show_connect_request(member_id, user_id);
+        },
+        send_request: function () {
+            send_request();
         }
     };
 
