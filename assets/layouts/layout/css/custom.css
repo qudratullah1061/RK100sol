@@ -119,3 +119,6 @@ div#certification_table_wrapper{
 .chat-form .btn-cont .arrow{
     border-right: 8px solid #808 !important;
 }
+.cursor-pointer{
+    cursor: pointer;
+}

@@ -16,8 +16,8 @@ var Templates = function () {
                     '<a href="" class="item-name primary-link">Nick Larson</a>' +
                     '<span class="item-label">3 hrs ago</span>' +
                     '</div>' +
-                    '<span class="item-status">' +
-                    '<span class="badge badge-empty badge-success"></span> Sent</span>' +
+                    '<span class="item-status cursor-pointer">' +
+                    '<span class="badge badge-empty badge-success"></span> Delete</span>' +
                     '</div>' +
                     '<div class="item-body">' + messages[key].message + '</div>' +
                     '</div>';
@@ -44,16 +44,15 @@ var Templates = function () {
         var users = current_chat_id.split('-');
         var user1 = users[0];
         var user2 = users[1];
-        //console.log(message_obj.sender_id);
-        message = '<div class="item">' +
+        message = '<div class="item item-'+message_obj.key+'">' +
                 '<div class="item-head">' +
                 '<div class="item-details">' +
                 '<img class="item-pic rounded" src="' + base_url + usersInfo[message_obj.sender_id].image_path + usersInfo[message_obj.sender_id].image + '">' +
                 '<a href="" class="item-name primary-link">' + usersInfo[message_obj.sender_id].first_name + ' ' + usersInfo[message_obj.sender_id].last_name + '</a>' +
                 '<span class="item-label">' + getLocalDateTime(message_obj.date_sent) + '</span>' +
                 '</div>' +
-                '<span class="item-status">' +
-                '<span class="badge badge-empty badge-success"></span> Sent</span>' +
+                '<span class="item-status cursor-pointer" onclick="Chat.deleteMessage(\''+message_obj.key+'\')">' +
+                '<span class="badge badge-empty badge-success"></span> Delete</span>' +
                 '</div>' +
                 '<div class="item-body">' + message_obj.message + '</div>' +
                 '</div>';
@@ -69,9 +68,8 @@ var Templates = function () {
         }
     };
 }();
-
-
 var conversationRef;
+
 var Chat = function () {
 
     var flattenObject = function (snapObjects) {
@@ -96,7 +94,7 @@ var Chat = function () {
             databaseURL: "https://konsorts-180810.firebaseio.com",
             projectId: "konsorts-180810",
             storageBucket: "konsorts-180810.appspot.com",
-            messagingSenderId: "209256789157"
+//            messagingSenderId: "209256789157"
         };
         firebase.initializeApp(config);
         conversationRef = firebase.database().ref('conversations');
@@ -112,10 +110,12 @@ var Chat = function () {
                     var chat_users = snapMessages.key.split("-");
                     $(".member-" + chat_users[1]).html("");
                     var messages = snapMessages.val();
+                    var is_unread = false;
                     for (var msg_key in messages) {
                         if (snapMessages.key != current_chat_id) {
                             if (messages[msg_key].is_read == 0) {
                                 $(".member-" + chat_users[1]).html(parseInt($(".member-" + chat_users[1]).html() != "" ? $(".member-" + chat_users[1]).html() : 0) + 1);
+                                is_unread = true;
                             }
                         } else {
                             // mark this messaage as read.
@@ -125,6 +125,9 @@ var Chat = function () {
                                 }
                             });
                         }
+                    }
+                    if (is_unread) {
+                        $(".mt-comment-" + snapMessages.key).prependTo($(".mt-comment-" + snapMessages.key).parent());
                     }
                 });
             }
@@ -136,10 +139,15 @@ var Chat = function () {
         // append template
         Templates._templateOneToOne(messages);
     };
+    
+    var deleteMessage = function(message_id){
+        conversationRef.child(current_chat_id).child(message_id).remove();
+    };
+    
     var getChatMessages = function (chat_id) {
         current_chat_id = chat_id;
         $(".general-item-list").html("");
-        conversationRef.child(chat_id).on('child_added', function (snapshot) {
+        conversationRef.child(chat_id).limitToLast(500).on('child_added', function (snapshot) {
             if (chat_id == current_chat_id) {
                 var obj = snapshot.val();
                 obj.key = snapshot.key;
@@ -154,6 +162,11 @@ var Chat = function () {
         conversationRef.child(chat_id).on('child_changed', function (snapshot) {
             console.log('update call nested');
         });
+        
+        conversationRef.child(chat_id).on('child_removed', function (snapshot) {
+            $(".item-"+snapshot.key).remove();
+        });
+        
         var container = $(".scroll-custom");
         container.slimScroll({
             scrollTo: container[0].scrollHeight
@@ -254,6 +267,9 @@ var Chat = function () {
         },
         sendChatMessage: function () {
             addMessage(current_chat_id);
+        },
+        deleteMessage: function(message_id){    
+            deleteMessage(message_id);
         }
     };
 }();
