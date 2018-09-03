@@ -107,7 +107,7 @@
     $(document).ready(function () {
         var goto = "<?= $_GET['id']?>";
         $('html, body').animate({
-            scrollTop: $('#' + goto).offset().top
+            scrollTop: $('#' + goto).offset().top - 100
         }, 2000);
 
         setTimeout(function () {

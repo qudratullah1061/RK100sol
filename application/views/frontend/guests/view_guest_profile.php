@@ -27,7 +27,7 @@
                     <div class="portlet light profile-sidebar-portlet ">
                         <!-- SIDEBAR USERPIC -->
                         <div class="profile-userpic">
-                            <img src="<?php echo base_url($member_info['image_path'] . '/medium_' . $member_info['image']); ?>"
+                            <img src="<?php echo file_exists(base_url($member_info['image_path'] . '/medium_' . $member_info['image'])) ? base_url($member_info['image_path'] . '/medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>"
                                  class="img-responsive" alt="Guest Member Image">
                         </div>
                         <!-- END SIDEBAR USERPIC -->

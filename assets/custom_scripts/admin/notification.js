@@ -112,7 +112,7 @@ var Notifications = function () {
         //alert(attr('name'));
 //alert( $('#'+whereTo+' a').offset().top );
         $('html, body').animate({
-            scrollTop: $('#' + notifID + ' a').offset().top
+            scrollTop: $('#' + notifID + ' a').offset().top - 100
         });
     };
 

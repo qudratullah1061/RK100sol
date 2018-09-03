@@ -3,8 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Profile extends CI_Controller
-{
+class Profile extends CI_Controller {
 
     public $selected_tab = '';
     private $error_msgs = array(
@@ -12,8 +11,7 @@ class Profile extends CI_Controller
         '2' => "Your subscription has been ended. Please renew your subscription before login to your account.",
     );
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->layout = 'frontend/main';
         $this->load->model('admin/members_model', 'Members_Model');
@@ -21,16 +19,14 @@ class Profile extends CI_Controller
 
     #region guests
 
-    function guest_signup()
-    {
+    function guest_signup() {
         $this->selected_tab = "guest_signup";
         $data['country_options'] = GetCountriesOption();
         $data['promo_code'] = GetPromoCodesByUserType(1);
         $this->load->view('frontend/guests/signup', $data);
     }
 
-    public function add_guest_user()
-    {
+    public function add_guest_user() {
         isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -140,7 +136,7 @@ class Profile extends CI_Controller
                 }
                 // upload id proof images , add call
                 // profile image and id proof upload
-                $this->upload_images_member($edit_id);
+                $this->upload_images_member($edit_id, ($is_update_call ? true : false));
                 if ($action == 'added' && $do_payment == false) {
                     $member_email = $data['email'];
                     $member_email_v_code = $data['email_verification_code'];
@@ -154,7 +150,11 @@ class Profile extends CI_Controller
                     }
                 }
                 if ($result) {
-                    $message = get_username($edit_id) . ' has ' . $action . ' personal info from their profile settings.';
+                    if ($is_update_call) {
+                        $message = get_username($edit_id) . ' guest user has successfully created his account in our system.';
+                    } else {
+                        $message = get_username($edit_id) . ' has ' . $action . ' personal info from their profile settings.';
+                    }
                     push_notification(array('member_id' => $edit_id, 'user_type' => 1, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
                     if ($do_payment == false) {
                         $this->_response(false, "Changes saved successfully!", 'skip');
@@ -171,8 +171,7 @@ class Profile extends CI_Controller
     #region guests ends.
     #region companions
 
-    public function companion_signup($plan_type)
-    {
+    public function companion_signup($plan_type) {
         $this->selected_tab = $plan_type;
         if ($plan_type == 'silver' || $plan_type == 'gold') {
             $data['country_options'] = GetCountriesOption();
@@ -185,18 +184,16 @@ class Profile extends CI_Controller
         }
     }
 
-    public function thankyou()
-    {
+    public function thankyou() {
         $data['registration_completed'] = true;
         $this->load->view('frontend/companions/thankyou', $data);
     }
 
-    public function add_companion_user()
-    {
+    public function add_companion_user() {
         isAjax();
         if ($this->input->post()) {
             $data = array();
-            $edit_id = $this->input->post('member_id') > 0 ? $this->input->post('member_id') : 0;
+            $update_bit = $edit_id = $this->input->post('member_id') > 0 ? $this->input->post('member_id') : 0;
             // redirect user if someone directly calls this method without login.
             if ($edit_id > 0 && !$this->session->userdata('member_id')) {
                 redirect(base_url('login'));
@@ -311,10 +308,9 @@ class Profile extends CI_Controller
                         }
                     }
                     $result = true;
-
                 }
                 // profile image upload
-                $this->upload_images_member($edit_id);
+                $this->upload_images_member($edit_id, ($update_bit ? true : false));
 
                 // add user categories.
                 $categories = $this->input->post('categories');
@@ -323,7 +319,11 @@ class Profile extends CI_Controller
                     $this->AddUpdateMemberCategories($categories, $edit_id);
                 }
                 if ($result) {
-                    $message = get_username($edit_id) . ' has ' . $action . ' personal info from their profile settings.';
+                    if ($update_bit) {
+                        $message = get_username($edit_id) . ' service member has successfully created his account in our system.';
+                    } else {
+                        $message = get_username($edit_id) . ' has ' . $action . ' personal info from their profile settings.';
+                    }
                     push_notification(array('member_id' => $edit_id, 'user_type' => 2, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
                     if ($do_payment == false) {
                         $this->_response(false, "Changes saved successfully!", 'skip');
@@ -337,16 +337,14 @@ class Profile extends CI_Controller
         }
     }
 
-    function AddUpdateMemberCategories($member_categories, $member_id)
-    {
+    function AddUpdateMemberCategories($member_categories, $member_id) {
         $this->Members_Model->AddUpdateMemberCategories($member_categories, $member_id);
     }
 
     #region companions
     #general functions for companions + guests start
 
-    public function upload_images()
-    {
+    public function upload_images() {
         $unique_id = $this->input->post('file_upload_unique_id');
         $image_type = $this->input->post('image_type');
         $result = upload_temp_image($_FILES, $unique_id, $image_type);
@@ -355,8 +353,7 @@ class Profile extends CI_Controller
         }
     }
 
-    function chk_member_username_exist($email, $exclude_id)
-    {
+    function chk_member_username_exist($email, $exclude_id) {
         $result = is_member_username_exist($email, $exclude_id);
         if ($result) {
             $this->form_validation->set_message('chk_member_username_exist', 'The %s already exist. Please choose other username!');
@@ -365,8 +362,7 @@ class Profile extends CI_Controller
         return true;
     }
 
-    function chk_member_email_exist($email, $exclude_id)
-    {
+    function chk_member_email_exist($email, $exclude_id) {
         $result = is_member_email_exist($email, $exclude_id);
         if ($result) {
             $this->form_validation->set_message('chk_member_email_exist', 'The %s already exist. Please choose other email!');
@@ -375,14 +371,12 @@ class Profile extends CI_Controller
         return true;
     }
 
-    function watermarkImage()
-    {
+    function watermarkImage() {
         watermarkImage($this->config->item('root_path') . 'assets/watermark_img/gallery2.jpg');
         exit;
     }
 
-    public function upload_images_member($member_id_param = "")
-    {
+    public function upload_images_member($member_id_param = "", $push_notification = true) {
         // profile image upload
         $member_id = $this->input->post('member_id') ? $this->input->post('member_id') : $member_id_param;
         $member_type = $this->input->post('member_type');
@@ -418,7 +412,7 @@ class Profile extends CI_Controller
                     $inserted = $this->db->insert('tb_member_images', $image_data);
                 }
             }
-            if (isset($inserted)) {
+            if (isset($inserted) && $push_notification) {
                 $message = get_username($member_id) . ' has uploaded new image.';
                 $mType = $member_type == 'guest' ? 1 : 2;
                 push_notification(array('member_id' => $member_id, 'user_type' => $mType, 'section_name' => 'images', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), 'added');
@@ -433,8 +427,7 @@ class Profile extends CI_Controller
         }
     }
 
-    public function _response($is_error = true, $description = '', $status = '')
-    {
+    public function _response($is_error = true, $description = '', $status = '') {
         $this->output->set_status_header(200);
         $this->output->set_content_type('application/json');
         $this->output->set_header('Content-type: application/json');
@@ -446,8 +439,7 @@ class Profile extends CI_Controller
         die();
     }
 
-    function payment($member_id, $msg_id = 0)
-    {
+    function payment($member_id, $msg_id = 0) {
         // check user exist in db
         if ($member_id) {
             $result = $this->Members_Model->get_member_by_id($member_id);
@@ -474,5 +466,6 @@ class Profile extends CI_Controller
             }
         }
     }
+
     #general functions for companions + guests ends.
 }

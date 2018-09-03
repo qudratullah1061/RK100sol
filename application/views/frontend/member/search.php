@@ -63,19 +63,19 @@
                                         <!--<option value="">Available For:</option>-->
                                         <?php foreach ($categories_data as $catDataRow) { ?>
                                             <optgroup
-                                                    label="<?php echo $catDataRow->category_name; ?>" <?php echo in_array($catDataRow->category_id, $selected_cat_ids) ? "selected='selected'" : ""; ?>
-                                                    class="<?php echo 'group-' . $catDataRow->category_id; ?>">
-                                                <?php
-                                                $sub_categories = getSubCategoriesByCategoryId($catDataRow->category_id);
-                                                if ($sub_categories && count($sub_categories) > 0) {
-                                                    foreach ($sub_categories as $sub_cat) {
-                                                        ?>
+                                                label="<?php echo $catDataRow->category_name; ?>" <?php echo in_array($catDataRow->category_id, $selected_cat_ids) ? "selected='selected'" : ""; ?>
+                                                class="<?php echo 'group-' . $catDataRow->category_id; ?>">
+                                                    <?php
+                                                    $sub_categories = getSubCategoriesByCategoryId($catDataRow->category_id);
+                                                    if ($sub_categories && count($sub_categories) > 0) {
+                                                        foreach ($sub_categories as $sub_cat) {
+                                                            ?>
                                                         <option <?php echo in_array($sub_cat['sub_category_id'], $selected_sub_cat_ids) ? "selected='selected'" : ""; ?>
-                                                                value="<?php echo $catDataRow->category_id; ?>:<?php echo $sub_cat['sub_category_id']; ?>"><?php echo $sub_cat['sub_category_name']; ?></option>
-                                                        <?php
+                                                            value="<?php echo $catDataRow->category_id; ?>:<?php echo $sub_cat['sub_category_id']; ?>"><?php echo $sub_cat['sub_category_name']; ?></option>
+                                                            <?php
+                                                        }
                                                     }
-                                                }
-                                                ?>
+                                                    ?>
                                             </optgroup>
                                         <?php }
                                         ?>
@@ -121,9 +121,9 @@
                                                 <?php if ($this->session->userdata('member_type') == 1) { ?>
                                                     <a href="<?php echo site_url('member/profile/' . base64_encode($members_list_row['member_id'])) ?>">
                                                     <?php } else { ?>
-                                                    <a href="javascript:;">
+                                                        <a href="javascript:;">
                                                         <?php } ?>
-                                                        <img src="<?php echo base_url($members_list_row['image_path']) . $members_list_row['image']; ?>"
+                                                        <img src="<?php echo file_exists(base_url($members_list_row['image_path']) . $members_list_row['image']) ? ($members_list_row['image_path'] . $members_list_row['image']) : base_url('uploads/member_images/profile/user.png'); ?>"
                                                              alt="Profile Image"/>
                                                     </a>
                                             </div>
@@ -177,9 +177,9 @@
     </div>
 </section>
 <script src="<?php echo base_url(); ?>assets/global/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/pages/scripts/components-bootstrap-multiselect.js"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDVw_YgvMUxH6KawXzlwM9meU3HAUnbsLQ&libraries=places&language=en"></script>
 <script src="<?php echo base_url(); ?>assets/geocode/jquery.geocomplete.js" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/searchmember.js'); ?>" type="text/javascript"></script>
