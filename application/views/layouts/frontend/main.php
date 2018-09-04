@@ -629,7 +629,7 @@
         </div>
         <div class="modal-body">
             <div class="portlet-body">
-                <p>Are you sure you want to send them connection request?</p>
+                <p>Are you sure you want to send connection request to this service member?</p>
             </div>
         </div>
         <div class="modal-footer">
