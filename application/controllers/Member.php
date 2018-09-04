@@ -9,11 +9,9 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Member extends FrontEnd_Controller
-{
+class Member extends FrontEnd_Controller {
 
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
         $this->layout = 'frontend/main';
         $this->load->model('admin/members_model', 'Members_Model');
@@ -21,15 +19,18 @@ class Member extends FrontEnd_Controller
         $this->load->library('pagination');
     }
 
-    function profile($member_id = '')
-    {
+    function profile($member_id = '') {
         if ($member_id != '') {
             if ($this->session->userdata('member_type') == 1) {
                 $member_id = base64_decode($member_id);
             } elseif ($this->session->userdata('member_type') == 2) {
                 $member_id = base64_decode($member_id);
                 $data['connected'] = check_if_connected($member_id, $this->session->userdata('member_id'));
-                if (isset($data['connected']['status']) && $data['connected']['status'] != 1) {
+                if (!$data['connected']) {
+                    redirect(base_url());
+                }
+                // it will directly generate warning in case of false return by function.
+                if ($data['connected']['status'] != 1) {
                     redirect(base_url());
                 }
             }
@@ -60,8 +61,7 @@ class Member extends FrontEnd_Controller
         }
     }
 
-    function modal_language()
-    {
+    function modal_language() {
         $this->isAjax();
         $language_id = $this->input->post('language_id');
         $language_data = $this->Members_Model->get_language($language_id);
@@ -71,8 +71,7 @@ class Member extends FrontEnd_Controller
         die();
     }
 
-    function show_skill_detail()
-    {
+    function show_skill_detail() {
         $this->isAjax();
         $member_id = $this->input->post('member_id');
         $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
@@ -88,8 +87,7 @@ class Member extends FrontEnd_Controller
         die();
     }
 
-    function add_update_language()
-    {
+    function add_update_language() {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -128,8 +126,7 @@ class Member extends FrontEnd_Controller
         }
     }
 
-    function submit_promo()
-    {
+    function submit_promo() {
         $promo_code = $this->input->post('promo_code');
         $member_id = $this->input->post('member_id');
         $promo_code_info = false;
@@ -162,8 +159,7 @@ class Member extends FrontEnd_Controller
         $this->_response(true, "Please enter promo code.");
     }
 
-    function connections()
-    {
+    function connections() {
         $memberID = $this->session->userdata('member_id');
         if ($this->session->userdata('member_type') == 1) {
             $sql = "SELECT tb_member_connections.*, tb_members.first_name,tb_members.last_name FROM  `tb_members` LEFT JOIN `tb_member_connections` ON tb_members.member_id = tb_member_connections.connection_id WHERE tb_member_connections.user_id = $memberID";

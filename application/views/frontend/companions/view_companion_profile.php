@@ -29,7 +29,7 @@
                     <div class="portlet light profile-sidebar-portlet ">
                         <!-- SIDEBAR USERPIC -->
                         <div class="profile-userpic">
-                            <img src="<?php echo file_exists($this->config->item('root_path') . $member_info['image_path'] . 'medium_' . $member_info['image']) ? ($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>" class="img-responsive" alt="User Profile Pic">
+                            <img src="<?php echo file_exists($this->config->item('root_path') . $member_info['image_path'] . 'medium_' . $member_info['image']) ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>" class="img-responsive" alt="User Profile Pic">
                         </div>
                         <!-- END SIDEBAR USERPIC -->
                         <!-- SIDEBAR USER TITLE -->

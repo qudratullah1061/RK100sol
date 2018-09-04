@@ -495,7 +495,7 @@ var CommonFunctions = function () {
                 if (!data.error) {
                     toastr["success"](data.description, "Request Sent Successfully!");
                     $('#connectionBtn').addClass('btn-disable');
-                    $('#static-modal-popup-connect').hide();
+                    $('#static-modal-popup-connect').modal('hide');
                 } else {
                     toastr["error"](data.description, "Error.");
                 }
