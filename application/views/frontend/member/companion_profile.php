@@ -117,11 +117,14 @@
                                 <p>Plan:</p>
                                 <span><?php echo GetSubscriptionPlanName($member_info['current_plan_id']) ?></span>
                             </li>
-                            <li>
-                                <p></p>
-                                <span><a class="btn btn-default"
-                                         href="<?php echo base_url('companions/get_companion_profile#tab_1_11') ?>">Renew</a></span>
-                            </li>
+                            <?php if ($this->session->userdata('member_id') != $member_info['member_id']) { ?>
+                                <li>
+                                    <p></p>
+                                    <span>
+                                        <a class="btn btn-info" href="<?php echo base_url('companions/get_companion_profile#tab_1_11') ?>">Renew</a>
+                                    </span>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
                     <div class="profile-language">
