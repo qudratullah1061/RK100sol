@@ -6,7 +6,7 @@
             <div class="col-md-3 col-sm-4">
                 <div class="profile-left wow fadeInUp">
                     <div class="profile-personal">
-                        <a href="javascript:;" <?php $this->session->userdata('member_id') != $member_info['member_id'] ? '' : 'onclick="CommonFunctions.changeMode(this)'; ?>
+                        <a href="javascript:;" <?php echo $this->session->userdata('member_id') != $member_info['member_id'] ? '' : 'onclick="CommonFunctions.changeMode(this)'; ?>
                            data-mode="<?php echo $member_info['is_online'] ?>"
                            data-member-id="<?php echo $member_info['member_id']; ?>">
                             <span id="changeMode" class="status <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"><!-- + Note: remove class online if user is offline + -->
