@@ -31,7 +31,7 @@
             <div class="portlet light profile-sidebar-portlet ">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="<?php echo base_url($admin_info['image_path'] . '/medium_' . $admin_info['image']); ?>" class="img-responsive" alt=""> 
+                    <img src="<?php echo base_url($admin_info['image_path'] . 'medium_' . $admin_info['image']); ?>" class="img-responsive" alt=""> 
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->

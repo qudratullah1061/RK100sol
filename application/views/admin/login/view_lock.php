@@ -9,7 +9,7 @@
             <div class="lock-cont">
                 <div class="lock-item">
                     <div class="pull-left lock-avatar-block">
-                        <img src="<?php echo base_url($admin_info['image_path'] . "/medium_" . $admin_info['image']); ?>" class="lock-avatar"> </div>
+                        <img src="<?php echo base_url($admin_info['image_path'] . "medium_" . $admin_info['image']); ?>" class="lock-avatar"> </div>
                 </div>
                 <div class="lock-item lock-item-full">
                     <form class="lock-form pull-left" action="<?php echo base_url('admin/admin_auth/verifyUnlock'); ?>" method="post">

@@ -13,7 +13,7 @@
                         </span>
                         </a>
                         <div class="profile-media">
-                            <img src="<?php echo file_exists(base_url($member_info['image_path'] . 'medium_' . $member_info['image'])) ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>"
+                            <img src="<?php echo file_exists(base_url(($member_info['image_path'] . 'medium_' . $member_info['image']))) ? base_url(($member_info['image_path'] . 'medium_' . $member_info['image'])) : base_url('uploads/member_images/profile/user.png'); ?>"
                                  alt="Profile Image">
                         </div>
                         <div class="profile-info">
