@@ -356,40 +356,9 @@
                                 </ul>
                             </div>
                             <div class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
-                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
-                                   data-hover="dropdown" data-close-others="true">
-                                    <!--                                            <i class="icon-envelope-open"></i>
-                                                                        <span class="badge badge-default"> 4 </span>-->
-                                    <a href="javascript:;" class="header-search-form text-white"><i
+                                <a href="<?php echo site_url('chat/view_chat_list') ?>"><i
                                                 class="fa fa-envelope-o"></i>
-                                        <!--<span class="counter">0</span>-->
-                                    </a>
-
                                 </a>
-
-                                <ul class="dropdown-menu">
-                                    <li class="external">
-                                        <h3>You have
-                                            <span class="bold">0 New</span> Messages</h3>
-                                        <a href="javascript:;">view all</a>
-                                    </li>
-                                    <li>
-                                        <ul class="dropdown-menu-list scroller" data-height="250"
-                                            data-handle-color="#637283">
-                                            <!--                                                    <li>
-                                                                                                    <a href="#">
-                                                                                                        <span class="photo">
-                                                                                                            <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
-                                                                                                        <span class="subject">
-                                                                                                            <span class="from"> Lisa Wong </span>
-                                                                                                            <span class="time">Just Now </span>
-                                                                                                        </span>
-                                                                                                        <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                                                                    </a>
-                                                                                                </li>-->
-                                        </ul>
-                                    </li>
-                                </ul>
                             </div>
                             <?php
                             if (count($connections) > 0) {

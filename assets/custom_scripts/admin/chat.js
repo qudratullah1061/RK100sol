@@ -7,20 +7,19 @@ var Templates = function () {
         var users = current_chat_id.split('-');
         var user1 = users[0];
         var user2 = users[1];
-//        $(".general-item-list").html("");
         for (var key in messages) {
             message = '<div class="item">' +
-                    '<div class="item-head">' +
-                    '<div class="item-details">' +
-                    '<img class="item-pic rounded" src="' + base_url + usersInfo[messages[key].sender_id] + '">' +
-                    '<a href="" class="item-name primary-link">Nick Larson</a>' +
-                    '<span class="item-label">3 hrs ago</span>' +
-                    '</div>' +
-                    '<span class="item-status cursor-pointer">' +
-                    '<span class="badge badge-empty badge-success"></span> Delete</span>' +
-                    '</div>' +
-                    '<div class="item-body">' + messages[key].message + '</div>' +
-                    '</div>';
+                '<div class="item-head">' +
+                '<div class="item-details">' +
+                '<img class="item-pic rounded" src="' + base_url + usersInfo[messages[key].sender_id] + '">' +
+                '<a href="" class="item-name primary-link">Nick Larson</a>' +
+                '<span class="item-label">3 hrs ago</span>' +
+                '</div>' +
+                '<span class="item-status cursor-pointer">' +
+                '<span class="badge badge-empty badge-success"></span> Delete</span>' +
+                '</div>' +
+                '<div class="item-body">' + messages[key].message + '</div>' +
+                '</div>';
             $(".general-item-list").append(message);
             if (messages[key].is_read == "0") {
                 unread++;
@@ -40,22 +39,28 @@ var Templates = function () {
 
     var appendSingleMessage = function (message_obj) {
         var message = "";
+        var image = "";
         var unread = 0;
         var users = current_chat_id.split('-');
         var user1 = users[0];
         var user2 = users[1];
-        message = '<div class="item item-'+message_obj.key+'">' +
-                '<div class="item-head">' +
-                '<div class="item-details">' +
-                '<img class="item-pic rounded" src="' + base_url + usersInfo[message_obj.sender_id].image_path + usersInfo[message_obj.sender_id].image + '">' +
-                '<a href="" class="item-name primary-link">' + usersInfo[message_obj.sender_id].first_name + ' ' + usersInfo[message_obj.sender_id].last_name + '</a>' +
-                '<span class="item-label">' + getLocalDateTime(message_obj.date_sent) + '</span>' +
-                '</div>' +
-                '<span class="item-status cursor-pointer" onclick="Chat.deleteMessage(\''+message_obj.key+'\')">' +
-                '<span class="badge badge-empty badge-success"></span> Delete</span>' +
-                '</div>' +
-                '<div class="item-body">' + message_obj.message + '</div>' +
-                '</div>';
+        message = '<div class="item item-' + message_obj.key + '">' +
+            '<div class="item-head">' +
+            '<div class="item-details">';
+        if (usersInfo[message_obj.sender_id].image_path == '') {
+            image = '<img class="item-pic rounded" src="' + base_url + 'uploads/member_images/profile/profile.png">';
+        } else {
+            image = '<img class="item-pic rounded" src="' + base_url + usersInfo[message_obj.sender_id].image_path + usersInfo[message_obj.sender_id].image + '">';
+        }
+        message += image +
+            '<a href="javascript:;" class="item-name primary-link">' + usersInfo[message_obj.sender_id].first_name + ' ' + usersInfo[message_obj.sender_id].last_name + '</a>' +
+            '<span class="item-label">' + getLocalDateTime(message_obj.date_sent) + '</span>' +
+            '</div>' +
+            '<span class="item-status cursor-pointer" onclick="Chat.deleteMessage(\'' + message_obj.key + '\')">' +
+            '<span class="badge badge-empty badge-success"></span> Delete</span>' +
+            '</div>' +
+            '<div class="item-body">' + message_obj.message + '</div>' +
+            '</div>';
         $(".general-item-list").append(message);
     }
 
@@ -76,8 +81,8 @@ var Chat = function () {
         var result = [];
         if (snapObjects != null) {
             var keys = Object.keys(snapObjects),
-                    i = keys.length,
-                    snap;
+                i = keys.length,
+                snap;
             while (i--) {
                 snap = snapObjects[keys[i]];
                 snap.key = keys[i];
@@ -89,12 +94,12 @@ var Chat = function () {
 
     var initFirebase = function () {
         var config = {
-            apiKey: "AIzaSyCWbdaGdf2TJD8CC84q--Aw0GBzOJcFLo8",
-            authDomain: "konsorts-180810.firebaseapp.com",
-            databaseURL: "https://konsorts-180810.firebaseio.com",
-            projectId: "konsorts-180810",
-            storageBucket: "konsorts-180810.appspot.com",
-//            messagingSenderId: "209256789157"
+            apiKey: "AIzaSyB1nQj2sj-tvMBmS1gbpnKblj8owQqqAx0",
+            authDomain: "konsorts-d33a9.firebaseapp.com",
+            databaseURL: "https://konsorts-d33a9.firebaseio.com",
+            projectId: "konsorts-d33a9",
+            storageBucket: "",
+            // messagingSenderId: "533462153223"
         };
         firebase.initializeApp(config);
         conversationRef = firebase.database().ref('conversations');
@@ -139,11 +144,11 @@ var Chat = function () {
         // append template
         Templates._templateOneToOne(messages);
     };
-    
-    var deleteMessage = function(message_id){
+
+    var deleteMessage = function (message_id) {
         conversationRef.child(current_chat_id).child(message_id).remove();
     };
-    
+
     var getChatMessages = function (chat_id) {
         current_chat_id = chat_id;
         $(".general-item-list").html("");
@@ -162,11 +167,11 @@ var Chat = function () {
         conversationRef.child(chat_id).on('child_changed', function (snapshot) {
             console.log('update call nested');
         });
-        
+
         conversationRef.child(chat_id).on('child_removed', function (snapshot) {
-            $(".item-"+snapshot.key).remove();
+            $(".item-" + snapshot.key).remove();
         });
-        
+
         var container = $(".scroll-custom");
         container.slimScroll({
             scrollTo: container[0].scrollHeight
@@ -189,7 +194,7 @@ var Chat = function () {
                 }
             }
         });
-    }
+    };
 
     var addMessage = function (current_chat_id) {
         if (typeof current_chat_id != "undefined") {
@@ -198,7 +203,13 @@ var Chat = function () {
             var user2 = users[1];
             var msg = $(".msg-box").val();
             var currentChatRef = firebase.database().ref('conversations/' + current_chat_id);
-            currentChatRef.push().set({'sender_id': user1, 'receiver_id': user2, 'is_read': 0, 'message': msg, 'date_sent': (new Date()).toString()});
+            currentChatRef.push().set({
+                'sender_id': user1,
+                'receiver_id': user2,
+                'is_read': 0,
+                'message': msg,
+                'date_sent': (new Date()).toString()
+            });
             $(".msg-box").val("");
             var container = $(".scroll-custom");
             container.slimScroll({
@@ -207,7 +218,7 @@ var Chat = function () {
         } else {
             toastr["info"]("Please select chat to send message.", "Info");
         }
-    }
+    };
 
     var initMessageInput = function () {
         $(".msg-box").keypress(function (event) {
@@ -216,7 +227,7 @@ var Chat = function () {
                 addMessage(current_chat_id);
             }
         });
-    }
+    };
 
 
     var populateUserInfo = function (chat_id) {
@@ -229,8 +240,7 @@ var Chat = function () {
                 url: base_url + "admin/chat/getUserInfoForChat",
                 datatype: 'json',
                 data: {chat_id: chat_id},
-                beforeSend: function ()
-                {
+                beforeSend: function () {
                     App.blockUI({target: 'body', animate: true});
                 },
                 complete: function () {
@@ -250,7 +260,7 @@ var Chat = function () {
                 }
             });
         }
-    }
+    };
 
     return {
         init: function () {
@@ -268,7 +278,7 @@ var Chat = function () {
         sendChatMessage: function () {
             addMessage(current_chat_id);
         },
-        deleteMessage: function(message_id){    
+        deleteMessage: function (message_id) {
             deleteMessage(message_id);
         }
     };

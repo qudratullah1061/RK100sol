@@ -1,4 +1,5 @@
-<script src="<?php echo base_url(); ?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+        type="text/javascript"></script>
 <section class="profile_edit">
     <div class="container">
         <div class="row">
@@ -6,14 +7,7 @@
                 <div class="portlet light ">
                     <div class="portlet-title tabbable-line">
                         <div class="caption">
-                            <div class="inputs">
-                                <div class="portlet-input input-inline input-small ">
-                                    <div class="input-icon right">
-                                        <!--<i class="icon-magnifier"></i>-->
-                                        <input type="text" class="form-control form-control-solid input-circle" placeholder="search..."> 
-                                    </div>
-                                </div>
-                            </div>
+                            <span class="caption-subject font-green-steel bold uppercase">Connections</span>
                         </div>
                         <ul class="nav nav-tabs">
                             <li class="active">
@@ -25,21 +19,54 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="portlet_comments_1">
                                 <!-- BEGIN: Comments -->
-                                <div class="mt-comments scroller-div">
+                                <div class="mt-comments">
+
                                     <!--// repeat this node-->
-                                    <div class="mt-comment mt-comment-0-<?php echo $this->session->userdata('member_info')['member_id']; ?>" onclick="Chat.getChatMessages('0-<?php echo $this->session->userdata('member_info')['member_id']; ?>')">
+                                    <div class="mt-comment mt-comment-1a-<?php echo $this->session->userdata('member_info')['member_id']; ?>"
+                                         onclick="Chat.getChatMessages('1a-<?php echo $this->session->userdata('member_info')['member_id']; ?>')">
                                         <div class="mt-comment-img">
-                                            <img src="<?php echo base_url('uploads/member_images/profile/profile.png'); ?>" alt="Member Profile Image" /> 
+                                            <img src="<?php echo base_url('uploads/member_images/profile/profile.png'); ?>"
+                                                 alt="Member Profile Image"/>
                                         </div>
                                         <div class="mt-comment-body">
                                             <div class="mt-comment-info">
                                                 <span class="mt-comment-author">Admin</span>
-                                                <span class="mt-comment-date"><span class="badge badge-danger member-<?php echo $this->session->userdata('member_info')['member_id']; ?>"></span></span>
+                                                <span class="mt-comment-date"><span
+                                                            class="badge badge-danger member-<?php echo $this->session->userdata('member_info')['member_id']; ?>"></span></span>
                                             </div>
                                             <div class="mt-comment-text">&nbsp;Canada</div>
                                         </div>
                                     </div>
                                     <!--// end of repeat this node-->
+                                    <?php
+                                    if (isset($connections)) {
+                                        foreach ($connections as $connection) {
+                                            ?>
+                                            <div class="mt-comment mt-comment-<?php echo min($connection['user_id'], $connection['connection_id']); ?>-<?php echo max($connection['user_id'], $connection['connection_id']); ?>"
+                                                 onclick="Chat.getChatMessages('<?php echo min($connection['user_id'], $connection['connection_id']); ?>-<?php echo max($connection['user_id'], $connection['connection_id']); ?>')">
+                                                <div class="mt-comment-img">
+                                                    <img src="<?php echo base_url('uploads/member_images/profile/profile.png'); ?>"
+                                                         alt="Member Profile Image"/>
+                                                </div>
+                                                <div class="mt-comment-body">
+                                                    <div class="mt-comment-info">
+                                                        <span class="mt-comment-author"><?php echo $connection['first_name'] . " " . $connection['last_name']; ?></span>
+                                                        <span class="mt-comment-date"><span
+                                                                    class="badge badge-danger member-<?php
+                                                                    if ($this->session->userdata('member_type') == 1) {
+                                                                        echo $connection['connection_id'];
+                                                                    } else {
+                                                                        echo $connection['user_id'];
+                                                                    }
+                                                                    ?>"></span></span>
+                                                    </div>
+                                                    <div class="mt-comment-text">
+                                                        &nbsp;<?php echo $connection['location']; ?></div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                    }
+                                    ?>
                                 </div>
                                 <!-- END: Comments -->
                             </div>
@@ -60,19 +87,19 @@
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <div class="scroller-div">
+                        <div class="scroller scroll-custom" start-at="bottom" data-always-visible="1"
+                             data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 338px;">
                             <div class="general-item-list">
-                                <!--repeat this block to repeat messages-->
-
-                                <!--end repeat this block to repeat messages-->
+                                <!--Repeat items here-->
                             </div>
                         </div>
                         <div class="chat-form">
                             <div class="input-cont">
-                                <input class="form-control" onclick="Chat.sendChatMessage()" type="text" placeholder="Type a message here..."> </div>
-                            <div class="btn-cont">
+                                <input class="form-control msg-box" type="text" placeholder="Type a message here...">
+                            </div>
+                            <div class="btn-cont" style="margin-top: -61px">
                                 <span class="arrow"> </span>
-                                <a href="" class="btn blue icn-only">
+                                <a href="javascript:;" onclick="Chat.sendChatMessage()" class="btn blue icn-only">
                                     <i class="fa fa-check icon-white"></i>
                                 </a>
                             </div>
@@ -88,13 +115,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
 <script>
-                                    $(document).ready(function () {
-                                        Chat.init();
-                                        $(".scroller-div").slimScroll({
-                                            height: '300px',
-                                            railVisible: true,
-                                            allowPageScroll: true, // allow page scroll when the element scroll is ended
-                                            wrapperClass: ($(this).attr("data-wrapper-class") ? $(this).attr("data-wrapper-class") : 'slimScrollDiv'),
-                                        });
-                                    });
+    $(document).ready(function () {
+        Chat.init();
+    });
 </script>
