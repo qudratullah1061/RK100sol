@@ -274,13 +274,13 @@ class Profile extends CI_Controller {
                     $data['subscription_date'] = date('Y-m-d H:i:s');
                     $data['end_subscription_date'] = date('Y-m-d H:i:s', strtotime("+1 month"));
                     $insert_promo_record = false;
-                    $do_payment = true;
+                    $do_payment = false;
                     if ($promo_code_info && $promo_code_info['promo_type'] == "sub") {
                         $data['end_subscription_date'] = date('Y-m-d', strtotime($data['end_subscription_date'] . ' +' . $promo_code_info['value'] . ' days'));
                         $insert_promo_record = true;
-                        $do_payment = false;
                     } elseif ($promo_code_info && $promo_code_info['promo_type'] == 'discount') {
                         $insert_promo_record = true;
+                        $do_payment = true;
                     }
                     $data['email_verification_code'] = md5(time());
                     $edit_id = $result = $this->Members_Model->add_member($data);

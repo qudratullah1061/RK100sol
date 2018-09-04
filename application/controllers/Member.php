@@ -29,7 +29,7 @@ class Member extends FrontEnd_Controller
             } elseif ($this->session->userdata('member_type') == 2) {
                 $member_id = base64_decode($member_id);
                 $data['connected'] = check_if_connected($member_id, $this->session->userdata('member_id'));
-                if ($data['connected']['status'] != 1) {
+                if (isset($data['connected']['status']) && $data['connected']['status'] != 1) {
                     redirect(base_url());
                 }
             }
