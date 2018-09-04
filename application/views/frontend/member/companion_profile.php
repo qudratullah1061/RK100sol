@@ -117,7 +117,7 @@
                                 <p>Plan:</p>
                                 <span><?php echo GetSubscriptionPlanName($member_info['current_plan_id']) ?></span>
                             </li>
-                            <?php if ($this->session->userdata('member_id') != $member_info['member_id']) { ?>
+                            <?php if ($this->session->userdata('member_id') == $member_info['member_id']) { ?>
                                 <li>
                                     <p></p>
                                     <span>
