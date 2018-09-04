@@ -27,7 +27,7 @@
                     <div class="portlet light profile-sidebar-portlet ">
                         <!-- SIDEBAR USERPIC -->
                         <div class="profile-userpic">
-                            <img src="<?php echo file_exists(base_url($member_info['image_path'] . 'medium_' . $member_info['image'])) ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url($member_info['image_path'] . 'medium_' . $member_info['image']); ?>"
+                            <img src="<?php echo file_exists($this->config->item('root_path') . $member_info['image_path'] . 'medium_' . $member_info['image']) ? base_url($member_info['image_path'] . '/medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>"
                                  class="img-responsive" alt="Guest Member Image">
                         </div>
                         <!-- END SIDEBAR USERPIC -->
@@ -114,7 +114,7 @@
                                                        value="<?php echo $member_info['member_id']; ?>">
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Guest Member ID<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <input type="text" placeholder="Unique ID" disabled="disabled"
                                                            value="<?php echo $member_info['member_unique_code']; ?>"
                                                            class="form-control"/>
@@ -128,14 +128,14 @@
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">First Name<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <input type="text" placeholder="First Name" name="first_name"
                                                            value="<?php echo $member_info['first_name']; ?>"
                                                            class="form-control"/>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Last Name<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <input type="text" placeholder="Last Name" name="last_name"
                                                            value="<?php echo $member_info['last_name']; ?>"
                                                            class="form-control"/>
@@ -143,14 +143,14 @@
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Email<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <input type="text" placeholder="Email" name="email"
                                                            value="<?php echo $member_info['email']; ?>"
                                                            class="form-control"/>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Phone number<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <input type="text" placeholder="Phone Number" name="phone_number"
                                                            value="<?php echo $member_info['phone_number']; ?>"
                                                            class="form-control"/>
@@ -170,7 +170,7 @@
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Gender<span
-                                                                class="required"></span></label>
+                                                            class="required"></span></label>
                                                     <select class="form-control" name="gender">
                                                         <option></option>
                                                         <option value="Male" <?php echo $member_info['gender'] == "Male" ? "selected='selected'" : ""; ?>>
@@ -188,7 +188,7 @@
 
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Date of birth<span
-                                                                class="required"></span></label>
+                                                            class="required"></span></label>
                                                     <input class="form-control date-picker" size="16" type="text"
                                                            data-date-format="yyyy-mm-dd"
                                                            value="<?php echo($member_info['date_of_birth'] != '0000-00-00' ? $member_info['date_of_birth'] : ''); ?>"
@@ -242,7 +242,7 @@
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-12">
                                                     <label class="control-label">About<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <textarea class="form-control" rows="3" name="about_me"
                                                               placeholder="About Me"><?php echo $member_info['about_me']; ?></textarea>
                                                 </div>
@@ -323,50 +323,50 @@
                                                     <span> </span>
                                                     <a class="purple" data-title="Add Type"
                                                        href="javascript:Languages.modal_add_language()"><i
-                                                                class="fa fa-plus-circle"></i> Add Language</a>
+                                                            class="fa fa-plus-circle"></i> Add Language</a>
                                                 </div>
                                                 <table id="language_table"
                                                        class="table table-striped table-bordered table-hover text-center dataTable no-footer"
                                                        cellspacing="0" width="100%">
                                                     <thead>
-                                                    <tr>
-                                                        <th>Language</th>
-                                                        <th>Proficiency</th>
-                                                        <th>Added On</th>
-                                                        <th>Updated On</th>
-                                                        <th>Status</th>
-                                                        <th>Actions</th>
-                                                    </tr>
+                                                        <tr>
+                                                            <th>Language</th>
+                                                            <th>Proficiency</th>
+                                                            <th>Added On</th>
+                                                            <th>Updated On</th>
+                                                            <th>Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                    <?php foreach ($language_data as $language) { ?>
-                                                        <tr>
-                                                            <td><?php echo $language['language_name']; ?></td>
-                                                            <td><?php echo $language['language_level']; ?></td>
-                                                            <td><?php echo date('Y-m-d', strtotime($language['created_on'])); ?></td>
-                                                            <td><?php echo date('Y-m-d', strtotime($language['updated_on'])); ?></td>
-                                                            <td>
-                                                                <div class="md-checkbox-inline">
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" disabled="disabled"
-                                                                               id="checkbox<?php echo $language['language_id']; ?>" <?php echo($language['is_active'] ? "checked='checked'" : ""); ?>
-                                                                               class="md-check">
-                                                                        <label for="checkbox<?php echo $language['language_id']; ?>">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span>
-                                                                        </label>
+                                                        <?php foreach ($language_data as $language) { ?>
+                                                            <tr>
+                                                                <td><?php echo $language['language_name']; ?></td>
+                                                                <td><?php echo $language['language_level']; ?></td>
+                                                                <td><?php echo date('Y-m-d', strtotime($language['created_on'])); ?></td>
+                                                                <td><?php echo date('Y-m-d', strtotime($language['updated_on'])); ?></td>
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled"
+                                                                                   id="checkbox<?php echo $language['language_id']; ?>" <?php echo($language['is_active'] ? "checked='checked'" : ""); ?>
+                                                                                   class="md-check">
+                                                                            <label for="checkbox<?php echo $language['language_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td><a class="btn btn-xs default btn-editable"
-                                                                   onclick="Languages.modal_add_language(<?php echo $language['language_id']; ?>)">Edit</a>
-                                                                <a class="btn btn-xs default btn-editable"
-                                                                   onclick="CommonFunctions.Delete(<?php echo $language["language_id"]; ?>, 'tb_member_languages', 'language_id', 'Language will be permanently deleted without further warning. Do you really want to delete this language from your profile?');">Delete</i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable"
+                                                                       onclick="Languages.modal_add_language(<?php echo $language['language_id']; ?>)">Edit</a>
+                                                                    <a class="btn btn-xs default btn-editable"
+                                                                       onclick="CommonFunctions.Delete(<?php echo $language["language_id"]; ?>, 'tb_member_languages', 'language_id', 'Language will be permanently deleted without further warning. Do you really want to delete this language from your profile?');">Delete</i></a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php } ?>
 
                                                     </tbody>
                                                 </table>
@@ -378,8 +378,8 @@
                                         <div class="tab-pane" id="tab_1_3">
                                             <!-- Profile images start-->
                                             <div>
-                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');       ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
-                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];       ?>">
+                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');          ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];          ?>">
                                                     <input type="hidden" name="image_type" value="profile">
                                                     <input type="hidden" name="image_dir" value="uploads/member_images/profile/">
                                                     <h3 class="sbold">Click to upload</h3>
@@ -447,9 +447,9 @@
 
                                             <!-- Id proof images start-->
                                             <div class="margin-top-20">
-                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');       ?>" class="dropzone dropzone-file-area" id="my-dropzone2" >
-                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];       ?>">
-                                                    <input type="hidden" name="file_upload_unique_id" value="<?php // echo $unique_id;       ?>">
+                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');          ?>" class="dropzone dropzone-file-area" id="my-dropzone2" >
+                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];          ?>">
+                                                    <input type="hidden" name="file_upload_unique_id" value="<?php // echo $unique_id;          ?>">
                                                     <input type="hidden" name="image_type" value="id_proof">
                                                     <input type="hidden" name="image_dir" value="uploads/member_images/id_proofs/">
                                                     <h3 class="sbold">Click to upload</h3>
@@ -524,7 +524,7 @@
                                                         foreach ($member_info['privacy_info'] as $privacy) {
                                                             ?>
                                                             <tr>
-                                                                <!--<td class="hide"><input type="hidden" name="privacy_id[]" value="<?php // echo $privacy['privacy_id'];                            ?>"></td>-->
+                                                                <!--<td class="hide"><input type="hidden" name="privacy_id[]" value="<?php // echo $privacy['privacy_id'];                               ?>"></td>-->
                                                                 <td><?php echo "Show " . $privacy['privacy_label']; ?></td>
                                                                 <td>
                                                                     <div class="mt-radio-inline">
@@ -592,24 +592,24 @@
 
                                         <!-- Subscription TAB starts from here -->
                                         <div class="tab-pane" id="tab_1_6">
-                                                <?php if (isset($error_msg) && trim($error_msg) != "") { ?>
-                                                    <div class="alert alert-danger">
-                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                                        <span><?php echo $error_msg; ?></span>
-                                                    </div>
-                                                <?php } ?>
-                                                <div class="form-group">
-                                                    <input type="hidden" name="member_id" id="member_id" value="<?php echo $member_info['member_id']; ?>">
-                                                    <label>Select Membership Plan<span class="required">*</span></label>
-                                                    <select class="form-control payment_options" name="payment_amount">
-                                                        <option value="">Select Membership Plan</option>
-                                                        <?php
-                                                        foreach ($plans as $plan) {
-                                                            echo "<option data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
-                                                        }
-                                                        ?>
-                                                    </select>
+                                            <?php if (isset($error_msg) && trim($error_msg) != "") { ?>
+                                                <div class="alert alert-danger">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                    <span><?php echo $error_msg; ?></span>
                                                 </div>
+                                            <?php } ?>
+                                            <div class="form-group">
+                                                <input type="hidden" name="member_id" id="member_id" value="<?php echo $member_info['member_id']; ?>">
+                                                <label>Select Membership Plan<span class="required">*</span></label>
+                                                <select class="form-control payment_options" name="payment_amount">
+                                                    <option value="">Select Membership Plan</option>
+                                                    <?php
+                                                    foreach ($plans as $plan) {
+                                                        echo "<option data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
                                             <div class="text-center">
                                                 <div id="paypal-button-container"></div>
                                             </div>
@@ -635,14 +635,14 @@
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/guest_members.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/privacy_members.js"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/languages.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.kickstart.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->

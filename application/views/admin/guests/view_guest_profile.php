@@ -39,7 +39,7 @@ $unique_id = time();
             <div class="portlet light profile-sidebar-portlet ">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="<?php echo file_exists(base_url($member_info['image_path'] . 'medium_' . $member_info['image'])) ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url($member_info['image_path'] . 'medium_' . $member_info['image']); ?>" class="img-responsive" alt=""> 
+                    <img src="<?php echo file_exists($this->config->item('root_path').($member_info['image_path'] . 'medium_' . $member_info['image'])) ? base_url($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url($member_info['image_path'] . 'medium_' . $member_info['image']); ?>" class="img-responsive" alt=""> 
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->

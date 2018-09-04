@@ -29,8 +29,7 @@
                     <div class="portlet light profile-sidebar-portlet ">
                         <!-- SIDEBAR USERPIC -->
                         <div class="profile-userpic">
-                            <img src="<?php echo file_exists(base_url($member_info['image_path'] . 'medium_' . $member_info['image'])) ? ($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>"
-                                 class="img-responsive" alt="User Profile Pic">
+                            <img src="<?php echo file_exists($this->config->item('root_path') . $member_info['image_path'] . 'medium_' . $member_info['image']) ? ($member_info['image_path'] . 'medium_' . $member_info['image']) : base_url('uploads/member_images/profile/user.png'); ?>" class="img-responsive" alt="User Profile Pic">
                         </div>
                         <!-- END SIDEBAR USERPIC -->
                         <!-- SIDEBAR USER TITLE -->
@@ -131,7 +130,7 @@
                                                        value="<?php echo $member_info['member_id']; ?>">
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Service Member ID<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <input type="text" placeholder="Unique ID" disabled="disabled"
                                                            value="<?php echo $member_info['member_unique_code']; ?>"
                                                            class="form-control"/>
@@ -145,14 +144,14 @@
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">First Name<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <input type="text" placeholder="First Name" name="first_name"
                                                            value="<?php echo $member_info['first_name']; ?>"
                                                            class="form-control"/>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Last Name<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <input type="text" placeholder="Last Name" name="last_name"
                                                            value="<?php echo $member_info['last_name']; ?>"
                                                            class="form-control"/>
@@ -160,14 +159,14 @@
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Email<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <input type="text" placeholder="Email" name="email"
                                                            value="<?php echo $member_info['email']; ?>"
                                                            class="form-control"/>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Phone number<span
-                                                                class="required">*</span></label>
+                                                            class="required">*</span></label>
                                                     <input type="text" placeholder="Phone Number" name="phone_number"
                                                            value="<?php echo $member_info['phone_number']; ?>"
                                                            class="form-control"/>
@@ -187,7 +186,7 @@
                                                 <div class="clearfix"></div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Gender<span
-                                                                class="required"></span></label>
+                                                            class="required"></span></label>
                                                     <select class="form-control" name="gender">
                                                         <option></option>
                                                         <option value="Male" <?php echo $member_info['gender'] == "Male" ? "selected='selected'" : ""; ?>>
@@ -204,7 +203,7 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label">Date of birth<span
-                                                                class="required"></span></label>
+                                                            class="required"></span></label>
                                                     <input class="form-control date-picker" size="16" type="text"
                                                            data-date-format="yyyy-mm-dd"
                                                            value="<?php echo($member_info['date_of_birth'] != '0000-00-00' ? $member_info['date_of_birth'] : ''); ?>"
@@ -311,37 +310,37 @@
                                             <table class="table table-striped table-hover table-bordered"
                                                    cellspacing="0" width="100%" id="categories_rate_tbl">
                                                 <thead>
-                                                <tr>
-                                                    <th style="display: none;"></th>
-                                                    <th> Sub Category Name</th>
-                                                    <th> Rate</th>
-                                                    <th> Description</th>
-                                                    <th> Is Active</th>
-                                                    <th> Edit</th>
-                                                    <th> Delete</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th style="display: none;"></th>
+                                                        <th> Sub Category Name</th>
+                                                        <th> Rate</th>
+                                                        <th> Description</th>
+                                                        <th> Is Active</th>
+                                                        <th> Edit</th>
+                                                        <th> Delete</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <?php foreach ($sub_category_rates as $rate) { ?>
-                                                    <tr>
-                                                        <td style="display: none;"><?php echo $rate['tb_member_category_id']; ?></td>
-                                                        <td> <?php echo getSubCategoryNameById($rate['sub_category_id']); ?> </td>
-                                                        <td> <?php echo $rate['rate']; ?> </td>
-                                                        <td> <?php echo $rate['description']; ?> </td>
-                                                        <td class="center"> <?php echo $rate['is_active']; ?> </td>
-                                                        <td>
-                                                            <a class="edit" href="javascript:void(0);"> <i
+                                                    <?php foreach ($sub_category_rates as $rate) { ?>
+                                                        <tr>
+                                                            <td style="display: none;"><?php echo $rate['tb_member_category_id']; ?></td>
+                                                            <td> <?php echo getSubCategoryNameById($rate['sub_category_id']); ?> </td>
+                                                            <td> <?php echo $rate['rate']; ?> </td>
+                                                            <td> <?php echo $rate['description']; ?> </td>
+                                                            <td class="center"> <?php echo $rate['is_active']; ?> </td>
+                                                            <td>
+                                                                <a class="edit" href="javascript:void(0);"> <i
                                                                         class="fa fa-pencil-square-o"
                                                                         style="font-size: 15px;"></i> </a>
-                                                        </td>
-                                                        <td>
-                                                            <a class="delete" href="javascript:;"> <i
+                                                            </td>
+                                                            <td>
+                                                                <a class="delete" href="javascript:;"> <i
                                                                         class="fa fa-trash-o"
                                                                         style="font-size: 15px;"></i> </a>
-                                                        </td>
-                                                    </tr>
-                                                <?php }
-                                                ?>
+                                                            </td>
+                                                        </tr>
+                                                    <?php }
+                                                    ?>
                                                 </tbody>
                                             </table>
                                             <!-- Profile images start-->
@@ -459,7 +458,7 @@
                                                             </div>
                                                             <div class="cbp-l-grid-projects-title uppercase text-center uppercase pic-caption-img text-center pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>
                                                                 Image <?php echo $counter++; ?></div>
-                                                            <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";                        ?></div>-->
+                                                            <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";                           ?></div>-->
                                                         </div>
                                                         <?php
                                                     }
@@ -537,58 +536,58 @@
                                                     <span> </span>
                                                     <a class="purple" data-title="Add Type"
                                                        href="javascript:Portfolios.modal_add_portfolio()"><i
-                                                                class="fa fa-plus-circle"></i> Add portfolio</a>
+                                                            class="fa fa-plus-circle"></i> Add portfolio</a>
                                                 </div>
                                                 <table id="portfolio_table"
                                                        class="table table-striped table-bordered table-hover table-checkable text-center dataTable no-footer"
                                                        cellspacing="0" width="100%">
                                                     <thead>
-                                                    <tr>
-                                                        <th>Image</th>
-                                                        <th>Title</th>
-                                                        <th>Country</th>
-                                                        <th>State</th>
-                                                        <th>City</th>
-                                                        <th>Added On</th>
-                                                        <!--<th>Updated On</th>-->
-                                                        <th>Status</th>
-                                                        <th>Actions</th>
-                                                    </tr>
+                                                        <tr>
+                                                            <th>Image</th>
+                                                            <th>Title</th>
+                                                            <th>Country</th>
+                                                            <th>State</th>
+                                                            <th>City</th>
+                                                            <th>Added On</th>
+                                                            <!--<th>Updated On</th>-->
+                                                            <th>Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                    <?php foreach ($portfolios as $portfolio) { ?>
-                                                        <tr>
-                                                            <td><img alt="Profile Image" class="img-circle"
-                                                                     src="<?php echo base_url($portfolio['portfolio_image_path'] . 'small_' . $portfolio['portfolio_image']); ?>">
-                                                            </td>
-                                                            <td><?php echo $portfolio['portfolio_title']; ?></td>
-                                                            <td><?php echo $portfolio['country_name']; ?></td>
-                                                            <td><?php echo $portfolio['state_name']; ?></td>
-                                                            <td><?php echo $portfolio['city_name']; ?></td>
-                                                            <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
-                                                            <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));                        ?></td>-->
-                                                            <td>
-                                                                <div class="md-checkbox-inline">
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" disabled="disabled"
-                                                                               id="checkbox<?php echo $portfolio['portfolio_id']; ?>" <?php echo($portfolio['is_active'] ? "checked='checked'" : ""); ?>
-                                                                               class="md-check">
-                                                                        <label for="checkbox<?php echo $portfolio['portfolio_id']; ?>">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span>
-                                                                        </label>
+                                                        <?php foreach ($portfolios as $portfolio) { ?>
+                                                            <tr>
+                                                                <td><img alt="Profile Image" class="img-circle"
+                                                                         src="<?php echo base_url($portfolio['portfolio_image_path'] . 'small_' . $portfolio['portfolio_image']); ?>">
+                                                                </td>
+                                                                <td><?php echo $portfolio['portfolio_title']; ?></td>
+                                                                <td><?php echo $portfolio['country_name']; ?></td>
+                                                                <td><?php echo $portfolio['state_name']; ?></td>
+                                                                <td><?php echo $portfolio['city_name']; ?></td>
+                                                                <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
+                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));                           ?></td>-->
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled"
+                                                                                   id="checkbox<?php echo $portfolio['portfolio_id']; ?>" <?php echo($portfolio['is_active'] ? "checked='checked'" : ""); ?>
+                                                                                   class="md-check">
+                                                                            <label for="checkbox<?php echo $portfolio['portfolio_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td><a class="btn btn-xs default btn-editable"
-                                                                   onclick="Portfolios.modal_add_portfolio(<?php echo $portfolio['portfolio_id']; ?>)">Edit</a>
-                                                                <a class="btn btn-xs default btn-editable"
-                                                                   onclick="CommonFunctions.Delete(<?php echo $portfolio["portfolio_id"]; ?>, 'tb_member_portfolios', 'portfolio_id', 'Portfolio will be permanently deleted without further warning. Do you really want to delete this portfolio image?');">Delete</i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable"
+                                                                       onclick="Portfolios.modal_add_portfolio(<?php echo $portfolio['portfolio_id']; ?>)">Edit</a>
+                                                                    <a class="btn btn-xs default btn-editable"
+                                                                       onclick="CommonFunctions.Delete(<?php echo $portfolio["portfolio_id"]; ?>, 'tb_member_portfolios', 'portfolio_id', 'Portfolio will be permanently deleted without further warning. Do you really want to delete this portfolio image?');">Delete</i></a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php } ?>
 
                                                     </tbody>
                                                 </table>
@@ -604,50 +603,50 @@
                                                     <span> </span>
                                                     <a class="purple" data-title="Add Type"
                                                        href="javascript:Languages.modal_add_language()"><i
-                                                                class="fa fa-plus-circle"></i> Add Language</a>
+                                                            class="fa fa-plus-circle"></i> Add Language</a>
                                                 </div>
                                                 <table id="language_table"
                                                        class="table table-striped table-bordered table-hover text-center dataTable no-footer"
                                                        cellspacing="0" width="100%">
                                                     <thead>
-                                                    <tr>
-                                                        <th>Language</th>
-                                                        <th>Proficiency</th>
-                                                        <th>Added On</th>
-                                                        <th>Updated On</th>
-                                                        <th>Status</th>
-                                                        <th>Actions</th>
-                                                    </tr>
+                                                        <tr>
+                                                            <th>Language</th>
+                                                            <th>Proficiency</th>
+                                                            <th>Added On</th>
+                                                            <th>Updated On</th>
+                                                            <th>Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                    <?php foreach ($language_data as $language) { ?>
-                                                        <tr>
-                                                            <td><?php echo $language['language_name']; ?></td>
-                                                            <td><?php echo $language['language_level']; ?></td>
-                                                            <td><?php echo date('Y-m-d', strtotime($language['created_on'])); ?></td>
-                                                            <td><?php echo date('Y-m-d', strtotime($language['updated_on'])); ?></td>
-                                                            <td>
-                                                                <div class="md-checkbox-inline">
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" disabled="disabled"
-                                                                               id="checkbox<?php echo $language['language_id']; ?>" <?php echo($language['is_active'] ? "checked='checked'" : ""); ?>
-                                                                               class="md-check">
-                                                                        <label for="checkbox<?php echo $language['language_id']; ?>">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span>
-                                                                        </label>
+                                                        <?php foreach ($language_data as $language) { ?>
+                                                            <tr>
+                                                                <td><?php echo $language['language_name']; ?></td>
+                                                                <td><?php echo $language['language_level']; ?></td>
+                                                                <td><?php echo date('Y-m-d', strtotime($language['created_on'])); ?></td>
+                                                                <td><?php echo date('Y-m-d', strtotime($language['updated_on'])); ?></td>
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled"
+                                                                                   id="checkbox<?php echo $language['language_id']; ?>" <?php echo($language['is_active'] ? "checked='checked'" : ""); ?>
+                                                                                   class="md-check">
+                                                                            <label for="checkbox<?php echo $language['language_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td><a class="btn btn-xs default btn-editable"
-                                                                   onclick="Languages.modal_add_language(<?php echo $language['language_id']; ?>)">Edit</a>
-                                                                <a class="btn btn-xs default btn-editable"
-                                                                   onclick="CommonFunctions.Delete(<?php echo $language["language_id"]; ?>, 'tb_member_languages', 'language_id', 'Language will be permanently deleted without further warning. Do you really want to delete this language from your profile?');">Delete</i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable"
+                                                                       onclick="Languages.modal_add_language(<?php echo $language['language_id']; ?>)">Edit</a>
+                                                                    <a class="btn btn-xs default btn-editable"
+                                                                       onclick="CommonFunctions.Delete(<?php echo $language["language_id"]; ?>, 'tb_member_languages', 'language_id', 'Language will be permanently deleted without further warning. Do you really want to delete this language from your profile?');">Delete</i></a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php } ?>
 
                                                     </tbody>
                                                 </table>
@@ -662,54 +661,54 @@
                                                     <span> </span>
                                                     <a class="purple" data-title="Add Type"
                                                        href="javascript:Degrees.modal_add_degree()"><i
-                                                                class="fa fa-plus-circle"></i> Add Degree</a>
+                                                            class="fa fa-plus-circle"></i> Add Degree</a>
                                                 </div>
                                                 <table id="education_table"
                                                        class="table table-striped table-bordered table-hover text-center dataTable no-footer"
                                                        cellspacing="0" width="100%">
                                                     <thead>
-                                                    <tr>
-                                                        <th width="25%"> Title</th>
-                                                        <th width="25%">Deg. Name</th>
-                                                        <th width="10%">Start Date</th>
-                                                        <th width="10%">End Date</th>
+                                                        <tr>
+                                                            <th width="25%"> Title</th>
+                                                            <th width="25%">Deg. Name</th>
+                                                            <th width="10%">Start Date</th>
+                                                            <th width="10%">End Date</th>
 
-                                                        <th width="10%">Status</th>
-                                                        <th width="10%">Actions</th>
-                                                    </tr>
+                                                            <th width="10%">Status</th>
+                                                            <th width="10%">Actions</th>
+                                                        </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                    <?php foreach ($degrees as $value) { ?>
-                                                        <tr>
+                                                        <?php foreach ($degrees as $value) { ?>
+                                                            <tr>
 
-                                                            <td><?php echo $value['title']; ?></td>
-                                                            <td><?php echo $value['degree_name']; ?></td>
-                                                            <td><?php echo $value['start_date']; ?></td>
-                                                            <td><?php echo $value['end_date']; ?></td>
+                                                                <td><?php echo $value['title']; ?></td>
+                                                                <td><?php echo $value['degree_name']; ?></td>
+                                                                <td><?php echo $value['start_date']; ?></td>
+                                                                <td><?php echo $value['end_date']; ?></td>
 
 
-                                                            <td>
-                                                                <div class="md-checkbox-inline">
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" disabled="disabled"
-                                                                               id="checkbox<?php echo $value['member_degree_id']; ?>" <?php echo($value['pub_status'] == 1 ? "checked='checked'" : ""); ?>
-                                                                               class="md-check">
-                                                                        <label for="checkbox<?php echo $value['member_degree_id']; ?>">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span>
-                                                                        </label>
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled"
+                                                                                   id="checkbox<?php echo $value['member_degree_id']; ?>" <?php echo($value['pub_status'] == 1 ? "checked='checked'" : ""); ?>
+                                                                                   class="md-check">
+                                                                            <label for="checkbox<?php echo $value['member_degree_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td><a class="btn btn-xs default btn-editable"
-                                                                   onclick="Degrees.modal_add_degree(<?php echo $value['member_degree_id']; ?>)">Edit</a>
-                                                                <a class="btn btn-xs default btn-editable"
-                                                                   onclick="CommonFunctions.Delete(<?php echo $value["member_degree_id"]; ?>, 'tb_member_degrees', 'member_degree_id', 'Are you sure you want to delete ?');">Delete</a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable"
+                                                                       onclick="Degrees.modal_add_degree(<?php echo $value['member_degree_id']; ?>)">Edit</a>
+                                                                    <a class="btn btn-xs default btn-editable"
+                                                                       onclick="CommonFunctions.Delete(<?php echo $value["member_degree_id"]; ?>, 'tb_member_degrees', 'member_degree_id', 'Are you sure you want to delete ?');">Delete</a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php } ?>
 
                                                     </tbody>
                                                 </table>
@@ -725,56 +724,56 @@
                                                     <span> </span>
                                                     <a class="purple" data-title="Add Type"
                                                        href="javascript:Experiences.modal_add_experience()"><i
-                                                                class="fa fa-plus-circle"></i> Add Experience</a>
+                                                            class="fa fa-plus-circle"></i> Add Experience</a>
                                                 </div>
                                                 <table id="experience_table"
                                                        class="table table-striped table-bordered table-hover text-center dataTable no-footer"
                                                        cellspacing="0" width="100%">
                                                     <thead>
-                                                    <tr>
+                                                        <tr>
 
-                                                        <th>Title</th>
-                                                        <th>Position</th>
-                                                        <th>Start Date</th>
-                                                        <th>End Date</th>
+                                                            <th>Title</th>
+                                                            <th>Position</th>
+                                                            <th>Start Date</th>
+                                                            <th>End Date</th>
 
 
-                                                        <th>Pub Status</th>
-                                                        <th>Actions</th>
-                                                    </tr>
+                                                            <th>Pub Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                    <?php foreach ($experiences as $value) { ?>
-                                                        <tr>
+                                                        <?php foreach ($experiences as $value) { ?>
+                                                            <tr>
 
-                                                            <td><?php echo $value['title']; ?></td>
-                                                            <td><?php echo $value['position']; ?></td>
-                                                            <td><?php echo $value['start_date']; ?></td>
-                                                            <td><?php echo $value['end_date']; ?></td>
+                                                                <td><?php echo $value['title']; ?></td>
+                                                                <td><?php echo $value['position']; ?></td>
+                                                                <td><?php echo $value['start_date']; ?></td>
+                                                                <td><?php echo $value['end_date']; ?></td>
 
 
-                                                            <td>
-                                                                <div class="md-checkbox-inline">
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" disabled="disabled"
-                                                                               id="checkbox<?php echo $value['member_experience_id']; ?>" <?php echo($value['pub_status'] == 1 ? "checked='checked'" : ""); ?>
-                                                                               class="md-check">
-                                                                        <label for="checkbox<?php echo $value['member_experience_id']; ?>">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span>
-                                                                        </label>
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled"
+                                                                                   id="checkbox<?php echo $value['member_experience_id']; ?>" <?php echo($value['pub_status'] == 1 ? "checked='checked'" : ""); ?>
+                                                                                   class="md-check">
+                                                                            <label for="checkbox<?php echo $value['member_experience_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td><a class="btn btn-xs default btn-editable"
-                                                                   onclick="Experiences.modal_add_experience(<?php echo $value['member_experience_id']; ?>)">Edit</a>
-                                                                <a class="btn btn-xs default btn-editable"
-                                                                   onclick="CommonFunctions.Delete(<?php echo $value["member_experience_id"]; ?>, 'tb_member_experience', 'member_experience_id', 'Are you sure you want to delete ?');">Delete</i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable"
+                                                                       onclick="Experiences.modal_add_experience(<?php echo $value['member_experience_id']; ?>)">Edit</a>
+                                                                    <a class="btn btn-xs default btn-editable"
+                                                                       onclick="CommonFunctions.Delete(<?php echo $value["member_experience_id"]; ?>, 'tb_member_experience', 'member_experience_id', 'Are you sure you want to delete ?');">Delete</i></a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php } ?>
 
                                                     </tbody>
                                                 </table>
@@ -789,55 +788,55 @@
                                                     <span> </span>
                                                     <a class="purple" data-title="Add Type"
                                                        href="javascript:Certifications.modal_add_certification()"><i
-                                                                class="fa fa-plus-circle"></i> Add Certification</a>
+                                                            class="fa fa-plus-circle"></i> Add Certification</a>
                                                 </div>
                                                 <table id="certification_table"
                                                        class="table table-striped table-bordered table-hover text-center dataTable no-footer"
                                                        cellspacing="0" width="100%">
                                                     <thead>
-                                                    <tr>
+                                                        <tr>
 
-                                                        <th>Image</th>
-                                                        <th>Title</th>
-                                                        <th>Description</th>
+                                                            <th>Image</th>
+                                                            <th>Title</th>
+                                                            <th>Description</th>
 
 
-                                                        <th>Pub Status</th>
-                                                        <th>Actions</th>
-                                                    </tr>
+                                                            <th>Pub Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                    <?php foreach ($certifications as $value) { ?>
-                                                        <tr>
-                                                            <td><img alt="Certification Image" class="img-circle"
-                                                                     src="<?php echo base_url($value['certification_image_path'] . 'small_' . $value['certification_image']); ?>">
-                                                            </td>
-                                                            <td><?php echo $value['title']; ?></td>
-                                                            <td><?php echo $value['description']; ?></td>
+                                                        <?php foreach ($certifications as $value) { ?>
+                                                            <tr>
+                                                                <td><img alt="Certification Image" class="img-circle"
+                                                                         src="<?php echo base_url($value['certification_image_path'] . 'small_' . $value['certification_image']); ?>">
+                                                                </td>
+                                                                <td><?php echo $value['title']; ?></td>
+                                                                <td><?php echo $value['description']; ?></td>
 
 
-                                                            <td>
-                                                                <div class="md-checkbox-inline">
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" disabled="disabled"
-                                                                               id="checkbox<?php echo $value['member_certification_id']; ?>" <?php echo($value['pub_status'] == 1 ? "checked='checked'" : ""); ?>
-                                                                               class="md-check">
-                                                                        <label for="checkbox<?php echo $value['member_certification_id']; ?>">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span>
-                                                                        </label>
+                                                                <td>
+                                                                    <div class="md-checkbox-inline">
+                                                                        <div class="md-checkbox">
+                                                                            <input type="checkbox" disabled="disabled"
+                                                                                   id="checkbox<?php echo $value['member_certification_id']; ?>" <?php echo($value['pub_status'] == 1 ? "checked='checked'" : ""); ?>
+                                                                                   class="md-check">
+                                                                            <label for="checkbox<?php echo $value['member_certification_id']; ?>">
+                                                                                <span></span>
+                                                                                <span class="check"></span>
+                                                                                <span class="box"></span>
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </td>
-                                                            <td><a class="btn btn-xs default btn-editable"
-                                                                   onclick="Certifications.modal_add_certification(<?php echo $value['member_certification_id']; ?>)">Edit</a>
-                                                                <a class="btn btn-xs default btn-editable"
-                                                                   onclick="CommonFunctions.Delete(<?php echo $value["member_certification_id"]; ?>, 'tb_member_certifications', 'member_certification_id', 'Are you sure you want to delete ?');">Delete</i></a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                                </td>
+                                                                <td><a class="btn btn-xs default btn-editable"
+                                                                       onclick="Certifications.modal_add_certification(<?php echo $value['member_certification_id']; ?>)">Edit</a>
+                                                                    <a class="btn btn-xs default btn-editable"
+                                                                       onclick="CommonFunctions.Delete(<?php echo $value["member_certification_id"]; ?>, 'tb_member_certifications', 'member_certification_id', 'Are you sure you want to delete ?');">Delete</i></a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php } ?>
 
                                                     </tbody>
                                                 </table>
@@ -852,10 +851,10 @@
                                                 <table class="table table-light table-hover">
                                                     <input type="hidden" name="member_id"
                                                            value="<?php echo $member_info['member_id']; ?>">
-                                                    <?php
-                                                    if (isset($member_info['privacy_info']) && count($member_info['privacy_info']) > 0) {
-                                                        foreach ($member_info['privacy_info'] as $privacy) {
-                                                            ?>
+                                                           <?php
+                                                           if (isset($member_info['privacy_info']) && count($member_info['privacy_info']) > 0) {
+                                                               foreach ($member_info['privacy_info'] as $privacy) {
+                                                                   ?>
                                                             <tr>
                                                                 <td><?php echo "Show " . $privacy['privacy_label']; ?></td>
                                                                 <td>
@@ -963,95 +962,95 @@
 </section>
 
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/privacy_members.js"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/images_member.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script src="<?php echo base_url('assets/custom_scripts/frontend/portfolio.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/education.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/experience.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/certification.js'); ?>"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/languages.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/frontend/datatable/jquery.dataTables.min.js"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/slim/slim.kickstart.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/slim-image-cropper-test-master/scripts/scripts.js"></script>
 <script type="text/javascript"
-        src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.js"></script>
+src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.js"></script>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
-    $(document).ready(function () {
-        FormWizard.handleCompanionValidation("update_companion_member");
-        FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
-        PrivacyMembers.initUpdatePrivacyValidation("update_privacy_member");
-        $("#portfolio_table").DataTable({"scrollX": false});
-        $("#language_table").DataTable({"scrollX": false});
-        $("#experience_table").DataTable({"scrollX": false});
-        $("#education_table").DataTable({"scrollX": false});
-        $("#certification_table").DataTable({"scrollX": false});
-        $("#location").geocomplete();
-    });
-    var price;
-    var currency;
-    var initPaypalChk = false;
-    $(".payment_options").change(function () {
-        price = $(this).val();
-        currency = $(this).find(':selected').data('currency');
-        if (!initPaypalChk) {
-            initPaypal();
-            initPaypalChk = true;
-        }
-    });
+                                                       $(document).ready(function () {
+                                                           FormWizard.handleCompanionValidation("update_companion_member");
+                                                           FormWizard.handleMemberCategoriesUpdate("form_update_member_categories");
+                                                           PrivacyMembers.initUpdatePrivacyValidation("update_privacy_member");
+                                                           $("#portfolio_table").DataTable({"scrollX": false});
+                                                           $("#language_table").DataTable({"scrollX": false});
+                                                           $("#experience_table").DataTable({"scrollX": false});
+                                                           $("#education_table").DataTable({"scrollX": false});
+                                                           $("#certification_table").DataTable({"scrollX": false});
+                                                           $("#location").geocomplete();
+                                                       });
+                                                       var price;
+                                                       var currency;
+                                                       var initPaypalChk = false;
+                                                       $(".payment_options").change(function () {
+                                                           price = $(this).val();
+                                                           currency = $(this).find(':selected').data('currency');
+                                                           if (!initPaypalChk) {
+                                                               initPaypal();
+                                                               initPaypalChk = true;
+                                                           }
+                                                       });
 
-    function initPaypal() {
-        paypal.Button.render({
-            env: 'production', // sandbox | production
+                                                       function initPaypal() {
+                                                           paypal.Button.render({
+                                                               env: 'production', // sandbox | production
 
-            // PayPal Client IDs - replace with your own
-            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
-            client: {
-                sandbox: 'Adf_99ThxemIWJTyAN5YW3uJAUodR-tNgehq7BIKjTT631_LUZD8nl0DtJ5psvZ4S8GmQHDLZpnyaj2j',
-                production: 'ASrI31ib95JJ_anCBtLqLeG4ufIx_AUn1lfOZbEfBdkVkpEwnqcaB8FG5zGz__L_E2dqo__YZ8inB_xf'
-            },
+                                                               // PayPal Client IDs - replace with your own
+                                                               // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+                                                               client: {
+                                                                   sandbox: 'Adf_99ThxemIWJTyAN5YW3uJAUodR-tNgehq7BIKjTT631_LUZD8nl0DtJ5psvZ4S8GmQHDLZpnyaj2j',
+                                                                   production: 'ASrI31ib95JJ_anCBtLqLeG4ufIx_AUn1lfOZbEfBdkVkpEwnqcaB8FG5zGz__L_E2dqo__YZ8inB_xf'
+                                                               },
 
-            // Show the buyer a 'Pay Now' button in the checkout flow
-            commit: true,
-            // payment() is called when the button is clicked
-            payment: function (data, actions) {
-                // Make a call to the REST api to create the payment
-                return actions.payment.create({
-                    payment: {
-                        transactions: [
-                            {
-                                amount: {total: price, currency: currency}
-                            }
-                        ]
-                    }
-                });
-            },
-            onCancel: function (data, actions) {
-                swal("Error!", "You have canceled the payment procedure, please pay your subscription charges in order to activate your account.", "warning");
-            },
+                                                               // Show the buyer a 'Pay Now' button in the checkout flow
+                                                               commit: true,
+                                                               // payment() is called when the button is clicked
+                                                               payment: function (data, actions) {
+                                                                   // Make a call to the REST api to create the payment
+                                                                   return actions.payment.create({
+                                                                       payment: {
+                                                                           transactions: [
+                                                                               {
+                                                                                   amount: {total: price, currency: currency}
+                                                                               }
+                                                                           ]
+                                                                       }
+                                                                   });
+                                                               },
+                                                               onCancel: function (data, actions) {
+                                                                   swal("Error!", "You have canceled the payment procedure, please pay your subscription charges in order to activate your account.", "warning");
+                                                               },
 
-            onError: function (err) {
-                swal("Error!", "Please select membership plan to pay with paypal.", "warning");
-            },
-            // onAuthorize() is called when the buyer approves the payment
-            onAuthorize: function (data, actions) {
+                                                               onError: function (err) {
+                                                                   swal("Error!", "Please select membership plan to pay with paypal.", "warning");
+                                                               },
+                                                               // onAuthorize() is called when the buyer approves the payment
+                                                               onAuthorize: function (data, actions) {
 
-                return actions.payment.get().then(function (data) {
-                    var member_id = $("#member_id").val();
-                    CommonFunctions.ExecutePayment(data, member_id, 3);
-                    // Make a call to the REST api to execute the payment
-                });
-            }
+                                                                   return actions.payment.get().then(function (data) {
+                                                                       var member_id = $("#member_id").val();
+                                                                       CommonFunctions.ExecutePayment(data, member_id, 3);
+                                                                       // Make a call to the REST api to execute the payment
+                                                                   });
+                                                               }
 
-        }, '#paypal-button-container');
-    }
+                                                           }, '#paypal-button-container');
+                                                       }
 </script>

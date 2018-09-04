@@ -123,7 +123,7 @@
                                                     <?php } else { ?>
                                                         <a href="javascript:;">
                                                         <?php } ?>
-                                                        <img src="<?php echo file_exists(base_url($members_list_row['image_path']) . $members_list_row['image']) ? ($members_list_row['image_path'] . $members_list_row['image']) : base_url('uploads/member_images/profile/user.png'); ?>"
+                                                        <img src="<?php echo file_exists($this->config->item('root_path').($members_list_row['image_path']) . $members_list_row['image']) ? ($members_list_row['image_path'] . $members_list_row['image']) : base_url('uploads/member_images/profile/user.png'); ?>"
                                                              alt="Profile Image"/>
                                                     </a>
                                             </div>
