@@ -31,6 +31,7 @@ $unique_id = time();
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
 <div class="row">
+    
     <div class="col-md-12">
         <!-- BEGIN PROFILE SIDEBAR -->
         <div class="profile-sidebar">
