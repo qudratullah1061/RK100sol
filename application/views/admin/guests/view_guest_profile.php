@@ -53,7 +53,7 @@ $unique_id = time();
                     <a class="btn btn-circle green btn-sm" href="mailto:<?php echo $member_info['email']; ?>">
                         Send Email
                     </a>
-                    <button type="button" class="btn btn-circle red btn-sm">Send Message</button>
+                    <a href="<?php echo site_url('admin/chat/view_chat_list?chat=1a-'.$member_info['member_id'].'#portlet_comments_1')?>" class="btn btn-circle red btn-sm">Send Message</a>
                 </div>
                 <!-- END SIDEBAR BUTTONS -->
                 <!-- SIDEBAR MENU -->

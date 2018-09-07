@@ -16705,3 +16705,14 @@ aside .latest-post li figure {
 .btn-disable {
     pointer-events: none;
 }
+
+.remainingDays {
+    color: #843c8c !important;
+    font-weight: 900 !important;
+    text-decoration: underline;
+    -webkit-text-fill-color: #843c8c;
+    -webkit-text-stroke-width: 0.45px;
+    -webkit-text-stroke-color: #333;
+    font-size: large;
+    text-transform: uppercase;
+}

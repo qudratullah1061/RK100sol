@@ -204,8 +204,8 @@ var Chat = function () {
             var msg = $(".msg-box").val();
             var currentChatRef = firebase.database().ref('conversations/' + current_chat_id);
             currentChatRef.push().set({
-                'sender_id': user1,
-                'receiver_id': user2,
+                'sender_id': senderID,
+                'receiver_id': (senderID == user1) ? user2 : user1,
                 'is_read': 0,
                 'message': msg,
                 'date_sent': (new Date()).toString()
@@ -230,14 +230,18 @@ var Chat = function () {
     };
 
 
-    var populateUserInfo = function (chat_id) {
+    var populateUserInfo = function (chat_id, is_admin) {
         if (typeof chat_id != "undefined") {
             var users = chat_id.split('-');
             var user1 = users[0];
             var user2 = users[1];
+            var url = base_url + "admin/chat/getUserInfoForChat";
+            if (is_admin == 0) {
+                url = base_url + "chat/getUserInfoForChat";
+            }
             $.ajax({
                 type: "POST",
-                url: base_url + "admin/chat/getUserInfoForChat",
+                url: url,
                 datatype: 'json',
                 data: {chat_id: chat_id},
                 beforeSend: function () {
@@ -268,12 +272,12 @@ var Chat = function () {
             initMessageCounters();
             initMessageInput();
         },
-        getChatMessages: function (chat_id) {
+        getChatMessages: function (chat_id, is_admin) {
             $(".mt-comment").removeClass('active_chat');
             $(".mt-comment-" + chat_id).addClass('active_chat');
             conversationRef.child(chat_id).off();
             // get user info here.
-            populateUserInfo(chat_id);
+            populateUserInfo(chat_id, is_admin);
         },
         sendChatMessage: function () {
             addMessage(current_chat_id);

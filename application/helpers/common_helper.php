@@ -127,10 +127,7 @@ function check_if_connected($userID, $memberID)
 {
     global $CI;
     $connection_detail = $CI->db->get_where('tb_member_connections', array('user_id' => $userID, 'connection_id' => $memberID))->result_array();
-    if (count($connection_detail) > 0) {
-        return $connection_detail[0];
-    }
-    return false;
+    return (count($connection_detail) > 0) ? $connection_detail[0] : '';
 }
 
 function IsPromoCodeAlreadyUsed($promo_code, $member_id)

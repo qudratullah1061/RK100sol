@@ -458,4 +458,12 @@ class Members_model extends Abstract_model
         return $this->db->delete($this->table_name);
     }
 
+    public function getConnections($memberID,$type){
+        if ($type == 1) {
+                $sql = "SELECT tb_member_connections.*,tb_member_images.*, tb_members.first_name,tb_members.last_name,tb_members.gender,tb_members.location FROM  tb_members LEFT JOIN tb_member_connections ON tb_members.member_id = tb_member_connections.connection_id LEFT JOIN tb_member_images ON tb_member_images.image_id = (SELECT image_id FROM tb_member_images WHERE tb_member_images.member_id = tb_members.member_id AND tb_member_images.image_type = 'profile' ORDER BY tb_member_images.is_profile_image DESC Limit 0,1 ) WHERE tb_member_connections.user_id = $memberID";
+        } else {
+            $sql = "SELECT tb_member_connections.*,tb_member_images.*, tb_members.first_name,tb_members.last_name,tb_members.gender,tb_members.location FROM  tb_members LEFT JOIN tb_member_connections ON tb_members.member_id = tb_member_connections.user_id LEFT JOIN tb_member_images ON tb_member_images.image_id = (SELECT image_id FROM tb_member_images WHERE tb_member_images.member_id = tb_members.member_id AND tb_member_images.image_type = 'profile' ORDER BY tb_member_images.is_profile_image DESC Limit 0,1 ) WHERE tb_member_connections.connection_id = $memberID";
+        }
+        return $this->db->query($sql)->result_array();
+    }
 }

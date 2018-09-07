@@ -9,7 +9,7 @@
                            data-member-id="<?php echo $member_info['member_id']; ?>">
                             <span id="changeMode"
                                   class="status <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"><!-- + Note: remove class online if user is offline + -->
-                                      <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
+                                <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
                             </span>
                         </a>
                         <div class="profile-media">
@@ -32,11 +32,17 @@
                         </div>
                         <br>
                         <div class="text-center">
-                            <a href="#" class="btn btn-deep-purple">Message</a>
-                            <?php
+                            <?php if ($this->session->userdata('member_id') != $member_info['member_id'] && $connected['status'] == 1) { ?>
+                                <a href="<?php echo site_url('chat/view_chat_list?chat='.min($this->session->userdata('member_id'),$member_info['member_id']).'-'.max($this->session->userdata('member_id'),$member_info['member_id'])) ?>"
+                                   class="btn btn-deep-purple">Message</a>
+                            <?php }
                             if ($this->session->userdata('member_id') != $member_info['member_id'] && $connected['status'] == 1) {
                                 ?>
                                 <a href="javascript:;" class="btn btn-deep-pink btn-disable" id="connectionBtn">Connected</a>
+                            <?php }
+                            if ($this->session->userdata('member_id') == $member_info['member_id']) { ?>
+                                <a href="<?php echo base_url('guests/get_guest_profile#tab_1_6') ?>"
+                                   class="btn btn-deep-pink btn-lg">Subscription</a>
                             <?php }
                             ?>
                         </div>
@@ -89,20 +95,12 @@
                             </li>
                             <li>
                                 <p>Remaining Days:</p>
-                                <span><?php echo expire(date("Y-m-d", strtotime($member_info['end_subscription_date']))); ?></span>
+                                <span class="remainingDays"><?php echo expire(date("Y-m-d", strtotime($member_info['end_subscription_date']))); ?></span>
                             </li>
                             <li>
                                 <p>Plan:</p>
                                 <span><?php echo GetSubscriptionPlanName($member_info['current_plan_id']) ?></span>
                             </li>
-                            <?php if ($this->session->userdata('member_id') == $member_info['member_id']) { ?>
-                                <li>
-                                    <p></p>
-                                    <span>
-                                        <a class="btn btn-default" href="<?php echo base_url('guests/get_guest_profile#tab_1_6') ?>">Renew</a>
-                                    </span>
-                                </li>
-                            <?php } ?>
                         </ul>
                     </div>
                     <div class="profile-social">
@@ -111,35 +109,35 @@
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? $member_info['facebook'] : "javascript:;"; ?>"><i
-                                        class="fa fa-facebook-square"></i></a></li>
+                                            class="fa fa-facebook-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? $member_info['youtube'] : "javascript:;"; ?>"><i
-                                        class="fa fa-youtube-square"></i></a></li>
+                                            class="fa fa-youtube-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? $member_info['linkedin'] : "javascript:;"; ?>"><i
-                                        class="fa fa-linkedin-square"></i></a></li>
+                                            class="fa fa-linkedin-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? $member_info['google'] : "javascript:;"; ?>"><i
-                                        class="fa fa-google-plus-square"></i></a></li>
+                                            class="fa fa-google-plus-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? $member_info['twitter'] : "javascript:;"; ?>"><i
-                                        class="fa fa-twitter-square"></i></a></li>
+                                            class="fa fa-twitter-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? $member_info['instagram'] : "javascript:;"; ?>"><i
-                                        class="fa fa-instagram"></i></a></li>
+                                            class="fa fa-instagram"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? $member_info['skype'] : "javascript:;"; ?>"><i
-                                        class="fa fa-skype"></i></a></li>
+                                            class="fa fa-skype"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i
-                                        class="fa fa-pinterest-square"></i></a></li>
+                                            class="fa fa-pinterest-square"></i></a></li>
                         </ul>
                     </div>
                 </div>

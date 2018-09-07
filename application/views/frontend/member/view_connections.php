@@ -18,11 +18,18 @@
                                         foreach ($connections as $connection) {
                                             ?>
                                             <div class="mt-comment" id="connection<?php echo $connection['id'] ?>">
+                                                <div class="mt-comment-img">
+                                                    <img src="<?php echo base_url($connection['image_path'] . "/" . $connection['image']); ?>"
+                                                         alt="<?php echo $connection['first_name'] . ' ' . $connection['last_name']; ?>"/>
+                                                </div>
                                                 <div class="mt-comment-body">
                                                     <div class="mt-comment-info">
-                                                        <span class="mt-comment-author"><?php echo $connection['first_name'] . ' ' . $connection['last_name']; ?></span>
+                                                        <span class="mt-comment-author"><?php echo $connection['first_name'] . ' ' . $connection['last_name']; ?>
+                                                            <br><small><?php echo $connection['gender']; ?></small>
+                                                        </span>
                                                         <span class="mt-comment-date"><?php echo date('j-F-Y g:i a', strtotime($connection['created_at'])); ?></span>
                                                     </div>
+                                                    <div class="mt-comment-text"> <?php echo $connection['location']; ?> </div>
                                                     <div class="mt-comment-details">
                                                         <span class="mt-comment-status mt-comment-status-pending"><?php
                                                             if ($connection['status'] == 0) {
@@ -35,7 +42,7 @@
                                                             ?></span>
                                                         <ul class="mt-comment-actions">
                                                             <?php
-                                                            if ($connection['status'] == 0) {
+                                                            if ($connection['status'] != 1 && $connection['user_id'] != $this->session->userdata('member_id')) {
                                                                 ?>
                                                                 <li>
                                                                     <a href="javascript:CommonFunctions.AcceptRequest('<?php echo $connection['id']; ?>', 'tb_member_connections', 'id', 'Are you sure you want to accept this connection request?')">Accept</a>

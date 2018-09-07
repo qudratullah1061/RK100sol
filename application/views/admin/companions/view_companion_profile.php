@@ -51,7 +51,7 @@ $unique_id = time();
                     <a class="btn btn-circle green btn-sm" href="mailto:<?php echo $member_info['email']; ?>">
                         Send Email
                     </a>
-                    <button type="button" class="btn btn-circle red btn-sm">Send Message</button>
+                    <a href="<?php echo site_url('admin/chat/view_chat_list?chat=1a-'.$member_info['member_id'].'#portlet_comments_2')?>" class="btn btn-circle red btn-sm">Send Message</a>
                 </div>
                 <!-- END SIDEBAR BUTTONS -->
                 <!-- SIDEBAR MENU -->
@@ -244,23 +244,6 @@ $unique_id = time();
                                         <div class="form-group col-md-6">
                                             <label class="control-label">Other Interest</label>
                                             <input class="form-control" name="other_interest" value="<?php echo $member_info['other_interest']; ?>" placeholder="Other Interest"/>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="form-group col-md-6">
-                                            <label>Select Membership Plan</label>
-                                            <select class="form-control" name="current_plan_id">
-                                                <option value="">Select Membership Plan</option>
-                                                <?php
-                                                foreach ($plans as $plan) {
-                                                    if($member_info['current_plan_id'] == $plan['plan_id']){
-                                                        $selected_plan_id = 'selected';
-                                                    }else{
-                                                        $selected_plan_id = '';
-                                                    }
-                                                    echo "<option data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_id'] . "' ".$selected_plan_id.">" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
-                                                }
-                                                ?>
-                                            </select>
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="form-group col-md-12">

@@ -23,14 +23,22 @@
 
                                     <!--// repeat this node-->
                                     <div class="mt-comment mt-comment-1a-<?php echo $this->session->userdata('member_info')['member_id']; ?>"
-                                         onclick="Chat.getChatMessages('1a-<?php echo $this->session->userdata('member_info')['member_id']; ?>')">
+                                         onclick="Chat.getChatMessages('1a-<?php echo $this->session->userdata('member_info')['member_id']; ?>',0)">
                                         <div class="mt-comment-img">
-                                            <img src="<?php echo base_url('uploads/member_images/profile/profile.png'); ?>"
+                                            <?php
+                                            if (isset($admin['image_path']) && isset($admin['image'])) {
+                                                $image = base_url($admin['image_path'] . "/" . $admin['image']);
+                                            } else {
+                                                $image = base_url('uploads/member_images/profile/profile.png');
+                                            }
+                                            ?>
+                                            <img src="<?php echo $image; ?>"
                                                  alt="Member Profile Image"/>
                                         </div>
                                         <div class="mt-comment-body">
                                             <div class="mt-comment-info">
-                                                <span class="mt-comment-author">Admin</span>
+                                                <span class="mt-comment-author"><?php echo $admin['first_name'] . " " . $admin['last_name']; ?>
+                                                    (Admin)</span>
                                                 <span class="mt-comment-date"><span
                                                             class="badge badge-danger member-<?php echo $this->session->userdata('member_info')['member_id']; ?>"></span></span>
                                             </div>
@@ -43,10 +51,17 @@
                                         foreach ($connections as $connection) {
                                             ?>
                                             <div class="mt-comment mt-comment-<?php echo min($connection['user_id'], $connection['connection_id']); ?>-<?php echo max($connection['user_id'], $connection['connection_id']); ?>"
-                                                 onclick="Chat.getChatMessages('<?php echo min($connection['user_id'], $connection['connection_id']); ?>-<?php echo max($connection['user_id'], $connection['connection_id']); ?>')">
+                                                 onclick="Chat.getChatMessages('<?php echo min($connection['user_id'], $connection['connection_id']); ?>-<?php echo max($connection['user_id'], $connection['connection_id']); ?>',0)">
                                                 <div class="mt-comment-img">
-                                                    <img src="<?php echo base_url('uploads/member_images/profile/profile.png'); ?>"
-                                                         alt="Member Profile Image"/>
+                                                    <?php
+                                                    if (isset($admin['image_path']) && isset($admin['image'])) {
+                                                        $image = base_url($connection['image_path'] . "/" . $connection['image']);
+                                                    } else {
+                                                        $image = base_url('uploads/member_images/profile/profile.png');
+                                                    }
+                                                    ?>
+                                                    <img src="<?php echo $image; ?>"
+                                                         alt="<?php echo $connection['first_name'] . " " . $connection['last_name']; ?>"/>
                                                 </div>
                                                 <div class="mt-comment-body">
                                                     <div class="mt-comment-info">
@@ -115,7 +130,14 @@
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
 <script>
+    var senderID = '<?php echo $this->session->userdata('member_id')?>';
     $(document).ready(function () {
         Chat.init();
+        <?php
+        if($_GET && $_GET['chat']){ ?>
+        var chatID = "<?php echo $_GET['chat']?>";
+        $('.mt-comment-' + chatID).trigger('click');
+        <?php }
+        ?>
     });
 </script>

@@ -9,9 +9,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Member extends FrontEnd_Controller {
+class Member extends FrontEnd_Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
         $this->layout = 'frontend/main';
         $this->load->model('admin/members_model', 'Members_Model');
@@ -19,7 +21,8 @@ class Member extends FrontEnd_Controller {
         $this->load->library('pagination');
     }
 
-    function profile($member_id = '') {
+    function profile($member_id = '')
+    {
         if ($member_id != '') {
             if ($this->session->userdata('member_type') == 1) {
                 $member_id = base64_decode($member_id);
@@ -41,19 +44,18 @@ class Member extends FrontEnd_Controller {
         $member_info = $this->Members_Model->get_member_by_id($member_id);
         if ($member_info) {
             $data['member_info'] = $member_info;
-
-            $data['data_languages'] = $this->Members_Model->get_member_languages($member_id, "AND `tb_member_languages`.is_active = 1");
+            $data['data_languages'] = $this->Members_Model->get_member_languages($member_id, "AND tb_member_languages.is_active = 1");
             if ($member_info['member_type'] == 2) {
                 $data['connected'] = check_if_connected($this->session->userdata('member_id'), $member_id);
                 $data['selected_categories'] = $this->Members_Model->get_selected_categories($member_id);
                 $data['selected_sub_categories'] = $this->Members_Model->get_selected_sub_categories($member_id, array("tb_member_categories.is_active" => "active"));
-                $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id, "AND `tb_member_portfolios`.is_active = 1");
-                $data['degrees'] = $this->Members_Model->get_member_degrees($member_id, "AND `tb_member_degrees`.pub_status = 1 AND `tb_member_degrees`.approval_status = 'Approved'");
-                $data['experiences'] = $this->Members_Model->get_member_experiences($member_id, "AND `tb_member_experience`.pub_status = 1 AND `tb_member_experience`.approval_status = 'Approved'");
-                $data['certifications'] = $this->Members_Model->get_member_certification($member_id, "AND `tb_member_certifications`.pub_status = 1 AND `tb_member_certifications`.approval_status = 'Approved'");
+                $data['portfolios'] = $this->Members_Model->get_member_portfolio($member_id, "AND tb_member_portfolios.is_active = 1");
+                $data['degrees'] = $this->Members_Model->get_member_degrees($member_id, "AND tb_member_degrees.pub_status = 1 AND tb_member_degrees.approval_status = 'Approved'");
+                $data['experiences'] = $this->Members_Model->get_member_experiences($member_id, "AND tb_member_experience.pub_status = 1 AND tb_member_experience.approval_status = 'Approved'");
+                $data['certifications'] = $this->Members_Model->get_member_certification($member_id, "AND tb_member_certifications.pub_status = 1 AND tb_member_certifications.approval_status = 'Approved'");
                 $this->load->view('frontend/member/companion_profile', $data);
             } elseif ($member_info['member_type'] == 1) {
-                $data['connected'] = check_if_connected($this->session->userdata('member_id'), $member_id);
+                $data['connected'] = check_if_connected($member_id, $this->session->userdata('member_id'));
                 $this->load->view('frontend/member/guest_profile', $data);
             }
         } else {
@@ -61,7 +63,8 @@ class Member extends FrontEnd_Controller {
         }
     }
 
-    function modal_language() {
+    function modal_language()
+    {
         $this->isAjax();
         $language_id = $this->input->post('language_id');
         $language_data = $this->Members_Model->get_language($language_id);
@@ -71,7 +74,8 @@ class Member extends FrontEnd_Controller {
         die();
     }
 
-    function show_skill_detail() {
+    function show_skill_detail()
+    {
         $this->isAjax();
         $member_id = $this->input->post('member_id');
         $data['selected_categories'] = $this->Members_Model->get_all_selected_categories($member_id);
@@ -87,7 +91,8 @@ class Member extends FrontEnd_Controller {
         die();
     }
 
-    function add_update_language() {
+    function add_update_language()
+    {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -126,7 +131,8 @@ class Member extends FrontEnd_Controller {
         }
     }
 
-    function submit_promo() {
+    function submit_promo()
+    {
         $promo_code = $this->input->post('promo_code');
         $member_id = $this->input->post('member_id');
         $promo_code_info = false;
@@ -159,14 +165,9 @@ class Member extends FrontEnd_Controller {
         $this->_response(true, "Please enter promo code.");
     }
 
-    function connections() {
-        $memberID = $this->session->userdata('member_id');
-        if ($this->session->userdata('member_type') == 1) {
-            $sql = "SELECT tb_member_connections.*, tb_members.first_name,tb_members.last_name FROM  `tb_members` LEFT JOIN `tb_member_connections` ON tb_members.member_id = tb_member_connections.connection_id WHERE tb_member_connections.user_id = $memberID";
-        } else {
-            $sql = "SELECT tb_member_connections.*, tb_members.first_name,tb_members.last_name FROM  `tb_members` LEFT JOIN `tb_member_connections` ON tb_members.member_id = tb_member_connections.user_id WHERE tb_member_connections.connection_id = $memberID";
-        }
-        $data['connections'] = $this->db->query($sql)->result_array();
+    function connections()
+    {
+        $data['connections'] = $this->Members_Model->getConnections($this->session->userdata('member_id'), $this->session->userdata('member_type'));
         $this->load->view('frontend/member/view_connections', $data);
     }
 
