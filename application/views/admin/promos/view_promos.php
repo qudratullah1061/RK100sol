@@ -35,8 +35,8 @@
                             <th width="11%"> Start Date</th>
                             <th width="11%"> End Date</th>
                             <th width="11%"> Promo Code</th>
-                            <th width="11%"> Used Promo Code</th>
-                            <th width="11%"> Status</th>
+                            <th width="7%"> Used Promo Code</th>
+                            <th width="15%"> Status</th>
                             <th width="15%"> Actions</th>
                         </tr>
                         <tr role="row" class="filter">

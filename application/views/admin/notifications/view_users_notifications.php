@@ -25,7 +25,8 @@
                     <div class="tab-pane active" id="guestsNotifications">
                         <!-- BEGIN: Comments -->
                         <div class="mt-comments">
-                            <?php foreach ($notifications as $notification) {
+                            <?php
+                            foreach ($notifications as $notification) {
                                 if ($notification['user_type'] == 1) {
                                     ?>
                                     <div class="mt-comment <?= (isset($_GET['id']) && strpos($_GET['id'], $notification['notify_id'])) ? 'highlight-noti' : '' ?>"
@@ -55,16 +56,20 @@
                                             </div>
                                         </div>
                                     </div>
-                                <?php }
-                            } ?>
+                                <?php
+                                }
+                            }
+                            ?>
                         </div>
                         <!-- END: Comments -->
                     </div>
                     <div class="tab-pane" id="companionsNotifications">
                         <!-- BEGIN: Comments -->
                         <div class="mt-comments">
-                            <?php foreach ($notifications as $notification) {
-                                if ($notification['user_type'] == 2) { ?>
+                            <?php
+                            foreach ($notifications as $notification) {
+                                if ($notification['user_type'] == 2) {
+                                    ?>
                                     <div class="mt-comment <?= (isset($_GET['id']) && (strpos($_GET['id'], $notification['notify_id']))) ? 'highlight-noti' : ''; ?>"
                                          id="comment<?php echo $notification['notify_id']; ?>">
                                         <div class="mt-comment-body">
@@ -87,13 +92,15 @@
                                                                href="javascript:CommonFunctions.MarkRead('<?php echo $notification['notify_id']; ?>', 'tb_profile_notify', 'notify_id', 'Are you sure you want to mark this notification as read?')">Mark
                                                                 Read</a>
                                                         </li>
-                                                    <?php } ?>
+        <?php } ?>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                <?php }
-                            } ?>
+                                <?php
+                                }
+                            }
+                            ?>
                         </div>
                         <!-- END: Comments -->
                     </div>
@@ -105,13 +112,15 @@
 <script src="<?php echo base_url('assets/custom_scripts/admin/notification.js'); ?>" type="text/javascript"></script>
 <script>
     $(document).ready(function () {
-        var goto = "<?= $_GET['id']?>";
-        $('html, body').animate({
-            scrollTop: $('#' + goto).offset().top - 100
-        }, 2000);
+        var goto = "<?= isset($_GET['id']) ? $_GET['id'] : ""; ?>";
+        if (goto != "") {
+            $('html, body').animate({
+                scrollTop: $('#' + goto).offset().top - 100
+            }, 2000);
 
-        setTimeout(function () {
-            $('#' + goto).removeClass('highlight-noti')
-        }, 3000);
+            setTimeout(function () {
+                $('#' + goto).removeClass('highlight-noti')
+            }, 3000);
+        }
     })
 </script>
