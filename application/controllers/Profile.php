@@ -151,9 +151,9 @@ class Profile extends CI_Controller {
                 }
                 if ($result) {
                     if ($is_update_call) {
-                        $message = get_username($edit_id) . ' guest user has successfully created his account in our system.';
-                    } else {
                         $message = get_username($edit_id) . ' has ' . $action . ' personal info from their profile settings.';
+                    } else {
+                        $message = get_username($edit_id) . ' guest user has successfully created his account in our system.';
                     }
                     push_notification(array('member_id' => $edit_id, 'user_type' => 1, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
                     if ($do_payment == false) {
@@ -320,9 +320,9 @@ class Profile extends CI_Controller {
                 }
                 if ($result) {
                     if ($update_bit) {
-                        $message = get_username($edit_id) . ' service member has successfully created his account in our system.';
-                    } else {
                         $message = get_username($edit_id) . ' has ' . $action . ' personal info from their profile settings.';
+                    } else {
+                        $message = get_username($edit_id) . ' service member has successfully created his account in our system.';
                     }
                     push_notification(array('member_id' => $edit_id, 'user_type' => 2, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
                     if ($do_payment == false) {
