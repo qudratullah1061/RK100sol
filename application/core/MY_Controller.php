@@ -22,6 +22,8 @@ class FrontEnd_Controller extends CI_Controller {
         if ($loggedin_userInfo) {
             unset($loggedin_userInfo['password']);
             $this->member_info = isset($loggedin_userInfo) ? $loggedin_userInfo : null;
+        }else{
+            $this->session->sess_destroy();
         }
     }
 
