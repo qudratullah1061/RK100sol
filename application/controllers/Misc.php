@@ -236,6 +236,7 @@ class Misc extends CI_Controller
         $record_id = $this->Misc_Model->saveRecord('tb_member_payment_details', $payment_details);
         // update member subscription dates
         // get plan number of days.
+        $discount_value = 0;
         if ($promo_used == 1) {
             $code = IsPromoCodeApplied($member_id);
             if (isset($code)) {
