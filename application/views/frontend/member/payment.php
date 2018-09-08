@@ -53,6 +53,8 @@
 <script>
     var price, currency, plan_id;
     var initPaypalChk = false;
+    // used to reload or redirect page.
+    var reload = false;
     $(".payment_options").change(function () {
         price = $(this).val();
         currency = $(this).find(':selected').data('currency');

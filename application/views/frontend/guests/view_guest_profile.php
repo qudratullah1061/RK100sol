@@ -378,8 +378,8 @@
                                         <div class="tab-pane" id="tab_1_3">
                                             <!-- Profile images start-->
                                             <div>
-                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');                ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
-                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];                ?>">
+                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');                 ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];                 ?>">
                                                     <input type="hidden" name="image_type" value="profile">
                                                     <input type="hidden" name="image_dir" value="uploads/member_images/profile/">
                                                     <h3 class="sbold">Click to upload</h3>
@@ -447,9 +447,9 @@
 
                                             <!-- Id proof images start-->
                                             <div class="margin-top-20">
-                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');                ?>" class="dropzone dropzone-file-area" id="my-dropzone2" >
-                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];                ?>">
-                                                    <input type="hidden" name="file_upload_unique_id" value="<?php // echo $unique_id;                ?>">
+                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');                 ?>" class="dropzone dropzone-file-area" id="my-dropzone2" >
+                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];                 ?>">
+                                                    <input type="hidden" name="file_upload_unique_id" value="<?php // echo $unique_id;                 ?>">
                                                     <input type="hidden" name="image_type" value="id_proof">
                                                     <input type="hidden" name="image_dir" value="uploads/member_images/id_proofs/">
                                                     <h3 class="sbold">Click to upload</h3>
@@ -524,7 +524,7 @@
                                                         foreach ($member_info['privacy_info'] as $privacy) {
                                                             ?>
                                                             <tr>
-                                                                <!--<td class="hide"><input type="hidden" name="privacy_id[]" value="<?php // echo $privacy['privacy_id'];                                     ?>"></td>-->
+                                                                <!--<td class="hide"><input type="hidden" name="privacy_id[]" value="<?php // echo $privacy['privacy_id'];                                      ?>"></td>-->
                                                                 <td><?php echo "Show " . $privacy['privacy_label']; ?></td>
                                                                 <td>
                                                                     <div class="mt-radio-inline">
@@ -656,6 +656,7 @@ type="text/javascript"></script>
     var plan_id;
     var currency;
     var initPaypalChk = false;
+    var reload = true;
     $(".payment_options").change(function () {
         price = $(this).val();
         plan_id = $(this).find(':selected').data('plan-id');

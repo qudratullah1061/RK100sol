@@ -391,7 +391,7 @@ var CommonFunctions = function () {
                         closeOnConfirm: true
                     },
                             function () {
-                                if (type == 3) {
+                                if (typeof reload != 'undefined' && reload) {
                                     window.location.reload();
                                 } else {
                                     window.location.href = base_url;
