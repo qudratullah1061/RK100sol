@@ -238,7 +238,8 @@ class Misc extends CI_Controller {
         if ($plan_info) {
             //update member info. add days to subscription days.
             $macros_data['$$$FIRST_NAME$$$'] = $member_info['first_name'];
-            if ($get_type == 3 || $member_info['is_email_verified'] == 1) {
+//            if ($get_type == 3 || $member_info['is_email_verified'] == 1) {
+            if ($member_info['is_email_verified'] == 1) {
                 $update_data = array(
                     'current_plan_id' => $plan_info[0]['plan_id'],
                     'end_subscription_date' => date('Y-m-d H:i:s', strtotime($subscription_date . " +" . $plan_info[0]['plan_duration'])),
