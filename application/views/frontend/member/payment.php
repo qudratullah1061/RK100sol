@@ -15,25 +15,28 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 <span><?php echo $error_msg; ?></span>
                             </div>
-                        <?php }
-                        if (isset($discount_value) && $discount_value != "") { ?>
+                            <?php
+                        }
+                        if (isset($discount_value) && $discount_value != "") {
+                            ?>
                             <div class="alert alert-success">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <span>You've used discount promo code that is why you will save <?= number_format($discount_value,2) ." (".$plans[0]['plan_currency'].")"?> on subscription plans. </span>
+                                <span>You've used discount promo code that is why you will save <?= number_format($discount_value, 2) . " (" . $plans[0]['plan_currency'] . ")" ?> on subscription plans. </span>
                             </div>
                         <?php } ?>
                         <div class="form-group">
                             <input type="hidden" name="member_id" id="member_id" value="<?php echo $member_id; ?>">
                             <input type="hidden" name="get_type" id="get_type" value="<?php echo $type; ?>">
+                            <input type="hidden" name="promo_code" id="promo_code" value="<?php echo $promo_code; ?>">
                             <label>Select Membership Plan<span class="required">*</span></label>
                             <select class="form-control payment_options" name="payment_amount">
                                 <option value="">Select Membership Plan</option>
                                 <?php
                                 foreach ($plans as $plan) {
                                     if (isset($discount_value) && $discount_value != '') {
-                                        echo "<option data-promo-used='1' data-currency='" . $plan['plan_currency'] . "' value='" . ($plan['plan_price'] - $discount_value) . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ") - You saved ".number_format($discount_value,2)." (" . $plan['plan_currency'] . ")" . "</option>";
+                                        echo "<option data-plan-id='" . $plan['plan_id'] . "' data-currency='" . $plan['plan_currency'] . "' value='" . ($plan['plan_price'] - $discount_value) . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ") - You saved " . number_format($discount_value, 2) . " (" . $plan['plan_currency'] . ")" . "</option>";
                                     } else {
-                                        echo "<option data-promo-used='0' data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
+                                        echo "<option data-plan-id='" . $plan['plan_id'] . "' data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
                                     }
                                 }
                                 ?>
@@ -49,12 +52,12 @@
     </div>
 </section>
 <script>
-    var price, currency, promo_used;
+    var price, currency, plan_id;
     var initPaypalChk = false;
     $(".payment_options").change(function () {
         price = $(this).val();
         currency = $(this).find(':selected').data('currency');
-        promo_used = $(this).find(':selected').data('promo-used');
+        plan_id = $(this).find(':selected').data('plan_id');
         if (!initPaypalChk) {
             initPaypal();
             initPaypalChk = true;
@@ -105,7 +108,8 @@
                 return actions.payment.get().then(function (data) {
                     var member_id = $("#member_id").val();
                     var type = $("#get_type").val();
-                    CommonFunctions.ExecutePayment(data, member_id, type,promo_used);
+                    var promo_code = $("#promo_code").val();
+                    CommonFunctions.ExecutePayment(data, member_id, type, promo_code, plan_id);
                     // Make a call to the REST api to execute the payment
 //                    return actions.payment.execute().then(function (e) {
 //                        

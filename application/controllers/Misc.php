@@ -3,13 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Misc extends CI_Controller
-{
+class Misc extends CI_Controller {
 
     public $selected_tab = '';
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->layout = 'frontend/main';
         $this->load->model('admin/misc_model', 'Misc_Model');
@@ -18,8 +16,7 @@ class Misc extends CI_Controller
     }
 
     // general json error
-    public function _response($is_error = true, $description = '', $status = '')
-    {
+    public function _response($is_error = true, $description = '', $status = '') {
         $this->output->set_status_header(200);
         $this->output->set_content_type('application/json');
         $this->output->set_header('Content-type: application/json');
@@ -31,13 +28,11 @@ class Misc extends CI_Controller
         die();
     }
 
-    public function isAjax()
-    {
+    public function isAjax() {
         header('Content-Type: application/json');
     }
 
-    function DeleteRecord()
-    {
+    function DeleteRecord() {
         $this->isAjax();
         $unique_id = $this->input->post('unique_id');
         $table = $this->input->post('table');
@@ -57,8 +52,7 @@ class Misc extends CI_Controller
         $this->_response(true, "Problem while deleting record.");
     }
 
-    function AcceptRequest()
-    {
+    function AcceptRequest() {
         $this->isAjax();
         $unique_id = $this->input->post('unique_id');
         $table = $this->input->post('table');
@@ -70,8 +64,7 @@ class Misc extends CI_Controller
         $this->_response(true, "Problem while accepting connection request.");
     }
 
-    function RejectRequest()
-    {
+    function RejectRequest() {
         $this->isAjax();
         $unique_id = $this->input->post('unique_id');
         $table = $this->input->post('table');
@@ -83,8 +76,7 @@ class Misc extends CI_Controller
         $this->_response(true, "Problem while rejecting connection request.");
     }
 
-    function DeleteChilds()
-    {
+    function DeleteChilds() {
         $this->isAjax();
         $unique_id = $this->input->post('unique_id');
         $table = $this->input->post('table');
@@ -98,8 +90,7 @@ class Misc extends CI_Controller
         $this->_response(true, "Problem while deleting record.");
     }
 
-    function MarkAsProfileImage()
-    {
+    function MarkAsProfileImage() {
         $this->isAjax();
         $unique_id = $this->input->post('image_id');
         $member_id = $this->input->post('member_id');
@@ -111,8 +102,7 @@ class Misc extends CI_Controller
         $this->_response(false, "Profile pic updated successfully!");
     }
 
-    function update_member_privacy()
-    {
+    function update_member_privacy() {
         $this->isAjax();
         if ($this->input->post()) {
             $data[0]['privacy_status'] = $this->input->post('first_name_privacy');
@@ -158,8 +148,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function delete_dropzone_temp_file()
-    {
+    function delete_dropzone_temp_file() {
         $unique_id = $this->input->get_post('unique_id');
         $file_name = $unique_id . $this->input->get_post('file_name');
         $where_clause = array('unique_id' => $unique_id, 'image' => $file_name);
@@ -183,13 +172,11 @@ class Misc extends CI_Controller
         $this->_response(true, "Problem while deleting record.");
     }
 
-    function get_countries()
-    {
+    function get_countries() {
         return GetCountriesOption($selected_country_id);
     }
 
-    function get_states()
-    {
+    function get_states() {
         $country_id = $this->input->post('country_id');
         $selected_state_id = $this->input->post('state_id');
         $state_options = GetStatesOption($country_id, $selected_state_id);
@@ -197,8 +184,7 @@ class Misc extends CI_Controller
         die();
     }
 
-    function get_cities()
-    {
+    function get_cities() {
         $state_id = $this->input->post('state_id');
         $selected_city_id = $this->input->post('city_id');
         $city_options = GetCityOptions($state_id, $selected_city_id);
@@ -206,13 +192,13 @@ class Misc extends CI_Controller
         die();
     }
 
-    function UpdatePaymentInfoInDB()
-    {
+    function UpdatePaymentInfoInDB() {
         $this->isAjax();
         $data_received = $this->input->post('data');
         $member_id = $this->input->post('member_id');
         $get_type = $this->input->post('type');
-        $promo_used = $this->input->post('promo_used');
+        $promo_code = $this->input->post('promo_code');
+        $plan_id = $this->input->post('plan_id');
         // get member info
         $member_info = $this->Members_Model->get_member_by_id($member_id);
 
@@ -237,16 +223,18 @@ class Misc extends CI_Controller
         // update member subscription dates
         // get plan number of days.
         $discount_value = 0;
-        if ($promo_used == 1) {
-            $code = IsPromoCodeApplied($member_id);
-            if (isset($code)) {
-                $check = validatePromoCode($code['promo_code'], get_user_type($member_id));
+        if ($promo_code != "" && $promo_code) {
+            $code = IsPromoCodeApplied($member_id, $promo_code);
+            if (isset($code) && $code) {
+                $check = validatePromoCode($promo_code, get_user_type($member_id));
                 if (isset($check) && $check['promo_type'] == 'discount') {
                     $discount_value = $check['value'];
                 }
             }
         }
-        $plan_info = $this->Misc_Model->getMemberPlanByPrice(array('plan_price' => ($payment_details['payment_amount'] + $discount_value), 'plan_type' => get_user_type($member_id), 'is_active' => 1));
+//        $plan_info = $this->Misc_Model->getMemberPlanByPrice(array('plan_price' => ($payment_details['payment_amount'] + $discount_value), 'plan_type' => get_user_type($member_id), 'is_active' => 1));
+        $plan_info = $this->Misc_Model->getPlanById($plan_id);
+
         if ($plan_info) {
             //update member info. add days to subscription days.
             $macros_data['$$$FIRST_NAME$$$'] = $member_info['first_name'];
@@ -286,8 +274,7 @@ class Misc extends CI_Controller
     }
 
     // check this function. Doing nothing.
-    function verify($member_id, $member_code = "")
-    {
+    function verify($member_id, $member_code = "") {
         if ($member_code) {
             $this->Misc_Model->check_member_code_exist();
         }
@@ -295,8 +282,7 @@ class Misc extends CI_Controller
     }
 
 //    Misc pages start here
-    function about()
-    {
+    function about() {
         if ($this->uri->segment(1) == "about") {
             $this->selected_tab = 'about';
             $this->load->view('frontend/misc/about');
@@ -305,8 +291,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function contact()
-    {
+    function contact() {
         if ($this->uri->segment(1) == "contact") {
             $this->selected_tab = 'contact';
             $this->load->view('frontend/misc/contact_us');
@@ -315,8 +300,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function faq()
-    {
+    function faq() {
         if ($this->uri->segment(1) == "faq") {
             $this->load->view('frontend/misc/faq');
         } else {
@@ -324,8 +308,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function terms()
-    {
+    function terms() {
         if ($this->uri->segment(1) == "terms") {
             $this->selected_tab = "terms";
             $this->load->view('frontend/misc/terms');
@@ -334,8 +317,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function how_it_works()
-    {
+    function how_it_works() {
         if ($this->uri->segment(1) == "how-it-works") {
             $this->selected_tab = "how_it_works";
             $this->load->view('frontend/misc/how_it_works');
@@ -344,8 +326,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function earn_extra_cash()
-    {
+    function earn_extra_cash() {
         if ($this->uri->segment(1) == "earn-extra-cash") {
             $this->selected_tab = "earn_extra_cash";
             $this->load->view('frontend/misc/earn_extra_cash');
@@ -354,8 +335,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function secure_community()
-    {
+    function secure_community() {
         if ($this->uri->segment(1) == "secure-community") {
             $this->selected_tab = "secure_community";
             $this->load->view('frontend/misc/secure_community');
@@ -364,8 +344,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function find_perfect_buddy()
-    {
+    function find_perfect_buddy() {
         if ($this->uri->segment(1) == "find-perfect-buddy") {
             $this->load->view('frontend/misc/find_perfect_buddy');
         } else {
@@ -373,8 +352,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function rewards_hosting_traveling()
-    {
+    function rewards_hosting_traveling() {
         if ($this->uri->segment(1) == "rewards-hosting-traveling") {
             $this->load->view('frontend/misc/rewards_hosting_traveling');
         } else {
@@ -382,13 +360,11 @@ class Misc extends CI_Controller
         }
     }
 
-    function homestay()
-    {
+    function homestay() {
         $this->load->view('frontend/misc/homestay');
     }
 
-    function event_planning($cat_id = NULL)
-    {
+    function event_planning($cat_id = NULL) {
         if ($this->uri->segment(1) == "event-planning") {
             $this->selected_tab = "event";
             $data = array();
@@ -399,8 +375,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function fitness()
-    {
+    function fitness() {
         if ($this->uri->segment(1) == "fitness") {
             $this->selected_tab = "fitness";
             $data = array();
@@ -411,8 +386,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function tourism($cat_id = NULL)
-    {
+    function tourism($cat_id = NULL) {
         if ($this->uri->segment(1) == "tourism") {
             $this->selected_tab = "tourism";
             $data = array();
@@ -423,8 +397,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function social_occasion($cat_id = NULL)
-    {
+    function social_occasion($cat_id = NULL) {
         if ($this->uri->segment(1) == "social-occasion") {
             $this->selected_tab = "social";
             $data = array();
@@ -435,8 +408,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function fashion($cat_id = 0)
-    {
+    function fashion($cat_id = 0) {
         if ($this->uri->segment(1) == "fashion") {
             $this->selected_tab = "fashion";
             $data = array();
@@ -447,8 +419,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function hosting($cat_id = NULL)
-    {
+    function hosting($cat_id = NULL) {
         if ($this->uri->segment(1) == "hosting") {
             $this->selected_tab = "hosting";
             $data = array();
@@ -461,8 +432,7 @@ class Misc extends CI_Controller
 
     //    Misc pages ends here
 
-    function verify_email($member_id, $verification_code = '')
-    {
+    function verify_email($member_id, $verification_code = '') {
         if ($verification_code != '' && $member_id > 0) {
             $result = $this->Members_Model->getBy('email_verification_code', $verification_code, 'member_id', $member_id);
             $data['verified'] = false;
@@ -482,8 +452,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function save_contactus_form()
-    {
+    function save_contactus_form() {
         $this->isAjax();
         if ($this->input->post()) {
             $data = array();
@@ -523,8 +492,7 @@ class Misc extends CI_Controller
         }
     }
 
-    function validate_promo_code()
-    {
+    function validate_promo_code() {
         $this->isAjax();
         $code = $this->input->post('code');
         $user_type = $this->input->post('userType');
@@ -536,8 +504,7 @@ class Misc extends CI_Controller
         $this->_response(false, "");
     }
 
-    function updateOnlineStatus()
-    {
+    function updateOnlineStatus() {
         $this->isAjax();
         $userId = $this->input->post('userId');
         $is_online = $this->input->post('is_online');
@@ -549,8 +516,7 @@ class Misc extends CI_Controller
         $this->_response(false, "Status updated!");
     }
 
-    function sendRequest()
-    {
+    function sendRequest() {
         $this->isAjax();
         $userId = $this->input->post('userID');
         $memberID = $this->input->post('memberID');
@@ -578,8 +544,7 @@ class Misc extends CI_Controller
     }
 
     // remove it later.
-    function sendTestMail()
-    {
+    function sendTestMail() {
         echo sendEmail("qudratullah1061@gmail.com", "Signup Successfull", "Registration completed. Please verify email by");
         exit;
     }

@@ -157,9 +157,9 @@ class Profile extends CI_Controller {
                     }
                     push_notification(array('member_id' => $edit_id, 'user_type' => 1, 'section_name' => 'personal info', 'message' => $message, 'created_at' => date("Y-m-d H:i:s")), $action);
                     if ($do_payment == false) {
-                        $this->_response(false, "Changes saved successfully!", 'skip');
+                        $this->_response(false, "Changes saved successfully!", array('message' => 'skip', 'promo_code' => $promo_code));
                     } else {
-                        $this->_response(false, "Changes saved successfully!", $edit_id);
+                        $this->_response(false, "Changes saved successfully!", array('message' => 'continue', 'user_id' => $edit_id, 'promo_code' => $promo_code));
                     }
                 }
             }
@@ -439,31 +439,36 @@ class Profile extends CI_Controller {
         die();
     }
 
-    function payment($member_id, $msg_id = 0) {
+    function payment($member_id, $msg_id = 0, $promo_code = "") {
         // check user exist in db
         if ($member_id) {
             $result = $this->Members_Model->get_member_by_id($member_id);
             if ($result) {
                 // get guest member plans
+                $data['promo_code'] = $promo_code;
                 $data['type'] = get_user_type($member_id);
                 $data['plans'] = $this->Members_Model->getPlans($data['type']);
-                $code = IsPromoCodeApplied($member_id);
-                if (isset($code)) {
-                    $check = validatePromoCode($code['promo_code'], $data['type']);
+                if ($promo_code) {
+                    $code = IsPromoCodeApplied($member_id, $promo_code);
+                }
+                if (isset($code) && $code) {
+                    $check = validatePromoCode($promo_code, $data['type']);
                     if (isset($check) && $check['promo_type'] == 'discount') {
                         $data['discount_value'] = $check['value'];
-                        $data['type'] = 3;
+//                        $data['type'] = 3;
                     }
                 }
                 $data['member_id'] = $member_id;
                 if ($msg_id > 0) {
                     $data['error_msg'] = isset($this->error_msgs[$msg_id]) ? $this->error_msgs[$msg_id] : "";
                 }
-                $data['type'] = $msg_id;
+//                $data['type'] = $msg_id;
                 $this->load->view('frontend/member/payment', $data);
             } else {
                 redirect(base_url());
             }
+        } else {
+            redirect(base_url());
         }
     }
 

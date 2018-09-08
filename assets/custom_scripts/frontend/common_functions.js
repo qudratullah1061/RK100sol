@@ -57,249 +57,249 @@ var CommonFunctions = function () {
 
     function MarkAsProfileImage(image_id, member_id) {
         swal({
-                title: "Confirmation!",
-                text: "Do you really want to chane profile pic for this user?",
-                type: "warning",
-                closeOnConfirm: false,
-                showCancelButton: true,
-                confirmButtonClass: "btn-info",
-                confirmButtonText: "Yes, make profile pic!",
-            },
-            function () {
-                $.ajax({
-                    url: base_url + "misc/MarkAsProfileImage/",
-                    dataType: 'json',
-                    method: 'post',
-                    cache: false,
-                    data: {image_id: image_id, member_id: member_id},
-                    beforeSend: function () {
-                        App.blockUI({target: 'body', animate: true});
-                    },
-                    complete: function () {
-                        App.unblockUI('body');
-                    },
-                    success: function (data) {
-                        if (!data.error) {
-                            swal({
-                                title: "Success",
-                                text: data.description,
-                                type: "success",
-                            }, function () {
-                                $(".pic-caption-img").css("color", "#474747");
-                                $(".pic-caption-" + image_id).css("color", "green");
-                            });
-                        } else {
-                            // exception message here.
-                            swal("Error!", data.description, "error");
+            title: "Confirmation!",
+            text: "Do you really want to chane profile pic for this user?",
+            type: "warning",
+            closeOnConfirm: false,
+            showCancelButton: true,
+            confirmButtonClass: "btn-info",
+            confirmButtonText: "Yes, make profile pic!",
+        },
+                function () {
+                    $.ajax({
+                        url: base_url + "misc/MarkAsProfileImage/",
+                        dataType: 'json',
+                        method: 'post',
+                        cache: false,
+                        data: {image_id: image_id, member_id: member_id},
+                        beforeSend: function () {
+                            App.blockUI({target: 'body', animate: true});
+                        },
+                        complete: function () {
+                            App.unblockUI('body');
+                        },
+                        success: function (data) {
+                            if (!data.error) {
+                                swal({
+                                    title: "Success",
+                                    text: data.description,
+                                    type: "success",
+                                }, function () {
+                                    $(".pic-caption-img").css("color", "#474747");
+                                    $(".pic-caption-" + image_id).css("color", "green");
+                                });
+                            } else {
+                                // exception message here.
+                                swal("Error!", data.description, "error");
+                            }
+                        },
+                        error: function (xhr, desc, err) {
+                            toastr["error"](xhr.statusText, "Error.");
                         }
-                    },
-                    error: function (xhr, desc, err) {
-                        toastr["error"](xhr.statusText, "Error.");
-                    }
+                    });
                 });
-            });
     }
 
     var Delete = function (unique_id, table, column, msg) {
 
         swal({
-                title: "Are you sure?",
-                text: "Warning! " + msg,
-                type: "warning",
-                closeOnConfirm: false,
-                showCancelButton: true,
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes, delete it!",
-            },
-            function () {
-                $.ajax({
-                    url: base_url + "misc/DeleteRecord/",
-                    dataType: 'json',
-                    method: 'post',
-                    cache: false,
-                    data: {unique_id: unique_id, table: table, column: column},
-                    beforeSend: function () {
-                        App.blockUI({target: 'body', animate: true});
-                    },
-                    complete: function () {
-                        App.unblockUI('body');
-                    },
-                    success: function (data) {
-                        if (!data.error) {
-                            swal({
-                                title: "Deleted",
-                                text: data.description,
-                                type: "success",
-                            }, function () {
-                                if (table == 'tb_member_portfolios' || table == 'tb_blog_comments' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications' || table == 'tb_notification_users') {
-                                    window.location.reload();
-                                } else if (table == 'tb_member_images') {
-                                    $("#pic-" + unique_id).remove();
-                                    $('#load_member_profile_images').cubeportfolio('destroy');
-                                    $('#load_member_id_proofs').cubeportfolio('destroy');
-                                    is_init_profile_images = false;
-                                    load_member_profile_images();
-                                    is_init_id_proof_images = false;
-                                    load_member_id_proofs();
-                                } else if (table == "tb_promos") {
-                                    $("#datatable_promos").DataTable().ajax.reload(null, false);
-                                }
-                            });
-                        } else {
-                            // exception message here.
-                            swal("Error!", data.description, "error");
+            title: "Are you sure?",
+            text: "Warning! " + msg,
+            type: "warning",
+            closeOnConfirm: false,
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, delete it!",
+        },
+                function () {
+                    $.ajax({
+                        url: base_url + "misc/DeleteRecord/",
+                        dataType: 'json',
+                        method: 'post',
+                        cache: false,
+                        data: {unique_id: unique_id, table: table, column: column},
+                        beforeSend: function () {
+                            App.blockUI({target: 'body', animate: true});
+                        },
+                        complete: function () {
+                            App.unblockUI('body');
+                        },
+                        success: function (data) {
+                            if (!data.error) {
+                                swal({
+                                    title: "Deleted",
+                                    text: data.description,
+                                    type: "success",
+                                }, function () {
+                                    if (table == 'tb_member_portfolios' || table == 'tb_blog_comments' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications' || table == 'tb_notification_users') {
+                                        window.location.reload();
+                                    } else if (table == 'tb_member_images') {
+                                        $("#pic-" + unique_id).remove();
+                                        $('#load_member_profile_images').cubeportfolio('destroy');
+                                        $('#load_member_id_proofs').cubeportfolio('destroy');
+                                        is_init_profile_images = false;
+                                        load_member_profile_images();
+                                        is_init_id_proof_images = false;
+                                        load_member_id_proofs();
+                                    } else if (table == "tb_promos") {
+                                        $("#datatable_promos").DataTable().ajax.reload(null, false);
+                                    }
+                                });
+                            } else {
+                                // exception message here.
+                                swal("Error!", data.description, "error");
+                            }
+                        },
+                        error: function (xhr, desc, err) {
+                            toastr["error"](xhr.statusText, "Error.");
                         }
-                    },
-                    error: function (xhr, desc, err) {
-                        toastr["error"](xhr.statusText, "Error.");
-                    }
+                    });
                 });
-            });
     };
 
     var AcceptRequest = function (unique_id, table, column, msg) {
 
         swal({
-                title: "Are you sure?",
-                text: "Warning! " + msg,
-                type: "warning",
-                closeOnConfirm: false,
-                showCancelButton: true,
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes, Accept it!",
-            },
-            function () {
-                $.ajax({
-                    url: base_url + "misc/AcceptRequest/",
-                    dataType: 'json',
-                    method: 'post',
-                    cache: false,
-                    data: {unique_id: unique_id, table: table, column: column},
-                    beforeSend: function () {
-                        App.blockUI({target: 'body', animate: true});
-                    },
-                    complete: function () {
-                        App.unblockUI('body');
-                    },
-                    success: function (data) {
-                        if (!data.error) {
-                            swal({
-                                title: "Accepted",
-                                text: data.description,
-                                type: "success",
-                            }, function () {
-                                window.location.reload();
-                            });
-                        } else {
-                            // exception message here.
-                            swal("Error!", data.description, "error");
+            title: "Are you sure?",
+            text: "Warning! " + msg,
+            type: "warning",
+            closeOnConfirm: false,
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, Accept it!",
+        },
+                function () {
+                    $.ajax({
+                        url: base_url + "misc/AcceptRequest/",
+                        dataType: 'json',
+                        method: 'post',
+                        cache: false,
+                        data: {unique_id: unique_id, table: table, column: column},
+                        beforeSend: function () {
+                            App.blockUI({target: 'body', animate: true});
+                        },
+                        complete: function () {
+                            App.unblockUI('body');
+                        },
+                        success: function (data) {
+                            if (!data.error) {
+                                swal({
+                                    title: "Accepted",
+                                    text: data.description,
+                                    type: "success",
+                                }, function () {
+                                    window.location.reload();
+                                });
+                            } else {
+                                // exception message here.
+                                swal("Error!", data.description, "error");
+                            }
+                        },
+                        error: function (xhr, desc, err) {
+                            toastr["error"](xhr.statusText, "Error.");
                         }
-                    },
-                    error: function (xhr, desc, err) {
-                        toastr["error"](xhr.statusText, "Error.");
-                    }
+                    });
                 });
-            });
     };
 
     var RejectRequest = function (unique_id, table, column, msg) {
 
         swal({
-                title: "Are you sure?",
-                text: "Warning! " + msg,
-                type: "warning",
-                closeOnConfirm: false,
-                showCancelButton: true,
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes, Reject it!",
-            },
-            function () {
-                $.ajax({
-                    url: base_url + "misc/RejectRequest/",
-                    dataType: 'json',
-                    method: 'post',
-                    cache: false,
-                    data: {unique_id: unique_id, table: table, column: column},
-                    beforeSend: function () {
-                        App.blockUI({target: 'body', animate: true});
-                    },
-                    complete: function () {
-                        App.unblockUI('body');
-                    },
-                    success: function (data) {
-                        if (!data.error) {
-                            swal({
-                                title: "Rejected",
-                                text: data.description,
-                                type: "success",
-                            }, function () {
-                                window.location.reload();
-                            });
-                        } else {
-                            // exception message here.
-                            swal("Error!", data.description, "error");
+            title: "Are you sure?",
+            text: "Warning! " + msg,
+            type: "warning",
+            closeOnConfirm: false,
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, Reject it!",
+        },
+                function () {
+                    $.ajax({
+                        url: base_url + "misc/RejectRequest/",
+                        dataType: 'json',
+                        method: 'post',
+                        cache: false,
+                        data: {unique_id: unique_id, table: table, column: column},
+                        beforeSend: function () {
+                            App.blockUI({target: 'body', animate: true});
+                        },
+                        complete: function () {
+                            App.unblockUI('body');
+                        },
+                        success: function (data) {
+                            if (!data.error) {
+                                swal({
+                                    title: "Rejected",
+                                    text: data.description,
+                                    type: "success",
+                                }, function () {
+                                    window.location.reload();
+                                });
+                            } else {
+                                // exception message here.
+                                swal("Error!", data.description, "error");
+                            }
+                        },
+                        error: function (xhr, desc, err) {
+                            toastr["error"](xhr.statusText, "Error.");
                         }
-                    },
-                    error: function (xhr, desc, err) {
-                        toastr["error"](xhr.statusText, "Error.");
-                    }
+                    });
                 });
-            });
     };
 
     var Delete_Childs = function (unique_id, table, column, msg) {
 
         swal({
-                title: "Are you sure?",
-                text: "Warning! " + msg,
-                type: "warning",
-                closeOnConfirm: false,
-                showCancelButton: true,
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes, delete it!",
-            },
-            function () {
-                $.ajax({
-                    url: base_url + "misc/DeleteChilds/",
-                    dataType: 'json',
-                    method: 'post',
-                    cache: false,
-                    data: {unique_id: unique_id, table: table, column: column},
-                    beforeSend: function () {
-                        App.blockUI({target: 'body', animate: true});
-                    },
-                    complete: function () {
-                        App.unblockUI('body');
-                    },
-                    success: function (data) {
-                        if (!data.error) {
-                            swal({
-                                title: "Deleted",
-                                text: data.description,
-                                type: "success",
-                            }, function () {
-                                if (table == 'tb_member_portfolios' || table == 'tb_blog_comments' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications' || table == 'tb_notification_users') {
-                                    window.location.reload();
-                                } else if (table == 'tb_member_images') {
-                                    $("#pic-" + unique_id).remove();
-                                    $('#load_member_profile_images').cubeportfolio('destroy');
-                                    $('#load_member_id_proofs').cubeportfolio('destroy');
-                                    is_init_profile_images = false;
-                                    load_member_profile_images();
-                                    is_init_id_proof_images = false;
-                                    load_member_id_proofs();
-                                }
-                            });
-                        } else {
-                            // exception message here.
-                            swal("Error!", data.description, "error");
+            title: "Are you sure?",
+            text: "Warning! " + msg,
+            type: "warning",
+            closeOnConfirm: false,
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, delete it!",
+        },
+                function () {
+                    $.ajax({
+                        url: base_url + "misc/DeleteChilds/",
+                        dataType: 'json',
+                        method: 'post',
+                        cache: false,
+                        data: {unique_id: unique_id, table: table, column: column},
+                        beforeSend: function () {
+                            App.blockUI({target: 'body', animate: true});
+                        },
+                        complete: function () {
+                            App.unblockUI('body');
+                        },
+                        success: function (data) {
+                            if (!data.error) {
+                                swal({
+                                    title: "Deleted",
+                                    text: data.description,
+                                    type: "success",
+                                }, function () {
+                                    if (table == 'tb_member_portfolios' || table == 'tb_blog_comments' || table == 'tb_member_languages' || table == 'tb_member_experience' || table == 'tb_member_degrees' || table == 'tb_member_certifications' || table == 'tb_notifications' || table == 'tb_notification_users') {
+                                        window.location.reload();
+                                    } else if (table == 'tb_member_images') {
+                                        $("#pic-" + unique_id).remove();
+                                        $('#load_member_profile_images').cubeportfolio('destroy');
+                                        $('#load_member_id_proofs').cubeportfolio('destroy');
+                                        is_init_profile_images = false;
+                                        load_member_profile_images();
+                                        is_init_id_proof_images = false;
+                                        load_member_id_proofs();
+                                    }
+                                });
+                            } else {
+                                // exception message here.
+                                swal("Error!", data.description, "error");
+                            }
+                        },
+                        error: function (xhr, desc, err) {
+                            toastr["error"](xhr.statusText, "Error.");
                         }
-                    },
-                    error: function (xhr, desc, err) {
-                        toastr["error"](xhr.statusText, "Error.");
-                    }
+                    });
                 });
-            });
     };
 
 
@@ -366,13 +366,13 @@ var CommonFunctions = function () {
         });
     };
 
-    var UpdatePaymentInfoInDB = function (data, member_id, type, promo_used) {
+    var UpdatePaymentInfoInDB = function (data, member_id, type, promo_code, plan_id) {
         $.ajax({
             url: base_url + "misc/UpdatePaymentInfoInDB/",
             dataType: 'json',
             method: 'post',
             cache: false,
-            data: {data: data, member_id: member_id, type: type, promo_used: promo_used},
+            data: {data: data, member_id: member_id, type: type, promo_code: promo_code, plan_id: plan_id},
             beforeSend: function () {
                 App.blockUI({target: '.membership-plans', animate: true});
             },
@@ -382,21 +382,21 @@ var CommonFunctions = function () {
             success: function (data) {
                 if (!data.error) {
                     swal({
-                            title: "Success!",
-                            text: data.description,
-                            type: "success",
-                            showCancelButton: false,
+                        title: "Success!",
+                        text: data.description,
+                        type: "success",
+                        showCancelButton: false,
 //                      confirmButtonClass: "btn-danger",
-                            confirmButtonText: "Done",
-                            closeOnConfirm: true
-                        },
-                        function () {
-                            if (type == 3) {
-                                window.location.reload();
-                            } else {
-                                window.location.href = base_url;
-                            }
-                        });
+                        confirmButtonText: "Done",
+                        closeOnConfirm: true
+                    },
+                            function () {
+                                if (type == 3) {
+                                    window.location.reload();
+                                } else {
+                                    window.location.href = base_url;
+                                }
+                            });
                 } else {
                     // exception message here.
                     swal("Error!", data.description, "warning");
@@ -531,8 +531,8 @@ var CommonFunctions = function () {
         LoadCities: function (state_id, city_id, class_name) {
             GetCitiesOptions(state_id, city_id, class_name);
         },
-        ExecutePayment: function (data, member_id, type, promo_used) {
-            UpdatePaymentInfoInDB(data, member_id, type, promo_used);
+        ExecutePayment: function (data, member_id, type, promo_code, plan_id) {
+            UpdatePaymentInfoInDB(data, member_id, type, promo_code, plan_id);
         },
         changeHash: function (hashId) {
             setTimeout(function () {

@@ -16,11 +16,12 @@ var GuestMembers = function () {
             },
             success: function (data) {
                 if (!data.error) {
+                    console.log(data.code);
                     toastr["success"](data.description, "Success!");
-                    if (data.code == 'skip') {
+                    if (data.code.message == 'skip') {
                         var redirect_path = 'profile/thankyou';
                     } else {
-                        var redirect_path = 'profile/payment/' + data.code;
+                        var redirect_path = 'profile/payment/' + data.code.user_id + '/0/' + data.code.promo_code;
                     }
                     if ('add_guest_member' == formId) {
                         setTimeout(function () {
@@ -165,11 +166,11 @@ var GuestMembers = function () {
             },
             highlight: function (element) { // hightlight error inputs
                 $(element)
-                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+                        .closest('.form-group').addClass('has-error'); // set error class to the control group
             },
             unhighlight: function (element) { // revert the change done by hightlight
                 $(element)
-                    .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
             },
             success: function (label) {
                 label.closest('.form-group').removeClass('has-error'); // set success class to the control group
@@ -180,7 +181,7 @@ var GuestMembers = function () {
         });
 
     };
-    
+
 //    var handlePromoCodeValidation = function () {
 //        $('input[name="promo_code"]').focusout(function () {
 //            var promoCode = $('input[name="promo_code"]').val();
@@ -204,7 +205,7 @@ var GuestMembers = function () {
 //            }
 //        });
 //    };
-    
+
     return {
         initAddUpdateGuestValidation: function (formId) {
             if ($(".dateofbirht").val() != "") {
