@@ -109,7 +109,7 @@
                 return actions.payment.get().then(function (data) {
                     var member_id = $("#member_id").val();
                     var promo_code = $("#promo_code").val();
-                    CommonFunctions.ExecutePayment(data, member_id, promo_code, plan_id);
+                    CommonFunctions.ExecutePayment(data, member_id, plan_id, promo_code);
                     // Make a call to the REST api to execute the payment
 //                    return actions.payment.execute().then(function (e) {
 //                        
