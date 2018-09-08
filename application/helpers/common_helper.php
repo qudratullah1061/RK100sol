@@ -90,6 +90,7 @@ function RedirectAdminToAppropriatePage() {
     redirect(base_url('admin/admin_dashboard'));
 }
 
+
 //1 for guest , 2 for companion
 function validatePromoCode($promo_code, $userType) {
     // check promo code exist.
