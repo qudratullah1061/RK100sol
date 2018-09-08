@@ -57,7 +57,7 @@
     $(".payment_options").change(function () {
         price = $(this).val();
         currency = $(this).find(':selected').data('currency');
-        plan_id = $(this).find(':selected').data('plan_id');
+        plan_id = $(this).find(':selected').data('plan-id');
         if (!initPaypalChk) {
             initPaypal();
             initPaypalChk = true;
