@@ -144,7 +144,7 @@ function GetSubscriptionPlanName($plan_id) {
     // check promo code exist.
     global $CI;
     $plan_info = $CI->db->get_where('tb_member_plans', array("plan_id" => $plan_id))->row_array();
-    return ($plan_info['plan_name']) ? $plan_info['plan_name'] : 'Free Trail';
+    return ($plan_info['plan_name']) ? $plan_info['plan_name'] : 'Free Trial';
 }
 
 function getGeoCodes($address = "") {
