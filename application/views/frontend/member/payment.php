@@ -68,7 +68,7 @@
 
     function initPaypal() {
         paypal.Button.render({
-            env: 'sandbox', // sandbox | production
+            env: 'production', // sandbox | production
 
             // PayPal Client IDs - replace with your own
             // Create a PayPal app: https://developer.paypal.com/developer/applications/create
