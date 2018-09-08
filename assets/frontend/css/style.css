@@ -16715,4 +16715,6 @@ aside .latest-post li figure {
     -webkit-text-stroke-color: #333;
     font-size: large;
     text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 0;
 }

@@ -57,10 +57,10 @@
                                }
                                if ($this->session->userdata('member_id') == $member_info['member_id']) {
                                    ?>
-                                <a href="<?php echo base_url('companions/get_companion_profile#tab_1_11') ?>"
-                                   class="btn btn-deep-pink btn-block">Renew Subscription</a>
-                               <?php }
-                               ?>
+                                <a href="<?php echo base_url('companions/get_companion_profile#tab_1_11') ?>" class="btn btn-deep-pink btn-block">Renew Subscription</a>
+                                <p class="remainingDays"><?php echo expire(date("Y-m-d", strtotime($member_info['end_subscription_date']))); ?></p>
+                            <?php }
+                            ?>
                         </div>
                     </div>
                     <div class="profile-misc">
@@ -116,10 +116,6 @@
                             <li>
                                 <p>Expires On:</p>
                                 <span><?php echo date("d-M,Y", strtotime($member_info['end_subscription_date'])); ?></span>
-                            </li>
-                            <li>
-                                <p>Remaining Days:</p>
-                                <span class="remainingDays"><?php echo expire(date("Y-m-d", strtotime($member_info['end_subscription_date']))); ?></span>
                             </li>
                             <li>
                                 <p>Plan:</p>
