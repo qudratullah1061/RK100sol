@@ -458,7 +458,7 @@
                                                             </div>
                                                             <div class="cbp-l-grid-projects-title uppercase text-center uppercase pic-caption-img text-center pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>
                                                                 Image <?php echo $counter++; ?></div>
-                                                            <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";                           ?></div>-->
+                                                            <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";                                ?></div>-->
                                                         </div>
                                                         <?php
                                                     }
@@ -566,7 +566,7 @@
                                                                 <td><?php echo $portfolio['state_name']; ?></td>
                                                                 <td><?php echo $portfolio['city_name']; ?></td>
                                                                 <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
-                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));                           ?></td>-->
+                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));                                ?></td>-->
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">
@@ -939,7 +939,7 @@
                                                     <option value="">Select Membership Plan</option>
                                                     <?php
                                                     foreach ($plans as $plan) {
-                                                        echo "<option data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
+                                                        echo "<option data-plan-id='" . $plan['plan_id'] . "' data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
                                                     }
                                                     ?>
                                                 </select>
@@ -997,11 +997,13 @@ src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.j
                                                            $("#location").geocomplete();
                                                        });
                                                        var price;
+                                                       var plan_id;
                                                        var currency;
                                                        var initPaypalChk = false;
                                                        $(".payment_options").change(function () {
                                                            price = $(this).val();
                                                            currency = $(this).find(':selected').data('currency');
+                                                           plan_id = $(this).find(':selected').data('plan-id');
                                                            if (!initPaypalChk) {
                                                                initPaypal();
                                                                initPaypalChk = true;
@@ -1010,7 +1012,7 @@ src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.j
 
                                                        function initPaypal() {
                                                            paypal.Button.render({
-                                                               env: 'production', // sandbox | production
+                                                               env: 'sandbox', // sandbox | production
 
                                                                // PayPal Client IDs - replace with your own
                                                                // Create a PayPal app: https://developer.paypal.com/developer/applications/create
@@ -1046,7 +1048,7 @@ src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.j
 
                                                                    return actions.payment.get().then(function (data) {
                                                                        var member_id = $("#member_id").val();
-                                                                       CommonFunctions.ExecutePayment(data, member_id, 3);
+                                                                       CommonFunctions.ExecutePayment(data, member_id, plan_id);
                                                                        // Make a call to the REST api to execute the payment
                                                                    });
                                                                }
