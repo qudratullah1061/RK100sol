@@ -104,6 +104,7 @@ function validatePromoCode($promo_code, $userType) {
         $is_active = $promo_code_info[0]['is_active'];
         $promo_subscription_discount = $promo_code_info[0]['promo_subscription_discount'];
         $promo_subscription_discount_value = $promo_code_info[0]['promo_sub_dis_value'];
+        // 0 for subscription, 1 for discount.
         if ($promo_subscription_discount == 0 && $end_date >= $current_date && $start_date <= $current_date && $is_active && $promo_valid_for == $userType) {
             return array("promo_type" => "sub", "value" => $promo_subscription_discount_value);
         } elseif ($promo_subscription_discount == 1 && $end_date >= $current_date && $start_date <= $current_date && $is_active && $promo_valid_for == $userType) {
