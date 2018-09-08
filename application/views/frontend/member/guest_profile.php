@@ -43,7 +43,7 @@
                             if ($this->session->userdata('member_id') == $member_info['member_id']) {
                                 ?>
                                 <a href="<?php echo base_url('guests/get_guest_profile#tab_1_6') ?>"
-                                   class="btn btn-deep-pink btn-lg">Subscription</a>
+                                   class="btn btn-deep-pink btn-lg">Renew Subscription</a>
                                <?php }
                                ?>
                         </div>

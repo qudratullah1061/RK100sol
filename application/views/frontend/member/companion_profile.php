@@ -58,7 +58,7 @@
                                if ($this->session->userdata('member_id') == $member_info['member_id']) {
                                    ?>
                                 <a href="<?php echo base_url('companions/get_companion_profile#tab_1_11') ?>"
-                                   class="btn btn-deep-pink btn-block">Renew</a>
+                                   class="btn btn-deep-pink btn-block">Renew Subscription</a>
                                <?php }
                                ?>
                         </div>
