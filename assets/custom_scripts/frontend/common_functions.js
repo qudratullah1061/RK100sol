@@ -366,13 +366,13 @@ var CommonFunctions = function () {
         });
     };
 
-    var UpdatePaymentInfoInDB = function (data, member_id, type, promo_code, plan_id) {
+    var UpdatePaymentInfoInDB = function (data, member_id, plan_id, promo_code) {
         $.ajax({
             url: base_url + "misc/UpdatePaymentInfoInDB/",
             dataType: 'json',
             method: 'post',
             cache: false,
-            data: {data: data, member_id: member_id, type: type, promo_code: promo_code, plan_id: plan_id},
+            data: {data: data, member_id: member_id, plan_id: plan_id, promo_code: promo_code},
             beforeSend: function () {
                 App.blockUI({target: '.membership-plans', animate: true});
             },
@@ -531,8 +531,8 @@ var CommonFunctions = function () {
         LoadCities: function (state_id, city_id, class_name) {
             GetCitiesOptions(state_id, city_id, class_name);
         },
-        ExecutePayment: function (data, member_id, type, promo_code, plan_id) {
-            UpdatePaymentInfoInDB(data, member_id, type, promo_code, plan_id);
+        ExecutePayment: function (data, member_id, plan_id, promo_code) {
+            UpdatePaymentInfoInDB(data, member_id, plan_id, promo_code);
         },
         changeHash: function (hashId) {
             setTimeout(function () {

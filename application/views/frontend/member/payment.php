@@ -26,7 +26,6 @@
                         <?php } ?>
                         <div class="form-group">
                             <input type="hidden" name="member_id" id="member_id" value="<?php echo $member_id; ?>">
-                            <input type="hidden" name="get_type" id="get_type" value="<?php echo $type; ?>">
                             <input type="hidden" name="promo_code" id="promo_code" value="<?php echo $promo_code; ?>">
                             <label>Select Membership Plan<span class="required">*</span></label>
                             <select class="form-control payment_options" name="payment_amount">
@@ -107,9 +106,8 @@
 
                 return actions.payment.get().then(function (data) {
                     var member_id = $("#member_id").val();
-                    var type = $("#get_type").val();
                     var promo_code = $("#promo_code").val();
-                    CommonFunctions.ExecutePayment(data, member_id, type, promo_code, plan_id);
+                    CommonFunctions.ExecutePayment(data, member_id, promo_code, plan_id);
                     // Make a call to the REST api to execute the payment
 //                    return actions.payment.execute().then(function (e) {
 //                        

@@ -455,14 +455,12 @@ class Profile extends CI_Controller {
                     $check = validatePromoCode($promo_code, $data['type']);
                     if (isset($check) && $check['promo_type'] == 'discount') {
                         $data['discount_value'] = $check['value'];
-//                        $data['type'] = 3;
                     }
                 }
                 $data['member_id'] = $member_id;
                 if ($msg_id > 0) {
                     $data['error_msg'] = isset($this->error_msgs[$msg_id]) ? $this->error_msgs[$msg_id] : "";
                 }
-//                $data['type'] = $msg_id;
                 $this->load->view('frontend/member/payment', $data);
             } else {
                 redirect(base_url());

@@ -196,7 +196,6 @@ class Misc extends CI_Controller {
         $this->isAjax();
         $data_received = $this->input->post('data');
         $member_id = $this->input->post('member_id');
-        $get_type = $this->input->post('type');
         $promo_code = $this->input->post('promo_code');
         $plan_id = $this->input->post('plan_id');
         // get member info
@@ -238,7 +237,6 @@ class Misc extends CI_Controller {
         if ($plan_info) {
             //update member info. add days to subscription days.
             $macros_data['$$$FIRST_NAME$$$'] = $member_info['first_name'];
-//            if ($get_type == 3 || $member_info['is_email_verified'] == 1) {
             if ($member_info['is_email_verified'] == 1) {
                 $update_data = array(
                     'current_plan_id' => $plan_info[0]['plan_id'],

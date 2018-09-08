@@ -378,8 +378,8 @@
                                         <div class="tab-pane" id="tab_1_3">
                                             <!-- Profile images start-->
                                             <div>
-                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');          ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
-                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];          ?>">
+                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');                ?>" class="dropzone dropzone-file-area" id="my-dropzone" >
+                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];                ?>">
                                                     <input type="hidden" name="image_type" value="profile">
                                                     <input type="hidden" name="image_dir" value="uploads/member_images/profile/">
                                                     <h3 class="sbold">Click to upload</h3>
@@ -447,9 +447,9 @@
 
                                             <!-- Id proof images start-->
                                             <div class="margin-top-20">
-                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');          ?>" class="dropzone dropzone-file-area" id="my-dropzone2" >
-                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];          ?>">
-                                                    <input type="hidden" name="file_upload_unique_id" value="<?php // echo $unique_id;          ?>">
+                                                <!--                                                <form action="<?php // echo base_url('profile/upload_images_member');                ?>" class="dropzone dropzone-file-area" id="my-dropzone2" >
+                                                    <input type="hidden" name="member_id" value="<?php // echo $member_info['member_id'];                ?>">
+                                                    <input type="hidden" name="file_upload_unique_id" value="<?php // echo $unique_id;                ?>">
                                                     <input type="hidden" name="image_type" value="id_proof">
                                                     <input type="hidden" name="image_dir" value="uploads/member_images/id_proofs/">
                                                     <h3 class="sbold">Click to upload</h3>
@@ -524,7 +524,7 @@
                                                         foreach ($member_info['privacy_info'] as $privacy) {
                                                             ?>
                                                             <tr>
-                                                                <!--<td class="hide"><input type="hidden" name="privacy_id[]" value="<?php // echo $privacy['privacy_id'];                               ?>"></td>-->
+                                                                <!--<td class="hide"><input type="hidden" name="privacy_id[]" value="<?php // echo $privacy['privacy_id'];                                     ?>"></td>-->
                                                                 <td><?php echo "Show " . $privacy['privacy_label']; ?></td>
                                                                 <td>
                                                                     <div class="mt-radio-inline">
@@ -605,7 +605,7 @@
                                                     <option value="">Select Membership Plan</option>
                                                     <?php
                                                     foreach ($plans as $plan) {
-                                                        echo "<option data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
+                                                        echo "<option data-plan-id='" . $plan['plan_id'] . "' data-currency='" . $plan['plan_currency'] . "' value='" . $plan['plan_price'] . "'>" . $plan['plan_name'] . " " . $plan['plan_price'] . " (" . $plan['plan_currency'] . ")" . "</option>";
                                                     }
                                                     ?>
                                                 </select>
@@ -653,10 +653,12 @@ type="text/javascript"></script>
         $("#location").geocomplete();
     });
     var price;
+    var plan_id;
     var currency;
     var initPaypalChk = false;
     $(".payment_options").change(function () {
         price = $(this).val();
+        plan_id = $(this).find(':selected').data('plan-id');
         currency = $(this).find(':selected').data('currency');
         if (!initPaypalChk) {
             initPaypal();
@@ -666,7 +668,7 @@ type="text/javascript"></script>
 
     function initPaypal() {
         paypal.Button.render({
-            env: 'production', // sandbox | production
+            env: 'sandbox', // sandbox | production
 
             // PayPal Client IDs - replace with your own
             // Create a PayPal app: https://developer.paypal.com/developer/applications/create
@@ -702,7 +704,7 @@ type="text/javascript"></script>
 
                 return actions.payment.get().then(function (data) {
                     var member_id = $("#member_id").val();
-                    CommonFunctions.ExecutePayment(data, member_id, 3);
+                    CommonFunctions.ExecutePayment(data, member_id, plan_id);
                     // Make a call to the REST api to execute the payment
 //                    return actions.payment.execute().then(function (e) {
 //
