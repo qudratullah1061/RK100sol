@@ -4,11 +4,9 @@
             <div class="col-md-3 col-sm-4">
                 <div class="profile-left wow fadeInUp">
                     <div class="profile-personal">
-                        <a href="javascript:;" <?php echo $this->session->userdata('member_id') != $member_info['member_id'] ? '' : 'onclick="CommonFunctions.changeMode(this)'; ?>
-                           data-mode="<?php echo $member_info['is_online'] ?>"
-                           data-member-id="<?php echo $member_info['member_id']; ?>">
-                            <span id="changeMode"
-                                  class="status <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"><!-- + Note: remove class online if user is offline + -->
+                        <a href="javascript:;" <?php echo $this->session->userdata('member_id') != $member_info['member_id'] ? '' : 'onclick="CommonFunctions.changeMode(this)'; ?> data-mode="<?php echo $member_info['is_online'] ?>" data-member-id="<?php echo $member_info['member_id']; ?>">
+                            <!-- + Note: remove class online if user is offline + -->
+                            <span id="changeMode" class="status <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>">
                                 <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
                             </span>
                         </a>
@@ -33,18 +31,21 @@
                         <br>
                         <div class="text-center">
                             <?php if ($this->session->userdata('member_id') != $member_info['member_id'] && $connected['status'] == 1) { ?>
-                                <a href="<?php echo site_url('chat/view_chat_list?chat='.min($this->session->userdata('member_id'),$member_info['member_id']).'-'.max($this->session->userdata('member_id'),$member_info['member_id'])) ?>"
+                                <a href="<?php echo site_url('chat/view_chat_list?chat=' . min($this->session->userdata('member_id'), $member_info['member_id']) . '-' . max($this->session->userdata('member_id'), $member_info['member_id'])) ?>"
                                    class="btn btn-deep-purple">Message</a>
-                            <?php }
-                            if ($this->session->userdata('member_id') != $member_info['member_id'] && $connected['status'] == 1) {
-                                ?>
+                                   <?php
+                               }
+                               if ($this->session->userdata('member_id') != $member_info['member_id'] && $connected['status'] == 1) {
+                                   ?>
                                 <a href="javascript:;" class="btn btn-deep-pink btn-disable" id="connectionBtn">Connected</a>
-                            <?php }
-                            if ($this->session->userdata('member_id') == $member_info['member_id']) { ?>
+                                <?php
+                            }
+                            if ($this->session->userdata('member_id') == $member_info['member_id']) {
+                                ?>
                                 <a href="<?php echo base_url('guests/get_guest_profile#tab_1_6') ?>"
                                    class="btn btn-deep-pink btn-lg">Subscription</a>
-                            <?php }
-                            ?>
+                               <?php }
+                               ?>
                         </div>
                     </div>
                     <div class="profile-misc">
@@ -109,35 +110,35 @@
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? $member_info['facebook'] : "javascript:;"; ?>"><i
-                                            class="fa fa-facebook-square"></i></a></li>
+                                        class="fa fa-facebook-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? $member_info['youtube'] : "javascript:;"; ?>"><i
-                                            class="fa fa-youtube-square"></i></a></li>
+                                        class="fa fa-youtube-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? $member_info['linkedin'] : "javascript:;"; ?>"><i
-                                            class="fa fa-linkedin-square"></i></a></li>
+                                        class="fa fa-linkedin-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? $member_info['google'] : "javascript:;"; ?>"><i
-                                            class="fa fa-google-plus-square"></i></a></li>
+                                        class="fa fa-google-plus-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? $member_info['twitter'] : "javascript:;"; ?>"><i
-                                            class="fa fa-twitter-square"></i></a></li>
+                                        class="fa fa-twitter-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? $member_info['instagram'] : "javascript:;"; ?>"><i
-                                            class="fa fa-instagram"></i></a></li>
+                                        class="fa fa-instagram"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? $member_info['skype'] : "javascript:;"; ?>"><i
-                                            class="fa fa-skype"></i></a></li>
+                                        class="fa fa-skype"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i
-                                            class="fa fa-pinterest-square"></i></a></li>
+                                        class="fa fa-pinterest-square"></i></a></li>
                         </ul>
                     </div>
                 </div>

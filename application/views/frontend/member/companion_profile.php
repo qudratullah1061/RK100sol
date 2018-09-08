@@ -6,11 +6,9 @@
             <div class="col-md-3 col-sm-4">
                 <div class="profile-left wow fadeInUp">
                     <div class="profile-personal">
-                        <a href="javascript:;" <?php echo $this->session->userdata('member_id') != $member_info['member_id'] ? '' : 'onclick="CommonFunctions.changeMode(this)'; ?>
-                           data-mode="<?php echo $member_info['is_online'] ?>"
-                           data-member-id="<?php echo $member_info['member_id']; ?>">
-                            <span id="changeMode"
-                                  class="status <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"><!-- + Note: remove class online if user is offline + -->
+                        <a href="javascript:;" <?php echo $this->session->userdata('member_id') != $member_info['member_id'] ? '' : 'onclick="CommonFunctions.changeMode(this)'; ?> data-mode="<?php echo $member_info['is_online'] ?>" data-member-id="<?php echo $member_info['member_id']; ?>">
+                            <!-- + Note: remove class online if user is offline + -->
+                            <span id="changeMode" class="status <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>">
                                 <?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>
                             </span>
                         </a>
@@ -37,10 +35,11 @@
                             <?php if ($this->session->userdata('member_id') != $member_info['member_id'] && $connected['status'] == 1) { ?>
                                 <a href="<?php echo site_url('chat/view_chat_list?chat=' . min($this->session->userdata('member_id'), $member_info['member_id']) . '-' . max($this->session->userdata('member_id'), $member_info['member_id'])) ?>"
                                    class="btn btn-deep-purple">Message</a>
-                            <?php }
-                            if ($this->session->userdata('member_id') != $member_info['member_id']) {
-                                if (isset($connected['status']) && $connected['status'] == 1) {
-                                    ?>
+                                   <?php
+                               }
+                               if ($this->session->userdata('member_id') != $member_info['member_id']) {
+                                   if (isset($connected['status']) && $connected['status'] == 1) {
+                                       ?>
                                     <a href="javascript:;" class="btn btn-deep-pink btn-disable" id="connectionBtn">Connected</a>
                                 <?php } elseif (isset($connected['status']) && $connected['status'] == 2) {
                                     ?>
@@ -53,14 +52,15 @@
                                     <a href="javascript:;"
                                        onclick="CommonFunctions.modal_connect_request(<?php echo $member_info['member_id'] ?>,<?php echo $this->session->userdata('member_id') ?>);"
                                        class="btn btn-deep-purple" id="connectionBtn">Connect</a>
-                                    <?php
-                                }
-                            }
-                            if ($this->session->userdata('member_id') == $member_info['member_id']) { ?>
+                                       <?php
+                                   }
+                               }
+                               if ($this->session->userdata('member_id') == $member_info['member_id']) {
+                                   ?>
                                 <a href="<?php echo base_url('companions/get_companion_profile#tab_1_11') ?>"
                                    class="btn btn-deep-pink btn-block">Renew</a>
-                            <?php }
-                            ?>
+                               <?php }
+                               ?>
                         </div>
                     </div>
                     <div class="profile-misc">
@@ -88,7 +88,7 @@
                             <li>
                                 <p>Availability: </p>
                                 <span class="<?php echo($member_info['is_online'] == 1 ? 'online' : 'offline'); ?>"><i
-                                            class="fa fa-check-circle"></i><?php echo($member_info['is_online'] == 1 ? 'Available' : 'Un Available'); ?></span>
+                                        class="fa fa-check-circle"></i><?php echo($member_info['is_online'] == 1 ? 'Available' : 'Un Available'); ?></span>
                             </li>
                             <li>
                                 <p>Travel Option:</p>
@@ -145,58 +145,58 @@
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'facebook_privacy') && $member_info['facebook'] != "") ? $member_info['facebook'] : "javascript:;"; ?>"><i
-                                            class="fa fa-facebook-square"></i></a></li>
+                                        class="fa fa-facebook-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'youtube_privacy') && $member_info['youtube'] != "") ? $member_info['youtube'] : "javascript:;"; ?>"><i
-                                            class="fa fa-youtube-square"></i></a></li>
+                                        class="fa fa-youtube-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'linkedin_privacy') && $member_info['linkedin'] != "") ? $member_info['linkedin'] : "javascript:;"; ?>"><i
-                                            class="fa fa-linkedin-square"></i></a></li>
+                                        class="fa fa-linkedin-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'google_privacy') && $member_info['google'] != "") ? $member_info['google'] : "javascript:;"; ?>"><i
-                                            class="fa fa-google-plus-square"></i></a></li>
+                                        class="fa fa-google-plus-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'twitter_privacy') && $member_info['twitter'] != "") ? $member_info['twitter'] : "javascript:;"; ?>"><i
-                                            class="fa fa-twitter-square"></i></a></li>
+                                        class="fa fa-twitter-square"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'instagram_privacy') && $member_info['instagram'] != "") ? $member_info['instagram'] : "javascript:;"; ?>"><i
-                                            class="fa fa-instagram"></i></a></li>
+                                        class="fa fa-instagram"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'skype_privacy') && $member_info['skype'] != "") ? $member_info['skype'] : "javascript:;"; ?>"><i
-                                            class="fa fa-skype"></i></a></li>
+                                        class="fa fa-skype"></i></a></li>
                             <li class="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? "enabled" : "disabled"; ?>">
                                 <a target="_blank"
                                    href="<?php echo (CheckPermission($member_info['privacy_info'], 'pinterest_privacy') && $member_info['pinterest'] != "") ? $member_info['pinterest'] : "javascript:;"; ?>"><i
-                                            class="fa fa-pinterest-square"></i></a></li>
+                                        class="fa fa-pinterest-square"></i></a></li>
                         </ul>
                     </div>
 
-                    <?php
-                    if (count($certifications) > 0) { ?>
-                    <div class="profile-certification">
-                        <div class="profile-cert-head">
-                            <h6>Certification:</h6>
-                        </div>
-                        <?php
-                        foreach ($certifications as $value) {
-                            ?>
-                            <div class="certification-odd">
-                                <a class=""
-                                   href="javascript:Certifications.modal_show_certification(<?php echo $value['member_certification_id']; ?>)">
-                                    <p><?php echo $value['title']; ?></p>
-                                    <span><?php echo strlen($value['issued_by']) > 30 ? substr($value['issued_by'], 0, 30) . "..." : $value['issued_by']; ?></span>
-                                </a>
+                    <?php if (count($certifications) > 0) { ?>
+                        <div class="profile-certification">
+                            <div class="profile-cert-head">
+                                <h6>Certification:</h6>
                             </div>
                             <?php
+                            foreach ($certifications as $value) {
+                                ?>
+                                <div class="certification-odd">
+                                    <a class=""
+                                       href="javascript:Certifications.modal_show_certification(<?php echo $value['member_certification_id']; ?>)">
+                                        <p><?php echo $value['title']; ?></p>
+                                        <span><?php echo strlen($value['issued_by']) > 30 ? substr($value['issued_by'], 0, 30) . "..." : $value['issued_by']; ?></span>
+                                    </a>
+                                </div>
+                                <?php
+                            }
+                            echo '</div>';
                         }
-                        echo '</div>';
-                        } ?>
+                        ?>
 
                         <?php
                         if (count($selected_sub_categories) > 0) {
@@ -334,7 +334,7 @@
                                             <p class="title"><?php echo $value['title']; ?></p>
                                             <p><?php echo $value['degree_name']; ?></p>
                                             <p class="date"><i
-                                                        class="fa fa-calendar"></i> <?php echo $value['start_date']; ?>
+                                                    class="fa fa-calendar"></i> <?php echo $value['start_date']; ?>
                                                 - <?php echo $value['end_date']; ?></p>
                                         </li>
                                         <?php
@@ -362,7 +362,7 @@
                                             <p class="title"><?php echo $value['title']; ?></p>
                                             <p><?php echo $value['position']; ?></p>
                                             <p class="date"><i
-                                                        class="fa fa-calendar"></i> <?php echo $value['start_date']; ?>
+                                                    class="fa fa-calendar"></i> <?php echo $value['start_date']; ?>
                                                 - <?php echo $value['end_date']; ?></p>
                                         </li>
                                         <?php
@@ -386,66 +386,66 @@
         </div>
 </section>
 <script src="<?php echo base_url(); ?>assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.js"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <script src="<?php echo base_url('assets/custom_scripts/frontend/certification.js'); ?>"
-        type="text/javascript"></script>
+type="text/javascript"></script>
 <script>
-    $(function () {
-        $(".profile_reviews").rateYo({
-            rating: 0,
-            spacing: "3px",
-            starWidth: "15px",
-            readOnly: true,
-            multiColor: {
-                "startColor": "#942192", //RED
-                "endColor": "#942192"  //GREEN
-            }
-        });
-        hideShowSkills('e');
-    });
+                                $(function () {
+                                    $(".profile_reviews").rateYo({
+                                        rating: 0,
+                                        spacing: "3px",
+                                        starWidth: "15px",
+                                        readOnly: true,
+                                        multiColor: {
+                                            "startColor": "#942192", //RED
+                                            "endColor": "#942192"  //GREEN
+                                        }
+                                    });
+                                    hideShowSkills('e');
+                                });
 
-    var size_li = $(".pagination-skills li").size();
-    if (size_li <= 6) {
-        $(".prev").hide();
-        $(".next").hide();
-    }
-    var showItems = 5;
-    var current_counter = 5;
+                                var size_li = $(".pagination-skills li").size();
+                                if (size_li <= 6) {
+                                    $(".prev").hide();
+                                    $(".next").hide();
+                                }
+                                var showItems = 5;
+                                var current_counter = 5;
 
-    function hideShowSkills(btnClick) {
+                                function hideShowSkills(btnClick) {
 
-        if (btnClick == 'e') {
-            $('.pagination-skills li:lt(' + showItems + ')').show();
-            $('.pagination-skills li:gt(' + showItems + ')').hide();
-            $(".prev").hide();
-        }
+                                    if (btnClick == 'e') {
+                                        $('.pagination-skills li:lt(' + showItems + ')').show();
+                                        $('.pagination-skills li:gt(' + showItems + ')').hide();
+                                        $(".prev").hide();
+                                    }
 
-        if (btnClick == 'n') {
-            if (current_counter <= size_li) {
-                $('.pagination-skills li:lt(' + (current_counter + 6) + ')').show();
-                $('.pagination-skills li:lt(' + (current_counter + 1) + ')').hide();
-                current_counter += 5;
-            }
-            if (current_counter >= size_li) {
-                // hide next button.
-                $(".next").hide();
-            }
-            $(".prev").show();
+                                    if (btnClick == 'n') {
+                                        if (current_counter <= size_li) {
+                                            $('.pagination-skills li:lt(' + (current_counter + 6) + ')').show();
+                                            $('.pagination-skills li:lt(' + (current_counter + 1) + ')').hide();
+                                            current_counter += 5;
+                                        }
+                                        if (current_counter >= size_li) {
+                                            // hide next button.
+                                            $(".next").hide();
+                                        }
+                                        $(".prev").show();
 //                                    $('#myList li:lt(' + x + ')').show();
-        }
-        if (btnClick == 'p') {
-            if (current_counter > 0) {
-                $('.pagination-skills li:gt(' + (current_counter - 10) + ')').show();
-                $('.pagination-skills li:gt(' + (current_counter - 5) + ')').hide();
+                                    }
+                                    if (btnClick == 'p') {
+                                        if (current_counter > 0) {
+                                            $('.pagination-skills li:gt(' + (current_counter - 10) + ')').show();
+                                            $('.pagination-skills li:gt(' + (current_counter - 5) + ')').hide();
 //                                        $('.pagination-skills li:lt(' + (current_counter - 10) + ')').hide();
-                current_counter -= 5;
-            }
-            if (current_counter <= 5) {
-                // hide next button.
-                $(".prev").hide();
-            }
-            $(".next").show();
-        }
-        $('.pagination-skills li').first().show();
-    }
+                                            current_counter -= 5;
+                                        }
+                                        if (current_counter <= 5) {
+                                            // hide next button.
+                                            $(".prev").hide();
+                                        }
+                                        $(".next").show();
+                                    }
+                                    $('.pagination-skills li').first().show();
+                                }
 </script>
