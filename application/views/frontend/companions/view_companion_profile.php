@@ -960,7 +960,6 @@
         </div>
     </div>
 </section>
-
 <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/companion-form-wizard.js"
 type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
