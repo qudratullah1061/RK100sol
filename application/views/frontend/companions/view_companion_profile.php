@@ -458,7 +458,7 @@
                                                             </div>
                                                             <div class="cbp-l-grid-projects-title uppercase text-center uppercase pic-caption-img text-center pic-caption-<?php echo $image_info['image_id']; ?>" <?php echo $image_info['is_profile_image'] ? "style='color:green;'" : ""; ?>>
                                                                 Image <?php echo $counter++; ?></div>
-                                                            <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";                                ?></div>-->
+                                                            <!--<div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center pic-caption-img "><?php // echo $image_info['is_profile_image'] ? "Profile Pic" : "";                                    ?></div>-->
                                                         </div>
                                                         <?php
                                                     }
@@ -566,7 +566,7 @@
                                                                 <td><?php echo $portfolio['state_name']; ?></td>
                                                                 <td><?php echo $portfolio['city_name']; ?></td>
                                                                 <td><?php echo date('Y-m-d', strtotime($portfolio['created_on'])); ?></td>
-                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));                                ?></td>-->
+                                                                <!--<td><?php // echo date('Y-m-d', strtotime($portfolio['updated_on']));                                    ?></td>-->
                                                                 <td>
                                                                     <div class="md-checkbox-inline">
                                                                         <div class="md-checkbox">
@@ -998,6 +998,8 @@ src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.j
                                                        var price;
                                                        var plan_id;
                                                        var currency;
+                                                       // used to reload or redirect page.
+                                                       var reload = false;
                                                        var initPaypalChk = false;
                                                        $(".payment_options").change(function () {
                                                            price = $(this).val();
@@ -1011,7 +1013,7 @@ src="<?php echo base_url('assets/pages/'); ?>scripts/table-datatables-editable.j
 
                                                        function initPaypal() {
                                                            paypal.Button.render({
-                                                               env: 'sandbox', // sandbox | production
+                                                               env: 'production', // sandbox | production
 
                                                                // PayPal Client IDs - replace with your own
                                                                // Create a PayPal app: https://developer.paypal.com/developer/applications/create
