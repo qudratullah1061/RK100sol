@@ -41,7 +41,7 @@
             </div>
             <div class="portlet-body">
                 <div class="tab-content">
-                    <div class="tab-pane active scroller" id="portlet_comments_1" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 450px;">
+                    <div class="tab-pane active scroller" id="portlet_comments_1" data-handle-color="#D7DCE2" style="height: 450px;">
                         <!-- BEGIN: Comments -->
                         <div class="mt-comments">
                             <?php
@@ -71,7 +71,7 @@
                         </div>
                         <!-- END: Comments -->
                     </div>
-                    <div class="tab-pane scroller" id="portlet_comments_2" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 450px;">
+                    <div class="tab-pane scroller" id="portlet_comments_2" data-handle-color="#D7DCE2" style="height: 450px;">
                         <!-- BEGIN: Comments -->
                         <div class="mt-comments">
                             <?php
