@@ -57,8 +57,7 @@ var Templates = function () {
                 '<a href="javascript:;" class="item-name primary-link">' + usersInfo[message_obj.sender_id].first_name + ' ' + usersInfo[message_obj.sender_id].last_name + '</a>' +
                 '<span class="item-label">' + getLocalDateTime(message_obj.date_sent) + '</span>' +
                 '</div>' +
-                (message_obj.sender_id == senderID ? '<span class="item-status cursor-pointer" onclick="Chat.deleteMessage(\'' + message_obj.key + '\')">' : "") +
-                '<span class="badge badge-empty badge-success"></span> Delete</span>' +
+                (message_obj.sender_id == senderID ? ('<span class="item-status cursor-pointer" onclick="Chat.deleteMessage(\'' + message_obj.key + '\')"><span class="badge badge-empty badge-success"></span> Delete</span>') : "") +
                 '</div>' +
                 '<div class="item-body">' + message_obj.message + '</div>' +
                 '</div>';
