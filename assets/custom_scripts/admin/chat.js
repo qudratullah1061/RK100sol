@@ -141,12 +141,6 @@ var Chat = function () {
                         $(".member-" + snapMessages.key).html("");
                     }
                 });
-//                if (snapMessages.key == current_chat_id) {
-//                    $(".mt-comment-" + current_chat_id).prependTo($(".mt-comment-" + current_chat_id).parent());
-//                    $(".mt-comment-" + current_chat_id).parents().eq(2).slimScroll({
-//                        scrollTo: 0
-//                    });
-//                }
             }
         });
     };
@@ -178,7 +172,10 @@ var Chat = function () {
         });
 
         conversationRef.child(chat_id).on('child_changed', function (snapshot) {
-            console.log('update call nested');
+            $(".mt-comment-" + chat_id).prependTo($(".mt-comment-" + chat_id).parent());
+            $(".mt-comment-" + chat_id).parents().eq(2).slimScroll({
+                scrollTo: 0
+            });
         });
 
         conversationRef.child(chat_id).on('child_removed', function (snapshot) {
@@ -230,10 +227,10 @@ var Chat = function () {
             container.slimScroll({
                 scrollTo: container[0].scrollHeight
             });
-            $(".mt-comment-" + current_chat_id).prependTo($(".mt-comment-" + current_chat_id).parent());
-            $(".mt-comment-" + current_chat_id).parents().eq(2).slimScroll({
-                scrollTo: 0
-            });
+//            $(".mt-comment-" + current_chat_id).prependTo($(".mt-comment-" + current_chat_id).parent());
+//            $(".mt-comment-" + current_chat_id).parents().eq(2).slimScroll({
+//                scrollTo: 0
+//            });
         } else {
             toastr["info"]("Please select chat to send message.", "Info");
         }
