@@ -172,9 +172,11 @@ var Chat = function () {
 
         conversationRef.child(chat_id).on('child_changed', function (snapshot) {
             $(".mt-comment-" + chat_id).prependTo($(".mt-comment-" + chat_id).parent());
-            $('.chat-' + chat_id).slimScroll({
-                scrollTo: 0
-            });
+            if ($('.chat-' + chat_id).length > 0) {
+                $('.chat-' + chat_id).slimScroll({
+                    scrollTo: $('.chat-' + chat_id)[0].scrollHeight
+                });
+            }
         });
 
         conversationRef.child(chat_id).on('child_removed', function (snapshot) {
@@ -222,13 +224,9 @@ var Chat = function () {
                 'date_sent': (new Date()).toString()
             });
             $(".msg-box").val("");
-            var container = $(".scroll-custom");
-            container.slimScroll({
-                scrollTo: container[0].scrollHeight
-            });
-//            $(".mt-comment-" + current_chat_id).prependTo($(".mt-comment-" + current_chat_id).parent());
-//            $(".mt-comment-" + current_chat_id).parents().eq(2).slimScroll({
-//                scrollTo: 0
+//            var container = $(".scroll-custom");
+//            container.slimScroll({
+//                scrollTo: container[0].scrollHeight
 //            });
         } else {
             toastr["info"]("Please select chat to send message.", "Info");
