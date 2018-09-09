@@ -128,7 +128,7 @@ var Chat = function () {
                             }
                         } else {
                             // mark this messaage as read.
-                            conversationRef.child(conversation_key).child(msg_key).update({['is_read_' + ui_ref]: 1}, function (err) {
+                            conversationRef.child(conversation_key).child(msg_key).update({'is_read_' + ui_ref: 1}, function (err) {
                                 if (err) {
                                     console.warn("update error!", err);
                                 }
