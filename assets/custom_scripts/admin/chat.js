@@ -22,7 +22,7 @@ var Templates = function () {
                     '<div class="item-body">' + messages[key].message + '</div>' +
                     '</div>';
             $(".general-item-list").append(message);
-            if (messages[key]['is_read_' + senderID] == "0") {
+            if (messages[key]['is_read_' + ui_ref] == "0") {
                 unread++;
             }
         }
@@ -121,7 +121,7 @@ var Chat = function () {
                     var is_unread = false;
                     for (var msg_key in messages) {
                         if (snapMessages.key != current_chat_id) {
-                            if (messages[msg_key]['is_read_' + senderID] == 0) {
+                            if (messages[msg_key]['is_read_' + ui_ref] == 0) {
                                 $(".member-" + ui_ref).html(parseInt($(".member-" + ui_ref).html() != "" ? $(".member-" + ui_ref).html() : 0) + 1);
                                 is_unread = true;
                             }
@@ -190,7 +190,7 @@ var Chat = function () {
             $(".member-" + ui_ref).html("");
             var messages = snapMessages.val();
             for (var msg_key in messages) {
-                if (messages[msg_key]["is_read_" + senderID] == 0) {
+                if (messages[msg_key]["is_read_" + ui_ref] == 0) {
                     chatRef.child(msg_key).update({['is_read_' + ui_ref]: 1}, function (err) {
                         if (err) {
                             console.warn("update error!", err);
