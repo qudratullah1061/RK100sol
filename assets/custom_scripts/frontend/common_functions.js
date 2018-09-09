@@ -161,8 +161,8 @@ var CommonFunctions = function () {
 
         swal({
             title: "Are you sure?",
-            text: "Warning! " + msg,
-            type: "warning",
+            text:  msg,
+            type: "info",
             closeOnConfirm: false,
             showCancelButton: true,
             confirmButtonClass: "btn-danger",

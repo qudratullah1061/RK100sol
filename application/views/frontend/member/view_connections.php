@@ -33,7 +33,7 @@
                                                     <div class="mt-comment-details">
                                                         <span class="mt-comment-status mt-comment-status-pending"><?php
                                                             if ($connection['status'] == 0) {
-                                                                echo 'New Request';
+                                                                echo 'Connection Request';
                                                             } elseif ($connection['status'] == 1) {
                                                                 echo 'Connected';
                                                             } else {

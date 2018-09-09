@@ -44,8 +44,8 @@
                                 ?>
                                 <a href="<?php echo base_url('guests/get_guest_profile#tab_1_6') ?>" class="btn btn-deep-pink btn-lg">Renew Subscription</a>
                                 <p class="remainingDays"><?php echo expire(date("Y-m-d", strtotime($member_info['end_subscription_date']))); ?></p>
-                               <?php }
-                               ?>
+                            <?php }
+                            ?>
                         </div>
                     </div>
                     <div class="profile-misc">
@@ -73,16 +73,16 @@
                         </ul>
                         <div class="clearfix"></div>
                     </div>
-                    <div class="profile-language">
-                        <h6>Languages:</h6>
-                        <?php
-                        if (isset($data_languages) && count($data_languages) > 0) {
+                    <?php if (isset($data_languages) && count($data_languages) > 0) { ?>
+                        <div class="profile-language">
+                            <h6>Languages:</h6>
+                            <?php
                             foreach ($data_languages as $language) {
                                 echo "<p>" . $language['language_name'] . " (" . $language['language_level'] . ")</p>";
                             }
-                        }
-                        ?>
-                    </div>
+                            ?>
+                        </div>
+                    <?php } ?>
                     <div class="profile-misc">
                         <h6>Subscription:</h6>
                         <ul>
