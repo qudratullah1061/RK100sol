@@ -1,4 +1,4 @@
-<!--<script src="<?php // echo base_url(); ?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>-->
+<!--<script src="<?php // echo base_url();       ?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>-->
 <section class="profile_edit">
     <div class="container">
         <div class="row">
@@ -21,7 +21,7 @@
                                 <div class="mt-comments">
                                     <!--// repeat this node-->
                                     <div class="mt-comment mt-comment-1a-<?php echo $this->session->userdata('member_info')['member_id']; ?>"
-                                         onclick="Chat.getChatMessages('1a-<?php echo $this->session->userdata('member_info')['member_id']; ?>',0)">
+                                         onclick="Chat.getChatMessages('1a-<?php echo $this->session->userdata('member_info')['member_id']; ?>', 0)">
                                         <div class="mt-comment-img">
                                             <?php
                                             if (isset($admin['image_path']) && isset($admin['image'])) {
@@ -37,7 +37,7 @@
                                                 <span class="mt-comment-author"><?php echo $admin['first_name'] . " " . $admin['last_name']; ?>
                                                     (Admin)</span>
                                                 <span class="mt-comment-date"><span
-                                                            class="badge badge-danger member-<?php echo $this->session->userdata('member_info')['member_id']; ?>"></span></span>
+                                                        class="badge badge-danger member-<?php echo $this->session->userdata('member_info')['member_id']; ?>"></span></span>
                                             </div>
                                             <div class="mt-comment-text">&nbsp;Canada</div>
                                         </div>
@@ -48,7 +48,7 @@
                                         foreach ($connections as $connection) {
                                             ?>
                                             <div class="mt-comment mt-comment-<?php echo min($connection['user_id'], $connection['connection_id']); ?>-<?php echo max($connection['user_id'], $connection['connection_id']); ?>"
-                                                 onclick="Chat.getChatMessages('<?php echo min($connection['user_id'], $connection['connection_id']); ?>-<?php echo max($connection['user_id'], $connection['connection_id']); ?>',0)">
+                                                 onclick="Chat.getChatMessages('<?php echo min($connection['user_id'], $connection['connection_id']); ?>-<?php echo max($connection['user_id'], $connection['connection_id']); ?>', 0)">
                                                 <div class="mt-comment-img">
                                                     <?php
                                                     if (isset($admin['image_path']) && isset($admin['image'])) {
@@ -64,19 +64,20 @@
                                                     <div class="mt-comment-info">
                                                         <span class="mt-comment-author"><?php echo $connection['first_name'] . " " . $connection['last_name']; ?></span>
                                                         <span class="mt-comment-date"><span
-                                                                    class="badge badge-danger member-<?php
-                                                                    if ($this->session->userdata('member_type') == 1) {
-                                                                        echo $connection['connection_id'];
-                                                                    } else {
-                                                                        echo $connection['user_id'];
-                                                                    }
-                                                                    ?>"></span></span>
+                                                                class="badge badge-danger member-<?php
+                                                                if ($this->session->userdata('member_type') == 1) {
+                                                                    echo $connection['connection_id'];
+                                                                } else {
+                                                                    echo $connection['user_id'];
+                                                                }
+                                                                ?>"></span></span>
                                                     </div>
                                                     <div class="mt-comment-text">
                                                         &nbsp;<?php echo $connection['location']; ?></div>
                                                 </div>
                                             </div>
-                                        <?php }
+                                            <?php
+                                        }
                                     }
                                     ?>
                                 </div>
@@ -127,14 +128,16 @@
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
 <script>
-    var senderID = '<?php echo $this->session->userdata('member_id')?>';
-    $(document).ready(function () {
-        Chat.init();
-        <?php
-        if($_GET && $_GET['chat']){ ?>
-        var chatID = "<?php echo $_GET['chat']?>";
-        $('.mt-comment-' + chatID).trigger('click');
-        <?php }
-        ?>
-    });
+                                    var senderID = '<?php echo $this->session->userdata('member_id') ?>';
+                                    $(document).ready(function () {
+                                        Chat.init();
+<?php if ($_GET && $_GET['chat']) { ?>
+                                            var chatID = "<?php echo $_GET['chat'] ?>";
+                                            $('.mt-comment-' + chatID).trigger('click');
+<?php } ?>
+                                        $(".scroller").slimScroll({destroy: true});
+                                        $('.scroller').slimScroll({
+                                            height: '350px'
+                                        });
+                                    });
 </script>
