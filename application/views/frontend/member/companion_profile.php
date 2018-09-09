@@ -55,7 +55,7 @@
                                        <?php
                                    }
                                }
-                               
+
                                if ($this->session->userdata('member_id') == $member_info['member_id']) {
                                    ?>
                                 <a href="<?php echo base_url('companions/get_companion_profile#tab_1_11') ?>" class="btn btn-deep-pink btn-block">Renew Subscription</a>
@@ -124,18 +124,16 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="profile-language">
-                        <?php
-                        if (isset($data_languages) && count($data_languages) > 0) {
+                    <?php if (isset($data_languages) && count($data_languages) > 0) { ?>
+                        <div class="profile-language">
+                            <?php
                             echo '<h6>Language:</h6>';
                             foreach ($data_languages as $language) {
                                 echo "<p>" . $language['language_name'] . " (" . $language['language_level'] . ")</p>";
                             }
-                        } else {
-                            echo "<p>No language item found.</p>";
-                        }
-                        ?>
-                    </div>
+                            ?>
+                        </div>
+                    <?php } ?>
                     <div class="profile-social">
                         <h6>Social Media:</h6>
                         <ul>
