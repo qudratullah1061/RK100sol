@@ -94,12 +94,12 @@ var Chat = function () {
 
     var initFirebase = function () {
         var config = {
-            apiKey: "AIzaSyB1nQj2sj-tvMBmS1gbpnKblj8owQqqAx0",
-            authDomain: "konsorts-d33a9.firebaseapp.com",
-            databaseURL: "https://konsorts-d33a9.firebaseio.com",
-            projectId: "konsorts-d33a9",
-            storageBucket: "",
-            // messagingSenderId: "533462153223"
+            apiKey: "AIzaSyCWbdaGdf2TJD8CC84q--Aw0GBzOJcFLo8",
+            authDomain: "konsorts-180810.firebaseapp.com",
+            databaseURL: "https://konsorts-180810.firebaseio.com",
+            projectId: "konsorts-180810",
+            storageBucket: "konsorts-180810.appspot.com",
+            messagingSenderId: "209256789157"
         };
         firebase.initializeApp(config);
         conversationRef = firebase.database().ref('conversations');
