@@ -16,8 +16,7 @@ var Templates = function () {
                     '<a href="" class="item-name primary-link">Nick Larson</a>' +
                     '<span class="item-label">3 hrs ago</span>' +
                     '</div>' +
-                    '<span class="item-status cursor-pointer">' +
-                    '<span class="badge badge-empty badge-success"></span> Delete</span>' +
+                    (messages[key].sender_id == senderID ? ('<span class="item-status cursor-pointer"><span class="badge badge-empty badge-success"></span> Delete</span>') : "") +
                     '</div>' +
                     '<div class="item-body">' + messages[key].message + '</div>' +
                     '</div>';
