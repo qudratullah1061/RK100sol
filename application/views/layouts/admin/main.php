@@ -132,6 +132,11 @@
                     <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                            data-close-others="true">
+                            <i class="fa fa-envelope"></i>
+                            <span class="badge badge-default messages-count"></span>
+                        </a>
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                           data-close-others="true">
                             <i class="icon-bell"></i>
                             <?php echo count($notifications) > 0 ? '<span class="badge badge-default">' . count($notifications) . '</span>' : '' ?>
                         </a>
