@@ -174,6 +174,7 @@ var Chat = function () {
 
         conversationRef.child(chat_id).on('child_removed', function (snapshot) {
             $(".item-" + snapshot.key).remove();
+            alert('remove call');
         });
 
         var container = $(".scroll-custom");
