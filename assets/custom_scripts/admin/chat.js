@@ -164,7 +164,7 @@ var Chat = function () {
         var chat_users = chat_id.split("-");
         var ui_ref = (chat_users[0] == senderID ? chat_users[1] : chat_users[0]);
         $(".general-item-list").html("");
-        conversationRef.child(chat_id).limitToLast(500).on('child_added', function (snapshot) {
+        conversationRef.child(chat_id).on('child_added', function (snapshot) {
             if (chat_id == current_chat_id) {
                 var obj = snapshot.val();
                 obj.key = snapshot.key;
@@ -229,10 +229,10 @@ var Chat = function () {
                 'date_sent': (new Date()).toString()
             });
             $(".msg-box").val("");
-//            var container = $(".scroll-custom");
-//            container.slimScroll({
-//                scrollTo: container[0].scrollHeight
-//            });
+            var container = $(".scroll-custom");
+            container.slimScroll({
+                scrollTo: container[0].scrollHeight
+            });
         } else {
             toastr["info"]("Please select chat to send message.", "Info");
         }
