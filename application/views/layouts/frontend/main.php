@@ -337,9 +337,7 @@
                                             all</a>
                                     </li>
                                     <li>
-                                        <ul class="dropdown-menu-list scroller" data-height="250"
-                                            data-handle-color="#637283">
-
+                                        <ul class="dropdown-menu-list scroller" data-height="250" data-handle-color="#637283">
                                             <?php foreach ($notifications as $notification) { ?>
                                                 <li>
                                                     <a href="<?php echo base_url('notifications/view_notifications/' . $notification['notification_user_id']); ?>">
