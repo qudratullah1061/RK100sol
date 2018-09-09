@@ -106,10 +106,10 @@ var Chat = function () {
 
     var initMessageCounters = function () {
         // set message counters
+        var messages_count = 0;
         conversationRef.on('value', function (snapshot) {
             var conversation_objects = snapshot.val();
             //console.log(conversation_objects);
-            var messages_count = 0;
             for (var conversation_key in conversation_objects) {
                 conversationRef.child(conversation_key).limitToLast(500).once('value', function (snapMessages) {
                     var chat_users = snapMessages.key.split("-");
