@@ -286,6 +286,7 @@ var Chat = function () {
             populateUserInfo(chat_id, is_admin);
         },
         sendChatMessage: function () {
+            $(".mt-comment-" + current_chat_id).prependTo($(".mt-comment-" + current_chat_id).parent());
             addMessage(current_chat_id);
         },
         deleteMessage: function (message_id) {
