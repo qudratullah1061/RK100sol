@@ -122,3 +122,13 @@ div#certification_table_wrapper{
 .cursor-pointer{
     cursor: pointer;
 }
+.page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle > i {
+    color: white;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown > a.dropdown-toggle:hover{
+    background: transparent;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle .badge.badge-default {
+    background-color: #730273;
+    color: #fff;
+}
