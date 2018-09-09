@@ -16,7 +16,7 @@
                     </div>
                     <div class="portlet-body">
                         <div class="tab-content">
-                            <div class="tab-pane active scroller " id="portlet_comments_1" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 450px;">
+                            <div class="tab-pane active scroller " id="portlet_comments_1" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 350px;">
                                 <!-- BEGIN: Comments -->
                                 <div class="mt-comments">
                                     <!--// repeat this node-->
@@ -100,8 +100,7 @@
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <div class="scroller scroll-custom" start-at="bottom" data-always-visible="1"
-                             data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 338px;">
+                        <div class="scroller scroll-custom" start-at="bottom" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 350px;">
                             <div class="general-item-list">
                                 <!--Repeat items here-->
                             </div>
@@ -135,9 +134,9 @@
                                             var chatID = "<?php echo $_GET['chat'] ?>";
                                             $('.mt-comment-' + chatID).trigger('click');
 <?php } ?>
-                                        $(".scroller").slimScroll({destroy: true});
-                                        $('.scroller').slimScroll({
-                                            height: '350px'
-                                        });
+//                                        $(".scroller").slimScroll({destroy: true});
+//                                        $('.scroller').slimScroll({
+//                                            height: '350px'
+//                                        });
                                     });
 </script>
