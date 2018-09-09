@@ -203,6 +203,8 @@ var Chat = function () {
 
     var addMessage = function (current_chat_id) {
         if (typeof current_chat_id != "undefined") {
+            $(".mt-comment-" + current_chat_id).prependTo($(".mt-comment-" + current_chat_id).parent());
+            alert();
             var users = current_chat_id.split('-');
             var user1 = users[0];
             var user2 = users[1];
@@ -286,7 +288,6 @@ var Chat = function () {
             populateUserInfo(chat_id, is_admin);
         },
         sendChatMessage: function () {
-            $(".mt-comment-" + current_chat_id).prependTo($(".mt-comment-" + current_chat_id).parent());
             addMessage(current_chat_id);
         },
         deleteMessage: function (message_id) {
