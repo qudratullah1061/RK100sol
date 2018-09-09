@@ -238,6 +238,7 @@ var Chat = function () {
             container.slimScroll({
                 scrollTo: container[0].scrollHeight
             });
+            $(".mt-comment-" + chat_id).prependTo($(".mt-comment-" + chat_id).parent());
         } else {
             toastr["info"]("Please select chat to send message.", "Info");
         }
