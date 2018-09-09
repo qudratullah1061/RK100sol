@@ -136,6 +136,8 @@ var Chat = function () {
                     }
                     if (is_unread) {
                         $(".mt-comment-" + snapMessages.key).prependTo($(".mt-comment-" + snapMessages.key).parent());
+                    } else {
+                        $(".member-" + ui_ref).html("");
                     }
                 });
             }
@@ -174,7 +176,6 @@ var Chat = function () {
 
         conversationRef.child(chat_id).on('child_removed', function (snapshot) {
             $(".item-" + snapshot.key).remove();
-            alert('remove call');
         });
 
         var container = $(".scroll-custom");
