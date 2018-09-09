@@ -7,6 +7,7 @@ var Templates = function () {
         var users = current_chat_id.split('-');
         var user1 = users[0];
         var user2 = users[1];
+        var ui_ref = (users[0] == senderID ? users[1] : users[0]);
         for (var key in messages) {
             message = '<div class="item">' +
                     '<div class="item-head">' +
@@ -21,11 +22,11 @@ var Templates = function () {
                     '<div class="item-body">' + messages[key].message + '</div>' +
                     '</div>';
             $(".general-item-list").append(message);
-            if (messages[key].is_read == "0") {
+            if (messages[key]['is_read_'+ui_ref] == "0") {
                 unread++;
             }
         }
-        unread > 0 ? $(".member-" + user2).html(unread) : $(".member-" + user2).hide();
+        unread > 0 ? $(".member-" + ui_ref).html(unread) : $(".member-" + ui_ref).hide();
     };
 
     var getLocalDateTime = function (dateTimeSent) {
@@ -113,18 +114,20 @@ var Chat = function () {
             for (var conversation_key in conversation_objects) {
                 conversationRef.child(conversation_key).once('value', function (snapMessages) {
                     var chat_users = snapMessages.key.split("-");
-                    $(".member-" + chat_users[1]).html("");
+                    // update conversation ref.
+                    var ui_ref = (chat_users[0] == senderID ? chat_users[1] : chat_users[0]);
+                    $(".member-" + ui_ref).html("");
                     var messages = snapMessages.val();
                     var is_unread = false;
                     for (var msg_key in messages) {
                         if (snapMessages.key != current_chat_id) {
-                            if (messages[msg_key].is_read == 0) {
-                                $(".member-" + chat_users[1]).html(parseInt($(".member-" + chat_users[1]).html() != "" ? $(".member-" + chat_users[1]).html() : 0) + 1);
+                            if (messages[msg_key]['is_read_' + ui_ref] == 0) {
+                                $(".member-" + ui_ref).html(parseInt($(".member-" + ui_ref).html() != "" ? $(".member-" + ui_ref).html() : 0) + 1);
                                 is_unread = true;
                             }
                         } else {
                             // mark this messaage as read.
-                            conversationRef.child(conversation_key).child(msg_key).update({is_read: 1}, function (err) {
+                            conversationRef.child(conversation_key).child(msg_key).update({['is_read_' + senderID]: 1}, function (err) {
                                 if (err) {
                                     console.warn("update error!", err);
                                 }
@@ -182,11 +185,12 @@ var Chat = function () {
         var chatRef = conversationRef.child(chat_id);
         chatRef.once('value', function (snapMessages) {
             var chat_users = chat_id.split("-");
-            $(".member-" + chat_users[1]).html("");
+            var ui_ref = (chat_users[0] == senderID ? chat_users[1] : chat_users[0]);
+            $(".member-" + ui_ref).html("");
             var messages = snapMessages.val();
             for (var msg_key in messages) {
-                if (messages[msg_key].is_read == 0) {
-                    chatRef.child(msg_key).update({is_read: 1}, function (err) {
+                if (messages[msg_key]["is_read_" + ui_ref] == 0) {
+                    chatRef.child(msg_key).update({['is_read_' + ui_ref]: 1}, function (err) {
                         if (err) {
                             console.warn("update error!", err);
                         }
