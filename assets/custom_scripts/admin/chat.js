@@ -172,10 +172,10 @@ var Chat = function () {
         });
 
         conversationRef.child(chat_id).on('child_changed', function (snapshot) {
-            $(".mt-comment-" + chat_id).prependTo($(".mt-comment-" + chat_id).parent());
-            $(".mt-comment-" + chat_id).parents().eq(2).slimScroll({
-                scrollTo: 0
-            });
+//            $(".mt-comment-" + chat_id).prependTo($(".mt-comment-" + chat_id).parent());
+//            $(".mt-comment-" + chat_id).parents().eq(2).slimScroll({
+//                scrollTo: 0
+//            });
         });
 
         conversationRef.child(chat_id).on('child_removed', function (snapshot) {
