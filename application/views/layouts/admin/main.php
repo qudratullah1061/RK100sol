@@ -130,8 +130,7 @@
                     $notifications = get_user_notifications();
                     ?>
                     <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                           data-close-others="true">
+                        <a href="javascript:;">
                             <i class="fa fa-envelope"></i>
                             <span class="badge badge-default messages-count"></span>
                         </a>
