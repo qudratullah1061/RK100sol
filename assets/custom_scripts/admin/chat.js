@@ -106,8 +106,9 @@ var Chat = function () {
 
     var initMessageCounters = function () {
         // set message counters
-        var messages_count = 0;
+
         conversationRef.on('value', function (snapshot) {
+            var messages_count = 0;
             var conversation_objects = snapshot.val();
             //console.log(conversation_objects);
             for (var conversation_key in conversation_objects) {
@@ -139,8 +140,8 @@ var Chat = function () {
                     }
                 });
             }
+            alert(messages_count);
         });
-        alert(messages_count);
     };
 
     var showChatMessages = function (chatMessagesObj) {
