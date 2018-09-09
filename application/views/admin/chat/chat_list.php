@@ -40,9 +40,8 @@
                 </ul>
             </div>
             <div class="portlet-body">
-                <div class="scroller tab-content" data-always-visible="1" data-rail-visible1="0"
-                     data-handle-color="#D7DCE2" style="height: 450px;">
-                    <div class="tab-pane active" id="portlet_comments_1">
+                <div class="tab-content">
+                    <div class="tab-pane active scroller" id="portlet_comments_1" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 450px;">
                         <!-- BEGIN: Comments -->
                         <div class="mt-comments">
                             <?php
@@ -51,7 +50,7 @@
                                     ?>
                                     <!--// repeat this node-->
                                     <div class="mt-comment mt-comment-1a-<?php echo $guest['member_id']; ?>"
-                                         onclick="Chat.getChatMessages('1a-<?php echo $guest['member_id']; ?>',1)">
+                                         onclick="Chat.getChatMessages('1a-<?php echo $guest['member_id']; ?>', 1)">
                                         <div class="mt-comment-img">
                                             <img src="<?php echo file_exists($this->config->item('root_path') . $guest['image_path'] . "small_" . $guest['image']) ? base_url($guest['image_path'] . "small_" . $guest['image']) : base_url('uploads/member_images/profile/profile.png'); ?>"/>
                                         </div>
@@ -59,7 +58,7 @@
                                             <div class="mt-comment-info">
                                                 <span class="mt-comment-author"><?php echo $guest['first_name'] . " " . $guest['last_name']; ?></span>
                                                 <span class="mt-comment-date"><span
-                                                            class="badge badge-danger member-<?php echo $guest['member_id']; ?>"></span></span>
+                                                        class="badge badge-danger member-<?php echo $guest['member_id']; ?>"></span></span>
                                             </div>
                                             <div class="mt-comment-text">&nbsp;<?php echo $guest['location']; ?></div>
                                         </div>
@@ -72,7 +71,7 @@
                         </div>
                         <!-- END: Comments -->
                     </div>
-                    <div class="tab-pane" id="portlet_comments_2">
+                    <div class="tab-pane scroller" id="portlet_comments_2" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 450px;">
                         <!-- BEGIN: Comments -->
                         <div class="mt-comments">
                             <?php
@@ -81,7 +80,7 @@
                                     ?>
                                     <!--// repeat this node-->
                                     <div class="mt-comment mt-comment-1a-<?php echo $companion['member_id']; ?>"
-                                         onclick="Chat.getChatMessages('1a-<?php echo $companion['member_id']; ?>',1)">
+                                         onclick="Chat.getChatMessages('1a-<?php echo $companion['member_id']; ?>', 1)">
                                         <div class="mt-comment-img">
                                             <img alt="no image"
                                                  src="<?php echo file_exists($this->config->item('root_path') . $companion['image_path'] . "small_" . $companion['image']) ? base_url($companion['image_path'] . "small_" . $companion['image']) : base_url('uploads/member_images/profile/profile.png'); ?>"/>
@@ -90,7 +89,7 @@
                                             <div class="mt-comment-info">
                                                 <span class="mt-comment-author"><?php echo $companion['first_name'] . " " . $companion['last_name']; ?></span>
                                                 <span class="mt-comment-date"><span
-                                                            class="badge badge-danger member-<?php echo $companion['member_id']; ?>"></span></span>
+                                                        class="badge badge-danger member-<?php echo $companion['member_id']; ?>"></span></span>
                                             </div>
                                             <div class="mt-comment-text">
                                                 &nbsp;<?php echo $companion['location']; ?></div>
@@ -155,14 +154,13 @@
 <script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
 <!-- End datatable-->
 <script>
-    var senderID = '<?php echo $this->session->userdata('admin_id')?>' + 'a';
-    $(document).ready(function () {
-        Chat.init();
-        <?php
-        if($_GET && $_GET['chat']){ ?>
-            var chatID = "<?php echo $_GET['chat']?>";
-            $('.mt-comment-' + chatID).trigger('click');
-        <?php }
-        ?>
-    });
+                            var senderID = '<?php echo $this->session->userdata('admin_id') ?>' + 'a';
+                            $(document).ready(function () {
+                                Chat.init();
+<?php if (isset($_GET['chat']) && $_GET['chat']) { ?>
+                                    var chatID = "<?php echo $_GET['chat'] ?>";
+                                    $('.mt-comment-' + chatID).trigger('click');
+<?php }
+?>
+                            });
 </script>

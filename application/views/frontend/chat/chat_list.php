@@ -1,5 +1,4 @@
-<script src="<?php echo base_url(); ?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
-        type="text/javascript"></script>
+<!--<script src="<?php // echo base_url(); ?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>-->
 <section class="profile_edit">
     <div class="container">
         <div class="row">
@@ -17,10 +16,9 @@
                     </div>
                     <div class="portlet-body">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="portlet_comments_1">
+                            <div class="tab-pane active scroller " id="portlet_comments_1" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 450px;">
                                 <!-- BEGIN: Comments -->
                                 <div class="mt-comments">
-
                                     <!--// repeat this node-->
                                     <div class="mt-comment mt-comment-1a-<?php echo $this->session->userdata('member_info')['member_id']; ?>"
                                          onclick="Chat.getChatMessages('1a-<?php echo $this->session->userdata('member_info')['member_id']; ?>',0)">
@@ -32,8 +30,7 @@
                                                 $image = base_url('uploads/member_images/profile/profile.png');
                                             }
                                             ?>
-                                            <img src="<?php echo $image; ?>"
-                                                 alt="Member Profile Image"/>
+                                            <img src="<?php echo $image; ?>" alt="Member Profile Image"/>
                                         </div>
                                         <div class="mt-comment-body">
                                             <div class="mt-comment-info">
