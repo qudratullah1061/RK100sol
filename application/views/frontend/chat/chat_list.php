@@ -104,7 +104,7 @@
                             <div class="input-cont">
                                 <input class="form-control msg-box" type="text" placeholder="Type a message here...">
                             </div>
-                            <div class="btn-cont" style="margin-top: -61px">
+                            <div class="btn-cont" style="margin-top: -61px;">
                                 <span class="arrow"> </span>
                                 <a href="javascript:;" onclick="Chat.sendChatMessage()" class="btn blue icn-only">
                                     <i class="fa fa-check icon-white"></i>

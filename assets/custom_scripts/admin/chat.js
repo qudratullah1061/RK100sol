@@ -153,6 +153,8 @@ var Chat = function () {
     };
 
     var getChatMessages = function (chat_id) {
+        $(".scroll-custom").removeClass('chat-' + current_chat_id);
+        $(".scroll-custom").addClass('chat-' + chat_id);
         current_chat_id = chat_id;
         var chat_users = chat_id.split("-");
         var ui_ref = (chat_users[0] == senderID ? chat_users[1] : chat_users[0]);
@@ -169,9 +171,8 @@ var Chat = function () {
         });
 
         conversationRef.child(chat_id).on('child_changed', function (snapshot) {
-            alert(chat_id);
             $(".mt-comment-" + chat_id).prependTo($(".mt-comment-" + chat_id).parent());
-            $(".mt-comment-" + chat_id).parents().eq(2).slimScroll({
+            $('chat-' + chat_id).slimScroll({
                 scrollTo: 0
             });
         });
