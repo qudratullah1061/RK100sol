@@ -671,6 +671,7 @@ var App = function () {
                 } else {
                     height = $(this).css('height');
                 }
+                alert(height);
                 start_position = typeof $(this).attr("start-at") != "undefined" ? $(this).attr("start-at") : "top";
                 $(this).slimScroll({
                     allowPageScroll: true, // allow page scroll when the element scroll is ended
