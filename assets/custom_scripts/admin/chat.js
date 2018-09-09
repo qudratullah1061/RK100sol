@@ -122,7 +122,7 @@ var Chat = function () {
                     var is_unread = false;
                     for (var msg_key in messages) {
                         if (snapMessages.key != current_chat_id) {
-                            alert(messages[msg_key]['is_read_' + ui_ref]);
+                            alert(messages[msg_key]['is_read_' + ui_ref]+":"+ui_ref);
                             if (messages[msg_key]['is_read_' + ui_ref] == 0) {
                                 $(".member-" + ui_ref).html(parseInt($(".member-" + ui_ref).html() != "" ? $(".member-" + ui_ref).html() : 0) + 1);
                                 is_unread = true;
