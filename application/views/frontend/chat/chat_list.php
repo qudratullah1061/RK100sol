@@ -36,7 +36,7 @@
                                                 <span class="mt-comment-author"><?php echo $admin['first_name'] . " " . $admin['last_name']; ?>
                                                     (Admin)</span>
                                                 <span class="mt-comment-date">
-                                                    <span class="badge badge-danger member-1a"></span>
+                                                    <span class="badge badge-danger member-1a-<?php echo $this->session->userdata('member_id'); ?>"></span>
                                                 </span>
                                             </div>
                                             <div class="mt-comment-text">&nbsp;Canada</div>
@@ -63,14 +63,9 @@
                                                 <div class="mt-comment-body">
                                                     <div class="mt-comment-info">
                                                         <span class="mt-comment-author"><?php echo $connection['first_name'] . " " . $connection['last_name']; ?></span>
-                                                        <span class="mt-comment-date"><span
-                                                                class="badge badge-danger member-<?php
-                                                                if ($this->session->userdata('member_type') == 1) {
-                                                                    echo $connection['connection_id'];
-                                                                } else {
-                                                                    echo $connection['user_id'];
-                                                                }
-                                                                ?>"></span></span>
+                                                        <span class="mt-comment-date">
+                                                            <span class="badge badge-danger member-<?php echo $this->session->userdata('member_type') == 1 ? $connection['connection_id'] : $connection['user_id']; ?>"></span>
+                                                        </span>
                                                     </div>
                                                     <div class="mt-comment-text">
                                                         &nbsp;<?php echo $connection['location']; ?></div>
@@ -127,7 +122,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 <script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
 <script>
-                                    var senderID = '<?php echo $this->session->userdata('member_id') ?>';
+                                    var senderID = '<?php echo $this->session->userdata('member_id'); ?>';
                                     $(document).ready(function () {
                                         Chat.init();
 <?php if ($_GET && $_GET['chat']) { ?>

@@ -58,7 +58,7 @@
                                             <div class="mt-comment-info">
                                                 <span class="mt-comment-author"><?php echo $guest['first_name'] . " " . $guest['last_name']; ?></span>
                                                 <span class="mt-comment-date"><span
-                                                        class="badge badge-danger member-<?php echo $guest['member_id']; ?>"></span></span>
+                                                        class="badge badge-danger member-1a-<?php echo $guest['member_id']; ?>"></span></span>
                                             </div>
                                             <div class="mt-comment-text">&nbsp;<?php echo $guest['location']; ?></div>
                                         </div>
@@ -79,8 +79,7 @@
                                 foreach ($companion_members as $companion) {
                                     ?>
                                     <!--// repeat this node-->
-                                    <div class="mt-comment mt-comment-1a-<?php echo $companion['member_id']; ?>"
-                                         onclick="Chat.getChatMessages('1a-<?php echo $companion['member_id']; ?>', 1)">
+                                    <div class="mt-comment mt-comment-1a-<?php echo $companion['member_id']; ?>" onclick="Chat.getChatMessages('1a-<?php echo $companion['member_id']; ?>', 1)">
                                         <div class="mt-comment-img">
                                             <img alt="no image"
                                                  src="<?php echo file_exists($this->config->item('root_path') . $companion['image_path'] . "small_" . $companion['image']) ? base_url($companion['image_path'] . "small_" . $companion['image']) : base_url('uploads/member_images/profile/profile.png'); ?>"/>
@@ -88,11 +87,11 @@
                                         <div class="mt-comment-body">
                                             <div class="mt-comment-info">
                                                 <span class="mt-comment-author"><?php echo $companion['first_name'] . " " . $companion['last_name']; ?></span>
-                                                <span class="mt-comment-date"><span
-                                                        class="badge badge-danger member-<?php echo $companion['member_id']; ?>"></span></span>
+                                                <span class="mt-comment-date">
+                                                    <span class="badge badge-danger member-1a-<?php echo $companion['member_id']; ?>"></span>
+                                                </span>
                                             </div>
-                                            <div class="mt-comment-text">
-                                                &nbsp;<?php echo $companion['location']; ?></div>
+                                            <div class="mt-comment-text">&nbsp;<?php echo $companion['location']; ?></div>
                                         </div>
                                     </div>
                                     <!--// end of repeat this node-->

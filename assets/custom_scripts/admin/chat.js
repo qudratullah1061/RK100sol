@@ -26,7 +26,7 @@ var Templates = function () {
                 unread++;
             }
         }
-        unread > 0 ? $(".member-" + ui_ref).html(unread) : $(".member-" + ui_ref).hide();
+        unread > 0 ? $(".member-" + current_chat_id).html(unread) : $(".member-" + current_chat_id).hide();
     };
 
     var getLocalDateTime = function (dateTimeSent) {
@@ -116,13 +116,13 @@ var Chat = function () {
                     var chat_users = snapMessages.key.split("-");
                     // update conversation ref.
                     var ui_ref = (chat_users[0] == senderID ? chat_users[1] : chat_users[0]);
-                    $(".member-" + ui_ref).html("");
+                    $(".member-" + snapMessages.key).html("");
                     var messages = snapMessages.val();
                     var is_unread = false;
                     for (var msg_key in messages) {
                         if (snapMessages.key != current_chat_id) {
                             if (messages[msg_key]['is_read_' + ui_ref] == 0) {
-                                $(".member-" + ui_ref).html(parseInt($(".member-" + ui_ref).html() != "" ? $(".member-" + ui_ref).html() : 0) + 1);
+                                $(".member-" + snapMessages.key).html(parseInt($(".member-" + snapMessages.key).html() != "" ? $(".member-" + snapMessages.key).html() : 0) + 1);
                                 is_unread = true;
                             }
                         } else {
@@ -137,7 +137,7 @@ var Chat = function () {
                     if (is_unread) {
                         $(".mt-comment-" + snapMessages.key).prependTo($(".mt-comment-" + snapMessages.key).parent());
                     } else {
-                        $(".member-" + ui_ref).html("");
+                        $(".member-" + snapMessages.key).html("");
                     }
                 });
             }
@@ -166,7 +166,7 @@ var Chat = function () {
                 Templates._appendSingleMessage(obj);
             } else {
                 // add number incremental +1 value. else condition will call only when new child added.
-                $(".member-" + ui_ref).html(parseInt($(".member-" + ui_ref).html() != "" ? $(".member-" + ui_ref).html() : 0) + 1);
+                $(".member-" + chat_id).html(parseInt($(".member-" + chat_id).html() != "" ? $(".member-" + chat_id).html() : 0) + 1);
             }
         });
 
@@ -189,7 +189,7 @@ var Chat = function () {
         chatRef.once('value', function (snapMessages) {
             var chat_users = chat_id.split("-");
             var ui_ref = (chat_users[0] == senderID ? chat_users[1] : chat_users[0]);
-            $(".member-" + ui_ref).html("");
+            $(".member-" + chat_id).html("");
             var messages = snapMessages.val();
             for (var msg_key in messages) {
                 if (messages[msg_key]["is_read_" + ui_ref] == 0) {
