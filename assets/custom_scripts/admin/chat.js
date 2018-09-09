@@ -172,7 +172,7 @@ var Chat = function () {
 
         conversationRef.child(chat_id).on('child_changed', function (snapshot) {
             $(".mt-comment-" + chat_id).prependTo($(".mt-comment-" + chat_id).parent());
-            $('chat-' + chat_id).slimScroll({
+            $('.chat-' + chat_id).slimScroll({
                 scrollTo: 0
             });
         });
