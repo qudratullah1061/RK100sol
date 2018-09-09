@@ -109,7 +109,7 @@ var Chat = function () {
     var initMessageCounters = function () {
         // set message counters
         conversationRef.on('value', function (snapshot) {
-            alert('update call');
+            console.log('update call');
             var conversation_objects = snapshot.val();
             //console.log(conversation_objects);
             for (var conversation_key in conversation_objects) {
@@ -183,7 +183,7 @@ var Chat = function () {
     };
 
     var updateChatMessagesAsRead = function (chat_id) {
-        alert(2)
+        console.log(2);
         var chatRef = conversationRef.child(chat_id);
         chatRef.once('value', function (snapMessages) {
             var chat_users = chat_id.split("-");

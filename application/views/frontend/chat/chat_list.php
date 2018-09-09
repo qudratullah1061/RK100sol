@@ -36,7 +36,7 @@
                                                 <span class="mt-comment-author"><?php echo $admin['first_name'] . " " . $admin['last_name']; ?>
                                                     (Admin)</span>
                                                 <span class="mt-comment-date">
-                                                    <span class="badge badge-danger member-<?php echo $this->session->userdata('member_info')['member_id']; ?>"></span>
+                                                    <span class="badge badge-danger member-1a"></span>
                                                 </span>
                                             </div>
                                             <div class="mt-comment-text">&nbsp;Canada</div>
