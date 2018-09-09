@@ -140,7 +140,10 @@ var Chat = function () {
                     }
                 });
             }
-            alert(messages_count);
+            $(".messages-count").html("");
+            if (messages_count > 0) {
+                $(".messages-count").html(messages_count);
+            }
         });
     };
 
