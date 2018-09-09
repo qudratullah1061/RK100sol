@@ -64,7 +64,7 @@
                                                     <div class="mt-comment-info">
                                                         <span class="mt-comment-author"><?php echo $connection['first_name'] . " " . $connection['last_name']; ?></span>
                                                         <span class="mt-comment-date">
-                                                            <span class="badge badge-danger member-<?php echo $this->session->userdata('member_type') == 1 ? $connection['connection_id'] : $connection['user_id']; ?>"></span>
+                                                            <span class="badge badge-danger <?php echo "member-" . min($connection['user_id'], $connection['connection_id']) . "-" . max($connection['user_id'], $connection['connection_id']); ?>"></span>
                                                         </span>
                                                     </div>
                                                     <div class="mt-comment-text">
