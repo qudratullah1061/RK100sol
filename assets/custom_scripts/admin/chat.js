@@ -22,7 +22,7 @@ var Templates = function () {
                     '<div class="item-body">' + messages[key].message + '</div>' +
                     '</div>';
             $(".general-item-list").append(message);
-            if (messages[key]['is_read_'+ui_ref] == "0") {
+            if (messages[key]['is_read_' + ui_ref] == "0") {
                 unread++;
             }
         }
@@ -109,6 +109,7 @@ var Chat = function () {
     var initMessageCounters = function () {
         // set message counters
         conversationRef.on('value', function (snapshot) {
+            alert('update call');
             var conversation_objects = snapshot.val();
             //console.log(conversation_objects);
             for (var conversation_key in conversation_objects) {
@@ -182,6 +183,7 @@ var Chat = function () {
     };
 
     var updateChatMessagesAsRead = function (chat_id) {
+        alert(2)
         var chatRef = conversationRef.child(chat_id);
         chatRef.once('value', function (snapMessages) {
             var chat_users = chat_id.split("-");
