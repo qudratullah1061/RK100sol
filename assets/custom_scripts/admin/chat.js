@@ -203,8 +203,6 @@ var Chat = function () {
 
     var addMessage = function (current_chat_id) {
         if (typeof current_chat_id != "undefined") {
-            $(".mt-comment-" + current_chat_id).prependTo($(".mt-comment-" + current_chat_id).parent());
-            alert();
             var users = current_chat_id.split('-');
             var user1 = users[0];
             var user2 = users[1];
@@ -222,6 +220,10 @@ var Chat = function () {
             var container = $(".scroll-custom");
             container.slimScroll({
                 scrollTo: container[0].scrollHeight
+            });
+            $(".mt-comment-" + current_chat_id).prependTo($(".mt-comment-" + current_chat_id).parent());
+            $(".mt-comment-" + current_chat_id).parents().eq(2).slimScroll({
+                scrollTo: 0
             });
         } else {
             toastr["info"]("Please select chat to send message.", "Info");
