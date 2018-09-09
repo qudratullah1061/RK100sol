@@ -224,14 +224,15 @@ var Chat = function () {
             var user2 = users[1];
             var msg = $(".msg-box").val();
             var currentChatRef = firebase.database().ref('conversations/' + current_chat_id);
-            currentChatRef.push().set({
+            var message = {
                 'sender_id': senderID,
                 'receiver_id': (senderID == user1) ? user2 : user1,
-                ['is_read_' + user1]: (senderID == user1 ? 0 : 1),
-                ['is_read_' + user2]: (senderID == user2 ? 0 : 1),
                 'message': msg,
                 'date_sent': (new Date()).toString()
-            });
+            }
+            message['is_read_' + user1] = (senderID == user1 ? 0 : 1);
+            message['is_read_' + user2] = (senderID == user2 ? 0 : 1);
+            currentChatRef.push().set(message);
             $(".msg-box").val("");
             var container = $(".scroll-custom");
             container.slimScroll({
