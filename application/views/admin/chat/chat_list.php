@@ -40,7 +40,7 @@
                 </ul>
             </div>
             <div class="portlet-body">
-                <div class="scroller tab-content" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 400px;">
+                <div class="scroller tab-content" data-rail-visible1="0" data-handle-color="#D7DCE2" data-height="400">
                     <div class="tab-pane active" id="portlet_comments_1">
                         <!-- BEGIN: Comments -->
                         <div class="mt-comments">
@@ -127,7 +127,7 @@
             </div>
             <div class="portlet-body">
                 <div class="scroller scroll-custom" start-at="bottom" data-always-visible="1" data-rail-visible1="0"
-                     data-handle-color="#D7DCE2" style="height: 338px;">
+                     data-handle-color="#D7DCE2" data-height="338">
                     <div class="general-item-list">
                         <!--Repeat items here-->
                     </div>
