@@ -169,6 +169,7 @@ var Chat = function () {
         });
 
         conversationRef.child(chat_id).on('child_changed', function (snapshot) {
+            alert(chat_id);
             $(".mt-comment-" + chat_id).prependTo($(".mt-comment-" + chat_id).parent());
             $(".mt-comment-" + chat_id).parents().eq(2).slimScroll({
                 scrollTo: 0
