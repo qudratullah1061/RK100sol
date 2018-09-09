@@ -40,7 +40,7 @@
                 </ul>
             </div>
             <div class="portlet-body">
-                <div class="scroller tab-content" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 450px;">
+                <div class="scroller tab-content" data-rail-visible1="0" data-handle-color="#D7DCE2" style="height: 400px;">
                     <div class="tab-pane active" id="portlet_comments_1">
                         <!-- BEGIN: Comments -->
                         <div class="mt-comments">

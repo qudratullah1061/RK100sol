@@ -15,7 +15,7 @@
                     </div>
                     <div class="portlet-body">
                         <div class="tab-content">
-                            <div class="tab-pane active scroller " id="portlet_comments_1" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" data-height="375">
+                            <div class="tab-pane active scroller " id="portlet_comments_1" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" data-height="440">
                                 <!-- BEGIN: Comments -->
                                 <div class="mt-comments">
                                     <!--// repeat this node-->
