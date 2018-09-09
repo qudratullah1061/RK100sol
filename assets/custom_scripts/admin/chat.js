@@ -112,7 +112,6 @@ var Chat = function () {
             var conversation_objects = snapshot.val();
             //console.log(conversation_objects);
             for (var conversation_key in conversation_objects) {
-                console.log(conversation_key);
                 conversationRef.child(conversation_key).once('value', function (snapMessages) {
                     var chat_users = snapMessages.key.split("-");
                     // update conversation ref.
@@ -137,8 +136,6 @@ var Chat = function () {
                     }
                     if (is_unread) {
                         $(".mt-comment-" + snapMessages.key).prependTo($(".mt-comment-" + snapMessages.key).parent());
-                    } else {
-                        $(".member-" + snapMessages.key).html("");
                     }
                 });
             }
@@ -172,10 +169,10 @@ var Chat = function () {
         });
 
         conversationRef.child(chat_id).on('child_changed', function (snapshot) {
-//            $(".mt-comment-" + chat_id).prependTo($(".mt-comment-" + chat_id).parent());
-//            $(".mt-comment-" + chat_id).parents().eq(2).slimScroll({
-//                scrollTo: 0
-//            });
+            $(".mt-comment-" + chat_id).prependTo($(".mt-comment-" + chat_id).parent());
+            $(".mt-comment-" + chat_id).parents().eq(2).slimScroll({
+                scrollTo: 0
+            });
         });
 
         conversationRef.child(chat_id).on('child_removed', function (snapshot) {
