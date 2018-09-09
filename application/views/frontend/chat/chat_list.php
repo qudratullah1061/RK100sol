@@ -1,4 +1,3 @@
-<!--<script src="<?php // echo base_url();       ?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>-->
 <section class="profile_edit">
     <div class="container">
         <div class="row">
@@ -134,9 +133,5 @@
                                             var chatID = "<?php echo $_GET['chat'] ?>";
                                             $('.mt-comment-' + chatID).trigger('click');
 <?php } ?>
-//                                        $(".scroller").slimScroll({destroy: true});
-//                                        $('.scroller').slimScroll({
-//                                            height: '350px'
-//                                        });
                                     });
 </script>
