@@ -163,7 +163,7 @@
               type="text/css"/>
         <!--sweet alert ends-->
         <!-- BEGIN datepicker-->
-        <!--<link href="<?php // echo base_url();                                                                                                                                             ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="<?php // echo base_url();                                                                                                                                               ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
         <!--datepicker ends-->
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet"
@@ -275,7 +275,7 @@ if (isset($registration_completed) && $registration_completed) {
                                 <li class="<?php echo ActivateLink('about'); ?>">
                                     <a href="<?php echo base_url('about'); ?>">About</a>
                                 </li>
-                                <!--                                    <li class="<?php // echo ActivateLink('services');                                                                                                                               ?>">
+                                <!--                                    <li class="<?php // echo ActivateLink('services');                                                                                                                                 ?>">
                                         <a href="javascript:void(0);">Our Services</a>
                                     </li>-->
                                 <li class="<?php echo ActivateLink('blog'); ?>">
@@ -383,25 +383,28 @@ if (isset($registration_completed) && $registration_completed) {
                                                         <?php foreach ($connections as $connection) { ?>
                                                         <li>
                                                             <a href="<?php echo site_url('member/connections#connection' . $connection['id']) ?>">
-                                                                <span class="subject" style="margin-left: 0;"><span
-                                                                        class="from"> <?php
-                                                                            if ($connection['status'] == 0) {
-                                                                                if ($this->session->userdata('member_type') == 1) {
-                                                                                    echo 'New Connection Request sent ' . $connection['first_name'] . ' ' . $connection['last_name'];
-                                                                                } else {
-                                                                                    echo 'New Connection Request from ' . $connection['first_name'] . ' ' . $connection['last_name'];
-                                                                                }
-                                                                            } elseif ($connection['status'] == 1) {
-                                                                                echo 'You are connected with ' . $connection['first_name'] . ' ' . $connection['last_name'];
+                                                                <span class="subject" style="margin-left: 0;">
+                                                                    <span class="from">
+                                                                        <?php
+                                                                        if ($connection['status'] == 0) {
+                                                                            if ($this->session->userdata('member_type') == 1) {
+                                                                                echo 'New Connection Request sent ' . $connection['first_name'] . ' ' . $connection['last_name'];
                                                                             } else {
-                                                                                if ($this->session->userdata('member_type') == 1) {
-                                                                                    echo $connection['first_name'] . ' ' . $connection['last_name'] . ' have rejected your connection request.';
-                                                                                } else {
-                                                                                    echo 'You have rejected the connection request from ' . $connection['first_name'] . ' ' . $connection['last_name'];
-                                                                                }
+                                                                                echo 'New Connection Request from ' . $connection['first_name'] . ' ' . $connection['last_name'];
                                                                             }
-                                                                            ?></span><span
-                                                                        class="time"><?php echo time_elapsed_string($connection['created_at']); ?></span>
+                                                                        } elseif ($connection['status'] == 1) {
+                                                                            echo 'You are connected with ' . $connection['first_name'] . ' ' . $connection['last_name'];
+                                                                        } else {
+                                                                            if ($this->session->userdata('member_type') == 1) {
+                                                                                echo $connection['first_name'] . ' ' . $connection['last_name'] . ' have rejected your connection request.';
+                                                                            } else {
+                                                                                echo 'You have rejected the connection request from ' . $connection['first_name'] . ' ' . $connection['last_name'];
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                    </span>
+                                                                </span>
+                                                                <span class="time"><?php echo time_elapsed_string($connection['created_at']); ?></span>
                                                             </a>
                                                         </li>
                                                     <?php }
@@ -542,11 +545,11 @@ if (isset($registration_completed) && $registration_completed) {
                                     <li class="enabled"><a
                                             href="<?php echo isset($admin_info['facebook_link']) ? $admin_info['facebook_link'] : ""; ?>"><i
                                                 class="fa fa-facebook-square"></i></a></li>
-                                <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                                                                                                                             ?>"><i class="fa fa-youtube-square"></i></a></li>-->
+                                <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                                                                                                                               ?>"><i class="fa fa-youtube-square"></i></a></li>-->
                                     <li>
                                         <a href="<?php echo isset($admin_info['linkedin_link']) ? $admin_info['linkedin_link'] : ""; ?>"><i
                                                 class="fa fa-linkedin-square"></i></a></li>
-                                <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                                                                                                                             ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
+                                <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                                                                                                                               ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
                                     <li class="enabled"><a
                                             href="<?php echo isset($admin_info['twitter_link']) ? $admin_info['twitter_link'] : ""; ?>"><i
                                                 class="fa fa-twitter-square"></i></a></li>
@@ -676,7 +679,7 @@ if (isset($registration_completed) && $registration_completed) {
     type="text/javascript"></script>
     <!--Form Validation end-->
     <!--datepicker start-->
-    <!--<script src="<?php // echo base_url();                                                                                                                                             ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
+    <!--<script src="<?php // echo base_url();                                                                                                                                               ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
     <!--datepicker ends-->
     <!--select2 start-->
     <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js"
