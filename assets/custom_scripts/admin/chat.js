@@ -128,7 +128,7 @@ var Chat = function () {
                             }
                         } else {
                             // mark this messaage as read.
-                            conversationRef.child(conversation_key).child(msg_key).update({'is_read_' + ui_ref: 1}, function (err) {
+                            conversationRef.child(conversation_key).child(msg_key).update({('is_read_' + ui_ref): 1}, function (err) {
                                 if (err) {
                                     console.warn("update error!", err);
                                 }
@@ -203,7 +203,7 @@ var Chat = function () {
             var messages = snapMessages.val();
             for (var msg_key in messages) {
                 if (messages[msg_key]["is_read_" + ui_ref] == 0) {
-                    chatRef.child(msg_key).update({'is_read_' + ui_ref: 1}, function (err) {
+                    chatRef.child(msg_key).update({('is_read_' + ui_ref): 1}, function (err) {
                         if (err) {
                             console.warn("update error!", err);
                         }
