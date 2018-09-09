@@ -112,7 +112,7 @@ var Chat = function () {
             var conversation_objects = snapshot.val();
             //console.log(conversation_objects);
             for (var conversation_key in conversation_objects) {
-                conversationRef.child(conversation_key).once('value', function (snapMessages) {
+                conversationRef.child(conversation_key).limitToLast(500).once('value', function (snapMessages) {
                     var chat_users = snapMessages.key.split("-");
                     // update conversation ref.
                     var ui_ref = (chat_users[0] == senderID ? chat_users[1] : chat_users[0]);

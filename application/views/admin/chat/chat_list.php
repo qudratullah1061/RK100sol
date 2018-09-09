@@ -126,8 +126,7 @@
                                 </div>-->
             </div>
             <div class="portlet-body">
-                <div class="scroller scroll-custom" start-at="bottom" data-always-visible="1" data-rail-visible1="0"
-                     data-handle-color="#D7DCE2" data-height="338">
+                <div class="scroller scroll-custom" start-at="bottom" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" data-height="338">
                     <div class="general-item-list">
                         <!--Repeat items here-->
                     </div>
