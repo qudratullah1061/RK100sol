@@ -211,8 +211,8 @@ var Chat = function () {
             currentChatRef.push().set({
                 'sender_id': senderID,
                 'receiver_id': (senderID == user1) ? user2 : user1,
-                ['is_read_' + user1]: (senderID != user1 ? 1 : 0),
-                ['is_read_' + user2]: (senderID != user2 ? 1 : 0),
+                ['is_read_' + user1]: (senderID == user1 ? 0 : 1),
+                ['is_read_' + user2]: (senderID == user2 ? 0 : 1),
                 'message': msg,
                 'date_sent': (new Date()).toString()
             });
