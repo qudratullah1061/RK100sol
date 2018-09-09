@@ -109,6 +109,7 @@ var Chat = function () {
         conversationRef.on('value', function (snapshot) {
             var conversation_objects = snapshot.val();
             //console.log(conversation_objects);
+            var messages_count = 0;
             for (var conversation_key in conversation_objects) {
                 conversationRef.child(conversation_key).limitToLast(500).once('value', function (snapMessages) {
                     var chat_users = snapMessages.key.split("-");
@@ -122,6 +123,7 @@ var Chat = function () {
                             if (messages[msg_key]['is_read_' + ui_ref] == 0) {
                                 $(".member-" + snapMessages.key).html(parseInt($(".member-" + snapMessages.key).html() != "" ? $(".member-" + snapMessages.key).html() : 0) + 1);
                                 is_unread = true;
+                                messages_count++;
                             }
                         } else {
                             // mark this messaage as read.
@@ -138,6 +140,7 @@ var Chat = function () {
                 });
             }
         });
+        alert(messages_count);
     };
 
     var showChatMessages = function (chatMessagesObj) {
