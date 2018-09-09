@@ -109,7 +109,6 @@ var Chat = function () {
     var initMessageCounters = function () {
         // set message counters
         conversationRef.on('value', function (snapshot) {
-            console.log('update call');
             var conversation_objects = snapshot.val();
             //console.log(conversation_objects);
             for (var conversation_key in conversation_objects) {
@@ -122,7 +121,6 @@ var Chat = function () {
                     var is_unread = false;
                     for (var msg_key in messages) {
                         if (snapMessages.key != current_chat_id) {
-                            alert(messages[msg_key]['is_read_' + ui_ref]+":"+ui_ref);
                             if (messages[msg_key]['is_read_' + ui_ref] == 0) {
                                 $(".member-" + ui_ref).html(parseInt($(".member-" + ui_ref).html() != "" ? $(".member-" + ui_ref).html() : 0) + 1);
                                 is_unread = true;
@@ -156,6 +154,8 @@ var Chat = function () {
 
     var getChatMessages = function (chat_id) {
         current_chat_id = chat_id;
+        var chat_users = chat_id.split("-");
+        var ui_ref = (chat_users[0] == senderID ? chat_users[1] : chat_users[0]);
         $(".general-item-list").html("");
         conversationRef.child(chat_id).limitToLast(500).on('child_added', function (snapshot) {
             if (chat_id == current_chat_id) {
@@ -164,8 +164,7 @@ var Chat = function () {
                 Templates._appendSingleMessage(obj);
             } else {
                 // add number incremental +1 value. else condition will call only when new child added.
-                var chat_users = chat_id.split("-");
-                $(".member-" + chat_users[1]).html(parseInt($(".member-" + chat_users[1]).html()) + 1);
+                $(".member-" + ui_ref).html(parseInt($(".member-" + ui_ref).html() != "" ? $(".member-" + ui_ref).html() : 0) + 1);
             }
         });
 
@@ -184,7 +183,6 @@ var Chat = function () {
     };
 
     var updateChatMessagesAsRead = function (chat_id) {
-        console.log(2);
         var chatRef = conversationRef.child(chat_id);
         chatRef.once('value', function (snapMessages) {
             var chat_users = chat_id.split("-");
@@ -213,8 +211,8 @@ var Chat = function () {
             currentChatRef.push().set({
                 'sender_id': senderID,
                 'receiver_id': (senderID == user1) ? user2 : user1,
-                ['is_read_' + user1]: 0,
-                ['is_read_' + user2]: 0,
+                ['is_read_' + user1]: (senderID == user1 ? 1 : 0),
+                ['is_read_' + user2]: (senderID == user2 ? 1 : 0),
                 'message': msg,
                 'date_sent': (new Date()).toString()
             });
