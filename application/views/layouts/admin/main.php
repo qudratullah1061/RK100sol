@@ -314,8 +314,8 @@
                                                 <span class="title">Add Service Member</span>
                                             </a>
                                         </li>
-                                        <!--                                    <li class="nav-item <?php // ActivateCurrentLink('companion', 'add');                                         ?>">
-                                                    <a href="<?php // echo base_url('admin/companions/add_companion');                                         ?>" class="nav-link ">
+                                        <!--                                    <li class="nav-item <?php // ActivateCurrentLink('companion', 'add');                                                           ?>">
+                                                    <a href="<?php // echo base_url('admin/companions/add_companion');                                                           ?>" class="nav-link ">
                                                         <i class="fa fa-plus"></i>
                                                         <span class="title">Members Activities</span>
                                                         <span class="badge badge-success">1</span>
@@ -1228,9 +1228,17 @@
         <!--profile js-->
         <script src="<?php echo base_url(); ?>assets/pages/scripts/summernote.js"></script>
         <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/common_functions.js" type="text/javascript"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+        <script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
         <script>
+            var senderID = '<?php echo $this->session->userdata('admin_id') ?>' + 'a';
             $(document).ready(function () {
                 GlobalPlugins.initToasterPlugin();
+                Chat.init();
+<?php if (isset($_GET['chat']) && $_GET['chat']) { ?>
+                    var chatID = "<?php echo $_GET['chat'] ?>";
+                    $('.mt-comment-' + chatID).trigger('click');
+<?php } ?>
             });
         </script>
     </body>

@@ -163,7 +163,7 @@
               type="text/css"/>
         <!--sweet alert ends-->
         <!-- BEGIN datepicker-->
-        <!--<link href="<?php // echo base_url();                                                                                                                                    ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="<?php // echo base_url();                                                                                                                                             ?>assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />-->
         <!--datepicker ends-->
         <!--select2 start-->
         <link href="<?php echo base_url(); ?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet"
@@ -275,7 +275,7 @@ if (isset($registration_completed) && $registration_completed) {
                                 <li class="<?php echo ActivateLink('about'); ?>">
                                     <a href="<?php echo base_url('about'); ?>">About</a>
                                 </li>
-                                <!--                                    <li class="<?php // echo ActivateLink('services');                                                                                                                      ?>">
+                                <!--                                    <li class="<?php // echo ActivateLink('services');                                                                                                                               ?>">
                                         <a href="javascript:void(0);">Our Services</a>
                                     </li>-->
                                 <li class="<?php echo ActivateLink('blog'); ?>">
@@ -542,11 +542,11 @@ if (isset($registration_completed) && $registration_completed) {
                                     <li class="enabled"><a
                                             href="<?php echo isset($admin_info['facebook_link']) ? $admin_info['facebook_link'] : ""; ?>"><i
                                                 class="fa fa-facebook-square"></i></a></li>
-                                <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                                                                                                                    ?>"><i class="fa fa-youtube-square"></i></a></li>-->
+                                <!--<li class="enabled"><a href="<?php // echo isset($admin_info[0]['youtube_link']) ? $admin_info[0]['youtube_link'] : "";                                                                                                                                             ?>"><i class="fa fa-youtube-square"></i></a></li>-->
                                     <li>
                                         <a href="<?php echo isset($admin_info['linkedin_link']) ? $admin_info['linkedin_link'] : ""; ?>"><i
                                                 class="fa fa-linkedin-square"></i></a></li>
-                                <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                                                                                                                    ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
+                                <!--<li><a href="<?php // echo isset($admin_info[0]['facebook_link']) ? $admin_info[0]['google_link'] : "";                                                                                                                                             ?>"><i class="fa fa-google-plus-square"></i></a></li>-->
                                     <li class="enabled"><a
                                             href="<?php echo isset($admin_info['twitter_link']) ? $admin_info['twitter_link'] : ""; ?>"><i
                                                 class="fa fa-twitter-square"></i></a></li>
@@ -676,7 +676,7 @@ if (isset($registration_completed) && $registration_completed) {
     type="text/javascript"></script>
     <!--Form Validation end-->
     <!--datepicker start-->
-    <!--<script src="<?php // echo base_url();                                                                                                                                    ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
+    <!--<script src="<?php // echo base_url();                                                                                                                                             ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>-->
     <!--datepicker ends-->
     <!--select2 start-->
     <script src="<?php echo base_url(); ?>assets/global/plugins/select2/js/select2.full.min.js"
@@ -708,6 +708,8 @@ if (isset($registration_completed) && $registration_completed) {
     <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/common_functions.js"
     type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/newsletters.js" type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
     <script>
                     $(document).ready(function () {
                         GlobalPlugins.initToasterPlugin();
@@ -724,14 +726,15 @@ if (isset($registration_completed) && $registration_completed) {
                         }
                     });
 
-
-                    //            $(function () {
-                    //                $('.scroller').slimScroll({
-                    //                    height: '150px'
-                    //                });
-                    //            });
+                    var senderID = '<?php echo $this->session->userdata('member_id'); ?>';
+                    $(document).ready(function () {
+                        Chat.init();
+<?php if ($_GET && $_GET['chat']) { ?>
+                            var chatID = "<?php echo $_GET['chat'] ?>";
+                            $('.mt-comment-' + chatID).trigger('click');
+<?php } ?>
+                    });
     </script>
-    <!--Q included files start-->
 </body>
 
 </html>

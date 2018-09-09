@@ -148,17 +148,4 @@
 
     <!--chat detail ends here.-->
 </div>
-<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-<script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
 <!-- End datatable-->
-<script>
-                            var senderID = '<?php echo $this->session->userdata('admin_id') ?>' + 'a';
-                            $(document).ready(function () {
-                                Chat.init();
-<?php if (isset($_GET['chat']) && $_GET['chat']) { ?>
-                                    var chatID = "<?php echo $_GET['chat'] ?>";
-                                    $('.mt-comment-' + chatID).trigger('click');
-<?php }
-?>
-                            });
-</script>

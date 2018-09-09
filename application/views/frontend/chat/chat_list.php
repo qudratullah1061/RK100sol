@@ -117,17 +117,4 @@
             <!--chat detail ends here.-->
         </div>
     </div>
-
 </section>
-<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-<script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
-<script>
-                                    var senderID = '<?php echo $this->session->userdata('member_id'); ?>';
-                                    $(document).ready(function () {
-                                        Chat.init();
-<?php if ($_GET && $_GET['chat']) { ?>
-                                            var chatID = "<?php echo $_GET['chat'] ?>";
-                                            $('.mt-comment-' + chatID).trigger('click');
-<?php } ?>
-                                    });
-</script>
