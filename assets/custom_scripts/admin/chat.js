@@ -112,6 +112,7 @@ var Chat = function () {
             var conversation_objects = snapshot.val();
             //console.log(conversation_objects);
             for (var conversation_key in conversation_objects) {
+                console.log(conversation_key);
                 conversationRef.child(conversation_key).once('value', function (snapMessages) {
                     var chat_users = snapMessages.key.split("-");
                     // update conversation ref.
@@ -140,6 +141,12 @@ var Chat = function () {
                         $(".member-" + snapMessages.key).html("");
                     }
                 });
+//                if (snapMessages.key == current_chat_id) {
+//                    $(".mt-comment-" + current_chat_id).prependTo($(".mt-comment-" + current_chat_id).parent());
+//                    $(".mt-comment-" + current_chat_id).parents().eq(2).slimScroll({
+//                        scrollTo: 0
+//                    });
+//                }
             }
         });
     };
