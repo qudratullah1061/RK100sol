@@ -19,11 +19,11 @@ class Crons extends CI_Controller {
                 $member_email = $user['email'];
                 $macros_data['$$$FIRST_NAME$$$'] = $user['first_name'];
                 $email_template_info = get_email_template('member_suspended_subscription', $macros_data);
-                if ($email_template_info) {
-//                    sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
-//                    $this->db->set('status', 'suspended')->where('member_id', $user['member_id'])->update('tb_members');
+                if ($email_template_info && $member_email == "qudratullah10610@gmail.com") {
+                    $html .= "$member_email <br/>";
+                    sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
+                    $this->db->set('status', 'suspended')->where('member_id', $user['member_id'])->update('tb_members');
                 }
-                $html .= "$member_email <br/>";
             }
             $response = array('error' => false, 'description' => "Cron Job Run Successfully!<br/>" . $html, 'code' => 200);
         } else {
