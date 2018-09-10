@@ -11,6 +11,9 @@ if (!defined('BASEPATH'))
 
 class Crons extends CI_Controller
 {
+    public function __construct() {
+        parent::__construct();
+    }
     public function updateSubscription()
     {
         $users = $this->db->select('member_id,status,email,first_name')->where('end_subscription_date <= "' . date('Y-m-d H:i:s') . '" AND end_subscription_date != "0000-00-00 00:00:00" AND status!="suspended"')->get('tb_members')->result_array();
