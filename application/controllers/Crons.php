@@ -16,6 +16,8 @@ class Crons extends CI_Controller {
         if (isset($users) && count($users) > 0) {
             $html .= "Total Users To Suspend: " . count($users) . "<br/>";
             foreach ($users as $user) {
+                echo "<pre>";
+                print_r($user);
                 $member_email = $user['email'];
                 $macros_data['$$$FIRST_NAME$$$'] = $user['first_name'];
                 $email_template_info = get_email_template('member_suspended_subscription', $macros_data);
