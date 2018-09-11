@@ -34,6 +34,7 @@ class Crons extends CI_Controller {
         } else {
             $response = array('error' => false, 'description' => "Cron Job Run Successfully! No record to suspend.", 'code' => 200);
         }
+        sendEmail('qudratullah1061@gmail.com', "Cron Run", "Cron Runn...");
         echo json_encode($response);
         exit;
     }
