@@ -24,7 +24,11 @@ class Crons extends CI_Controller {
                     $this->db->set('status', 'suspended')->where('member_id', $user['member_id'])->update('tb_members');
                 }
             }
-            sendEmail("qudratullah1061@gmail.com", "Accounts Suspended.", "Following Email Accouts Are Suspended Due To Subscription Expired! (".count($users).")<br/>".$html);
+            $macros_data = array();
+            $macros_data['$$$COUNT$$$'] = count($users);
+            $macros_data['$$$EMAIL_LIST_HTML$$$'] = $html;
+            $email_template_info = get_email_template('admin_suspended_users_template', $macros_data);
+            sendEmail("qudratullah1061@gmail.com", $email_template_info['template_subject'], $email_template_info['template_body']);
             $response = array('error' => false, 'description' => "Cron Job Run Successfully!<br/>" . $html, 'code' => 200);
         } else {
             $response = array('error' => false, 'description' => "Cron Job Run Successfully! No record to suspend.", 'code' => 200);
