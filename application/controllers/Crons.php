@@ -18,7 +18,7 @@ class Crons extends CI_Controller {
                 $member_email = $user['email'];
                 $macros_data['$$$FIRST_NAME$$$'] = $user['first_name'];
                 $email_template_info = get_email_template('member_suspended_subscription', $macros_data);
-                if ($email_template_info && $member_email == "qudratullah1061@gmail.com") {
+                if ($email_template_info) {
                     $html .= "$member_email <br/>";
                     sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
                     $this->db->set('status', 'suspended')->where('member_id', $user['member_id'])->update('tb_members');
@@ -28,7 +28,8 @@ class Crons extends CI_Controller {
             $macros_data['$$$COUNT$$$'] = count($users);
             $macros_data['$$$EMAIL_LIST_HTML$$$'] = $html;
             $email_template_info = get_email_template('admin_suspended_users_template', $macros_data);
-            sendEmail("qudratullah1061@gmail.com", $email_template_info['template_subject'], $email_template_info['template_body']);
+            $admin_email = $this->config->item('admin_email');
+            sendEmail($admin_email, $email_template_info['template_subject'], $email_template_info['template_body']);
             $response = array('error' => false, 'description' => "Cron Job Run Successfully!<br/>" . $html, 'code' => 200);
         } else {
             $response = array('error' => false, 'description' => "Cron Job Run Successfully! No record to suspend.", 'code' => 200);
