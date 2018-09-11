@@ -269,8 +269,8 @@ section{padding: 60px 0;}
 /* ================= Home Page style ======================*/
 
 .home-panner-height {height: 750px}
-.home-banner {margin-top: 122px !important;}
-.home-banner {margin-top: 122px !important;background-size: cover;background-repeat: no-repeat;background-position: center center !important;background-attachment: scroll;}
+/*.home-banner {margin-top: 122px !important;}*/
+.home-banner {padding-top: 122px !important; background-size: cover;background-repeat: no-repeat;background-position: center center !important;background-attachment: scroll;}
 .home-banner h4 {font-size: 62px;margin-bottom: 12px;line-height: 75px;}
 .home-banner p {font-size: 28px;font-family: 'Open Sans', sans-serif !important;letter-spacing: 1px;margin-bottom: 33px;}
 .home-banner .btn {text-transform: unset;margin-right: 30px;}

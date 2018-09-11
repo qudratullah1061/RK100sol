@@ -992,7 +992,7 @@
                         <a href="#" class="btn btn-deep-purple btn-small">See More</a>
                     </div>
                     <div class="col-md-5 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
-                        <img src="<?php // echo base_url('assets/frontend/');                                                                      ?>img/guide-3.jpg" alt="">
+                        <img src="<?php // echo base_url('assets/frontend/');                                                                        ?>img/guide-3.jpg" alt="">
                     </div>
                 </div>-->
 
@@ -1011,5 +1011,11 @@
     });
     $(function () {
         $("#location").geocomplete();
+        $(".pac-container").css({ top: '750px !important' });
     });
 </script>
+<style>
+/*    .pac-container{
+        top:800px !important;
+    }*/
+</style>
