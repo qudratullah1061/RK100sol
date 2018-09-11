@@ -1228,7 +1228,8 @@
         <!--profile js-->
         <script src="<?php echo base_url(); ?>assets/pages/scripts/summernote.js"></script>
         <script src="<?php echo base_url(); ?>assets/custom_scripts/admin/common_functions.js" type="text/javascript"></script>
-        <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+        <!--<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>-->
+        <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
         <script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
         <script>
             var senderID = '<?php echo $this->session->userdata('admin_id') ?>' + 'a';

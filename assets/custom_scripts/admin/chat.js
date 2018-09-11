@@ -92,13 +92,23 @@ var Chat = function () {
     }
 
     var initFirebase = function () {
+//        var config = {
+//            apiKey: "AIzaSyCWbdaGdf2TJD8CC84q--Aw0GBzOJcFLo8",
+//            authDomain: "konsorts-180810.firebaseapp.com",
+//            databaseURL: "https://konsorts-180810.firebaseio.com",
+//            projectId: "konsorts-180810",
+//            storageBucket: "konsorts-180810.appspot.com",
+//            messagingSenderId: "209256789157"
+//        };
+//        firebase.initializeApp(config);
+// Initialize Firebase
         var config = {
-            apiKey: "AIzaSyCWbdaGdf2TJD8CC84q--Aw0GBzOJcFLo8",
-            authDomain: "konsorts-180810.firebaseapp.com",
-            databaseURL: "https://konsorts-180810.firebaseio.com",
-            projectId: "konsorts-180810",
-            storageBucket: "konsorts-180810.appspot.com",
-            messagingSenderId: "209256789157"
+            apiKey: "AIzaSyDSpCtlE6Tj3Q2S7v7YHe4Knjjau9u8tcw",
+            authDomain: "konsorts-1a04b.firebaseapp.com",
+            databaseURL: "https://konsorts-1a04b.firebaseio.com",
+            projectId: "konsorts-1a04b",
+            storageBucket: "",
+            messagingSenderId: "252088236818"
         };
         firebase.initializeApp(config);
         conversationRef = firebase.database().ref('conversations');

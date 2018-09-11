@@ -702,7 +702,8 @@ if (isset($registration_completed) && $registration_completed) {
     <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/common_functions.js"
     type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/custom_scripts/frontend/newsletters.js" type="text/javascript"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
     <script src="<?php echo base_url('assets/custom_scripts/admin/chat.js'); ?>" type="text/javascript"></script>
     <script>
                     var senderID = '<?php echo $this->session->userdata('member_id'); ?>';
