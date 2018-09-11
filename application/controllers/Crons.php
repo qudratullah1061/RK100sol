@@ -12,7 +12,6 @@ class Crons extends CI_Controller {
     public function updateSubscription() {
         $response = array();
         $html = "";
-        echo $_SERVER['DOCUMENT_ROOT'];
         $users = $this->db->select('member_id,status,email,first_name')->where('end_subscription_date <= "' . date('Y-m-d H:i:s') . '" AND end_subscription_date != "0000-00-00 00:00:00" AND status!="suspended"')->get('tb_members')->result_array();
         if (isset($users) && count($users) > 0) {
             foreach ($users as $user) {
@@ -35,7 +34,6 @@ class Crons extends CI_Controller {
         } else {
             $response = array('error' => false, 'description' => "Cron Job Run Successfully! No record to suspend.", 'code' => 200);
         }
-        sendEmail('qudratullah1061@gmail.com', "Cron Run", "Cron Runn...");
         echo json_encode($response);
         exit;
     }
