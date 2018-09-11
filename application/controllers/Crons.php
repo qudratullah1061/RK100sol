@@ -16,14 +16,10 @@ class Crons extends CI_Controller {
         if (isset($users) && count($users) > 0) {
             $html .= "Total Users To Suspend: " . count($users) . "<br/>";
             foreach ($users as $user) {
-                echo "<pre>";
-                print_r($user);
                 $member_email = $user['email'];
                 $macros_data['$$$FIRST_NAME$$$'] = $user['first_name'];
                 $email_template_info = get_email_template('member_suspended_subscription', $macros_data);
                 if ($email_template_info && $member_email == "qudratullah1061@gmail.com") {
-                    echo "IN";
-                    exit;
                     $html .= "$member_email <br/>";
                     sendEmail($member_email, $email_template_info['template_subject'], $email_template_info['template_body']);
                     $this->db->set('status', 'suspended')->where('member_id', $user['member_id'])->update('tb_members');
