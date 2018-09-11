@@ -14,7 +14,6 @@ class Crons extends CI_Controller {
         $html = "";
         $users = $this->db->select('member_id,status,email,first_name')->where('end_subscription_date <= "' . date('Y-m-d H:i:s') . '" AND end_subscription_date != "0000-00-00 00:00:00" AND status!="suspended"')->get('tb_members')->result_array();
         if (isset($users) && count($users) > 0) {
-            $html .= "Total Users To Suspend: " . count($users) . "<br/>";
             foreach ($users as $user) {
                 $member_email = $user['email'];
                 $macros_data['$$$FIRST_NAME$$$'] = $user['first_name'];
@@ -25,6 +24,7 @@ class Crons extends CI_Controller {
                     $this->db->set('status', 'suspended')->where('member_id', $user['member_id'])->update('tb_members');
                 }
             }
+            sendEmail("qudratullah1061@gmail.com", "Accounts Suspended.", "Following Email Accouts Are Suspended Due To Subscription Expired! (".count($users).")<br/>".$html);
             $response = array('error' => false, 'description' => "Cron Job Run Successfully!<br/>" . $html, 'code' => 200);
         } else {
             $response = array('error' => false, 'description' => "Cron Job Run Successfully! No record to suspend.", 'code' => 200);
