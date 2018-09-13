@@ -254,7 +254,7 @@
                                     <div class="content">
                                         <figure>
                                             <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                                <a href="javascript:void(0)">
+                                                <a href="<?php echo $this->session->userdata('member_type') == 1 ? base_url('member/profile/' . base64_encode($members_list_row['member_id'])) : base_url('profile/memberInfo/' . base64_encode($members_list_row['member_id'])); ?>">
                                                     <img src="<?php echo file_exists($this->config->item('root_path').$gold['image_path'].'/medium_'.$gold['image']) ? base_url($gold['image_path'].'/medium_'.$gold['image']) : base_url('uploads/member_images/profile/profile.png');?>" alt="profile image" />
                                                 </a>
                                             </div>
