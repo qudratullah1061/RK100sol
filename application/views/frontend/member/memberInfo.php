@@ -8,7 +8,6 @@
                         <div class="col-sm-6">
                             <a href="javascript:;" onclick="CommonFunctions.changeMode(this)" data-mode="1" data-member-id="117">
                                 <!-- + Note: remove class online if user is offline + -->
-
                             </a>
                             <div class="profile-media">
                                 <img src="<?php echo file_exists($this->config->item('root_path') . ($member_info['image_path']) . $member_info['image']) ? (base_url($member_info['image_path'] . $member_info['image'])) : base_url('uploads/member_images/profile/user.png'); ?>" alt="Profile Image" data-no-retina="">
