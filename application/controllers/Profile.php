@@ -17,6 +17,25 @@ class Profile extends CI_Controller {
         $this->load->model('admin/members_model', 'Members_Model');
     }
 
+    public function memberInfo($member_id = "") {
+        if ($member_id) {
+            $member_id = base64_decode($member_id);
+            $data['member_info'] = $this->Members_Model->get_member_by_id($member_id);
+            if ($data['member_info'] && $data['member_info']['member_type'] == 2) {
+                $data['selected_categories'] = $this->Members_Model->get_selected_categories($member_id);
+                if ($data['selected_categories']) {
+                    $data['selected_categories'] = implode(", ", array_column($data['selected_categories'], 'category_name'));
+                }
+                $data['data_languages'] = $this->Members_Model->get_member_languages($member_id, "AND tb_member_languages.is_active = 1");
+                $this->load->view('frontend/member/memberInfo', $data);
+            } else {
+                $this->load->view('frontend/page404');
+            }
+        } else {
+            $this->load->view('frontend/page404');
+        }
+    }
+
     #region guests
 
     function guest_signup() {
@@ -278,7 +297,7 @@ class Profile extends CI_Controller {
                     if ($promo_code_info && $promo_code_info['promo_type'] == "sub") {
                         $data['end_subscription_date'] = date('Y-m-d', strtotime($data['end_subscription_date'] . ' +' . $promo_code_info['value'] . ' days'));
                         $insert_promo_record = true;
-                    } 
+                    }
                     // later uncomment it.
 //                    elseif ($promo_code_info && $promo_code_info['promo_type'] == 'discount') {
 //                        $insert_promo_record = true;

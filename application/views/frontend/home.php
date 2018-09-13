@@ -236,478 +236,54 @@
         <!-- end feature box item -->
     </div>
 </section>
-<!--<section class="wow fadeIn gold-members">
-    <div class="container">
-        <p class="title-bar bg-purple text-white font-weight-600 text-center">
-            <i class="fa fa-star"></i> GOLD MEMBERS
-            <i class="fa fa-star"></i>
-        </p>
-
-
-        <div class="row">
-            <div class="filter-content overflow-hidden xs-margin-15px-lr">
-                <ul class="portfolio-grid work-6col gutter-large hover-option6 lightbox-portfolio">
-                    <li class="grid-sizer"></li>
-
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-1.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Jessie </span>
-                                                    <p class="">United States, Hulbert</p>
-                                                </div>
+<?php if (isset($gold_members) && count($gold_members) > 0) { ?>
+    <section class="wow fadeIn gold-members">
+        <div class="container">
+            <p class="title-bar bg-purple text-white font-weight-600 text-center">
+                <i class="fa fa-star"></i> GOLD MEMBERS
+                <i class="fa fa-star"></i>
+            </p>
+            <div class="row">
+                <div class="filter-content overflow-hidden xs-margin-15px-lr">
+                    <ul class="portfolio-grid work-6col gutter-large hover-option6 lightbox-portfolio">
+                        <li class="grid-sizer"></li>
+                        <?php foreach ($gold_members as $gold) { ?>
+                            <!--start portfolio item--> 
+                            <li class="grid-item wow fadeInUp last-paragraph-no-margin">
+                                <div class="feature-box gold-box">
+                                    <div class="content">
+                                        <figure>
+                                            <div class="portfolio-img  position-relative text-center overflow-hidden">
+                                                <a href="javascript:void(0)">
+                                                    <img src="<?php echo file_exists($this->config->item('root_path').$gold['image_path'].'/medium_'.$gold['image']) ? base_url($gold['image_path'].'/medium_'.$gold['image']) : base_url('uploads/member_images/profile/profile.png');?>" alt="profile image" />
+                                                </a>
                                             </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-2.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Stephanie Rouse </span>
-                                                    <p class="">Canada, Nottingham</p>
+                                            <figcaption class="">
+                                                <div class="portfolio-hover-main text-center">
+                                                    <div class="portfolio-hover-box vertical-align-middle">
+                                                        <div class="portfolio-hover-content position-relative">
+                                                            <span class="line-height-normal font-weight-600 display-block lato"><?php echo $gold['first_name']; ?></span>
+                                                            <p class=""><?php echo $gold['location']; ?></p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-3.jpg" alt="" />
-                                        </a>
+                                            </figcaption>
+                                        </figure>
                                     </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Michael Nunez </span>
-                                                    <p class="">United States, Caseyville</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-4.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Robert Cruz </span>
-                                                    <p class="">Belgium, Malimont</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-5.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Michelle </span>
-                                                    <p class="">Argentina, Crespo</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r1-6.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Jordan Guzman </span>
-                                                    <p class="">Costa Rica, Brasil</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-1.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Jessie </span>
-                                                    <p class="">United States, Kunkie</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-2.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Stephanie Rouse </span>
-                                                    <p class="">United States, Mishicot</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-3.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Michael Nunez </span>
-                                                    <p class="">England, Ruthin</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-4.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Robert Cruz </span>
-                                                    <p class="">England, Kimbolton</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-5.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Michelle </span>
-                                                    <p class="">United States, Elderon</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r2-6.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Jordan Guzman </span>
-                                                    <p class="">Canada, Clinton</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-1.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Jessie </span>
-                                                    <p class="">Austria, Rannach</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-2.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Stephanie Rouse </span>
-                                                    <p class="">Australia, Toronto</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-3.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Michael Nunez </span>
-                                                    <p class="">United States, Jackson</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-4.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Robert Cruz </span>
-                                                    <p class="">United States, Nashville</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-5.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Michelle </span>
-                                                    <p class="">Australia, Carpina</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                     start portfolio item 
-                    <li class="grid-item wow fadeInUp last-paragraph-no-margin">
-                        <div class="feature-box gold-box">
-                            <div class="content">
-                                <figure>
-                                    <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                        <a href="#">
-                                            <img src="<?php echo base_url('assets/frontend/images/homepage/profile_photos/'); ?>r3-6.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <figcaption class="">
-                                        <div class="portfolio-hover-main text-center">
-                                            <div class="portfolio-hover-box vertical-align-middle">
-                                                <div class="portfolio-hover-content position-relative">
-                                                    <span class="line-height-normal font-weight-600 display-block lato">Jordan Guzman </span>
-                                                    <p class="">Belgium, Thieulain</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </li>
-                     end portfolio item 
-                </ul>
+                                </div>
+                            </li>
+                            <!--end portfolio item--> 
+                        <?php } ?>
+                    </ul>
+                </div>
             </div>
+            <p class="title-bar bg-purple text-white font-weight-600 text-center">
+                <i class="fa fa-star"></i> GOLD MEMBERS
+                <i class="fa fa-star"></i>
+            </p>
         </div>
-        <p class="title-bar bg-purple text-white font-weight-600 text-center">
-            <i class="fa fa-star"></i> GOLD MEMBERS
-            <i class="fa fa-star"></i>
-        </p>
-    </div>
-</section>-->
+    </section>
+<?php } ?>
 <section class="wow fadeIn bright-career no-padding">
     <div class="container">
         <div class='career-box'>
@@ -992,7 +568,7 @@
                         <a href="#" class="btn btn-deep-purple btn-small">See More</a>
                     </div>
                     <div class="col-md-5 guide-media wow bounceInRight" data-wow-offset="200" data-wow-duration="2s">
-                        <img src="<?php // echo base_url('assets/frontend/');                                                                        ?>img/guide-3.jpg" alt="">
+                        <img src="<?php // echo base_url('assets/frontend/');                                                                                ?>img/guide-3.jpg" alt="">
                     </div>
                 </div>-->
 
@@ -1011,11 +587,10 @@
     });
     $(function () {
         $("#location").geocomplete();
-        $(".pac-container").css({ top: '750px !important' });
     });
 </script>
 <style>
-/*    .pac-container{
-        top:800px !important;
-    }*/
+    /*    .pac-container{
+            top:800px !important;
+        }*/
 </style>

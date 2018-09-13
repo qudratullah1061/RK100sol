@@ -26,7 +26,12 @@ class Home extends CI_Controller {
         }
         $this->selected_tab = 'home';
         $categories_data = $this->Misc_Model->get_all_categories();
+        $gold_members = $this->Members_model->get_gold_members_for_homepage();
         $data['categories_data'] = $categories_data;
+        $data['gold_members'] = $gold_members;
+//        echo "<pre>";
+//        print_r($gold_members);
+//        exit;
         $this->load->view('frontend/home', $data);
     }
 

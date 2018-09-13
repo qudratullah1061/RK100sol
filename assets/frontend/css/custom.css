@@ -2101,3 +2101,28 @@ a.goog-te-menu-value span {
 .hosting-textture p b a {
     color: #337ab7;
 }
+.profile-personal.memb-profile {
+    width: 634px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.memb-profile .profile-media img {
+    width: 130px;
+    max-height: 130px;
+}
+.memb-profile+.contact-member .btn{
+    text-transform: unset !important;
+    font-weight: 700;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 2px;
+}
+.member-offers li p{font-size: 14px;}
+.online{color:#8ec442;}
+.member-offers ul li h4 {
+    margin-bottom: 5px;
+}
+.member-offers ul li p {
+    width: 80%;
+}

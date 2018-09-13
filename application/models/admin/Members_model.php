@@ -466,4 +466,19 @@ class Members_model extends Abstract_model
         }
         return $this->db->query($sql)->result_array();
     }
+    
+    public function get_gold_members_for_homepage()
+    {
+        $sql = "SELECT `tb_countries`.country_name,`tb_states`.state_name,`tb_cities`.city_name,`tb_member_images`.image, `tb_member_images`.image_path, `tb_member_images`.is_profile_image, `tb_member_images`.image_type, `tb_members`.* FROM `tb_members` " .
+            " LEFT JOIN `tb_countries` ON `tb_countries`.country_id = tb_members.country" .
+            " LEFT JOIN `tb_states` ON `tb_states`.state_id = tb_members.state" .
+            " LEFT JOIN `tb_cities` ON `tb_cities`.city_id = tb_members.city" .
+            " LEFT JOIN `tb_member_images` ON `tb_member_images`.image_id = " .
+            "   (SELECT image_id " .
+            "      FROM `tb_member_images` " .
+            "   WHERE `tb_member_images`.member_id = `tb_members`.member_id AND `tb_member_images`.image_type = 'profile' ORDER BY `tb_member_images`.is_profile_image DESC Limit 0,1 )" .
+            " WHERE `tb_members`.show_on_homepage = 1 AND `tb_members`.member_type = 2 AND `tb_members`.status = 'active' ORDER BY RAND() LIMIT 12";
+        $member_info = $this->db->query($sql)->result_array();
+        return $member_info;
+    }
 }

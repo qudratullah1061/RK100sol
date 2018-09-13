@@ -118,32 +118,16 @@
                                     <div class="content">
                                         <figure>
                                             <div class="portfolio-img  position-relative text-center overflow-hidden">
-                                                <?php if ($this->session->userdata('member_type') == 1) { ?>
-                                                    <a href="<?php echo site_url('member/profile/' . base64_encode($members_list_row['member_id'])) ?>">
-                                                    <?php } else { ?>
-                                                        <a href="javascript:;">
-                                                        <?php } ?>
-                                                        <img src="<?php echo file_exists($this->config->item('root_path') . ($members_list_row['image_path']) . $members_list_row['image']) ? (base_url($members_list_row['image_path'] . $members_list_row['image'])) : base_url('uploads/member_images/profile/user.png'); ?>"
-                                                             alt="Profile Image"/>
-                                                    </a>
+                                                <a href="<?php echo $this->session->userdata('member_type') == 1 ? base_url('member/profile/' . base64_encode($members_list_row['member_id'])) : base_url('profile/memberInfo/' . base64_encode($members_list_row['member_id'])); ?>">
+                                                    <img src="<?php echo file_exists($this->config->item('root_path') . ($members_list_row['image_path']) . $members_list_row['image']) ? (base_url($members_list_row['image_path'] . $members_list_row['image'])) : base_url('uploads/member_images/profile/user.png'); ?>" alt="Profile Image"/>
+                                                </a>
                                             </div>
                                             <figcaption class="">
                                                 <div class="portfolio-hover-main text-center">
                                                     <div class="portfolio-hover-box vertical-align-middle">
                                                         <div class="portfolio-hover-content position-relative">
                                                             <span class="line-height-normal font-weight-600 display-block lato"><?php echo $members_list_row['first_name'] . ' ' . $members_list_row['last_name']; ?> </span>
-                                                            <p class=""><?php
-                                                                if ($members_list_row['country'] != '') {
-                                                                    $living_status .= $members_list_row['country'] . ', ';
-                                                                }
-                                                                if ($members_list_row['state'] != '') {
-                                                                    $living_status .= $members_list_row['state'] . ', ';
-                                                                }
-                                                                if ($members_list_row['city'] != '') {
-                                                                    $living_status .= $members_list_row['city'];
-                                                                }
-                                                                echo rtrim($living_status, ', ');
-                                                                ?></p>
+                                                            <p class=""><?php echo $members_list_row['location']; ?></p>
                                                         </div>
                                                     </div>
                                                 </div>

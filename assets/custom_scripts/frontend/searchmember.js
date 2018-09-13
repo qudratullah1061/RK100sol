@@ -46,8 +46,7 @@ var SearchMember = function () {
                 label.closest('.form-group').removeClass('has-error'); // set success class to the control group
             },
             submitHandler: function () {
-//                handleContactSubmit(formId);
-                $('#' + formId).ajaxSubmit();
+                return true;
             }
         });
     };
