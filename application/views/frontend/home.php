@@ -245,7 +245,7 @@
             </p>
             <div class="row">
                 <div class="filter-content overflow-hidden xs-margin-15px-lr">
-                    <ul class="portfolio-grid work-6col gutter-large hover-option6 lightbox-portfolio">
+                    <ul class="portfolio-grid work-6col gutter-large hover-option6 lightbox-portfolio gold-members-homepage">
                         <li class="grid-sizer"></li>
                         <?php foreach ($gold_members as $gold) { ?>
                             <!--start portfolio item--> 
