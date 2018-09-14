@@ -101,13 +101,13 @@ var Chat = function () {
 //            messagingSenderId: "209256789157"
 //        };
 //        firebase.initializeApp(config);
-// Initialize Firebase
+        // Initialize Firebase
         var config = {
             apiKey: "AIzaSyDSpCtlE6Tj3Q2S7v7YHe4Knjjau9u8tcw",
             authDomain: "konsorts-1a04b.firebaseapp.com",
             databaseURL: "https://konsorts-1a04b.firebaseio.com",
             projectId: "konsorts-1a04b",
-            storageBucket: "",
+            storageBucket: "konsorts-1a04b.appspot.com",
             messagingSenderId: "252088236818"
         };
         firebase.initializeApp(config);
