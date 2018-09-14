@@ -1239,6 +1239,7 @@
 <?php if (isset($_GET['chat']) && $_GET['chat']) { ?>
                     var chatID = "<?php echo $_GET['chat'] ?>";
                     $('.mt-comment-' + chatID).trigger('click');
+                    $(".scroller").animate({scrollTop: $('.mt-comment-' + chatID).position().top});
 <?php } ?>
             });
         </script>
