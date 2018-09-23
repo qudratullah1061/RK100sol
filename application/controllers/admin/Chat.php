@@ -3,27 +3,44 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Chat extends Admin_Controller {
+class Chat extends Admin_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->layout = 'admin/main';
         $this->load->model('admin/chat_model', 'Chat_Model');
         $this->load->model('admin/members_model', 'Members_Model');
     }
 
-    function view_chat_list() {
-//        echo "<pre>";
-//        print_r($this->admin_info);
-//        exit;
+    function view_chat_list()
+    {
         $this->selected_tab = 'chat';
+        if (isset($_GET['chat'])) {
+            $chatID = explode('-', $_GET['chat']);
+            $userID = $chatID[1];
+        }
+        $where = '';
         $this->selected_child_tab = 'view_chat_list';
-        $data['guest_members'] = $this->Chat_Model->getMembers(" WHERE tb_members.member_type = 1 ");
-        $data['companion_members'] = $this->Chat_Model->getMembers(" WHERE tb_members.member_type = 2 ");
+        if ($_GET['search']) {
+            $where = ' AND (tb_members.first_name LIKE "' . $_GET['search'] . '" OR tb_members.last_name LIKE "' . $_GET['search'] . '") ';
+        }
+        $data['guest_members'] = $this->Chat_Model->getMembers(" WHERE tb_members.member_type = 1 " . $where . " ", 20);
+        $data['companion_members'] = $this->Chat_Model->getMembers(" WHERE tb_members.member_type = 2 " . $where . " ", 20);
+        if (isset($_GET['chat']) && array_search($userID, array_column($data['guest_members'], 'member_id')) === False) {
+            $user1 = $this->Chat_Model->getMembers(" WHERE tb_members.member_type = 1 AND tb_members.member_id = " . $userID . " ", 1);
+            (isset($user1[0])) ? array_push($data['guest_members'], $user1[0]) : '';
+        }
+        if (isset($_GET['chat']) && array_search($userID, array_column($data['companion_members'], 'member_id')) === False && array_search($userID, array_column($data['guest_members'], 'member_id')) === False) {
+            $user2 = $this->Chat_Model->getMembers(" WHERE tb_members.member_type = 2 AND tb_members.member_id = " . $userID . " ", 1);
+            (isset($user2[0])) ? array_push($data['companion_members'], $user2[0]) : '';
+        }
         $this->load->view('admin/chat/chat_list', $data);
     }
 
-    function getUserInfoForChat() {
+    function getUserInfoForChat()
+    {
         $this->isAjax();
         $chat_id = $this->input->post('chat_id');
         $chat_ids = explode("-", $chat_id);
@@ -47,7 +64,6 @@ class Chat extends Admin_Controller {
         }
         echo json_encode(array("error" => false, $user1 => $user1Info, $user2 => $user2Info));
         exit();
-//        $user1 = $this->
     }
 
 }

@@ -23,9 +23,13 @@
                     <div class="inputs">
                         <div class="portlet-input input-inline input-small ">
                             <div class="input-icon right">
-                                <!--<i class="icon-magnifier"></i>-->
-                                <input type="text" class="form-control form-control-solid input-circle"
-                                       placeholder="search...">
+                                <form onkeypress="if(event.keyCode == 13)this.submit();">
+                                    <!--<i class="icon-magnifier"></i>-->
+                                    <input value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>"
+                                           type="text" name="search" id="searchKey"
+                                           class="form-control form-control-solid input-circle"
+                                           placeholder="search...">
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -58,7 +62,7 @@
                                             <div class="mt-comment-info">
                                                 <span class="mt-comment-author"><?php echo $guest['first_name'] . " " . $guest['last_name']; ?></span>
                                                 <span class="mt-comment-date"><span
-                                                        class="badge badge-danger member-1a-<?php echo $guest['member_id']; ?>"></span></span>
+                                                            class="badge badge-danger member-1a-<?php echo $guest['member_id']; ?>"></span></span>
                                             </div>
                                             <div class="mt-comment-text">&nbsp;<?php echo $guest['location']; ?></div>
                                         </div>
@@ -66,6 +70,8 @@
                                     <!--// end of repeat this node-->
                                     <?php
                                 }
+                            } else {
+                                echo 'No user found';
                             }
                             ?>
                         </div>
@@ -79,7 +85,8 @@
                                 foreach ($companion_members as $companion) {
                                     ?>
                                     <!--// repeat this node-->
-                                    <div class="mt-comment mt-comment-1a-<?php echo $companion['member_id']; ?>" onclick="Chat.getChatMessages('1a-<?php echo $companion['member_id']; ?>', 1)">
+                                    <div class="mt-comment mt-comment-1a-<?php echo $companion['member_id']; ?>"
+                                         onclick="Chat.getChatMessages('1a-<?php echo $companion['member_id']; ?>', 1)">
                                         <div class="mt-comment-img">
                                             <img alt="no image"
                                                  src="<?php echo file_exists($this->config->item('root_path') . $companion['image_path'] . "small_" . $companion['image']) ? base_url($companion['image_path'] . "small_" . $companion['image']) : base_url('uploads/member_images/profile/profile.png'); ?>"/>
@@ -91,12 +98,15 @@
                                                     <span class="badge badge-danger member-1a-<?php echo $companion['member_id']; ?>"></span>
                                                 </span>
                                             </div>
-                                            <div class="mt-comment-text">&nbsp;<?php echo $companion['location']; ?></div>
+                                            <div class="mt-comment-text">
+                                                &nbsp;<?php echo $companion['location']; ?></div>
                                         </div>
                                     </div>
                                     <!--// end of repeat this node-->
                                     <?php
                                 }
+                            } else {
+                                echo 'No user found';
                             }
                             ?>
                         </div>
@@ -126,7 +136,8 @@
                                 </div>-->
             </div>
             <div class="portlet-body">
-                <div class="scroller scroll-custom" start-at="bottom" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2" data-height="338">
+                <div class="scroller scroll-custom" start-at="bottom" data-always-visible="1" data-rail-visible1="0"
+                     data-handle-color="#D7DCE2" data-height="338">
                     <div class="general-item-list">
                         <!--Repeat items here-->
                     </div>
@@ -149,3 +160,10 @@
     <!--chat detail ends here.-->
 </div>
 <!-- End datatable-->
+<!--<script>-->
+<!--    document.getElementById('searchKey').onkeydown = function(e){-->
+<!--        if(e.keyCode == 13){-->
+<!--            document.forms.submit()-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->

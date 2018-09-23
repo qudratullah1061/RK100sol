@@ -19,7 +19,7 @@ class Chat_model extends Abstract_model
         parent::__construct();
     }
 
-    function getMembers($where = "")
+    function getMembers($where = "", $limit = '')
     {
         $sql = "SELECT `tb_member_images`.image, `tb_member_images`.image_path, `tb_member_images`.is_profile_image, `tb_member_images`.image_type, `tb_members`.* FROM `tb_members` " .
             " LEFT JOIN `tb_member_images` ON `tb_member_images`.image_id = " .
@@ -28,6 +28,7 @@ class Chat_model extends Abstract_model
             " WHERE `tb_member_images`.member_id = `tb_members`.member_id AND `tb_member_images`.image_type = 'profile' ORDER BY `tb_member_images`.is_profile_image DESC Limit 0,1 )" .
             " $where " .
             " ORDER BY `tb_members`.member_id DESC";
+        if ($limit != '') $sql .= " Limit " . $limit;
         return $this->db->query($sql)->result('array');
     }
 
