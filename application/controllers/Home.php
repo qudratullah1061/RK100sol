@@ -26,14 +26,50 @@ class Home extends CI_Controller {
   "@context" : "http://iiif.io/api/presentation/2/context.json",
   "@id" : "https://www.konsorts.com/home/test",
   "@type" : "sc:Manifest",
-  "label" : "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d",
-  "description" : "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d",
-  "metadata" : [
-    {
-      "label": "filename",
-      "value": "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d"
-    }
-  ],
+  "label" : "Test Label",
+  "description" : "Description Here",
+  "metadata" : [ {
+    "label" : "Creator(s)",
+    "value" : [ "Thomas Creswick, 1811â€“1869, British" ]
+  }, {
+    "label" : "Titles",
+    "value" : [ "<span>View on the Hudson River</span>" ]
+  }, {
+    "label" : "Date",
+    "value" : [ "ca. 1843" ]
+  }, {
+    "label" : "Medium",
+    "value" : [ "<span>oil on mahogany</span>" ]
+  }, {
+    "label" : "Dimensions",
+    "value" : [ "Support (PTG): 8 x 12 inches (20.3 x 30.5 cm)" ]
+  }, {
+    "label" : "Credit line",
+    "value" : [ "Yale Center for British Art, Paul Mellon Fund" ]
+  }, {
+    "label" : "Institution",
+    "value" : [ "Yale Center for British Art" ]
+  }, {
+    "label" : "Collection",
+    "value" : [ "Paintings and Sculpture" ]
+  }, {
+    "label" : "Accession number",
+    "value" : [ "B1986.7.2" ]
+  } ],
+  "logo" : "https://static.britishart.yale.edu/images/ycba_logo.jpg",
+  "related" : [ {
+    "@id" : "http://collections.britishart.yale.edu/vufind/Record/1665981",
+    "label" : "catalog entry at the Yale Center for British Art",
+    "format" : "text/html"
+  } ],
+  "seeAlso" : [ {
+    "@id" : "https://manifests.britishart.yale.edu/lido/1273.xml",
+    "format" : "text/xml",
+    "profile" : "http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd"
+  }, {
+    "@id" : "http://collection.britishart.yale.edu/id/data/object/1273",
+    "format" : "text/rdf+n3"
+  } ],
   
   "sequences" : [
     {
