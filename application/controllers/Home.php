@@ -74,7 +74,41 @@ class Home extends CI_Controller {
           "service" : {
             "profile" : "http://library.stanford.edu/iiif/image-api/1.1/conformance.html#level1",
             "@id" : "https://images.britishart.yale.edu/iiif/45160245-4771-49de-a9e5-7cf21e8cbb68",
-            "@context" : "http://iiif.io/api/image/1/context.json"
+            "@context" : "{
+    "iiif": "http://library.stanford.edu/iiif/image-api/ns/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "exif": "http://www.w3.org/2003/12/exif/ns#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "height": {
+      "@id": "exif:height"
+    },
+    "width": {
+      "@id": "exif:width"
+    },
+    "tile_height": {
+      "@id": "iiif:tileHeight"
+    },
+    "tile_width": {
+      "@id": "iiif:tileWidth"
+    },
+    "scale_factors": {
+      "@id": "iiif:scaleFactor",
+      "@container": "@list"
+    },
+    "formats": {
+      "@id": "iiif:formats",
+      "@container": "@list"
+    },
+    "qualities": {
+      "@id": "iiif:qualities",
+      "@container": "@list"
+    },
+    "profile": {
+      "@type": "@id",
+      "@id": "dcterms:conformsTo"
+    }
+}"
           },
           "format" : "image/jpeg",
           "width" : 3785,
@@ -99,7 +133,41 @@ class Home extends CI_Controller {
           "service" : {
             "profile" : "http://library.stanford.edu/iiif/image-api/1.1/conformance.html#level1",
             "@id" : "https://images.britishart.yale.edu/iiif/73f4090a-e0a1-4edd-8e5a-a3d0fa8b20aa",
-            "@context" : "http://iiif.io/api/image/1/context.json"
+            "@context" : "{
+    "iiif": "http://library.stanford.edu/iiif/image-api/ns/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "exif": "http://www.w3.org/2003/12/exif/ns#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "height": {
+      "@id": "exif:height"
+    },
+    "width": {
+      "@id": "exif:width"
+    },
+    "tile_height": {
+      "@id": "iiif:tileHeight"
+    },
+    "tile_width": {
+      "@id": "iiif:tileWidth"
+    },
+    "scale_factors": {
+      "@id": "iiif:scaleFactor",
+      "@container": "@list"
+    },
+    "formats": {
+      "@id": "iiif:formats",
+      "@container": "@list"
+    },
+    "qualities": {
+      "@id": "iiif:qualities",
+      "@container": "@list"
+    },
+    "profile": {
+      "@type": "@id",
+      "@id": "dcterms:conformsTo"
+    }
+}"
           },
           "format" : "image/jpeg",
           "width" : 3979,
