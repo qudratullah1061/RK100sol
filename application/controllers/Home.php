@@ -62,14 +62,6 @@ class Home extends CI_Controller {
     "label" : "catalog entry at the Yale Center for British Art",
     "format" : "text/html"
   } ],
-  "seeAlso" : [ {
-    "@id" : "https://manifests.britishart.yale.edu/lido/1273.xml",
-    "format" : "text/xml",
-    "profile" : "http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd"
-  }, {
-    "@id" : "http://collection.britishart.yale.edu/id/data/object/1273",
-    "format" : "text/rdf+n3"
-  } ],
   "sequences" : [ {
     "@id" : "https://manifests.britishart.yale.edu/sequence/1273",
     "@type" : "sc:Sequence",
