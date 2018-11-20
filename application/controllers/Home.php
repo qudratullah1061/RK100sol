@@ -24,86 +24,39 @@ class Home extends CI_Controller {
         header('Access-Control-Allow-Origin: *');
         $json = '{
 	"@context": "http://iiif.io/api/presentation/2/context.json",
-	"@id": "http://75d1c2c1-699b-4b77-a211-30b81a86ca27",
+	"@id": "http://cf22c384-f1c9-4430-9a61-788c996b5d59",
 	"@type": "sc:Manifest",
-	"label": [
-		"Test Label",
-	],
+	"label": "[Click to edit label]",
 	"metadata": [],
 	"description": [
 		{
-			"@value": "Test Description.",
+			"@value": "[Click to edit description]",
 			"@language": "en"
 		}
 	],
 	"license": "https://creativecommons.org/licenses/by/3.0/",
-	"attribution": "Attributation Here.",
+	"attribution": "[Click to edit attribution]",
 	"sequences": [
 		{
-			"@id": "http://9ce14675-0de6-473f-9abf-830c55191ad9",
+			"@id": "http://4e1301a3-34c3-424b-a8be-a2ca5afdd7d7",
 			"@type": "sc:Sequence",
-			"label": "Normal Sequence",
+			"label": [
+				{
+					"@value": "Normal Sequence",
+					"@language": "en"
+				}
+			],
 			"canvases": [
 				{
-					"@id": "http://f6b5dd1f-7dbc-4114-a31e-5889f3f5da89",
+					"@id": "http://2fe872bf-b7b4-48b2-8c62-ede4e5d822c8",
 					"@type": "sc:Canvas",
 					"label": "Empty canvas",
 					"height": 5064,
-					"width": 4080,
+					"width": 4008,
 					"images": [
 						{
 							"@context": "http://iiif.io/api/presentation/2/context.json",
-							"@id": "http://8a9898f1-3db3-4ed3-8e86-35644c908ff5",
-							"@type": "oa:Annotation",
-							"motivation": "sc:painting",
-							"resource": {
-								"@id": "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/full/full/0/default.jpg",
-								"@type": "dctypes:Image",
-								"format": "image/jpeg",
-								"service": {
-									"@context": "http://iiif.io/api/image/2/context.json",
-									"@id": "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d",
-									"profile": [
-										"http://iiif.io/api/image/2/level1.json",
-										{
-											"formats": [
-												"jpg"
-											],
-											"qualities": [
-												"native",
-												"color",
-												"gray"
-											],
-											"supports": [
-												"regionByPct",
-												"regionSquare",
-												"sizeByForcedWh",
-												"sizeByWh",
-												"sizeAboveFull",
-												"rotationBy90s",
-												"mirroring"
-											]
-										}
-									]
-								},
-								"height": 5064,
-								"width": 4080
-							},
-							"on": "http://f6b5dd1f-7dbc-4114-a31e-5889f3f5da89"
-						}
-					],
-					"related": ""
-				},
-				{
-					"@id": "http://39f04a5d-651c-40e1-a160-0eb18160830d",
-					"@type": "sc:Canvas",
-					"label": "Lable of canvass here",
-					"height": "7000",
-					"width": "5000",
-					"images": [
-						{
-							"@context": "http://iiif.io/api/presentation/2/context.json",
-							"@id": "http://9a855662-fc82-4bc9-8c93-3f22b3bfc6e5",
+							"@id": "http://924618b1-3292-4ec4-808d-9be6348ee75e",
 							"@type": "oa:Annotation",
 							"motivation": "sc:painting",
 							"resource": {
@@ -139,20 +92,15 @@ class Home extends CI_Controller {
 								"height": 5064,
 								"width": 4008
 							},
-							"on": "http://39f04a5d-651c-40e1-a160-0eb18160830d"
+							"on": "http://2fe872bf-b7b4-48b2-8c62-ede4e5d822c8"
 						}
-					]
+					],
+					"related": ""
 				}
 			]
 		}
 	],
-	"structures": [],
-	"related": {
-		"@id": "test.com",
-		"label": "test label related",
-		"format": "jpg"
-	},
-	"viewingDirection": "left-to-right"
+	"structures": []
 }';
         $this->output
         ->set_status_header(200)
