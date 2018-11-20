@@ -34,6 +34,7 @@ class Home extends CI_Controller {
       "value": "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d"
     }
   ],
+  
   "sequences" : [
     {
       "@id" : "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/seq0.json",
