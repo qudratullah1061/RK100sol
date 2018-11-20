@@ -19,6 +19,11 @@ class Home extends CI_Controller {
         $this->load->model('admin/misc_model', 'Misc_Model');
         $this->load->model('admin/members_model', 'Members_model');
     }
+    
+    function test(){
+        echo "here";
+        exit;
+    }
 
     function index() {
         if($this->uri->segment(1)){
