@@ -24,7 +24,7 @@ class Home extends CI_Controller {
         header('Access-Control-Allow-Origin: *');
         $json = '{
   "@context" : "http://iiif.io/api/presentation/2/context.json",
-  "@id" : "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/manifest.json",
+  "@id" : "https://www.konsorts.com/home/test",
   "@type" : "sc:Manifest",
   "label" : "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d",
   "description" : "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d",
@@ -44,7 +44,7 @@ class Home extends CI_Controller {
         {
           "@id" : "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/can0.json",
           "@type" : "sc:Canvas",
-          "label": "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d - image 0",
+          "label": "test Label1",
           "width" : 4080,
           "height" : 5064,
           "images": [
@@ -71,7 +71,7 @@ class Home extends CI_Controller {
         {
           "@id" : "https://bafdigital.iiifhosting.com//iiif/9a5e296eb64ee969e47c1df514d28c3aaabd6013c6b815547d595128dfc5476e/can0.json",
           "@type" : "sc:Canvas",
-          "label": "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d1 - image 2",
+          "label": "Label 2",
           "width" : 4080,
           "height" : 5064,
           "images": [
