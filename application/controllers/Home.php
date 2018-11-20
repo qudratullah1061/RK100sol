@@ -22,171 +22,137 @@ class Home extends CI_Controller {
     
     function test(){
         echo '{
-  "@type" : "sc:Manifest",
-  "@context" : "http://iiif.io/api/presentation/2/context.json",
-  "@id" : "https://manifests.britishart.yale.edu/manifest/1273",
-  "label" : "Thomas Creswick, 1811–1869, British, View on the Hudson River, ca. 1843, oil on mahogany, Yale Center for British Art, B1986.7.2, Paintings and Sculpture",
-  "description" : "Support (PTG): 8 x 12 inches (20.3 x 30.5 cm)",
-  "attribution" : "<span>Yale Center for British Art, Paul Mellon Fund,<br/>Public Domain</span>",
-  "metadata" : [ {
-    "label" : "Creator(s)",
-    "value" : [ "Thomas Creswick, 1811–1869, British" ]
-  }, {
-    "label" : "Titles",
-    "value" : [ "<span>View on the Hudson River</span>" ]
-  }, {
-    "label" : "Date",
-    "value" : [ "ca. 1843" ]
-  }, {
-    "label" : "Medium",
-    "value" : [ "<span>oil on mahogany</span>" ]
-  }, {
-    "label" : "Dimensions",
-    "value" : [ "Support (PTG): 8 x 12 inches (20.3 x 30.5 cm)" ]
-  }, {
-    "label" : "Credit line",
-    "value" : [ "Yale Center for British Art, Paul Mellon Fund" ]
-  }, {
-    "label" : "Institution",
-    "value" : [ "Yale Center for British Art" ]
-  }, {
-    "label" : "Collection",
-    "value" : [ "Paintings and Sculpture" ]
-  }, {
-    "label" : "Accession number",
-    "value" : [ "B1986.7.2" ]
-  } ],
-  "logo" : "https://static.britishart.yale.edu/images/ycba_logo.jpg",
-  "related" : [ {
-    "@id" : "http://collections.britishart.yale.edu/vufind/Record/1665981",
-    "label" : "catalog entry at the Yale Center for British Art",
-    "format" : "text/html"
-  } ],
-  "sequences" : [ {
-    "@id" : "https://manifests.britishart.yale.edu/sequence/1273",
-    "@type" : "sc:Sequence",
-    "label" : "default sequence",
-    "viewingHint" : "individuals",
-    "canvases" : [ {
-      "images" : [ {
-        "resource" : {
-          "@type" : "dctypes:Image",
-          "service" : {
-            "profile" : "http://library.stanford.edu/iiif/image-api/1.1/conformance.html#level1",
-            "@id" : "https://images.britishart.yale.edu/iiif/45160245-4771-49de-a9e5-7cf21e8cbb68",
-            "@context" : "{
-    "iiif": "http://library.stanford.edu/iiif/image-api/ns/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "exif": "http://www.w3.org/2003/12/exif/ns#",
-    "dcterms": "http://purl.org/dc/terms/",
-
-    "height": {
-      "@id": "exif:height"
-    },
-    "width": {
-      "@id": "exif:width"
-    },
-    "tile_height": {
-      "@id": "iiif:tileHeight"
-    },
-    "tile_width": {
-      "@id": "iiif:tileWidth"
-    },
-    "scale_factors": {
-      "@id": "iiif:scaleFactor",
-      "@container": "@list"
-    },
-    "formats": {
-      "@id": "iiif:formats",
-      "@container": "@list"
-    },
-    "qualities": {
-      "@id": "iiif:qualities",
-      "@container": "@list"
-    },
-    "profile": {
-      "@type": "@id",
-      "@id": "dcterms:conformsTo"
-    }
-}"
-          },
-          "format" : "image/jpeg",
-          "width" : 3785,
-          "@id" : "https://images.britishart.yale.edu/iiif/45160245-4771-49de-a9e5-7cf21e8cbb68/full/full/0/native.jpg",
-          "label" : "cropped to image, recto, unframed",
-          "height" : 2528
-        },
-        "@type" : "oa:Annotation",
-        "motivation" : "sc:painting",
-        "@id" : "https://manifests.britishart.yale.edu/annotation/ba-obj-1273-0001-pub",
-        "on" : "https://manifests.britishart.yale.edu/canvas/ba-obj-1273-0001-pub"
-      } ],
-      "@type" : "sc:Canvas",
-      "width" : 3785,
-      "@id" : "https://manifests.britishart.yale.edu/canvas/ba-obj-1273-0001-pub",
-      "label" : "cropped to image, recto, unframed",
-      "height" : 2528
-    }, {
-      "images" : [ {
-        "resource" : {
-          "@type" : "dctypes:Image",
-          "service" : {
-            "profile" : "http://library.stanford.edu/iiif/image-api/1.1/conformance.html#level1",
-            "@id" : "https://images.britishart.yale.edu/iiif/73f4090a-e0a1-4edd-8e5a-a3d0fa8b20aa",
-            "@context" : "{
-    "iiif": "http://library.stanford.edu/iiif/image-api/ns/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "exif": "http://www.w3.org/2003/12/exif/ns#",
-    "dcterms": "http://purl.org/dc/terms/",
-
-    "height": {
-      "@id": "exif:height"
-    },
-    "width": {
-      "@id": "exif:width"
-    },
-    "tile_height": {
-      "@id": "iiif:tileHeight"
-    },
-    "tile_width": {
-      "@id": "iiif:tileWidth"
-    },
-    "scale_factors": {
-      "@id": "iiif:scaleFactor",
-      "@container": "@list"
-    },
-    "formats": {
-      "@id": "iiif:formats",
-      "@container": "@list"
-    },
-    "qualities": {
-      "@id": "iiif:qualities",
-      "@container": "@list"
-    },
-    "profile": {
-      "@type": "@id",
-      "@id": "dcterms:conformsTo"
-    }
-}"
-          },
-          "format" : "image/jpeg",
-          "width" : 3979,
-          "@id" : "https://images.britishart.yale.edu/iiif/73f4090a-e0a1-4edd-8e5a-a3d0fa8b20aa/full/full/0/native.jpg",
-          "label" : "recto, unframed",
-          "height" : 3738
-        },
-        "@type" : "oa:Annotation",
-        "motivation" : "sc:painting",
-        "@id" : "https://manifests.britishart.yale.edu/annotation/ba-obj-1273-0001-bar",
-        "on" : "https://manifests.britishart.yale.edu/canvas/ba-obj-1273-0001-bar"
-      } ],
-      "@type" : "sc:Canvas",
-      "width" : 3979,
-      "@id" : "https://manifests.britishart.yale.edu/canvas/ba-obj-1273-0001-bar",
-      "label" : "recto, unframed",
-      "height" : 3738
-    } ]
-  } ]
+	"@context": "http://iiif.io/api/presentation/2/context.json",
+	"@id": "http://75d1c2c1-699b-4b77-a211-30b81a86ca27",
+	"@type": "sc:Manifest",
+	"label": [
+		"Test Label",
+		{}
+	],
+	"metadata": [],
+	"description": [
+		{
+			"@value": "Test Description.",
+			"@language": "en"
+		}
+	],
+	"license": "https://creativecommons.org/licenses/by/3.0/",
+	"attribution": "Attributation Here.",
+	"sequences": [
+		{
+			"@id": "http://9ce14675-0de6-473f-9abf-830c55191ad9",
+			"@type": "sc:Sequence",
+			"label": "Normal Sequence",
+			"canvases": [
+				{
+					"@id": "http://f6b5dd1f-7dbc-4114-a31e-5889f3f5da89",
+					"@type": "sc:Canvas",
+					"label": "Empty canvas",
+					"height": 5064,
+					"width": 4080,
+					"images": [
+						{
+							"@context": "http://iiif.io/api/presentation/2/context.json",
+							"@id": "http://8a9898f1-3db3-4ed3-8e86-35644c908ff5",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d",
+									"profile": [
+										"http://iiif.io/api/image/2/level1.json",
+										{
+											"formats": [
+												"jpg"
+											],
+											"qualities": [
+												"native",
+												"color",
+												"gray"
+											],
+											"supports": [
+												"regionByPct",
+												"regionSquare",
+												"sizeByForcedWh",
+												"sizeByWh",
+												"sizeAboveFull",
+												"rotationBy90s",
+												"mirroring"
+											]
+										}
+									]
+								},
+								"height": 5064,
+								"width": 4080
+							},
+							"on": "http://f6b5dd1f-7dbc-4114-a31e-5889f3f5da89"
+						}
+					],
+					"related": ""
+				},
+				{
+					"@id": "http://39f04a5d-651c-40e1-a160-0eb18160830d",
+					"@type": "sc:Canvas",
+					"label": "Lable of canvass here",
+					"height": "7000",
+					"width": "5000",
+					"images": [
+						{
+							"@context": "http://iiif.io/api/presentation/2/context.json",
+							"@id": "http://9a855662-fc82-4bc9-8c93-3f22b3bfc6e5",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://bafdigital.iiifhosting.com//iiif/9a5e296eb64ee969e47c1df514d28c3aaabd6013c6b815547d595128dfc5476e/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://bafdigital.iiifhosting.com//iiif/9a5e296eb64ee969e47c1df514d28c3aaabd6013c6b815547d595128dfc5476e",
+									"profile": [
+										"http://iiif.io/api/image/2/level1.json",
+										{
+											"formats": [
+												"jpg"
+											],
+											"qualities": [
+												"native",
+												"color",
+												"gray"
+											],
+											"supports": [
+												"regionByPct",
+												"regionSquare",
+												"sizeByForcedWh",
+												"sizeByWh",
+												"sizeAboveFull",
+												"rotationBy90s",
+												"mirroring"
+											]
+										}
+									]
+								},
+								"height": 5064,
+								"width": 4008
+							},
+							"on": "http://39f04a5d-651c-40e1-a160-0eb18160830d"
+						}
+					]
+				}
+			]
+		}
+	],
+	"structures": [],
+	"related": {
+		"@id": "test.com",
+		"label": "test label related",
+		"format": "jpg"
+	},
+	"viewingDirection": "left-to-right"
 }';
         exit;
         
