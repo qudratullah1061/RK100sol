@@ -21,13 +21,13 @@ class Home extends CI_Controller {
     }
     
     function test(){
-        echo '{
+        header('Access-Control-Allow-Origin: *');
+        $json = '{
 	"@context": "http://iiif.io/api/presentation/2/context.json",
 	"@id": "http://75d1c2c1-699b-4b77-a211-30b81a86ca27",
 	"@type": "sc:Manifest",
 	"label": [
 		"Test Label",
-		{}
 	],
 	"metadata": [],
 	"description": [
@@ -154,6 +154,12 @@ class Home extends CI_Controller {
 	},
 	"viewingDirection": "left-to-right"
 }';
+        $this->output
+        ->set_status_header(200)
+        ->set_content_type('application/json', 'utf-8')
+        ->set_output($json)
+        ->_display();
+        
         exit;
         
     }
