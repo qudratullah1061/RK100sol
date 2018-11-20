@@ -23,84 +23,53 @@ class Home extends CI_Controller {
     function test(){
         header('Access-Control-Allow-Origin: *');
         $json = '{
-	"@context": "http://iiif.io/api/presentation/2/context.json",
-	"@id": "http://cf22c384-f1c9-4430-9a61-788c996b5d59",
-	"@type": "sc:Manifest",
-	"label": "[Click to edit label]",
-	"metadata": [],
-	"description": [
-		{
-			"@value": "[Click to edit description]",
-			"@language": "en"
-		}
-	],
-	"license": "https://creativecommons.org/licenses/by/3.0/",
-	"attribution": "[Click to edit attribution]",
-	"sequences": [
-		{
-			"@id": "http://4e1301a3-34c3-424b-a8be-a2ca5afdd7d7",
-			"@type": "sc:Sequence",
-			"label": [
-				{
-					"@value": "Normal Sequence",
-					"@language": "en"
-				}
-			],
-			"canvases": [
-				{
-					"@id": "http://2fe872bf-b7b4-48b2-8c62-ede4e5d822c8",
-					"@type": "sc:Canvas",
-					"label": "Empty canvas",
-					"height": 5064,
-					"width": 4008,
-					"images": [
-						{
-							"@context": "http://iiif.io/api/presentation/2/context.json",
-							"@id": "http://924618b1-3292-4ec4-808d-9be6348ee75e",
-							"@type": "oa:Annotation",
-							"motivation": "sc:painting",
-							"resource": {
-								"@id": "https://bafdigital.iiifhosting.com//iiif/9a5e296eb64ee969e47c1df514d28c3aaabd6013c6b815547d595128dfc5476e/full/full/0/default.jpg",
-								"@type": "dctypes:Image",
-								"format": "image/jpeg",
-								"service": {
-									"@context": "http://iiif.io/api/image/2/context.json",
-									"@id": "https://bafdigital.iiifhosting.com//iiif/9a5e296eb64ee969e47c1df514d28c3aaabd6013c6b815547d595128dfc5476e",
-									"profile": [
-										"http://iiif.io/api/image/2/level1.json",
-										{
-											"formats": [
-												"jpg"
-											],
-											"qualities": [
-												"native",
-												"color",
-												"gray"
-											],
-											"supports": [
-												"regionByPct",
-												"regionSquare",
-												"sizeByForcedWh",
-												"sizeByWh",
-												"sizeAboveFull",
-												"rotationBy90s",
-												"mirroring"
-											]
-										}
-									]
-								},
-								"height": 5064,
-								"width": 4008
-							},
-							"on": "http://2fe872bf-b7b4-48b2-8c62-ede4e5d822c8"
-						}
-					],
-					"related": ""
-				}
-			]
-		}
-	],
-	"structures": []
+  "@context" : "http://iiif.io/api/presentation/2/context.json",
+  "@id" : "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/manifest.json",
+  "@type" : "sc:Manifest",
+  "label" : "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d",
+  "description" : "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d",
+  "metadata" : [
+    {
+      "label": "filename",
+      "value": "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d"
+    }
+  ],
+  "sequences" : [
+    {
+      "@id" : "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/seq0.json",
+      "@type" : "sc:Sequence",
+      "label": "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d - sequence 1 0",
+      "canvases": [
+        {
+          "@id" : "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/can0.json",
+          "@type" : "sc:Canvas",
+          "label": "/iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d - image 0",
+          "width" : 4080,
+          "height" : 5064,
+          "images": [
+            {
+              "@id" : "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/anot0.json",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "on": "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/can0.json",
+              "resource": {
+                "@id" : "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d/full/full/0/native.jpg",
+                "@type" : "dctypes:Image",
+                "format" : "image/jpeg",
+                "width" : 4080,
+                "height" : 5064,
+                "service" : {
+                  "@context" : "http://iiif.io/api/image/2/context.json",
+                  "@id" : "https://bafdigital.iiifhosting.com//iiif/b7fb2cec6a8fda26604e0c5f1440b7b6467c7b066237cf6e4e9a00383075143d",
+                  "profile" : "http://iiif.io/api/image/2/level1.json"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }';
         $this->output
         ->set_status_header(200)
